@@ -1,0 +1,115 @@
+ .img {
+    -webkit-filter: brightness(50%);
+
+    /*for hover transition .img:hover*/
+    /*-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;*/
+   
+}
+ 
+.overlay {
+  position: absolute;
+ top: 132px;
+  /*top:32em;*/
+  bottom: 0;
+  left:  7.5em;
+  right:0;
+  /*height: 15.3%;*/
+   height: 72.3%;
+  width: 77.3%;
+  opacity:0;
+  transition.: .5s ease;
+  <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee" rel="stylesheet">
+  background-color: black;
+}
+.container:hover .overlay {
+  opacity: .7;
+  cursor: pointer;
+}
+
+  a { color: inherit; } 
+.contain {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+ 
+.contain:hover .bottom-left,.contain:hover .bottom-right{
+  opacity: 1;
+
+    /*for hover transition .img:hover*/
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+ 
+.contain:hover .centeredm{
+  opacity: 0;
+
+    /*for hover transition .img:hover*/
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+ 
+ 
+.bottom-left{
+   position: absolute;
+
+    top: 110px;
+     left: 100px;
+     /*bottom: 35px;
+     left: 16px;*/
+    opacity: 0;
+}
+
+.bottom-right {
+  position: absolute;
+  top: 110px;
+  right: 100px;
+  /*bottom: 35px;
+  right: 16px;*/
+  opacity: 0;
+}
+
+.bottom-cent {
+ /* position: absolute;
+  top: 110px;
+  right: 100px;
+  opacity: 0;*/
+}
+
+.centered {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  font-weight: bolder;
+
+  transform: translate(-50%, -50%);
+}
+.centeredm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: bolder;
+
+  transform: translate(-50%, -50%);
+}
