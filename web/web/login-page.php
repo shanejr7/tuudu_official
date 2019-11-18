@@ -62,6 +62,7 @@
                 <li class="nav-item">
                     <a href="signup-page.php" class="nav-link">Signup</a>
                 </li>
+               
             </ul>
        <?php 
                      // error appears if search value cant be found //
@@ -72,6 +73,15 @@
                      ?>
           
         </div>
+     <!--  <div  class="collapse navbar-collapse col-lg-5">
+         <ul class="navbar-nav">
+                <li class="nav-item  ">
+                    <a href="portal-signup.php" class="nav-link">Oranization?</a>
+                </li>
+                 
+               
+            </ul>
+      </div> -->
     </div>
 </nav>
  

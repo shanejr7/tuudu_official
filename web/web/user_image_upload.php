@@ -3,34 +3,35 @@ include 'server.php';
   
 $fileToMove = $_FILES["file1"]['tmp_name'];
 $destination = "../assets/img/user_profile_img/". $_FILES["file1"]["name"];
+echo $destination;
 
 if (move_uploaded_file($fileToMove, $destination)) {
 
-	$image_src = $destination;
+// 	$image_src = $destination;
      
-    $userid = $_SESSION['id'];
+//     $userid = $_SESSION['id'];
     
 
  
  
- $_SESSION['img_src'] = $image_src;
+//  $_SESSION['img_src'] = $image_src;
 
-// Create connection
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-// Check connection
-if (!$db) {
-     die("Connection failed: " . pg_connect_error());
-}
+// // Create connection
+// $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+// // Check connection
+// if (!$db) {
+//      die("Connection failed: " . pg_connect_error());
+// }
 
-// update user image
- pg_query($db,$sql = "UPDATE public.users
-	SET profile_pic_src= '$image_src'
-	WHERE id = $userid");
-
- 
+// // update user image
+//  pg_query($db,$sql = "UPDATE public.users
+// 	SET profile_pic_src= '$image_src'
+// 	WHERE id = $userid");
 
  
-  header('location: profile.php');
+
+ 
+//   header('location: profile.php');
    
  
 

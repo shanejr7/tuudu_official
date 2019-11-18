@@ -148,6 +148,7 @@
                     </span>
                   </div>
                   <input type="password" class="form-control"name="password_1" id="inputPassword" placeholder="Password..." required>
+                  <input type="hidden" name="account_type" value="user">
                 </div>
                   <div class="form-check">
                   <label class="form-check-label">

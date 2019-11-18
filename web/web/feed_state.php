@@ -135,7 +135,7 @@ pg_close($db);
                   $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description
                   FROM organization
                     WHERE organization.id not in(select orgid from user_follow_organization WHERE userid = $id)
-          AND organization.id not in(select orgid from feedstate WHERE userid = $id and state = 0)");
+          AND organization.id not in(select orgid from feedstate WHERE userid = $id and state = 0) AND date_submitted is not NULL");
 
 
                   if (pg_num_rows($result) > 0) {

@@ -1,5 +1,25 @@
 <?php  include('feed_state.php'); // retrieves organizations for users
    
+
+   if (isset($_GET['dashboard'])) {
+        unset($_SESSION['event_type']);
+    unset($_SESSION['word_tags']);
+    unset($_SESSION['eventTitle']);
+    unset($_SESSION['phoneNumber]']);
+    unset($_SESSION['publicKey']);
+    unset($_SESSION['privateKey']);
+    unset($_SESSION['img_src']);
+    unset($_SESSION['address']);
+    unset($_SESSION['date']);
+    unset($_SESSION['startTime']);
+    unset($_SESSION['endTime']);
+    unset($_SESSION['url']);
+    unset($_SESSION['email_temp']);
+    unset($_SESSION['content']);
+    unset($_SESSION['description']);
+    unset($_SESSION['name']);
+    
+   }
  
 
 
@@ -102,10 +122,10 @@
                    // img uploader
                      ?>
                    
-                    <div class="media-body col-md-7">
+                    <!-- <div class="media-body col-md-7">
               
                    
-                    </div>
+                    </div> -->
                   </div>
                      <h7>&#xB7; <?php echo $_SESSION['email']?></h7>
                       </a>
@@ -114,7 +134,11 @@
                 </div>
                 <div class="modal-body">
                 </br>
-              
+                
+               <div class="modal-footer justify-content-center">
+                    <a href="post.php" class="btn btn-primary btn-link btn-wd btn-lg">Post event or activity</a>
+                </div>
+                 
                 </div>
                 <div class="modal-footer justify-content-center">
                     <a href="#" class="btn btn-primary btn-link btn-wd btn-lg">Contact support</a>
