@@ -1,5 +1,4 @@
 <?php
-
 // initializing variables
 // later add first and last name
 session_start();
@@ -61,8 +60,8 @@ if (isset($_POST['reg_user'])) {
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
   if (empty($username)) { array_push($errors, "Username is required"); }
-  if(sizeof($username)>20){array_push($errors, "Username is too long"); }
-  if (preg_match("/^[a-zA-Z]*$ /",$username)==0) { array_push($errors, "Username is invalid"); }
+  if(sizeof($username)>26){array_push($errors, "Username is too long"); }
+  if (!preg_match("/^[a-zA-Z] /",trim($username))==0) { array_push($errors, "Username is invalid"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (!filter_var($email,FILTER_VALIDATE_EMAIL)) { array_push($errors, "Email is invalid"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
