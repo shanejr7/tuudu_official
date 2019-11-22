@@ -108,7 +108,7 @@
          <div class="card card-login">
              
             <form class="form" method="post" action="signup-page.php">
-                <?php include('errors.php'); ?>
+              
               <div class="card-header card-header-primary text-center">
                 <h4 class="card-title">signup</h4>
                 <div class="social-line"  >
@@ -122,7 +122,7 @@
                     <i class="fa fa-google-plus" style="color: yellowgreen;"></i>
                   </a>
                 </div>
-              </div>
+              </div>  <div style="margin-left: 30%;"> <?php include('errors.php'); ?></div>  
            <!--    <p class="description text-center">Or Be Classical</p> -->
               <div class="card-body">
                 <div class="input-group">
@@ -191,7 +191,7 @@
         </button>
       </div>
       <div class="modal-body">
- by accepting this agreement and terms with using our services. you agree that all transactions and events are binded to independent third party oraganizations in which our services only provides data without any association to third party organizations. accepting these terms our services is allowed to use data of your liking to provide events and or activitites.
+ by accepting this agreement and terms with using our services. you agree that all transactions and events are binded to independent third party oraganizations in which our services only provides data without any association or having liability with third party organizations. accepting these terms our services is allowed to use data of your liking to provide events and or activitites.If you do not agree with our terms and policy then do not register, download, or use our services.
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button> -->
@@ -203,24 +203,24 @@
   <footer class="footer footer-default"  >
     <div class="container">
       <nav class="float-left">
-        <ul>
+    <ul>
           <li>
-             <a href="https://www.aeravi.io">
+            <a href="https://www.Aeravi.io">
               Aeravi
             </a>
           </li>
           <li>
-            <a href="https://creative-tim.com/presentation">
+            <a href="https://www.Aeravi.io">
               About Us
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="http://blog.creative-tim.com">
               Blog
             </a>
-          </li>
+          </li> -->
           <li>
-            <a href="https://www.creative-tim.com/license">
+            <a href="https://www.Aeravi.io">
               Licenses
             </a>
           </li>
@@ -246,7 +246,7 @@
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
   <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!--   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
   <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
   <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->

@@ -1,10 +1,12 @@
 <?php
- 
+
 // initializing variables
 // later add first and last name
 session_start();
+ include 'local_distance.php';
 
-// user timeStamp
+ 
+// user timeStamp DETERMINE USER TIMEZONE
 date_default_timezone_set('EST');
  
 
@@ -37,8 +39,8 @@ $errors_list = array();
 
 
 // connect to the database
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-//$db = pg_connect(getenv("DATABASE_URL"));
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
  
    
 // REGISTER USER or BUSINESS USER
@@ -59,7 +61,10 @@ if (isset($_POST['reg_user'])) {
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
   if (empty($username)) { array_push($errors, "Username is required"); }
+  if(sizeof($username)>20){array_push($errors, "Username is too long"); }
+  if (!preg_match("/^[a-zA-Z]*$/",$username)) { array_push($errors, "Username is invalid"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
+  if (!filter_var($email,FILTER_VALIDATE_EMAIL)) { array_push($errors, "Email is invalid"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
  //  if ($password_1 != $password_2) {
 	// array_push($errors, "The two passwords do not match");
@@ -124,48 +129,7 @@ if (isset($_POST['reg_user'])) {
   pg_close($db);
 }
 
-
-// // REGISTER USER
-// if (isset($_POST['org_reg'])) {
-//   // receive all input values from the form
-//   $email = pg_escape_string($db, $_POST['orgEmail']);
-//   $password_1 = pg_escape_string($db, $_POST['orgPassword_1']);
-//   $password_2 = pg_escape_string($db, $_POST['orgPassword_2']);
-
-//   // form validation: ensure that the form is correctly filled ...
-//   // by adding (array_push()) corresponding error unto $errors array
-//   if (empty($email)) { array_push($errors, "Email is required"); }
-//   if (empty($password_1)) { array_push($errors, "Password is required"); }
-//   if ($password_1 != $password_2) {
-//   array_push($errors, "The two passwords do not match");
-//   }
-
-//   // first check the database to make sure 
-//   // a user does not already exist with the same username and/or email
-//   $user_check_query = "SELECT * FROM orguser WHERE email='$email' LIMIT 1";
-//   $result = pg_query($db, $user_check_query);
-//   $user = pg_fetch_assoc($result);
-  
-//   if ($user) { // if user exists
-
-//     if (strcmp(trim($user['email']),$email) ==0) {
-      
-//       array_push($errors, "email already exists");
-//     }
-//   }
-
-//   // Finally, register user if there are no errors in the form
-//   if (count($errors) == 0) {
-//     $password = md5($password_1);//encrypt the password before saving in the database
-
-//     $query = "INSERT INTO orguser(email, password) VALUES ('$email','$password')";
-//     pg_query($db, $query);
-//     $_SESSION['success'] = "You are now logged in";
-//   header('location: org-account.php');
-//   }
-//   pg_close($db);
-// }
-
+ 
 
 
 
@@ -243,115 +207,74 @@ if (isset($_POST['login_user'])) {
   }
   pg_close($db);
 }
-
-
-
-// if (isset($_POST['org_user'])) {
-// $orgPassword='';
-// if (isset($_POST['orgPassword'])) {
-//   $orgPassword = pg_escape_string($db, $_POST['orgPassword']);
-// }
-//     $orgPassword = md5($orgPassword);
-
-//   if (empty($orgPassword)) {
-
-//     array_push($errors, "password is required");
-//   }
-
-//   if (count($errors) == 0) {
-   
-   
-//     $query = "SELECT * FROM orguser WHERE password='$orgPassword'";
-//     $result = pg_query($db, $query);
-//  $orgUser = pg_fetch_assoc($result);
-//     if (pg_num_rows($result) == 1) {
-
-//       $_SESSION['success'] = "You are now logged in";
-//       $_SESSION['email'] = $orgUser['email'];
-//      header('location: org-account.php'); 
-//     }else {
-//       array_push($errors, "Wrong password combination");
-//     }
-//   }
-//   pg_close($db);
-// }
+ 
+  
 ?>
  <!DOCTYPE html>
  <html>
  <head>
    <title></title>
-
-
      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <!--   <script src="../assests/js/custom_js.js"></script> -->
  </head>
- <body  >
-  
-  </head>
   <body>
+
+<?php 
+
+// local location
  
+// $dynamic_cordinates=array();
+// $static_cordinates =array();
+// $local_distance = array();
+//   if (isset($_COOKIE["dynamic_location"])) {
 
-  <!--   <div id="lat_lng"></div> -->
-
-    <script>
-
-  // organization geocode data 
-// function init2() {
-//     $.ajax({
-//         url: "https://maps.googleapis.com/maps/api/geocode/json?address=4057+woodlandcreek+dr&key=AIzaSyBidE-PE8nRTYLn-tqLiLipd86XT3yDoiY",
-//         type: "GET",
-//         dataType: "json",
-//         async: false,
-//         success: function (data) {
-//             console.log(data);
-//         }
-//     });
+//    $_SESSION["dynamic_location"] = $_COOKIE["dynamic_location"];
+//  }else if (empty($_COOKIE['dynamic_location'])) {
+//    // error
+//   // echo 'Cookie does not exists or is empty';
 // }
-// init2();
 
 
-// user device location with permission
+//  if (isset($_SESSION["dynamic_location"])) {
+//    $dynamic_cordinates = explode("/",$_SESSION["dynamic_location"]);
+//   // echo 'user location: '.$dynamic_cordinates[0].' '.$dynamic_cordinates[1];
+//  }
 
-// function init1() {
-//     $.ajax({
-//         url: "Access-Control-Allow-Origin:https://maps.googleapis.com/maps/api/js?key=AIzaSyBidE-PE8nRTYLn-tqLiLipd86XT3yDoiY&callback=initMap",
-//         type: "GET",
-//         dataType: "json",
-//         async: false,
-//         success: function (data) {
-//             console.log(data);
-//         }
-//     });
+
+//    if (isset($_COOKIE["static_location0"])) {
+
+//    $_SESSION["static_location"] = $_COOKIE["static_location0"];
+    
+//  }else if (empty($_COOKIE['static_location'])) {
+//    // error
+//   // echo 'Cookie does not exists or is empty';
 // }
-// init1();
+
+
+//  if (isset($_SESSION["static_location"])) {
+//    $static_cordinates = explode("/",$_SESSION["static_location"]);
+//   // echo 'organization location: '.$static_cordinates[0].' '.$static_cordinates[1];
+//   for ($i=0; $i <$static_cordinates[2] ; $i++) { 
+
  
-    </script>
-   
- 
-<!--  
-    <p id="demo">demo </p>
+//      $static_cordinates = explode("/",$_COOKIE["static_location".$i]);
+    
+//      $bool = getDistance($dynamic_cordinates,$static_cordinates);
+     
+//      if ($bool ==="yes") {
+//         // echo "string " .$static_cordinates[3];
+//         //  echo 'local = '.$bool;
+//        array_push($local_distance,trim($static_cordinates[3]));
+//      }
 
-   
-  <script>
-console.log("hello");
+//   }
+    
+//  }
 
 
-var x = document.getElementById("demo");
-
-getLocation();
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
-</script> -->
  
 
+ ?>
  </body>
  </html>

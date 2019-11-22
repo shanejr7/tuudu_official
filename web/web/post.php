@@ -1,8 +1,8 @@
 <?php include('server.php');
 include('add_post.php');
  
- $conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-// $conn = pg_connect(getenv("DATABASE_URL"));
+// $conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+ $conn = pg_connect(getenv("DATABASE_URL"));
  
 $event_push_arr = array();
 
@@ -31,8 +31,13 @@ if (pg_num_rows($result) > 0) {
 
 pg_close($conn);
 
+if (!isset($_SESSION['username'])) {
+   
+   header('location: login-page.php');
+  }
+
  
- 
+
    ?>
 <!--
  =========================================================
@@ -69,6 +74,7 @@ pg_close($conn);
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
+
 
 </head>
 
@@ -115,24 +121,14 @@ pg_close($conn);
  
                   echo '<span class="text-warning btn-md-link" style="margin-left: 21em;">cant find topic<i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>';
                      }
-                     ?>
-          
-        </div>
-     <!--  <div  class="collapse navbar-collapse col-lg-5">
-         <ul class="navbar-nav">
-                <li class="nav-item  ">
-                    <a href="portal-signup.php" class="nav-link">Oranization?</a>
-                </li>
-                 
-               
-            </ul>
-      </div> -->
+                     echo '        </div>
+    
     </div>
-</nav>
+</nav>'; 
+      
  
+   
  
-    <!-- class"main main-rasied" -->
-<?php 
 
  
  
@@ -147,7 +143,8 @@ function card(){
 }
  
 // Create connection
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
@@ -238,6 +235,8 @@ pg_close($db);
                     <?php 
 
 
+ 
+
  $page =1;
  $counter = 0;
 
@@ -259,7 +258,8 @@ if (isset($_POST['event_type'])) {
     
  
 // Create connection
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
@@ -282,7 +282,7 @@ echo '<h3 class="title">Add Event Tags</h3>
                   ';
 
                       
-                  echo ' <input type="text" multiple name="word_tags" class="form-control" id="exampleSelect2" placeholder="#person, #place or #thing">';
+                  echo ' <input type="text" multiple name="word_tags" class="form-control" id="exampleSelect2" placeholder="#person, #place or #thing" required>';
 
                      
                   echo'</select><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="1" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="3" style="display:inline-block">next</button></div></div></form>';
@@ -293,21 +293,26 @@ echo '<h3 class="title">Add Event Tags</h3>
 }else if($page ==3){
 
  
+ 
+
+ $userid = $_SESSION['id'];
+ $publickey = $_SESSION['publicKey'];
 
 if(isset($_POST['word_tags'])) {
 
  $event_type = $_SESSION['event_type'];
  $word_tags = "";
  $word_tags =  filter_var($_POST['word_tags'], FILTER_SANITIZE_STRING);  
- $word_tags = str_replace(" ","/",$word_tags);
+ $word_tags = preg_replace('/[^A-Za-z0-9\-]/', ' ', $word_tags);
+ $word_tags = str_replace(" ","/",trim($word_tags));
  $word_tag = $event_type.'_/'.$word_tags;  
- $userid = $_SESSION['id'];
- $publickey = $_SESSION['publicKey'];
+ 
 
     
  
-// Create connection
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+ // Create connection
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
@@ -338,13 +343,13 @@ pg_close($db);
 
                  <div class="col-md-6">
                   <div class="form-group row col-sm-10">
-                    <input type="text" name="eventTitle" class="form-control" id="inputEvent" placeholder="title"  >
+                    <input type="text" name="eventTitle" class="form-control" id="inputEvent" placeholder="title"  required>
                   </div>
 
                 
 
                      <div class="form-group row col-sm-10">
-                    <input type="text" name="description" class="form-control" id="inputDescription" placeholder="description" >
+                    <input type="text" name="description" class="form-control" id="inputDescription" placeholder="description" required>
                   </div>
                 
                  
@@ -353,20 +358,25 @@ pg_close($db);
                   </div>
                   <div class="col-md-4">
                      <div class="form-group  ">
-                    <input type="text" name="content" class="form-control" id="inputContent" placeholder="content info"  >
+                    <input type="text" name="content" class="form-control" id="inputContent" placeholder="content info"  required>
                   </div>
                     
                    
                           <div class="form-group form-file-upload form-file-simple">
-    <input type="text" class="form-control inputFileVisible" placeholder="Simple chooser...">
+    <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
     <input type="file" name="file1" class="inputFileHidden">
   </div>
                     </div></div>
 
                 </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg update" name="page" value="4" style="display:inline-block">next</button></form>';
  
+ 
 }else if ($page ==4) {
  
+ 
+ $userid = $_SESSION['id'];
+ $publickey = $_SESSION['publicKey'];
+
 
 if (isset($_FILES["file1"]['tmp_name'])) {
 $fileToMove = $_FILES["file1"]['tmp_name'];
@@ -380,14 +390,17 @@ if(isset($_POST['page']) && move_uploaded_file($fileToMove, $destination)) {
  
 $image_src = $destination;
 $eventTitle= filter_var($_POST['eventTitle'], FILTER_SANITIZE_STRING);
+$eventTitle = preg_replace('/[^A-Za-z0-9\-]!/', '',$eventTitle);
 $description= filter_var($_POST['description'], FILTER_SANITIZE_STRING);
+$description = preg_replace('/[^A-Za-z0-9\-]!/', '', $description);
 $content= filter_var($_POST['content'], FILTER_SANITIZE_STRING);   
-$userid = $_SESSION['id'];
-$publickey = $_SESSION['publicKey'];
+$content = preg_replace('/[^A-Za-z0-9\-]!/', '', $content);
+ 
 
  
 // Create connection
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
@@ -406,7 +419,7 @@ pg_close($db);
 }
 
  }
- 
+ include 'errors.php';
  echo '<h2 class="title">Event | <span style="color:orange">contact</span> (<strong>2/5</strong>)</h2>'; 
    
 
@@ -416,7 +429,7 @@ pg_close($db);
                    <div class="form-group row">
     
                   <div class="col-sm-10">
-                    <input type="text" name="name" class="form-control" id="inputName" placeholder="name"  >
+                    <input type="text" name="name" class="form-control" id="inputName" placeholder="name"  required>
             </div>
             </div>
 
@@ -424,12 +437,12 @@ pg_close($db);
                      <div class="form-group row">
     
                   <div class="col-sm-10">
-                    <input type="phone number" name="phoneNumber" class="form-control" id="inputNumber" placeholder="phone number"  >
+                    <input type="phone number" name="phoneNumber" class="form-control" id="inputNumber" placeholder="phone number"  required>
                   </div>
                 </div>
                  <div class="form-group row">
                   <div class="col-sm-10">
-                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="email"  >
+                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="email"  required>
                   </div>
 
 <input type="hidden" value="1" name="counter">
@@ -440,7 +453,13 @@ pg_close($db);
 
 
 }elseif ($page ==5) {
-   
+
+
+  
+ 
+ $userid = $_SESSION['id'];
+ $publickey = $_SESSION['publicKey'];
+
    if(isset($_POST['page'])) {
 
  
@@ -448,15 +467,19 @@ pg_close($db);
    # code...
   
 $phoneNumber= filter_var($_POST['phoneNumber'],FILTER_SANITIZE_STRING);
+$phoneNumber = preg_replace('/[^A-Za-z0-9\-]-/', '', $phoneNumber);
 $email= filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+$email = preg_replace('/[^A-Za-z0-9\-].@/', '', $email);
+if (!filter_var($email,FILTER_VALIDATE_EMAIL)) { array_push($errors, "Email is invalid"); }
 $name= filter_var($_POST['name'], FILTER_SANITIZE_STRING);   
+$name = preg_replace('/[^A-Za-z0-9\-]/', '', $name);
 $_SESSION['name'] = $name;
-$userid = $_SESSION['id'];
-$publickey = $_SESSION['publicKey'];
-
  
-// Create connection
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
+ if (count($errors)==0) {
+  // Create connection
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
@@ -467,42 +490,79 @@ if (!$db) {
  
 
 pg_close($db);
-
- 
-  card();
-}else{
-  
-}
-}
-
- 
-
-
  echo '<h2 class="title">Event | <span style="color:orange">time</span> (<strong>3/5</strong>)</h2>'; 
   
 
  echo '   <form method="post" action="post.php">
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <input type="time" name="startTime" class="form-control" id="inputTime">
+                    <input type="time" name="startTime" class="form-control" id="inputTime" required>
                   </div>
                 </div> 
                  <div class="form-group row">
                   <div class="col-sm-10">
-                    <input type="time" name="endTime" class="form-control" id="inputTime">
+                    <input type="time" name="endTime" class="form-control" id="inputTime" required>
                   </div>
                 </div> 
                  <div class="form-group row">
     
                   <div class="col-sm-10">
-                    <input type="date" name="date" class="form-control" id="inputDate" >
+                    <input type="date" name="date" class="form-control" id="inputDate" required>
                   </div>
                 </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="4" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="display:inline-block">next</button></form>';
+ 
+  card();
+}else{
+    
+ echo '<h2 class="title">Event | <span style="color:orange">contact</span> (<strong>2/5</strong>)</h2>'; 
+   include 'errors.php';
+
+ echo '   <form method="post" action="post.php">
+             
+               
+                   <div class="form-group row">
+    
+                  <div class="col-sm-10">
+                    <input type="text" name="name" class="form-control" id="inputName" placeholder="name"  required>
+            </div>
+            </div>
+
+
+                     <div class="form-group row">
+    
+                  <div class="col-sm-10">
+                    <input type="phone number" name="phoneNumber" class="form-control" id="inputNumber" placeholder="phone number"  required>
+                  </div>
+                </div>
+                 <div class="form-group row">
+                  <div class="col-sm-10">
+                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="email"  required>
+                  </div>
+
+<input type="hidden" value="1" name="counter">
+
+
+
+                </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="3" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="5" style="display:inline-block">next</button></form>';
+}
+ 
+
+ 
+
+
+ 
+  
+ 
+ }
+
+}
+ 
 }elseif ($page==6) {
  
  
  
-  
+   $userid = $_SESSION['id'];
+   $publickey = $_SESSION['publicKey'];
 
    if(isset($_POST['page'])) {
 
@@ -514,15 +574,15 @@ $startTime = filter_var($_POST['startTime'], FILTER_SANITIZE_STRING);
 $endTime = filter_var($_POST['endTime'], FILTER_SANITIZE_STRING);
 $date = filter_var($_POST['date'], FILTER_SANITIZE_STRING); 
 $time = $startTime.'-'.$endTime;
-echo $startTime;
+ 
 $time_in_24_hour_format  = date("H:i:sO", strtotime($startTime));  
 $date = $date.' '.$time_in_24_hour_format;
-$userid = $_SESSION['id'];
-$publickey = $_SESSION['publicKey'];
+ 
 
  
 // Create connection
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
@@ -553,28 +613,32 @@ pg_close($db);
                  <div class="form-group row">
     
                   <div class="col-sm-10">
-                    <input type="address" name="address" class="form-control" id="inputLocation" placeholder="address"  >
+                    <input type="address" name="address" class="form-control" id="inputLocation" placeholder="address"  required>
                   </div>
 
 
                 </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="5" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="7" style="display:inline-block">next</button></form>';
 }elseif ($page ==7) {
- 
-if(isset($_POST['page'])) {
-
-if (isset($_POST['url'])) {
- 
- 
-$url = filter_var($_POST['url'], FILTER_SANITIZE_STRING);
-$address = filter_var($_POST['address'], FILTER_SANITIZE_STRING);
- 
+   
  
 $userid = $_SESSION['id'];
 $publickey = $_SESSION['publicKey'];
+if(isset($_POST['page'])) {
 
+if (isset($_POST['url'])) {
+
+$url = filter_var($_POST['url'], FILTER_SANITIZE_STRING);
+if (!filter_var($url, FILTER_VALIDATE_URL)){ array_push($errors, "url is not valid");} 
+$address = filter_var($_POST['address'], FILTER_SANITIZE_STRING);
+$adress = preg_replace('/[^A-Za-z0-9\-]/', '', $address);
  
+ 
+ 
+
+ if (count($errors) == 0){
 // Create connection
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
@@ -585,40 +649,64 @@ if (!$db) {
  
 
 pg_close($db);
-
- 
-  card();
-}else{
-  
-}
- }
-  
 echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>'; 
    echo "<h3><strong>payment method</strong><h3>";
 
- echo '   <form method="post" action="post.php"  >
+ echo '   <form method="post" action="post.php"  style="display:inline-block">
 
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <input type="text" name="privatekey" class="form-control" id="private" placeholder="paypal id" >
+                    <input type="text" name="privatekey" class="form-control" id="private" placeholder="paypal id" required>
                   </div>
                 </div> 
                  <div class="form-group row">
     
                   <div class="col-sm-10">
-                    <input type="text" name="fiatValue" class="form-control" id="value" placeholder="0.00 " >
+                    <input type="text" name="fiatValue" class="form-control" id="value" placeholder="0.00 " required>
                   </div>
                 </div>
                
                  
         
-                <button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="push" value="7" style="display:inline-block;margin-right:2em;">push</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="push_no_payment" value="7" style="display:inline-block;">free</button>
+                <button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="push" value="7" style="display:inline-block;margin-right:2em;">push</button>
 
    
-                </form> 
+                </form><p class="title" style="display:inline-block">or </p>
+                <form method="post" action="post.php" style="display:inline-block" >
+
+              <button   type="submit" class="btn radius-50   btn-default-transparent btn-sm" name="push_no_payment" value="7" style="display:inline-block;">free</button>
+
+   
+                </form>
 
              ';
+ 
+  card();
+}else{
+   echo '<h2 class="title">Event | <span style="color:orange">address</span> (<strong>4/5</strong>)</h2>'; 
+  include 'errors.php';
 
+ echo '   <form method="post" action="post.php">
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                    <input type="url" name="url" class="form-control" id="eventUrl" placeholder="url"  >
+                  </div>
+                </div> 
+                 <div class="form-group row">
+    
+                  <div class="col-sm-10">
+                    <input type="address" name="address" class="form-control" id="inputLocation" placeholder="address"  required>
+                  </div>
+
+
+                </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="5" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="7" style="display:inline-block">next</button></form>';
+}
+ }
+  
+ 
+ 
+   
+}
 
  
 }
@@ -639,11 +727,11 @@ $_SESSION['publicKey'] = $publicKey;
 card();
 // use key through process 
   echo '    <h3 class="title">Welcome..</h3><h4 class="title">Select your event</h2>
-              <form role="form" method="post" action="post.php">
+              <form  method="post" action="post.php">
                 <div class="form-group">
                   <label for="exampleSelect1">event type</label>
                   <select class="form-control" name="event_type" id="exampleSelect1">
-                  <option>select</option>';
+                  <option value="music">music</option>';
                   for($i=0; $i<sizeof($event_push_arr);$i++){
   if (trim($event_push_arr[$i]['event_type'])!="") {
 echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
@@ -668,56 +756,33 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
             </div>
           </div>
           <div class="row">
-                        
-              <div class="info info-horizontal col-md-4">
-                <div class="icon icon-rose">
-                  <i class="material-icons">timeline</i>
-                </div>
-                <div class="description">
-                  <h4 class="info-title">Explore</h4>
-                  <p class="description">
-                    Find things going on in your community. 
-                  </p>
-                </div>
-              </div>
-              <div class="info info-horizontal col-md-4">
-                <div class="icon icon-success">
-                  <i class="material-icons">group</i>
-                </div>
-                <div class="description">
-                  <h4 class="info-title">Share & Stay connected</h4>
-                  <p class="description">
-                    Discover the world around you. Share what you&apos;re
-                    doing and stay connected.
-                  </p>
-                </div>
-              </div>
- 
-            
-            
+          </br>
+        </br>
+      </br>
+      </br>        
           </div>
     </div>
   <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">
-        <ul>
+    <ul>
           <li>
-            <a href="https://www.aeravi.io">
+            <a href="https://www.Aeravi.io">
               Aeravi
             </a>
           </li>
           <li>
-            <a href="https://creative-tim.com/presentation">
+            <a href="https://www.Aeravi.io">
               About Us
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="http://blog.creative-tim.com">
               Blog
             </a>
-          </li>
+          </li> -->
           <li>
-            <a href="https://www.creative-tim.com/license">
+            <a href="https://www.Aeravi.io">
               Licenses
             </a>
           </li>

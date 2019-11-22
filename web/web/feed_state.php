@@ -12,11 +12,12 @@ if (isset($_SESSION['id'])) {
 
     $id =  $_SESSION['id'];
     $settings_check_mark = array("music" => "0","fashion" => "0","art" => "0",
-      "sports" => "0","festival" => "0","food" => "0","outdoors" => "0");
+      "sports" => "0","festival" => "0","food" => "0","outdoor" => "0");
 
     $keys = array_keys($settings_check_mark);
 
- 
+    //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+    $db = pg_connect(getenv("DATABASE_URL"));
     $dashboard_list = array();
 
     $result = pg_query($db, "SELECT userid FROM feedstate 
@@ -29,23 +30,23 @@ if (isset($_SESSION['id'])) {
 
 
 
-                    /* selects all IDs of organization not linked to user_follow_organization
+                    /* selects all puublickeys of organization not linked to user_follow_organization
                   *   
                   *  and not deleted !=0
                   *
                   *  and exists == 1
                   */
-                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description, organization.word_tag
+                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description, organization.word_tag, organization.publickey
                   FROM organization
-                    WHERE organization.id not in(select orgid from user_follow_organization WHERE userid = $id)
-          AND organization.id not in(select orgid from feedstate WHERE userid = $id and state = 0) AND organization.id in(select orgid from feedstate WHERE userid = $id and state = 1)");
+                    WHERE organization.publickey not in(select publickey from user_follow_organization WHERE userid = $id)
+          AND organization.publickey not in(select publickey from feedstate WHERE userid = $id and state = 0) AND organization.publickey in(select publickey from feedstate WHERE userid = $id and state = 1) AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
 
                   if (pg_num_rows($result) > 0) {
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) { 
       
-                      $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"]);
+                      $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"]);
  
 
                       // checking for prefered interest selected
@@ -76,12 +77,13 @@ if (isset($_SESSION['id'])) {
  */
   
    //connect to database
-  $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+  //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+  $db = pg_connect(getenv("DATABASE_URL"));
  
    // the value passed and security injection
   $string = pg_escape_string($db,$_GET['search']);
   $string = explode(" ", $string);
-  $organization_id_arr = array();
+  $organization_publickey_arr = array();
    
   // $db = pg_connect(getenv("DATABASE_URL"));
  
@@ -93,23 +95,23 @@ if (isset($_SESSION['id'])) {
 
     for ($i=0; $i <sizeof($string) ; $i++) { 
 
-     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views
+     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address
      FROM organization
-    WHERE word_tag LIKE '%$string[$i]%' AND organization.id not in(select orgid from feedstate WHERE userid = $id and state = 0)");
+    WHERE word_tag LIKE '%$string[$i]%' AND organization.id not in(select orgid from feedstate WHERE userid = $id and state = 0) AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
     // loops through rows until there is 0 rows
     if (pg_num_rows($result) > 0) {
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-        if (in_array($row['org_id'], $organization_id_arr)) {
+        if (in_array($row['publickey'], $organization_publickey_arr)) {
           // ignore already stored
         }else{
 
-             $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"]);
+             $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey"=> $row["publickey"], "address" => $row["address"]);
             }
-            // temporarily stores id to emlinate duplicate
-            array_push($organization_id_arr,$row['org_id']);
+            // temporarily stores publickey to emlinate duplicate
+            array_push($organization_id_arr,$row['publickey']);
  
         }
          
@@ -132,17 +134,22 @@ pg_close($db);
                   *   
                   *  and not deleted
                   */
-                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description
+                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address
                   FROM organization
-                    WHERE organization.id not in(select orgid from user_follow_organization WHERE userid = $id)
-          AND organization.id not in(select orgid from feedstate WHERE userid = $id and state = 0) AND date_submitted is not NULL");
+                    WHERE organization.publickey not in(select publickey from user_follow_organization WHERE userid = $id)
+          AND organization.publickey not in(select publickey from feedstate WHERE userid = $id and state = 0) AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
-
+ 
                   if (pg_num_rows($result) > 0) {
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) {
+
       
-                      $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"]);
+      
+                      $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"]);
+
+
+
                     }
                   
                   }else {array_push($errors_dashboard, "0 results");}
@@ -171,8 +178,8 @@ if (isset($_SESSION['id'])) {
     $interest_list = array();
  
 // connect to the database
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-//$db = pg_connect(getenv("DATABASE_URL"));
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
  
   $user = pg_fetch_assoc($result);
 
@@ -191,6 +198,7 @@ $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop1
     $resulted = pg_query($db, "SELECT state FROM feedstate WHERE word_tag LIKE '$organization_word_tag%_' AND userid = $user_I_D AND state = 1 LIMIT 1");
 
     $check_state = pg_fetch_assoc($resulted);
+
   echo isset($check_state['state']) .' <-  ';
     if (isset($check_state['state']) && $check_state['state']==1) { // state is already 1 then remove
   echo $check_state['state'] .' <- state ';
@@ -215,11 +223,11 @@ $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop1
 
     }else if(!$check_state['state']==1){ // state is not yet added put 1  
    
-  $result = pg_query($db,"SELECT id, word_tag FROM organization
+  $result = pg_query($db,"SELECT id, word_tag,publickey FROM organization
       WHERE word_tag LIKE '$organization_word_tag%_' 
-      AND organization.id not in(select orgid from feedstate
+      AND organization.publickey not in(select publickey from feedstate
       where feedstate.word_tag LIKE '$organization_word_tag%_') 
-      AND organization.id not in(select orgid from user_follow_organization)");
+      AND organization.publickey not in(select publickey from user_follow_organization)");
 
  
  
@@ -228,7 +236,7 @@ $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop1
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-             $interest_list[] = array("org_id" => $row["id"],"tag" => $row["word_tag"]);
+             $interest_list[] = array("org_id" => $row["id"],"publickey"=>$row["publickey"],"tag" => $row["word_tag"]);
         }
          
     } 
@@ -240,9 +248,10 @@ for ($i=0; $i <sizeof($interest_list) ; $i++) {
 
   $organization_id = pg_escape_string($db, $interest_list[$i]['org_id']);
   $organization_word_tag = pg_escape_string($db, $interest_list[$i]['tag']);
+  $organization_publickey = pg_escape_string($db, $interest_list[$i]['publickey']);
 
-    $query = "INSERT INTO feedstate (orgid,userid, state,word_tag) 
-          VALUES('$organization_id',$user_I_D, $state,'$organization_word_tag')";
+    $query = "INSERT INTO feedstate (orgid,userid, state,word_tag,publickey) 
+          VALUES('$organization_id',$user_I_D, $state,'$organization_word_tag','$organization_publickey')";
     pg_query($db, $query);
 }
    
@@ -269,8 +278,8 @@ if (isset($_SESSION['id'])) {
 	$user_I_D = $_SESSION['id'];
  
      // connect to DataBase
-    $conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-    //$conn = pg_connect(getenv("DATABASE_URL"));
+    //$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+    $conn = pg_connect(getenv("DATABASE_URL"));
 
     // Check connection
     if ($res1 = pg_get_result($conn)) {
@@ -285,15 +294,15 @@ if (isset($_SESSION['id'])) {
      * and not deleted or selected as interest
     */
 
-    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views
-     FROM organization WHERE organization.id in(select orgid from user_follow_organization WHERE userid = $user_I_D) AND organization.id not in(select orgid from feedstate WHERE userid = $user_I_D and state = 0)");
+    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey
+     FROM organization WHERE organization.publickey in(select publickey from user_follow_organization WHERE userid = $user_I_D) AND organization.publickey not in(select publickey from feedstate WHERE userid = $user_I_D and state = 0) AND date is not NULL AND date::timestamp >= NOW()");
 
     // loops through rows until there is 0 rows
     if (pg_num_rows($result) > 0) {
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-    	       $stories_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"]);
+    	       $stories_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey" => $row["publickey"]);
         }
          
     } else {array_push($errors_list, "0 results");}
@@ -312,8 +321,8 @@ if (isset($_SESSION['id'])) {
  if (isset($_GET["val"])) {
 
 // connect to the database
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-//$db = pg_connect(getenv("DATABASE_URL"));
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
 
 $organization_id = '';
 $user_I_D = ' ';
@@ -374,13 +383,13 @@ $user_I_D = pg_escape_string($db, $_SESSION['id']);
    $schedule_list = array();
 
 
-   $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-
+   //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+   $db = pg_connect(getenv("DATABASE_URL"));
    $id = pg_escape_string($db, $_SESSION['id']);
 
      $result = pg_query($db, 'SELECT * FROM public.organization
-  WHERE organization.id 
-      in(select org_id from temporary_tag_schedule WHERE user_id = '.$id.') AND "date"::timestamp >= NOW()
+  WHERE date is not null AND organization.publickey 
+      in(select publickey from temporary_tag_schedule WHERE user_id = '.$id.') AND "date"::timestamp >= NOW()
   ORDER BY "date"::date asc LIMIT 12');
 
 
@@ -388,7 +397,7 @@ $user_I_D = pg_escape_string($db, $_SESSION['id']);
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) {
       
-                      $schedule_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["id"],"description" => $row["description"],"title" => $row["title"],"views" => $row["views"]);
+                      $schedule_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["id"],"description" => $row["description"],"title" => $row["title"],"views" => $row["views"],"content"=>$row["content"],"address"=>$row["address"]);
                     }
                   
                   }else {array_push($errors_schedule, "0 results");}
@@ -404,16 +413,22 @@ $user_I_D = pg_escape_string($db, $_SESSION['id']);
   *
   */
 
- if (isset($_SESSION['id']) && isset($_GET['schedule'])) {
+ if (isset($_SESSION['id']) && isset($_POST['schedule']) && isset($_POST["free_event"])) {
 
-   $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-
-   $organization_id = pg_escape_string($db, $_GET['schedule']);
+   // $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+    $db = pg_connect(getenv("DATABASE_URL"));
    $id = pg_escape_string($db, $_SESSION['id']);
+   $organization_publickey = trim(pg_escape_string($db, $_POST['publickey']));
+   $organization_privatekey_paypal = trim(pg_escape_string($db, $_POST['privatekey']));
+   $org_id = pg_escape_string($db, $_POST['org_id']);
+   $ticket_amt = pg_escape_string($db, $_POST['ticket_amount']);
+   $title = pg_escape_string($db, $_POST['eventTitle']);
+   $price = intval(pg_escape_string($db, $_POST['price']));
+   $price = $price * $ticket_amt;
 
 
-   $query = "INSERT INTO temporary_tag_schedule (user_id, org_id) 
-          VALUES('$id','$organization_id')";
+   $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount) 
+          VALUES($id,$org_id,'$organization_publickey',$ticket_amt)";
 
    pg_query($db, $query);
    

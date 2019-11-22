@@ -17,7 +17,7 @@
  if (count($errors) > 0) : ?>
   <div class="error">
   	<?php foreach ($errors as $error) : ?>
-  	  <p><?php echo $error ?> <span class="text-warning btn-md-link">Warning<i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>
+  	  <p><?php echo $error ?> <span class="text-warning btn-md-link">Warning <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>
   	<?php endforeach ?>
   </div>
 <?php  endif ?>

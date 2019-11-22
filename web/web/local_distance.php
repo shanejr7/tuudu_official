@@ -10,14 +10,44 @@ function getDistance(array $location1, array $location2, $precision =0, $useMile
 	// get the difference bewteen longitudes and convert to radius
 	$long = deg2rad($location2[1] - $location1[1]);
 	// calculate the distance
-	return round(acos(sin($lat1) * sin($lat2) + cos($lat1) * cos($lat2) * cos($long)) * $radius, $precision);
+	$distance = round(acos(sin($lat1) * sin($lat2) + cos($lat1) * cos($lat2) * cos($long)) * $radius, $precision);
 
+	if ($distance <=34) {
+		return "yes";
+	}else{
+		return "no ";
+	}
+ return 0;
 } 
 
 // user & entitys location 
 /*could be more than one entity ..array storage*/
-$ny = [40.758895,-73.9873197];
-$la = [33.914329,-118.2849236];
+// $ny = [40.758895,-73.9873197];
+// $la = [33.914329,-118.2849236];
 
-echo getDistance($ny,$la). ' miles';
+// echo getDistance($ny,$la). ' miles';
 ?>
+
+
+  <script>
+  
+  
+// var x = document.getElementById("demo");
+
+// getLocation();
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else { 
+//         x.innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
+
+// function showPosition(position) {
+//     x.innerHTML = "Latitude: " + position.coords.latitude + 
+//     "<br>Longitude: " + position.coords.longitude;
+// }
+
+// if user location changed by 34 miles update cookie
+ 
+</script>

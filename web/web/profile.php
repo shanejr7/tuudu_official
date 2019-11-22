@@ -21,6 +21,7 @@
     
    }
  
+ 
 
 
 #2D51A3
@@ -89,21 +90,50 @@
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
   <!-- custom css -->
   <link href="../assets/css/core.css" rel="stylesheet" />
-</head>
 
+<!--   <script src="../assests/js/custom_js.js"></script> -->
+  
+ 
  
 </head>
 
 <body class="profile-page  sidebar-collapse">
  
+<?php 
+
+
+  
+   if (isset($_GET['dashboard'])) {
+  
+     $string = str_split($_GET['dashboard']);
+    
+     if ($string[0]== "e") {
+    
+       // dropdown thank u submission
+      echo '<script type="text/javascript">
+ $(function() {
+        $("#posted").trigger("click");
+    });
+ 
+</script>
+';
+
+     }
+   }
+
+// strtotime() for military to 12-hour clock
+?>
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container">
  <!-- 
      <button class="btn btn-round" data-toggle="modal" data-target="#loginModal">
     Profile<i class="material-icons">assignment</i>
 
-</button>
+</button>exampleModal    modal fade    
  -->
+ 
+
+
 <div class="modal fade" id="loginModal" tabindex="-1" role="">
     <div class="modal-dialog modal-login" role="document">
         <div class="modal-content">
@@ -238,8 +268,8 @@
 
                         } ?>  </a>
                         <div class="dropdown-divider"></div>
-                        <a href="feed_state.php?word_tag=outdoors" class="dropdown-item">Outdoors
-                          <?php  if (isset($settings_check_mark) && trim($settings_check_mark['outdoors']) =='1') {
+                        <a href="feed_state.php?word_tag=outdoor" class="dropdown-item">Outdoors
+                          <?php  if (isset($settings_check_mark) && trim($settings_check_mark['outdoor']) =='1') {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
 
@@ -250,34 +280,7 @@
                 </div>
 </nav>
 
- <!--  <div class="page-header header-filter" data-parallax="true" style="background-image: url('../assets/img/city-profile.jpg');"></div> -->
- <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; " id="mySidebar">
-  <button class="btn btn-primary btn-link"
-  onclick="w3_close()">Close &times;</button>
-  <ul class="nav flex-column">
-    <div class="card bg-info">
-    <div class="card-body">
-       
-
-        <div class="card-stats">
-            <div class="author">
-                <a href="#pablo">
-                   <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=334&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" alt="..." class="avatar img-raised">
-                   <span>Tania Andrew</span>
-                </a>
-            </div>
-           <div class="stats ml-auto">
-                <i class="material-icons">favorite</i> 2.4K &#xB7;
-                <i class="material-icons">share</i> 45
-            </div>
-        </div>
-
-    </div>
-
-</div>
-  
-</ul> 
-</div>
+ 
     <!-- class"main main-rasied" -->
      <div id="main">
      <div  >
@@ -308,6 +311,49 @@
             </div>
           </div>
         </div>
+
+
+
+
+<input type="hidden" class="btn btn-primary" id="posted" data-toggle="modal" data-target="#exampleModal">
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title title" id="exampleModalLabel">Event Posted</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Your event has been posted. Thank you!</p>
+        <p><?php echo date('h:i:s A'); ?></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close" class="btn btn-primary" data-dismiss="modal">Close</button>
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 
+<!-- <script type="text/javascript">
+  
+var dashboard_local_distance = <?php //echo json_encode($dashboard_list, JSON_PRETTY_PRINT) ?>;
+var size = dashboard_local_distance.length; 
+var count = 0;
+
+for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
+   geolocation(dashboard_local_distance[i].address,dashboard_local_distance[i].publickey,size,count);
+   count++;
+  
+}
+
+
+</script> -->
+
         <div class="tab-content tab-space cd-section" id="body">
           <div class="tab-pane active text-center gallery section section-sections" id="studio">
            <div class="row">
@@ -324,13 +370,18 @@
                 
 
 if (isset($dashboard_list)  ) {
+//  $key = array();
 
-  
+ 
+// $key = array_column($dashboard_list, 'publickey');
+ 
+// $key = array_intersect($key,$local_distance);
 
+ 
+ 
   // make content dynamic
   shuffle($dashboard_list);
-              
-                 
+                
   // column sizes for row 
   $numberOfColumns = 3;
     $bootstrapColWidth = 12 / $numberOfColumns ;
@@ -339,8 +390,58 @@ if (isset($dashboard_list)  ) {
     foreach($arrayChunks as $items) {
         echo '<div class="row">';
         foreach($items as $item) {
+  // if(in_array($item["publickey"], $key)) 
+  // { 
+  //   echo '<div class="col-md-4">';
 
-            echo '<div class="col-md-4">';
+  //            // echo '<a href="#">';
+
+  //            echo '<div class="contain">';
+
+  //                 echo  '<img src="'.trim($item['img']).'" class="img rounded">';
+
+  //                 if (trim($item['price']) =='0.00') {
+
+  //                       echo '<div class="top-right h9"> 
+  //                       <i class="material-icons">strikethrough_s</i></div>';
+
+  //                       }else{
+
+  //                 echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
+                  
+  //                 }
+
+  //                 echo '<div class="top-left h6" style="width:10px;">'
+  //                      .toString($item['date']).'</div>';
+
+  //                 echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+  //                 echo '<div class="bottom-left" style="font-weight: bolder;">
+  //                       <a href="subscription.php?subscribe='.trim($item['publickey']).'">
+  //                       <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+
+  //                       // href="feed_state.php?val='.trim($item['org_id']).'"
+  //                       // delete_outline 
+  //                 echo '<div class="bottom-right" style="font-weight: bolder;">
+  //                        <a href="order_page.php?order='.$item['publickey'].'"<i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+
+            
+
+
+
+  //               echo '</div>';
+              
+  //             // echo '</a>';
+              
+  //           echo '</div>';
+  // } 
+// else
+//   { 
+//   // echo "not found"; 
+//   }
+
+              echo '<div class="col-md-4">';
 
              // echo '<a href="#">';
 
@@ -348,7 +449,7 @@ if (isset($dashboard_list)  ) {
 
                   echo  '<img src="'.trim($item['img']).'" class="img rounded">';
 
-                  if (trim($item['price']) =='0.00') {
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
                         echo '<div class="top-right h9"> 
                         <i class="material-icons">strikethrough_s</i></div>';
@@ -359,6 +460,7 @@ if (isset($dashboard_list)  ) {
                   
                   }
 
+
                   echo '<div class="top-left h6" style="width:10px;">'
                        .toString($item['date']).'</div>';
 
@@ -366,13 +468,13 @@ if (isset($dashboard_list)  ) {
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="subscription.php?subscribe='.trim($item['org_id']).'">
+                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
                         <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
 
                         // href="feed_state.php?val='.trim($item['org_id']).'"
                         // delete_outline 
                   echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="order_page.php?order='.$item['org_id'].'"<i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+                         <a href="order_page.php?order='.$item['publickey'].'"<i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
 
             
 
@@ -383,6 +485,7 @@ if (isset($dashboard_list)  ) {
               // echo '</a>';
               
             echo '</div>';
+          
         }
         echo '</div>';
     } 
@@ -415,23 +518,33 @@ if (isset($dashboard_list)  ) {
     $bootstrapColWidth = 12 / $numberOfColumns ;
 if (sizeof($schedule_list) ==1) {
     $arrayChunks = array_chunk($schedule_list, $numberOfColumns);
+    $ticket_time = explode("-", $item["time"]);
     foreach($arrayChunks as $items) {
         echo '<div class="row">';
         foreach($items as $item) {
-          echo '<div class="col-md-11">
+          echo '<div class="col-md-12">
+          <div class="contain">
             <div class="card card-background" style="background-image: url('.$item['img'].');">
               <div class="card-body">
                 <h6 class="card-category text-info">'.$item['title'].'</h6>
                 <a href="#pablo">
                   <h3 class="card-title">'.toString($item['date']).'</h3>
-                </a>
+                  <h12 class="card-title">'.date('h:i A', strtotime($ticket_time[0])).'</h12>
+                </a></br></br></br></br>
                 <p class="card-description">
                  '.$item['description'].'
                 </p>
-                 
+                </br></br></br>
+                 <div class="card-footer">
+                
+                  <p class="card-description">
+                   '.$item['content'].'</p>
+
+                    
+                </div>
               </div>
             </div>
-           
+           </div>
           </div>';
         
         }
@@ -554,10 +667,10 @@ if (sizeof($schedule_list) ==1) {
 
                    
                   echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="subscription.php?unsubscribe='.$item['org_id'].'"><i class="material-icons">bookmark</i></a></div>';
+                        <a href="subscription.php?unsubscribe='.$item['publickey'].'"><i class="material-icons">bookmark</i></a></div>';
                    
                   echo '<div class="bottom-right" style="font-weight: bolder;">
-                        <a href="order_page.php?order='.$item['org_id'].'"><i class="material-icons">add_shopping_cart</i></a></div>';
+                        <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons">add_shopping_cart</i></a></div>';
 
  
                    
@@ -597,17 +710,17 @@ if (sizeof($schedule_list) ==1) {
             </a>
           </li>
           <li>
-            <a href="https://creative-tim.com/presentation">
+            <a href="https://www.Aeravi.io">
               About Us
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="http://blog.creative-tim.com">
               Blog
             </a>
-          </li>
+          </li> -->
           <li>
-            <a href="https://www.creative-tim.com/license">
+            <a href="https://www.Aeravi.io">
               Licenses
             </a>
           </li>
@@ -626,9 +739,13 @@ if (sizeof($schedule_list) ==1) {
     document.getElementById("refresh").onclick = function () {
         location.href = "profile.php";
     };
+       document.getElementById("close").onclick = function () {
+        location.href = "profile.php";
+    };
 </script>
   
   <!--   Core JS Files   -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
@@ -656,6 +773,8 @@ if (sizeof($schedule_list) ==1) {
   <script src="../assets/demo/demo.js" type="text/javascript"></script>
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
+
+ 
     <script type="text/javascript">
     $(document).ready(function() {
       materialKitDemo.presentationAnimations();

@@ -136,7 +136,7 @@
               <p class="description text-center">Or Be Classical</p>
               <div class="card-body">
                  <br/>
-               
+               <div style="margin-left: 10%;"> <?php include('errors.php'); ?></div>  
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
@@ -153,7 +153,7 @@
                   </div>
                   <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password..." required="">
                 </div>
-<?php include('errors.php'); ?>
+ 
                 <div class="input-group">
                   <div class="input-group-prepend">
 
@@ -177,24 +177,24 @@
   <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">
-        <ul>
+     <ul>
           <li>
-            <a href="https://www.aeravi.io">
+            <a href="https://www.Aeravi.io">
               Aeravi
             </a>
           </li>
           <li>
-            <a href="https://creative-tim.com/presentation">
+            <a href="https://www.Aeravi.io">
               About Us
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="http://blog.creative-tim.com">
               Blog
             </a>
-          </li>
+          </li> -->
           <li>
-            <a href="https://www.creative-tim.com/license">
+            <a href="https://www.Aeravi.io">
               Licenses
             </a>
           </li>
