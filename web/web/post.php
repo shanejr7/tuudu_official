@@ -59,11 +59,11 @@ if (!isset($_SESSION['username'])) {
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+   
   <link rel="shortcut icon"  href="../assets/img/transparent_lg.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Login
+    Post
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -106,11 +106,7 @@ if (!isset($_SESSION['username'])) {
    </ul>          
                 
        <?php 
-                     // error appears if search value cant be found //
-                     if(isset($_GET['val'])){
- 
-                  echo '<span class="text-warning btn-md-link" style="margin-left: 21em;">cant find topic<i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>';
-                     }
+                  
                      echo '</div></div>
                      </nav>'; 
       
@@ -239,7 +235,7 @@ if (isset($_POST['event_type'])) {
     
  $userid = $_SESSION['id'];
 
- echo "id:= ".$userid.' key:= '.$publickey;
+  
  
 // Create connection
 //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
@@ -251,7 +247,7 @@ if (!$db) {
 
 // update user image
  pg_query($db,"INSERT INTO public.organization(id,publickey)
-    VALUES ($userid,'$publicKey')");
+    VALUES ($userid,'$publickey')");
 pg_close($db);
  card();
 }else{
