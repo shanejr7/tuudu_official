@@ -99,27 +99,7 @@ if (!isset($_SESSION['username'])) {
                     <a href="login-page.php?logout='1'" class="nav-link">LOGOFF</a>
                 </li>
         
-                  <?php
-
-echo '<li class="nav-item">';
-
-
-                    function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
-{
-    $pieces = [];
-    $max = mb_strlen($keyspace, '8bit') - 1;
-    for ($i = 0; $i < $length; ++$i) {
-        $pieces []= $keyspace[random_int(0, $max)];
-    }
-    return implode('', $pieces);
-}
-                  $val = random_str(12, '0123456789abcdefghijklmnopqrstuvwxyz');
-                  echo '<a href="profile.php?dashboard='.$val.'" class="nav-link">DASHBOARD</a>'; 
-
-                  echo ' </li>
-                  </ul>';
-    ?>
-                    
+   </ul>          
                 
        <?php 
                      // error appears if search value cant be found //
