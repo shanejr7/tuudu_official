@@ -98,6 +98,10 @@ if (!isset($_SESSION['username'])) {
                 <li class="nav-item active">
                     <a href="login-page.php?logout='1'" class="nav-link">LOGOFF</a>
                 </li>
+                  <li class="nav-item">
+                    <a href="profile.php?" class="nav-link">DASHBOARD</a>
+                </li>
+        
         
    </ul>          
                 
