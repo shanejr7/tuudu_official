@@ -99,7 +99,7 @@ if (!isset($_SESSION['username'])) {
                     <a href="login-page.php?logout='1'" class="nav-link">LOGOFF</a>
                 </li>
                   <li class="nav-item">
-                    <a href="profile.php?" class="nav-link">DASHBOARD</a>
+                    <a href="profile.php" class="nav-link">DASHBOARD</a>
                 </li>
         
         
@@ -694,18 +694,7 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
 
 }else if($page ==1 || $_POST['page']==1){
 
-$publicKey = random_str(9, '0123456789abcdefghijklmnopqrstuvwxyz');
-$publicKey = filter_var($publicKey, FILTER_SANITIZE_STRING); 
-$publicKey = ltrim($publicKey," ");
-unset($_SESSION['img_src']);
-unset($_SESSION['name']);
-unset($_SESSION['eventTitle']);
-unset($_SESSION['content']);
-unset($_SESSION['description']);
-unset($_SESSION['publicKey']);
  
-$_SESSION['publicKey'] = $publicKey;
-card();
 // use key through process 
   echo '    <h3 class="title">Welcome..</h3><h4 class="title">Select your event</h2>
               <form  method="post" action="post.php">
@@ -720,14 +709,23 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
   } 
 }
     echo '</select><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2">next</button></div></form>';
+    
+$publicKey = random_str(9, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+$publicKey = filter_var($publicKey, FILTER_SANITIZE_STRING); 
+$publicKey = ltrim($publicKey," ");
+unset($_SESSION['img_src']);
+unset($_SESSION['name']);
+unset($_SESSION['eventTitle']);
+unset($_SESSION['content']);
+unset($_SESSION['description']);
+unset($_SESSION['publicKey']);
+ 
+$_SESSION['publicKey'] = $publicKey;
+card();
 }
                                           
  ?>
-  
-                 
- 
-                           
-                </div>
+  </div>
               </div>
     
          
