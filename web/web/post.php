@@ -237,6 +237,9 @@ if (isset($_POST['event_type'])) {
       
 
     
+ $userid = $_SESSION['id'];
+
+ echo "id:= ".$userid.' key:= '.$publicKey;
  
 // Create connection
 //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
@@ -701,6 +704,17 @@ unset($_SESSION['content']);
 unset($_SESSION['description']);
 unset($_SESSION['publicKey']);
 
+$pieces = [];
+$keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $max = mb_strlen($keyspace, '8bit') - 1;
+    for ($i = 0; $i < 15; $i++) {
+        $pieces []= $keyspace[random_int(0, $max)];
+    }
+
+$publicKey = implode('', $pieces);
+
+$_SESSION['publicKey'] = $publicKey;
+
 // use key through process 
   echo '    <h3 class="title">Welcome..</h3><h4 class="title">Select your event</h2>
               <form  method="post" action="post.php">
@@ -716,21 +730,8 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
 }
     echo '</select><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2">next</button></div></form>';
 
-
-$pieces = [];
-$keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $max = mb_strlen($keyspace, '8bit') - 1;
-    for ($i = 0; $i < $length; $i++) {
-        $pieces []= $keyspace[random_int(0, $max)];
-    }
-
-$publicKey = implode('', $pieces);
-
-$_SESSION['publicKey'] = $publicKey;
-
- $userid = $_SESSION['id'];
-
- echo "id:= ".$userid.' key:= '.$publicKey;
+ 
+ 
 
 
 card();
