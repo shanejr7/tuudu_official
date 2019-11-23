@@ -126,51 +126,51 @@ if (!isset($_SESSION['username'])) {
       
 
  
-function card(){
+// function card(){
  
- $userid = $_SESSION['id'];
- if (isset($_SESSION['publicKey'])) {
-   $publickey = trim($_SESSION['publicKey']); 
-}
+//  $userid = $_SESSION['id'];
+//  if (isset($_SESSION['publicKey'])) {
+//    $publickey = trim($_SESSION['publicKey']); 
+// }
  
-// Create connection
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-$db = pg_connect(getenv("DATABASE_URL"));
-// Check connection
-if (!$db) {
-     die("Connection failed: " . pg_connect_error());
-}
+// // Create connection
+// //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+// $db = pg_connect(getenv("DATABASE_URL"));
+// // Check connection
+// if (!$db) {
+//      die("Connection failed: " . pg_connect_error());
+// }
 
-// update user image
- $data = pg_query($db,"SELECT DISTINCT img, title, organization_name as name, description, content
-  FROM public.organization WHERE id = $userid AND publickey= '$publickey' LIMIT 1");
+// // update user image
+//  $data = pg_query($db,"SELECT DISTINCT img, title, organization_name as name, description, content
+//   FROM public.organization WHERE id = $userid AND publickey= '$publickey' LIMIT 1");
 
- $event_card = pg_fetch_assoc($data);
+//  $event_card = pg_fetch_assoc($data);
 
- if ($event_card['img']) {
-   $_SESSION['img_src'] = $event_card['img'];
- }
-  if ($event_card['name']) {
-   $_SESSION['name'] = $event_card['name'];
+//  if ($event_card['img']) {
+//    $_SESSION['img_src'] = $event_card['img'];
+//  }
+//   if ($event_card['name']) {
+//    $_SESSION['name'] = $event_card['name'];
    
- }
-  if ($event_card['title']) {
-   $_SESSION['eventTitle'] = $event_card['title'];
- }
-  if ($event_card['description']) {
-   $_SESSION['description'] = $event_card['description'];
- }
-  if ($event_card['content']) {
-   $_SESSION['content'] = $event_card['content'];
- }
+//  }
+//   if ($event_card['title']) {
+//    $_SESSION['eventTitle'] = $event_card['title'];
+//  }
+//   if ($event_card['description']) {
+//    $_SESSION['description'] = $event_card['description'];
+//  }
+//   if ($event_card['content']) {
+//    $_SESSION['content'] = $event_card['content'];
+//  }
 
 
 
-pg_close($db);
- }
+// pg_close($db);
+//  }
  
 
-card();
+// card();
 ?>
 
     <div class="container">
