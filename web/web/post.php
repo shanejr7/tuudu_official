@@ -233,9 +233,11 @@ if (isset($_POST['page']) && $_POST['page'] >1) {
 
 if (isset($_POST['event_type'])) {
  
-   $publicKey = $_SESSION['publicKey'] ;
+ $publicKey = $_SESSION['publicKey'];
       
  $userid = $_SESSION['id'];
+
+ echo "id:= ".$userid.' key:= '.$publicKey;
     
  
 // Create connection
