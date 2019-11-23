@@ -15,7 +15,7 @@ $event_related = array();
 // loops through rows until there is 0 rows
 if (pg_num_rows($sql) > 0) {
     // output data of each row
-    while($row = pg_fetch_assoc($result)) {
+    while($row = pg_fetch_assoc($sql)) {
       
       $event_push_arr[] = array("event_type" => $row["event_type"]);
 
