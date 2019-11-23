@@ -184,7 +184,7 @@ pg_close($conn);
                      <a href="profile.php?logout='1'" class="nav-link">logoff</a> 
                 </li>
                 <li class="nav-item ">
-                     <a href="profile.php?" class="nav-link">Dashboard</a> 
+                     <a href="profile.php" class="nav-link">Dashboard</a> 
                 </li>
             </ul>
 
@@ -193,16 +193,7 @@ pg_close($conn);
        
            
     </div>
- <!--     <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                <li class="nav-item active">
-                     <a href="profile.php?" class="nav-link">Dashboard</a> 
-                </li>
-                <li class="nav-item">
-                    
-                </li>
-            </ul>
-                </div> -->
+ 
 </nav>
 
  
@@ -216,8 +207,8 @@ pg_close($conn);
         <div class="container">
        <div class="row"> 
 <div class="col-md-4"></div>
-       	<h2 class="title">    <!-- <div id="paypal-button-container"></div> -->
-<?php /*adds orgnaization to schedule 
+       	<h2 class="title">     
+<?php /*adds to schedule
   *
   *
   *
@@ -233,7 +224,7 @@ pg_close($conn);
    $org_id = pg_escape_string($db, $_POST['org_id']);
    $ticket_amt = pg_escape_string($db, $_POST['ticket_amount']);
    $title = pg_escape_string($db, $_POST['eventTitle']);
-   $price = intval(pg_escape_string($db, $_POST['price']));
+   $price = doubleval(pg_escape_string($db, $_POST['price']));
    $price = $price * $ticket_amt;
 
 
@@ -296,7 +287,7 @@ echo ' <script>
             // PayPal Client IDs - replace with your own
             // Create a PayPal app: https://developer.paypal.com/developer/applications/create
             client: {
-                sandbox:"qqq",
+                sandbox:"",
                 production:"'.$organization_privatekey_paypal.'"
 
 
@@ -425,11 +416,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 }
 
      ?>       
-  
-                 <!--  <h4 class="info-title">Ticket</h4> -->
-                <!--   <p class="description">
-                    We&apos;ve created the marketing campaign of the website. It was a very interesting collaboration.
-                  </p> -->
+   
                 </div>
               </div>
               
@@ -461,10 +448,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                     if(isset($order_list)){echo  $order_list[0]["address"].'</h3>
             </div>' ; }   
                     }        
-
-
-
-                    ?>
+   ?>
         
             	 
           </div>
@@ -488,11 +472,6 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
               About Us
             </a>
           </li>
-         <!--  <li>
-            <a href="http://blog.creative-tim.com">
-              Blog
-            </a>
-          </li> -->
           <li>
            <a href="https://www.Aeravi.io">
               Licenses
@@ -545,29 +524,6 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
     });
   </script>
 
-<!--   <nav id="cd-vertical-nav">
-    <ul>
-      <li>
-        <a href="#nav" data-number="1">
-          <span class="cd-dot"></span>
-          <span class="cd-label">Top</span>
-        </a>
-      </li>
-      <li>
-        <a href="#body" data-number="2">
-          <span class="cd-dot"></span>
-          <span class="cd-label">Content</span>
-        </a>
-      </li>
-      <li>
-        <a href="#footer" data-number="3">
-          <span class="cd-dot"></span>
-          <span class="cd-label">Bottom</span>
-        </a>
-      </li>
-    
-    </ul>
-  </nav> -->
 </body>
 
 </html>

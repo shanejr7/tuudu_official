@@ -453,7 +453,7 @@ $email= filter_var($_POST['email'], FILTER_SANITIZE_STRING);
 $email = preg_replace('/[^A-Za-z0-9\-].@/', '', $email);
 if (!filter_var($email,FILTER_VALIDATE_EMAIL)) { array_push($errors, "Email is invalid"); }
 $name= filter_var($_POST['name'], FILTER_SANITIZE_STRING);   
-$name = preg_replace('/[^A-Za-z0-9\-]/', '', $name);
+$name = preg_replace('/[^A-Za-z0-9\-]/', ' ', $name);
 $_SESSION['name'] = $name;
  
 
@@ -694,7 +694,13 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
 
 }else if($page ==1 || $_POST['page']==1){
 
- 
+unset($_SESSION['img_src']);
+unset($_SESSION['name']);
+unset($_SESSION['eventTitle']);
+unset($_SESSION['content']);
+unset($_SESSION['description']);
+unset($_SESSION['publicKey']);
+
 // use key through process 
   echo '    <h3 class="title">Welcome..</h3><h4 class="title">Select your event</h2>
               <form  method="post" action="post.php">
@@ -709,16 +715,11 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
   } 
 }
     echo '</select><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2">next</button></div></form>';
-    
+
 $publicKey = random_str(9, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 $publicKey = filter_var($publicKey, FILTER_SANITIZE_STRING); 
 $publicKey = ltrim($publicKey," ");
-unset($_SESSION['img_src']);
-unset($_SESSION['name']);
-unset($_SESSION['eventTitle']);
-unset($_SESSION['content']);
-unset($_SESSION['description']);
-unset($_SESSION['publicKey']);
+ 
  
 $_SESSION['publicKey'] = $publicKey;
 card();
@@ -755,11 +756,6 @@ card();
               About Us
             </a>
           </li>
-          <!-- <li>
-            <a href="http://blog.creative-tim.com">
-              Blog
-            </a>
-          </li> -->
           <li>
             <a href="https://www.Aeravi.io">
               Licenses

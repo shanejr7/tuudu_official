@@ -209,11 +209,6 @@
               About Us
             </a>
           </li>
-          <!-- <li>
-            <a href="http://blog.creative-tim.com">
-              Blog
-            </a>
-          </li> -->
           <li>
             <a href="https://www.Aeravi.io">
               Licenses

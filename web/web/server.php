@@ -1,4 +1,6 @@
 <?php
+
+
 // initializing variables
 // later add first and last name
 session_start();

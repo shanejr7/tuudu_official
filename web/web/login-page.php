@@ -73,15 +73,7 @@
                      ?>
           
         </div>
-     <!--  <div  class="collapse navbar-collapse col-lg-5">
-         <ul class="navbar-nav">
-                <li class="nav-item  ">
-                    <a href="portal-signup.php" class="nav-link">Oranization?</a>
-                </li>
-                 
-               
-            </ul>
-      </div> -->
+    
     </div>
 </nav>
  
@@ -188,11 +180,6 @@
               About Us
             </a>
           </li>
-          <!-- <li>
-            <a href="http://blog.creative-tim.com">
-              Blog
-            </a>
-          </li> -->
           <li>
             <a href="https://www.Aeravi.io">
               Licenses

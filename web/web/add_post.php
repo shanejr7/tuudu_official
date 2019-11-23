@@ -29,8 +29,8 @@ $db = pg_connect(getenv("DATABASE_URL"));
  // have a prompt confirming submission of event
     // when string start with it
     				// use ="e.$val" to get pop up for submission if wanted
-                  $val = random_str(12, '0123456789abcdfghijklmnopqrstuvwxyz');
- header('location: profile.php?dashboard='.$val.'');
+                  // $val = random_str(12, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+ header('location: profile.php');
  
 }elseif (isset($_POST['push_no_payment'])) {
 
@@ -52,9 +52,9 @@ $db = pg_connect(getenv("DATABASE_URL"));
     pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp' WHERE publickey = '$publickey' AND id =$userid");
 
  				// use val "=e.val."  to get pop up for submission if wanted
-               $val = random_str(12, '0123456789abcdfghijklmnopqrstuvwxyz');
+               // $val = random_str(12, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
                
- header('location: profile.php?dashboard='.$val.'');
+ header('location: profile.php');
 
  
 }

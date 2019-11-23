@@ -99,30 +99,7 @@
 
 <body class="profile-page  sidebar-collapse">
  
-<?php 
-
-
-  
-   if (isset($_GET['dashboard'])) {
-  
-     $string = str_split($_GET['dashboard']);
-    
-     if ($string[0]== "e") {
-    
-       // dropdown thank u submission
-      echo '<script type="text/javascript">
- $(function() {
-        $("#posted").trigger("click");
-    });
  
-</script>
-';
-
-     }
-   }
-
-// strtotime() for military to 12-hour clock
-?>
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container">
  <!-- 
@@ -147,15 +124,7 @@
                     <h4 class="card-title">Account</h4>
                     <div class="social-line">
                     <div class="media row">
-
-                    <?php
-                   // img uploader
-                     ?>
-                   
-                    <!-- <div class="media-body col-md-7">
-              
-                   
-                    </div> -->
+ 
                   </div>
                      <h7>&#xB7; <?php echo $_SESSION['email']?></h7>
                       </a>
@@ -312,32 +281,6 @@
           </div>
         </div>
 
-
-
-
-<input type="hidden" class="btn btn-primary" id="posted" data-toggle="modal" data-target="#exampleModal">
- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title title" id="exampleModalLabel">Event Posted</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Your event has been posted. Thank you!</p>
-        <p><?php echo date('h:i:s A'); ?></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="close" class="btn btn-primary" data-dismiss="modal">Close</button>
-         
-      </div>
-    </div>
-  </div>
-</div>
-
-
  
 <!-- <script type="text/javascript">
   
@@ -443,7 +386,7 @@ if (isset($dashboard_list)  ) {
 
               echo '<div class="col-md-4">';
 
-             // echo '<a href="#">';
+             
 
              echo '<div class="contain">';
 
@@ -471,8 +414,7 @@ if (isset($dashboard_list)  ) {
                         <a href="subscription.php?subscribe='.trim($item['publickey']).'">
                         <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
 
-                        // href="feed_state.php?val='.trim($item['org_id']).'"
-                        // delete_outline 
+           
                   echo '<div class="bottom-right" style="font-weight: bolder;">
                          <a href="order_page.php?order='.$item['publickey'].'"<i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
 
@@ -482,7 +424,7 @@ if (isset($dashboard_list)  ) {
 
                 echo '</div>';
               
-              // echo '</a>';
+          
               
             echo '</div>';
           
@@ -671,11 +613,7 @@ if (sizeof($schedule_list) ==1) {
                    
                   echo '<div class="bottom-right" style="font-weight: bolder;">
                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons">add_shopping_cart</i></a></div>';
-
  
-                   
-                  
-            
 
                 echo '</div>';
               
@@ -714,11 +652,6 @@ if (sizeof($schedule_list) ==1) {
               About Us
             </a>
           </li>
-          <!-- <li>
-            <a href="http://blog.creative-tim.com">
-              Blog
-            </a>
-          </li> -->
           <li>
             <a href="https://www.Aeravi.io">
               Licenses
