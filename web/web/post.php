@@ -704,14 +704,15 @@ unset($_SESSION['content']);
 unset($_SESSION['description']);
 unset($_SESSION['publicKey']);
 
-$pieces = [];
-$keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $max = mb_strlen($keyspace, '8bit') - 1;
-    for ($i = 0; $i < 15; $i++) {
-        $pieces []= $keyspace[random_int(0, $max)];
-    }
+ $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+ $randomString = ''; 
+  
+    for ($i = 0; $i < 15; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
 
-$publickey = implode('', $pieces);
+$publickey = $randomString;
 
 $_SESSION['publicKey'] = $publickey;
 
