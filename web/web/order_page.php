@@ -278,30 +278,21 @@ pg_close($conn);
 
             echo '<div class="col-md-12" id="paypal-button-container"></div>';
 
-echo ' <script>
-      
-        paypal.Button.render({
 
-            env: "production", // sandbox | production
-
-            // PayPal Client IDs - replace with your own
-            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
-            client: {
-                sandbox:"",
-                production:"'.$organization_privatekey_paypal.'"
-
-
-            },
-
-            // Show the buyer a "Pay Now" button in the checkout flow
-            commit: true,
-
-            // payment() is called when the button is clicked
-            payment: function(data, actions) {
-
-                // Make a call to the REST api to create the payment
-                return actions.payment.create({
-                    payment: {
+            echo ' 
+<script src="https://www.paypal.com/sdk/js?client-id='.$organization_privatekey_paypal.'&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script>
+    paypal.Buttons({
+        style: {
+            shape: "rect",
+            color: "gold",
+            layout: "vertical",
+            label: "paypal",
+            
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                 payment: {
                         "transactions": [
                             {
 
@@ -312,33 +303,17 @@ echo ' <script>
                          
                             }
 
-                        ] 
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert("Transaction completed by " + details.payer.name.given_name + '!');
+            });
+        }
+    }).render("#paypal-button-container");
+</script>'
 
-
-                    }
-                });
-            },
-
-            // onAuthorize() is called when the buyer approves the payment
-            onAuthorize: function(data, actions) {
-
-                // Make a call to the REST api to execute the payment
-                return actions.payment.execute().then(function() {
-   
-                    loadDoc();
-                
-                   
-                });
-            }
-
-
-
-        }, "#paypal-button-container");
-                              function loadDoc() {
-                                //window.location.replace("location:profile.php");
-
-}
-    </script>';
+ 
 
   //header('location:profile.php');
 

@@ -672,9 +672,9 @@ if (sizeof($schedule_list) ==1) {
     document.getElementById("refresh").onclick = function () {
         location.href = "profile.php";
     };
-       document.getElementById("close").onclick = function () {
-        location.href = "profile.php";
-    };
+    //    document.getElementById("close").onclick = function () {
+    //     location.href = "profile.php";
+    // };
 </script>
   
   <!--   Core JS Files   -->

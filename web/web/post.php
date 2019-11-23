@@ -776,7 +776,7 @@ card();
         &copy;
         <script>
           document.write(new Date().getFullYear())
-        </script>, created by 
+        </script> created by 
         <a href="https://www.aeravi.io">Aeravi</a>.
       </div>
     </div>
