@@ -159,12 +159,7 @@
                     </label>
                     <a href="#">  <button type="button" class="btn btn-info radius-50 btn-sm" style="background-color: orange;" data-toggle="modal" data-target="#exampleModal">policy agreement</button></a>
                 </div>
-               <!--  <div class="collapse" id="collapseExample"> -->
- <!--  <div class="card card-body">
-    by accepting this agreement and terms with using our services. you agree that all transactions and events are binded to independent third party oraganizations in which our services only provides data without any association to third party organizations. accepting these terms our services is allowed to use data of your liking to provide events and or activitites.
-  </div>
-</div> -->
-        <!--         <p>by accepting this agreement and terms with using our services. you agree that all transactions and events are binded to independent third party oraganizations in which our services only provides data without any association to third party organizations. accepting these terms our services is allowed to use data of your liking to provide events and or activitites. </p> -->
+  
                     <?php include('reCAPTCHA-v3/index.php') ?>
               <!-- </div> -->
               <div class="footer text-center">
