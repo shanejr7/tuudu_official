@@ -233,13 +233,13 @@ if (isset($_POST['page']) && $_POST['page'] >1) {
 
 if (isset($_POST['event_type'])) {
  
- $publicKey = $_SESSION['publicKey'];
+ $publickey = $_SESSION['publicKey'];
       
 
     
  $userid = $_SESSION['id'];
 
- echo "id:= ".$userid.' key:= '.$publicKey;
+ echo "id:= ".$userid.' key:= '.$publickey;
  
 // Create connection
 //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
@@ -711,9 +711,9 @@ $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $pieces []= $keyspace[random_int(0, $max)];
     }
 
-$publicKey = implode('', $pieces);
+$publickey = implode('', $pieces);
 
-$_SESSION['publicKey'] = $publicKey;
+$_SESSION['publicKey'] = $publickey;
 
 // use key through process 
   echo '    <h3 class="title">Welcome..</h3><h4 class="title">Select your event</h2>
