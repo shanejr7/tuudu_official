@@ -235,9 +235,7 @@ if (isset($_POST['event_type'])) {
  
  $publicKey = $_SESSION['publicKey'];
       
- $userid = $_SESSION['id'];
 
- echo "id:= ".$userid.' key:= '.$publicKey;
     
  
 // Create connection
@@ -718,12 +716,23 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
 }
     echo '</select><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2">next</button></div></form>';
 
-$publicKey = random_str(9, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-$publicKey = filter_var($publicKey, FILTER_SANITIZE_STRING); 
-$publicKey = ltrim($publicKey," ");
- 
- 
+
+$pieces = [];
+$keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $max = mb_strlen($keyspace, '8bit') - 1;
+    for ($i = 0; $i < $length; $i++) {
+        $pieces []= $keyspace[random_int(0, $max)];
+    }
+
+$publicKey = implode('', $pieces);
+
 $_SESSION['publicKey'] = $publicKey;
+
+ $userid = $_SESSION['id'];
+
+ echo "id:= ".$userid.' key:= '.$publicKey;
+
+
 card();
 }
                                           
