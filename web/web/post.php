@@ -98,8 +98,12 @@ if (!isset($_SESSION['username'])) {
                 <li class="nav-item active">
                     <a href="login-page.php?logout='1'" class="nav-link">LOGOFF</a>
                 </li>
-                <li class="nav-item">
+        
                   <?php
+
+echo '<li class="nav-item">';
+
+
                     function random_str($length, $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
 {
     $pieces = [];
@@ -110,11 +114,13 @@ if (!isset($_SESSION['username'])) {
     return implode('', $pieces);
 }
                   $val = random_str(12, '0123456789abcdefghijklmnopqrstuvwxyz');
-                  echo '<a href="profile.php?dashboard='.$val.'" class="nav-link">DASHBOARD</a>'; ?>
+                  echo '<a href="profile.php?dashboard='.$val.'" class="nav-link">DASHBOARD</a>'; 
+
+                  echo ' </li>
+                  </ul>';
+    ?>
                     
-                </li>
-               
-            </ul>
+                
        <?php 
                      // error appears if search value cant be found //
                      if(isset($_GET['val'])){
@@ -123,60 +129,112 @@ if (!isset($_SESSION['username'])) {
                      }
                      echo '</div></div>
                      </nav>'; 
+      
 
-                     echo '<div class="container">
+ 
+function card(){
+ 
+ $userid = $_SESSION['id'];
+ if (isset($_SESSION['publicKey'])) {
+   $publickey = trim($_SESSION['publicKey']); 
+}
+ 
+// Create connection
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
+// Check connection
+if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+}
+
+// update user image
+ $data = pg_query($db,"SELECT DISTINCT img, title, organization_name as name, description, content
+  FROM public.organization WHERE id = $userid AND publickey= '$publickey' LIMIT 1");
+
+ $event_card = pg_fetch_assoc($data);
+
+ if ($event_card['img']) {
+   $_SESSION['img_src'] = $event_card['img'];
+ }
+  if ($event_card['name']) {
+   $_SESSION['name'] = $event_card['name'];
+   
+ }
+  if ($event_card['title']) {
+   $_SESSION['eventTitle'] = $event_card['title'];
+ }
+  if ($event_card['description']) {
+   $_SESSION['description'] = $event_card['description'];
+ }
+  if ($event_card['content']) {
+   $_SESSION['content'] = $event_card['content'];
+ }
+
+
+
+pg_close($db);
+ }
+ 
+
+card();
+?>
+
+    <div class="container">
         <div class="row">
           <div class="col-lg-5">
-              <div class="col-md-12 mr-auto">';
-if (isset($_SESSION['img_src'])){
-  echo '<div class="card card-background" style="background-image:url('.$_SESSION['img_src'].')">';
-}else{
-  echo '<div class="card card-background" style="background-image:url("../assets/img/image_placeholder.jpg")">';
-}
-  
-  echo '<a href="#pablo"></a>
-                <div class="card-body">';
+              <div class="col-md-12 mr-auto">
+              <div class="card card-background" style="<?php if (isset($_SESSION['img_src'])){
+                echo 'background-image:url('.$_SESSION['img_src'].')';
+              }else{echo "background-image:url('../assets/img/image_placeholder.jpg')";} ?> ">
+                <a href="#pablo"></a>
+                <div class="card-body">
+                  <span class="badge badge-rose"><?php if (isset($_SESSION['name'])) {
+                    echo $_SESSION['name'];
+                  }else{echo "name";} ?></span>
+                  <a href="#pablo">
+                    <h2 class="card-title"><?php if (isset($_SESSION['eventTitle'])) {
+                    echo $_SESSION['eventTitle'];
+                  }else{echo "title";} ?></h2>
+                  </a>
+                  <p class="card-description">
+                   <?php if (isset($_SESSION['description'])) {
+                    echo $_SESSION['description'];
+                  }else{echo "description";} ?></p>
 
-if (isset($_SESSION['name'])) {
-                    echo '<span class="badge badge-rose">'.$_SESSION['name'].'</span>';
-                  }else{echo '<span class="badge badge-rose">name</span>';}
+                    
+                </div>
+                  <div class="card-footer">
+                
+                  <p class="card-description">
+                   <?php if (isset($_SESSION['content'])) {
+                    echo $_SESSION['content'];
+                  }else{echo "content";} ?></p>
+
+                    
+                </div>
+               
+              </div>
  
-  echo ' <a href="#pablo">';
-
-
-if (isset($_SESSION['eventTitle'])) {
-                    echo '<h2 class="card-title">'.$_SESSION['eventTitle'].'</h2>';
-                  }else{echo '<h2 class="card-title">title</h2>';}
-    echo '</a>';
-
-if (isset($_SESSION['description'])) {
-                    echo ' <p class="card-description">'.$_SESSION['description'].'</p>';
-                  }else{echo '<p class="card-description">description</p>';}
-
-echo '</div>';
-
-echo '<div class="card-footer">';
- 
-                if (isset($_SESSION['content'])) {
-                    echo '<p class="card-description">'.$_SESSION['content'].'</p>';
-                  }else{echo '<p class="card-description">content</p>';}
-
-echo '      </div>
+            </div>
+            
           </div>
-        </div>
-      </div>';
+       
 
-
-      echo '        <div class="col-lg-7 mr-auto">
+            <div class="col-lg-7 mr-auto">
          <div class="card card-login">
           
       <div class="col-lg-8">
                      <!-- <h1 class="title">event submission</h1>
  -->                <div class="main object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
-                <div class="form-block p-30" style="margin-top: 5em; margin-left: 2em;" >';
-                    
-               
-$page =1;
+                <div class="form-block p-30" style="margin-top: 5em; margin-left: 2em;" >
+         
+ 
+                    <?php 
+
+
+ 
+
+ $page =1;
  $counter = 0;
 
  
@@ -679,8 +737,13 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
 }
     echo '</select><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2">next</button></div></form>';
 }
-
-echo '          </div>
+                                          
+ ?>
+  
+                 
+ 
+                           
+                </div>
               </div>
     
          
@@ -695,58 +758,7 @@ echo '          </div>
       </br>
       </br>        
           </div>
-    </div>';
- 
-function card(){
- 
- $userid = $_SESSION['id'];
- if (isset($_SESSION['publicKey'])) {
-   $publickey = trim($_SESSION['publicKey']); 
-}
- 
-// Create connection
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-$db = pg_connect(getenv("DATABASE_URL"));
-// Check connection
-if (!$db) {
-     die("Connection failed: " . pg_connect_error());
-}
-
-// update user image
- $data = pg_query($db,"SELECT DISTINCT img, title, organization_name as name, description, content
-  FROM public.organization WHERE id = $userid AND publickey= '$publickey' LIMIT 1");
-
- $event_card = pg_fetch_assoc($data);
-
- if ($event_card['img']) {
-   $_SESSION['img_src'] = $event_card['img'];
- }
-  if ($event_card['name']) {
-   $_SESSION['name'] = $event_card['name'];
-   
- }
-  if ($event_card['title']) {
-   $_SESSION['eventTitle'] = $event_card['title'];
- }
-  if ($event_card['description']) {
-   $_SESSION['description'] = $event_card['description'];
- }
-  if ($event_card['content']) {
-   $_SESSION['content'] = $event_card['content'];
- }
-
-
-
-pg_close($db);
- }
- 
-
-card();
-?>
-
-
-  
-    
+    </div>
   <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">
