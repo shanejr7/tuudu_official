@@ -280,7 +280,7 @@ pg_close($conn);
 
 
             echo ' 
-<script src="https://www.paypal.com/sdk/js?client-id='.$organization_privatekey_paypal.'&currency=USD" data-sdk-integration-source="button-factory"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AXg10y3D3xzUHtFkynnIvGFvEvPOSe1WAzuTA-3U4T3IWeSoukrOz1CdzB7OcUQfhW4hFOKzcPL7R4OD&currency=USD" data-sdk-integration-source="button-factory"></script>
 <script>
     paypal.Buttons({
         style: {
@@ -292,26 +292,20 @@ pg_close($conn);
         },
         createOrder: function(data, actions) {
             return actions.order.create({
-                 payment: {
-                        "transactions": [
-                            {
-
-                              "amount": { total: '.$price.', currency: "USD"}, "quantity": "'.$ticket_amt.'",
-
-
-                               
-                         
-                            }
-
+                purchase_units: [{
+                    amount: {
+                        value: "0.01"
+                    } 
+                }]
             });
         },
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(details) {
-                alert("Transaction completed by " + details.payer.name.given_name + '!');
+                alert("Transaction completed by " + details.payer.name.given_name + "!");
             });
         }
     }).render("#paypal-button-container");
-</script>'
+</script>';
 
  
 
