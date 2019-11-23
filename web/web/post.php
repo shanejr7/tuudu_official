@@ -9,11 +9,11 @@ $event_push_arr = array();
 //array for the word_tags with itag related
 $event_related = array();
 // query
-$sql = "SELECT DISTINCT event_type FROM word_tag";
-$result = pg_query($conn,$sql);
+ $sql = pg_query($conn, "SELECT DISTINCT event_type FROM word_tag");
+ 
 
 // loops through rows until there is 0 rows
-if (pg_num_rows($result) > 0) {
+if (pg_num_rows($sql) > 0) {
     // output data of each row
     while($row = pg_fetch_assoc($result)) {
       
@@ -121,19 +121,10 @@ if (!isset($_SESSION['username'])) {
  
                   echo '<span class="text-warning btn-md-link" style="margin-left: 21em;">cant find topic<i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>';
                      }
-                     echo '        </div>
-    
-    </div>
-</nav>'; 
+                     echo '</div></div>
+                     </nav>'; 
       
- 
-   
- 
 
- 
- 
-      
- 
  
 function card(){
  
@@ -151,7 +142,7 @@ if (!$db) {
 }
 
 // update user image
- $data = pg_query($db,$sql = "SELECT DISTINCT img, title, organization_name as name, description, content
+ $data = pg_query($db,"SELECT DISTINCT img, title, organization_name as name, description, content
   FROM public.organization WHERE id = $userid AND publickey= '$publickey' LIMIT 1");
 
  $event_card = pg_fetch_assoc($data);
@@ -179,7 +170,7 @@ pg_close($db);
  }
  
 
-
+card();
 ?>
 
     <div class="container">
@@ -266,7 +257,7 @@ if (!$db) {
 }
 
 // update user image
- pg_query($db,$sql = "INSERT INTO public.organization(id,publickey)
+ pg_query($db,"INSERT INTO public.organization(id,publickey)
     VALUES ($userid,'$publicKey')");
 pg_close($db);
  card();
@@ -319,7 +310,7 @@ if (!$db) {
 }
 
 // update user image
- pg_query($db,$sql = "UPDATE public.organization SET word_tag ='$word_tag' WHERE id= $userid AND publickey = '$publickey'");
+ pg_query($db,"UPDATE public.organization SET word_tag ='$word_tag' WHERE id= $userid AND publickey = '$publickey'");
  
 
 pg_close($db);
@@ -407,7 +398,7 @@ if (!$db) {
 }
 
 // update user image
- pg_query($db,$sql = "UPDATE public.organization SET title ='$eventTitle', description = '$description', content = '$content', img='$image_src' WHERE id= $userid AND publickey = '$publickey'");
+ pg_query($db,"UPDATE public.organization SET title ='$eventTitle', description = '$description', content = '$content', img='$image_src' WHERE id= $userid AND publickey = '$publickey'");
  
 
 pg_close($db);
@@ -486,7 +477,7 @@ if (!$db) {
 }
 
 // update user image
- pg_query($db,$sql = "UPDATE public.organization SET phonenumber ='$phoneNumber', email = '$email', organization_name = '$name' WHERE id= $userid AND publickey = '$publickey'");
+ pg_query($db,"UPDATE public.organization SET phonenumber ='$phoneNumber', email = '$email', organization_name = '$name' WHERE id= $userid AND publickey = '$publickey'");
  
 
 pg_close($db);
@@ -589,7 +580,7 @@ if (!$db) {
 }
 
 // update user image
- pg_query($db,$sql = "UPDATE public.organization SET date ='$date', time = '$time' WHERE id= $userid AND publickey = '$publickey'");
+ pg_query($db,"UPDATE public.organization SET date ='$date', time = '$time' WHERE id= $userid AND publickey = '$publickey'");
  
 
 pg_close($db);
@@ -645,7 +636,7 @@ if (!$db) {
 }
 
 // update user image
- pg_query($db,$sql = "UPDATE public.organization SET url ='$url', address = '$address' WHERE id= $userid AND publickey = '$publickey'");
+ pg_query($db,"UPDATE public.organization SET url ='$url', address = '$address' WHERE id= $userid AND publickey = '$publickey'");
  
 
 pg_close($db);
@@ -834,18 +825,4 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
 
 </html>
 
-<!-- <input type="hidden" name="event_type" value="'.$_SESSION['event_type'].'" />
-                  <input type="hidden" name="word_tags" value="'.$_SESSION['word_tags'].'" />
-                  <input type="hidden" name="id" value="'.$_SESSION['id'].'" />
-                  <input type="hidden" name="name" value=" '.$_SESSION['name'].'" />
-                  <input type="hidden" name="title" value="'.$_SESSION['eventTitle'].'" />
-                  <input type="hidden" name="phoneNumber" value=" '.$_SESSION['phoneNumber'].'" />
-                  <input type="hidden" name="email" value="'.$_SESSION['email_temp'].'" />
-                  <input type="hidden" name="publicKey" value="'.$_SESSION['publicKey'].'" />
-                  <input type="hidden" name="address" value="'.$_SESSION['address'].'" />
-                     <input type="hidden" name="date" value="'.$_SESSION['date'].'" />
-                <input type="hidden" name="time" value="'.$_SESSION['startTime'].'-'.$_SESSION['endTime'].'" />
-                  <input type="hidden" name="url" value="'.$_SESSION['url'].'" />
-                  
-                   <input type="hidden" name="description" value="'.$_SESSION['description'].'" />
-                    <input type="hidden" name="content" value="'.$_SESSION['content'].'" /> -->
+ 
