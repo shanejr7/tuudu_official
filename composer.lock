@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e880aec749e241237c0535272d325cd0",
+    "content-hash": "9ebe9deea7a0174c6643f3e50486a696",
     "packages": [
+        {
+            "name": "sendgrid/php-http-client",
+            "version": "3.9.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sendgrid/php-http-client.git",
+                "reference": "e9a04d949ee2d19938ab83dc100933a3b41a8ec7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sendgrid/php-http-client/zipball/e9a04d949ee2d19938ab83dc100933a3b41a8ec7",
+                "reference": "e9a04d949ee2d19938ab83dc100933a3b41a8ec7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SendGrid\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Bernier",
+                    "email": "dx@sendgrid.com"
+                },
+                {
+                    "name": "Elmer Thomas",
+                    "email": "elmer@thinkingserious.com"
+                }
+            ],
+            "description": "HTTP REST client, simplified for PHP",
+            "homepage": "http://github.com/sendgrid/php-http-client",
+            "keywords": [
+                "api",
+                "fluent",
+                "http",
+                "rest",
+                "sendgrid"
+            ],
+            "time": "2018-04-10T18:06:08+00:00"
+        }
+    ],
+    "packages-dev": [
         {
             "name": "alrik11es/cowsayphp",
             "version": "1.2.0",
@@ -59,6 +113,50 @@
                 "cowsay"
             ],
             "time": "2016-08-25T07:53:44+00:00"
+        },
+        {
+            "name": "heroku/heroku-buildpack-php",
+            "version": "v121",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heroku/heroku-buildpack-php.git",
+                "reference": "727aa850a02a7af94c9225237464be8e8c8ff6db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/727aa850a02a7af94c9225237464be8e8c8ff6db",
+                "reference": "727aa850a02a7af94c9225237464be8e8c8ff6db",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/heroku-hhvm-apache2",
+                "bin/heroku-hhvm-nginx",
+                "bin/heroku-php-apache2",
+                "bin/heroku-php-nginx"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Zuelke",
+                    "email": "dz@heroku.com"
+                }
+            ],
+            "description": "Toolkit for starting a PHP application locally, with or without foreman, using the same config for PHP/HHVM and Apache2/Nginx as on Heroku",
+            "homepage": "https://github.com/heroku/heroku-buildpack-php",
+            "keywords": [
+                "apache",
+                "apache2",
+                "foreman",
+                "heroku",
+                "hhvm",
+                "nginx",
+                "php"
+            ],
+            "time": "2017-03-27T23:33:27+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -846,52 +944,6 @@
                 "templating"
             ],
             "time": "2017-03-22T15:41:51+00:00"
-        }
-    ],
-    "packages-dev": [
-        {
-            "name": "heroku/heroku-buildpack-php",
-            "version": "v121",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/heroku/heroku-buildpack-php.git",
-                "reference": "727aa850a02a7af94c9225237464be8e8c8ff6db"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/heroku/heroku-buildpack-php/zipball/727aa850a02a7af94c9225237464be8e8c8ff6db",
-                "reference": "727aa850a02a7af94c9225237464be8e8c8ff6db",
-                "shasum": ""
-            },
-            "bin": [
-                "bin/heroku-hhvm-apache2",
-                "bin/heroku-hhvm-nginx",
-                "bin/heroku-php-apache2",
-                "bin/heroku-php-nginx"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David Zuelke",
-                    "email": "dz@heroku.com"
-                }
-            ],
-            "description": "Toolkit for starting a PHP application locally, with or without foreman, using the same config for PHP/HHVM and Apache2/Nginx as on Heroku",
-            "homepage": "https://github.com/heroku/heroku-buildpack-php",
-            "keywords": [
-                "apache",
-                "apache2",
-                "foreman",
-                "heroku",
-                "hhvm",
-                "nginx",
-                "php"
-            ],
-            "time": "2017-03-27T23:33:27+00:00"
         }
     ],
     "aliases": [],
