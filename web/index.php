@@ -1,4 +1,4 @@
-<!-- <?php //header('location: web/login-page.php');?> -->
+ 
 
 <?php
 require('../vendor/autoload.php');
