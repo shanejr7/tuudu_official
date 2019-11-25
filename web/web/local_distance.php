@@ -20,34 +20,8 @@ function getDistance(array $location1, array $location2, $precision =0, $useMile
  return 0;
 } 
 
-// user & entitys location 
-/*could be more than one entity ..array storage*/
-// $ny = [40.758895,-73.9873197];
-// $la = [33.914329,-118.2849236];
-
-// echo getDistance($ny,$la). ' miles';
-?>
-
-
-  <script>
-  
-  
-// var x = document.getElementById("demo");
-
-// getLocation();
-// function getLocation() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(showPosition);
-//     } else { 
-//         x.innerHTML = "Geolocation is not supported by this browser.";
-//     }
-// }
-
-// function showPosition(position) {
-//     x.innerHTML = "Latitude: " + position.coords.latitude + 
-//     "<br>Longitude: " + position.coords.longitude;
-// }
-
-// if user location changed by 34 miles update cookie
  
-</script>
+?>
+<script type="text/javascript"></script>
+
+ 

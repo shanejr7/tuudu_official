@@ -85,7 +85,7 @@ if (isset($_SESSION['id'])) {
   $string = explode(" ", $string);
   $organization_publickey_arr = array();
    
-  // $db = pg_connect(getenv("DATABASE_URL"));
+  
  
 
     /* select all organizations with common string
@@ -415,20 +415,19 @@ $user_I_D = pg_escape_string($db, $_SESSION['id']);
 
  if (isset($_SESSION['id']) && isset($_POST['schedule']) && isset($_POST["free_event"])) {
 
-   // $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+   //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
     $db = pg_connect(getenv("DATABASE_URL"));
    $id = pg_escape_string($db, $_SESSION['id']);
    $organization_publickey = trim(pg_escape_string($db, $_POST['publickey']));
-   $organization_privatekey_paypal = trim(pg_escape_string($db, $_POST['privatekey']));
    $org_id = pg_escape_string($db, $_POST['org_id']);
    $ticket_amt = pg_escape_string($db, $_POST['ticket_amount']);
-   $title = pg_escape_string($db, $_POST['eventTitle']);
-   $price = intval(pg_escape_string($db, $_POST['price']));
+   $title = trim(pg_escape_string($db, $_POST['eventTitle']));
+   $price = doubleval(pg_escape_string($db, $_POST['price']));
    $price = $price * $ticket_amt;
 
 
-   $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount) 
-          VALUES($id,$org_id,'$organization_publickey',$ticket_amt)";
+   $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount,price,product_title) 
+          VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title')";
 
    pg_query($db, $query);
    

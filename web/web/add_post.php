@@ -11,17 +11,38 @@ if (isset($_POST['push'])) {
  $publickey = $_SESSION['publicKey'];
  $userid = $_SESSION['id'];
 
+ //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+// insert into 
+$db = pg_connect(getenv("DATABASE_URL")); 
+
 $privateKey =filter_var($_POST['privatekey'], FILTER_SANITIZE_STRING); // secret key payment for block
  
 $fiatValue =filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING); // value of block
  
-$timestamp = date('c');
+    $timezone = pg_escape_string($db, $_POST['timezone']);
+  
+
+
+  
+    $timezone = explode(" ", $timezone);
+    $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
+    $timezone_str = $timezone_str .' '.$timezone[4];
+
+    $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
+
+    date_default_timezone_set($zone);
+
+    $O = explode("-", $timezone[5]);
+ 
+
+    $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
+
+    $timestamp = $timezone_str;
  
  
 
-// $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-// insert into 
-$db = pg_connect(getenv("DATABASE_URL"));
+ 
+ 
     pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp' WHERE publickey = '$publickey' AND id =$userid");
  
 
@@ -37,17 +58,34 @@ $db = pg_connect(getenv("DATABASE_URL"));
 $publickey = $_SESSION['publicKey'];
 $userid = $_SESSION['id'];
 
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+// insert into 
+$db = pg_connect(getenv("DATABASE_URL"));
+
 $privateKey =filter_var('null', FILTER_SANITIZE_STRING); // secret key payment for block
 $privateKey = ltrim($privateKey," ");
 $fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of block
-$timestamp = date('c');
 
+	$timezone = pg_escape_string($db, $_POST['timezone']);
+  
+
+
+  
+    $timezone = explode(" ", $timezone);
+    $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
+    $timezone_str = $timezone_str .' '.$timezone[4];
+
+    $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
+
+    date_default_timezone_set($zone);
+
+    $O = explode("-", $timezone[5]);
  
 
+    $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
 
-// $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-// insert into 
-$db = pg_connect(getenv("DATABASE_URL"));
+    $timestamp = $timezone_str;
+  
 
     pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp' WHERE publickey = '$publickey' AND id =$userid");
 

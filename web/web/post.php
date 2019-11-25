@@ -1,7 +1,7 @@
 <?php include('server.php');
 include('add_post.php');
  
-// $conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+//$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
  $conn = pg_connect(getenv("DATABASE_URL"));
  
 $event_push_arr = array();
@@ -60,7 +60,23 @@ if (!isset($_SESSION['username'])) {
 <head>
   <meta charset="utf-8" />
    
-  <link rel="shortcut icon"  href="../assets/img/transparent_lg.png">
+ <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Post
@@ -74,6 +90,7 @@ if (!isset($_SESSION['username'])) {
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
+  
 
 
 </head>
@@ -156,7 +173,7 @@ pg_close($db);
  }
  
 
-card();
+ 
 ?>
 
     <div class="container">
@@ -244,6 +261,11 @@ $db = pg_connect(getenv("DATABASE_URL"));
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
 }
+
+ // removes duplicate from refreshing page 
+ $query = "DELETE FROM public.organization WHERE id = $userid AND publickey = '$publickey'";
+
+ pg_query($db, $query);
 
 // update user image
  pg_query($db,"INSERT INTO public.organization(id,publickey)
@@ -348,7 +370,7 @@ pg_close($db);
   </div>
                     </div></div>
 
-                </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg update" name="page" value="4" style="display:inline-block">next</button></form>';
+                </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg " name="page" value="4" style="display:inline-block">next</button></form>';
  
  
 }else if ($page ==4) {
@@ -432,7 +454,7 @@ pg_close($db);
                 </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="3" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="5" style="display:inline-block">next</button></form>';
 
 
-}elseif ($page ==5) {
+}elseif ($page ==5 || $_POST["page"]==5) {
 
 
   
@@ -440,9 +462,6 @@ pg_close($db);
  $userid = $_SESSION['id'];
  $publickey = $_SESSION['publicKey'];
 
-   if(isset($_POST['page'])) {
-
- 
  if (isset($_POST['phoneNumber'])) {
    # code...
   
@@ -470,10 +489,19 @@ if (!$db) {
  
 
 pg_close($db);
+
+}
+}
+   if(isset($_POST['page']) || isset($page)) {
+
+ 
+
  echo '<h2 class="title">Event | <span style="color:orange">time</span> (<strong>3/5</strong>)</h2>'; 
   
 
- echo '   <form method="post" action="post.php">
+ echo ' <script src="../assets/js/local.js"></script>   <form method="post" action="post.php">
+   <input type="hidden" name="timezone" value="" id="timezone">
+                 
                 <div class="form-group row">
                   <div class="col-sm-10">
                     <input type="time" name="startTime" class="form-control" id="inputTime" required>
@@ -497,8 +525,9 @@ pg_close($db);
  echo '<h2 class="title">Event | <span style="color:orange">contact</span> (<strong>2/5</strong>)</h2>'; 
    include 'errors.php';
 
- echo '   <form method="post" action="post.php">
-             
+ echo '    
+   <form method="post" action="post.php">
+              
                
                    <div class="form-group row">
     
@@ -533,9 +562,8 @@ pg_close($db);
  
   
  
- }
-
-}
+ 
+ 
  
 }elseif ($page==6) {
  
@@ -548,22 +576,38 @@ pg_close($db);
 
  
  if (isset($_POST['startTime'])) {
-    
+    // Create connection
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
+// Check connection
  
 $startTime = filter_var($_POST['startTime'], FILTER_SANITIZE_STRING);
 $endTime = filter_var($_POST['endTime'], FILTER_SANITIZE_STRING);
 $date = filter_var($_POST['date'], FILTER_SANITIZE_STRING); 
+$timezone = pg_escape_string($db, $_POST['timezone']);
+ 
 $time = $startTime.'-'.$endTime;
- 
-$time_in_24_hour_format  = date("H:i:sO", strtotime($startTime));  
-$date = $date.' '.$time_in_24_hour_format;
- 
+
+$timezone = explode(" ", $timezone);
+$zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
+
+date_default_timezone_set($zone);
+
+$O = explode("-", $timezone[5]);
+
+$startTime = date("H:i:s", strtotime($startTime)).''.date("O", strtotime($O[1])); 
+  
+
+
+$date = date("Y-m-d", strtotime($date)).' '.$startTime;
 
  
-// Create connection
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-$db = pg_connect(getenv("DATABASE_URL"));
-// Check connection
+  
+
+ 
+ 
+ 
+ 
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
 }
@@ -632,11 +676,14 @@ pg_close($db);
 echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>'; 
    echo "<h3><strong>payment method</strong><h3>";
 
- echo '   <form method="post" action="post.php"  style="display:inline-block">
+ echo ' <script src="../assets/js/local.js"></script>
 
+                    <form method="post" action="post.php"  style="display:inline-block">
+
+                     <input type="hidden" name="timezone" value="" id="timezone">
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <input type="text" name="privatekey" class="form-control" id="private" placeholder="paypal id" required>
+                    <input type="text" name="privatekey" class="form-control" id="private" placeholder="paypal client id" required>
                   </div>
                 </div> 
                  <div class="form-group row">
@@ -782,11 +829,11 @@ card();
     </div>
   </footer>
   </div>
-   <script type="text/javascript">
+<!--    <script type="text/javascript">
     document.getElementByClass("update").onclick = function () {
         location.href = "profile.php";
     };
-</script>
+</script> -->
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>

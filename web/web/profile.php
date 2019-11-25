@@ -21,24 +21,6 @@
     
    }
  
- 
-
-
-#2D51A3
-// account page:
-// possibly better to search by key words rather than using itagtype/names 
-
-// 2. if not equal the match will be rejected called a "fake"
-// 3. display daily ocassionally
-// 4. display future elements that are most recent to upcoming time
-// 5. some elements users made transactions already 
-// 6. some elements users did not make transactions 
-// 7. some elements do not need transactions if it has no intial fee
-// 8. this will be achieved by blockchain/child chain
-// 9. each entity can add element to their related iTagType in return generating their own unique iTagName
-// 10. in return tuduu gives IDs for users to select if they are related to the user Type selected
-// 11. the iTagType and iTagName will be given a special hash on the child chain for both user and entity to element each other 
- 
 
   if (!isset($_SESSION['username'])) {
    $_SESSION['msg'] = "You must log in first";
@@ -74,7 +56,23 @@
 <head>
   <meta charset="utf-8" />
   
-  <link rel="shortcut icon"  href="../assets/img/transparent_lg.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Profile
@@ -102,12 +100,6 @@
  
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container">
- <!-- 
-     <button class="btn btn-round" data-toggle="modal" data-target="#loginModal">
-    Profile<i class="material-icons">assignment</i>
-
-</button>exampleModal    modal fade    
- -->
  
 
 
@@ -282,20 +274,7 @@
         </div>
 
  
-<!-- <script type="text/javascript">
-  
-var dashboard_local_distance = <?php //echo json_encode($dashboard_list, JSON_PRETTY_PRINT) ?>;
-var size = dashboard_local_distance.length; 
-var count = 0;
-
-for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
-   geolocation(dashboard_local_distance[i].address,dashboard_local_distance[i].publickey,size,count);
-   count++;
-  
-}
-
-
-</script> -->
+   <script src="../assets/js/dashboard.js"></script>
 
         <div class="tab-content tab-space cd-section" id="body">
           <div class="tab-pane active text-center gallery section section-sections" id="studio">
@@ -663,7 +642,7 @@ if (sizeof($schedule_list) ==1) {
         &copy;
         <script>
           document.write(new Date().getFullYear())
-        </script>, created by 
+        </script> created by 
         <a href="https://www.aeravi.io" target="_blank">Aeravi</a>.
       </div>
     </div>
@@ -672,9 +651,7 @@ if (sizeof($schedule_list) ==1) {
     document.getElementById("refresh").onclick = function () {
         location.href = "profile.php";
     };
-    //    document.getElementById("close").onclick = function () {
-    //     location.href = "profile.php";
-    // };
+    
 </script>
   
   <!--   Core JS Files   -->

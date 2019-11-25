@@ -1,6 +1,7 @@
 <?php   
 /*order page */
 include('feed_state.php');
+include('add_cart.php');
 
  
   if (!isset($_SESSION['username'])) {
@@ -21,7 +22,7 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
  
      // connect to DataBase
     //$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-    $conn = pg_connect(getenv("DATABASE_URL"));
+     $conn = pg_connect(getenv("DATABASE_URL"));
      $user_I_D =  pg_escape_string($conn, $_SESSION['id']);
      $organization_publickey = pg_escape_string($conn,$_GET['order']);
 
@@ -91,8 +92,23 @@ pg_close($conn);
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="shortcut icon"  href="../assets/img/transparent_lg.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     order page
@@ -108,9 +124,10 @@ pg_close($conn);
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
   <!-- custom css -->
   <link href="../assets/css/core.css" rel="stylesheet" />
+
+   <script src="../assets/js/local.js"></script>
  
-<!-- organization paypal_ID / public_key -->
-    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+ 
 
 
  
@@ -120,12 +137,7 @@ pg_close($conn);
  
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container">
- <!-- 
-     <button class="btn btn-round" data-toggle="modal" data-target="#loginModal">
-    Profile<i class="material-icons">assignment</i>
-
-</button>
- -->
+ 
 <div class="modal fade" id="loginModal" tabindex="-1" role="">
     <div class="modal-dialog modal-login" role="document">
         <div class="modal-content">
@@ -139,11 +151,7 @@ pg_close($conn);
                     <h4 class="card-title">Account</h4>
                     <div class="social-line">
                     <div class="media row">
-
-                    <?php
-                   // img uploader
-                     ?>
-                   
+ 
                     <div class="media-body col-md-7">
               
                    
@@ -207,7 +215,73 @@ pg_close($conn);
         <div class="container">
        <div class="row"> 
 <div class="col-md-4"></div>
-       	<h2 class="title">     
+      
+
+          <?php   
+ 
+
+                    if(isset($order_list) && !isset($_POST["schedule"])){
+
+                      $ticket_name = explode("_", $order_list[0]["type"]);
+                      $ticket_date = explode(" ", $order_list[0]["date"]);
+                      $ticket_time = explode("-", $order_list[0]["time"]);
+
+                      echo '<div class="col-md-8"><h2 class="title"> ';
+
+                      echo strtoupper($ticket_name[0]).' TICKET</h2><h9>'.$order_list[0]["title"].'</h9>';
+                      echo '</div>';
+
+
+                      echo '<div class="col-md-4"></div>';
+                      echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>';  
+
+
+                        echo '<div class="description col-md-4">
+                <form method="POST" action="order_page.php">
+        
+                   <input type="hidden" name="schedule" value="schedule">
+                   <input type="hidden" name="timezone" value="" id="timezone">
+                   <input type="hidden" name="publickey" value="'.$order_list[0]["publickey"].'">
+                   <input type="hidden" name="privatekey" value="'.$order_list[0]["privatekey"].'">
+                   <input type="hidden" name="org_id" value="'.$order_list[0]["org_id"].'">
+                   <input type="hidden" name="price" value="'.$order_list[0]["price"].'">
+                   <input type="hidden" name="eventTitle" value="'.$order_list[0]["title"].'">
+
+                   <div class="form-group">
+                   <label for="exampleFormControlSelect1">select amount.</label>
+                   <select class="form-control select picker" data-style="btn btn-link" id="exampleFormControlSelect1" name="ticket_amount">
+                   <option>1</option>
+                   <option>2</option>
+                   <option>3</option>
+                   <option>4</option>
+                   <option>5</option>
+                   </select>
+                   </div>';
+          
+
+if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00")) {
+                echo ' <div class="form-group">
+                 <label  style="color: black; font-weight: bold;">price $'.$order_list[0]["price"].'</label>
+                 <input type="hidden" name="price" value="'. $order_list[0]["price"].'">
+                </br></br></br>
+                <button type="submit" class="btn btn-warning  radius-50 btn-sm" value="free" name="free_event">submit</button>';
+}else if(isset($order_list[0]["price"])){
+
+                echo ' <div class="form-group">
+                <label  style="color: black; font-weight: bold;">price $'.$order_list[0]["price"].'</label>
+                <input type="hidden" name="add_cart" value="cart">
+                <input type="hidden" name="price" value="'. $order_list[0]["price"].'"></br></br></br> <button type="submit" class="btn btn-warning  radius-50 btn-sm" value="payment" name="paid_event">submit</button>
+
+
+    ';}
+echo '</div></from></div>';
+
+
+           }
+        ?>
+ 
+
+
 <?php /*adds to schedule
   *
   *
@@ -226,20 +300,26 @@ pg_close($conn);
    $title = pg_escape_string($db, $_POST['eventTitle']);
    $price = doubleval(pg_escape_string($db, $_POST['price']));
    $price = $price * $ticket_amt;
+   $tax = doubleval(pg_escape_string($db,0.06));
+   $total =0;
+   if ($price>=1) {
+    $tax = $tax * $price;
+   }else{
+    $tax = 0;
+   }
+    
+    $total = $price + $tax;
 
 
-   $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount) 
-          VALUES($id,$org_id,'$organization_publickey',$ticket_amt)";
+ pg_close($db);
+ 
 
-   pg_query($db, $query);
-   
-
-   pg_close($db);
-
-
- echo '<div class=col-md-12>
-            <h2 class="title"> ready to checkout</h2>
-          <div class="table-responsive">
+ echo '<div class="col-md-12"> </div>
+        <div class="col-md-4"> </div> <div class="col-md-8">  <h2 class="title"> ready to checkout</h2></div>
+ 
+         <div class="col-md-4"> </div> <div class="col-md-4">
+        
+             <div class="table-responsive">
             <table class="table table-shopping">
               <thead>
                 <tr>
@@ -259,7 +339,7 @@ pg_close($conn);
                 </td>
 
                    <td>
-                   <h4 class="title text-right">$'.$price.'</h4>
+                   <h4 class="title text-right">$'.$total.'</h4>
                 </td>
                 <td>
                    <h4 class="title text-right">'.$ticket_amt.'</h4>
@@ -269,24 +349,23 @@ pg_close($conn);
           
                 </table>
                 </div>
-             
-               
-                
-
-
+       
         </div>';
 
-            echo '<div class="col-md-12" id="paypal-button-container"></div>';
+          
 
 
-            echo ' 
-<script src="https://www.paypal.com/sdk/js?client-id=AXg10y3D3xzUHtFkynnIvGFvEvPOSe1WAzuTA-3U4T3IWeSoukrOz1CdzB7OcUQfhW4hFOKzcPL7R4OD&currency=USD" data-sdk-integration-source="button-factory"></script>
+            echo ' <div class="col-md-4"></div><div class="col-md-4"></div><div class="col-md-3"><div id="paypal-button-container"></div></div>
+
+<script src="https://www.paypal.com/sdk/js?client-id='.$organization_privatekey_paypal.'&currency=USD" data-sdk-integration-source="button-factory">
+</script>
+
 <script>
     paypal.Buttons({
         style: {
             shape: "rect",
             color: "gold",
-            layout: "vertical",
+            layout: "horizontal",
             label: "paypal",
             
         },
@@ -294,139 +373,38 @@ pg_close($conn);
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        value: "0.01"
-                    } 
+                        "currency_code": "USD",
+                        value: "'.$price.'",
+                        quantity:"'.$ticket_amt.'",
+                        
+                    },
+                   
                 }]
             });
         },
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(details) {
-                alert("Transaction completed by " + details.payer.name.given_name + "!");
+                  window.location.replace("add_cart.php?purchased='.$id.'");
             });
         }
     }).render("#paypal-button-container");
 </script>';
 
  
+echo "</br></br></br></br></br></br>
+"; 
 
-  //header('location:profile.php');
-
- }?><?php   
-
-
-
-
-      
-
-
-                    if(isset($order_list) && !isset($_POST["schedule"])){
-
-                    	$ticket_name = explode("_", $order_list[0]["type"]);
-                    	$ticket_date = explode(" ", $order_list[0]["date"]);
-                      $ticket_time = explode("-", $order_list[0]["time"]);
-                    	echo strtoupper($ticket_name[0]).' TICKET | '.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])); } ?></h2>
+ }?>  
 
        </div>
-       
-         </br>
-          <div class="row">
-            <div class="col-md-5 ml-auto">
-              <div class="info info-horizontal">
-                <div class="icon icon-rose">
-                <!--   <i class="material-icons">ticket</i> -->
-                </div>
-
-                <?php 
-
-if (!isset($_POST["schedule"])) {
-          echo '<div class="description">
-                <form method="POST" action="order_page.php">
-        
-                   <input type="hidden" name="schedule" value="schedule">
-                   <input type="hidden" name="publickey" value="'.$order_list[0]["publickey"].'">
-                   <input type="hidden" name="privatekey" value="'.$order_list[0]["privatekey"].'">
-                   <input type="hidden" name="org_id" value="'.$order_list[0]["org_id"].'">
-                   <input type="hidden" name="price" value="'.$order_list[0]["price"].'">
-                   <input type="hidden" name="eventTitle" value="'.$order_list[0]["title"].'">
-
-                   <div class="form-group">
-                   <label for="exampleFormControlSelect1">select amount.</label>
-                   <select class="form-control select picker" data-style="btn btn-link" id="exampleFormControlSelect1" name="ticket_amount">
-                   <option>1</option>
-                   <option>2</option>
-                   <option>3</option>
-                   <option>4</option>
-                   <option>5</option>
-                   </select>
-                   </div>';
-
-if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00")) {
-                echo ' <div class="form-group">
-                 <label  style="color: black; font-weight: bold;">price $'.$order_list[0]["price"].'</label>
-                 <input type="hidden" name="price" value="'. $order_list[0]["price"].'">
-                </br></br></br>
-                <button type="submit" class="btn btn-warning  radius-50 btn-sm" value="free" name="free_event">submit</button>';
-}else if(isset($order_list[0]["price"])){
-
-                echo ' <div class="form-group">
-                <label  style="color: black; font-weight: bold;">price $'.$order_list[0]["price"].'</label>
-                <input type="hidden" name="price" value="'. $order_list[0]["price"].'"></br></br></br> <button type="submit" class="btn btn-warning  radius-50 btn-sm" value="payment" name="paid_event">submit</button>
-
-
-    ';
-}
-
-  
-   
-   echo '</div>
- 
-</form>';
- 
-}
-
-     ?>       
-   
-                </div>
-              </div>
-              
-            
-            </div>
-
-            <?php
-
-            if (!isset($_POST["schedule"])) {
-                    echo '      <div class="col-md-5 mr-auto">
-              <div class="card card-background" style="background-image:url(';
-              if(isset($order_list)){ echo $order_list[0]["img"].')">
-                <a href="#pablo"></a>
-                <div class="card-body">
-                  <span class="badge badge-rose">'; }  
-                  if(isset($order_list)){ echo $order_list[0]["name"].'</span>
-                  <a href="#pablo">
-                    <h2 class="card-title">'; }
-
-                    if(isset($order_list)){ echo $order_list[0]["title"].' </a>
-                  <p class="card-description">'; } 
-                  
-                if(isset($order_list)){ echo $order_list[0]["description"].'        
-                </div>
-              </div>
-                  <h3 class="title"><i class="material-icons">room </i>'; } 
-
-          
-                    if(isset($order_list)){echo  $order_list[0]["address"].'</h3>
-            </div>' ; }   
-                    }        
-   ?>
-        
             	 
           </div>
         </div>
       </div>
  
   </div>
-</div>
-</div>
+ </br>
+</br>
   <footer class="footer footer-default cd-section" id="footer">
     <div class="container">
       <nav class="float-left">
@@ -452,13 +430,13 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
         &copy;
         <script>
           document.write(new Date().getFullYear())
-        </script>, created by 
+        </script> created by 
         <a href="https://www.aeravi.io" target="_blank">Aeravi</a>.
       </div>
     </div>
   </footer>
   
-  
+ 
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

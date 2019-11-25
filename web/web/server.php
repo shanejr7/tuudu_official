@@ -1,5 +1,5 @@
 <?php
- 
+
 
 // initializing variables
 // later add first and last name
@@ -7,8 +7,6 @@ session_start();
  include 'local_distance.php';
 
  
-// user timeStamp DETERMINE USER TIMEZONE
-date_default_timezone_set('EST');
  
 
 //set up temp ID for new users then disgard it after they sign up or timeout
@@ -51,6 +49,23 @@ if (isset($_POST['reg_user'])) {
   $username = pg_escape_string($db, $_POST['username']);
   $email = pg_escape_string($db, $_POST['email']);
   $account = pg_escape_string($db, $_POST['account_type']);
+
+
+     $timezone = pg_escape_string($db, $_POST['timezone']);
+ 
+     $timezone = explode(" ", $timezone);
+     $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
+     $timezone_str = $timezone_str .' '.$timezone[4];
+
+     $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
+
+     date_default_timezone_set($zone);
+
+     $O = explode("-", $timezone[5]);
+ 
+
+     $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
+ 
 
   if (isset($_POST['age'])) {
      $age = pg_escape_string($db, $_POST['age']);
@@ -102,7 +117,7 @@ if (isset($_POST['reg_user'])) {
   $maxId = $max['id'] +1;
   $tempArray = array();
   $tagID =$_session['ID'];
-  $timestamp = date('c');
+  $timestamp = $timezone_str;
   
 
 
@@ -142,8 +157,26 @@ if (isset($_POST['login_user'])) {
 
   $email = pg_escape_string($db, $_POST['email']);
   $password = pg_escape_string($db, $_POST['password']);
+  $timezone = pg_escape_string($db, $_POST['timezone']);
+  
+
+
+  
+    $timezone = explode(" ", $timezone);
+    $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
+    $timezone_str = $timezone_str .' '.$timezone[4];
+
+    $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
+
+    date_default_timezone_set($zone);
+
+    $O = explode("-", $timezone[5]);
  
 
+    $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
+
+
+ 
   if (!isset($username)) {
   
   	array_push($errors, "Username is required");
@@ -171,7 +204,9 @@ if (isset($_POST['login_user'])) {
 
 
       $id = $users['id'];
-      $timestamp = date('c');
+      $timestamp = $timezone_str;
+
+     
 
 
     pg_query($db, "UPDATE public.users SET recent_login_time ='$timestamp', active_user=True WHERE id = $id");
@@ -199,7 +234,7 @@ if (isset($_POST['login_user'])) {
 // }
  
 
- header('location: profile.php');  
+header('location: profile.php');  
   
    
   	}else {
@@ -212,12 +247,13 @@ if (isset($_POST['login_user'])) {
            
 ?>
  <!DOCTYPE html>
- <html>
+ <html lang="en">
  <head>
    <title></title>
      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-     <!--   <script src="../assests/js/custom_js.js"></script> -->
+     <!--   <script src="../assets/js/custom_js.js"></script> -->
+     
  </head>
   <body>
 
@@ -278,5 +314,7 @@ if (isset($_POST['login_user'])) {
 
  ?>
  
+ 
+
  </body>
  </html>

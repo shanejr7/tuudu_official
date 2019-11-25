@@ -1,0 +1,101 @@
+<?php 
+ 
+ 
+ 
+	if (isset($_POST["add_cart"])) {
+
+     // Create connection
+ //  $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+ 
+     $db = pg_connect(getenv("DATABASE_URL"));
+
+     $timezone = pg_escape_string($db, $_POST['timezone']);
+ 
+     $timezone = explode(" ", $timezone);
+     $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
+     $timezone_str = $timezone_str .' '.$timezone[4];
+
+     $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
+
+     date_default_timezone_set($zone);
+
+     $O = explode("-", $timezone[5]);
+ 
+
+     $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
+
+   $id = pg_escape_string($db, $_SESSION['id']);
+   $organization_publickey = trim(pg_escape_string($db, $_POST['publickey']));
+   $org_id = pg_escape_string($db, $_POST['org_id']);
+   $ticket_amt = pg_escape_string($db, $_POST['ticket_amount']);
+   $title = trim(pg_escape_string($db, $_POST['eventTitle']));
+   $price = doubleval(pg_escape_string($db, $_POST['price']));
+   $price = $price * $ticket_amt;
+
+	
+  
+
+
+ 
+ 
+   // Check connection
+    if ($res1 = pg_get_result($db)) {
+    die("Connection failed: " .  pg_result_error($res1) );
+    }
+ // removes duplicate from refreshing page 
+ $query = "DELETE FROM cart WHERE user_id = $id AND publickey = '$organization_publickey'";
+ pg_query($db, $query);
+
+// insert selected value
+ $query = "INSERT INTO cart (user_id,org_id,publickey,ticket_amount,price,product_title,date_submitted) 
+          VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title','$timezone_str')";
+
+   pg_query($db, $query);
+
+
+ 
+
+pg_close($db);
+}
+
+if (isset($_GET["purchased"])) {
+
+      // Create connection
+   $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
+
+   $id = pg_escape_string($db, $_GET['purchased']);
+
+   $query = "SELECT * FROM cart WHERE user_id = $id  ";
+   $result = pg_query($db, $query);   
+   $user_cart = pg_fetch_assoc($result);
+ 
+
+
+  
+   $organization_publickey = trim(pg_escape_string($db,$user_cart["publickey"]));
+   $org_id = pg_escape_string($db,$user_cart["org_id"]);
+   $ticket_amt = intval(pg_escape_string($db,$user_cart["ticket_amount"]));
+   $title = trim(pg_escape_string($db,$user_cart["product_title"]));
+   $price = doubleval(pg_escape_string($db,$user_cart["price"]));
+   $price = $price * doubleval($ticket_amt);
+ 
+   $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount,price,product_title) 
+          VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title')";
+
+   pg_query($db, $query);
+
+
+   $query = "DELETE FROM cart WHERE user_id = $id";
+   pg_query($db, $query);
+
+
+   pg_close($db);
+
+
+  header("location:profile.php");
+
+}
+
+
+?>
