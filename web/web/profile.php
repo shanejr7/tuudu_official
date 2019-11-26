@@ -448,6 +448,13 @@ if (sizeof($schedule_list) ==1) {
     foreach($arrayChunks as $items) {
         echo '<div class="row">';
         foreach($items as $item) {
+
+          if(file_exists(trim($item['img']))){
+                    
+              }else{
+              $item['img']= '../assets/img/image_placeholder.jpg'
+              } 
+              
           echo '<div class="col-md-12">
           <div class="contain">
             <div class="card card-background" style="background-image: url('.$item['img'].');">
@@ -482,6 +489,12 @@ if (sizeof($schedule_list) ==1) {
     foreach($arrayChunks as $items) {
         echo '<div class="row">';
         foreach($items as $item) {
+
+          if(file_exists(trim($item['img']))){
+                    
+              }else{
+              $item['img']= '../assets/img/image_placeholder.jpg'
+              } 
           echo '<div class="col-md-6">
             <div class="card card-background" style="background-image: url('.$item['img'].');">
               <div class="card-body">
@@ -507,6 +520,14 @@ if (sizeof($schedule_list) ==1) {
     foreach($arrayChunks as $items) {
         echo '<div class="row">';
         foreach($items as $item) {
+
+
+           if(file_exists(trim($item['img']))){
+                    
+              }else{
+              $item['img']= '../assets/img/image_placeholder.jpg'
+              }   
+
           echo '<div class="col-md-4">
             <div class="card card-background" style="background-image: url('.$item['img'].');">
               <div class="card-body">
@@ -571,8 +592,13 @@ if (sizeof($schedule_list) ==1) {
              // echo '<a href="subscription.php?subscribe='.trim($item['org_id']).'">';
 
              echo '<div class="contain">';
+ 
 
-                  echo  '<img src="'.trim($item['img']).'" class="rounded img">';
+                  if(file_exists(trim($item['img']))){
+                    echo  '<img src="'.trim($item['img']).'" class="rounded img">';
+              }else{
+                    echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img">';
+              }
 
 
                   if (trim($item['price']) =='0.00') {
