@@ -1,5 +1,8 @@
 <?php
 require('../aws/aws-autoloader.php');
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+use Aws\S3\ObjectUploader;
 
 // initializing variables
 // later add first and last name
@@ -268,6 +271,12 @@ $s3 = new Aws\S3\S3Client([
      'region'   => 'us-east-2',
 ]);
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+
+$uploader = new ObjectUploader(
+    $s3,
+    $bucket 
+);
+
 ?>
 <html>
     <head><meta charset="UTF-8"></head>
@@ -279,7 +288,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES
      $destination = "organization_event_file/". $_FILES['userfile']['name'];
     try {
         // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
-        $upload = $s3->upload($bucket, $destination, fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+        $upload = $uploader->upload($bucket, $destination, fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
 ?>
         <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
 <?php } catch(Exception $e) { ?>
