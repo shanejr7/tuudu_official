@@ -1,5 +1,23 @@
-<?php include('server.php');
+<?php 
+include('server.php');
 include('add_post.php');
+
+require('../aws/aws-autoloader.php');
+require('../aws/Aws/S3/ObjectUploader.php'); 
+
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+use Aws\S3\ObjectUploader;
+
+$s3=" ";
+$s3 = new Aws\S3\S3Client([
+    'version'  => 'latest',
+     'region'   => 'us-east-2',
+]);
+
+$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+$bucket_name = 'tuudu-official-file-storage';
+$key = ' ';
  
 //$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
  $conn = pg_connect(getenv("DATABASE_URL"));
@@ -339,7 +357,7 @@ pg_close($db);
   echo '<h2 class="title">Event | <span style="color:orange">content</span> (<strong>1/5</strong>)</h2>';
 
   // echo "<h3><strong>1/5</strong><h3>";
-  echo '   <form enctype="multipart/form-data" method="post" action="post.php">
+  echo '   <form enctype="multipart/form-data" method="post" action="'.$_SERVER['PHP_SELF'].'">
   <label>add content to your event..</label>
                  <div class="row">
 
@@ -375,18 +393,56 @@ pg_close($db);
  
 }else if ($page ==4) {
  
+ $randomString = ''; 
+ $destination = '';
  
  $userid = $_SESSION['id'];
  $publickey = $_SESSION['publicKey'];
 
+// stores file to aws S3
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['file1']['tmp_name'])) {
+
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+   
+    $n = 15;
+  
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
+ 
+$source = fopen($_FILES['file1']['tmp_name'], 'rb');
+$key =  "organization_event_img/".$randomString.''. $_FILES['file1']['name']; 
+// save destination into postgresql
+$destination = $key;
+
+    $uploader = new ObjectUploader(
+    $s3,
+    $bucket_name,
+    $key,
+    $source 
+);
+ 
+    // FIXME: add more validation, e.g. using ext/fileinfo
+   
+    try {
+       
+        $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
+      } catch(Exception $e){
+        echo $e;
+      }
+      
+      ?>
+  
+
+
+
+<?php
 
 if (isset($_FILES["file1"]['tmp_name'])) {
+
 $fileToMove = $_FILES["file1"]['tmp_name'];
  
- 
- 
-$destination = "../assets/img/organization_event_img/". $_FILES["file1"]['name'];
-
 if(isset($_POST['page']) && move_uploaded_file($fileToMove, $destination)) {
 
  

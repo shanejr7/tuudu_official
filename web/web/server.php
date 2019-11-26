@@ -1,10 +1,11 @@
 <?php
-require('../aws/aws-autoloader.php');
-use Aws\S3\S3Client;
-use Aws\Exception\AwsException;
-use Aws\S3\ObjectUploader;
-
-// initializing variables
+// require('../aws/aws-autoloader.php');
+// require('../aws/Aws/S3/ObjectUploader.php'); 
+// use Aws\S3\S3Client;
+// use Aws\Exception\AwsException;
+// use Aws\S3\ObjectUploader;
+ 
+ 
 // later add first and last name
 session_start();
  include 'local_distance.php';
@@ -263,46 +264,7 @@ header('location: profile.php');
 
 
 
-<?php
- 
- 
-$s3 = new Aws\S3\S3Client([
-    'version'  => 'latest',
-     'region'   => 'us-east-2',
-]);
-$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-
-$uploader = new ObjectUploader(
-    $s3,
-    $bucket 
-);
-
-?>
-<html>
-    <head><meta charset="UTF-8"></head>
-    <body>
-        <h1>S3 upload example</h1>
-<?php
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['userfile']) && $_FILES['userfile']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
-    // FIXME: add more validation, e.g. using ext/fileinfo
-     $destination = "organization_event_file/". $_FILES['userfile']['name'];
-    try {
-        // FIXME: do not use 'name' for upload (that's the original filename from the user's computer)
-        $upload = $uploader->upload($bucket, $destination, fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
-?>
-        <p>Upload <a href="<?=htmlspecialchars($upload->get('ObjectURL'))?>">successful</a> :)</p>
-<?php } catch(Exception $e) { ?>
-        <p>Upload error :(</p>
-        <?php echo $e; ?>
-<?php } } ?>
-        <h2>Upload a file</h2>
-        <form enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
-            <input name="userfile" type="file"><input type="submit" value="Upload">
-        </form>
-
-
- 
-  <body>
+ <bod>
 
 <?php 
 
