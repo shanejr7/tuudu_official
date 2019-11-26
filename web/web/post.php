@@ -3,6 +3,7 @@ include('server.php');
 include('add_post.php');
 
 require('../aws/aws-autoloader.php');
+require('../aws/Aws/S3/S3Client.php'); 
 require('../aws/Aws/S3/ObjectUploader.php'); 
 
 use Aws\S3\S3Client;
@@ -170,6 +171,8 @@ if (!$db) {
 
  if ($event_card['img']) {
    $_SESSION['img_src'] = $event_card['img'];
+ }else{
+   $_SESSION['img_src'] = '../assets/img/image_placeholder.jpg';
  }
   if ($event_card['name']) {
    $_SESSION['name'] = $event_card['name'];
@@ -392,14 +395,14 @@ pg_close($db);
  
  
 }else if ($page ==4) {
- 
  $randomString = ''; 
  $destination = '';
+
  
  $userid = $_SESSION['id'];
  $publickey = $_SESSION['publicKey'];
 
-// stores file to aws S3
+//stores file to aws S3
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['file1']['tmp_name'])) {
 
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
@@ -428,51 +431,43 @@ $destination = $key;
     try {
        
         $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
-      } catch(Exception $e){
-        echo $e;
-      }
-      
-    
 
-if (isset($_FILES["file1"]['tmp_name'])) {
-
-$fileToMove = $_FILES["file1"]['tmp_name'];
- 
-if(isset($_POST['page']) && move_uploaded_file($fileToMove, $destination)) {
-
- 
-$image_src = $destination;
-$eventTitle= filter_var($_POST['eventTitle'], FILTER_SANITIZE_STRING);
-$eventTitle = preg_replace('/[^A-Za-z0-9\-]!/', '',$eventTitle);
-$description= filter_var($_POST['description'], FILTER_SANITIZE_STRING);
-$description = preg_replace('/[^A-Za-z0-9\-]!/', '', $description);
-$content= filter_var($_POST['content'], FILTER_SANITIZE_STRING);   
-$content = preg_replace('/[^A-Za-z0-9\-]!/', '', $content);
+          $image_src = $destination;
+          $eventTitle= filter_var($_POST['eventTitle'], FILTER_SANITIZE_STRING);
+          $eventTitle = preg_replace('/[^A-Za-z0-9\-]!/', '',$eventTitle);
+          $description= filter_var($_POST['description'], FILTER_SANITIZE_STRING);
+          $description = preg_replace('/[^A-Za-z0-9\-]!/', '', $description);
+          $content= filter_var($_POST['content'], FILTER_SANITIZE_STRING);   
+          $content = preg_replace('/[^A-Za-z0-9\-]!/', '', $content);
  
 
  
-// Create connection
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-$db = pg_connect(getenv("DATABASE_URL"));
-// Check connection
-if (!$db) {
-     die("Connection failed: " . pg_connect_error());
-}
+            // Create connection
+            //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+            $db = pg_connect(getenv("DATABASE_URL"));
+            // Check connection
+            if (!$db) {
+              die("Connection failed: " . pg_connect_error());
+            }
 
-// update user image
- pg_query($db,"UPDATE public.organization SET title ='$eventTitle', description = '$description', content = '$content', img='$image_src' WHERE id= $userid AND publickey = '$publickey'");
+            // update user image
+            pg_query($db,"UPDATE public.organization SET title ='$eventTitle', description = '$description', content = '$content', img='$image_src' WHERE id= $userid AND publickey = '$publickey'");
  
 
-pg_close($db);
+            pg_close($db);
 
-  card();
- 
+            card();
+
+
+            } catch(Exception $e){
+               // echo $e;
+          }
+
 }else{
-  
+ 
 }
 
- }
- include 'errors.php';
+    include 'errors.php';
  echo '<h2 class="title">Event | <span style="color:orange">contact</span> (<strong>2/5</strong>)</h2>'; 
    
 
@@ -503,6 +498,7 @@ pg_close($db);
 
 
                 </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="3" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="5" style="display:inline-block">next</button></form>';
+ 
 
 
 }elseif ($page ==5 || $_POST["page"]==5) {

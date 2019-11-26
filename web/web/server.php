@@ -1,10 +1,4 @@
 <?php
-// require('../aws/aws-autoloader.php');
-// require('../aws/Aws/S3/ObjectUploader.php'); 
-// use Aws\S3\S3Client;
-// use Aws\Exception\AwsException;
-// use Aws\S3\ObjectUploader;
- 
  
 // later add first and last name
 session_start();
@@ -264,7 +258,7 @@ header('location: profile.php');
 
 
 
- <bod>
+ 
 
 <?php 
 

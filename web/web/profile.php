@@ -369,7 +369,12 @@ if (isset($dashboard_list)  ) {
 
              echo '<div class="contain">';
 
-                  echo  '<img src="'.trim($item['img']).'" class="img rounded">';
+                  if(file_exists(trim($item['img']))){
+                    echo  '<img src="'.trim($item['img']).'" class="img rounded">';
+              }else{
+                    echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              }
+
 
                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
