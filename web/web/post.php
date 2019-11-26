@@ -432,12 +432,7 @@ $destination = $key;
         echo $e;
       }
       
-      ?>
-  
-
-
-
-<?php
+    
 
 if (isset($_FILES["file1"]['tmp_name'])) {
 
