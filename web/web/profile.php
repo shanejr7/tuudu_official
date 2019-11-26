@@ -452,9 +452,9 @@ if (sizeof($schedule_list) ==1) {
           if(file_exists(trim($item['img']))){
                     
               }else{
-              $item['img']= '../assets/img/image_placeholder.jpg'
+              $item['img']= '../assets/img/image_placeholder.jpg';
               } 
-              
+
           echo '<div class="col-md-12">
           <div class="contain">
             <div class="card card-background" style="background-image: url('.$item['img'].');">
@@ -493,7 +493,7 @@ if (sizeof($schedule_list) ==1) {
           if(file_exists(trim($item['img']))){
                     
               }else{
-              $item['img']= '../assets/img/image_placeholder.jpg'
+              $item['img']= '../assets/img/image_placeholder.jpg';
               } 
           echo '<div class="col-md-6">
             <div class="card card-background" style="background-image: url('.$item['img'].');">
@@ -525,7 +525,7 @@ if (sizeof($schedule_list) ==1) {
            if(file_exists(trim($item['img']))){
                     
               }else{
-              $item['img']= '../assets/img/image_placeholder.jpg'
+              $item['img']= '../assets/img/image_placeholder.jpg';
               }   
 
           echo '<div class="col-md-4">
