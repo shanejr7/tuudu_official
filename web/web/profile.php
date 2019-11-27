@@ -503,14 +503,12 @@ if (sizeof($schedule_list) ==1) {
                 </p>
                 </br></br></br>
                  <div class="card-footer">
-                
-                  <p class="card-title title">
-                   '.$item['content'].'</p>
-
-                    
+       
                 </div>
+                 <p class="card-title title">
+                   '.$item['content'].'</p>
               </div>
-              <p style="color:orange title">'.$item["address"].'</p>
+              <p class="title" style="color:orange;">'.$item["address"].'</p>
             </div>
            </div>
           </div>';
