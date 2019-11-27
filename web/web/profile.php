@@ -510,7 +510,7 @@ if (sizeof($schedule_list) ==1) {
                     
                 </div>
               </div>
-              <p>'.$item["address"].'</p>
+              <p style="color:orange">'.$item["address"].'</p>
             </div>
            </div>
           </div>';
