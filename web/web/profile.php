@@ -1,6 +1,22 @@
 <?php  include('feed_state.php'); // retrieves organizations for users
    
+require('../aws/aws-autoloader.php');
+require('../aws/Aws/S3/S3Client.php'); 
+require('../aws/Aws/S3/ObjectUploader.php'); 
 
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+use Aws\S3\ObjectUploader;
+
+$s3=" ";
+$s3 = new Aws\S3\S3Client([
+    'version'  => 'latest',
+     'region'   => 'us-east-2',
+]);
+
+$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+$bucket_name = 'tuudu-official-file-storage';
+ 
    if (isset($_GET['dashboard'])) {
         unset($_SESSION['event_type']);
     unset($_SESSION['word_tags']);
@@ -365,9 +381,15 @@ if (isset($dashboard_list)  ) {
 
               echo '<div class="col-md-4">';
 
-             
-
+          
              echo '<div class="contain">';
+
+             $s3->getObject(array(
+                    'Bucket' => ''.$bucket_name.'',
+                    'Key'    => ''.$item["img"].''
+              ));
+
+             echo $s3;
 
                   if(file_exists(trim($item['img']))){
                     echo  '<img src="'.trim($item['img']).'" class="img rounded">';
