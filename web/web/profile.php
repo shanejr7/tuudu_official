@@ -384,18 +384,22 @@ if (isset($dashboard_list)  ) {
           
              echo '<div class="contain">';
 
-             $s3->getObject(array(
+                           $cmd = $s3->getCommand('GetObject', [
                     'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.$item["img"].''
-              ));
+                    'Key'    => ''.trim($item["img"]).'',
+]);
 
-             echo $s3;
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
-                  if(file_exists(trim($item['img']))){
-                    echo  '<img src="'.trim($item['img']).'" class="img rounded">';
+              $presignedUrl = (string)$request->getUri();
+
+          if($presignedUrl){
+                      echo  '<img src="'.$presignedUrl.'" class="img rounded">'; 
               }else{
-                    echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
-              }
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+
+              
 
 
                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
@@ -471,12 +475,20 @@ if (sizeof($schedule_list) ==1) {
         echo '<div class="row">';
         foreach($items as $item) {
 
-          if(file_exists(trim($item['img']))){
-                    
-              }else{
-              $item['img']= '../assets/img/image_placeholder.jpg';
-              } 
+                        $cmd = $s3->getCommand('GetObject', [
+                    'Bucket' => ''.$bucket_name.'',
+                    'Key'    => ''.trim($item["img"]).'',
+]);
 
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+          if($presignedUrl){
+                      $item['img']= $presignedUrl;  
+              }else{
+                   $item['img']= '../assets/img/image_placeholder.jpg';
+              } 
           echo '<div class="col-md-12">
           <div class="contain">
             <div class="card card-background" style="background-image: url('.$item['img'].');">
@@ -512,10 +524,19 @@ if (sizeof($schedule_list) ==1) {
         echo '<div class="row">';
         foreach($items as $item) {
 
-          if(file_exists(trim($item['img']))){
-                    
+                        $cmd = $s3->getCommand('GetObject', [
+                    'Bucket' => ''.$bucket_name.'',
+                    'Key'    => ''.trim($item["img"]).'',
+]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+          if($presignedUrl){
+                      $item['img']= $presignedUrl;  
               }else{
-              $item['img']= '../assets/img/image_placeholder.jpg';
+                   $item['img']= '../assets/img/image_placeholder.jpg';
               } 
           echo '<div class="col-md-6">
             <div class="card card-background" style="background-image: url('.$item['img'].');">
@@ -543,12 +564,22 @@ if (sizeof($schedule_list) ==1) {
         echo '<div class="row">';
         foreach($items as $item) {
 
+                          $cmd = $s3->getCommand('GetObject', [
+                    'Bucket' => ''.$bucket_name.'',
+                    'Key'    => ''.trim($item["img"]).'',
+]);
 
-           if(file_exists(trim($item['img']))){
-                    
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+          if($presignedUrl){
+                      $item['img']= $presignedUrl;  
               }else{
-              $item['img']= '../assets/img/image_placeholder.jpg';
-              }   
+                   $item['img']= '../assets/img/image_placeholder.jpg';
+              } 
+
+            
 
           echo '<div class="col-md-4">
             <div class="card card-background" style="background-image: url('.$item['img'].');">
@@ -616,11 +647,22 @@ if (sizeof($schedule_list) ==1) {
              echo '<div class="contain">';
  
 
-                  if(file_exists(trim($item['img']))){
-                    echo  '<img src="'.trim($item['img']).'" class="rounded img">';
+                   $cmd = $s3->getCommand('GetObject', [
+                    'Bucket' => ''.$bucket_name.'',
+                    'Key'    => ''.trim($item["img"]).'',
+]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+          if($presignedUrl){
+                  echo  '<img src="'.$presignedUrl.'" class="rounded img">';  
               }else{
-                    echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img">';
-              }
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img">';
+              } 
+
+            
 
 
                   if (trim($item['price']) =='0.00') {
