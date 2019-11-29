@@ -21,7 +21,7 @@
 
 <head>
   <meta charset="utf-8" />
-  
+     <meta name="google-site-verification" content="N4dkFDdl_Z8Dc5lXPiCDVGEqe-TIC2M3sKgNKxMe0jI" />
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -43,6 +43,7 @@
   <title>
     Login
   </title>
+  
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
