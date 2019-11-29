@@ -90,6 +90,7 @@ $bucket_name = 'tuudu-official-file-storage';
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link href='https://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet'>
   <title>
     Profile
   </title>
@@ -498,10 +499,10 @@ if (sizeof($schedule_list) ==1) {
                   <h3 class="card-title">'.toString($item['date']).'</h3>
                   <h12 class="card-title">'.date('h:i A', strtotime($ticket_time[0])).'</h12>
                 </a></br></br></br></br>
-                <p class="card-description title">
+                <p class="card-description title" style="font-family: "Anaheim";">
                  '.$item['description'].'
                 </p>
-                </br></br></br>
+                </br>
                  <div class="card-footer">
        
                 </div>
@@ -544,9 +545,10 @@ if (sizeof($schedule_list) ==1) {
                 <a href="#pablo">
                   <h3 class="card-title">'.toString($item['date']).'</h3>
                 </a>
-                <p class="card-description">
+                <p class="card-description" style=" font-family: "Anaheim";">
                  '.$item['description'].'
                 </p>
+                 </br>
                 
               </div>
             </div>
@@ -587,7 +589,7 @@ if (sizeof($schedule_list) ==1) {
                 <a href="#pablo">
                   <h3 class="card-title">'.toString($item['date']).'</h3>
                 </a>
-                <p class="card-description">
+                <p class="card-description" style="style="font-family: "Anaheim";">
                  '.$item['description'].'
                 </p>
                    <i class="material-icons" style="color:white;font-size:18pt;">room</i>  
