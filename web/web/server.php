@@ -244,10 +244,11 @@ header('location: profile.php');
  
            
 ?>
- <!DOCTYPE html>
+ <!DOCTYPE html> 
  <html lang="en">
  <head>
    <title></title>
+    <meta name="google-site-verification" content="google6b09f29530bd6b56.html">
      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
      <!--   <script src="../assets/js/custom_js.js"></script> -->
