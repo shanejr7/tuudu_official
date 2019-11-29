@@ -500,16 +500,13 @@ if (sizeof($schedule_list) ==1) {
                   <h12 class="card-title">'.date('h:i A', strtotime($ticket_time[0])).'</h12>
                 </a></br></br></br></br>
                 <p class="card-description title" style="font-family: "Anaheim";">
-                 '.$item['description'].'
+                 '.$item['address'].'
                 </p>
                 </br>
-                 <div class="card-footer">
-       
-                </div>
-                 <p class="card-title title">
-                   '.$item['content'].'</p>
+                 
+                  
               </div>
-              <p class="title" style="color:orange;">'.$item["address"].'</p>
+               
             </div>
            </div>
           </div>';
