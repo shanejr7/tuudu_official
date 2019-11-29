@@ -277,7 +277,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#schedule"  role="tab" data-toggle="tab">
-                    <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php echo sizeof($schedule_list); ?></span>
+                    <i class="material-icons">schedule</i> stories <span class="badge badge-default"><?php echo sizeof($schedule_list); ?></span>
                   </a>
                 </li>
                 <li class="nav-item">
