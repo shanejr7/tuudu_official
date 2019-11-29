@@ -498,8 +498,8 @@ if (sizeof($schedule_list) ==1) {
                 <a href="#pablo">
                   <h3 class="card-title">'.toString($item['date']).'</h3>
                   <h12 class="card-title">'.date('h:i A', strtotime($ticket_time[0])).'</h12>
-                </a></br></br></br></br>
-                <p class="card-description" style="font-family: "Anaheim";">
+                </a></br></br></br></br><i class="material-icons">room </i>
+                <p class="card-description" style="font-weight:bolder;font-family: "Anaheim";">
                  '.$item['address'].'
                 </p>
                 </br>
