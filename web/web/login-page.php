@@ -54,7 +54,7 @@
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
  <script src="../assets/js/local.js"></script>
-  <meta name="google-site-verification" content="af3LNTQuaMs0UuElRl277l7FNZURs6qZK9uvuxrMqEE" />
+
 </head>
 
 <body class="profile-page sidebar-collapse">
