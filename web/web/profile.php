@@ -101,6 +101,8 @@ $bucket_name = 'tuudu-official-file-storage';
   <!-- CSS Files -->
   <link href="../assets/css/material-kit.css?v=2.1.1" rel="stylesheet" />
  
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
   <!-- custom css -->
   <link href="../assets/css/core.css" rel="stylesheet" />
 
