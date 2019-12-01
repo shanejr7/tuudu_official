@@ -220,12 +220,12 @@ $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'
 
 $domain = "sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org";
  
-$result = $mgClient->send($domain, array(
-  'from'  => 'Excited User <shane.jr7@icloud.com>',
-  'to'  => 'Baz <smj.johnsonjr@gmail.com>',
-  'subject' => 'Hello',
-  'text'  => 'Testing some Mailgun awesomness!'
-));
+$result = $mgClient->send($domain, [
+'from' => 'Excited User <mailgun@sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org>',
+'to' => 'Baz <smj.johnsonjr@gmail.com>',
+'subject' => 'Sending an e-mail with an attachment',
+'text' => 'Sending an e-mail with an attachment',
+'attachment' => array(array('filename' => 'nameoffile.txt', 'filePath' => '../assets/img/logo_size.jpg'))]);
 header('location: profile.php');  
   
    
