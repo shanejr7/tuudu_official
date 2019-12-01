@@ -388,11 +388,7 @@ if (isset($dashboard_list)  ) {
 
               $presignedUrl = (string)$request->getUri();
 
-               echo '<script>
-                         
-                              document.getElementById('.$presignedUrl.').style.visibilty = "hidden";
-                         
-                      </script>';
+              
 
             
               echo '<div class="col-md-4">';
@@ -402,8 +398,7 @@ if (isset($dashboard_list)  ) {
 
            
                 
-
-                       echo "<div id = ".$presignedUrl.">";
+ 
 
           if($presignedUrl){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
@@ -439,8 +434,7 @@ if (isset($dashboard_list)  ) {
            
                   echo '<div class="bottom-right" style="font-weight: bolder;">
                          <a href="order_page.php?order='.$item['publickey'].'"<i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
-
-            echo "</div>";
+ 
 
 
 
@@ -759,10 +753,7 @@ if (sizeof($schedule_list) ==1) {
 </script>
 
 <script>
-function myFunction($url) {
-    document.getElementById($url).style.visibilty = 'visible';
-}
-</script>
+ 
   
   <!--   Core JS Files   -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
