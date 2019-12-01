@@ -111,7 +111,9 @@ $bucket_name = 'tuudu-official-file-storage';
  
  
 </head>
-
+<script type="text/javascript">
+  myUndefinedFunction();
+</script>
 <body class="profile-page  sidebar-collapse">
  
  
