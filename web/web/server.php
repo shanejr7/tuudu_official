@@ -263,9 +263,9 @@ header('location: profile.php');
  
 
 <?php 
-Sentry\init(['dsn' => 'https://3aef67b48f3f4fce8a6f199673e536b7@sentry.io/1840301' ]);
-
  
+
+
 // local location
  
 // $dynamic_cordinates=array();
