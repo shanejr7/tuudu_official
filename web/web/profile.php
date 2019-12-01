@@ -379,20 +379,21 @@ if (isset($dashboard_list)  ) {
 //   { 
 //   // echo "not found"; 
 //   }
-
-              echo '<div class="col-md-4">';
-
-          
-             echo '<div class="contain">';
-
                            $cmd = $s3->getCommand('GetObject', [
-                    'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.trim($item["img"]).'',
-]);
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($item["img"]).'',
+                            ]);
 
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
+
+              echo '<div class="col-md-4" onload="myFunction()">';
+
+          
+              echo '<div class="contain">';
+
+           
 
           if($presignedUrl){
                       echo  '<img src="'.$presignedUrl.'" class="img rounded">'; 
@@ -745,6 +746,12 @@ if (sizeof($schedule_list) ==1) {
         location.href = "profile.php";
     };
     
+</script>
+
+<script>
+function myFunction() {
+  alert("Page is loaded");
+}
 </script>
   
   <!--   Core JS Files   -->
