@@ -7,12 +7,12 @@
     "symfony/twig-bridge": "^3",
     "alrik11es/cowsayphp": "^1.2",
     "aws/aws-sdk-php": "~3.0",
-     "sendgrid/php-http-client": "~3.9.6",
+   "sendgrid/sendgrid": "~7"
     "sentry/sdk": "2.0.3"
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*",
-     "sendgrid/php-http-client": "~3.9.6"
+    "sendgrid/sendgrid": "~7"
   }
  
 }

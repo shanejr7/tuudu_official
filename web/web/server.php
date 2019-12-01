@@ -209,8 +209,7 @@ if (isset($_POST['login_user'])) {
 
     pg_query($db, "UPDATE public.users SET recent_login_time ='$timestamp', active_user=True WHERE id = $id");
  
-//require '../vendor/autoload.php'; // If you're using Composer (recommended)
-// Comment out the above line if not using Composer
+require '../../vendor/autoload.php'; // If you're using Composer (recommended)
 // Comment out the above line if not using Composer
 // require("<PATH TO>/sendgrid-php.php");
 // If not using Composer, uncomment the above line and
@@ -218,18 +217,23 @@ if (isset($_POST['login_user'])) {
 // replacing <PATH TO> with the path to the sendgrid-php.php file,
 // which is included in the download:
 // https://github.com/sendgrid/sendgrid-php/releases
-
-// $apiKey = getenv('SENDGRID_API_KEY');
-// $sg = new \SendGrid($apiKey);
-
-// try {
-//     $response = $sg->client->suppression()->bounces()->get();
-//     print $response->statusCode() . "\n";
-//     print_r($response->headers());
-//     print $response->body() . "\n";
-// } catch (Exception $e) {
-//     echo 'Caught exception: '.  $e->getMessage(). "\n";
-// }
+$email = new \SendGrid\Mail\Mail(); 
+$email->setFrom("aeravi.io", "Example User");
+$email->setSubject("Sending with SendGrid is Fun");
+$email->addTo("shane.jr7@icloud.com", "Example User");
+$email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+$email->addContent(
+    "text/html", "<strong>and easy to do anywhere, even with PHP</strong>"
+);
+$sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
+try {
+    $response = $sendgrid->send($email);
+    print $response->statusCode() . "\n";
+    print_r($response->headers());
+    print $response->body() . "\n";
+} catch (Exception $e) {
+    echo 'Caught exception: '. $e->getMessage() ."\n";
+}
  
 
 header('location: profile.php');  
@@ -257,7 +261,9 @@ header('location: profile.php');
  </head>
 
 <body>
-<script type="text/javascript">Sentry.init({ dsn: 'https://3aef67b48f3f4fce8a6f199673e536b7@sentry.io/1840301' });</script>
+
+<script type="text/javascript">Sentry.init({ dsn: 'https://3aef67b48f3f4fce8a6f199673e536b7@sentry.io/1840301' });
+</script>
 
 
  
