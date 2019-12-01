@@ -403,11 +403,11 @@ if (isset($dashboard_list)  ) {
 
                 echo '<script>
                           function myFunction($url) {
-                            document.getElementById('.$presignedUrl.').style.display = "hide";
+                            document.getElementById('.$presignedUrl.').style.display = "none";
                           }
                       </script>';
               
-                echo "<div id = ".$presignedUrl." style='visibility:hidden;'>";
+                echo "<div id = ".$presignedUrl.">";
 
                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
