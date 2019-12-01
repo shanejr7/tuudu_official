@@ -388,21 +388,26 @@ if (isset($dashboard_list)  ) {
 
               $presignedUrl = (string)$request->getUri();
 
-              echo '<div class="col-md-4" onload="myFunction('.$presignedUrl.')">';
+              echo '<div class="col-md-4">';
 
           
-              echo '<div class="contain" id="'.$presignedUrl.'">';
+              echo '<div class="contain">';
 
            
 
           if($presignedUrl){
-                      echo  '<img src="'.$presignedUrl.'" class="img rounded">'; 
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
               } 
 
+                echo '<script>
+                          function myFunction($url) {
+                            document.getElementById('.$presignedUrl.').style.display = "hide";
+                          }
+                      </script>';
               
-
+                echo "<div id = ".$presignedUrl." style='visibility:hidden;'>";
 
                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
@@ -430,7 +435,7 @@ if (isset($dashboard_list)  ) {
                   echo '<div class="bottom-right" style="font-weight: bolder;">
                          <a href="order_page.php?order='.$item['publickey'].'"<i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
 
-            
+            echo "</div>";
 
 
 
@@ -750,7 +755,7 @@ if (sizeof($schedule_list) ==1) {
 
 <script>
 function myFunction($url) {
-    document.getElementById($url).innerHTML = "Iframe is loaded.";
+    document.getElementById($url).style.display = 'show';
 }
 </script>
   
