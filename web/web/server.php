@@ -209,30 +209,18 @@ if (isset($_POST['login_user'])) {
 
     pg_query($db, "UPDATE public.users SET recent_login_time ='$timestamp', active_user=True WHERE id = $id");
  
-require '../sendgrid-php-master/sendgrid-php.php'; // If you're using Composer (recommended)
-require '../sendgrid-php-master/lib/SendGrid.php'; 
-// Comment out the above line if not using Composer
-// Comment out the above line if not using Composer
-// require("<PATH TO>/sendgrid-php.php");
-// If not using Composer, uncomment the above line and
-// download sendgrid-php.zip from the latest release here,
-// replacing <PATH TO> with the path to the sendgrid-php.php file,
-// which is included in the download:
-// https://github.com/sendgrid/sendgrid-php/releases
-
-$apiKey = getenv('SENDGRID_API_KEY');
-$sg = new \SendGrid($apiKey);
-
-try {
-    $response = $sg->client->suppression()->bounces()->get();
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: '.  $e->getMessage(). "\n";
-}
- 
-
+require '../../vendor/autoload.php';
+use Mailgun\Mailgun;
+# Instantiate the client.
+$mgClient = new Mailgun('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c');
+$domain = "https://api.mailgun.net/v3/sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org";
+# Make the call to the client.
+$result = $mgClient->sendMessage($domain, array(
+  'from'  => 'Excited User <mailgun@https://api.mailgun.net/v3/sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org>',
+  'to'  => 'Baz <shane.jr7@icloud.com>',
+  'subject' => 'Hello',
+  'text'  => 'Testing some Mailgun awesomness!'
+));
 header('location: profile.php');  
   
    
