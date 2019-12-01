@@ -4,7 +4,10 @@
 session_start();
  include 'local_distance.php';
 
+ require '../../vendor/autoload.php';
  
+// include '../../vendor/mailgun/mailgun-php/src/Mailgun.php';
+use Mailgun\Mailgun;
  
 
 //set up temp ID for new users then disgard it after they sign up or timeout
@@ -209,10 +212,7 @@ if (isset($_POST['login_user'])) {
 
     pg_query($db, "UPDATE public.users SET recent_login_time ='$timestamp', active_user=True WHERE id = $id");
  
-require '../../vendor/autoload.php';
  
-// include '../../vendor/mailgun/mailgun-php/src/Mailgun.php';
-use Mailgun\Mailgun;
  
  
  
