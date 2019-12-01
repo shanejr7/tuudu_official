@@ -388,10 +388,10 @@ if (isset($dashboard_list)  ) {
 
               $presignedUrl = (string)$request->getUri();
 
-              echo '<div class="col-md-4" onload="myFunction()">';
+              echo '<div class="col-md-4" onload="myFunction('.$presignedUrl.')">';
 
           
-              echo '<div class="contain">';
+              echo '<div class="contain" id="'.$presignedUrl.'">';
 
            
 
@@ -749,8 +749,8 @@ if (sizeof($schedule_list) ==1) {
 </script>
 
 <script>
-function myFunction() {
-  alert("Page is loaded");
+function myFunction($url) {
+    document.getElementById($url).innerHTML = "Iframe is loaded.";
 }
 </script>
   
