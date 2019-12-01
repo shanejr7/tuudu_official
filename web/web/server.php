@@ -213,12 +213,12 @@ require '../../vendor/autoload.php';
  
 include '../../vendor/mailgun/mailgun-php/src/Mailgun.php';
  
-# Instantiate the client.
-$mgClient = new ../../Mailgun('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c');
+ 
+$mgClient = new Mailgun('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c');
 
 
 $domain = "sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org";
-# Make the call to the client.
+ 
 $result = $mgClient->sendMessage($domain, array(
   'from'  => 'Excited User <shane.jr7@icloud.com>',
   'to'  => 'Baz <smj.johnsonjr@gmail.com>',
