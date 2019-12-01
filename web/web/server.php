@@ -211,7 +211,9 @@ if (isset($_POST['login_user'])) {
  
 require '../../vendor/autoload.php';
  
-require '../../vendor/mailgun/mailgun-php/src/Mailgun.php';
+// require '../../vendor/mailgun/mailgun-php/src/Mailgun.php';
+
+use Mailgun\Mailgun;
 
 # Instantiate the client.
 $mgClient = new Mailgun('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c');
