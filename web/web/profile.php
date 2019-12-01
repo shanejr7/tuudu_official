@@ -388,17 +388,20 @@ if (isset($dashboard_list)  ) {
 
               $presignedUrl = (string)$request->getUri();
 
+               echo '<script>
+                         
+                              document.getElementById('.$presignedUrl.').style.visibilty = "hidden";
+                         
+                      </script>';
+
+            
               echo '<div class="col-md-4">';
 
           
               echo '<div class="contain">';
 
            
-                echo '<script>
-                         
-                              document.getElementById('.$presignedUrl.').style.display = "none";
-                         
-                      </script>';
+                
 
                        echo "<div id = ".$presignedUrl.">";
 
@@ -757,7 +760,7 @@ if (sizeof($schedule_list) ==1) {
 
 <script>
 function myFunction($url) {
-    document.getElementById($url).style.display = 'show';
+    document.getElementById($url).style.visibilty = 'visible';
 }
 </script>
   
