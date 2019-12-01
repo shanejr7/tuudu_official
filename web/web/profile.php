@@ -394,20 +394,22 @@ if (isset($dashboard_list)  ) {
               echo '<div class="contain">';
 
            
+                echo '<script>
+                         
+                              document.getElementById('.$presignedUrl.').style.display = "none";
+                         
+                      </script>';
+
+                       echo "<div id = ".$presignedUrl.">";
 
           if($presignedUrl){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
               } 
-
-                echo '<script>
-                          function myFunction($url) {
-                            document.getElementById($url).style.display = "none";
-                          }
-                      </script>';
+ 
               
-                echo "<div id = ".$presignedUrl.">";
+                
 
                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
