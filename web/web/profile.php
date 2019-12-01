@@ -403,7 +403,7 @@ if (isset($dashboard_list)  ) {
 
                 echo '<script>
                           function myFunction($url) {
-                            document.getElementById('.$presignedUrl.').style.display = "none";
+                            document.getElementById($url).style.display = "none";
                           }
                       </script>';
               
