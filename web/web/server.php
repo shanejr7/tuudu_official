@@ -6,8 +6,10 @@ session_start();
 
  require '../../vendor/autoload.php';
 
- require '../../vendor/mailgun/mailgun-php/src/Api/Message.php';
-use Mailgun\Mailgun;
+//require '../../vendor/mailgun/mailgun-php/src/Api/Message.php';
+use Mailgun\Mailgun as mail;
+use Mailgun\Api as send;
+
  
 
 //set up temp ID for new users then disgard it after they sign up or timeout
@@ -216,7 +218,7 @@ if (isset($_POST['login_user'])) {
  
  
  
-$mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
+$mgClient = mail::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
 
 $domain = "sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org";
  
