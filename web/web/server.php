@@ -6,10 +6,7 @@ session_start();
 
  require '../../vendor/autoload.php';
 
-// mailgun-php/src/Api/Message.php
- use Mailgun\Api;
- 
-// include '../../vendor/mailgun/mailgun-php/src/Mailgun.php';
+ require '../../vendor/mailgun/mailgun-php/src/Api/Message.php';
 use Mailgun\Mailgun;
  
 
