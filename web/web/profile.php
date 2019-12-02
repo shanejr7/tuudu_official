@@ -745,6 +745,7 @@ if (sizeof($schedule_list) ==1) {
       </div>
     </div>
   </footer>
+  
   <script type="text/javascript">
     document.getElementById("refresh").onclick = function () {
         location.href = "profile.php";
