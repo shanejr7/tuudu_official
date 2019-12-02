@@ -5,6 +5,9 @@ session_start();
  include 'local_distance.php';
 
  require '../../vendor/autoload.php';
+
+// mailgun-php/src/Api/Message.php
+ use Mailgun\Api;
  
 // include '../../vendor/mailgun/mailgun-php/src/Mailgun.php';
 use Mailgun\Mailgun;
@@ -226,6 +229,8 @@ $result = $mgClient->send($domain, [
 'subject' => 'Sending an e-mail with an attachment',
 'text' => 'Sending an e-mail with an attachment',
 'attachment' => array(array('filename' => 'nameoffile.txt', 'filePath' => '../assets/img/logo_size.jpg'))]);
+
+
 header('location: profile.php');  
   
    
