@@ -223,8 +223,8 @@ $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'
 $domain = "sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org";
  
 $result = $mgClient->messages()->send($domain, array(
-  'from'  => 'shane.jr7@icloud.com',
-  'to'  => 'smj.johnsonjr@gmail.com',
+  'from'  => 'contact@tuudu.org',
+  'to'  => 'contact@tuudu.org',
   'subject' => 'Hello',
   'text'  => 'Testing some Mailgun awesomness!'
 ));
