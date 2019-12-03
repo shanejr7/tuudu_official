@@ -40,8 +40,8 @@ $errors_list = array();
 
 
 // connect to the database
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-$db = pg_connect(getenv("DATABASE_URL"));
+$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+//$db = pg_connect(getenv("DATABASE_URL"));
  
    
 // REGISTER USER or BUSINESS USER
@@ -330,20 +330,19 @@ header('location: profile.php');
 
 
     $string = "";
-   $user_email = pg_escape_string($db, $_POST['email_recovery']);
 
-   $result = pg_query($db, "SELECT * FROM users email='$user_email' LIMIT 1");
-  $user = pg_fetch_assoc($result);
-  
+    $result = pg_query($db, "SELECT * FROM users WHERE email='$user_email' LIMIT 1");
+    $user = pg_fetch_assoc($result);
+    
   if ($user) { // if user exists
+ 
 
-    if (strcmp(trim($user['email']), $email) == 1) {
+    if (strcmp(trim($user['email']), $email) == 0) {
     
       array_push($errors, "email doesn't exists");
-    }
-    
-  }
-  if (count($errors)==0) {
+    }else{
+
+     
   $string = "email sent";
 
   $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
@@ -356,11 +355,19 @@ header('location: profile.php');
   'subject' => 'user forgot password',
   'text'  => 'send email to user requesting new password '.$user_email.''
 ));
-  }
+ 
+    }
+    
+  }else{
+     array_push($errors, "email doesn't exists");
+  } 
+  
  
    pg_close($db);
 }
-           
+ 
+
+      
 ?>
  <!DOCTYPE html> 
  <html lang="en">
