@@ -119,8 +119,11 @@
                         </div>
                        
                         <div class="col-md-3">
-                          <button type="button" class="btn btn-primary btn-block">Send request</button>
+                          <button type="submit" name="submit" class="btn btn-primary btn-block">Send request</button>
                         </div>
+
+                        <div class="col-md-4" style="margin-left: 10%; color: orange;"> <?php include('errors.php'); if(count($errors)==0){echo $string;} ?>
+                        </div>  
                       </div>
                     </form>
                   </div>
@@ -128,25 +131,7 @@
               </div>
           </div>
     </div>
-  
-    <?php 
-if (isset($_POST["email_recovery"])) {
-
-   $user_email = pg_escape_string($db, $_POST['email_recovery']);
-   $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
-
-  $domain = "sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org";
  
-  $result = $mgClient->messages()->send($domain, array(
-  'from'  => 'contact@tuudu.org',
-  'to'  => 'contact@tuudu.org',
-  'subject' => 'user forgot password',
-  'text'  => 'send email to user requesting new password '.$user_email.''
-));
-}
-
-
-    ?>
 
   <footer class="footer footer-default">
     <div class="container">

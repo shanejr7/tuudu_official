@@ -324,6 +324,42 @@ header('location: profile.php');
   pg_close($db);
 }
  
+
+
+ if (isset($_POST["email_recovery"])) {
+
+
+    $string = "";
+   $user_email = pg_escape_string($db, $_POST['email_recovery']);
+
+   $result = pg_query($db, "SELECT * FROM users email='$user_email' LIMIT 1");
+  $user = pg_fetch_assoc($result);
+  
+  if ($user) { // if user exists
+
+    if (strcmp(trim($user['email']), $email) == 1) {
+    
+      array_push($errors, "email doesn't exists");
+    }
+    
+  }
+  if (count($errors)==0) {
+  $string = "email sent";
+
+  $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
+
+  $domain = "sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org";
+ 
+  $result = $mgClient->messages()->send($domain, array(
+  'from'  => 'contact@tuudu.org',
+  'to'  => 'contact@tuudu.org',
+  'subject' => 'user forgot password',
+  'text'  => 'send email to user requesting new password '.$user_email.''
+));
+  }
+ 
+   pg_close($db);
+}
            
 ?>
  <!DOCTYPE html> 
