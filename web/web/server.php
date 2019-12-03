@@ -371,7 +371,7 @@ header('location: profile.php');
         $password_1 .= $characters[$index]; 
     } 
 
-        
+        $new_password = $password_1;
         $password = md5($password_1);//encrypt the password before saving in the database
     
 
@@ -388,7 +388,7 @@ header('location: profile.php');
   'from'  => 'contact@tuudu.org',
   'to'  => 'contact@tuudu.org',
   'subject' => 'user forgot password',
-  'text'  => 'email sent requesting new password '.$user_email.''
+  'text'  => 'email sent requesting new password '.$new_password.' to '.$user_email.''
 ));
  
     }
