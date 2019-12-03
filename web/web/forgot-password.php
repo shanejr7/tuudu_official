@@ -41,7 +41,7 @@
 <meta name="theme-color" content="#ffffff">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Login
+    forgot password
   </title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -74,7 +74,7 @@
 
         <div class="collapse navbar-collapse col-lg-8">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a href="login-page.php" class="nav-link">Login</a>
                 </li>
                 <li class="nav-item">
@@ -91,94 +91,51 @@
  
  
     <!-- class"main main-rasied" -->
+
     <div class="container">
         <div class="row">
-            <div class="col-md-5 ml-auto">
-              <div class="info info-horizontal">
-                <div class="icon icon-rose">
-                  <i class="material-icons">timeline</i>
-                </div>
-                <div class="description">
-                  <h4 class="info-title">Explore</h4>
-                  <p class="description">
-                    Find things going on in your community. 
-                  </p>
-                </div>
-              </div>
-              <div class="info info-horizontal">
-                <div class="icon icon-success">
-                  <i class="material-icons">group</i>
-                </div>
-                <div class="description">
-                  <h4 class="info-title">Share & Stay connected</h4>
-                  <p class="description">
-                    Discover the world around you. Share what you&apos;re
-                    doing and stay connected.
-                  </p>
-                </div>
-              </div>
- 
-            </div>
-            <div class="col-md-5 mr-auto">
-         <div class="card card-login">
-            <form class="form" method="post" action="login-page.php">
-                 <input type="hidden" name="timezone" value="" id="timezone">
-                 
-             <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">Login</h4>
-                <div class="social-line"  >
-                  <a href="#pablo" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-facebook-square" style="color: #898F9C;"></i>
-                  </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-google-plus" style="color: yellowgreen;"></i>
-                  </a>
-                </div>
-              </div>
-              <p class="description text-center">Or Be Classical</p>
-              <div class="card-body">
-                 <br/>
-               <div style="margin-left: 10%;"> <?php include('errors.php'); ?></div>  
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">mail</i>
-                    </span>
-                  </div>
-                  <input type="email" class="form-control"  name="email" id="inputEmail" placeholder="Email..."   required>
-                </div>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">lock_outline</i>
-                    </span>
-                  </div>
-                  <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password..." required="">
-                </div>
- 
-                <div class="input-group">
-                  <div class="input-group-prepend">
-
-                     <a href="forgot-password.php">forgot passowrd?</a>
-                  </br>
-                  <?php include('reCAPTCHA-v3/index.php') ?>
-                  
+           <div class="col-md-10 ml-auto mr-auto">
+                <div class="card card-raised card-form-horizontal">
+                  <div class="card-body ">
+                    <form method="POST" action="forgot-password.php">
+                      <div class="row">
+                     
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <input type="email" value="" placeholder="email" class="form-control" name="email_recovery">
+                          </div>
+                        </div>
+                       
+                        <div class="col-md-3">
+                          <button type="button" class="btn btn-primary btn-block">Send request</button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
-              <div class="footer text-center">
-                <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg g-recaptcha" id="g-recaptcha-response" name="login_user"
-                data-callback='onSubmit'>lets go</button>
-              </div>
-            </form>
-
-          </div>
-            </div>
           </div>
     </div>
+
+    <?php 
+if (isset($_POST["email_recovery"])) {
+
+   $user_email = pg_escape_string($db, $_POST['email_recovery']);
+   $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
+
+  $domain = "sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org";
+ 
+  $result = $mgClient->messages()->send($domain, array(
+  'from'  => 'contact@tuudu.org',
+  'to'  => 'contact@tuudu.org',
+  'subject' => 'user forgot password',
+  'text'  => 'send email to user requesting new password '.$user_email.''
+));
+}
+
+
+    ?>
+
   <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">

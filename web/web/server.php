@@ -142,7 +142,7 @@ if (isset($_POST['reg_user'])) {
  
   $result = $mgClient->messages()->send($domain, array(
   'from'  => 'contact@tuudu.org',
-  'to'  => ''.$email.'',
+  'to'  => 'contact@tuudu.org',
   'subject' => 'Weclome!',
   'text'  => '<!DOCTYPE html>
 <html style="font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;">
