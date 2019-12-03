@@ -110,6 +110,7 @@
                 <div class="card card-raised card-form-horizontal">
                   <div class="card-body ">
                     <form method="POST" action="forgot-password.php">
+                      <input type="hidden" name="timezone" value="" id="timezone">
                       <div class="row">
                      
                         <div class="col-md-3">

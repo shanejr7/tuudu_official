@@ -328,6 +328,7 @@ header('location: profile.php');
 
  if (isset($_POST["email_recovery"])) {
 
+    $user_email = pg_escape_string($db, $_POST['email_recovery']);
 
     $string = "";
 
@@ -337,12 +338,46 @@ header('location: profile.php');
   if ($user) { // if user exists
  
 
-    if (strcmp(trim($user['email']), $email) == 0) {
+    if (strcmp(trim($user['email']), $user_email) == 0) {
     
       array_push($errors, "email doesn't exists");
     }else{
 
-     
+    $timezone = pg_escape_string($db, $_POST['timezone']);
+  
+
+
+  
+    $timezone = explode(" ", $timezone);
+    $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
+    $timezone_str = $timezone_str .' '.$timezone[4];
+
+    $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
+
+    date_default_timezone_set($zone);
+
+    $O = explode("-", $timezone[5]);
+ 
+
+    $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
+     // send email to user and contact
+      // send temporary password string to user email
+      // set temporary password to user account
+     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+     $password_1 = ''; 
+  
+    for ($i = 0; $i < 10; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $password_1 .= $characters[$index]; 
+    } 
+
+        
+        $password = md5($password_1);//encrypt the password before saving in the database
+    
+
+    pg_query($db, "UPDATE public.users SET password='$password',temp_password=TRUE, date_submitted ='$timezone_str' WHERE email = '$user_email'  ");
+
+
   $string = "email sent";
 
   $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
@@ -353,7 +388,7 @@ header('location: profile.php');
   'from'  => 'contact@tuudu.org',
   'to'  => 'contact@tuudu.org',
   'subject' => 'user forgot password',
-  'text'  => 'send email to user requesting new password '.$user_email.''
+  'text'  => 'email sent requesting new password '.$user_email.''
 ));
  
     }
