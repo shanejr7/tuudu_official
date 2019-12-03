@@ -128,10 +128,7 @@
               </div>
           </div>
     </div>
-    </br>
-    </br>
-    </br>
-
+  
     <?php 
 if (isset($_POST["email_recovery"])) {
 
