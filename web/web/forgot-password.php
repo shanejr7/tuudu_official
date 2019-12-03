@@ -96,8 +96,12 @@
     </br>
 
 
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4"> </div>
+          <div class="col-lg-8">
     <h2 class="title">it's okay you can reset your email. </h2>
-
+          </div>
 
 
     <div class="container">
@@ -124,6 +128,9 @@
               </div>
           </div>
     </div>
+    </br>
+    </br>
+    </br>
 
     <?php 
 if (isset($_POST["email_recovery"])) {
