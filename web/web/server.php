@@ -338,12 +338,8 @@ header('location: profile.php');
   if ($user) { // if user exists
  
 
-    if (strcmp(trim($user['email']), $user_email) == 0) {
-    
-      array_push($errors, "email doesn't exists");
-    }else{
-
-    $timezone = pg_escape_string($db, $_POST['timezone']);
+    if (strcmp(trim($user['email']), trim($user_email)) == 0) {
+       $timezone = pg_escape_string($db, $_POST['timezone']);
   
 
 
@@ -390,6 +386,11 @@ header('location: profile.php');
   'subject' => 'user forgot password',
   'text'  => 'email sent requesting new password '.$new_password.' to '.$user_email.''
 ));
+    
+   
+    }else{
+
+        array_push($errors, "email doesn't exists");
  
     }
     
