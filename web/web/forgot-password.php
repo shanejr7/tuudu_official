@@ -123,7 +123,7 @@
                           <button type="submit" name="submit" class="btn btn-primary btn-block">Send request</button>
                         </div>
 
-                        <div class="col-md-4" style="margin-left: 10%; color: orange;"> <?php include('errors.php'); if(count($errors)==0){echo $string;} ?>
+                        <div class="col-md-4" style="margin-left: 10%; color: orange;"> <?php include('errors.php'); if(count($errors)==0 && isset($string)){echo $string;} ?>
                         </div>  
                       </div>
                     </form>

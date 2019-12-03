@@ -371,11 +371,11 @@ header('location: profile.php');
         $password = md5($password_1);//encrypt the password before saving in the database
     
 
-    pg_query($db, "UPDATE public.users SET password='$password',temp_password=TRUE, date_submitted ='$timezone_str' WHERE email = '$user_email'  ");
+    pg_query($db, "UPDATE public.users SET password='$password',temp_password=True, recent_login_time ='$timezone_str' WHERE email = '$user_email'");
 
 
   $string = "email sent";
-
+echo $new_password;
   $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
 
   $domain = "sandboxfa5d66d41cd74a59bd70dc47dc88118e.mailgun.org";
