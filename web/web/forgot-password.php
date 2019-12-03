@@ -91,6 +91,14 @@
  
  
     <!-- class"main main-rasied" -->
+    </br>
+    </br>
+    </br>
+
+
+    <h2 class="title">it's okay you can reset your email. </h2>
+
+
 
     <div class="container">
         <div class="row">

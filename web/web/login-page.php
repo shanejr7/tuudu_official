@@ -162,7 +162,7 @@
                 <div class="input-group">
                   <div class="input-group-prepend">
 
-                     <a href="forgot-password.php">forgot passowrd?</a>
+                     <a style="margin-left: 10px;" href="forgot-password.php">forgot password?</a>
                   </br>
                   <?php include('reCAPTCHA-v3/index.php') ?>
                   
