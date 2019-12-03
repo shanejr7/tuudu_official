@@ -40,8 +40,8 @@ $errors_list = array();
 
 
 // connect to the database
-$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-//$db = pg_connect(getenv("DATABASE_URL"));
+//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+$db = pg_connect(getenv("DATABASE_URL"));
  
    
 // REGISTER USER or BUSINESS USER
