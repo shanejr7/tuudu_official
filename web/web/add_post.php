@@ -16,6 +16,7 @@ if (isset($_POST['push'])) {
 $db = pg_connect(getenv("DATABASE_URL")); 
 
 $privateKey =filter_var('AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB', FILTER_SANITIZE_STRING); // secret key payment for block
+$paymentType =filter_var($_POST['paymentType'], FILTER_SANITIZE_STRING); // value of block
  
 $fiatValue =filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING); // value of block
  
@@ -39,11 +40,20 @@ $fiatValue =filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING); // value of
 
     $timestamp = $timezone_str;
  
+    $paymentType = strtoupper(trim($paymentType));
+
+    if (strcmp($paymentType,'PAYPAL') {
+        
+    }else if(strcmp($paymentType,'VENMO')){
+
+    }else{
+        $paymentType = 'PAYPAL';
+    }
  
 
  
  
-    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp' WHERE publickey = '$publickey' AND id =$userid");
+    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp', payment_type = '$paymentType' WHERE publickey = '$publickey' AND id =$userid");
  
 
 
@@ -87,7 +97,7 @@ $fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of block
     $timestamp = $timezone_str;
   
 
-    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp' WHERE publickey = '$publickey' AND id =$userid");
+    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp', payment_type = 'n/a' WHERE publickey = '$publickey' AND id =$userid");
 
  				// use val "=e.val."  to get pop up for submission if wanted
                // $val = random_str(12, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');

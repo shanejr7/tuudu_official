@@ -730,6 +730,13 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                      <input type="hidden" name="timezone" value="" id="timezone">
 
                      <label>payments are recieved after validation</label>
+
+                      <div class="form-group row">
+    
+                  <div class="col-sm-10">
+                    <input type="text" name="paymentType" class="form-control" id="value" placeholder="venmo or PayPal" required>
+                  </div>
+
                  <div class="form-group row">
     
                   <div class="col-sm-10">
