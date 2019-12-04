@@ -129,11 +129,11 @@ if (isset($_GET["purchased"])) {
    $result = pg_query($db, $query);   
    $organization_info = pg_fetch_assoc($result);
 
-  $email = trim(pg_escape_string($db,$organization_info["email"])));
+  $email = trim(pg_escape_string($db,$organization_info["email"]));
   $total = $price - ($price *5%);
   $currency = 'USD';
   $message = 'payment received'
-  $payment_type = trim(pg_escape_string($db,$organization_info["payment_type"])));
+  $payment_type = trim(pg_escape_string($db,$organization_info["payment_type"]));
  
 
       $query = "INSERT INTO csv_web_payouts (email,total,currency,ID,message,payment_type) 
