@@ -18,7 +18,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 $privateKey =filter_var('AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB', FILTER_SANITIZE_STRING); // secret key payment for block
 $paymentType =filter_var($_POST['paymentType'], FILTER_SANITIZE_STRING); // value of block
  
-$fiatValue =filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING); // value of block
+$fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); // value of block
  
     $timezone = pg_escape_string($db, $_POST['timezone']);
   
@@ -41,6 +41,8 @@ $fiatValue =filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING); // value of
     $timestamp = $timezone_str;
  
     $paymentType = strtoupper(trim($paymentType));
+
+    $fiatValue = number_format($fiatValue,2);
 
     if (strcmp($paymentType,'PAYPAL')) {
         

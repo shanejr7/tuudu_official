@@ -1,6 +1,21 @@
 <?php 
  
- 
+require('../aws/Aws/S3/S3Client.php'); 
+require('../aws/Aws/S3/ObjectUploader.php'); 
+
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+use Aws\S3\ObjectUploader;
+
+$s3=" ";
+$s3 = new Aws\S3\S3Client([
+    'version'  => 'latest',
+     'region'   => 'us-east-2',
+]);
+
+$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+$bucket_name = 'tuudu-official-file-storage';
+$key = ' ';
  
 	if (isset($_POST["add_cart"])) {
 
@@ -32,7 +47,7 @@
    $price = doubleval(pg_escape_string($db, $_POST['price']));
    $price = $price * $ticket_amt;
 
-	
+	 $price = number_format($price,2);
   
 
 
@@ -47,6 +62,8 @@
  pg_query($db, $query);
 
 // insert selected value
+
+
  $query = "INSERT INTO cart (user_id,org_id,publickey,ticket_amount,price,product_title,date_submitted) 
           VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title','$timezone_str')";
 
@@ -84,6 +101,69 @@ if (isset($_GET["purchased"])) {
           VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title')";
 
    pg_query($db, $query);
+
+
+
+
+
+
+   $organization_id = $user_cart['org_id'];
+
+   // insert unique ID 
+   $query = "SELECT email,payment_type FROM organization WHERE id = $organization_id  ";
+   $result = pg_query($db, $query);   
+   $organization_info = pg_fetch_assoc($result);
+
+  $email = trim(pg_escape_string($db,$organization_info["email"])));
+  $total = $price;
+  $currency = 'USD';
+  $message = 'payment received'
+  $payment_type = trim(pg_escape_string($db,$organization_info["payment_type"])));
+ 
+
+      $query = "INSERT INTO csv_web_payouts (email,total,currency,ID,message,payment_type) 
+          VALUES('$email','$total','$currency',$organization_id,'$message','$payment_type')";
+ 
+
+   pg_query($db, $query);
+
+
+
+$list = array (
+  array($email, $total ,$currency, $organization_id,$message,$payment_type)
+);
+
+$file = fopen("csv_web_payouts.csv","w");
+
+foreach ($list as $line) {
+  fputcsv($file, $line);
+}
+
+fclose($file);
+
+
+
+$source = fopen($file, 'rb');
+$key =  "web-payments/". $file; 
+
+$destination = $key;
+
+    $uploader = new ObjectUploader(
+    $s3,
+    $bucket_name,
+    $key,
+    $source 
+);
+
+try{
+   $upload = $uploader->upload($bucket, $destination, fopen($file, 'public-read');
+}catch(Execption $e){
+
+}
+
+
+
+
 
 
    $query = "DELETE FROM cart WHERE user_id = $id";
