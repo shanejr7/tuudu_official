@@ -134,10 +134,11 @@ if (isset($_GET["purchased"])) {
   $currency = 'USD';
   $message = 'payment received'
   $payment_type = trim(pg_escape_string($db,$organization_info["payment_type"]));
- 
+  date_default_timezone_set('UTC');
+  $time = date('c');
 
-      $query = "INSERT INTO csv_web_payouts (email,total,currency,ID,message,payment_type) 
-          VALUES('$email','$total','$currency',$organization_id,'$message','$payment_type')";
+      $query = "INSERT INTO csv_web_payouts (email,total,currency,ID,message,payment_type,date_submitted) 
+          VALUES('$email','$total','$currency',$organization_id,'$message','$payment_type','$time')";
  
 
    pg_query($db, $query);
@@ -145,7 +146,7 @@ if (isset($_GET["purchased"])) {
 
 
 $list = array (
-  array($email, $total ,$currency, $organization_id,$message,$payment_type)
+  array($email, $total ,$currency, $organization_id,$message,$payment_type,$time)
 );
 
 $file = fopen("csv_web_payouts.csv","w");
