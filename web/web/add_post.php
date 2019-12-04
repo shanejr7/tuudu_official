@@ -42,7 +42,7 @@ $fiatValue =filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING); // value of
  
     $paymentType = strtoupper(trim($paymentType));
 
-    if (strcmp($paymentType,'PAYPAL') {
+    if (strcmp($paymentType,'PAYPAL')) {
         
     }else if(strcmp($paymentType,'VENMO')){
 
