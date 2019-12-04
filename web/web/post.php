@@ -736,6 +736,7 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                   <div class="col-sm-10">
                     <input type="text" name="paymentType" class="form-control" id="value" placeholder="venmo or PayPal" required>
                   </div>
+                  </div>
 
                  <div class="form-group row">
     
