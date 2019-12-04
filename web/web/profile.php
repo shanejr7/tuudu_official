@@ -152,7 +152,7 @@ $bucket_name = 'tuudu-official-file-storage';
                     <a href="#" class="btn btn-primary btn-link btn-wd btn-lg">Contact support</a>
                 </div>
                  <div class="modal-footer justify-content-center">
-                    <p>contact@aeravi.io</p>
+                    <p>contact@tuudu.org</p>
                 </div> 
             </div>
         </div>
