@@ -145,37 +145,38 @@ if (isset($_GET["purchased"])) {
 
 
 
-$list = array (
-  array($email, $total ,$currency, $organization_id,$message,$payment_type,$time)
-);
+// $list = array (
+//   array($email, $total ,$currency, $organization_id,$message,$payment_type,$time)
+// );
 
-$file = fopen("csv_web_payouts.csv","w");
+// $file = fopen("csv_web_payouts.csv","w");
 
-foreach ($list as $line) {
-  fputcsv($file, $line);
-}
+// foreach ($list as $line) {
+//   fputcsv($file, $line);
+// }
 
-fclose($file);
+// fclose($file);
 
 
 
-$source = fopen($file, 'rb');
-$key =  "web-payments/". $file; 
+// $source = fopen($file, 'rb');
+// $key =  "web-payments/". $file; 
 
-$destination = $key;
+// $destination = $key;
 
-    $uploader = new ObjectUploader(
-    $s3,
-    $bucket_name,
-    $key,
-    $source 
-);
+//     $uploader = new ObjectUploader(
+//     $s3,
+//     $bucket_name,
+//     $key,
+//     $source 
+// );
 
-try{
-   $upload = $uploader->upload($bucket, $destination, fopen($file, 'public-read');
-}catch(Execption $e){
+// try{
+//   $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
+//    $upload = $uploader->upload($bucket, $destination, fopen($file, 'public-read'));
+// }catch(Execption $e){
 
-}
+// }
 
 
 
