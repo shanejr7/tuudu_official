@@ -376,7 +376,7 @@ echo '</div></from></div>';
                 purchase_units: [{
                     amount: {
                         "currency_code": "USD",
-                        value: "'.$price.'",
+                        value: "'.$total.'",
                         quantity:"'.$ticket_amt.'",
                         
                     },
