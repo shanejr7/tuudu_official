@@ -15,7 +15,7 @@ if (isset($_POST['push'])) {
 // insert into 
 $db = pg_connect(getenv("DATABASE_URL")); 
 
-$privateKey =filter_var($_POST['privatekey'], FILTER_SANITIZE_STRING); // secret key payment for block
+$privateKey =filter_var('AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB', FILTER_SANITIZE_STRING); // secret key payment for block
  
 $fiatValue =filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING); // value of block
  

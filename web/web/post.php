@@ -728,11 +728,8 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                     <form method="post" action="post.php"  style="display:inline-block">
 
                      <input type="hidden" name="timezone" value="" id="timezone">
-                <div class="form-group row">
-                  <div class="col-sm-10">
-                    <input type="text" name="privatekey" class="form-control" id="private" placeholder="paypal client id" required>
-                  </div>
-                </div> 
+
+                     <label>payments are recieved after validation</label>
                  <div class="form-group row">
     
                   <div class="col-sm-10">
