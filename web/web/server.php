@@ -1,6 +1,5 @@
 <?php
-$a = 1;
- echo doubleval($a);
+ 
 // later add first and last name
 session_start();
  include 'local_distance.php';

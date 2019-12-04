@@ -729,7 +729,7 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
 
                      <input type="hidden" name="timezone" value="" id="timezone">
 
-                     <label>payments are recieved after validation</label>
+                     <label>payments are recieved after purchases are made and items are validated with a deduction of 0.5%. Unvalid items may be subject to return funds.</label>
 
                       <div class="form-group row">
     

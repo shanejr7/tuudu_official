@@ -45,9 +45,21 @@ $key = ' ';
    $ticket_amt = pg_escape_string($db, $_POST['ticket_amount']);
    $title = trim(pg_escape_string($db, $_POST['eventTitle']));
    $price = doubleval(pg_escape_string($db, $_POST['price']));
-   $price = $price * $ticket_amt;
+   $price = $price * doubleval($ticket_amt);
 
-	 $price = number_format($price,2);
+   $tax = doubleval(pg_escape_string($db,0.06));
+   $total =0;
+   if ($price>=1) {
+    $tax = $tax * $price;
+   }else{
+    $tax = 0;
+   }
+    
+    $total = $price + $tax;
+
+    $total = number_format($total,2);
+
+ 
   
 
 
@@ -65,7 +77,7 @@ $key = ' ';
 
 
  $query = "INSERT INTO cart (user_id,org_id,publickey,ticket_amount,price,product_title,date_submitted) 
-          VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title','$timezone_str')";
+          VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$total,'$title','$timezone_str')";
 
    pg_query($db, $query);
 
@@ -95,7 +107,10 @@ if (isset($_GET["purchased"])) {
    $ticket_amt = intval(pg_escape_string($db,$user_cart["ticket_amount"]));
    $title = trim(pg_escape_string($db,$user_cart["product_title"]));
    $price = doubleval(pg_escape_string($db,$user_cart["price"]));
-   $price = $price * doubleval($ticket_amt);
+ 
+   $price = number_format($price,2);
+
+
  
    $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount,price,product_title) 
           VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title')";
@@ -115,7 +130,7 @@ if (isset($_GET["purchased"])) {
    $organization_info = pg_fetch_assoc($result);
 
   $email = trim(pg_escape_string($db,$organization_info["email"])));
-  $total = $price;
+  $total = $price - ($price *5%);
   $currency = 'USD';
   $message = 'payment received'
   $payment_type = trim(pg_escape_string($db,$organization_info["payment_type"])));

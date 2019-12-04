@@ -310,6 +310,8 @@ echo '</div></from></div>';
     
     $total = $price + $tax;
 
+    $total = number_format($total,2);
+
 
  pg_close($db);
  
