@@ -130,9 +130,9 @@ if (isset($_GET["purchased"])) {
    $organization_info = pg_fetch_assoc($result);
 
   $email = trim(pg_escape_string($db,$organization_info["email"]));
-  $total = $price - ($price *5%);
+  $total = $price - ($price *.5);
   $currency = 'USD';
-  $message = 'payment received'
+  $message = 'payment received';
   $payment_type = trim(pg_escape_string($db,$organization_info["payment_type"]));
   date_default_timezone_set('UTC');
   $time = date('c');
