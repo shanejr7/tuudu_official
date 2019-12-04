@@ -327,7 +327,7 @@ echo '</div></from></div>';
                 <tr>
                   <th class="text-center"></th>
                   <th>Product</th>
-                  <th class="text-right">Price</th>
+                  <th class="text-right">Price + tax</th>
                   <th class="text-right">Qty</th>
                    
                 
