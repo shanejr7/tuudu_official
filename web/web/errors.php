@@ -22,6 +22,14 @@
   </div>
 <?php  endif ?>
 
+ <?php if (count($new_password_error) > 0) : ?>
+  <div class="error">
+    <?php foreach ($new_password_error as $error) : ?>
+      <p><?php echo $error ?>  </p>
+    <?php endforeach ?>
+  </div>
+<?php  endif ?>
+
 
 <?php if (count($errors_dashboard) > 0) : ?>
   <div class="error">

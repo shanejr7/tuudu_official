@@ -37,6 +37,8 @@ $errors = array();
 $errors_dashboard = array();
 $errors_schedule = array(); 
 $errors_list = array(); 
+$new_password_error = array(); 
+
 
 
 // connect to the database
@@ -403,6 +405,8 @@ header('location: profile.php');
    pg_close($db);
 }
 
+// after random passsword sent to email
+  // user logs in and sets up new password
 
 if (isset($_POST['reset_password'])) {
   
@@ -418,6 +422,8 @@ if (isset($_POST['reset_password'])) {
     $reset_password = md5($password);
 
     pg_query($db, "UPDATE public.users SET password = '$reset_password' recent_login_time ='$timestamp', active_user=True, temp_password =FALSE WHERE email = '$email'");
+
+     echo '<script>document.getElementById("main").style.visibility = "show";</script>';
 
   }
   
@@ -446,13 +452,12 @@ if (isset($_POST['reset_password'])) {
 
 <script type="text/javascript">Sentry.init({ dsn: 'https://3aef67b48f3f4fce8a6f199673e536b7@sentry.io/1840301' });
 </script>
-
-
+ 
  
 
 <?php 
  
-
+ 
 
 // local location
  
@@ -503,7 +508,6 @@ if (isset($_POST['reset_password'])) {
 //   }
     
 //  }
-
 
  
 

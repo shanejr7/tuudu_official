@@ -268,6 +268,7 @@ $temp = $_SESSION['temp_pw'];
 
 
 if (isset($temp) && $temp == TRUE) {
+ 
    
   echo ' <div class=" bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
@@ -284,7 +285,9 @@ if (isset($temp) && $temp == TRUE) {
                  <br/>
                <div style="margin-left: 10%;">';   
 
-               include('errors.php');  
+              if (count($new_password_erros)>0) {
+                echo '<p>'.$new_password_erros[0].'<span class="text-warning btn-md-link"> <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>';
+              }
 
                   echo '</div>  
                 
@@ -319,9 +322,9 @@ if (isset($temp) && $temp == TRUE) {
 
  
     <!-- class"main main-rasied" -->
-     <div id="main">
      <div  >
-    <div class="profile-content ">
+     <div  >
+    <div class="profile-content " id="main">
       <div class="container">
     
         
@@ -875,6 +878,30 @@ if (sizeof($schedule_list) ==1) {
     
     </ul>
   </nav>
+  <?php 
+
+
+$temp = $_SESSION['temp_pw'];
+
+
+if (isset($temp) && $temp == TRUE) {
+
+echo '<script>
+ 
+  document.getElementById("main").style.visibility = "hidden";
+ 
+     </script>';
+}else{
+
+echo '<script>
+ 
+  document.getElementById("main").style.visibility = "show";
+ 
+     </script>';
+}
+
+
+  ?>
 </body>
 
 </html>
