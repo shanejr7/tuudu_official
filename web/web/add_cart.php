@@ -1,26 +1,12 @@
 <?php 
  
-// require('../aws/Aws/S3/S3Client.php'); 
-// require('../aws/Aws/S3/ObjectUploader.php'); 
-
-// use Aws\S3\S3Client;
-// use Aws\Exception\AwsException;
-// use Aws\S3\ObjectUploader;
-
-// $s3=" ";
-// $s3 = new Aws\S3\S3Client([
-//     'version'  => 'latest',
-//      'region'   => 'us-east-2',
-// ]);
-
-$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-$bucket_name = 'tuudu-official-file-storage';
-$key = ' ';
+ 
+ 
  
 	if (isset($_POST["add_cart"])) {
 
      // Create connection
- //  $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+     //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
  
      $db = pg_connect(getenv("DATABASE_URL"));
 
@@ -90,7 +76,9 @@ pg_close($db);
 if (isset($_GET["purchased"])) {
 
       // Create connection
-   $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+   //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
+   $db = pg_connect(getenv("DATABASE_URL"));
 
 
    $id = pg_escape_string($db, $_GET['purchased']);
@@ -138,49 +126,13 @@ if (isset($_GET["purchased"])) {
   $time = date('c');
 
       $query = "INSERT INTO csv_web_payouts (email,total,currency,ID,message,payment_type,date_submitted) 
-          VALUES('$email','$total','$currency',$organization_id,'$message','$payment_type','$time')";
+          VALUES('$email','$total','$currency','$organization_publickey','$message','$payment_type','$time')";
  
 
    pg_query($db, $query);
 
 
-
-// $list = array (
-//   array($email, $total ,$currency, $organization_id,$message,$payment_type,$time)
-// );
-
-// $file = fopen("csv_web_payouts.csv","w");
-
-// foreach ($list as $line) {
-//   fputcsv($file, $line);
-// }
-
-// fclose($file);
-
-
-
-// $source = fopen($file, 'rb');
-// $key =  "web-payments/". $file; 
-
-// $destination = $key;
-
-//     $uploader = new ObjectUploader(
-//     $s3,
-//     $bucket_name,
-//     $key,
-//     $source 
-// );
-
-// try{
-//   $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
-//    $upload = $uploader->upload($bucket, $destination, fopen($file, 'public-read'));
-// }catch(Execption $e){
-
-// }
-
-
-
-
+ 
 
 
    $query = "DELETE FROM cart WHERE user_id = $id";
