@@ -441,8 +441,9 @@ if (isset($_POST['reset_password'])) {
 
     pg_query($db, "UPDATE public.users SET password = '$reset_password', recent_login_time ='$timezone_str', active_user=True, temp_password =False WHERE email = '$email'");
 
-       
-        $_SESSION['temp_pw'] = False;
+       unset($_SESSION['temp_pw']);
+
+       $_SESSION['temp_pw'] = False;
   }
   
   

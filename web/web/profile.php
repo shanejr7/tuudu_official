@@ -266,7 +266,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 $temp = $_SESSION['temp_pw'];
 
-
+echo $temp;
 if (isset($temp) && $temp == TRUE) {
  
    
