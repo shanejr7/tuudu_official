@@ -110,10 +110,10 @@ if (isset($_GET["purchased"])) {
 
 
 
-   $organization_id = $user_cart['org_id'];
+
 
    // insert unique ID 
-   $query = "SELECT email,payment_type FROM organization WHERE id = $organization_id  ";
+   $query = "SELECT email,payment_type FROM organization WHERE publickey = $organization_publickey";
    $result = pg_query($db, $query);   
    $organization_info = pg_fetch_assoc($result);
 
