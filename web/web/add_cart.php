@@ -126,7 +126,7 @@ if (isset($_GET["purchased"])) {
   $time = date('c');
 
       $query = "INSERT INTO csv_web_payouts (email,total,currency,ID,message,payment_type,date_submitted) 
-          VALUES('$email','$total','$currency','$organization_publickey','$message','$payment_type','$time')";
+          VALUES('$email',$total,'$currency','$organization_publickey','$message','$payment_type','$time')";
  
 
    pg_query($db, $query);
