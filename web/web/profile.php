@@ -269,13 +269,13 @@ $temp = $_SESSION['temp_pw'];
 if (isset($temp) && $temp ==1) {
  
    
-  echo ' <div class=" bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+ echo ' <div class=" bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
      <form class="form" method="post" action="profile.php">
                  <input type="hidden" name="timezone" value="" id="timezone">
                  
-             <div class="card-header card-header-primary text-center">
+             <div class="card-header card-header-primary text-center" style="background-color:orange;">
                 <h4 class="card-title">new password</h4>
                 
               </div>
@@ -306,9 +306,11 @@ if (isset($temp) && $temp ==1) {
                 data-callback="onSubmit">submit</button>
               </div>
             </form>
+
     </div>
   </div>
-</div>';
+</div><div class="row">
+<div class="col-md-5"> </div> <div class="col-md-4"><p>we will never share your password</p></div></div>';
 
 }
 
