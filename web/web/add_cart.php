@@ -88,7 +88,7 @@ if (isset($_GET["purchased"])) {
    $user_cart = pg_fetch_assoc($result);
  
 
-
+ 
   
    $organization_publickey = trim(pg_escape_string($db,$user_cart["publickey"]));
    $org_id = pg_escape_string($db,$user_cart["org_id"]);
@@ -106,14 +106,10 @@ if (isset($_GET["purchased"])) {
    pg_query($db, $query);
 
 
-
-
-
-
-
+ 
 
    // insert unique ID 
-   $query = "SELECT email,payment_type FROM organization WHERE publickey = $organization_publickey";
+   $query = "SELECT email,payment_type FROM organization WHERE publickey = '$organization_publickey'";
    $result = pg_query($db, $query);   
    $organization_info = pg_fetch_assoc($result);
 
@@ -125,8 +121,8 @@ if (isset($_GET["purchased"])) {
   date_default_timezone_set('UTC');
   $time = date('c');
 
-      $query = "INSERT INTO csv_web_payouts (email,total,currency,ID,message,payment_type,date_submitted) 
-          VALUES('$email',$total,'$currency','$organization_publickey','$message','$payment_type','$time')";
+      $query = "INSERT INTO csv_web_payouts (email,total,currency,message,payment_type,date_submitted,id) 
+          VALUES('$email',$total,'$currency','$message','$payment_type','$time','$organization_publickey')";
  
 
    pg_query($db, $query);

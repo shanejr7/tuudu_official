@@ -21,7 +21,7 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
  
  
      // connect to DataBase
-    //$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+     //$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
      $conn = pg_connect(getenv("DATABASE_URL"));
      $user_I_D =  pg_escape_string($conn, $_SESSION['id']);
      $organization_publickey = pg_escape_string($conn,$_GET['order']);
@@ -170,7 +170,7 @@ pg_close($conn);
                     <a href="#" class="btn btn-primary btn-link btn-wd btn-lg">Contact support</a>
                 </div>
                  <div class="modal-footer justify-content-center">
-                    <p>contact@aeravi.io</p>
+                    <p>support@tuudu.org</p>
                 </div> 
             </div>
         </div>
@@ -393,13 +393,13 @@ echo '</div></from></div>';
 </script>';
 
  
-echo "</br></br></br></br></br></br>
+echo "</br></br> </br></br></br></br>
 "; 
 
  }?>  
 
        </div>
-            	 
+             
           </div>
         </div>
       </div>
@@ -407,6 +407,25 @@ echo "</br></br></br></br></br></br>
   </div>
  </br>
 </br>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Policy for payments</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ by accepting this agreement and terms with using our services. you agree that all transactions and events are binded to independent third party oraganizations in which our services only provides data without any association or having liability with third party organizations. accepting these terms and payment services you agree with our policy. refunds may not be requested after purchases. If you do not agree with our terms and policy then do not make any purchases.
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button> -->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
   <footer class="footer footer-default cd-section" id="footer">
     <div class="container">
       <nav class="float-left">
@@ -424,6 +443,11 @@ echo "</br></br></br></br></br></br>
           <li>
            <a href="https://www.Aeravi.io">
               Licenses
+            </a>
+          </li>
+            <li>
+           <a href="#" data-toggle="modal" data-target="#exampleModal">
+            Terms
             </a>
           </li>
         </ul>

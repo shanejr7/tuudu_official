@@ -14,7 +14,7 @@ $s3 = new Aws\S3\S3Client([
      'region'   => 'us-east-2',
 ]);
 
-$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+$bucket = getenv('S3_BUCKET')?: die('please try again later..');
 $bucket_name = 'tuudu-official-file-storage';
  
    if (isset($_GET['dashboard'])) {
