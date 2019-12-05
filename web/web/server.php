@@ -373,7 +373,7 @@ header('location: profile.php');
         $new_password = $password_1;
         $password = md5($password_1);//encrypt the password before saving in the database
     
-
+echo $password;
     pg_query($db, "UPDATE public.users SET password='$password',temp_password=True, recent_login_time ='$timezone_str' WHERE email = '$user_email'");
 
 
