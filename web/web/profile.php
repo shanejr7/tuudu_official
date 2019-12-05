@@ -161,7 +161,8 @@ $bucket_name = 'tuudu-official-file-storage';
 </div>
 <?php 
 
-$temp = $_SESSION['temp_password'];
+$temp = $_SESSION['temp_pw'];
+
 
 if (isset($temp) && $temp == TRUE) {
    
