@@ -163,7 +163,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 $temp = $_SESSION['temp_password'];
 
-if (isset($temp) && $temp = TRUE) {
+if (isset($temp) && $temp == TRUE) {
    
   echo ' <div class=" bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
