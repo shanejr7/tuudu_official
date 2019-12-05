@@ -296,6 +296,7 @@ if (isset($_POST['login_user'])) {
       $_SESSION['account_type'] = $users['account_type'];
       $_SESSION['email'] = $users['email'];
       $_SESSION['img_src'] = $users['profile_pic_src'];
+      $_SESSION['temp_pw'] = $users['temp_password'];
   	  $_SESSION['success'] = "You are now logged in";
 
 
@@ -399,6 +400,30 @@ echo $new_password;
   } 
   
  
+   pg_close($db);
+}
+
+
+if (isset($_POST['reset_password'])) {
+  
+    $email = $_SESSION['email'];
+    $password = pg_escape_string($db, $_POST['reset_password']);
+
+    if (empty($password)) {
+
+    array_push($errors, "Password is required");
+  }
+  if (count($errors)==0) {
+    
+    $reset_password = md5($password);
+
+    pg_query($db, "UPDATE public.users SET password = '$reset_password' recent_login_time ='$timestamp', active_user=True, temp_password =FALSE WHERE email = '$email'");
+
+  }
+  
+  
+
+
    pg_close($db);
 }
  
