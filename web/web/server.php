@@ -421,10 +421,10 @@ if (isset($_POST['reset_password'])) {
     
     $reset_password = md5($password);
 
-    pg_query($db, "UPDATE public.users SET password = '$reset_password' recent_login_time ='$timestamp', active_user=True, temp_password =FALSE WHERE email = '$email'");
+    pg_query($db, "UPDATE public.users SET password = '$reset_password', recent_login_time ='$timestamp', active_user=True, temp_password =False WHERE email = '$email'");
 
-     echo '<script>document.getElementById("main").style.visibility = "show";</script>';
-
+       
+        $_SESSION['temp_pw'] = False;
   }
   
   
