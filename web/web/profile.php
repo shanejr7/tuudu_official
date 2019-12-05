@@ -159,60 +159,7 @@ $bucket_name = 'tuudu-official-file-storage';
         </div>
     </div>
 </div>
-<?php 
-
-$temp = $_SESSION['temp_pw'];
-
-
-if (isset($temp) && $temp == TRUE) {
-   
-  echo ' <div class=" bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-     <form class="form" method="post" action="profile.php">
-                 <input type="hidden" name="timezone" value="" id="timezone">
-                 
-             <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">new password</h4>
-                
-              </div>
-          
-              <div class="card-body">
-                 <br/>
-               <div style="margin-left: 10%;">';   
-
-               include('errors.php');  
-
-                  echo '</div>  
-                
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">lock_outline</i>
-                    </span>
-                  </div>
-                  <input type="password" class="form-control" name="reset_password" id="inputPassword" placeholder="Password..." required="">
-                </div>
  
-               
-              </div>
-              <div class="footer text-center">
-                <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg"   name="new_password"
-                data-callback="onSubmit">submit</button>
-              </div>
-            </form>
-    </div>
-  </div>
-</div>';
-
-}
-
-
-
-
-
-
-?>
  
 
  
@@ -315,6 +262,60 @@ if (isset($temp) && $temp == TRUE) {
                   </ul>
                 </div>
 </nav>
+<?php 
+
+$temp = $_SESSION['temp_pw'];
+
+
+if (isset($temp) && $temp == TRUE) {
+   
+  echo ' <div class=" bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+     <form class="form" method="post" action="profile.php">
+                 <input type="hidden" name="timezone" value="" id="timezone">
+                 
+             <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">new password</h4>
+                
+              </div>
+          
+              <div class="card-body">
+                 <br/>
+               <div style="margin-left: 10%;">';   
+
+               include('errors.php');  
+
+                  echo '</div>  
+                
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                  <input type="password" class="form-control" name="reset_password" id="inputPassword" placeholder="Password..." required="">
+                </div>
+ 
+               
+              </div>
+              <div class="footer text-center">
+                <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg"   name="new_password"
+                data-callback="onSubmit">submit</button>
+              </div>
+            </form>
+    </div>
+  </div>
+</div>';
+
+}
+
+
+
+
+
+
+?>
 
  
     <!-- class"main main-rasied" -->
