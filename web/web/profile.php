@@ -266,8 +266,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 $temp = $_SESSION['temp_pw'];
 
-echo $temp;
-if (isset($temp) && $temp == TRUE) {
+if (isset($temp) && $temp ==1) {
  
    
   echo ' <div class=" bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -884,7 +883,7 @@ if (sizeof($schedule_list) ==1) {
 $temp = $_SESSION['temp_pw'];
 
 
-if (isset($temp) && $temp == TRUE) {
+if (isset($temp) && $temp == 1) {
 
 echo '<script>
  

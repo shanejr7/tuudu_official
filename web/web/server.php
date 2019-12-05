@@ -374,7 +374,7 @@ header('location: profile.php');
         $password = md5($password_1);//encrypt the password before saving in the database
     
 echo $new_password;
-    pg_query($db, "UPDATE public.users SET password='$password',temp_password=True, recent_login_time ='$timezone_str' WHERE email = '$user_email'");
+    pg_query($db, "UPDATE public.users SET password='$password',temp_password=1, recent_login_time ='$timezone_str' WHERE email = '$user_email'");
 
 
   $string = "email sent";
@@ -439,11 +439,11 @@ if (isset($_POST['reset_password'])) {
     $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
 
 
-    pg_query($db, "UPDATE public.users SET password = '$reset_password', recent_login_time ='$timezone_str', active_user=True, temp_password =False WHERE email = '$email'");
+    pg_query($db, "UPDATE public.users SET password = '$reset_password', recent_login_time ='$timezone_str', active_user=True, temp_password =0 WHERE email = '$email'");
 
        unset($_SESSION['temp_pw']);
 
-       $_SESSION['temp_pw'] = False;
+       $_SESSION['temp_pw'] = 0;
   }
   
   
