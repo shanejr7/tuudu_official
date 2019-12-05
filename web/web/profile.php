@@ -284,9 +284,9 @@ if (isset($temp) && $temp == TRUE) {
               <div class="card-body">
                  <br/>
                <div style="margin-left: 10%;">';   
-
-              if (count($new_password_erros)>0) {
-                echo '<p>'.$new_password_erros[0].'<span class="text-warning btn-md-link"> <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>';
+ 
+              if (count($new_password_error)>0) {
+                echo '<p>'.$new_password_error[0].'<span class="text-warning btn-md-link"> <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>';
               }
 
                   echo '</div>  

@@ -412,6 +412,8 @@ if (isset($_POST['reset_password'])) {
   
     $email = $_SESSION['email'];
     $password = pg_escape_string($db, $_POST['reset_password']);
+    $timezone = pg_escape_string($db, $_POST['timezone']);
+  
 
     if (empty($password)) {
 
@@ -421,7 +423,23 @@ if (isset($_POST['reset_password'])) {
     
     $reset_password = md5($password);
 
-    pg_query($db, "UPDATE public.users SET password = '$reset_password', recent_login_time ='$timestamp', active_user=True, temp_password =False WHERE email = '$email'");
+
+
+    $timezone = explode(" ", $timezone);
+    $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
+    $timezone_str = $timezone_str .' '.$timezone[4];
+
+    $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
+
+    date_default_timezone_set($zone);
+
+    $O = explode("-", $timezone[5]);
+ 
+
+    $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
+
+
+    pg_query($db, "UPDATE public.users SET password = '$reset_password', recent_login_time ='$timezone_str', active_user=True, temp_password =False WHERE email = '$email'");
 
        
         $_SESSION['temp_pw'] = False;
