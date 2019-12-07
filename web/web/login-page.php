@@ -56,6 +56,15 @@
  <script src="../assets/js/local.js"></script>
 
 </head>
+<style type="text/css">* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }</style>
 
 <body class="profile-page sidebar-collapse">
 
