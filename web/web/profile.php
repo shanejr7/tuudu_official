@@ -903,7 +903,30 @@ if (sizeof($schedule_list) ==1) {
     
     </ul>
   </nav>
+  <?php 
 
+
+$temp = $_SESSION['temp_pw'];
+
+
+if (isset($temp) && $temp == 1) {
+
+echo '<script>
+ 
+  document.getElementById("main").style.visibility = "hidden";
+ 
+     </script>';
+}else{
+
+echo '<script>
+ 
+  document.getElementById("main").style.visibility = "show";
+ 
+     </script>';
+}
+
+
+  ?>
 </body>
 
 </html>
