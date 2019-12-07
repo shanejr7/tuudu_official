@@ -349,7 +349,7 @@ if (isset($temp) && $temp ==1) {
     <!-- class"main main-rasied" -->
      <div  >
      <div  >
-    <div class="profile-content " id="main">
+    <div class="profile-content " id="main" style="visibility: hidden;">
       <div class="container">
     
         

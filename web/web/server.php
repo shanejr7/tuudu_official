@@ -448,7 +448,4 @@ if (isset($_POST['reset_password'])) {
 
  ?>
  
- 
-
- </body>
  </html>
