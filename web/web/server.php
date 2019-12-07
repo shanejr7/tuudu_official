@@ -38,6 +38,7 @@ $errors_dashboard = array();
 $errors_schedule = array(); 
 $errors_list = array(); 
 $new_password_error = array(); 
+$visible ="show";
 
 
 
@@ -218,6 +219,13 @@ if (isset($_POST['login_user'])) {
   	  $_SESSION['success'] = "You are now logged in";
 
 
+      if ($_SESSION['temp_pw']==1) {
+        $visible = "hidden";
+      }else if($_SESSION['temp_pw']==0){
+        $visible = "show";
+      }
+
+
       $id = $users['id'];
       $timestamp = $timezone_str;
 
@@ -360,6 +368,7 @@ if (isset($_POST['reset_password'])) {
        unset($_SESSION['temp_pw']);
 
        $_SESSION['temp_pw'] = 0;
+       $visible ="show";
   }
   
   
