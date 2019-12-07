@@ -7,6 +7,7 @@ var size = dashboard_local_distance.length;
 var count = 0;
 
 for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
+	console.log(dashboard_local_distance[i].address);
    geolocation(dashboard_local_distance[i].address,dashboard_local_distance[i].publickey,size,count);
    count++;
   
