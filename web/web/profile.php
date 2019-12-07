@@ -131,7 +131,7 @@ echo '<script>
 
   ?>
 
-  <script src="../assests/js/custom_js.js"></script>
+  <script src="../assets/js/custom_js.js"></script>
   
  
  
@@ -534,7 +534,7 @@ $key = array_intersect($key,$local_distance);
               
             echo '</div>';
           }else{
-            
+
           }
           
         }
