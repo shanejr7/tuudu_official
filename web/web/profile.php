@@ -105,7 +105,7 @@ $bucket_name = 'tuudu-official-file-storage';
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
   <!-- custom css -->
   <link href="../assets/css/core.css" rel="stylesheet" />
- <!--   <script src="../assets/js/local.js"></script> -->
+   <script src="../assets/js/local.js"></script>
      <?php 
 
 
@@ -131,7 +131,7 @@ echo '<script>
 
   ?>
 
-  <script src="../assets/js/custom_js.js"></script>
+<!--   <script src="../assets/js/custom_js.js"></script> -->
   
  
  
@@ -378,7 +378,7 @@ if (isset($temp) && $temp ==1) {
         </div>
 
  
-   <script src="../assets/js/dashboard.js"></script>
+  <!--  <script src="../assets/js/dashboard.js"></script> -->
 
         <div class="tab-content tab-space cd-section" id="body">
           <div class="tab-pane active text-center gallery section section-sections" id="studio">
@@ -396,12 +396,12 @@ if (isset($temp) && $temp ==1) {
                 
 
 if (isset($dashboard_list)  ) {
- $key = array();
+//  $key = array();
 
  
-$key = array_column($dashboard_list, 'publickey');
+// $key = array_column($dashboard_list, 'publickey');
  
-$key = array_intersect($key,$local_distance);
+// $key = array_intersect($key,$local_distance);
 
  
  
@@ -465,10 +465,7 @@ $key = array_intersect($key,$local_distance);
 // else
 //   { 
 //   // echo "not found"; 
-
 //   }
-           if(in_array($item["publickey"], $key)) 
-  { 
                            $cmd = $s3->getCommand('GetObject', [
                                         'Bucket' => ''.$bucket_name.'',
                                         'Key'    => ''.trim($item["img"]).'',
@@ -533,9 +530,6 @@ $key = array_intersect($key,$local_distance);
           
               
             echo '</div>';
-          }else{
-
-          }
           
         }
         echo '</div>';
