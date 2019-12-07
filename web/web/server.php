@@ -371,10 +371,10 @@ if (isset($_POST['reset_password'])) {
 
       
 ?>
- <!DOCTYPE html> 
+ 
  <html lang="en">
  <head>
-   <title></title>
+   
   
      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
