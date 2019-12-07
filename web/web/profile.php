@@ -131,7 +131,7 @@ echo '<script>
 
   ?>
 
-<!--   <script src="../assests/js/custom_js.js"></script> -->
+  <script src="../assests/js/custom_js.js"></script>
   
  
  
@@ -396,12 +396,12 @@ if (isset($temp) && $temp ==1) {
                 
 
 if (isset($dashboard_list)  ) {
-//  $key = array();
+ $key = array();
 
  
-// $key = array_column($dashboard_list, 'publickey');
+$key = array_column($dashboard_list, 'publickey');
  
-// $key = array_intersect($key,$local_distance);
+$key = array_intersect($key,$local_distance);
 
  
  
@@ -465,7 +465,10 @@ if (isset($dashboard_list)  ) {
 // else
 //   { 
 //   // echo "not found"; 
+
 //   }
+           if(in_array($item["publickey"], $key)) 
+  { 
                            $cmd = $s3->getCommand('GetObject', [
                                         'Bucket' => ''.$bucket_name.'',
                                         'Key'    => ''.trim($item["img"]).'',
@@ -530,6 +533,9 @@ if (isset($dashboard_list)  ) {
           
               
             echo '</div>';
+          }else{
+            
+          }
           
         }
         echo '</div>';
