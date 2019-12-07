@@ -79,8 +79,8 @@ console.log(address);
          document.cookie = escape(name) + "=" + escape(latitude)+ "/"
           + escape(longitude)+"/"+ escape(size)+"/"+ escape(publickey) + expires + "; path=/"; 
         
-        // console.log(expires);
-        // console.log(document.cookie); 
+        console.log(expires);
+        console.log(document.cookie); 
 
     } 
    
