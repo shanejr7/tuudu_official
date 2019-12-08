@@ -16,7 +16,7 @@ $s3 = new Aws\S3\S3Client([
      'region'   => 'us-east-2',
 ]);
 
-$bucket = getenv('S3_BUCKET')?: die('sorry please try again later..');
+$bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
 $key = ' ';
  

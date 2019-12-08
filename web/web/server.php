@@ -33,6 +33,7 @@ $username = "";
 $email    = "";
 $age = "";
 $timestamp = "";
+$db="";
 $errors = array(); 
 $errors_dashboard = array();
 $errors_schedule = array(); 
@@ -40,10 +41,13 @@ $errors_list = array();
 $new_password_error = array(); 
 
 
-
+try{
 // connect to the database
 //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
 $db = pg_connect(getenv("DATABASE_URL"));
+}catch(Execption $e){
+  header('location:oops.php');
+}
  
    
 // REGISTER USER or BUSINESS USER

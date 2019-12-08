@@ -1,4 +1,5 @@
 <?php include('server.php');
+session_destroy();
  
    ?>
 <!--
@@ -41,7 +42,7 @@
 <meta name="theme-color" content="#ffffff">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    forgot password
+    oops
   </title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -100,38 +101,11 @@
         <div class="row">
           <div class="col-md-4"> </div>
           <div class="col-lg-8">
-    <h2 class="title">it's okay you can reset your password.. </h2>
+    <h2 class="title">
+ please try again later.. </h2>
+ <h8 class="title" style="margin-left: 10%">working on it <i class="material-icons">phonelink_setup</i></h8>
           </div>
 
-
-    <div class="container">
-        <div class="row">
-           <div class="col-md-10 ml-auto mr-auto">
-                <div class="card card-raised card-form-horizontal">
-                  <div class="card-body ">
-                    <form method="POST" action="forgot-password.php">
-                      <input type="hidden" name="timezone" value="" id="timezone">
-                      <div class="row">
-                     
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <input type="email" value="" placeholder="email" class="form-control" name="email_recovery">
-                          </div>
-                        </div>
-                       
-                        <div class="col-md-3">
-                          <button type="submit" name="submit" class="btn btn-primary btn-block">Send request</button>
-                        </div>
-
-                        <div class="col-md-4" style="margin-left: 10%; color: orange;"> <?php include('errors.php'); if(count($errors)==0 && isset($string)){echo $string;} ?>
-                        </div>  
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-          </div>
-    </div>
  
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -152,7 +126,8 @@
     </div>
   </div>
 </div>
-  <footer class="footer footer-default">
+
+  <footer class="footer footer-default" style="margin-top: 20%">
     <div class="container">
       <nav class="float-left">
      <ul>
@@ -193,19 +168,19 @@
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
   <script src="../assets/js/plugins/moment.min.js"></script>
-  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <!--  Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
   <script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
   <!--  Google Maps Plugin    -->
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
-  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+  <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
-  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+  <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
   <script src="../assets/js/plugins/bootstrap-selectpicker.js" type="text/javascript"></script>
-  <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+  <!--  Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
   <script src="../assets/js/plugins/jasny-bootstrap.min.js" type="text/javascript"></script>
-  <!--	Plugin for Small Gallery in Product Page -->
+  <!--  Plugin for Small Gallery in Product Page -->
   <script src="../assets/js/plugins/jquery.flexisel.js" type="text/javascript"></script>
   <!-- Plugins for presentation and navigation  -->
   <script src="../assets/demo/modernizr.js" type="text/javascript"></script>
