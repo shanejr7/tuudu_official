@@ -16,7 +16,7 @@ $s3 = new Aws\S3\S3Client([
      'region'   => 'us-east-2',
 ]);
 
-$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+$bucket = getenv('S3_BUCKET')?: die('sorry please try again later..');
 $bucket_name = 'tuudu-official-file-storage';
 $key = ' ';
  
@@ -170,7 +170,8 @@ if (!$db) {
  $event_card = pg_fetch_assoc($data);
 
  if ($event_card['img']) {
-   $_SESSION['img_src'] = $event_card['img'];
+   // $_SESSION['img_src'] = $event_card['img'];
+    $_SESSION['img_src'] = '../assets/img/image_placeholder.jpg';
  }else{
    $_SESSION['img_src'] = '../assets/img/image_placeholder.jpg';
  }
@@ -729,7 +730,6 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
 
                      <input type="hidden" name="timezone" value="" id="timezone">
 
-                     <label>payments are recieved after purchases are made and items are validated with a deduction of 0.5%. Unvalid items may be subject to return funds.</label>
 
                       <div class="form-group row">
     
@@ -850,6 +850,26 @@ card();
       </br>        
           </div>
     </div>
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Terms & Agreement</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label>payments are recieved after purchases are made and items are validated with a deduction of 0.5%. Unvalid items may be subject to return funds.</label>
+ by accepting this agreement and terms with using our services. you agree that all transactions and events are binded to independent third party oraganizations in which our services only provides data without any association or having liability with third party organizations. accepting these terms our services is allowed to use data of your liking to provide events and or activitites.If you do not agree with our terms and policy then do not register, download, or use our services.
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button> -->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
   <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">
@@ -867,6 +887,11 @@ card();
           <li>
             <a href="https://www.Aeravi.io">
               Licenses
+            </a>
+          </li>
+          <li>
+           <a href="#" data-toggle="modal" data-target="#exampleModal">
+            Terms
             </a>
           </li>
         </ul>

@@ -1,4 +1,5 @@
  // Creating a cookie after the document is ready 
+
     $(document).ready(function () { 
 
     if (navigator.geolocation) {
@@ -22,11 +23,11 @@
     // $(document).ready(function () { 
 
 
-      // var address = "<?php //echo $organization_address ?>"; 
+//       var address = "<?php echo $organization_address ?>"; 
 // var address = "107 E Michigan Ave apt #304";    
-// loop through and return bool in php
+// // loop through and return bool in php
 
-//geolocation(address);
+// geolocation(address);
 
  function geolocation(address,publickey,size,count){
 
@@ -39,7 +40,7 @@
     }
 
 
-console.log(address);
+// console.log(address);
 
     $.ajax({
         url: "https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&key=AIzaSyBidE-PE8nRTYLn-tqLiLipd86XT3yDoiY",
@@ -81,6 +82,7 @@ console.log(address);
         
         console.log(expires);
         console.log(document.cookie); 
+
 
     } 
    

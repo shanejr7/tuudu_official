@@ -416,7 +416,7 @@ $user_I_D = pg_escape_string($db, $_SESSION['id']);
  if (isset($_SESSION['id']) && isset($_POST['schedule']) && isset($_POST["free_event"])) {
 
    //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-    $db = pg_connect(getenv("DATABASE_URL"));
+   $db = pg_connect(getenv("DATABASE_URL"));
    $id = pg_escape_string($db, $_SESSION['id']);
    $organization_publickey = trim(pg_escape_string($db, $_POST['publickey']));
    $org_id = pg_escape_string($db, $_POST['org_id']);

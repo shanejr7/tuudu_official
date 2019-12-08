@@ -14,7 +14,7 @@ $s3 = new Aws\S3\S3Client([
      'region'   => 'us-east-2',
 ]);
 
-$bucket = getenv('S3_BUCKET')?: die('please try again later..');
+//$bucket = getenv('S3_BUCKET')?: die('please try again later..');
 $bucket_name = 'tuudu-official-file-storage';
  
    if (isset($_GET['dashboard'])) {
@@ -105,7 +105,7 @@ $bucket_name = 'tuudu-official-file-storage';
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
   <!-- custom css -->
   <link href="../assets/css/core.css" rel="stylesheet" />
-   <script src="../assets/js/local.js"></script>
+ <!--   <script src="../assets/js/local.js"></script> -->
      <?php 
 
 
@@ -131,7 +131,7 @@ echo '<script>
 
   ?>
 
-<!--   <script src="../assets/js/custom_js.js"></script> -->
+  <script src="../assets/js/custom_js.js"></script>
   
  
  
@@ -378,7 +378,22 @@ if (isset($temp) && $temp ==1) {
         </div>
 
  
-  <!--  <script src="../assets/js/dashboard.js"></script> -->
+   <script type="text/javascript">
+     
+
+
+var dashboard_local_distance = <?php echo json_encode($dashboard_list, JSON_PRETTY_PRINT) ?>;
+var size = dashboard_local_distance.length; 
+var count = 0;
+console.log(dashboard_local_distance);
+
+for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
+ 
+   geolocation(dashboard_local_distance[i].address,dashboard_local_distance[i].publickey,size,count);
+   count++;
+  
+}
+   </script>
 
         <div class="tab-content tab-space cd-section" id="body">
           <div class="tab-pane active text-center gallery section section-sections" id="studio">
@@ -396,12 +411,12 @@ if (isset($temp) && $temp ==1) {
                 
 
 if (isset($dashboard_list)  ) {
-//  $key = array();
+ $key = array();
 
  
-// $key = array_column($dashboard_list, 'publickey');
+$key = array_column($dashboard_list, 'publickey');
  
-// $key = array_intersect($key,$local_distance);
+$key = array_intersect($key,$local_distance);
 
  
  
@@ -416,56 +431,9 @@ if (isset($dashboard_list)  ) {
     foreach($arrayChunks as $items) {
         echo '<div class="row">';
         foreach($items as $item) {
-  // if(in_array($item["publickey"], $key)) 
-  // { 
-  //   echo '<div class="col-md-4">';
-
-  //            // echo '<a href="#">';
-
-  //            echo '<div class="contain">';
-
-  //                 echo  '<img src="'.trim($item['img']).'" class="img rounded">';
-
-  //                 if (trim($item['price']) =='0.00') {
-
-  //                       echo '<div class="top-right h9"> 
-  //                       <i class="material-icons">strikethrough_s</i></div>';
-
-  //                       }else{
-
-  //                 echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
-                  
-  //                 }
-
-  //                 echo '<div class="top-left h6" style="width:10px;">'
-  //                      .toString($item['date']).'</div>';
-
-  //                 echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
-
-
-  //                 echo '<div class="bottom-left" style="font-weight: bolder;">
-  //                       <a href="subscription.php?subscribe='.trim($item['publickey']).'">
-  //                       <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
-
-  //                       // href="feed_state.php?val='.trim($item['org_id']).'"
-  //                       // delete_outline 
-  //                 echo '<div class="bottom-right" style="font-weight: bolder;">
-  //                        <a href="order_page.php?order='.$item['publickey'].'"<i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
-
-            
-
-
-
-  //               echo '</div>';
-              
-  //             // echo '</a>';
-              
-  //           echo '</div>';
-  // } 
-// else
-//   { 
-//   // echo "not found"; 
-//   }
+ 
+          if(in_array($item["publickey"], $key)) 
+  { 
                            $cmd = $s3->getCommand('GetObject', [
                                         'Bucket' => ''.$bucket_name.'',
                                         'Key'    => ''.trim($item["img"]).'',
@@ -474,6 +442,7 @@ if (isset($dashboard_list)  ) {
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
+     
 
               
 
@@ -530,6 +499,9 @@ if (isset($dashboard_list)  ) {
           
               
             echo '</div>';
+          }else{
+            // not local
+          }
           
         }
         echo '</div>';
@@ -821,6 +793,12 @@ if (sizeof($schedule_list) ==1) {
               Licenses
             </a>
           </li>
+          <li>
+           <a href="#" data-toggle="modal" data-target="#exampleModal">
+            Terms
+            </a>
+          </li>
+
         </ul>
       </nav>
       <div class="copyright float-right">
