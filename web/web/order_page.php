@@ -417,7 +417,7 @@ echo "</br></br> </br></br></br></br>
         </button>
       </div>
       <div class="modal-body">
- by accepting this agreement and terms with using our services. you agree that all transactions and events are binded to independent third party oraganizations in which our services only provides data without any association or having liability with third party organizations. accepting these terms and payment services you agree with our policy. refunds may not be requested after purchases. If you do not agree with our terms and policy then do not make any purchases.
+by accepting this agreement and terms with using our services. you agree that all transactions and events are affiliated to independent third party organizations in which our services only provides data without any association or having liability with third-party organizations. accepting these terms and payment services you agree with our policy. refunds may not be requested after purchases, unless items are found not to be authentic. If you do not agree with our terms and policy, then do not make any purchases.
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button> -->
