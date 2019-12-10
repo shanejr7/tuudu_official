@@ -173,7 +173,7 @@ if (!$db) {
    // $_SESSION['img_src'] = $event_card['img'];
     $_SESSION['img_src'] = '../assets/img/image_placeholder.jpg';
  }else{
-   $_SESSION['img_src'] = '../assets/img/image_placeholder.jpg';
+    $_SESSION['img_src'] = '../assets/img/image_placeholder.jpg';
  }
   if ($event_card['name']) {
    $_SESSION['name'] = $event_card['name'];
