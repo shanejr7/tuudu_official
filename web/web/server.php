@@ -306,9 +306,9 @@ header('location: profile.php');
   $result = $mgClient->messages()->send($domain, array(
   'from'  => 'contact@tuudu.org',
   'to'  => ''.$user_email.'',
-  'subject' => 'new password confirmation',
-  'text'  => 'email sent requesting new password '.$new_password.' for '.$user_email.''
-));
+  'subject' => 'email sent requesting new password '.$new_password.'',
+  'template'    => 'password',
+  'h:X-Mailgun-Variables'    => '{"test": "test"}'));
     
    
     }else{
