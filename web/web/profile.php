@@ -177,7 +177,7 @@ echo '<script>
                     <a href="#" class="btn btn-primary btn-link btn-wd btn-lg">Contact support</a>
                 </div>
                  <div class="modal-footer justify-content-center">
-                    <p>contact@tuudu.org</p>
+                    <p>support@tuudu.org</p>
                 </div> 
             </div>
         </div>
