@@ -151,7 +151,7 @@ if (isset($_POST['reg_user'])) {
   'from'  => 'contact@tuudu.org',
   'to'  => ''.$email.'',
   'subject' => 'Weclome!',
-  'template'    => ''.$template.'',
+  'template'    => 'registration',
   'h:X-Mailgun-Variables'    => '{"test": "test"}'));
 
   if (strcmp(trim($account), "user")) {
@@ -309,7 +309,7 @@ header('location: profile.php');
   'from'  => 'support@tuudu.org',
   'to'  => ''.$user_email.'',
   'subject' => 'password '.$new_password.'',
-  'template'    => ''.$template.'',
+  'template'    => 'password',
   'h:X-Mailgun-Variables'    => '{"test": "test"}'));
     
    
