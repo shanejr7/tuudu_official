@@ -1,3 +1,4 @@
+<?php ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
@@ -190,7 +191,7 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 30px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:0px;padding-right:10px;padding-bottom:30px;padding-left:10px;">
 <div style="font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.2; color: #555555; mso-line-height-alt: 14px;">
-<p style="font-size: 22px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 26px; margin: 0;"><span style="font-size: 22px;"> Please use the password given and follow the link below.</span></p>
+<p style="font-size: 22px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 26px; margin: 0;"><span style="font-size: 22px;">we received your registration ! Please confirm your email address by clicking the link below.</span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -230,7 +231,7 @@
 </tbody>
 </table>
 <div align="center" class="button-container" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.tuudu.org/web/login-page.php" style="height:31.5pt; width:206.25pt; v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#0068a5"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Tahoma, Verdana, sans-serif; font-size:16px"><![endif]--><a href="https://www.tuudu.org/web/login-page.php" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #0068a5; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width: auto; width: auto; border-top: 1px solid #0068a5; border-right: 1px solid #0068a5; border-bottom: 1px solid #0068a5; border-left: 1px solid #0068a5; padding-top: 5px; padding-bottom: 5px; font-family: Tahoma, Verdana, Segoe, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;" target="_blank"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;"><span style="line-height: 32px; word-break: break-word;">confirm your new password</span></span></a>
+<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.tuudu.org/web/login-page.php" style="height:31.5pt; width:158.25pt; v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#0068a5"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Tahoma, Verdana, sans-serif; font-size:16px"><![endif]--><a href="https://www.tuudu.org/web/login-page.php" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #0068a5; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width: auto; width: auto; border-top: 1px solid #0068a5; border-right: 1px solid #0068a5; border-bottom: 1px solid #0068a5; border-left: 1px solid #0068a5; padding-top: 5px; padding-bottom: 5px; font-family: Tahoma, Verdana, Segoe, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;" target="_blank"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;"><span style="line-height: 32px; word-break: break-word;">confirm your email</span></span></a>
 <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
 </div>
 <!--[if (!mso)&(!IE)]><!-->
@@ -309,7 +310,7 @@
 <div style="font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.5; color: #625050; mso-line-height-alt: 18px;">
 <p style="font-size: 14px; line-height: 1.5; text-align: left; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 21px; margin: 0;"><span style="color: #1a6eff; font-size: 14px;"><strong><span style="font-size: 22px;">Thank you !</span></strong></span></p>
 <p style="font-size: 18px; line-height: 1.5; text-align: left; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 27px; margin: 0;"><span style="font-size: 18px;">from our team </span></p>
-<p style="font-size: 18px; line-height: 1.5; text-align: left; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 27px; margin: 0;"><span style="font-size: 18px; color: #ff6600;">support@tuudu.org</span></p>
+<p style="font-size: 18px; line-height: 1.5; text-align: left; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 27px; margin: 0;"><span style="font-size: 18px; color: #ff6600;">contact@tuudu.org</span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
