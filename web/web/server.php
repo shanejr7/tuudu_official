@@ -145,7 +145,7 @@ if (isset($_POST['reg_user'])) {
   $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
 
   $domain = "mg.tuudu.org";
-  $template = include '../assets/templates/register_template.php';
+  // $template = include '../assets/templates/register_template.php';
  
   $result = $mgClient->messages()->send($domain, array(
   'from'  => 'contact@tuudu.org',
@@ -303,13 +303,13 @@ header('location: profile.php');
   $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
 
   $domain = "mg.tuudu.org";
-  $template = include '../assets/templates/password_template.php';
+  // $template = include '../assets/templates/password_template.php';
  
   $result = $mgClient->messages()->send($domain, array(
   'from'  => 'support@tuudu.org',
   'to'  => ''.$user_email.'',
   'subject' => 'password '.$new_password.'',
-  'html'    => '<html><p>HTML version of the body</p><p>new line</p></html>',
+  'template'    => 'password',
   'h:X-Mailgun-Variables'    => '{"test": "test"}'));
     
    
