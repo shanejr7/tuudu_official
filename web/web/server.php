@@ -270,10 +270,10 @@ if (isset($_POST['reg_user'])) {
 <tr style="vertical-align: top;" valign="top">
 <td style="word-break: break-word; vertical-align: top;" valign="top">
 <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color:#F5F5F5"><![endif]-->
-<div style="background-image:url('images/bg_top.jpg');background-position:top center;background-repeat:repeat;background-color:transparent;">
+<div style="background-image:url("../assets/templates/images/bg_top.jpg:);background-position:top center;background-repeat:repeat;background-color:transparent;">
 <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 745px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;">
 <div style="border-collapse: collapse;display: table;width: 100%;background-color:transparent;">
-<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url('images/bg_top.jpg');background-position:top center;background-repeat:repeat;background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:745px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
+<!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-image:url("../assets/templates/images/bg_top.jpg");background-position:top center;background-repeat:repeat;background-color:transparent;"><tr><td align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:745px"><tr class="layout-full-width" style="background-color:transparent"><![endif]-->
 <!--[if (mso)|(IE)]><td align="center" width="745" style="background-color:transparent;width:745px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;" valign="top"><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;"><![endif]-->
 <div class="col num12" style="min-width: 320px; max-width: 745px; display: table-cell; vertical-align: top; width: 745px;">
 <div style="width:100% !important;">
