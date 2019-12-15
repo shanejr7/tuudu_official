@@ -310,7 +310,6 @@ header('location: profile.php');
   'to'  => ''.$user_email.'',
   'subject' => 'password '.$new_password.'',
   'template'    => 'password',
-  'html'    => '<html><p>HTML version of the body</p><p>new line</p></html>',
   'h:X-Mailgun-Variables'    => '{"test": "test"}'));
     
    
