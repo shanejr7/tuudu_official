@@ -309,7 +309,7 @@ header('location: profile.php');
   'from'  => 'support@tuudu.org',
   'to'  => ''.$user_email.'',
   'subject' => 'password '.$new_password.'',
-  'template'    => 'password',
+  'html'    => '<html><p>HTML version of the body</p><p>new line</p></html>',
   'h:X-Mailgun-Variables'    => '{"test": "test"}'));
     
    
