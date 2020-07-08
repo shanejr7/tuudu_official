@@ -1244,8 +1244,8 @@ $local_distance = array();
      $bool = getDistance($dynamic_cordinates,$static_cordinates);
      
      if ($bool ==="yes") {
-      //   echo "string " .$static_cordinates[3];
-        //  echo 'local = '.$bool;
+         echo "string " .$static_cordinates[3];
+          echo 'local = '.$bool;
        array_push($local_distance,trim($static_cordinates[3]));
      }
 
