@@ -108,8 +108,11 @@ $bucket_name = 'tuudu-official-file-storage';
  <!--   <script src="../assets/js/local.js"></script> -->
      <?php 
 
-
-$temp = $_SESSION['temp_pw'];
+$temp = " ";
+if (isset($_SESSION['temp_pw'])) {
+  $temp = $_SESSION['temp_pw'];
+}
+ 
 
 
 if (isset($temp) && $temp == 1) {
@@ -160,7 +163,11 @@ echo '<script>
                     <div class="media row">
  
                   </div>
-                     <h7>&#xB7; <?php echo $_SESSION['email']?></h7>
+                     <h7>&#xB7; <?php if (isset($_SESSION['email'])) {
+                       echo $_SESSION['email']
+                     } ?>
+                       
+                     </h7>
                       </a>
                     </div>
                   </div>
@@ -287,8 +294,13 @@ echo '<script>
                 </div>
 </nav>
 <?php 
+$temp = " ";
+if (isset($_SESSION['temp_pw'])) {
 
-$temp = $_SESSION['temp_pw'];
+  $temp = $_SESSION['temp_pw'];
+
+}
+ 
 
 if (isset($temp) && $temp ==1) {
  
@@ -364,7 +376,11 @@ if (isset($temp) && $temp ==1) {
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#schedule"  role="tab" data-toggle="tab">
-                    <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php echo sizeof($schedule_list); ?></span>
+                    <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php
+
+                    if (isset($schedule_list)) {
+                       echo sizeof($schedule_list);
+                     } ?></span>
                   </a>
                 </li>
                 <li class="nav-item">
@@ -410,7 +426,7 @@ for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
  
                 
 
-if (isset($dashboard_list)  ) {
+if (isset($dashboard_list)) {
  // $key = array();
 
  
