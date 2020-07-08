@@ -7,6 +7,8 @@ include("server.php");
  *
  *
  */
+$dashboard_list = array();
+$stories_list = array();
 
 if (isset($_SESSION['id'])) {
 
@@ -18,7 +20,7 @@ if (isset($_SESSION['id'])) {
 
     //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
     $db = pg_connect(getenv("DATABASE_URL"));
-    $dashboard_list = array();
+     
 
     $result = pg_query($db, "SELECT userid FROM feedstate 
       WHERE userid=$id AND state !=0 LIMIT 1");
