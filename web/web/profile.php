@@ -131,7 +131,7 @@ echo '<script>
 
   ?>
 
-  <script src="../assets/js/custom_js.js"></script>
+ <!--  <script src="../assets/js/custom_js.js"></script> -->
   
  
  
