@@ -1229,7 +1229,7 @@ $local_distance = array();
     
  }else if (empty($_COOKIE['static_location'])) {
    // error
-  echo 'Cookie does not exists or is empty';
+  echo 'Cookie does not exists or is empty e_static';
 }
 
 
