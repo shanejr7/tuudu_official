@@ -108,8 +108,12 @@ $bucket_name = 'tuudu-official-file-storage';
  <!--   <script src="../assets/js/local.js"></script> -->
      <?php 
 
+     $temp = " ";
 
-$temp = $_SESSION['temp_pw'];
+if (isset($_SESSION['temp_pw'])) {
+  $temp = $_SESSION['temp_pw'];
+}
+
 
 
 if (isset($temp) && $temp == 1) {
@@ -160,7 +164,13 @@ echo '<script>
                     <div class="media row">
  
                   </div>
-                     <h7>&#xB7; <?php echo $_SESSION['email']?></h7>
+                     <h7>&#xB7; <?php 
+                     if (isset($_SESSION['email'])) {
+                       echo $_SESSION['email'];
+                     }
+                     ?>
+                       
+                     </h7>
                       </a>
                     </div>
                   </div>
@@ -287,8 +297,12 @@ echo '<script>
                 </div>
 </nav>
 <?php 
+$temp = " ";
 
+if (isset($_SESSION['temp_pw'])) {
 $temp = $_SESSION['temp_pw'];
+}
+ 
 
 if (isset($temp) && $temp ==1) {
  
@@ -392,7 +406,7 @@ if (isset($temp) && $temp ==1) {
 var dashboard_local_distance = <?php echo json_encode($dashboard_list, JSON_PRETTY_PRINT) ?>;
 var size = dashboard_local_distance.length; 
 var count = 0;
-console.log(dashboard_local_distance);
+console.log('dashboard_local_distance '+dashboard_local_distance);
 
 for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
  
@@ -540,7 +554,7 @@ $key = array_intersect($key,$local_distance);
   // column sizes for row 
     $numberOfColumns = 8;
     $bootstrapColWidth = 12 / $numberOfColumns ;
-if (sizeof($schedule_list) ==1) {
+if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
     $arrayChunks = array_chunk($schedule_list, $numberOfColumns);
     $ticket_time = explode("-", $item["time"]);
     foreach($arrayChunks as $items) {
@@ -695,6 +709,8 @@ if (sizeof($schedule_list) ==1) {
 <?php  endif ?>
 
             <?php 
+if (isset($stories_list)) {
+
 
                 // make content dynamic
                   shuffle($stories_list);
@@ -767,7 +783,7 @@ if (sizeof($schedule_list) ==1) {
         echo '</div>';
     } 
 
-         
+         }
 
               ?>
          

@@ -40,7 +40,7 @@
     }
 
 
-console.log(address);
+console.log('address' + address);
 
     $.ajax({
         url: "https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&key=AIzaSyBrLsD0gljC6jh4YKY9lGg6Sx6Zc7BowbY",
@@ -52,7 +52,7 @@ console.log(address);
             createCookie("static_location"+count,size,
             	data.results[0].geometry.location.lat,data.results[0].geometry.location.lng,
             	 "1",publickey); 
-             console.log(document.cookie);
+             console.log('cookie_static' + document.cookie);
 
         }
     });
@@ -81,7 +81,7 @@ console.log(address);
           + escape(longitude)+"/"+ escape(size)+"/"+ escape(publickey) + expires + "; path=/"; 
         
         console.log(expires);
-        console.log(document.cookie); 
+        console.log('cookie_static'+document.cookie); 
 
 
     } 
