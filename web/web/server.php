@@ -1213,7 +1213,7 @@ $local_distance = array();
    $_SESSION["dynamic_location"] = $_COOKIE["dynamic_location"];
  }else if (empty($_COOKIE['dynamic_location'])) {
    // error
-  echo 'Cookie does not exists or is empty';
+  echo 'Cookie does not exists or is empty e_dynamic';
 }
 
 

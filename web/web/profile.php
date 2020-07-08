@@ -406,7 +406,7 @@ if (isset($temp) && $temp ==1) {
 var dashboard_local_distance = <?php echo json_encode($dashboard_list, JSON_PRETTY_PRINT) ?>;
 var size = dashboard_local_distance.length; 
 var count = 0;
-console.log('dashboard_local_distance '+dashboard_local_distance);
+console.log('dashboard_local_distance '+ dashboard_local_distance[0].address);
 
 for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
  
