@@ -12,7 +12,7 @@ function getDistance(array $location1, array $location2, $precision =0, $useMile
 	// calculate the distance
 	$distance = round(acos(sin($lat1) * sin($lat2) + cos($lat1) * cos($lat2) * cos($long)) * $radius, $precision);
 
-	if ($distance <=34) {
+	if ($distance <=50) {
 		return "yes";
 	}else{
 		return "no ";

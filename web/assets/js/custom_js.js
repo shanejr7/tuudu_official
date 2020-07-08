@@ -52,7 +52,7 @@ console.log('address' + address);
             createCookie("static_location"+count,size,
             	data.results[0].geometry.location.lat,data.results[0].geometry.location.lng,
             	 "1",publickey); 
-             console.log('cookie_static' + document.cookie);
+             console.log(document.cookie);
 
         }
     });
@@ -81,7 +81,7 @@ console.log('address' + address);
           + escape(longitude)+"/"+ escape(size)+"/"+ escape(publickey) + expires + "; path=/"; 
         
         console.log(expires);
-        console.log('cookie_static'+document.cookie); 
+        console.log(document.cookie); 
 
 
     } 
