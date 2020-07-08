@@ -378,11 +378,11 @@ if (isset($temp) && $temp ==1) {
         </div>
 
  
-   <script type="text/javascript">
+<!--    <script type="text/javascript">
      
 
 
-var dashboard_local_distance = <?php echo json_encode($dashboard_list, JSON_PRETTY_PRINT) ?>;
+var dashboard_local_distance = <?php //echo json_encode($dashboard_list, JSON_PRETTY_PRINT) ?>;
 var size = dashboard_local_distance.length; 
 var count = 0;
 console.log(dashboard_local_distance);
@@ -393,7 +393,7 @@ for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
    count++;
   
 }
-   </script>
+   </script> -->
 
         <div class="tab-content tab-space cd-section" id="body">
           <div class="tab-pane active text-center gallery section section-sections" id="studio">
@@ -411,12 +411,12 @@ for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
                 
 
 if (isset($dashboard_list)  ) {
- $key = array();
+ // $key = array();
 
  
-$key = array_column($dashboard_list, 'publickey');
+// $key = array_column($dashboard_list, 'publickey');
  
-$key = array_intersect($key,$local_distance);
+// $key = array_intersect($key,$local_distance);
 
  
  
@@ -432,8 +432,8 @@ $key = array_intersect($key,$local_distance);
         echo '<div class="row">';
         foreach($items as $item) {
  
-          if(in_array($item["publickey"], $key)) 
-  { 
+  //         if(in_array($item["publickey"], $key)) 
+  // { 
                            $cmd = $s3->getCommand('GetObject', [
                                         'Bucket' => ''.$bucket_name.'',
                                         'Key'    => ''.trim($item["img"]).'',
@@ -499,9 +499,9 @@ $key = array_intersect($key,$local_distance);
           
               
             echo '</div>';
-          }else{
-            // not local
-          }
+          // }else{
+          //   // not local
+          // }
           
         }
         echo '</div>';

@@ -552,18 +552,18 @@ pg_close($db);
                  
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <input type="time" name="startTime" class="form-control" id="inputTime" required>
+                    <input type="time" name="startTime" class="form-control" id="inputTime" placeholder="1:30pm" required>
                   </div>
                 </div> 
                  <div class="form-group row">
                   <div class="col-sm-10">
-                    <input type="time" name="endTime" class="form-control" id="inputTime" required>
+                    <input type="time" name="endTime" class="form-control" id="inputTime" placeholder="5:30pm" required>
                   </div>
                 </div> 
                  <div class="form-group row">
     
                   <div class="col-sm-10">
-                    <input type="date" name="date" class="form-control" id="inputDate" required>
+                    <input type="date" name="date" class="form-control" id="inputDate" placeholder="05/21/2020" required>
                   </div>
                 </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="4" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="display:inline-block">next</button></form>';
  
