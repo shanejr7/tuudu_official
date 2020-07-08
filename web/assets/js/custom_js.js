@@ -40,7 +40,7 @@
     }
 
 
-// console.log(address);
+console.log(address);
 
     $.ajax({
         url: "https://maps.googleapis.com/maps/api/geocode/json?address="+address+"&key=AIzaSyBrLsD0gljC6jh4YKY9lGg6Sx6Zc7BowbY",
@@ -80,8 +80,8 @@
          document.cookie = escape(name) + "=" + escape(latitude)+ "/"
           + escape(longitude)+"/"+ escape(size)+"/"+ escape(publickey) + expires + "; path=/"; 
         
-        // console.log(expires);
-        // console.log(document.cookie); 
+        console.log(expires);
+        console.log(document.cookie); 
 
 
     } 
