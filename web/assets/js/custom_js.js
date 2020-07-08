@@ -48,11 +48,11 @@ console.log('address' + address);
         dataType: "json",
         async: true,
         success: function (data) {
-            console.log(data.results[0].geometry.location);
+            console.log('geo'+data.results[0].geometry.location);
             createCookie("static_location"+count,size,
             	data.results[0].geometry.location.lat,data.results[0].geometry.location.lng,
             	 "1",publickey); 
-             console.log(document.cookie);
+             console.log("static_location"+document.cookie);
 
         }
     });
