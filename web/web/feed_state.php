@@ -12,7 +12,7 @@ if (isset($_SESSION['id'])) {
 
     $id =  $_SESSION['id'];
     $settings_check_mark = array("music" => "0","fashion" => "0","art" => "0",
-      "sports" => "0","festival" => "0","food" => "0","outdoor" => "0");
+      "sports" => "0","festivals" => "0","food" => "0","outdoor" => "0");
 
     $keys = array_keys($settings_check_mark);
 

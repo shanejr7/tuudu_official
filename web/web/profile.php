@@ -271,8 +271,8 @@ echo '<script>
 
                         } ?>  </a>
                           <div class="dropdown-divider"></div>
-                        <a href="feed_state.php?word_tag=festival" class="dropdown-item">Festivals
-                          <?php  if (isset($settings_check_mark) && trim($settings_check_mark['festival']) =='1') {
+                        <a href="feed_state.php?word_tag=festivals" class="dropdown-item">Festivals
+                          <?php  if (isset($settings_check_mark) && trim($settings_check_mark['festivals']) =='1') {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
 
