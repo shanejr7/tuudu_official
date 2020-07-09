@@ -104,14 +104,14 @@ if (isset($_SESSION['id'])) {
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-        if (in_array($row['publickey'], $organization_publickey_arr)) {
+        if (in_array(trim($row['publickey']), $organization_publickey_arr)) {
           // ignore already stored
         }else{
 
              $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey"=> $row["publickey"], "address" => $row["address"]);
             }
             // temporarily stores publickey to emlinate duplicate
-            array_push($organization_id_arr,$row['publickey']);
+            array_push($organization_id_arr,trim($row['publickey']));
  
         }
          
