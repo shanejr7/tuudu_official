@@ -7,6 +7,8 @@ session_start();
  require '../../vendor/autoload.php';
 
  use Mailgun\Mailgun;
+
+ Sentry\init(['dsn' => 'https://108609cccc9d45c6bf91d0b6ab41df2d@o328047.ingest.sentry.io/5321309' ]);
  
 
  
