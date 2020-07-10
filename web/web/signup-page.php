@@ -37,7 +37,7 @@
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="google-signin-client_id" content="364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com">
+
  
 
   <title>
@@ -53,6 +53,61 @@
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
   <script src="../assets/js/local.js"></script>
+  <script src="https://apis.google.com/js/api:client.js"></script>
+    <!--  Google account-->
+  <script>
+  var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignin(document.getElementById('customBtn'));
+    });
+  };
+
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+          document.getElementById('name').innerText = "Signed in: " +
+              googleUser.getBasicProfile().getName();
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
+  </script>
+
+   <style type="text/css">
+    #customBtn {
+      display: inline-block;
+    
+      white-space: nowrap;
+    }
+    #customBtn:hover {
+      cursor: pointer;
+    }
+    span.label {
+      font-family: serif;
+      font-weight: normal;
+    }
+    span.icon {
+    
+      display: inline-block;
+      vertical-align: middle;
+      width: 42px;
+      height: 42px;
+    }
+    span.buttonText {
+  
+      /* Use the Roboto font that is loaded in the <head> */
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
 
 </head>
 
@@ -129,10 +184,12 @@
                   <a href="#pablo" class="btn btn-just-icon btn-link">
                     <i class="fa fa-twitter"></i>
                   </a>
-                  <a href="#googleSignin"  class="btn btn-just-icon btn-link">
+                  <a href="#googleSignin" id="customBtn"  class="btn btn-just-icon btn-link">
                     <i class="fa fa-google-plus" style="color: yellowgreen;"></i>
                   </a>
                 </div>
+                 <div id="name"></div>
+  <script>startApp();</script>
               </div>  <div style="margin-left: 30%;"> <?php include('errors.php'); ?></div>  
            <!--    <p class="description text-center">Or Be Classical</p> -->
               <div class="card-body">
@@ -248,25 +305,8 @@
   <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
   <!--  Google Maps Plugin    -->
 <!--   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
-  <!--  Google account-->
-   <script>
-    function onSuccess(googleUser) {
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-    }
-    function onFailure(error) {
-      console.log(error);
-    }
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'longtitle': false,
-        'onsuccess': onSuccess,
-        'onfailure': onFailure
-      });
-    }
-  </script>
+ 
 
-   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
  
   <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
