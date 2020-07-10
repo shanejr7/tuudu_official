@@ -92,7 +92,8 @@
           document.getElementById('inputPassword').value = randomStr;
           document.getElementById('account_type').value = 'google_user'; 
           document.getElementById('policy').value = 'true'; 
-          document.getElementById('form').submit();
+          document.getElementById('signup').submit(); 
+          
         }, function(error) {
           alert(JSON.stringify(error, undefined, 2));
         });
@@ -222,7 +223,7 @@
                     <!-- recaptcha -->
               <!-- </div> -->
               <div class="footer text-center">
-                <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg g-recaptcha" id="g-recaptcha-response" name="reg_user"
+                <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg g-recaptcha" id="signup" name="reg_user"
                 data-callback='onSubmit'>Get Started</button>
               </div>
             </form>
