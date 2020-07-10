@@ -129,7 +129,7 @@
                   <a href="#pablo" class="btn btn-just-icon btn-link">
                     <i class="fa fa-twitter"></i>
                   </a>
-                  <a href="#googleSignin" id="my-signin2" class="btn btn-just-icon btn-link">
+                  <a href="#googleSignin"  class="btn btn-just-icon btn-link">
                     <i class="fa fa-google-plus" style="color: yellowgreen;"></i>
                   </a>
                 </div>
