@@ -81,8 +81,11 @@
         } 
   
         function getRandomStr() { 
-            randomStr = randomStr(12, '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!'); 
+         return randomStr(12, '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!'); 
         } 
+        
+        randomStr = getRandomStr();
+        
   function attachSignin(element) {
     console.log(element.id);
     auth2.attachClickHandler(element, {},
@@ -223,7 +226,7 @@
                     <!-- recaptcha -->
               <!-- </div> -->
               <div class="footer text-center">
-                <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg g-recaptcha" id="signup" name="reg_user"
+                <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg" id="signup" name="reg_user"
                 data-callback='onSubmit'>Get Started</button>
               </div>
             </form>
