@@ -81,11 +81,11 @@
         } 
   
         function getRandomStr() { 
-         return randomStr(12, '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!'); 
+         return randomString(12, '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!'); 
         } 
         
         randomStr = getRandomStr();
-        
+
   function attachSignin(element) {
     console.log(element.id);
     auth2.attachClickHandler(element, {},
