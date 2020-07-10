@@ -259,8 +259,7 @@
     function renderButton() {
       gapi.signin2.render('my-signin2', {
         'scope': 'profile email',
-        'longtitle': true,
-        'theme': 'none',
+        'longtitle': false,
         'onsuccess': onSuccess,
         'onfailure': onFailure
       });
