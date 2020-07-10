@@ -5,4 +5,4 @@ About: an Iot system and method for gathering data to find events or activities 
 It is an object of the present invention to provide an IoT system and method for gathering data to find events or activities based on a user’s preferences and paying for them that provides a social community artificial intelligent system.
 
 
-Frameworks: PHP 7.2, Composer 1.8.0, PostgresSQL 11, HEROKU 7.35.0, Google cloud platform and AWS S3.
+Frameworks: PHP 7.2, Composer 1.8.0, PostgresSQL 11, HEROKU 7.35.0, PAYPAL API, Google cloud platform and AWS S3.
