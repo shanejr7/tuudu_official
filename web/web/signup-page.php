@@ -37,6 +37,7 @@
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google-signin-client_id" content="364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com">
 
   <title>
     Signup
@@ -52,7 +53,6 @@
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
    <script src="../assets/js/local.js"></script>
    <script src="https://apis.google.com/js/platform.js" async defer></script>
-   <meta name="google-signin-client_id" content="364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com">
 
 </head>
 
@@ -129,7 +129,7 @@
                   <a href="#pablo" class="btn btn-just-icon btn-link">
                     <i class="fa fa-twitter"></i>
                   </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link g-signin2" data-onsuccess="onSignIn">
+                  <a href="#googleSignIn" class="btn btn-just-icon btn-link" data-onsuccess="onSignIn">
                     <i class="fa fa-google-plus" style="color: yellowgreen;"></i>
                   </a>
                 </div>
