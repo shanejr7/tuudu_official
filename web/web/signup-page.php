@@ -54,7 +54,50 @@
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
   <script src="../assets/js/local.js"></script>
   <script src="https://apis.google.com/js/api:client.js"></script>
-  <script src="../assets/js/plugins/GuserSignup.js"></script>
+  <script type="text/javascript">
+     
+  var googleUser = {};
+  var randomStr = "";
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignin(document.getElementById('customBtn'));
+    });
+  };
+
+      function randomString(len, arr) { 
+            var ranString = ''; 
+            for (var i = len; i > 0; i--) { 
+                ranString +=  
+                  arr[Math.floor(Math.random() * arr.length)]; 
+            } 
+            return ranString; 
+        } 
+  
+        function getRandomStr() { 
+            randomStr = randomStr(12, '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!'); 
+        } 
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+          document.getElementById('inputName').value = googleUser.getBasicProfile().getName();
+          document.getElementById('inputEmail').value = googleUser.getBasicProfile().getEmail();
+          document.getElementById('inputPassword').value = randomStr;
+          document.getElementById('account_type').value = 'google_user'; 
+          document.getElementById('form').submit();
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
+
+  </script>
 
 
 </head>
