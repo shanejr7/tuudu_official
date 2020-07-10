@@ -54,33 +54,7 @@
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
   <script src="../assets/js/local.js"></script>
   <script src="https://apis.google.com/js/api:client.js"></script>
-    <!--  Google account-->
-  <script>
-  var googleUser = {};
-  var startApp = function() {
-    gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
-      auth2 = gapi.auth2.init({
-        client_id: '364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com',
-        cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
-      });
-      attachSignin(document.getElementById('customBtn'));
-    });
-  };
-
-  function attachSignin(element) {
-    console.log(element.id);
-    auth2.attachClickHandler(element, {},
-        function(googleUser) {
-          document.getElementById('name').innerText = "Signed in: " +
-              googleUser.getBasicProfile().getName() + googleUser.getBasicProfile().getEmail();
-        }, function(error) {
-          alert(JSON.stringify(error, undefined, 2));
-        });
-  }
-  </script>
+  <script src="../assets/js/plugins/GuserSignup.js"></script>
 
 
 </head>
@@ -146,7 +120,7 @@
             <div class="col-md-5 mr-auto">
          <div class="card card-login">
              
-            <form class="form" method="post" action="signup-page.php">
+            <form class="form" method="post" id="form" action="signup-page.php">
                  <input type="hidden" name="timezone" value="" id="timezone">
                  
               <div class="card-header card-header-primary text-center">
@@ -162,7 +136,6 @@
                     <i class="fa fa-google-plus" style="color: yellowgreen;"></i>
                   </a>
                 </div>
-                 <div id="name"></div>
                  <script>startApp();</script>
               </div>  <div style="margin-left: 30%;"> <?php include('errors.php'); ?></div>  
            <!--    <p class="description text-center">Or Be Classical</p> -->
@@ -190,7 +163,7 @@
                     </span>
                   </div>
                   <input type="password" class="form-control"name="password_1" id="inputPassword" placeholder="Password..." required>
-                  <input type="hidden" name="account_type" value="user">
+                  <input type="hidden" name="account_type" id="account_type" value="user">
                 </div>
                   <div class="form-check">
                   <label class="form-check-label">
