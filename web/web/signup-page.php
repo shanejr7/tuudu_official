@@ -37,6 +37,7 @@
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="google-signin-client_id" content="364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com">
  
 
   <title>
@@ -51,9 +52,24 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
-   <script src="../assets/js/local.js"></script>
-   <script src="https://apis.google.com/js/platform.js" async defer></script>
-   <meta name="google-signin-client_id" content="364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com">
+  <script src="../assets/js/local.js"></script>
+  
+ 
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
 
 </head>
 
@@ -130,7 +146,7 @@
                   <a href="#pablo" class="btn btn-just-icon btn-link">
                     <i class="fa fa-twitter"></i>
                   </a>
-                  <a href="#googleSignIn" class="btn btn-just-icon btn-link" data-onsuccess="onSignIn">
+                  <a href="#googleSignin" class="my-signin2 btn btn-just-icon btn-link" data-onsuccess="onSignIn">
                     <i class="fa fa-google-plus" style="color: yellowgreen;"></i>
                   </a>
                 </div>
@@ -249,6 +265,8 @@
   <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
   <!--  Google Maps Plugin    -->
 <!--   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+  <!--  Google account-->
+   <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
   <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
   <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
