@@ -91,6 +91,7 @@
           document.getElementById('inputEmail').value = googleUser.getBasicProfile().getEmail();
           document.getElementById('inputPassword').value = randomStr;
           document.getElementById('account_type').value = 'google_user'; 
+          document.getElementById('policy').value = 'true'; 
           document.getElementById('form').submit();
         }, function(error) {
           alert(JSON.stringify(error, undefined, 2));
@@ -210,7 +211,7 @@
                 </div>
                   <div class="form-check">
                   <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="" required>Accept our policy &mdash;
+                    <input class="form-check-input" type="checkbox" id="policy" value="" required>Accept our policy &mdash;
                       <span class="form-check-sign">
                           <span class="check"></span>
                       </span> 
