@@ -75,39 +75,13 @@
     auth2.attachClickHandler(element, {},
         function(googleUser) {
           document.getElementById('name').innerText = "Signed in: " +
-              googleUser.getBasicProfile().getName();
+              googleUser.getBasicProfile().getName() + googleUser.getBasicProfile().getEmail();
         }, function(error) {
           alert(JSON.stringify(error, undefined, 2));
         });
   }
   </script>
 
-   <style type="text/css">
-    #customBtn {
-      display: inline-block;
-    
-      white-space: nowrap;
-    }
-    #customBtn:hover {
-      cursor: pointer;
-    }
-    span.label {
-      font-family: serif;
-      font-weight: normal;
-    }
-    span.icon {
-    
-      display: inline-block;
-      vertical-align: middle;
-      width: 42px;
-      height: 42px;
-    }
-    span.buttonText {
-  
-      /* Use the Roboto font that is loaded in the <head> */
-      font-family: 'Roboto', sans-serif;
-    }
-  </style>
 
 </head>
 
@@ -189,7 +163,7 @@
                   </a>
                 </div>
                  <div id="name"></div>
-  <script>startApp();</script>
+                 <script>startApp();</script>
               </div>  <div style="margin-left: 30%;"> <?php include('errors.php'); ?></div>  
            <!--    <p class="description text-center">Or Be Classical</p> -->
               <div class="card-body">
