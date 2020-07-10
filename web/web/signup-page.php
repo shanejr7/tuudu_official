@@ -168,7 +168,7 @@
                     <a href="#">  <button type="button" class="btn btn-info radius-50 btn-sm" style="background-color: orange;" data-toggle="modal" data-target="#exampleModal">policy agreement</button></a>
                 </div>
   
-                    <?php include('reCAPTCHA-v3/index.php') ?>
+                    <!-- recaptcha -->
               <!-- </div> -->
               <div class="footer text-center">
                 <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg g-recaptcha" id="g-recaptcha-response" name="reg_user"

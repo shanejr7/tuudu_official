@@ -192,7 +192,7 @@ include('server.php');
 
                      <a style="margin-left: 10px;" href="forgot-password.php">forgot password?</a>
                   </br>
-                  <?php include('reCAPTCHA-v3/index.php') ?>
+                  <!-- recaptcha -->
                   
                   </div>
                 </div>
