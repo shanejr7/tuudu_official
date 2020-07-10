@@ -15,6 +15,12 @@ if (isset($_POST['push'])) {
 // insert into 
 $db = pg_connect(getenv("DATABASE_URL")); 
 
+// Check connection
+if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
+
 $privateKey =filter_var('AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB', FILTER_SANITIZE_STRING); // secret key payment for block
 $paymentType =filter_var($_POST['paymentType'], FILTER_SANITIZE_STRING); // value of block
  
@@ -73,6 +79,12 @@ $userid = $_SESSION['id'];
 //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
 // insert into 
 $db = pg_connect(getenv("DATABASE_URL"));
+
+// Check connection
+if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
 
 $privateKey =filter_var('null', FILTER_SANITIZE_STRING); // secret key payment for block
 $privateKey = ltrim($privateKey," ");

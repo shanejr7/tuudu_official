@@ -10,6 +10,12 @@
  
      $db = pg_connect(getenv("DATABASE_URL"));
 
+     // Check connection
+     if (!$db) {
+        die("Connection failed: " . pg_connect_error());
+        header('location:oops.php');
+      }
+
      $timezone = pg_escape_string($db, $_POST['timezone']);
  
      $timezone = explode(" ", $timezone);
@@ -45,16 +51,7 @@
 
     $total = number_format($total,2);
 
- 
-  
 
-
- 
- 
-   // Check connection
-    if ($res1 = pg_get_result($db)) {
-    die("Connection failed: " .  pg_result_error($res1) );
-    }
  // removes duplicate from refreshing page 
  $query = "DELETE FROM cart WHERE user_id = $id AND publickey = '$organization_publickey'";
  pg_query($db, $query);
@@ -79,6 +76,12 @@ if (isset($_GET["purchased"])) {
    //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
 
    $db = pg_connect(getenv("DATABASE_URL"));
+
+   // Check connection
+  if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+  }
 
 
    $id = pg_escape_string($db, $_GET['purchased']);

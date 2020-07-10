@@ -22,6 +22,11 @@ $key = ' ';
  
 //$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
  $conn = pg_connect(getenv("DATABASE_URL"));
+
+ if (!$conn) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
  
 $event_push_arr = array();
 
@@ -161,6 +166,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
 }
 
 // update user image
@@ -282,6 +288,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
 }
 
  // removes duplicate from refreshing page 
@@ -340,6 +347,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
 }
 
 // update user image
@@ -449,6 +457,7 @@ $destination = $key;
             // Check connection
             if (!$db) {
               die("Connection failed: " . pg_connect_error());
+              header('location:oops.php');
             }
 
             // update user image
@@ -530,6 +539,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
 }
 
 // update user image
@@ -628,6 +638,10 @@ pg_close($db);
 //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
 $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
+if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
  
 $startTime = filter_var($_POST['startTime'], FILTER_SANITIZE_STRING);
 $endTime = filter_var($_POST['endTime'], FILTER_SANITIZE_STRING);
@@ -651,15 +665,6 @@ $date = date("Y-m-d", strtotime($date)).' '.$startTime;
 
  
   
-
- 
- 
- 
- 
-if (!$db) {
-     die("Connection failed: " . pg_connect_error());
-}
-
 // update user image
  pg_query($db,"UPDATE public.organization SET date ='$date', time = '$time' WHERE id= $userid AND publickey = '$publickey'");
  
@@ -714,6 +719,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
      die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
 }
 
 // update user image

@@ -18,6 +18,13 @@ if (isset($_SESSION['id'])) {
 
     //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
     $db = pg_connect(getenv("DATABASE_URL"));
+
+    // Check connection
+    if (!$db) {
+       die("Connection failed: " . pg_connect_error());
+       header('location:oops.php');
+    }
+
     $dashboard_list = array();
 
     $result = pg_query($db, "SELECT userid FROM feedstate 
@@ -79,6 +86,12 @@ if (isset($_SESSION['id'])) {
    //connect to database
   //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
   $db = pg_connect(getenv("DATABASE_URL"));
+
+  // Check connection
+  if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+  }
  
    // the value passed and security injection
   $string = pg_escape_string($db,$_GET['search']);
@@ -180,6 +193,12 @@ if (isset($_SESSION['id'])) {
 // connect to the database
 //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
 $db = pg_connect(getenv("DATABASE_URL"));
+
+// Check connection
+if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
  
   $user = pg_fetch_assoc($result);
 
@@ -282,9 +301,11 @@ if (isset($_SESSION['id'])) {
     $conn = pg_connect(getenv("DATABASE_URL"));
 
     // Check connection
-    if ($res1 = pg_get_result($conn)) {
-    die("Connection failed: " .  pg_result_error($res1) );
-    }
+if (!$conn) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
+
 
     // user prefered organizations: organization
     $stories_list = array();
@@ -323,6 +344,12 @@ if (isset($_SESSION['id'])) {
 // connect to the database
 //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
 $db = pg_connect(getenv("DATABASE_URL"));
+
+// Check connection
+if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
 
 $organization_id = '';
 $user_I_D = ' ';
@@ -385,6 +412,14 @@ $user_I_D = pg_escape_string($db, $_SESSION['id']);
 
    //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
    $db = pg_connect(getenv("DATABASE_URL"));
+
+   // Check connection
+if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
+
+
    $id = pg_escape_string($db, $_SESSION['id']);
 
      $result = pg_query($db, 'SELECT * FROM public.organization
@@ -417,6 +452,14 @@ $user_I_D = pg_escape_string($db, $_SESSION['id']);
 
    //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
    $db = pg_connect(getenv("DATABASE_URL"));
+
+   // Check connection
+    if (!$db) {
+       die("Connection failed: " . pg_connect_error());
+       header('location:oops.php');
+    }
+
+
    $id = pg_escape_string($db, $_SESSION['id']);
    $organization_publickey = trim(pg_escape_string($db, $_POST['publickey']));
    $org_id = pg_escape_string($db, $_POST['org_id']);

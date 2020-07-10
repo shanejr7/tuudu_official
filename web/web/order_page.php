@@ -23,15 +23,17 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
      // connect to DataBase
      //$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
      $conn = pg_connect(getenv("DATABASE_URL"));
+
+     // Check connection
+     if (!$conn) {
+        die("Connection failed: " . pg_connect_error());
+        header('location:oops.php');
+      }
+
      $user_I_D =  pg_escape_string($conn, $_SESSION['id']);
      $organization_publickey = pg_escape_string($conn,$_GET['order']);
 
-    // Check connection
-    if ($res1 = pg_get_result($conn)) {
-    die("Connection failed: " .  pg_result_error($res1) );
-    }
-
-    // 
+     
     $order_list = array();
 
     /* 
@@ -292,6 +294,12 @@ echo '</div></from></div>';
 
    //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
    $db = pg_connect(getenv("DATABASE_URL"));
+   // Check connection
+    if (!$db) {
+         die("Connection failed: " . pg_connect_error());
+         header('location:oops.php');
+    }
+
    $id = pg_escape_string($db, $_SESSION['id']);
    $organization_publickey = trim(pg_escape_string($db, $_POST['publickey']));
    $organization_privatekey_paypal = trim(pg_escape_string($db, $_POST['privatekey']));
