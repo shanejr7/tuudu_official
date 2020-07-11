@@ -137,7 +137,12 @@ if (!isset($_SESSION['username'])) {
         <div class="collapse navbar-collapse col-lg-8">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a href="login-page.php?logout='1'" class="nav-link">LOGOFF</a>
+                    <a href="login-page.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">LOGOFF</a>
+                    <script type="text/javascript">
+                      var revokeAllScopes = function() {
+                         auth2.disconnect();
+                      }
+                     </script>
                 </li>
                   <li class="nav-item">
                     <a href="profile.php" class="nav-link">DASHBOARD</a>
