@@ -121,18 +121,6 @@ label{
 
     &:after {
       background: rgba(0, 0, 0, 0.5) !important;
-      content: "";
-      display: block;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
-      z-index: 2;
-    }
-
-    .container {
-      z-index: 3;
     }
   }
   .footer {
@@ -141,7 +129,7 @@ label{
     background: transparent;
     bottom: 0;
     color: $white-color;
-    z-index: 2;
+    z-index: 1;
 
     .copyright a{
       color: $white-color;

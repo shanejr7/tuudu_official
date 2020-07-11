@@ -239,7 +239,8 @@ window.Modernizr = (function(window, document, undefined) {
       return _hasOwnProperty.call(object, property);
     };
   } else {
-    hasOwnProp = function(object, property) { /* yes, this can give false positives/negatives, but most of the time we don't care about those */
+    hasOwnProp = function(object, property) {
+      /* yes, this can give false positives/negatives, but most of the time we don't care about those */
       return ((property in object) && is(object.constructor.prototype[property], 'undefined'));
     };
   }

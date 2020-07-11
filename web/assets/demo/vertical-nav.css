@@ -3,7 +3,6 @@
 Primary style
 
 -------------------------------- */
-
 a {
   /*color: #3e3947;*/
   text-decoration: none;
@@ -14,7 +13,6 @@ a {
 Modules - reusable parts of our design
 
 -------------------------------- */
-
 .cd-img-replace {
   /* replace text with a background-image */
   display: inline-block;
@@ -39,7 +37,6 @@ Modules - reusable parts of our design
 }
 
 /* No Touch devices */
-
 .cd-nav-trigger {
   display: none;
 }
@@ -144,8 +141,8 @@ Modules - reusable parts of our design
   transform-origin: 100% 50%;
 }
 
-/* Touch devices */
 
+/* Touch devices */
 .touch .cd-nav-trigger {
   display: block;
   z-index: 5;
@@ -286,6 +283,7 @@ Modules - reusable parts of our design
 }
 
 @media only screen and (min-width: 768px) {
+
   .touch .cd-nav-trigger,
   .touch #cd-vertical-nav {
     bottom: 40px;
