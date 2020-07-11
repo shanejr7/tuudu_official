@@ -394,7 +394,7 @@ if (isset($temp) && $temp ==1) {
                   </a>
                 </li>
                    <li class="nav-item">
-                  <a class="nav-link" href="post.php" role="tab" data-toggle="tab">
+                  <a class="nav-link" href="post.php">
                     <i class="material-icons">post_add</i> post
                   </a>
                 </li>
