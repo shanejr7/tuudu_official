@@ -214,6 +214,7 @@ include('server.php');
                     <i class="fa fa-google-plus" style="color: yellowgreen;"></i>
                   </a>
                 </div>
+                <script>startApp();</script>
               </div>
               <p class="description text-center">Or Be Classical</p>
               <div class="card-body">
