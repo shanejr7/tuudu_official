@@ -182,7 +182,7 @@ include('server.php');
             </div>
             <div class="col-md-5 mr-auto">
          <div class="card card-login">
-            <form class="form" method="post" action="https://api.twitter.com/oauth/request_token">
+            <form class="form" method="post" action="login-page.php">
                  <input type="hidden" name="timezone" value="" id="timezone">
                  <input type="hidden" name="account_type" value="user" id="account_type">
                  
