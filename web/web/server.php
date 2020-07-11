@@ -570,6 +570,7 @@ if (isset($_POST['login_user'])) {
   $email = pg_escape_string($db, $_POST['email']);
   $password = pg_escape_string($db, $_POST['password']);
   $timezone = pg_escape_string($db, $_POST['timezone']);
+ 
   
 
 

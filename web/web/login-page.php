@@ -54,7 +54,55 @@ include('server.php');
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
- <script src="../assets/js/local.js"></script>
+  <script src="../assets/js/local.js"></script>
+  <script src="https://apis.google.com/js/api:client.js"></script>
+  <script type="text/javascript">
+     
+  var googleUser = {};
+  var randomStr = "";
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignin(document.getElementById('customBtn'));
+    });
+  };
+
+      function randomString(len, arr) { 
+            var ranString = ''; 
+            for (var i = len; i > 0; i--) { 
+                ranString +=  
+                  arr[Math.floor(Math.random() * arr.length)]; 
+            } 
+            return ranString; 
+        } 
+  
+        function getRandomStr() { 
+         return randomString(12, '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!'); 
+        } 
+        
+        randomStr = getRandomStr();
+
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+          document.getElementById('inputEmail').value = googleUser.getBasicProfile().getEmail();
+          document.getElementById('inputPassword').value = googleUser.getBasicProfile().getId();
+          document.getElementById('account_type').value = 'google_user'; 
+          document.getElementById('login').submit(); 
+          
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
+
+  </script>
 
 </head>
 <style type="text/css">* {
@@ -151,6 +199,7 @@ include('server.php');
          <div class="card card-login">
             <form class="form" method="post" action="login-page.php">
                  <input type="hidden" name="timezone" value="" id="timezone">
+                 <input type="hidden" name="account_type" value="user" id="account_type">
                  
              <div class="card-header card-header-primary text-center">
                 <h4 class="card-title">Login</h4>
@@ -161,7 +210,7 @@ include('server.php');
                   <a href="#pablo" class="btn btn-just-icon btn-link">
                     <i class="fa fa-twitter"></i>
                   </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link">
+                  <a href="#googleLogin" id="customBtn" class="btn btn-just-icon btn-link">
                     <i class="fa fa-google-plus" style="color: yellowgreen;"></i>
                   </a>
                 </div>
@@ -198,7 +247,7 @@ include('server.php');
                 </div>
               </div>
               <div class="footer text-center">
-                <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg g-recaptcha" id="g-recaptcha-response" name="login_user"
+                <button type="submit" value="string" href="#" class="btn btn-primary btn-link btn-wd btn-lg" id="login" name="login_user"
                 data-callback='onSubmit'>lets go</button>
               </div>
             </form>

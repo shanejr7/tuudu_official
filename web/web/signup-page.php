@@ -92,7 +92,7 @@
         function(googleUser) {
           document.getElementById('inputName').value = googleUser.getBasicProfile().getName();
           document.getElementById('inputEmail').value = googleUser.getBasicProfile().getEmail();
-          document.getElementById('inputPassword').value = randomStr;
+          document.getElementById('inputPassword').value = googleUser.getBasicProfile().getId();
           document.getElementById('account_type').value = 'google_user'; 
           document.getElementById('policy').value = 'true'; 
           document.getElementById('signup').submit(); 
@@ -226,7 +226,7 @@
                     <!-- recaptcha -->
               <!-- </div> -->
               <div class="footer text-center">
-                <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg" id="signup" name="reg_user"
+                <button type="submit" value="string" href="#" class="btn btn-primary btn-link btn-wd btn-lg" id="signup" name="reg_user"
                 data-callback='onSubmit'>Get Started</button>
               </div>
             </form>
