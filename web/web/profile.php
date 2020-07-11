@@ -395,7 +395,7 @@ if (isset($temp) && $temp ==1) {
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#list" role="tab" data-toggle="tab">
-                    <i class="material-icons">list</i> Story
+                    <i class="material-icons">list</i> Subscriptions
                   </a>
                 </li>
               </ul>
