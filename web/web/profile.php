@@ -208,7 +208,7 @@ echo '<script>
             </button>
         </div>
 
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="sectionsNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
                      <a href="profile.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
