@@ -378,7 +378,7 @@ if (isset($temp) && $temp ==1) {
               <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link active" href="#studio" id="refresh" role="tab" data-toggle="tab">
-                    <i class="material-icons">dashboard</i> dashboard
+                    <i class="material-icons">dashboard</i> story
                   </a>
                 </li>
                 <li class="nav-item">
@@ -395,7 +395,7 @@ if (isset($temp) && $temp ==1) {
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#list" role="tab" data-toggle="tab">
-                    <i class="material-icons">list</i> Subscriptions
+                    <i class="material-icons">list</i> subscriptions
                   </a>
                 </li>
               </ul>
