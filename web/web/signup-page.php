@@ -71,20 +71,6 @@
     });
   };
 
-      function randomString(len, arr) { 
-            var ranString = ''; 
-            for (var i = len; i > 0; i--) { 
-                ranString +=  
-                  arr[Math.floor(Math.random() * arr.length)]; 
-            } 
-            return ranString; 
-        } 
-  
-        function getRandomStr() { 
-         return randomString(12, '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!'); 
-        } 
-        
-        randomStr = getRandomStr();
 
   function attachSignin(element) {
     console.log(element.id);
