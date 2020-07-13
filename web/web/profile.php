@@ -405,7 +405,7 @@ if (isset($temp) && $temp ==1) {
                   </a>
                 </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="https://www.tuudu.org/profile.php?#profileAccount" role="tab" data-toggle="tab">
+                  <a class="nav-link" href="https://www.tuudu.org/profile.php#profileAccount" role="tab" data-toggle="tab">
                     <i class="material-icons">perm_identity</i> profile
                   </a>
                 </li>
