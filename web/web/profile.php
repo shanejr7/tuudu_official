@@ -405,7 +405,7 @@ if (isset($temp) && $temp ==1) {
                   </a>
                 </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="profile.php#profileAccount" role="tab" data-toggle="tab">
+                  <a class="nav-link" href="#profileAccount" id="pAccount" role="tab" data-toggle="tab">
                     <i class="material-icons">perm_identity</i> profile
                   </a>
                 </li>
@@ -1398,6 +1398,9 @@ remove_circle_outline
         location.href = "profile.php";
     };
     
+     document.getElementById("refresh").onclick = function () {
+        location.href = "profile.php#profileAccount";
+    };
 </script>
 
 <script>
