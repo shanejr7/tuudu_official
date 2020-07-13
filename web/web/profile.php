@@ -1399,7 +1399,7 @@ remove_circle_outline
     };
     
      document.getElementById("pAccount").onclick = function () {
-        location.href = "profile.php#home";
+        location.href = "profile.php#profileAccount";
     };
 </script>
 
