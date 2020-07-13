@@ -55,3 +55,12 @@
     <?php endforeach ?>
   </div>
 <?php  endif ?>
+
+
+<?php if (count($errors_products) > 0) : ?>
+  <div class="error">
+    <?php foreach ($errors_products as $error) : ?>
+      <p><?php echo $error ?>  </p>
+    <?php endforeach ?>
+  </div>
+<?php  endif ?>

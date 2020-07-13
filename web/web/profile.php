@@ -405,9 +405,9 @@ if (isset($temp) && $temp ==1) {
                   </a>
                 </li>
                   <li class="nav-item">
-                  <button class="nav-link" href="#profileAccount" id="pAccount" role="tab" data-toggle="tab">
+                  <a class="nav-link" href="#profileAccount" id="pAccount" role="tab" data-toggle="tab">
                     <i class="material-icons">perm_identity</i> profile
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>
@@ -811,9 +811,8 @@ if (isset($stories_list)) {
 
  <div class="tab-pane text-center gallery" id="profileAccount">
   <div class="container">
-       
-    
         <div class="row">
+
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile-tabs">
               <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist" style="height: 0em;">
@@ -845,6 +844,7 @@ if (isset($stories_list)) {
         <div class="tab-content tab-space">
           <div class="tab-pane active work" id="home">
             <div class="row">
+
               <div class="col-md-7 ml-auto mr-auto ">
                 <h4 class="title">Latest Collections</h4>
                 <div class="row collections">
@@ -1229,9 +1229,120 @@ remove_circle_outline
           <div class="tab-pane text-center gallery" id="posted">
 
             <div class="row " >
-                
+
+                    <?php if (count($errors_products) > 0) : ?>
+                     <div class="error">
+                      <?php foreach ($errors_products as $error) : ?>
+                          <p><?php echo $error ?> <span class="text-warning btn-md-link"> <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>
+                      <?php endforeach ?>
+                     </div>
+                  <?php  endif ?>
+
+
+                  <?php
+                  $product_list = array();
+
+ $user_id = "";
+                         
+if (isset($_SESSION['id'])) {
+ $user_id = $_SESSION['id'];
+}
+                        // select user org post where id == session
+                        try{
+   // $db_course = pg_connect("host=localhost dbname=postgres user=postgres password=manny6377");
+   $db = pg_connect(getenv("DATABASE_URL"));
+
+}catch(Execption $e){
+header('location:oops.php');
+}
+
+  $result = pg_query($db,
+    "SELECT * FROM organization NATURAL JOIN users WHERE users.id IN(SELECT id FROM organization WHERE id = $user_id)");
+
+  
+  if ($result) {
+
+      if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) {
+                      
+      
+                      $product_list[] = array("word_tag" => $row["word_tag"], "id" =>$row["id"], "title" => $row["title"], "organization_name" => $row["organization_name"], "phonenumber" => $row['phonenumber'], "email" => $row['email'], "address" => $row['address'], "date" => $row['date'], "time" => $row['time'], "url" => $row['url'], "img" => $row['img'],
+                        "description" => $row['description'], "content" => $row['content'], "publickey" => $row['publickey'], "fiatvalue" => $row['fiatvalue'], "views" => $row['views'], "date_submitted" => $row['date_submitted'], "payment_type" => $row['payment_type']);
+
+
+                    }
+                  
+                  }else {
+
+                    
+                  }
+
+
+
+                       }
+
+pg_close($db);
+
+
+
+
+                       if (isset($product_list)) {
+
+                          foreach($product_list as $item) {
+
+                            $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.trim($item["img"]).'',
+                          ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+
+              echo ' <div class="col-md-4 ml-auto card card-product ">
+                 <div style="padding-right: 2em;">';
+
+          if($presignedUrl){
+                  echo  '<img src="'.$presignedUrl.'" class="rounded img">';  
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img">';
+              } 
+
+
+              echo '</div>';
+
+              echo ' <div class="card-body">
+               
+                <h4 class="card-title">
+                  <a href="#ProductTitle">'.$item['title'].'</a>
+                </h4>
+                <div class="card-footer">
+                  <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">send</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 200px;">more_vert</i>
+                </a>
+                </div>
+              </div>
+            
+              </div>';
+
+
+                       }
+                        
+
+                   ?>
            
-               <div class="col-md-4 ml-auto card card-product ">
+              <!--  <div class="col-md-4 ml-auto card card-product ">
                  <div style="padding-right: 2em;">
                 <img src="../assets/img/examples/mariya-georgieva.jpg" class="rounded card-header card-header-image">
             </div>
@@ -1313,7 +1424,7 @@ remove_circle_outline
                 </div>
               </div>
               </div> 
- 
+  -->
  
    
   

@@ -39,7 +39,8 @@ $db="";
 $errors = array(); 
 $errors_dashboard = array();
 $errors_schedule = array(); 
-$errors_list = array(); 
+$errors_list = array();
+$errors_products = array(); 
 $new_password_error = array(); 
 
 
