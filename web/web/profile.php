@@ -1246,7 +1246,7 @@ remove_circle_outline
                          
 if (isset($_SESSION['id'])) {
  $user_id = $_SESSION['id'];
-}
+
                         // select user org post where id == session
                         try{
    // $db_course = pg_connect("host=localhost dbname=postgres user=postgres password=manny6377");
@@ -1257,7 +1257,7 @@ header('location:oops.php');
 }
 
   $result = pg_query($db,
-    "SELECT * FROM organization NATURAL JOIN users WHERE users.id IN(SELECT id FROM organization WHERE id = $user_id)");
+    "SELECT * FROM organization WHERE id = $user_id");
 
   
   if ($result) {
@@ -1280,11 +1280,13 @@ header('location:oops.php');
 
 
 
+                       }else{
+                        header('location:oops.php');
                        }
 
 pg_close($db);
 
-
+}
 
 
                        if (isset($product_list)) {
