@@ -405,9 +405,9 @@ if (isset($temp) && $temp ==1) {
                   </a>
                 </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="#profileAccount" id="pAccount" role="tab" data-toggle="tab">
+                  <button class="nav-link" href="#profileAccount" id="pAccount" role="tab" data-toggle="tab">
                     <i class="material-icons">perm_identity</i> profile
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
