@@ -1275,7 +1275,7 @@ header('location:oops.php');
                     }
                   
                   }else {
-
+array_push($errors_products, "0 results");
                     
                   }
 
