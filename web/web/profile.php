@@ -806,6 +806,531 @@ if (isset($stories_list)) {
             </div>
 
           </div>
+
+
+ <div class="tab-pane text-center gallery" id="profile">
+  <div class="container">
+       
+    
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto">
+            <div class="profile-tabs">
+              <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist" style="height: 0em;">
+                <!--
+                                                        color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                                                -->
+                <li class="nav-item">
+                  <a class="nav-link active" href="#home" role="tab" data-toggle="tab">
+                   <!--  <i class="material-icons">home</i> -->
+                    Home
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#connections" role="tab" data-toggle="tab">
+                    <!-- <i class="material-icons">people</i> -->
+                    Connections
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#posted" role="tab" data-toggle="tab">
+                    <!-- <i class="material-icons">camera</i> -->
+                    Products
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content tab-space">
+          <div class="tab-pane active work" id="home">
+            <div class="row">
+              <div class="col-md-7 ml-auto mr-auto ">
+                <h4 class="title">Latest Collections</h4>
+                <div class="row collections">
+                  <div class="col-md-6">
+                    <div class="card card-background" style="background-image: url('../assets/img/examples/mariya-georgieva.jpg')">
+                      <a href="#pablo"></a>
+                      <div class="card-body">
+                        <label class="badge badge-warning">Spring 2016</label>
+                        <a href="#pablo">
+                          <h2 class="card-title">Stilleto</h2>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card card-background" style="background-image: url('../assets/img/examples/clem-onojeghuo.jpg')">
+                      <a href="#pablo"></a>
+                      <div class="card-body">
+                        <label class="badge badge-info">Spring 2016</label>
+                        <a href="#pablo">
+                          <h2 class="card-title">High Heels</h2>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card card-background" style="background-image: url('../assets/img/examples/olu-eletu.jpg')">
+                      <a href="#pablo"></a>
+                      <div class="card-body">
+                        <label class="badge badge-danger">Summer 2016</label>
+                        <a href="#pablo">
+                          <h2 class="card-title">Flats</h2>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card card-background" style="background-image: url('../assets/img/examples/darren-coleshill.jpg')">
+                      <a href="#pablo"></a>
+                      <div class="card-body">
+                        <label class="badge badge-success">Winter 2015</label>
+                        <a href="#pablo">
+                          <h2 class="card-title">Men's Sneakers</h2>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3 mr-auto ml-auto stats">
+                  <div class="row">
+          <div class="col-md-6 ml-auto mr-auto stats">
+            <div class="profile">
+              <div class="avatar">
+                <img src="../assets/img/me.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title">mani Alshar</h6>
+                
+              </div>
+            </div>
+            <div class="follow">
+              <button class="btn btn-fab btn-primary btn-round" rel="tooltip" title="" data-original-title="Follow this user">
+                <i class="material-icons">add</i>
+              </button>
+            </div>
+          </div>
+        </div>
+                <h4 class="title">Stats</h4>
+                <ul class="list-unstyled">
+                  <li><b>3</b> Products</li>
+                  <li><b>4</b> Collections</li>
+                  <li><b>331</b> Followers</li>
+                  <li><b>1.2K</b> Likes</li>
+                </ul>
+                <hr>
+                <h4 class="title">About his Work</h4>
+                <p class="description">French luxury footwear and fashion. The footwear has incorporated shiny, red-lacquered soles that have become his signature.</p>
+                <hr>
+                <h4 class="title">Focus</h4>
+                <span class="badge badge-primary">Footwear</span>
+                <span class="badge badge-rose">Luxury</span>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane connections" id="connections">
+            <div class="row">
+
+                <div class="col-md-4 ml-auto mr-auto">
+              
+              </div>
+
+              <div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
+                <a href="#Following" >
+              <h3 style="margin-bottom: 70px; font-weight: bold">Following</h3>
+            </a>
+            
+              </div>
+              
+          
+
+
+
+
+              <div class="col-md-2 mr-auto ml-auto">
+                <a href="#Followers" style="color: black">
+                <h3 style="margin-bottom: 70px;font-weight: bold">Followers</h3>
+              </a>
+              </div>
+
+
+                  <div class="col-md-3 ml-auto mr-auto">
+              
+              </div>
+            </div>
+         
+          <div id="Followers" class="col-md-12" style="background-color: white;width: 100%;   display: flex;    overflow-x: auto; border-radius: 2px;">
+     
+              <div class="profileFollowingstyle" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 200px;">
+                <img src="../assets/img/me.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title">Mani Alshar</h6>
+                
+              </div>
+            </div>
+ 
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile5-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Sara </h6> <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+              </div>
+            </div>
+
+            <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/kendall.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Kendall</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile2-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Yang Lee</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/christian.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Christian</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile1-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Mike</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile4-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Laura</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+              <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile5-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Sara</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+
+            <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/kendall.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Kendall</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile2-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Yang Lee</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/christian.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Christian</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile1-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Mike</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile4-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Laura</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/marc.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Marc</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile2-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Yang Lee</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/christian.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 0px;">Christian</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+            <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/marc.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Marc</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+        <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/kendall.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Kendall</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+            
+                  <div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile2-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">Yang Lee</h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">
+remove_circle_outline
+</span></a></h16>
+                
+                
+              </div>
+            </div>
+
+ 
+            </div>
+            
+          </div>
+          <div class="tab-pane text-center gallery" id="posted">
+
+            <div class="row " >
+                
+           
+               <div class="col-md-4 ml-auto card card-product ">
+                 <div style="padding-right: 2em;">
+                <img src="../assets/img/examples/mariya-georgieva.jpg" class="rounded card-header card-header-image">
+            </div>
+             <div class="card-body">
+               
+                <h4 class="card-title">
+                  <a href="#pablo">fashion event</a>
+                </h4>
+                <div class="card-footer">
+                  <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">send</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 200px;">more_vert</i>
+                </a>
+                </div>
+              </div>
+            
+              </div>
+
+               <div class="col-md-4 ml-auto card card-product ">
+                 <div style="padding-right: 2em;">
+                <img src="../assets/img/bg9.jpg" class="rounded card-header card-header-image">
+            </div>
+             <div class="card-body">
+               
+                <h4 class="card-title">
+                  <a href="#pablo">camping outdoors</a>
+                </h4>
+                 <div class="card-footer">
+                  <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">send</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 200px;">more_vert</i>
+                </a>
+                </div>
+              </div>
+            
+              </div>
+
+
+              <div class="col-md-4 ml-auto card card-product">
+
+                 <div style="padding-right: 2em;">
+               <img src="../assets/img/examples/clem-onojeghuo.jpg" class="rounded card-header card-header-image">
+            </div>
+
+               <div class="card-body">
+               
+                <h4 class="card-title">
+                  <a href="#pablo">fashion design</a>
+                </h4>
+                 <div class="card-footer">
+                  <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 40px;">send</i>
+                </a>
+                 <a href="#">
+                  <i class="material-icons" style="margin-right: 200px;">more_vert</i>
+                </a>
+                </div>
+              </div>
+              </div> 
+ 
+ 
+   
+  
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+
+
+
+
+
+
+
+
         </div>
       </div>
     </div>
