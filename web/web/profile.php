@@ -405,7 +405,7 @@ if (isset($temp) && $temp ==1) {
                   </a>
                 </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="#profile" role="tab" data-toggle="tab" onclick="scrollDown()">
+                  <a class="nav-link" href="#profile" role="tab" data-toggle="tab">
                     <i class="material-icons">perm_identity</i> profile
                   </a>
                 </li>
@@ -1432,12 +1432,7 @@ remove_circle_outline
   <script src="../assets/demo/demo.js" type="text/javascript"></script>
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
-  <!-- Scroll profile control -->
-  <script>
-function scrollDown() {
-  window.scrollBy(0, 100);
-}
-</script>
+ 
 
  
     <script type="text/javascript">
