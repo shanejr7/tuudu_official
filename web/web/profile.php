@@ -1307,9 +1307,9 @@ pg_close($db);
                  <div style="padding-right: 2em;">';
 
           if($presignedUrl){
-                  echo  '<img src="'.$presignedUrl.'" class="rounded img">';  
+                  echo  '<img src="'.$presignedUrl.'" class="rounded card-header card-header-image">';  
               }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img">';
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded card-header card-header-image">';
               } 
 
 
@@ -1344,92 +1344,6 @@ pg_close($db);
                         
 
                    ?>
-           
-              <!--  <div class="col-md-4 ml-auto card card-product ">
-                 <div style="padding-right: 2em;">
-                <img src="../assets/img/examples/mariya-georgieva.jpg" class="rounded card-header card-header-image">
-            </div>
-             <div class="card-body">
-               
-                <h4 class="card-title">
-                  <a href="#pablo">fashion event</a>
-                </h4>
-                <div class="card-footer">
-                  <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">send</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="margin-right: 200px;">more_vert</i>
-                </a>
-                </div>
-              </div>
-            
-              </div>
-
-               <div class="col-md-4 ml-auto card card-product ">
-                 <div style="padding-right: 2em;">
-                <img src="../assets/img/bg9.jpg" class="rounded card-header card-header-image">
-            </div>
-             <div class="card-body">
-               
-                <h4 class="card-title">
-                  <a href="#pablo">camping outdoors</a>
-                </h4>
-                 <div class="card-footer">
-                  <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">send</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="margin-right: 200px;">more_vert</i>
-                </a>
-                </div>
-              </div>
-            
-              </div>
-
-
-              <div class="col-md-4 ml-auto card card-product">
-
-                 <div style="padding-right: 2em;">
-               <img src="../assets/img/examples/clem-onojeghuo.jpg" class="rounded card-header card-header-image">
-            </div>
-
-               <div class="card-body">
-               
-                <h4 class="card-title">
-                  <a href="#pablo">fashion design</a>
-                </h4>
-                 <div class="card-footer">
-                  <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">send</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="margin-right: 200px;">more_vert</i>
-                </a>
-                </div>
-              </div>
-              </div> 
-  -->
- 
-   
   
             </div>
           </div>
@@ -1437,14 +1351,6 @@ pg_close($db);
       </div>
 
 </div>
-
-
-
-
-
-
-
-
 
         </div>
       </div>
