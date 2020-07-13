@@ -1398,8 +1398,8 @@ remove_circle_outline
         location.href = "profile.php";
     };
     
-     document.getElementById("refresh").onclick = function () {
-        location.href = "profile.php#profileAccount";
+     document.getElementById("pAccount").onclick = function () {
+        location.href = "profile.php#home";
     };
 </script>
 
