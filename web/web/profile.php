@@ -107,8 +107,7 @@ $bucket_name = 'tuudu-official-file-storage';
   <link href="../assets/css/core.css" rel="stylesheet" />
   <style type="text/css">
     #profile {
-    padding-top: 120px;
-    margin-top: -120px;
+  scroll-margin-top: 700px;
 }
   </style>
  <!--   <script src="../assets/js/local.js"></script> -->
