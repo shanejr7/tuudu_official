@@ -51,8 +51,20 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
       
              $order_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"], "title" => $row["title"],"name" => $row["org_name"],"address" => $row["address"],"type" => $row["word_tag"], "publickey" => $row['publickey'],"privatekey"=>$row["privatekey"]);
         }
+
+    //increment view to organization event
+     
+        $org_id = $order_list[0]['org_id'];
+
+        $result = pg_query($conn, "SELECT id FROM organization WHERE publickey = '$organization_publickey' LIMIT 1");
+      $organization = pg_fetch_assoc($result);
+      $org_id = $organization["id"];
+
+       // add clicked view to organization
+       pg_query($conn, "UPDATE public.organization SET views = views + 1 WHERE publickey = '$organization_publickey' 
+        AND id=$org_id");
          
-    } else { }
+    } else {header('location:oops.php'); }
 
 pg_close($conn);
  
