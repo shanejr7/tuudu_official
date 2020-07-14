@@ -1326,7 +1326,7 @@ pg_close($db);
                   <a href="#ProductTitle">'.$item['title'].'</a>
                 </h4>
                 <div class="card-footer">
-                  <a href="profile.php?publickey='.$item['publickey'].'">
+                  <a href="profile.php#posted?publickey='.$item['publickey'].'">
                   <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
                 </a>
                  <a href="#">
@@ -1344,10 +1344,15 @@ pg_close($db);
               </div>';
 
 
+
                        }
                      }
                         
-
+  if (isset($_GET['publickey'])) {
+                $p = "";
+                $p = $_GET['publickey'];
+                echo $p;
+              }
                    ?>
   
             </div>
