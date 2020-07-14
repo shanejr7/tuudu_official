@@ -29,11 +29,12 @@ if (isset($_SESSION['id']) && isset($_GET['publickey'])) {
  	  $poststate = pg_fetch_assoc($result);
 
 
- if (pg_num_rows($result) > 0) {
+ if (pg_num_rows($result) <= 0) {
 
- }		
- 	  
- if ($poststate['favorite']==1) {
+ 	pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite)
+  VALUES($user_id,'$publickey',1)");
+ 	
+ }elseif ($poststate['favorite']==1) {
 
  	 pg_query($db, "UPDATE poststate
     SET favorite = 0 WHERE publickey = '$publickey' AND user_id= $user_id");
@@ -47,7 +48,7 @@ if (isset($_SESSION['id']) && isset($_GET['publickey'])) {
     SET favorite = 1 WHERE publickey = '$publickey' AND user_id= $user_id");
  	
 
- }elseif($poststate['favorite']==null || !$poststate){
+ }elseif($poststate['favorite']==null ){
 
  	pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite)
   VALUES($user_id,'$publickey',1)");
