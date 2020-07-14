@@ -1,4 +1,6 @@
-<?php  include('feed_state.php'); // retrieves organizations for users
+<?php  
+include('feed_state.php'); // retrieves organizations for users
+include('favorite.php');
    
 // require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 
@@ -1325,7 +1327,7 @@ pg_close($db);
                   <a href="#ProductTitle">'.$item['title'].'</a>
                 </h4>
                 <div class="card-footer">
-                  <a href="profile.php#posted?id='.$item['publickey'].'">
+                  <a href="profile.php#posted?publickey='.$item['publickey'].'">
                   <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
                 </a>
                  <a href="#">

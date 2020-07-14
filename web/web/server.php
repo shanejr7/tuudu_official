@@ -18,7 +18,7 @@ session_start();
  
 if (!isset($_session['ID'])) {
 
-   $remoteIP=  $_SERVER['REMOTE_ADDR'];
+   $remoteIP = $_SERVER['REMOTE_ADDR'];
 
  if (strstr($remoteIP, ', ')) {
     $ips = explode(', ', $remoteIP);
@@ -32,7 +32,7 @@ $remoteIP = preg_replace('/[^\p{L}\p{N}\s]/u', '', $remoteIP);
 }
   
 $username = "";
-$email    = "";
+$email = "";
 $age = "";
 $timestamp = "";
 $db="";
@@ -46,8 +46,8 @@ $new_password_error = array();
 
 try{
 // connect to the database
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-$db = pg_connect(getenv("DATABASE_URL"));
+//$db = pg_connect("host=localhost dbname=postgres user=postgres password=Javaoop12!");
+ $db = pg_connect(getenv("DATABASE_URL"));
 }catch(Execption $e){
   header('location:oops.php');
 }
