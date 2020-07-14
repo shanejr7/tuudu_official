@@ -2,6 +2,7 @@
 
 
 if (isset($_SESSION['id']) && isset($_GET['publickey'])) {
+	echo "in";
 	  
 	  $user_id = "";
 	  $user_id = $_SESSION['id'];
@@ -18,11 +19,12 @@ if (isset($_SESSION['id']) && isset($_GET['publickey'])) {
      $publickey = "";
 	 $publickey = pg_escape_string($db,$_GET['publickey']);
 	 $publickey = trim($publickey);
+	 echo "<br>publickey ". $publickey;
 
 
 
 	 // check if user already favorite post
-	  $result = pg_query($db, "SELECT * FROM poststate WHERE publickey = '$publickey' AND user_id = $user_id LIMIT 1");
+	  $result = pg_query($db, "SELECT favorite FROM poststate WHERE publickey = '$publickey' AND user_id = $user_id LIMIT 1");
 
  	  $poststate = pg_fetch_assoc($result);
 
