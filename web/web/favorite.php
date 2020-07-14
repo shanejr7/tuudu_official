@@ -1,5 +1,5 @@
 <?php
-
+echo "hello<br><br>";
 
 if (isset($_SESSION['id']) && isset($_GET['publickey'])) {
 	echo "in";
@@ -29,7 +29,9 @@ if (isset($_SESSION['id']) && isset($_GET['publickey'])) {
  	  $poststate = pg_fetch_assoc($result);
 
 
+ if (pg_num_rows($result) > 0) {
 
+ }		
  	  
  if ($poststate['favorite']==1) {
 
