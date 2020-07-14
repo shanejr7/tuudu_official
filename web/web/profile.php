@@ -1361,6 +1361,8 @@ pg_close($db);
     $.get("favorite.php", { publickey:""+publickey+"", id:""+sessionid+"" }){
       alert("Data: " + data + "\nStatus: " + status);
     });
+}
+
    
   </script>
             </div>
