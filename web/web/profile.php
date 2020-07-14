@@ -1273,8 +1273,7 @@ header('location:oops.php');
                       
       
                       $product_list[] = array("word_tag" => $row["word_tag"], "id" =>$row["id"], "title" => $row["title"], "organization_name" => $row["organization_name"], "phonenumber" => $row['phonenumber'], "email" => $row['email'], "address" => $row['address'], "date" => $row['date'], "time" => $row['time'], "url" => $row['url'], "img" => $row['img'],
-                        "description" => $row['description'], "content" => $row['content'], "publickey" => $row['publickey'], "fiatvalue" => $row['fiatvalue'], "views" => $row['views'], "date_submitted" => $row['date_submitted'], "payment_type" => $row['payment_type'],
-                        "favorites" => $row['favorites']);
+                        "description" => $row['description'], "content" => $row['content'], "publickey" => $row['publickey'], "fiatvalue" => $row['fiatvalue'], "views" => $row['views'], "date_submitted" => $row['date_submitted'], "payment_type" => $row['payment_type']);
 
 
                     }
