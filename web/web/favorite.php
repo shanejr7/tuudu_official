@@ -15,7 +15,8 @@ if (isset($_SESSION['id']) && $_GET['publickey']) {
         header('location:oops.php');
       }
 
-	 $publickey = pg_escape_string($db,trim($_GET['publickey']));
+	 $publickey = pg_escape_string($db,$_GET['publickey']);
+	 $publickey = trim($publickey);
 
 
 
@@ -27,7 +28,7 @@ if (isset($_SESSION['id']) && $_GET['publickey']) {
 
 
  	  
- if (!$poststate) {
+ if ($poststate['favorite']==null) {
  	
  		pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite)
   VALUES($user_id,'$publickey',1)");
