@@ -59,6 +59,9 @@ if (isset($_GET['publickey'])) {
 
 
 	 pg_close($db);
+
+
+	 header('location:profile.php#profileAccount');
 }
 
 
