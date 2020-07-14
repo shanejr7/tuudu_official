@@ -15,7 +15,7 @@ if (isset($_SESSION['id']) && $_GET['publickey']) {
         header('location:oops.php');
       }
 
-	 $publickey = pg_escape_string($db,trim($_GET['order']));
+	 $publickey = pg_escape_string($db,trim($_GET['publickey']));
 
 
 
