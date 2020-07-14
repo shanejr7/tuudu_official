@@ -524,7 +524,8 @@ if (isset($dashboard_list)  ) {
                         <a href="subscription.php?subscribe='.trim($item['publickey']).'">
                         <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
 
-                  echo '<div class="centered"><a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+                  echo '<div class="centered" style="font-weight: bolder;">
+                  <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
 
                  
                   echo '<div class="bottom-right" style="font-weight: bolder;">

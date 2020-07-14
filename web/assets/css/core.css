@@ -99,9 +99,8 @@
 
 .centered {
   position: absolute;
-  top: 110%;
-  left: 50%;
-  font-weight: bolder;
+  top: 110px;
+  left: 50px;
   opacity:0; 
 }
 .centeredm {
