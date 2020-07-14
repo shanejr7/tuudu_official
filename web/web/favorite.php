@@ -27,7 +27,7 @@ if (isset($_SESSION['id']) && $_GET['publickey']) {
 
 
  	  
- if (!$result) {
+ if (!$postsate) {
  	
  		pg_query($db, "INSERT INTO postsate (user_id, publickey,favorite)
   VALUES($user_id,'$publickey',1)");
