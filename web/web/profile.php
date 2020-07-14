@@ -1326,7 +1326,7 @@ pg_close($db);
                   <a href="#ProductTitle">'.$item['title'].'</a>
                 </h4>
                 <div class="card-footer">
-                  <a href="profile.php#posted?publickey='.$item['publickey'].'">
+                  <a href="profile.php#posted?publickey='.$item['publickey'].'" onclick="favorite('.$item['publickey'].','.$_SESSION['id'].')">
                   <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
                 </a>
                  <a href="#">
@@ -1354,7 +1354,15 @@ pg_close($db);
                 echo $p;
               }
                    ?>
-  
+  <script type="text/javascript">
+
+    function favorite(publickey,sessionid){
+   
+    $.get("favorite.php", { publickey:""+publickey+"", id:""+sessionid+"" }){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
+   
+  </script>
             </div>
           </div>
         </div>
