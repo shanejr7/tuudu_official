@@ -1,7 +1,7 @@
 <?php
 echo "hello<br><br>";
 
-if (isset($_SESSION['id']) && isset($_GET['publickey'])) {
+if (isset($_GET['publickey'])) {
 	echo "in";
 	  
 	  $user_id = "";
@@ -33,7 +33,7 @@ if (isset($_SESSION['id']) && isset($_GET['publickey'])) {
 
  	pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite)
   VALUES($user_id,'$publickey',1)");
- 	
+
  }elseif ($poststate['favorite']==1) {
 
  	 pg_query($db, "UPDATE poststate
