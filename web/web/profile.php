@@ -820,7 +820,7 @@ if (isset($stories_list)) {
 
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile-tabs">
-              <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist" style="height: 0em;">
+              <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrack" role="tablist" style="height: 0em;">
                 <!--
                                                         color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
                                                 -->
@@ -1326,7 +1326,7 @@ pg_close($db);
                   <a href="#ProductTitle">'.$item['title'].'</a>
                 </h4>
                 <div class="card-footer">
-                  <a href="profile.php#posted?publickey='.$item['publickey'].'" onclick="favorite('.$item['publickey'].','.$_SESSION['id'].')">
+                  <a href="profile.php?publickey='.$item['publickey'].'" onclick="favorite('.$item['publickey'].','.$_SESSION['id'].')">
                   <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
                 </a>
                  <a href="#">
@@ -1347,24 +1347,8 @@ pg_close($db);
 
                        }
                      }
-                        
-  if (isset($_GET['publickey'])) {
-                $p = "";
-                $p = $_GET['publickey'];
-                echo $p;
-              }
                    ?>
-  <script type="text/javascript">
 
-    function favorite(publickey,sessionid){
-   
-    $.get("favorite.php", { publickey:""+publickey+"", id:""+sessionid+"" }){
-      alert("Data: " + data + "\nStatus: " + status);
-    });
-}
-
-   
-  </script>
             </div>
           </div>
         </div>
@@ -1475,6 +1459,23 @@ pg_close($db);
   <script src="../assets/demo/demo.js" type="text/javascript"></script>
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
+  <script>
+
+      $(document).ready(function(){
+
+          $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+               localStorage.setItem('activeTab', $(e.target).attr('href'));
+          });
+
+          var activeTab = localStorage.getItem('activeTab');
+          
+            if(activeTab){
+       
+               $('#tabTrack a[href="' + activeTab + '"]').tab('show');
+           }
+      });
+
+    </script>
 
 
  
