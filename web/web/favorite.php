@@ -1,7 +1,7 @@
 <?php
 
 
-if (isset($_SESSION['id']) && $_GET['publickey']) {
+if (isset($_SESSION['id']) && isset($_GET['publickey'])) {
 	  
 	  $user_id = "";
 	  $user_id = $_SESSION['id'];
@@ -50,6 +50,7 @@ if (isset($_SESSION['id']) && $_GET['publickey']) {
 
    
  }
+
 
 	 pg_close($db);
 }
