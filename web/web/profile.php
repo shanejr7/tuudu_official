@@ -1326,7 +1326,7 @@ pg_close($db);
                   <a href="#ProductTitle">'.$item['title'].'</a>
                 </h4>
                 <div class="card-footer">
-                  <a href="profile.php?publickey='.$item['publickey'].'" onclick="favorite('.$item['publickey'].','.$_SESSION['id'].')">
+                  <a href="profile.php#posted?publickey='.$item['publickey'].'" id="favsub">
                   <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
                 </a>
                  <a href="#">
@@ -1348,7 +1348,22 @@ pg_close($db);
                        }
                      }
                    ?>
-
+<script type="text/javascript">
+  
+  $('#favsub').click(function() {
+    $.ajax({
+        url: 'favorite.php',
+        type: 'POST',
+        data: {
+            publickey: 'email@example.com',
+            id: 'hello world!'
+        },
+        success: function(msg) {
+            alert('Sent');
+        }               
+    });
+});
+</script>
             </div>
           </div>
         </div>

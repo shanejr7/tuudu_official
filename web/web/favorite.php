@@ -1,8 +1,6 @@
 <?php
-echo "hello<br><br>";
 
 if (isset($_GET['publickey'])) {
-	echo "in";
 	  
 	  $user_id = "";
 	  $user_id = $_SESSION['id'];
@@ -19,7 +17,6 @@ if (isset($_GET['publickey'])) {
      $publickey = "";
 	 $publickey = pg_escape_string($db,$_GET['publickey']);
 	 $publickey = trim($publickey);
-	 echo "<br>publickey ". $publickey;
 
 
 
