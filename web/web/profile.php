@@ -378,7 +378,7 @@ if (isset($temp) && $temp ==1) {
         <div class="row">
           <div class="col-md-12 ml-auto mr-auto">
             <div class="profile-tabs">
-              <ul class="nav nav-pills nav-pills-icons justify-content-center" role="tablist">
+              <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrackMain" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link active" href="#studio" id="refresh" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
@@ -1459,6 +1459,7 @@ pg_close($db);
   <script src="../assets/demo/demo.js" type="text/javascript"></script>
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
+
   <script>
 
       $(document).ready(function(){
@@ -1476,8 +1477,23 @@ pg_close($db);
       });
 
     </script>
+  <script>
 
+      $(document).ready(function(){
 
+          $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+               localStorage.setItem('activeTab', $(e.target).attr('href'));
+          });
+
+          var activeTab = localStorage.getItem('activeTab');
+          
+            if(activeTab){
+       
+               $('#tabTrackMain a[href="' + activeTab + '"]').tab('show');
+           }
+      });
+
+    </script>
  
     <script type="text/javascript">
     $(document).ready(function() {
