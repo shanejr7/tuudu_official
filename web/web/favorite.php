@@ -20,28 +20,28 @@ if (isset($_SESSION['id']) && $_GET['publickey']) {
 
 
 	 // check if user already favorite post
-	  $result = pg_query($db, "SELECT * FROM postsate WHERE publickey = '$publickey' AND user_id = $user_id LIMIT 1");
+	  $result = pg_query($db, "SELECT * FROM poststate WHERE publickey = '$publickey' AND user_id = $user_id LIMIT 1");
 
- 	  $postsate = pg_fetch_assoc($result);
+ 	  $poststate = pg_fetch_assoc($result);
 
 
 
  	  
- if (!$postsate) {
+ if (!$poststate) {
  	
- 		pg_query($db, "INSERT INTO postsate (user_id, publickey,favorite)
+ 		pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite)
   VALUES($user_id,'$publickey',1)");
   
   
 
- }elseif($postsate['favorite']==1){
+ }elseif($poststate['favorite']==1){
 
- 	 pg_query($db, "UPDATE public.organization
+ 	 pg_query($db, "UPDATE poststate
     SET favorite = 0 WHERE publickey = '$publickey' AND user_id= $user_id");
 
  }else{
 
- 	 pg_query($db, "UPDATE public.organization
+ 	 pg_query($db, "UPDATE poststate
     SET favorite = 1 WHERE publickey = '$publickey' AND user_id= $user_id");
    
  }
