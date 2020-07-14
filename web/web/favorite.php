@@ -28,22 +28,26 @@ if (isset($_SESSION['id']) && $_GET['publickey']) {
 
 
  	  
- if ($poststate['favorite']==null) {
- 	
- 		pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite)
-  VALUES($user_id,'$publickey',1)");
-  
-  
-
- }elseif($poststate['favorite']==1){
+ if ($poststate['favorite']==1) {
 
  	 pg_query($db, "UPDATE poststate
     SET favorite = 0 WHERE publickey = '$publickey' AND user_id= $user_id");
+ 	
+  
+  
+
+ }elseif($poststate['favorite']==0){
+
+ 		 pg_query($db, "UPDATE poststate
+    SET favorite = 1 WHERE publickey = '$publickey' AND user_id= $user_id");
+ 	
 
  }else{
 
- 	 pg_query($db, "UPDATE poststate
-    SET favorite = 1 WHERE publickey = '$publickey' AND user_id= $user_id");
+ 	pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite)
+  VALUES($user_id,'$publickey',1)");
+
+
    
  }
 
