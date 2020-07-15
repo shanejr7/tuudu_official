@@ -268,7 +268,7 @@ $bucket_name = 'tuudu-official-file-storage';
   <div class="container">
         <div class="row">
 
-          <div class="col-md-6 ml-auto mr-auto" style="margin-bottom: 30px;">
+          <div class="col-md-6 ml-auto mr-auto" style="margin-bottom: 60px;">
             <div class="profile-tabs">
               <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrack" role="tablist" style="height: 0em;">
                 <!--
@@ -297,10 +297,15 @@ $bucket_name = 'tuudu-official-file-storage';
                     <div class="profileFollowing">
               <div class="avatar" style="width: 120px;">
                 <img src="../assets/img/faces/card-profile1-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-                <h6>name</h6>
+               
               </div>
               
             </div>
+                </li>
+                <li class="nav-item">
+                     <h4><?php if (isset($_SESSION['username'])) {
+                       echo trim($_SESSION['username']);
+                     } ?></h4>
                 </li>
               </ul>
             </div>
