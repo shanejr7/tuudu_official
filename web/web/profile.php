@@ -312,18 +312,15 @@ $bucket_name = 'tuudu-official-file-storage';
                 
               <div class="col-md-4">
             <div class="profile">
-              <div class="avatar" style="width: 18px;">
+              <div class="avatar" style="width: 120px;">
+                <a href="#">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </a>
               </div>
               <div class="name">
                 <h6 class="title">mani Alshar</h6>
                 
               </div>
-            </div>
-            <div class="follow">
-              <button class="btn btn-fab btn-primary btn-round" rel="tooltip" title="" data-original-title="Follow this user">
-                <i class="material-icons">add profile picture</i>
-              </button>
             </div>
           </div>
 
