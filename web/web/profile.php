@@ -180,7 +180,7 @@ echo '<script>
                     <i class="material-icons">list</i> subscriptions
                   </a>
                 </li>
-                  <li class="nav-item">
+                  <li class="nav-item active">
                   <a class="nav-link active" href="#profile" role="tab" data-toggle="tab">
                     <i class="material-icons">perm_identity</i> profile
                   </a>
@@ -864,7 +864,7 @@ pg_close($db);
                   <a href="#ProductTitle">'.$item['title'].'</a>
                 </h4>
                 <div class="card-footer">
-                  <a href="profile.php#posted?publickey='.$item['publickey'].'" id="favsub">
+                  <a href="profile.php?publickey='.$item['publickey'].'" id="favsub">
                   <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
                 </a>
                  <a href="#">
