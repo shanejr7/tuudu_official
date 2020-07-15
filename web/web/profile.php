@@ -176,7 +176,7 @@ echo '<script>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="dashboard.php#list" role="tab" data-toggle="tab">
+                  <a class="nav-link" href="dashboard.php#list">
                     <i class="material-icons">list</i> subscriptions
                   </a>
                 </li>
@@ -352,7 +352,7 @@ if (isset($temp) && $temp ==1) {
       <div class="container">
         <div class="tab-content tab-space cd-section" id="body">
       
- <div class="tab-pane text-center gallery" id="profile">
+ <div class="tab-pane active text-center gallery" id="profile">
   <div class="container">
         <div class="row">
 
