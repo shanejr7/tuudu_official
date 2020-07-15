@@ -778,7 +778,7 @@ pg_close($db);
 
                 if($presignedUrl){
 
-                  echo  '<div class="card card-background" style="background-image: url("'.$presignedUrl.'")">'
+                  echo  '<div class="card card-background" style="background-image: url(''.$presignedUrl.'')">'
                   ;  
               }else{
                  echo  '<div class="card card-background" style="background-image: url("../assets/img/image_placeholder.jpg")">';
