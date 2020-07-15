@@ -202,9 +202,9 @@ echo '<script>
  
 
         <div class="navbar-translate">
-              <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrackMain" role="tablist">
+              <ul class="navbar-nav" id="tabTrackMain" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" href="dashboard.php">
+                  <a class="nav-link" href="dashboard.php">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
