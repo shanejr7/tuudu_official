@@ -149,7 +149,7 @@ echo '<script>
  
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container">
- <div class="navbar-translate">
+ <div class="navbar-translate profile-tabs">
       <ul class="nav  navbar-nav"  role="tablist">
                 <li class="nav-item">
                   <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
