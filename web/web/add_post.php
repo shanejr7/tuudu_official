@@ -61,7 +61,7 @@ $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); 
 
  
  
-    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp', payment_type = '$paymentType' WHERE publickey = '$publickey' AND id =$userid");
+    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp', payment_type = '$paymentType', favorites = 0 WHERE publickey = '$publickey' AND id =$userid");
  
 
 
@@ -111,7 +111,7 @@ $fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of block
     $timestamp = $timezone_str;
   
 
-    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp', payment_type = 'n/a' WHERE publickey = '$publickey' AND id =$userid");
+    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp', payment_type = 'n/a', favorites =0 WHERE publickey = '$publickey' AND id =$userid");
 
  				// use val "=e.val."  to get pop up for submission if wanted
                // $val = random_str(12, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
