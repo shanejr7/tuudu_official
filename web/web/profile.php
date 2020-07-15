@@ -294,6 +294,20 @@ $bucket_name = 'tuudu-official-file-storage';
                 </li>
               </ul>
             </div>
+                   <div class="profileFollowing" style="display: inline-block;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile1-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+              </div>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;"><?php if (isset($_SESSION['username'])) {
+                  echo trim($_SESSION['username']);
+                } ?></h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">add
+</span></a></h16>
+                
+                
+              </div>
+            </div>
           </div>
         </div>
         <div class="tab-content tab-space">
@@ -310,14 +324,14 @@ $bucket_name = 'tuudu-official-file-storage';
                   <li style="display: inline-block;"><b>1.2K</b> Likes</li>
                 </div>
                 
-              <div class="col-md-4">
+<!--               <div class="col-md-4">
              <div class="profileFollowing" style="display: inline-block;">
               <div class="avatar" style="width: 120px;">
                 <img src="../assets/img/faces/card-profile1-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;"><?php if (isset($_SESSION['username'])) {
-                  echo trim($_SESSION['username']);
+                <h6 class="title" style="display: inline-block; margin-right: 10px;"><?php //if (isset($_SESSION['username'])) {
+               //   echo trim($_SESSION['username']);
                 } ?></h6>
                 <h16 style="font-size: 12px;"><a href=""><span class="material-icons">add
 </span></a></h16>
@@ -325,7 +339,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 
               </div>
             </div>
-          </div>
+          </div> -->
 
 
 
