@@ -345,7 +345,9 @@ $bucket_name = 'tuudu-official-file-storage';
         </button>
       </div>
       <div class="modal-body">
- <form enctype="multipart/form-data" method="post" action="'.$_SERVER['PHP_SELF'].'">
+        <?php 
+
+        echo'<form enctype="multipart/form-data" method="post" action="'.$_SERVER['PHP_SELF'].'">
   <label>upload profile picture</label>
                  <div class="row"> 
                   <div class="col-md-4"></div>
@@ -359,11 +361,12 @@ $bucket_name = 'tuudu-official-file-storage';
 
                 </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg " name="image" value="img" style="display:inline-block">upload</button></form>
 
-              </div>
+              </div>';
 
 
-                <?php 
-
+          
+if (isset($_POST['image'])) {
+  
 
                    $userid = $_SESSION['id'];
 
@@ -424,7 +427,7 @@ $destination = $key;
  
 }
 
-
+}
 
                 ?>
       </div>
