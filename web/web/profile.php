@@ -796,24 +796,24 @@ pg_close($db);
                   <a href="profile.php?publickey='.$item['publickey'].'" id="favsub">';
                   if ($item['favorite'] ==1) {
                     
-                    echo '<i class="material-icons" style="opacity: .7;margin-right: 40px;color:red">favorite</i>';
+                    echo '<i class="material-icons" style="opacity: 1;margin-right: 40px;color:red">favorite</i>';
 
                   }else{
 
-                    echo '<i class="material-icons" style="opacity: .7;color:white;margin-right: 40px;">favorite_border</i>';
+                    echo '<i class="material-icons" style="opacity: 1;color:white;margin-right: 40px;">favorite_border</i>';
                   }
 
                   echo '</a>';
                   
 
                 echo'<a href="#">
-                  <i class="material-icons" style="opacity: .7;color:white;margin-right: 40px;">chat_bubble_outline</i>
+                  <i class="material-icons" style="opacity: 1;color:white;margin-right: 40px;">chat_bubble_outline</i>
                 </a>
                  <a href="#">
-                  <i class="material-icons" style="opacity: .7;color:white;margin-right: 40px;">send</i>
+                  <i class="material-icons" style="opacity: 1;color:white;margin-right: 40px;">send</i>
                 </a>
                  <a href="#">
-                  <i class="material-icons" style="opacity: .7;color:white;margin-right: 200px;">more_vert</i>
+                  <i class="material-icons" style="opacity: 1;color:white;margin-right: 200px;">more_vert</i>
                 </a>
                 </div>
                     </div>
