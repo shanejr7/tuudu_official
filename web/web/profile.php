@@ -296,9 +296,9 @@ $bucket_name = 'tuudu-official-file-storage';
                 <li class="nav-item">
                     <div class="profileFollowing">
               <div class="avatar" style="width: 120px;">
-                <a href="#">
+                
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-              </a>
+              
                </div>
               
             </div>
