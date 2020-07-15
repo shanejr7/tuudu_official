@@ -365,10 +365,12 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
           
-if (isset($_POST['image'])) {
+if (isset($_POST['image']) && isset($_SESSION['id'])) {
   
 
-                   $userid = $_SESSION['id'];
+$userid = $_SESSION['id'];
+$randomString = " ";
+
 
 //stores file to aws S3
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['file1']['tmp_name'])) {
