@@ -307,7 +307,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   <li style="display: inline-block;"><b>3</b> Products</li>
                   <li style="display: inline-block;"><b>4</b> Collections</li>
                   <li style="display: inline-block;"><b>331</b> Followers</li>
-                  <li><b>1.2K</b> Likes</li>
+                  <li style="display: inline-block;"><b>1.2K</b> Likes</li>
                 </div>
                 
               <div class="col-md-4">
@@ -318,8 +318,9 @@ $bucket_name = 'tuudu-official-file-storage';
               </a>
               </div>
               <div class="name">
-                <h6 class="title">mani Alshar</h6>
-                
+                <h6 class="title"><?php if (isset($_SESSION['username'])) {
+                  echo trim($_SESSION['username']);
+                } ?></h6>
               </div>
             </div>
           </div>
