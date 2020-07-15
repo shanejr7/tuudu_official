@@ -300,7 +300,7 @@ $bucket_name = 'tuudu-official-file-storage';
           <div class="tab-pane active work" id="home">
             <div class="row">
 
-              <div class="col-md-6 ml-auto mr-auto ">
+              <div class="col-md-8 ml-auto mr-auto ">
                 <h4 class="title" style="display: inline-block;margin-right: 3px;">Latest Collections</h4>
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>
             
@@ -310,7 +310,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   <li style="display: inline-block;"><b>1.2K</b> Likes</li>
                 </div>
                 
-              <div class="col-md-6 ml-auto mr-auto stats">
+              <div class="col-md-4 ml-auto mr-auto stats">
             <div class="profile">
               <div class="avatar">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
