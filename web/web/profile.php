@@ -339,7 +339,7 @@ $bucket_name = 'tuudu-official-file-storage';
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Profile Picture</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Profile picture</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -348,20 +348,18 @@ $bucket_name = 'tuudu-official-file-storage';
  <form enctype="multipart/form-data" method="post" action="'.$_SERVER['PHP_SELF'].'">
   <label>upload profile picture</label>
                  <div class="row"> 
-                  </div>
+                  
                   <div class="col-md-4">
-                     <div class="form-group  ">
-                    <input type="text" name="content" class="form-control" id="inputContent" placeholder="content info"  required>
-                  </div>
-                    
                    
                           <div class="form-group form-file-upload form-file-simple">
     <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
     <input type="file" name="file1" class="inputFileHidden">
   </div>
-                    </div></div>
+                    </div><
 
                 </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg " name="image" value="img" style="display:inline-block">upload</button></form>
+                
+              </div>
 
 
                 <?php 
