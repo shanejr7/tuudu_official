@@ -108,35 +108,8 @@ $bucket_name = 'tuudu-official-file-storage';
   <!-- custom css -->
   <link href="../assets/css/core.css" rel="stylesheet" />
 
- <!--   <script src="../assets/js/local.js"></script> -->
-     <?php 
+   <script src="../assets/js/local.js"></script>
 
-     $temp = " ";
-
-if (isset($_SESSION['temp_pw'])) {
-  $temp = $_SESSION['temp_pw'];
-}
-
-
-
-if (isset($temp) && $temp == 1) {
-
-echo '<script>
- 
-  document.getElementById("main").style.visibility = "hidden";
- 
-     </script>';
-}else{
-
-echo '<script>
- 
-  document.getElementById("main").style.visibility = "show";
- 
-     </script>';
-}
-
-
-  ?>
 
  <!--  <script src="../assets/js/custom_js.js"></script> -->
   
@@ -281,68 +254,7 @@ echo '<script>
                   </ul>
                 </div>
 </nav>
-<?php 
-$temp = " ";
 
-if (isset($_SESSION['temp_pw'])) {
-$temp = $_SESSION['temp_pw'];
-}
- 
-
-if (isset($temp) && $temp ==1) {
- 
-   
- echo ' <div class=" bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-     <form class="form" method="post" action="profile.php">
-                 <input type="hidden" name="timezone" value="" id="timezone">
-                 
-             <div class="card-header card-header-primary text-center" style="background-color:orange;">
-                <h4 class="card-title">new password</h4>
-                
-              </div>
-          
-              <div class="card-body">
-                 <br/>
-               <div style="margin-left: 10%;">';   
- 
-              if (count($new_password_error)>0) {
-                echo '<p>'.$new_password_error[0].'<span class="text-warning btn-md-link"> <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>';
-              }
-
-                  echo '</div>  
-                
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">lock_outline</i>
-                    </span>
-                  </div>
-                  <input type="password" class="form-control" name="reset_password" id="inputPassword" placeholder="Password..." required="">
-                </div>
- 
-               
-              </div>
-              <div class="footer text-center">
-                <button type="submit" value="string" href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg"   name="new_password"
-                data-callback="onSubmit">submit</button>
-              </div>
-            </form>
-
-    </div>
-  </div>
-</div><div class="row">
-<div class="col-md-5"> </div> <div class="col-md-4"><p>we will never share your password</p></div></div>';
-
-}
-
-
-
-
-
-
-?>
 
  
     <!-- class"main main-rasied" -->
@@ -384,14 +296,14 @@ if (isset($temp) && $temp ==1) {
             </div>
           </div>
         </div>
-        <div class="tab-content tab-space">
+        <div class="tab-content">
           <div class="tab-pane active work" id="home">
             <div class="row">
 
               <div class="col-md-7 ml-auto mr-auto ">
                 <h4 class="title">Latest Collections</h4>
                 <div class="row collections">
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="card card-background" style="background-image: url('../assets/img/examples/mariya-georgieva.jpg')">
                       <a href="#pablo"></a>
                       <div class="card-body">
@@ -402,7 +314,7 @@ if (isset($temp) && $temp ==1) {
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="card card-background" style="background-image: url('../assets/img/examples/clem-onojeghuo.jpg')">
                       <a href="#pablo"></a>
                       <div class="card-body">
@@ -413,7 +325,7 @@ if (isset($temp) && $temp ==1) {
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="card card-background" style="background-image: url('../assets/img/examples/olu-eletu.jpg')">
                       <a href="#pablo"></a>
                       <div class="card-body">
@@ -424,7 +336,7 @@ if (isset($temp) && $temp ==1) {
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="card card-background" style="background-image: url('../assets/img/examples/darren-coleshill.jpg')">
                       <a href="#pablo"></a>
                       <div class="card-body">
@@ -443,7 +355,7 @@ if (isset($temp) && $temp ==1) {
           <div class="col-md-6 ml-auto mr-auto stats">
             <div class="profile">
               <div class="avatar">
-                <img src="../assets/img/me.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
                 <h6 class="title">mani Alshar</h6>
@@ -452,7 +364,7 @@ if (isset($temp) && $temp ==1) {
             </div>
             <div class="follow">
               <button class="btn btn-fab btn-primary btn-round" rel="tooltip" title="" data-original-title="Follow this user">
-                <i class="material-icons">add</i>
+                <i class="material-icons">add profile picture</i>
               </button>
             </div>
           </div>
