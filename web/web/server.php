@@ -549,9 +549,9 @@ if (isset($_POST['reg_user'])) {
   'h:X-Mailgun-Variables'    => '{"test": "test"}'));
 
   if (strcmp(trim($account), "user")) {
-     header('location: profile.php');  
+     header('location: dashboard.php');  
   }else if (strcmp(trim($account), "BUSINESS")) {
-     header('location: profile.php');
+     header('location: dashboard.php');
   }
   
   }
@@ -633,7 +633,7 @@ if (isset($_POST['login_user'])) {
  
 
 
-header('location: profile.php');  
+header('location: dashboard.php');  
   
    
   	}else {

@@ -32,7 +32,7 @@ $publickey =  pg_escape_string($db,$_GET['subscribe']);
 // no dupilcate copy
  if (strcmp(trim($user['publickey']),$publickey)==0 && $user['userid'] == $tempID) {
  	//return to topic page dont add identical topic 
- header('location:profile.php');
+ header('location:dashboard.php');
   
   //echo "no store";
 
@@ -49,7 +49,7 @@ $publickey =  pg_escape_string($db,$_GET['subscribe']);
   WHERE publickey = '$publickey' AND id= $org_id");
   	pg_query($db, "INSERT INTO user_follow_organization (userid, publickey,orgid)
   VALUES($tempID,'$publickey',$org_id)");
- header('location:profile.php');
+ header('location:dashboard.php');
 
 
    
@@ -86,7 +86,7 @@ if (isset($_GET['unsubscribe']) && isset($_SESSION["id"])) {
 
   $result = pg_query($db, "DELETE FROM user_follow_organization WHERE publickey = '$publickey' AND userid = $tempID");
  
-header('location:profile.php');
+header('location:dashboard.php');
  
   pg_close($db);
 }

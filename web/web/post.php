@@ -145,7 +145,7 @@ if (!isset($_SESSION['username'])) {
                      </script>
                 </li>
                   <li class="nav-item">
-                    <a href="profile.php" class="nav-link">DASHBOARD</a>
+                    <a href="dashboard.php" class="nav-link">DASHBOARD</a>
                 </li>
         
         
@@ -919,7 +919,7 @@ card();
   </div>
 <!--    <script type="text/javascript">
     document.getElementByClass("update").onclick = function () {
-        location.href = "profile.php";
+        location.href = "dashboard.php";
     };
 </script> -->
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>

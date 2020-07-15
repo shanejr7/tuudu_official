@@ -133,7 +133,7 @@ if (isset($_SESSION['id'])) {
 
  
 
-    //else {/*header('location:profile.php?sorry_not_found');*/}
+    //else {/*header('location:dashboard.php?sorry_not_found');*/}
 
 pg_close($db);
 
@@ -232,13 +232,13 @@ if (!$db) {
 
               
 
-             header('location:profile.php');
+             header('location:dashboard.php');
        
     }else if(isset($check_state['state']) && $check_state['state']==0){
 
  
 
-    header('location:profile.php');
+    header('location:dashboard.php');
 
     }else if(!$check_state['state']==1){ // state is not yet added put 1  
    
@@ -278,9 +278,9 @@ for ($i=0; $i <sizeof($interest_list) ; $i++) {
     pg_close($db);
 
     if (sizeof($interest_list)==0) {
-       header('location:profile.php?sorry_not_found');
+       header('location:dashboard.php?sorry_not_found');
     }else{
-    header('location:profile.php');
+    header('location:dashboard.php');
   }
  }
 }
@@ -378,7 +378,7 @@ $user_I_D = pg_escape_string($db, $_SESSION['id']);
     pg_close($db);
 
 
-    header('location:profile.php');
+    header('location:dashboard.php');
 
 
  }else{ 
@@ -389,7 +389,7 @@ $user_I_D = pg_escape_string($db, $_SESSION['id']);
     pg_close($db);
 
 
-    header('location:profile.php');
+    header('location:dashboard.php');
 
  }
 
@@ -479,7 +479,7 @@ if (!$db) {
 
 
 
-  header('location:profile.php');
+  header('location:dashboard.php');
 
  }
 

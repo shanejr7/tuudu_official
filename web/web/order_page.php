@@ -203,7 +203,7 @@ pg_close($conn);
                 <div class="collapse navbar-collapse" id="sectionsNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                     <a href="profile.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
+                     <a href="dashboard.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
                       <script type="text/javascript">
                       var revokeAllScopes = function() {
                          auth2.disconnect();
@@ -211,7 +211,7 @@ pg_close($conn);
                      </script>
                 </li>
                 <li class="nav-item ">
-                     <a href="profile.php" class="nav-link">Dashboard</a> 
+                     <a href="dashboard.php" class="nav-link">Dashboard</a> 
                 </li>
             </ul>
 

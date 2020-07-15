@@ -69,7 +69,7 @@ $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); 
     // when string start with it
     				// use ="e.$val" to get pop up for submission if wanted
                   // $val = random_str(12, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
- header('location: profile.php');
+ header('location: dashboard.php');
  
 }elseif (isset($_POST['push_no_payment'])) {
 
@@ -116,7 +116,7 @@ $fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of block
  				// use val "=e.val."  to get pop up for submission if wanted
                // $val = random_str(12, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
                
- header('location: profile.php');
+ header('location: dashboard.php');
 
  
 }

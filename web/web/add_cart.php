@@ -141,7 +141,7 @@ if (isset($_GET["purchased"])) {
    pg_close($db);
 
 
-  header("location:profile.php");
+  header("location:dashboard.php");
 
 }
 
