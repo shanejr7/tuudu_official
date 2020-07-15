@@ -301,7 +301,14 @@ $bucket_name = 'tuudu-official-file-storage';
             <div class="row">
 
               <div class="col-md-7 ml-auto mr-auto ">
-                <h4 class="title">Latest Collections</h4>
+                <h4 class="title" style="display: inline-block;">Latest Collections</h4>
+                 <h4 class="title" style="display: inline-block;">Stats</h4>
+                <ul class="list-unstyled" style="display: inline-block;">
+                  <li><b>3</b> Products</li>
+                  <li><b>4</b> Collections</li>
+                  <li><b>331</b> Followers</li>
+                  <li><b>1.2K</b> Likes</li>
+                </ul>
                 <div class="row collections">
                   <div class="col-md-4">
                     <div class="card card-background" style="background-image: url('../assets/img/examples/mariya-georgieva.jpg')">
@@ -369,20 +376,20 @@ $bucket_name = 'tuudu-official-file-storage';
             </div>
           </div>
         </div>
-                <h4 class="title">Stats</h4>
+               <!--  <h4 class="title">Stats</h4>
                 <ul class="list-unstyled">
                   <li><b>3</b> Products</li>
                   <li><b>4</b> Collections</li>
                   <li><b>331</b> Followers</li>
                   <li><b>1.2K</b> Likes</li>
-                </ul>
-                <hr>
+                </ul> -->
+               <!--  <hr>
                 <h4 class="title">About his Work</h4>
                 <p class="description">French luxury footwear and fashion. The footwear has incorporated shiny, red-lacquered soles that have become his signature.</p>
                 <hr>
                 <h4 class="title">Focus</h4>
                 <span class="badge badge-primary">Footwear</span>
-                <span class="badge badge-rose">Luxury</span>
+                <span class="badge badge-rose">Luxury</span> -->
               </div>
             </div>
           </div>
