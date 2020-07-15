@@ -202,13 +202,40 @@ echo '<script>
  
 
         <div class="navbar-translate">
-            <a class="navbar-brand" data-toggle="modal" data-target="#loginModal" href="#"> Profile<i class="material-icons">sort</i></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-            </button>
+              <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrackMain" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" href="dashboard.php">
+                    <i class="material-icons">dashboard</i> dashboard
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="dashboard.php#schedule">
+                    <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php
+                    if (isset($schedule_list)) {
+                      echo sizeof($schedule_list);
+                    }else{
+                      echo "0";
+                    }
+                     
+                      ?></span>
+                  </a>
+                </li>
+                   <li class="nav-item">
+                  <a class="nav-link" href="post.php">
+                    <i class="material-icons">post_add</i> post
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="dashboard.php#list" role="tab" data-toggle="tab">
+                    <i class="material-icons">list</i> subscriptions
+                  </a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="profile.php">
+                    <i class="material-icons">perm_identity</i> profile
+                  </a>
+                </li>
+              </ul>
         </div>
 
         <div class="collapse navbar-collapse" id="sectionsNav">
@@ -373,445 +400,12 @@ if (isset($temp) && $temp ==1) {
      <div  >
     <div class="profile-content " id="main">
       <div class="container">
-    
-        
-        <div class="row">
-          <div class="col-md-12 ml-auto mr-auto">
-            <div class="profile-tabs">
-              <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrackMain" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#studio" id="refresh" role="tab" data-toggle="tab">
-                    <i class="material-icons">dashboard</i> dashboard
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#schedule"  role="tab" data-toggle="tab">
-                    <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php
-                    if (isset($schedule_list)) {
-                      echo sizeof($schedule_list);
-                    }else{
-                      echo "0";
-                    }
-                     
-                      ?></span>
-                  </a>
-                </li>
-                   <li class="nav-item">
-                  <a class="nav-link" href="post.php">
-                    <i class="material-icons">post_add</i> post
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#list" role="tab" data-toggle="tab">
-                    <i class="material-icons">list</i> subscriptions
-                  </a>
-                </li>
-                  <li class="nav-item">
-                  <a class="nav-link" href="#profileAccount" id="pAccount" role="tab" data-toggle="tab">
-                    <i class="material-icons">perm_identity</i> profile
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
- 
-  <!--  <script type="text/javascript">
-     
-
-
-var dashboard_local_distance = <?php// echo json_encode($dashboard_list, JSON_PRETTY_PRINT) ?>;
-var size = dashboard_local_distance.length; 
-var count = 0;
-console.log('dashboard_local_distance '+ dashboard_local_distance[0].address);
-
-for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
- 
-   geolocation(dashboard_local_distance[i].address,dashboard_local_distance[i].publickey,size,count);
-   count++;
-  
-}
-   </script> -->
-
         <div class="tab-content tab-space cd-section" id="body">
-          <div class="tab-pane active text-center gallery section section-sections" id="studio">
-           <div class="row">
-
-          <?php if (count($errors_dashboard) > 0) : ?>
-              <div class="error">
-               <?php foreach ($errors_dashboard as $error) : ?>
-                  <p><?php echo $error ?> <span class="text-warning btn-md-link"> <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>
-                     <?php endforeach ?>
-              </div>
-               <?php  endif ?>
-          <?php
+      
  
-                
+       
 
-if (isset($dashboard_list)  ) {
-//  $key = array();
-
- 
-// $key = array_column($dashboard_list, 'publickey');
- 
-// $key = array_intersect($key,$local_distance);
-
- 
- 
-  // make content dynamic
-  shuffle($dashboard_list);
-                
-  // column sizes for row 
-  $numberOfColumns = 3;
-    $bootstrapColWidth = 12 / $numberOfColumns ;
-
-    $arrayChunks = array_chunk($dashboard_list, $numberOfColumns);
-    foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($items as $item) {
- 
-  //         if(in_array($item["publickey"], $key)) 
-  // { 
-                           $cmd = $s3->getCommand('GetObject', [
-                                        'Bucket' => ''.$bucket_name.'',
-                                        'Key'    => ''.trim($item["img"]).'',
-                            ]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-     
-
-              
-
-            
-              echo '<div class="col-md-4">';
-
-          
-              echo '<div class="contain">';
-
-           
-                
- 
-
-          if($presignedUrl){
-                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
-              }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
-              } 
- 
-              
-                
-
-                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
-
-                        echo '<div class="top-right h9"> 
-                        <i class="material-icons">strikethrough_s</i></div>';
-
-                        }else{
-
-                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
-                  
-                  }
-
-
-                  echo '<div class="top-left h6" style="width:10px;">'
-                       .toString($item['date']).'</div>';
-
-                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
-
-
-                  echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
-                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
-
-                  // echo '<div class="centered" style="font-weight: bolder;">
-                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
-
-                 
-                  echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="order_page.php?order='.$item['publickey'].'"<i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
- 
-
-
-
-                echo '</div>';
-              
-          
-              
-            echo '</div>';
-          // }else{
-          //   // not local
-          // }
-          
-        }
-        echo '</div>';
-    } 
-
-
-
-                  } 
-               
-              ?>
-         
-            </div>
-          </div>
- 
-          <div class="tab-pane text-center gallery" id="schedule">
-              <div class="row"> 
-
-                  <?php if (count($errors_schedule) > 0) : ?>
-                     <div class="error">
-                      <?php foreach ($errors_schedule as $error) : ?>
-                          <p><?php echo $error ?> <span class="text-warning btn-md-link"> <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>
-                      <?php endforeach ?>
-                     </div>
-                  <?php  endif ?>
-
-            <?php 
-
-                  
-  // column sizes for row 
-    $numberOfColumns = 8;
-    $bootstrapColWidth = 12 / $numberOfColumns ;
-if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
-    $arrayChunks = array_chunk($schedule_list, $numberOfColumns);
-    $ticket_time = explode("-", $item["time"]);
-    foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($items as $item) {
-
-                        $cmd = $s3->getCommand('GetObject', [
-                    'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.trim($item["img"]).'',
-]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-          if($presignedUrl){
-                      $item['img']= $presignedUrl;  
-              }else{
-                   $item['img']= '../assets/img/image_placeholder.jpg';
-              } 
-          echo '<div class="col-md-12">
-          <div class="contain">
-            <div class="card card-background" style="background-image: url('.$item['img'].');">
-              <div class="card-body">
-                <h6 class="card-category text-info">'.$item['title'].'</h6>
-                <a href="#pablo">
-                  <h3 class="card-title">'.toString($item['date']).'</h3>
-                  <h12 class="card-title">'.date('h:i A', strtotime($ticket_time[0])).'</h12>
-                </a></br></br></br></br> 
-                <p class="card-description" style="font-weight:bolder;font-family: "Anaheim";">
-                 '.$item['address'].'
-                </p><i class="material-icons" style="color:orange">room </i>
-                </br>
-                 
-                  
-              </div>
-               
-            </div>
-           </div>
-          </div>';
-        
-        }
-        echo '</div>';
-    } 
-
-}else if(sizeof($schedule_list)==2){
-  $arrayChunks = array_chunk($schedule_list, $numberOfColumns);
-    foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($items as $item) {
-
-                        $cmd = $s3->getCommand('GetObject', [
-                    'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.trim($item["img"]).'',
-]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-          if($presignedUrl){
-                      $item['img']= $presignedUrl;  
-              }else{
-                   $item['img']= '../assets/img/image_placeholder.jpg';
-              } 
-          echo '<div class="col-md-6">
-            <div class="card card-background" style="background-image: url('.$item['img'].');">
-              <div class="card-body">
-                <h6 class="card-category text-info">'.$item['title'].'</h6>
-                <a href="#pablo">
-                  <h3 class="card-title">'.toString($item['date']).'</h3>
-                </a>
-               <p class="card-description" style="font-weight:bolder;font-family: "Anaheim";">
-                 '.$item['address'].'
-                </p><i class="material-icons" style="color:orange">room </i>
-                </br>
-                
-              </div>
-            </div>
-           
-          </div>';
-        
-        }
-        echo '</div>';
-    } 
-
-}else{
-  $arrayChunks = array_chunk($schedule_list, $numberOfColumns);
-    foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($items as $item) {
-
-                          $cmd = $s3->getCommand('GetObject', [
-                    'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.trim($item["img"]).'',
-]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-          if($presignedUrl){
-                      $item['img']= $presignedUrl;  
-              }else{
-                   $item['img']= '../assets/img/image_placeholder.jpg';
-              } 
-
-            
-
-          echo '<div class="col-md-4">
-            <div class="card card-background" style="background-image: url('.$item['img'].');">
-              <div class="card-body">
-                <h6 class="card-category text-info">'.$item['title'].'</h6>
-                <a href="#pablo">
-                  <h3 class="card-title">'.toString($item['date']).'</h3>
-                </a>
-                <p class="card-description" style="font-weight:bolder;font-family: "Anaheim";">
-                 '.$item['address'].'
-                </p><i class="material-icons" style="color:orange">room </i>
-                </br>
-              </div>  
-            </div>
-           
-          </div>';
-        
-        }
-        echo '</div>';
-    } 
-}
-   
-         
-
-              ?>
-        
-    
-        </div>
-         
-          </div>
-
-          <div class="tab-pane text-center gallery" id="list">
-
-            <div class="row">
-
-
-
-<?php if (count($errors_list) > 0) : ?>
-  <div class="error">
-    <?php foreach ($errors_list as $error) : ?>
-      <p><?php echo $error ?> <span class="text-warning btn-md-link"> <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>
-    <?php endforeach ?>
-  </div>
-<?php  endif ?>
-
-            <?php 
-if (isset($stories_list)) {
-
-
-                // make content dynamic
-                  shuffle($stories_list);
-              
-                 
-  // column sizes for row 
-    $numberOfColumns = 3;
-    $bootstrapColWidth = 12 / $numberOfColumns ;
-
-    $arrayChunks = array_chunk($stories_list, $numberOfColumns);
-    foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($items as $item) {
-
-            echo '<div class="col-md-4">';
-
-             // echo '<a href="subscription.php?subscribe='.trim($item['org_id']).'">';
-
-             echo '<div class="contain">';
- 
-
-                   $cmd = $s3->getCommand('GetObject', [
-                    'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.trim($item["img"]).'',
-]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-          if($presignedUrl){
-                  echo  '<img src="'.$presignedUrl.'" class="rounded img">';  
-              }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img">';
-              } 
-
-            
-
-
-                  if (trim($item['price']) =='0.00') {
-
-                        echo '<div class="top-right h9"> 
-                        <i class="material-icons">strikethrough_s</i></div>';
-
-                        }else{
-
-                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
-                  
-                  }
-
-                  echo '<div class="top-left h6" style="width:10px;">'
-                       .toString($item['date']).'</div>';
-
-                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
-
-                   
-                  echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="subscription.php?unsubscribe='.$item['publickey'].'"><i class="material-icons">bookmark</i></a></div>';
-                   
-                  echo '<div class="bottom-right" style="font-weight: bolder;">
-                        <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons">add_shopping_cart</i></a></div>';
- 
-
-                echo '</div>';
-              
-              // echo '</a>';
-              
-            echo '</div>';
-        }
-        echo '</div>';
-    } 
-
-         }
-
-              ?>
-         
-             
-            </div>
-
-          </div>
+      
 
 
  <div class="tab-pane text-center gallery" id="profileAccount">
@@ -1348,22 +942,8 @@ pg_close($db);
                        }
                      }
                    ?>
-<script type="text/javascript">
-  
-  $('#favsub').click(function() {
-    $.ajax({
-        url: 'favorite.php',
-        type: 'POST',
-        data: {
-            publickey: 'email@example.com',
-            id: 'hello world!'
-        },
-        success: function(msg) {
-            alert('Sent');
-        }               
-    });
-});
-</script>
+
+
             </div>
           </div>
         </div>
