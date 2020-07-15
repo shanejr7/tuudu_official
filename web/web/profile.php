@@ -295,9 +295,9 @@ $bucket_name = 'tuudu-official-file-storage';
 
                 <li class="nav-item">
                     <div class="profileFollowing">
-              <div class="avatar" style="width: 120px;">
+              <div class="avatar" style="width: 120px;height: 120px;">
                 
-                <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                <img src="../assets/img/image_placeholder.jpg" title="edit" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               
                </div>
               
@@ -818,7 +818,7 @@ pg_close($db);
                           echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
 
                         }else{
-                          
+
                           echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
                         }
 
