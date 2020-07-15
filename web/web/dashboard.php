@@ -407,7 +407,7 @@ if (isset($temp) && $temp ==1) {
                   </a>
                 </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="profile.php" role="tab" data-toggle="tab">
+                  <a class="nav-link" href="profile.php">
                     <i class="material-icons">perm_identity</i> profile
                   </a>
                 </li>
