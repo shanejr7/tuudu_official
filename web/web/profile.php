@@ -311,16 +311,18 @@ $bucket_name = 'tuudu-official-file-storage';
                 </div>
                 
               <div class="col-md-4">
-            <div class="profile">
-              <div class="avatar">
-                <a href="#">
-                <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-              </a>
+             <div class="profileFollowing" style="display: inline-block;">
+              <div class="avatar" style="width: 120px;">
+                <img src="../assets/img/faces/card-profile1-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h6 class="title"><?php if (isset($_SESSION['username'])) {
+                <h6 class="title" style="display: inline-block; margin-right: 10px;"><?php if (isset($_SESSION['username'])) {
                   echo trim($_SESSION['username']);
                 } ?></h6>
+                <h16 style="font-size: 12px;"><a href=""><span class="material-icons">add
+</span></a></h16>
+                
+                
               </div>
             </div>
           </div>
