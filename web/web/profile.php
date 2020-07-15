@@ -292,16 +292,20 @@ $bucket_name = 'tuudu-official-file-storage';
                     Products
                   </a>
                 </li>
-              </ul>
-            </div>
-  <div class="profileFollowing" style="display: inline-block;">
+
+                <li class="nav-item">
+                    <div class="profileFollowing" style="display: inline-block;">
               <div class="avatar" style="width: 120px;">
                 <img src="../assets/img/faces/card-profile1-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <h6>name</h6>
             </div>
+                </li>
+              </ul>
+            </div>
+
           </div>
-           
+
         </div>
         <div class="tab-content tab-space">
           <div class="tab-pane active work" id="home">
