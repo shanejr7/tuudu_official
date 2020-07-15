@@ -773,24 +773,27 @@ pg_close($db);
               $presignedUrl = (string)$request->getUri();
 
 
-              echo ' <div class="col-md-4 ml-auto card card-product">
-                 <div style="padding-right: 2em;">';
+              echo '    <div class="col-md-4">';
 
-          if($presignedUrl){
-                  echo  '<img src="'.$presignedUrl.'" class="rounded card-header card-header-image">';  
+
+                if($presignedUrl){
+
+                  echo  '<div class="card card-background" style="background-image: url("'.$presignedUrl.'")">'
+                  ;  
               }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded card-header card-header-image">';
+                 echo  '<div class="card card-background" style="background-image: url("../assets/img/image_placeholder.jpg")">';
               } 
 
-
-              echo '</div>';
-
-              echo ' <div class="card-body">
-               
-                <h4 class="card-title">
-                  <a href="#ProductTitle">'.$item['title'].'</a>
-                </h4>
-                <div class="card-footer">
+                    
+                    
+                    echo '<a href="#"></a>
+                      <div class="card-body">
+                        <label class="badge badge-warning">'.$item['date'].'</label>
+                        <a href="#">
+                          <h2 class="card-title">'.$item['title'].'</h2>
+                        </a>
+                      </div>
+                        <div class="card-footer">
                   <a href="profile.php?publickey='.$item['publickey'].'" id="favsub">';
 
                   if ($item['favorite'] ==1) {
@@ -814,9 +817,58 @@ pg_close($db);
                   <i class="material-icons" style="margin-right: 200px;">more_vert</i>
                 </a>
                 </div>
-              </div>
+                    </div>
+                  </div>';
+
+
+
+
+
+
+          //     echo ' <div class="col-md-4 ml-auto card card-product">
+          //        <div style="padding-right: 2em;">';
+
+          // if($presignedUrl){
+          //         echo  '<img src="'.$presignedUrl.'" class="rounded card-header card-header-image">';  
+          //     }else{
+          //        echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded card-header card-header-image">';
+          //     } 
+
+
+          //     echo '</div>';
+
+          //     echo ' <div class="card-body">
+               
+          //       <h4 class="card-title">
+          //         <a href="#ProductTitle">'.$item['title'].'</a>
+          //       </h4>
+          //       <div class="card-footer">
+          //         <a href="profile.php?publickey='.$item['publickey'].'" id="favsub">';
+
+          //         if ($item['favorite'] ==1) {
+                    
+          //           echo '<i class="material-icons" style="margin-right: 40px;color:red">favorite</i>';
+
+          //         }else{
+
+          //           echo '<i class="material-icons" style="margin-right: 40px;">favorite_border</i>';
+          //         }
+                  
+
+          //       echo'</a>
+          //        <a href="#">
+          //         <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
+          //       </a>
+          //        <a href="#">
+          //         <i class="material-icons" style="margin-right: 40px;">send</i>
+          //       </a>
+          //        <a href="#">
+          //         <i class="material-icons" style="margin-right: 200px;">more_vert</i>
+          //       </a>
+          //       </div>
+          //     </div>
             
-              </div>';
+          //     </div>';
 
 
 
