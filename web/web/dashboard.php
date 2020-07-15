@@ -507,7 +507,7 @@ if (isset($dashboard_list)  ) {
 
                  
                   echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="order_page.php?order='.$item['publickey'].'"<i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
  
 
 

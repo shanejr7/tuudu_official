@@ -727,7 +727,7 @@ header('location:oops.php');
                       
       
                       $product_list[] = array("word_tag" => $row["word_tag"], "id" =>$row["id"], "title" => $row["title"], "organization_name" => $row["organization_name"], "phonenumber" => $row['phonenumber'], "email" => $row['email'], "address" => $row['address'], "date" => $row['date'], "time" => $row['time'], "url" => $row['url'], "img" => $row['img'],
-                        "description" => $row['description'], "content" => $row['content'], "publickey" => $row['publickey'], "fiatvalue" => $row['fiatvalue'], "views" => $row['views'], "date_submitted" => $row['date_submitted'], "payment_type" => $row['payment_type'], "favorites" => $row['favorites'],"user_id" => $row['user_id'], "favorite" => $row['favorite'], "message" => $row['message']);
+                        "description" => $row['description'], "content" => $row['content'], "publickey" => $row['publickey'], "price" => $row['fiatvalue'], "views" => $row['views'], "date_submitted" => $row['date_submitted'], "payment_type" => $row['payment_type'], "favorites" => $row['favorites'],"user_id" => $row['user_id'], "favorite" => $row['favorite'], "message" => $row['message']);
 
 
                     }
@@ -773,52 +773,72 @@ pg_close($db);
               $presignedUrl = (string)$request->getUri();
 
 
-              echo '    <div class="col-md-4">';
+              
 
+               echo '<div class="col-md-4">';
 
-                if($presignedUrl){
+          
+              echo '<div class="contain">';
 
-                  echo  '<div class="card card-background" style="background-image: url('.$presignedUrl.')">'
-                  ;  
+           
+                
+ 
+
+          if($presignedUrl){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
-                 echo  '<div class="card card-background" style="background-image: url("../assets/img/image_placeholder.jpg")">';
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
               } 
+ 
+              
+                
 
-                    
-                    
-                    echo '<div class="card-body">
-                        <label class="badge badge-warning">'.$item['date'].'</label>
-                        <a href="#">
-                          <h2 class="card-title">'.$item['title'].'</h2>
-                        </a>
-                      </div>
-                        <div class="footer">
-                  <a href="profile.php?publickey='.$item['publickey'].'" id="favsub">';
-                  if ($item['favorite'] ==1) {
-                    
-                    echo '<i class="material-icons" style="opacity: 1;margin-right: 40px;color:red">favorite</i>';
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
-                  }else{
+                        echo '<div class="top-right h9"> 
+                        <i class="material-icons">strikethrough_s</i></div>';
 
-                    echo '<i class="material-icons" style="opacity: 1;color:white;margin-right: 40px;">favorite_border</i>';
+                        }else{
+
+                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
+                  
                   }
 
-                  echo '</a>';
-                  
 
-                echo'<a href="#">
-                  <i class="material-icons" style="opacity: 1;color:white;margin-right: 40px;">chat_bubble_outline</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="opacity: 1;color:white;margin-right: 40px;">send</i>
-                </a>
-                 <a href="#">
-                  <i class="material-icons" style="opacity: 1;color:white;margin-right: 200px;">more_vert</i>
-                </a>
-                </div>
-                    </div>
-                  </div>';
+                  echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
 
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="profile.php?publickey='.$item['publickey'].'">';
+
+                        if ($item['favorite']==1) {
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+
+                        }else{
+                          
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                        }
+
+                     
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="#"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
 
 
                        }
