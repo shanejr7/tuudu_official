@@ -301,7 +301,7 @@ $bucket_name = 'tuudu-official-file-storage';
             <div class="row">
 
               <div class="col-md-8 ml-auto mr-auto ">
-                <h4 class="title" style="display: inline-block;margin-right: 3px;">Latest Collections</h4>
+                <h4 class="title" style="display: inline-block;margin-right: 9px;">Latest Collections</h4>
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>
             
                   <li style="display: inline-block;"><b>3</b> Products</li>
@@ -310,7 +310,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   <li style="display: inline-block;"><b>1.2K</b> Likes</li>
                 </div>
                 
-              <div class="col-md-4 ml-auto mr-auto stats">
+              <div class="col-md-4">
             <div class="profile">
               <div class="avatar">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
@@ -329,7 +329,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
 
-                <div class="row collections">
+                <div class="row ">
                   <div class="col-md-4">
                     <div class="card card-background" style="background-image: url('../assets/img/examples/mariya-georgieva.jpg')">
                       <a href="#pablo"></a>
