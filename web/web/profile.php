@@ -307,12 +307,12 @@ $bucket_name = 'tuudu-official-file-storage';
                   <li style="display: inline-block;"><b>3</b> Products</li>
                   <li style="display: inline-block;"><b>4</b> Collections</li>
                   <li style="display: inline-block;"><b>331</b> Followers</li>
-                  <li style="display: inline-block;"><b>1.2K</b> Likes</li>
+                  <li><b>1.2K</b> Likes</li>
                 </div>
                 
               <div class="col-md-4">
             <div class="profile">
-              <div class="avatar" style="width: 120px;">
+              <div class="avatar">
                 <a href="#">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </a>
