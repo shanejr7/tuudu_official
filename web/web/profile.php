@@ -339,7 +339,7 @@ $bucket_name = 'tuudu-official-file-storage';
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Profile picture</h5>
+        <h5 class="modal-title" id="exampleModalLabel">edit picture</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -348,17 +348,17 @@ $bucket_name = 'tuudu-official-file-storage';
  <form enctype="multipart/form-data" method="post" action="'.$_SERVER['PHP_SELF'].'">
   <label>upload profile picture</label>
                  <div class="row"> 
-                  
+                  <div class="col-md-4"></div>
                   <div class="col-md-4">
                    
                           <div class="form-group form-file-upload form-file-simple">
     <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
     <input type="file" name="file1" class="inputFileHidden">
   </div>
-                    </div><
+                    </div>
 
-                </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg " name="image" value="img" style="display:inline-block">upload</button></form>
-                
+                </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg " name="image" value="img" style="display:inline-block">upload</button></form>
+
               </div>
 
 
@@ -429,8 +429,7 @@ $destination = $key;
                 ?>
       </div>
       <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button> -->
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  
       </div>
     </div>
   </div>
