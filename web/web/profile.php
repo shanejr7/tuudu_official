@@ -868,7 +868,7 @@ pg_close($db);
 
                   if ($item['favorite'] ==1) {
                     
-                    echo '<i class="material-icons" style="margin-right: 40px; background-color=red;">favorite_border</i>';
+                    echo '<i class="material-icons" style="margin-right: 40px; background-color=red;">favorite</i>';
 
                   }else{
 
