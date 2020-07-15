@@ -402,13 +402,7 @@ if (isset($temp) && $temp ==1) {
       <div class="container">
         <div class="tab-content tab-space cd-section" id="body">
       
- 
-       
-
-      
-
-
- <div class="tab-pane text-center gallery" id="profileAccount">
+ <div class="tab-pane text-center gallery">
   <div class="container">
         <div class="row">
 
