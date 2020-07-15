@@ -800,7 +800,7 @@ pg_close($db);
 
                   }else{
 
-                    echo '<i class="material-icons" style="margin-right: 40px;">favorite_border</i>';
+                    echo '<i class="material-icons" style="color:white;margin-right: 40px;">favorite_border</i>';
                   }
 
                   echo '</a>';
