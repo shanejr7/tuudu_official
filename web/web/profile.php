@@ -685,7 +685,7 @@ remove_circle_outline
             </div>
             
           </div>
-          <div class="tab-pane text-center gallery" id="posted" style="margin-top: 100px">
+          <div class="tab-pane text-center gallery" id="posted" style="margin-top: 70px">
 
             <div class="row " >
 
