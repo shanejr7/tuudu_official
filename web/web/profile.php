@@ -786,8 +786,7 @@ pg_close($db);
 
                     
                     
-                    echo '<a href="#"></a>
-                      <div class="card-body">
+                    echo '<div class="card-body">
                         <label class="badge badge-warning">'.$item['date'].'</label>
                         <a href="#">
                           <h2 class="card-title">'.$item['title'].'</h2>
@@ -795,7 +794,6 @@ pg_close($db);
                       </div>
                         <div class="card-footer">
                   <a href="profile.php?publickey='.$item['publickey'].'" id="favsub">';
-
                   if ($item['favorite'] ==1) {
                     
                     echo '<i class="material-icons" style="margin-right: 40px;color:red">favorite</i>';
@@ -804,74 +802,23 @@ pg_close($db);
 
                     echo '<i class="material-icons" style="margin-right: 40px;">favorite_border</i>';
                   }
+
+                  echo '</a>';
                   
 
-                echo'</a>
-                 <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
+                echo'<a href="#">
+                  <i class="material-icons" style="color:white;margin-right: 40px;">chat_bubble_outline</i>
                 </a>
                  <a href="#">
-                  <i class="material-icons" style="margin-right: 40px;">send</i>
+                  <i class="material-icons" style="color:white;margin-right: 40px;">send</i>
                 </a>
                  <a href="#">
-                  <i class="material-icons" style="margin-right: 200px;">more_vert</i>
+                  <i class="material-icons" style="color:white;margin-right: 200px;">more_vert</i>
                 </a>
+                </div>
                 </div>
                     </div>
                   </div>';
-
-
-
-
-
-
-          //     echo ' <div class="col-md-4 ml-auto card card-product">
-          //        <div style="padding-right: 2em;">';
-
-          // if($presignedUrl){
-          //         echo  '<img src="'.$presignedUrl.'" class="rounded card-header card-header-image">';  
-          //     }else{
-          //        echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded card-header card-header-image">';
-          //     } 
-
-
-          //     echo '</div>';
-
-          //     echo ' <div class="card-body">
-               
-          //       <h4 class="card-title">
-          //         <a href="#ProductTitle">'.$item['title'].'</a>
-          //       </h4>
-          //       <div class="card-footer">
-          //         <a href="profile.php?publickey='.$item['publickey'].'" id="favsub">';
-
-          //         if ($item['favorite'] ==1) {
-                    
-          //           echo '<i class="material-icons" style="margin-right: 40px;color:red">favorite</i>';
-
-          //         }else{
-
-          //           echo '<i class="material-icons" style="margin-right: 40px;">favorite_border</i>';
-          //         }
-                  
-
-          //       echo'</a>
-          //        <a href="#">
-          //         <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
-          //       </a>
-          //        <a href="#">
-          //         <i class="material-icons" style="margin-right: 40px;">send</i>
-          //       </a>
-          //        <a href="#">
-          //         <i class="material-icons" style="margin-right: 200px;">more_vert</i>
-          //       </a>
-          //       </div>
-          //     </div>
-            
-          //     </div>';
-
-
-
                        }
                      }
                    ?>
