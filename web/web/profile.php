@@ -816,9 +816,11 @@ pg_close($db);
                   <i class="material-icons" style="color:white;margin-right: 200px;">more_vert</i>
                 </a>
                 </div>
-                </div>
                     </div>
                   </div>';
+
+
+
                        }
                      }
                    ?>
