@@ -296,12 +296,12 @@ $bucket_name = 'tuudu-official-file-storage';
             </div>
           </div>
         </div>
-        <div class="tab-content">
+        <div class="tab-content tab-space">
           <div class="tab-pane active work" id="home">
             <div class="row">
 
               <div class="col-md-8 ml-auto mr-auto ">
-                <h4 class="title" style="display: inline-block;margin-right: 9px;">Latest Collections</h4>
+                <h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Collections</h4>
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>
             
                   <li style="display: inline-block;"><b>3</b> Products</li>
@@ -312,7 +312,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 
               <div class="col-md-4">
             <div class="profile">
-              <div class="avatar">
+              <div class="avatar" style="width: 18px;">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
