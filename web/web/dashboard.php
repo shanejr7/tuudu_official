@@ -151,8 +151,8 @@ echo '<script>
     <div class="container">
  <div class="navbar-translate">
       <ul class="nav  navbar-nav"  role="tablist">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#studio" role="tab" data-toggle="tab">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
