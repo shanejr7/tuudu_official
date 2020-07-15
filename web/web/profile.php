@@ -268,7 +268,7 @@ $bucket_name = 'tuudu-official-file-storage';
   <div class="container">
         <div class="row">
 
-          <div class="col-md-6 ml-auto mr-auto" style="margin-bottom: 60px;">
+          <div class="col-md-12 ml-auto mr-auto" style="margin-bottom: 60px;">
             <div class="profile-tabs">
               <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrack" role="tablist" style="height: 0em;">
                 <!--
