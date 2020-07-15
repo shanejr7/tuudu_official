@@ -152,7 +152,7 @@ echo '<script>
   
 
         <div class="navbar-translate">
-              <ul class="navbar-nav" id="tabTrackMain" role="tablist">
+              <ul class="nav nav-pills navbar-nav" id="tabTrackMain" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link" href="dashboard.php">
                     <i class="material-icons">dashboard</i> dashboard
