@@ -800,7 +800,7 @@ header('location:oops.php');
 }
 
   $result = pg_query($db,
-    "SELECT * FROM organization WHERE id = $user_id");
+    "SELECT * FROM organization NATURAL JOIN poststate WHERE id = $user_id");
 
   
   if ($result) {
@@ -811,7 +811,7 @@ header('location:oops.php');
                       
       
                       $product_list[] = array("word_tag" => $row["word_tag"], "id" =>$row["id"], "title" => $row["title"], "organization_name" => $row["organization_name"], "phonenumber" => $row['phonenumber'], "email" => $row['email'], "address" => $row['address'], "date" => $row['date'], "time" => $row['time'], "url" => $row['url'], "img" => $row['img'],
-                        "description" => $row['description'], "content" => $row['content'], "publickey" => $row['publickey'], "fiatvalue" => $row['fiatvalue'], "views" => $row['views'], "date_submitted" => $row['date_submitted'], "payment_type" => $row['payment_type'], "favorites" => $row['favorites']);
+                        "description" => $row['description'], "content" => $row['content'], "publickey" => $row['publickey'], "fiatvalue" => $row['fiatvalue'], "views" => $row['views'], "date_submitted" => $row['date_submitted'], "payment_type" => $row['payment_type'], "favorites" => $row['favorites'],"user_id" => $row['user_id'], "favorite" => $row['favorite'], "message" => $row['message']);
 
 
                     }
@@ -864,9 +864,19 @@ pg_close($db);
                   <a href="#ProductTitle">'.$item['title'].'</a>
                 </h4>
                 <div class="card-footer">
-                  <a href="profile.php?publickey='.$item['publickey'].'" id="favsub">
-                  <i class="material-icons" style="margin-right: 40px;">favorite_border</i>
-                </a>
+                  <a href="profile.php?publickey='.$item['publickey'].'" id="favsub">';
+
+                  if ($item['favorite'] ==1) {
+                    
+                    echo '<i class="material-icons" style="margin-right: 40px; background-color=red;">favorite_border</i>';
+
+                  }else{
+
+                    echo '<i class="material-icons" style="margin-right: 40px;">favorite_border</i>';
+                  }
+                  
+
+                echo'</a>
                  <a href="#">
                   <i class="material-icons" style="margin-right: 40px;">chat_bubble_outline</i>
                 </a>
