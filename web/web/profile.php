@@ -834,6 +834,17 @@ pg_close($db);
 
                        if (isset($product_list)) {
 
+
+
+                        function compare_date($arr1, $arr2)
+                          {
+                            $time1 = strtotime($arr1['date_submitted']);
+                            $time2 = strtotime($arr2['date_submitted']);
+                            return $time1 - $time2;
+                          }    
+                          
+                          usort($product_list, 'compare_date');
+
                           foreach($product_list as $item) {
 
                             $cmd = $s3->getCommand('GetObject', [
