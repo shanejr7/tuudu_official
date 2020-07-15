@@ -792,7 +792,7 @@ pg_close($db);
                           <h2 class="card-title">'.$item['title'].'</h2>
                         </a>
                       </div>
-                        <div class="card-footer">
+                        <div class="footer">
                   <a href="profile.php?publickey='.$item['publickey'].'" id="favsub">';
                   if ($item['favorite'] ==1) {
                     
