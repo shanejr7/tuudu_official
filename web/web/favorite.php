@@ -1,6 +1,6 @@
 <?php
 
-if (isset($_GET['publickey'])) {
+if (isset($_GET['publickey']) && isset($_SESSION['id'])) {
 	  
 	  $user_id = "";
 	  $user_id = $_SESSION['id'];
@@ -14,7 +14,7 @@ if (isset($_GET['publickey'])) {
         header('location:oops.php');
       }
 
-     $publickey = "";
+   $publickey = "";
 	 $publickey = pg_escape_string($db,$_GET['publickey']);
 	 $publickey = trim($publickey);
 
@@ -31,11 +31,19 @@ if (isset($_GET['publickey'])) {
  	pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite)
   VALUES($user_id,'$publickey',1)");
 
+
+  pg_query($db, "UPDATE public.organization
+    SET favorites = favorites + 1 
+    WHERE publickey = '$publickey'");
+
  }elseif ($poststate['favorite']==1) {
 
  	 pg_query($db, "UPDATE poststate
     SET favorite = 0 WHERE publickey = '$publickey' AND user_id= $user_id");
  	
+  pg_query($db, "UPDATE public.organization
+    SET favorites = favorites - 1 
+    WHERE publickey = '$publickey'");
   
   
 
@@ -43,6 +51,10 @@ if (isset($_GET['publickey'])) {
 
  		 pg_query($db, "UPDATE poststate
     SET favorite = 1 WHERE publickey = '$publickey' AND user_id= $user_id");
+
+     pg_query($db, "UPDATE public.organization
+    SET favorites = favorites + 1 
+    WHERE publickey = '$publickey'");
  	
 
  }elseif($poststate['favorite']==null ){
@@ -50,8 +62,11 @@ if (isset($_GET['publickey'])) {
  	pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite)
   VALUES($user_id,'$publickey',1)");
 
+  pg_query($db, "UPDATE public.organization
+    SET favorites = favorites + 1 
+    WHERE publickey = '$publickey'");
 
-   
+
  }
 
 
