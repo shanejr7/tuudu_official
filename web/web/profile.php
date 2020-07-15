@@ -296,8 +296,28 @@ $bucket_name = 'tuudu-official-file-storage';
                 <li class="nav-item">
                     <div class="profileFollowing">
               <div class="avatar" style="width: 120px;height: 120px;">
-                
-                <img src="../assets/img/image_placeholder.jpg" title="edit" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                <?php 
+
+                if (isset($_SESSION['img_src'])) {
+
+                  $user_img = trim($_SESSION['img_src']);
+
+                         $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.$user_img.'',
+                          ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+                  echo '<img src="'.$presignedUrl.'" title="edit" data-toggle="modal" data-target="#uploadImage" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
+                  
+                }else{
+                  echo '<img src="../assets/img/image_placeholder.jpg" title="edit" data-toggle="modal" data-target="#uploadImage" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
+                }
+
+
+                ?>
               
                </div>
               
@@ -314,6 +334,109 @@ $bucket_name = 'tuudu-official-file-storage';
           </div>
 
         </div>
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Terms & Agreement</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ <form enctype="multipart/form-data" method="post" action="'.$_SERVER['PHP_SELF'].'">
+  <label>upload profile picture</label>
+                 <div class="row"> 
+                  </div>
+                  <div class="col-md-4">
+                     <div class="form-group  ">
+                    <input type="text" name="content" class="form-control" id="inputContent" placeholder="content info"  required>
+                  </div>
+                    
+                   
+                          <div class="form-group form-file-upload form-file-simple">
+    <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
+    <input type="file" name="file1" class="inputFileHidden">
+  </div>
+                    </div></div>
+
+                </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg " name="image" value="img" style="display:inline-block">upload</button></form>
+
+
+                <?php 
+
+
+                   $userid = $_SESSION['id'];
+
+//stores file to aws S3
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['file1']['tmp_name'])) {
+
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+   
+    $n = 15;
+  
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
+ 
+$source = fopen($_FILES['file1']['tmp_name'], 'rb');
+$key =  "user_profile_img/".$randomString.''. $_FILES['file1']['name']; 
+
+$destination = $key;
+
+    $uploader = new ObjectUploader(
+    $s3,
+    $bucket_name,
+    $key,
+    $source 
+);
+   
+    try {
+       
+        $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
+
+          $image_src = $destination;
+
+ 
+
+ 
+            // Create connection
+            //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+            $db = pg_connect(getenv("DATABASE_URL"));
+            // Check connection
+            if (!$db) {
+              die("Connection failed: " . pg_connect_error());
+              header('location:oops.php');
+            }
+
+            // update user image
+            pg_query($db,"UPDATE users SET profile_pic_src ='$image_src' WHERE id= $userid ");
+ 
+
+            pg_close($db);
+
+
+            } catch(Exception $e){
+               header('location:oops.php');
+          }
+
+}else{
+ 
+}
+
+
+
+                ?>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button> -->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
         <div class="tab-content tab-space">
           <div class="tab-pane active work" id="home">
             <div class="row">
