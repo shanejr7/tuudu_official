@@ -149,57 +149,7 @@ echo '<script>
  
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container">
- 
-
-
-<div class="modal fade" id="loginModal" tabindex="-1" role="">
-    <div class="modal-dialog modal-login" role="document">
-        <div class="modal-content">
-            <div class="card card-signup card-plain">
-                <div class="modal-header">
-                  <div class="card-header card-header-primary text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                      <i class="material-icons">clear</i>
-                    </button>
-
-                    <h4 class="card-title">Account</h4>
-                    <div class="social-line">
-                    <div class="media row">
- 
-                  </div>
-                     <h7>&#xB7; <?php 
-                     if (isset($_SESSION['email'])) {
-                       echo $_SESSION['email'];
-                     }
-                     ?>
-                       
-                     </h7>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-body">
-                </br>
-                
-               <div class="modal-footer justify-content-center">
-                    <a href="post.php" class="btn btn-primary btn-link btn-wd btn-lg">Post event or activity</a>
-                </div>
-                 
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <a href="#" class="btn btn-primary btn-link btn-wd btn-lg">Contact support</a>
-                </div>
-                 <div class="modal-footer justify-content-center">
-                    <p>support@tuudu.org</p>
-                </div> 
-            </div>
-        </div>
-    </div>
-</div>
- 
- 
-
- 
+  
 
         <div class="navbar-translate">
               <ul class="navbar-nav" id="tabTrackMain" role="tablist">
@@ -231,7 +181,7 @@ echo '<script>
                   </a>
                 </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="profile.php">
+                  <a class="nav-link active" href="#profile" role="tab" data-toggle="tab">
                     <i class="material-icons">perm_identity</i> profile
                   </a>
                 </li>
@@ -402,7 +352,7 @@ if (isset($temp) && $temp ==1) {
       <div class="container">
         <div class="tab-content tab-space cd-section" id="body">
       
- <div class="tab-pane text-center gallery">
+ <div class="tab-pane text-center gallery" id="profile">
   <div class="container">
         <div class="row">
 
