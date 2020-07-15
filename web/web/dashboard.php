@@ -151,8 +151,8 @@ echo '<script>
     <div class="container">
  <div class="navbar-translate">
       <ul class="nav  navbar-nav"  role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#studio" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
@@ -351,7 +351,7 @@ if (isset($temp) && $temp ==1) {
       <div class="container">
     
         
-        <div class="row">
+   <!--      <div class="row">
           <div class="col-md-12 ml-auto mr-auto">
             <div class="profile-tabs">
               <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrackMain" role="tablist">
@@ -363,11 +363,11 @@ if (isset($temp) && $temp ==1) {
                 <li class="nav-item">
                   <a class="nav-link" href="#schedule"  role="tab" data-toggle="tab">
                     <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php
-                    if (isset($schedule_list)) {
-                      echo sizeof($schedule_list);
-                    }else{
-                      echo "0";
-                    }
+                   // if (isset($schedule_list)) {
+                    //  echo sizeof($schedule_list);
+                  //  }else{
+                  //    echo "0";
+                  //  }
                      
                       ?></span>
                   </a>
@@ -390,7 +390,7 @@ if (isset($temp) && $temp ==1) {
               </ul>
             </div>
           </div>
-        </div>
+        </div> -->
 
  
   <!--  <script type="text/javascript">
