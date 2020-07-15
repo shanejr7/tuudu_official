@@ -857,7 +857,7 @@ pg_close($db);
               $presignedUrl = (string)$request->getUri();
 
 
-              echo ' <div class="col-md-4 ml-auto card card-product" style="margin-right: 7px;">
+              echo ' <div class="col-md-4 ml-auto card card-product" style="margin-right: 1px;">
                  <div style="padding-right: 2em;">';
 
           if($presignedUrl){
