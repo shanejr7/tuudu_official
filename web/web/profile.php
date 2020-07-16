@@ -553,7 +553,7 @@ $destination = $key;
             <?php 
 
 
-echo '<div id="followers" class="col-md-12" style="display:none;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
+echo '<div id="followers" class="col-md-12" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
 
             $followerArr = array();
 
@@ -692,7 +692,7 @@ $result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_
 <?php
 
 
- echo '<div id="following" class="col-md-12" style="display:none;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>following</p>';
+ echo '<div id="following" class="col-md-12" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>following</p>';
 
             $followingArr = array();
 
