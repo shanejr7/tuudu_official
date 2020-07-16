@@ -759,13 +759,14 @@ $result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_
       
                       $followingArr[] = array("user_following_id" => $row["user_following_id"], "username" => $row["username"], "email"=> $row["email"], "img" => $row["profile_pic_src"]);
                   
-                  }else {
-                    // error
                   }
 
             pg_close($db);
+          }else{
 
-}
+          }
+
+
  
               
             if (isset($followingArr)) {
