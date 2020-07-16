@@ -1152,8 +1152,7 @@ pg_close($db);
 
         following.style.display = "block";
         follower.style.display = "none";
-        following_color.style.color = "black";
-        following_color.style.opacity= ".6";
+        following_color.style.color = "#3c4858";
         follower_color.style.color = "black";
         
 
@@ -1172,8 +1171,7 @@ function followerFunction() {
 
     follower.style.display = "block";
     following.style.display = "none";
-    follower_color.style.color = "black";
-    follower_color.style.opacity= ".6";
+    follower_color.style.color = "#3c4858";
     following_color.style.color = "black";
   
 
