@@ -431,9 +431,9 @@ $keyname = "";
 if (isset($_SESSION['img_src_temp'])) {
   $keyname = trim( $_SESSION['img_src_temp']);
   unset($_SESSION['img_src_temp']);
+  $_SESSION[['img_src_temp'] = $_SESSION['img_src'];
 }
 
-$result = pg_query($db, "UPDATE public.users SET profile_pic_src=null WHERE id = $userid");
 
     $result = $s3->deleteObject([
         'Bucket' => $bucket_name,
@@ -448,7 +448,7 @@ $result = pg_query($db, "UPDATE public.users SET profile_pic_src=null WHERE id =
     // }
 }
 catch (S3Exception $e) {
-    exit('Error: ' . $e->getAwsErrorMessage() . PHP_EOL);
+    // exit('Error: ' . $e->getAwsErrorMessage() . PHP_EOL);
 }
 
 // 2. Check to see if the object was deleted.
