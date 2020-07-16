@@ -553,7 +553,7 @@ $destination = $key;
             <?php 
 
 
-echo '<div id="Followers" class="col-md-12" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
+echo '<div id="Followers" class="col-md-12" style="display:block;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
 
             $followerArr = array();
 
