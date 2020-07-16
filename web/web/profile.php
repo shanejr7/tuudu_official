@@ -176,14 +176,13 @@ $bucket_name = 'tuudu-official-file-storage';
                 </li>
             </ul>
 
-            <form class="form-inline ml-auto" method="GET" action="profile.php">
-                <div class="form-group no-border">
-                  <input type="text" class="form-control" name="search" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-white btn-just-icon btn-round">
+                <a href="dashboard.php">
+                <li class="btn btn-white btn-just-icon btn-round">
                     <i class="material-icons">search</i>
-                </button>
-            </form>
+                </li>
+              </a>
+          
 
         </div>
            
