@@ -420,7 +420,7 @@ $destination = $key;
 {
     // echo 'Attempting to delete ' . $keyname . '...' . PHP_EOL;
 
-     try{
+    
 
 
 
