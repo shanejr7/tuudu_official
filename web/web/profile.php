@@ -1144,12 +1144,13 @@ pg_close($db);
   <script>
 function followingFunction() {
 
-  var follower = document.getElementById("followers");
   var following = document.getElementById("following");
+  var follower = document.getElementById("followers");
+  
 
-
-  follower.style.display = "block";
-  following.style.display = "none";
+  following.style.display = "block";
+  follower.style.display = "none";
+  
 
 </script>
 
