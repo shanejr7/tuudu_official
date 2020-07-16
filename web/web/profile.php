@@ -524,7 +524,7 @@ $destination = $key;
               </div>
 
               <div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
-                <a href="#friends" onclick="followingFunction()" >
+                <a href="#friends" id="fg" onclick="followingFunction()" >
               <h3 style="margin-bottom: 70px; font-weight: bold">Following</h3>
             </a>
             
@@ -536,7 +536,7 @@ $destination = $key;
 
 
               <div class="col-md-2 mr-auto ml-auto">
-                <a href="#friends" onclick="followerFunction()" style="color: black">
+                <a href="#friends" id="fe" onclick="followerFunction()" style="color: black">
                 <h3 style="margin-bottom: 70px;font-weight: bold">Followers</h3>
               </a>
               </div>
@@ -1147,9 +1147,14 @@ pg_close($db);
 
     var follower = document.getElementById("followers");
     var following = document.getElementById("following");
+    var follower_color = document.getElementById("fe");
+    var following_color = document.getElementById("fg");
 
         following.style.display = "block";
         follower.style.display = "none";
+        following_color.style.color = "blue";
+        follower_color.style.color = "black";
+        
 
   }
 
@@ -1160,10 +1165,14 @@ function followerFunction() {
 
   var follower = document.getElementById("followers");
   var following = document.getElementById("following");
+  var follower_color = document.getElementById("fe");
+  var following_color = document.getElementById("fg");
 
 
     follower.style.display = "block";
     following.style.display = "none";
+    follower_color.style.color = "blue";
+    following_color.style.color = "black";
   
 
 }
