@@ -553,50 +553,50 @@ $destination = $key;
             <?php 
 
 
-echo '<div id="followers" class="col-md-12 followers" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
+echo '<div id="followers" class="col-md-12 followers" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;">';
 
             $followerArr = array();
 
 
-                if (isset($_SESSION['img_src'])) {
+            //     if (isset($_SESSION['img_src'])) {
                 
-              $user_img = trim($_SESSION['img_src']);
+            //   $user_img = trim($_SESSION['img_src']);
 
-                         $cmd = $s3->getCommand('GetObject', [
-                            'Bucket' => ''.$bucket_name.'',
-                            'Key'    => ''.$user_img.'',
-                          ]);
+            //              $cmd = $s3->getCommand('GetObject', [
+            //                 'Bucket' => ''.$bucket_name.'',
+            //                 'Key'    => ''.$user_img.'',
+            //               ]);
 
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+            //   $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
-              $presignedUrl = (string)$request->getUri();
+            //   $presignedUrl = (string)$request->getUri();
 
 
           
 
-              echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
-              <div class="avatar" style="width: 200px;">
-                <img src="'.$presignedUrl.'" class="img-raised rounded-circle img-fluid">
-              </div>
-              <div class="name">
-                <h6 class="title">'.$_SESSION['username'].'</h6>
+            //   echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+            //   <div class="avatar" style="width: 200px;">
+            //     <img src="'.$presignedUrl.'" class="img-raised rounded-circle img-fluid">
+            //   </div>
+            //   <div class="name">
+            //     <h6 class="title">'.$_SESSION['username'].'</h6>
                 
-              </div>
-            </div>';
+            //   </div>
+            // </div>';
 
-            }else{
+            // }else{
 
-              echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
-              <div class="avatar" style="width: 200px;">
-                <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-              </div>
-              <div class="name">
-                <h6 class="title">'.$_SESSION['username'].'</h6>
+            //   echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+            //   <div class="avatar" style="width: 200px;">
+            //     <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+            //   </div>
+            //   <div class="name">
+            //     <h6 class="title">'.$_SESSION['username'].'</h6>
                 
-              </div>
-            </div>';
+            //   </div>
+            // </div>';
 
-            }
+            // }
 
 
 
@@ -692,50 +692,50 @@ $result = pg_query($db, "SELECT user_id, username, email, profile_pic_src
 <?php
 
 
- echo '<div id="following" class="col-md-12" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>following</p>';
+ echo '<div id="following" class="col-md-12" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;">';
 
             $followingArr = array();
 
 
-                if (isset($_SESSION['img_src'])) {
+            //     if (isset($_SESSION['img_src'])) {
                 
-              $user_img = trim($_SESSION['img_src']);
+            //   $user_img = trim($_SESSION['img_src']);
 
-                         $cmd = $s3->getCommand('GetObject', [
-                            'Bucket' => ''.$bucket_name.'',
-                            'Key'    => ''.$user_img.'',
-                          ]);
+            //              $cmd = $s3->getCommand('GetObject', [
+            //                 'Bucket' => ''.$bucket_name.'',
+            //                 'Key'    => ''.$user_img.'',
+            //               ]);
 
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+            //   $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
-              $presignedUrl = (string)$request->getUri();
+            //   $presignedUrl = (string)$request->getUri();
 
 
           
 
-              echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
-              <div class="avatar" style="width: 200px;">
-                <img src="'.$presignedUrl.'" class="img-raised rounded-circle img-fluid">
-              </div>
-              <div class="name">
-                <h6 class="title">'.$_SESSION['username'].'</h6>
+            //   echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+            //   <div class="avatar" style="width: 200px;">
+            //     <img src="'.$presignedUrl.'" class="img-raised rounded-circle img-fluid">
+            //   </div>
+            //   <div class="name">
+            //     <h6 class="title">'.$_SESSION['username'].'</h6>
                 
-              </div>
-            </div>';
+            //   </div>
+            // </div>';
 
-            }else{
+            // }else{
 
-              echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
-              <div class="avatar" style="width: 200px;">
-                <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-              </div>
-              <div class="name">
-                <h6 class="title">'.$_SESSION['username'].'</h6>
+            //   echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+            //   <div class="avatar" style="width: 200px;">
+            //     <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+            //   </div>
+            //   <div class="name">
+            //     <h6 class="title">'.$_SESSION['username'].'</h6>
                 
-              </div>
-            </div>';
+            //   </div>
+            // </div>';
 
-            }
+            // }
 
 
 
