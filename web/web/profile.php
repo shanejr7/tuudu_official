@@ -707,7 +707,6 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
 
             }
 
-             }
             echo '</div>';
 
             ?>
