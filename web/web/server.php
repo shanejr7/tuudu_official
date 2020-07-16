@@ -614,7 +614,6 @@ if (isset($_POST['login_user'])) {
       $_SESSION['account_type'] = $users['account_type'];
       $_SESSION['email'] = $users['email'];
       $_SESSION['img_src'] = $users['profile_pic_src'];
-      $_SESSION['img_src_temp'] = $users['profile_pic_src'];
       $_SESSION['temp_pw'] = $users['temp_password'];
   	  $_SESSION['success'] = "You are now logged in";
 

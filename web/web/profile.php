@@ -376,12 +376,56 @@ $destination = $key;
     $key,
     $source 
 );
-    
+    try
+{
+    // echo 'Attempting to delete ' . $keyname . '...' . PHP_EOL;
 
+     try{
 
+ $db = pg_connect(getenv("DATABASE_URL"));
+}catch(Execption $e){
+  header('location:oops.php');
+}
 
+$keyname = "";
+if (isset($_SESSION['img_src'])) {
+  $keyname = trim($_SESSION['img_src']);
+}
 
+$result = pg_query($db, "UPDATE public.users SET profile_pic_src=null WHERE id = $userid");
 
+    $result = $s3->deleteObject([
+        'Bucket' => $bucket_name,
+        'Key'    => $keyname
+    ]);
+
+    if ($result['DeleteMarker'])
+    {
+        // echo $keyname . ' was deleted or does not exist.' . PHP_EOL;
+    } else {
+        // exit('Error: ' . $keyname . ' was not deleted.' . PHP_EOL);
+    }
+}
+catch (S3Exception $e) {
+    // exit('Error: ' . $e->getAwsErrorMessage() . PHP_EOL);
+}
+
+// 2. Check to see if the object was deleted.
+// try
+// {
+//     // echo 'Checking to see if ' . $keyname . ' still exists...' . PHP_EOL;
+
+//     // $result = $s3->getObject([
+//     //     'Bucket' => $bucket,
+//     //     'Key'    => $keyname
+//     // ]);
+
+//     // echo 'Error: ' . $keyname . ' still exists.';
+// }
+// catch (S3Exception $e) {
+//     exit($e->getAwsErrorMessage());
+// } 
+   
     try {
        
         $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
@@ -412,59 +456,6 @@ $destination = $key;
             } catch(Exception $e){
                header('location:oops.php');
           }
-
-
-
-
-    try
-{
-    // echo 'Attempting to delete ' . $keyname . '...' . PHP_EOL;
-
-    
-
-
-
-$keyname = "";
-if (isset($_SESSION['img_src_temp'])) {
-  $keyname = trim( $_SESSION['img_src_temp']);
-  unset($_SESSION['img_src_temp']);
-  $_SESSION['img_src_temp'] = $_SESSION['img_src'];
-}
-
-
-    $result = $s3->deleteObject([
-        'Bucket' => $bucket_name,
-        'Key'    => $keyname
-    ]);
-
-    // if ($result['DeleteMarker'])
-    // {
-    //     // echo $keyname . ' was deleted or does not exist.' . PHP_EOL;
-    // } else {
-    //     // exit('Error: ' . $keyname . ' was not deleted.' . PHP_EOL);
-    // }
-}
-catch (S3Exception $e) {
-    // exit('Error: ' . $e->getAwsErrorMessage() . PHP_EOL);
-}
-
-// 2. Check to see if the object was deleted.
-// try
-// {
-//     // echo 'Checking to see if ' . $keyname . ' still exists...' . PHP_EOL;
-
-//     // $result = $s3->getObject([
-//     //     'Bucket' => $bucket,
-//     //     'Key'    => $keyname
-//     // ]);
-
-//     // echo 'Error: ' . $keyname . ' still exists.';
-// }
-// catch (S3Exception $e) {
-//     exit($e->getAwsErrorMessage());
-// } 
-   
- 
 
 }else{
  
