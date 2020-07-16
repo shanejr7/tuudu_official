@@ -428,8 +428,9 @@ $destination = $key;
 }
 
 $keyname = "";
-if (isset($_SESSION['img_src'])) {
-  $keyname = trim($_SESSION['img_src']);
+if (isset($_SESSION['img_src_temp'])) {
+  $keyname = trim( $_SESSION['img_src_temp']);
+  unset($_SESSION['img_src_temp']);
 }
 
 $result = pg_query($db, "UPDATE public.users SET profile_pic_src=null WHERE id = $userid");
