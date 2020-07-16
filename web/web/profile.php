@@ -553,143 +553,132 @@ $destination = $key;
             <?php 
 
 
+// echo '<div id="Followers" class="col-md-12" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;">';
+
+//             $followerArr = array();
 
 
-
-
-
-
-
-
-
-
-
-echo '<div id="Followers" class="col-md-12" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;">';
-
-            $followerArr = array();
-
-
-                if (isset($_SESSION['img_src'])) {
+//                 if (isset($_SESSION['img_src'])) {
                 
-              $user_img = trim($_SESSION['img_src']);
+//               $user_img = trim($_SESSION['img_src']);
 
-                         $cmd = $s3->getCommand('GetObject', [
-                            'Bucket' => ''.$bucket_name.'',
-                            'Key'    => ''.$user_img.'',
-                          ]);
+//                          $cmd = $s3->getCommand('GetObject', [
+//                             'Bucket' => ''.$bucket_name.'',
+//                             'Key'    => ''.$user_img.'',
+//                           ]);
 
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+//               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
-              $presignedUrl = (string)$request->getUri();
+//               $presignedUrl = (string)$request->getUri();
 
 
           
 
-              echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
-              <div class="avatar" style="width: 200px;">
-                <img src="'.$presignedUrl.'" class="img-raised rounded-circle img-fluid">
-              </div>
-              <div class="name">
-                <h6 class="title">'.$_SESSION['username'].'</h6>
+//               echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+//               <div class="avatar" style="width: 200px;">
+//                 <img src="'.$presignedUrl.'" class="img-raised rounded-circle img-fluid">
+//               </div>
+//               <div class="name">
+//                 <h6 class="title">'.$_SESSION['username'].'</h6>
                 
-              </div>
-            </div>';
+//               </div>
+//             </div>';
 
-            }else{
+//             }else{
 
-              echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
-              <div class="avatar" style="width: 200px;">
-                <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-              </div>
-              <div class="name">
-                <h6 class="title">'.$_SESSION['username'].'</h6>
+//               echo '<div class="profileUser" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+//               <div class="avatar" style="width: 200px;">
+//                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+//               </div>
+//               <div class="name">
+//                 <h6 class="title">'.$_SESSION['username'].'</h6>
                 
-              </div>
-            </div>';
+//               </div>
+//             </div>';
 
-            }
-
-
-
-if (isset($_SESSION['id'])) {
-
-  $userid = $_SESSION['id'];
-
-  try{
-
- $db = pg_connect(getenv("DATABASE_URL"));
-}catch(Execption $e){
-  header('location:oops.php');
-}
-
-$result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_src
-  FROM public.user_follow_user NATURAL JOIN users WHERE user_id = $userid");
+//             }
 
 
 
- if (pg_num_rows($result) > 0) {
-                  // output data of each row
-                    while($row = pg_fetch_assoc($result)) { 
+// if (isset($_SESSION['id'])) {
+
+//   $userid = $_SESSION['id'];
+
+//   try{
+
+//  $db = pg_connect(getenv("DATABASE_URL"));
+// }catch(Execption $e){
+//   header('location:oops.php');
+// }
+
+// $result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_src
+//   FROM public.user_follow_user NATURAL JOIN users WHERE user_id = $userid");
+
+
+
+//  if (pg_num_rows($result) > 0) {
+//                   // output data of each row
+//                     while($row = pg_fetch_assoc($result)) { 
       
-                      $followerArr[] = array("user_following_id" => $row["user_following_id"], "username" => $row["username"], "email"=> $row["email"], "img" => $row["profile_pic_src"]);
+//                       $followerArr[] = array("user_following_id" => $row["user_following_id"], "username" => $row["username"], "email"=> $row["email"], "img" => $row["profile_pic_src"]);
                   
-                  }else {
-                    // error
-                  }
+//                   }else {
+//                     // error
+//                   }
 
-            pg_close($db);
+//             pg_close($db);
 
-}
+// }
  
               
-            if (isset($followerArr)) {
+//             if (isset($followerArr)) {
               
-              foreach($followerArr as $item) {
+//               foreach($followerArr as $item) {
 
 
-                if (isset($item['img'])) {
-                 $user_img = trim($item['img']);
+//                 if (isset($item['img'])) {
+//                  $user_img = trim($item['img']);
 
-                         $cmd = $s3->getCommand('GetObject', [
-                            'Bucket' => ''.$bucket_name.'',
-                            'Key'    => ''.$user_img.'',
-                          ]);
+//                          $cmd = $s3->getCommand('GetObject', [
+//                             'Bucket' => ''.$bucket_name.'',
+//                             'Key'    => ''.$user_img.'',
+//                           ]);
 
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+//               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
-              $presignedUrl = (string)$request->getUri();
+//               $presignedUrl = (string)$request->getUri();
 
 
-                echo '<div class="profileFollowers" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
-              <div class="avatar" style="width: 120px;">
-                <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-              </div>
-              <div class="name">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href=""><span class="material-icons">remove_circle_outline</span></a></h16>
-                </div>
-            </div>';
-                }else{
+//                 echo '<div class="profileFollowers" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+//               <div class="avatar" style="width: 120px;">
+//                 <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+//               </div>
+//               <div class="name">
+//                 <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href=""><span class="material-icons">remove_circle_outline</span></a></h16>
+//                 </div>
+//             </div>';
+//                 }else{
 
-                  echo '<div class="profileFollowers" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
-              <div class="avatar" style="width: 120px;">
-                <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
-              </div>
-              <div class="name">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href=""><span class="material-icons">remove_circle_outline</span></a></h16>
-                </div>
-            </div>';
-                }
+//                   echo '<div class="profileFollowers" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+//               <div class="avatar" style="width: 120px;">
+//                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
+//               </div>
+//               <div class="name">
+//                 <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href=""><span class="material-icons">remove_circle_outline</span></a></h16>
+//                 </div>
+//             </div>';
+//                 }
 
                  
 
-            }
+//             }
 
 
 
-            }
+//             }
 
              
-            echo '</div>';
+//             echo '</div>';
 
 
 
