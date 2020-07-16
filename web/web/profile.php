@@ -524,7 +524,7 @@ $destination = $key;
               </div>
 
               <div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
-                <a href="#Following" onclick="followingFunction()">
+                <a href="#following" onclick="followingFunction()">
               <h3 style="margin-bottom: 70px; font-weight: bold">Following</h3>
             </a>
             
@@ -536,7 +536,7 @@ $destination = $key;
 
 
               <div class="col-md-2 mr-auto ml-auto">
-                <a href="#Followers" onclick="followerFunction()" style="color: black">
+                <a href="#followers" onclick="followerFunction()" style="color: black">
                 <h3 style="margin-bottom: 70px;font-weight: bold">Followers</h3>
               </a>
               </div>
@@ -553,7 +553,7 @@ $destination = $key;
             <?php 
 
 
-echo '<div id="followers" class="col-md-12" style="display:block;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
+echo '<div id="followers" class="col-md-12" style="display:hidden;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
 
             $followerArr = array();
 
