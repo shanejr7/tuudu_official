@@ -574,7 +574,7 @@ $result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_
                   <?php 
 
                   if (isset($followingArr)) {
-                    echo '<h3 style="margin-bottom: 70px; font-weight: bold">'.sizeof($followingArr)..' Following</h3>';
+                    echo '<h3 style="margin-bottom: 70px; font-weight: bold">'.sizeof($followingArr).' Following</h3>';
                   }
 
                   ?>
@@ -592,7 +592,7 @@ $result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_
                   <?php
 
                   if (isset($followerArr)) {
-                    echo sizeof($followerArr).'<h3 style="margin-bottom: 70px;font-weight: bold">'.sizeof($followingArr)..' Followers</h3>';
+                    echo sizeof($followerArr).'<h3 style="margin-bottom: 70px;font-weight: bold">'.sizeof($followingArr).' Followers</h3>';
                   }
 
                    ?>
