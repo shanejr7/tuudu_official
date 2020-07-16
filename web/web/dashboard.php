@@ -26,7 +26,7 @@ $bucket_name = 'tuudu-official-file-storage';
     unset($_SESSION['phoneNumber]']);
     unset($_SESSION['publicKey']);
     unset($_SESSION['privateKey']);
-    unset($_SESSION['img_src']);
+    unset($_SESSION['img_src_post']);
     unset($_SESSION['address']);
     unset($_SESSION['date']);
     unset($_SESSION['startTime']);

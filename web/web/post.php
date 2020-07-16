@@ -181,10 +181,10 @@ if (!$db) {
  $event_card = pg_fetch_assoc($data);
 
  if ($event_card['img']) {
-   // $_SESSION['img_src'] = $event_card['img'];
-    $_SESSION['img_src'] = '../assets/img/image_placeholder.jpg';
+   // $_SESSION['img_src_post'] = $event_card['img'];
+    $_SESSION['img_src_post'] = '../assets/img/image_placeholder.jpg';
  }else{
-    $_SESSION['img_src'] = '../assets/img/image_placeholder.jpg';
+    $_SESSION['img_src_post'] = '../assets/img/image_placeholder.jpg';
  }
   if ($event_card['name']) {
    $_SESSION['name'] = $event_card['name'];
@@ -213,8 +213,8 @@ pg_close($db);
         <div class="row">
           <div class="col-lg-5">
               <div class="col-md-12 mr-auto">
-              <div class="card card-background" style="<?php if (isset($_SESSION['img_src'])){
-                echo 'background-image:url('.$_SESSION['img_src'].')';
+              <div class="card card-background" style="<?php if (isset($_SESSION['img_src_post'])){
+                echo 'background-image:url('.$_SESSION['img_src_post'].')';
               }else{echo "background-image:url('../assets/img/image_placeholder.jpg')";} ?> ">
                 <a href="#pablo"></a>
                 <div class="card-body">
@@ -803,7 +803,7 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
 
 }else if($page ==1 || $_POST['page']==1){
 
-unset($_SESSION['img_src']);
+unset($_SESSION['img_src_post']);
 unset($_SESSION['name']);
 unset($_SESSION['eventTitle']);
 unset($_SESSION['content']);

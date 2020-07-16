@@ -19,25 +19,7 @@ $s3 = new Aws\S3\S3Client([
 $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
  
-   if (isset($_GET['dashboard'])) {
-        unset($_SESSION['event_type']);
-    unset($_SESSION['word_tags']);
-    unset($_SESSION['eventTitle']);
-    unset($_SESSION['phoneNumber]']);
-    unset($_SESSION['publicKey']);
-    unset($_SESSION['privateKey']);
-    unset($_SESSION['img_src']);
-    unset($_SESSION['address']);
-    unset($_SESSION['date']);
-    unset($_SESSION['startTime']);
-    unset($_SESSION['endTime']);
-    unset($_SESSION['url']);
-    unset($_SESSION['email_temp']);
-    unset($_SESSION['content']);
-    unset($_SESSION['description']);
-    unset($_SESSION['name']);
-    
-   }
+ 
  
 
   if (!isset($_SESSION['username'])) {
