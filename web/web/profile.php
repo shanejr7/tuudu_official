@@ -553,7 +553,7 @@ $destination = $key;
             <?php 
 
 
-echo '<div id="followers" class="col-md-12" style="display:hidden;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
+echo '<div id="followers" class="col-md-12" style="display:none;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
 
             $followerArr = array();
 
@@ -692,7 +692,7 @@ $result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_
 <?php
 
 
- echo '<div id="following" class="col-md-12" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>following</p>';
+ echo '<div id="following" class="col-md-12" style="display:none;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>following</p>';
 
             $followingArr = array();
 
@@ -1147,8 +1147,8 @@ function followingFunction() {
   var following = document.getElementById("following");
 
 
-  follower.style.display = "hidden";
-  following.style.display = "show";
+  follower.style.display = "none";
+  following.style.display = "block";
 
 </script>
 
@@ -1160,8 +1160,8 @@ function followerFunction() {
   var following = document.getElementById("following");
 
 
- follower.style.display = "show";
- following.style.display = "hidden";
+ follower.style.display = "block";
+ following.style.display = "none";
 
 }
 </script>
