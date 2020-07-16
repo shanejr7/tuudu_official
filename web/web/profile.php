@@ -117,7 +117,7 @@ $bucket_name = 'tuudu-official-file-storage';
  
 </head>
  
-<body class="profile-page  sidebar-collapse">
+<body class="profile-page  sidebar-collapse" onload="hide()">
  
  
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
@@ -281,7 +281,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#connections" id="connect" onclick="hide()" role="tab" data-toggle="tab">
+                  <a class="nav-link" href="#connections" role="tab" data-toggle="tab">
                     <!-- <i class="material-icons">people</i> -->
                     Connections
                   </a>
