@@ -376,6 +376,46 @@ $destination = $key;
     $key,
     $source 
 );
+    
+
+
+
+
+
+    try {
+       
+        $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
+
+          $image_src = $destination;
+
+          unset($_SESSION['img_src']);
+
+          $_SESSION['img_src'] = $destination;
+
+ 
+            $db = pg_connect(getenv("DATABASE_URL"));
+            // Check connection
+            if (!$db) {
+              die("Connection failed: " . pg_connect_error());
+              header('location:oops.php');
+            }
+
+            // update user image
+            pg_query($db,"UPDATE users SET profile_pic_src ='$image_src' WHERE id= $userid ");
+ 
+
+            pg_close($db);
+
+          
+
+
+            } catch(Exception $e){
+               header('location:oops.php');
+          }
+
+
+
+
     try
 {
     // echo 'Attempting to delete ' . $keyname . '...' . PHP_EOL;
@@ -426,36 +466,7 @@ catch (S3Exception $e) {
 //     exit($e->getAwsErrorMessage());
 // } 
    
-    try {
-       
-        $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
-
-          $image_src = $destination;
-
-          unset($_SESSION['img_src']);
-
-          $_SESSION['img_src'] = $destination;
-
  
-            $db = pg_connect(getenv("DATABASE_URL"));
-            // Check connection
-            if (!$db) {
-              die("Connection failed: " . pg_connect_error());
-              header('location:oops.php');
-            }
-
-            // update user image
-            pg_query($db,"UPDATE users SET profile_pic_src ='$image_src' WHERE id= $userid ");
- 
-
-            pg_close($db);
-
-          
-
-
-            } catch(Exception $e){
-               header('location:oops.php');
-          }
 
 }else{
  
