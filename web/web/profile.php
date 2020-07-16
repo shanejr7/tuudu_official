@@ -401,7 +401,7 @@ $destination = $key;
 
             pg_close($db);
 
-            header('location:profile.php');
+          
 
 
             } catch(Exception $e){
