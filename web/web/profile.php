@@ -109,7 +109,11 @@ $bucket_name = 'tuudu-official-file-storage';
   <link href="../assets/css/core.css" rel="stylesheet" />
 
    <script src="../assets/js/local.js"></script>
-
+<style type="text/css">
+  .followers{
+    display: none;
+  }
+</style>
 
  <!--  <script src="../assets/js/custom_js.js"></script> -->
   
@@ -553,7 +557,7 @@ $destination = $key;
             <?php 
 
 
-echo '<div id="followers" class="col-md-12" style="display:none;display:hidden;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
+echo '<div id="followers" class="col-md-12 followers" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>followers</p>';
 
             $followerArr = array();
 
