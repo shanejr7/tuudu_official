@@ -1147,11 +1147,13 @@ pg_close($db);
 
     var follower = document.getElementById("followers");
     var following = document.getElementById("following");
+    var follower_color = document.getElementById("fe");
     var following_color = document.getElementById("fg");
 
         following.style.display = "block";
         follower.style.display = "none";
-        following_color.style.color = "black";
+        following_color.style.color = "#383838";
+        follower_color.style.color = "black";
         
 
   }
@@ -1164,12 +1166,14 @@ function followerFunction() {
   var follower = document.getElementById("followers");
   var following = document.getElementById("following");
   var follower_color = document.getElementById("fe");
-
+  var following_color = document.getElementById("fg");
 
 
     follower.style.display = "block";
     following.style.display = "none";
-    follower_color.style.color = "black";  
+    follower_color.style.color = "#383838";
+    following_color.style.color = "black";
+  
 
 }
 </script>
