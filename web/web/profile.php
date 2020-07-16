@@ -384,7 +384,7 @@ $destination = $key;
           $image_src = $destination;
 
           unset($_SESSION['img_src']);
-          
+
           $_SESSION['img_src'] = $destination;
 
  
@@ -401,7 +401,7 @@ $destination = $key;
 
             pg_close($db);
 
-            header('location:profile.php')
+            header('location:profile.php');
 
 
             } catch(Exception $e){
