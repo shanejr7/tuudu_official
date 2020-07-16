@@ -109,11 +109,7 @@ $bucket_name = 'tuudu-official-file-storage';
   <link href="../assets/css/core.css" rel="stylesheet" />
 
    <script src="../assets/js/local.js"></script>
-<style type="text/css">
-  .followers{
-    display: none;
-  }
-</style>
+
 
  <!--  <script src="../assets/js/custom_js.js"></script> -->
   
@@ -285,7 +281,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#connections" role="tab" data-toggle="tab">
+                  <a class="nav-link" href="#connections" id="connect" onclick="hide()" role="tab" data-toggle="tab">
                     <!-- <i class="material-icons">people</i> -->
                     Connections
                   </a>
@@ -1180,7 +1176,19 @@ function followerFunction() {
 
 }
 </script>
+ <script>
+function hide() {
 
+  var followers = document.getElementById("followers");
+ 
+
+
+    followers.style.display = "none";
+  
+  
+
+}
+</script>
   <nav id="cd-vertical-nav">
     <ul>
       <li>
