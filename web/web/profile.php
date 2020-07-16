@@ -524,7 +524,7 @@ $destination = $key;
               </div>
 
               <div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
-                <a href="#following" onclick="followingFunction()">
+                <a href="#friends" onclick="followingFunction()">
               <h3 style="margin-bottom: 70px; font-weight: bold">Following</h3>
             </a>
             
@@ -536,14 +536,14 @@ $destination = $key;
 
 
               <div class="col-md-2 mr-auto ml-auto">
-                <a href="#followers" onclick="followerFunction()" style="color: black">
+                <a href="#friends" onclick="followerFunction()" style="color: black">
                 <h3 style="margin-bottom: 70px;font-weight: bold">Followers</h3>
               </a>
               </div>
 
 
                   <div class="col-md-3 ml-auto mr-auto">
-                    
+
               
               </div>
             </div>
@@ -693,7 +693,7 @@ $result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_
 <?php
 
 
- echo '<div id="following" class="col-md-12" style="display:none;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>following</p>';
+ echo '<div id="following" class="col-md-12" style="display:block;background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;"><p>following</p>';
 
             $followingArr = array();
 
@@ -1148,8 +1148,8 @@ function followingFunction() {
   var following = document.getElementById("following");
 
 
-  follower.style.display = "none";
-  following.style.display = "block";
+  follower.style.display = "block";
+  following.style.display = "none";
 
 </script>
 
