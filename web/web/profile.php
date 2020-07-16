@@ -503,10 +503,82 @@ $destination = $key;
                 <div class="col-md-4 ml-auto mr-auto">
               
               </div>
+<?php 
 
+  $followerArr = array();
+  $userid =0;
+
+if (isset($_SESSION['id'])) {
+
+  $userid = $_SESSION['id'];
+}
+
+  try{
+
+ $db = pg_connect(getenv("DATABASE_URL"));
+}catch(Execption $e){
+  header('location:oops.php');
+}
+
+$result = pg_query($db, "SELECT user_id, username, email, profile_pic_src
+  FROM public.user_follow_user NATURAL JOIN users WHERE user_following_id = $userid");
+
+
+
+ if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $followerArr[] = array("user_id" => $row["user_id"], "username" => $row["username"], "email"=> $row["email"], "img" => $row["profile_pic_src"]);
+                  
+                  }
+
+            pg_close($db);
+
+}else{
+
+}
+
+
+  $followingArr = array();
+
+  try{
+
+ $db = pg_connect(getenv("DATABASE_URL"));
+}catch(Execption $e){
+  header('location:oops.php');
+}
+
+$result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_src
+  FROM public.user_follow_user NATURAL JOIN users WHERE user_id = $userid");
+
+
+
+ if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $followingArr[] = array("user_following_id" => $row["user_following_id"], "username" => $row["username"], "email"=> $row["email"], "img" => $row["profile_pic_src"]);
+                  
+                  }
+
+            pg_close($db);
+          }else{
+
+          }
+
+
+?>
               <div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
                 <a href="#friends" style="text-decoration: none;color:#3c4858;" id="fg" onclick="followingFunction()" >
-              <h3 style="margin-bottom: 70px; font-weight: bold">Following</h3>
+                  <?php 
+
+                  if (isset($followingArr)) {
+                    echo sizeof($followingArr).'<h3 style="margin-bottom: 70px; font-weight: bold">Following</h3>';
+                  }
+
+                  ?>
+              
             </a>
               </div>
               
@@ -517,7 +589,13 @@ $destination = $key;
 
               <div class="col-md-2 mr-auto ml-auto">
                 <a href="#friends" style="text-decoration: none;color: black" id="fe" onclick="followerFunction()" >
-                <h3 style="margin-bottom: 70px;font-weight: bold">Followers</h3>
+                  <?php
+
+                  if (isset($followerArr)) {
+                    echo sizeof($followerArr).'<h3 style="margin-bottom: 70px;font-weight: bold">Followers</h3>';
+                  }
+
+                   ?>
               </a>
               </div>
 
@@ -536,7 +614,7 @@ $destination = $key;
 
 echo '<div id="followers" class="col-md-12 followers" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;">';
 
-            $followerArr = array();
+           
 
 
             //     if (isset($_SESSION['img_src'])) {
@@ -580,36 +658,7 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
             // }
 
 
-
-if (isset($_SESSION['id'])) {
-
-  $userid = $_SESSION['id'];
-
-  try{
-
- $db = pg_connect(getenv("DATABASE_URL"));
-}catch(Execption $e){
-  header('location:oops.php');
-}
-
-$result = pg_query($db, "SELECT user_id, username, email, profile_pic_src
-  FROM public.user_follow_user NATURAL JOIN users WHERE user_following_id = $userid");
-
-
-
- if (pg_num_rows($result) > 0) {
-                  // output data of each row
-                    while($row = pg_fetch_assoc($result)) { 
-      
-                      $followerArr[] = array("user_id" => $row["user_id"], "username" => $row["username"], "email"=> $row["email"], "img" => $row["profile_pic_src"]);
-                  
-                  }
-
-            pg_close($db);
-
-}else{
-
-}
+ 
  
               
             if (isset($followerArr)) {
@@ -675,7 +724,6 @@ $result = pg_query($db, "SELECT user_id, username, email, profile_pic_src
 
  echo '<div id="following" class="col-md-12" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;">';
 
-            $followingArr = array();
 
 
             //     if (isset($_SESSION['img_src'])) {
@@ -717,37 +765,6 @@ $result = pg_query($db, "SELECT user_id, username, email, profile_pic_src
             // </div>';
 
             // }
-
-
-
-if (isset($_SESSION['id'])) {
-
-  $userid = $_SESSION['id'];
-
-  try{
-
- $db = pg_connect(getenv("DATABASE_URL"));
-}catch(Execption $e){
-  header('location:oops.php');
-}
-
-$result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_src
-  FROM public.user_follow_user NATURAL JOIN users WHERE user_id = $userid");
-
-
-
- if (pg_num_rows($result) > 0) {
-                  // output data of each row
-                    while($row = pg_fetch_assoc($result)) { 
-      
-                      $followingArr[] = array("user_following_id" => $row["user_following_id"], "username" => $row["username"], "email"=> $row["email"], "img" => $row["profile_pic_src"]);
-                  
-                  }
-
-            pg_close($db);
-          }else{
-
-          }
 
 
  
@@ -797,8 +814,7 @@ $result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_
 
 
             }
-          }
-             
+          
             echo '</div>';
           
 
