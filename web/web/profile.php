@@ -382,13 +382,12 @@ $destination = $key;
         $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
 
           $image_src = $destination;
+
+          unset($_SESSION['img_src']);
+          
           $_SESSION['img_src'] = $destination;
 
  
-
- 
-            // Create connection
-            //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
             $db = pg_connect(getenv("DATABASE_URL"));
             // Check connection
             if (!$db) {
@@ -401,6 +400,8 @@ $destination = $key;
  
 
             pg_close($db);
+
+            header('location:profile.php')
 
 
             } catch(Exception $e){

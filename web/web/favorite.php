@@ -1,5 +1,9 @@
 <?php
 
+
+// issue may appear getting negative value when unfavoriting 
+
+
 if (isset($_GET['publickey']) && isset($_SESSION['id'])) {
 	  
 	  $user_id = "";
