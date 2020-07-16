@@ -1147,7 +1147,7 @@ function followingFunction() {
   var following = document.getElementById("following");
 
 
-  follower.style.display = "block";
+  follower.style.display = "hidden";
   following.style.display = "show";
 
 </script>
@@ -1161,7 +1161,7 @@ function followerFunction() {
 
 
  follower.style.display = "show";
- following.style.display = "block";
+ following.style.display = "hidden";
 
 }
 </script>
