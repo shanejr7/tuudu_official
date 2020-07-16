@@ -612,8 +612,8 @@ if (isset($_SESSION['id'])) {
   header('location:oops.php');
 }
 
-$result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_src
-  FROM public.user_follow_user NATURAL JOIN users WHERE user_id = $userid");
+$result = pg_query($db, "SELECT user_id, username, email, profile_pic_src
+  FROM public.user_follow_user NATURAL JOIN users WHERE user_following_id = $userid");
 
 
 
@@ -621,7 +621,7 @@ $result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) { 
       
-                      $followerArr[] = array("user_following_id" => $row["user_following_id"], "username" => $row["username"], "email"=> $row["email"], "img" => $row["profile_pic_src"]);
+                      $followerArr[] = array("user_id" => $row["user_id"], "username" => $row["username"], "email"=> $row["email"], "img" => $row["profile_pic_src"]);
                   
                   }
 
@@ -1147,13 +1147,11 @@ pg_close($db);
 
     var follower = document.getElementById("followers");
     var following = document.getElementById("following");
-    var follower_color = document.getElementById("fe");
     var following_color = document.getElementById("fg");
 
         following.style.display = "block";
         follower.style.display = "none";
-        following_color.style.color = "blue";
-        follower_color.style.color = "black";
+        following_color.style.color = "black";
         
 
   }
@@ -1166,14 +1164,12 @@ function followerFunction() {
   var follower = document.getElementById("followers");
   var following = document.getElementById("following");
   var follower_color = document.getElementById("fe");
-  var following_color = document.getElementById("fg");
+
 
 
     follower.style.display = "block";
     following.style.display = "none";
-    follower_color.style.color = "blue";
-    following_color.style.color = "black";
-  
+    follower_color.style.color = "black";  
 
 }
 </script>
