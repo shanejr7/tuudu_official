@@ -524,10 +524,9 @@ $destination = $key;
               </div>
 
               <div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
-                <a href="#friends" style="text-decoration: none" id="fg" onclick="followingFunction()" >
+                <a href="#friends" style="text-decoration: none;color:#3c4858;" id="fg" onclick="followingFunction()" >
               <h3 style="margin-bottom: 70px; font-weight: bold">Following</h3>
             </a>
-            
               </div>
               
           
