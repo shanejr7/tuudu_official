@@ -422,16 +422,13 @@ $destination = $key;
 
      try{
 
- $db = pg_connect(getenv("DATABASE_URL"));
-}catch(Execption $e){
-  header('location:oops.php');
-}
+
 
 $keyname = "";
 if (isset($_SESSION['img_src_temp'])) {
   $keyname = trim( $_SESSION['img_src_temp']);
   unset($_SESSION['img_src_temp']);
-  $_SESSION[['img_src_temp'] = $_SESSION['img_src'];
+  $_SESSION['img_src_temp'] = $_SESSION['img_src'];
 }
 
 
