@@ -524,7 +524,7 @@ $destination = $key;
               </div>
 
               <div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
-                <a href="#friends" onclick="followerFunction()" >
+                <a href="#friends" onclick="followingFunction()" >
               <h3 style="margin-bottom: 70px; font-weight: bold">Following</h3>
             </a>
             
@@ -1140,7 +1140,20 @@ pg_close($db);
     });
   </script>
 
+<script type="text/javascript">
+  
+  function followingFunction(){
 
+
+    var follower = document.getElementById("followers");
+    var following = document.getElementById("following");
+
+        following.style.display = "block";
+        follower.style.display = "none";
+
+  }
+
+</script>
 
  <script>
 function followerFunction() {
@@ -1149,18 +1162,9 @@ function followerFunction() {
   var following = document.getElementById("following");
 
 
-  if (following.style.display === "none") {
-    following.style.display = "block";
-    following.style.color = "black";
-    follower.style.display = "none";
-    follower.style.color = "blue";
-
-  } else {
-    following.style.display = "none";
-    following.style.color = "black";
     follower.style.display = "block";
     follower.style.color = "blue";
-  }
+  
 
 }
 </script>
