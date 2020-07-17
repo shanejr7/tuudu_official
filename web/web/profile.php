@@ -523,18 +523,18 @@ catch (S3Exception $e) {
 
                         $collections_count = $collections_count + $product_count + $temporary_tag_schedule + $user_follow_organization;
 
-                        echo 'li style="display: inline-block;"><b>'.$collections_count.'</b> Collections</li>';
+                        echo 'li style="display: inline-block;"><b>'.sizeof($collections_count).'</b> Collections</li>';
                         
                       }
 
                       if (isset($following_count)) {
                         
-                        echo '<li style="display: inline-block;"><b>'.$following_count.'</b> Following</li>';
+                        echo '<li style="display: inline-block;"><b>'.sizeof($following_count).'</b> Following</li>';
                       }
 
                       if (isset($follower_count)) {
                         
-                        echo '<li style="display: inline-block;"><b>'.$follower_count.'</b> Followers</li>';
+                        echo '<li style="display: inline-block;"><b>'.sizeof($follower_count).'</b> Followers</li>';
                       }
 
                  ?>
