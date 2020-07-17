@@ -629,7 +629,7 @@ catch (S3Exception $e) {
 
 
 
-                      if (isset($home_list)) {
+                      if (isset($home_list[0])) {
 
 
 
@@ -640,9 +640,104 @@ catch (S3Exception $e) {
                             return $time1 - $time2;
                           }    
                           
-                          usort($home_list, 'compare_date');
+                          usort($home_list[0], 'compare_date');
 
-                          foreach($home_list as $item) {
+                          foreach($home_list[0] as $item) {
+
+                            $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.trim($item["img"]).'',
+                          ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+
+              
+
+               echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+           
+                
+ 
+
+          if($presignedUrl){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                        <i class="material-icons">strikethrough_s</i></div>';
+
+                        }else{
+
+                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
+                  
+                  }
+
+
+                  echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="profile.php?publickey='.$item['publickey'].'">';
+
+                        if ($item['favorite']==1) {
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+
+                        }else{
+
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                        }
+
+                     
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="#"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
+
+
+                       }
+                     }
+                      if (isset($home_list[1])) {
+
+
+
+                        function compare_date($arr1, $arr2)
+                          {
+                            $time1 = strtotime($arr1['date_submitted']);
+                            $time2 = strtotime($arr2['date_submitted']);
+                            return $time1 - $time2;
+                          }    
+                          
+                          usort($home_list[1], 'compare_date');
+
+                          foreach($home_list[1] as $item) {
 
                             $cmd = $s3->getCommand('GetObject', [
                             'Bucket' => ''.$bucket_name.'',
@@ -725,7 +820,101 @@ catch (S3Exception $e) {
                        }
                      }
 
+ if (isset($home_list[2])) {
 
+
+
+                        function compare_date($arr1, $arr2)
+                          {
+                            $time1 = strtotime($arr1['date_submitted']);
+                            $time2 = strtotime($arr2['date_submitted']);
+                            return $time1 - $time2;
+                          }    
+                          
+                          usort($home_list[2], 'compare_date');
+
+                          foreach($home_list[2] as $item) {
+
+                            $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.trim($item["img"]).'',
+                          ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+
+              
+
+               echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+           
+                
+ 
+
+          if($presignedUrl){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                        <i class="material-icons">strikethrough_s</i></div>';
+
+                        }else{
+
+                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
+                  
+                  }
+
+
+                  echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="profile.php?publickey='.$item['publickey'].'">';
+
+                        if ($item['favorite']==1) {
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+
+                        }else{
+
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                        }
+
+                     
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="#"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
+
+
+                       }
+                     }
 
                     }
 
