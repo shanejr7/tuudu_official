@@ -519,7 +519,7 @@ catch (S3Exception $e) {
                         echo ' <li style="display: inline-block;"><b>'.sizeof($product_count).'</b> Products</li>';
                       }
 
-                      if (isset($collections_count) && isset($product_count) && isset($$tag_schedule_count) && isset($user_follow_organization_count)) {
+                      if (isset($collections_count) && isset($product_count) && isset($tag_schedule_count) && isset($user_follow_organization_count)) {
 
                         $collections_num_count =0;
 
