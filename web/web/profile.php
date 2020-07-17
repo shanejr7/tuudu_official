@@ -633,14 +633,14 @@ catch (S3Exception $e) {
 
 
 
-                        function compare_date($arr1, $arr2)
-                          {
-                            $time1 = strtotime($arr1['date_submitted']);
-                            $time2 = strtotime($arr2['date_submitted']);
-                            return $time1 - $time2;
-                          }    
+                        // function compare_date($arr1, $arr2)
+                        //   {
+                        //     $time1 = strtotime($arr1['date_submitted']);
+                        //     $time2 = strtotime($arr2['date_submitted']);
+                        //     return $time1 - $time2;
+                        //   }    
                           
-                          usort($home_list, 'compare_date');
+                        //   usort($home_list, 'compare_date');
 
                           foreach($home_list as $item) {
 
