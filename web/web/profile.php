@@ -513,7 +513,7 @@ catch (S3Exception $e) {
 
 
 
-                      }
+                      
 
                       if (isset($product_count)) {
                         echo ' <li style="display: inline-block;"><b>'.sizeof($product_count).'</b> Products</li>';
@@ -538,6 +538,8 @@ catch (S3Exception $e) {
                         
                         echo '<li style="display: inline-block;"><b>'.sizeof($followers_count).'</b> Followers</li>';
                       }
+
+                    }
 
                  ?>
             
