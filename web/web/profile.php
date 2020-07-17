@@ -523,7 +523,7 @@ catch (S3Exception $e) {
 
                         $collections_num_count =0;
 
-                        $collections_num_count = sizeof($collections_count) + sizeof($product_count) + sizeof($tag_schedule_count) + sizeof($user_follow_count);
+                        $collections_num_count = $collections_count['count'] + $product_count['count'] + $tag_schedule_count['count'] + $user_follow_count['count'];
 
                         echo '<li style="display: inline-block;margin-right:3px;"><b>'.$collections_num_count.'</b> Collections </li>';
                         
@@ -531,12 +531,12 @@ catch (S3Exception $e) {
 
                       if (isset($following_count)) {
                         
-                        echo '<li style="display: inline-block;margin-right:3px;"><b>'.sizeof($following_count).'</b> Following </li>';
+                        echo '<li style="display: inline-block;margin-right:3px;"><b>'.$following_count['count'].'</b> Following </li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        echo '<li style="display: inline-block;"><b>'.sizeof($followers_count).'</b> Followers </li>';
+                        echo '<li style="display: inline-block;"><b>'.$followers_count['count'].'</b> Followers </li>';
                       }
 
                     }
