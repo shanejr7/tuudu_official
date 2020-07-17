@@ -516,7 +516,7 @@ catch (S3Exception $e) {
                       
 
                       if (isset($product_count)) {
-                        echo ' <li style="display: inline-block;margin-right:3px;"><b>'.sizeof($product_count).'</b> Products </li>';
+                        echo ' <li style="display: inline-block;margin-right:3px;"><b>'.$product_count.'</b> Products </li>';
                       }
 
                       if (isset($collections_count) && isset($product_count) && isset($tag_schedule_count) && isset($user_follow_organization_count)) {
