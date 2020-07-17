@@ -482,7 +482,7 @@ catch (S3Exception $e) {
 
                       if (isset($_SESSION['id'])) {
                         
-                        $userid = $_SESSION['id'];
+                        $user_id = $_SESSION['id'];
 
                         try{
 
@@ -510,8 +510,6 @@ catch (S3Exception $e) {
 
                            $result = pg_query($db, "SELECT COUNT (userid) FROM user_follow_organization WHERE userid = $user_id");
                           $user_follow_organization_count = pg_fetch_assoc($result);
-
-
 
 
 
