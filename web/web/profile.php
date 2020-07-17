@@ -521,9 +521,9 @@ catch (S3Exception $e) {
 
                       if (isset($collections_count)) {
 
-                        $collections_count = $collections_count + $product_count + $temporary_tag_schedule + $user_follow_organization;
+                        $collections_num_count = sizeof($collections_count) + sizeof($product_count) + sizeof($temporary_tag_schedule) + sizeof($user_follow_organization);
 
-                        echo 'li style="display: inline-block;"><b>'.sizeof($collections_count).'</b> Collections</li>';
+                        echo 'li style="display: inline-block;"><b>'.sizeof($collections_num_count).'</b> Collections</li>';
                         
                       }
 
