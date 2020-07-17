@@ -627,9 +627,7 @@ catch (S3Exception $e) {
                      }
 
 
-
-
-                      if (isset($home_list)) {
+                     if (isset($home_list)) {
 
 
 
@@ -725,6 +723,7 @@ catch (S3Exception $e) {
                        }
                      }
 
+                  
 
 
                     }
