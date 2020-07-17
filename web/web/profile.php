@@ -546,50 +546,100 @@ catch (S3Exception $e) {
                 </div>
     
                 <div class="row ">
-                  <div class="col-md-4">
-                    <div class="card card-background" style="background-image: url('../assets/img/examples/mariya-georgieva.jpg')">
-                      <a href="#pablo"></a>
-                      <div class="card-body">
-                        <label class="badge badge-warning">Spring 2016</label>
-                        <a href="#pablo">
-                          <h2 class="card-title">Stilleto</h2>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card card-background" style="background-image: url('../assets/img/examples/clem-onojeghuo.jpg')">
-                      <a href="#pablo"></a>
-                      <div class="card-body">
-                        <label class="badge badge-info">Spring 2016</label>
-                        <a href="#pablo">
-                          <h2 class="card-title">High Heels</h2>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card card-background" style="background-image: url('../assets/img/examples/olu-eletu.jpg')">
-                      <a href="#pablo"></a>
-                      <div class="card-body">
-                        <label class="badge badge-danger">Summer 2016</label>
-                        <a href="#pablo">
-                          <h2 class="card-title">Flats</h2>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="card card-background" style="background-image: url('../assets/img/examples/darren-coleshill.jpg')">
-                      <a href="#pablo"></a>
-                      <div class="card-body">
-                        <label class="badge badge-success">Winter 2015</label>
-                        <a href="#pablo">
-                          <h2 class="card-title">Men's Sneakers</h2>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+          <?php
+
+
+                 $home_list = array(
+                  array(),
+                  array(),
+                  array(),
+                  array());
+
+                 $user_id = "";
+                         
+                 if (isset($_SESSION['id'])) {
+ 
+                      $user_id = $_SESSION['id'];
+
+                    
+                      try{
+  
+                          $db = pg_connect(getenv("DATABASE_URL"));
+
+                      }catch(Execption $e){
+            
+                          header('location:oops.php');
+                      }
+
+                           $result = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
+
+
+
+                          if (pg_num_rows($result) > 0) {
+                  
+                        while($row = pg_fetch_assoc($result)) { 
+      
+                            $home_list[0] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"orgid" => $row["orgid"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"],"email" => $row["email"],"content" => $row["content"],"address" => $row["address"],"url" => $row["url"],"phonenumber" => $row["phonenumber"],"organization_name" => $row["organization_name"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
+                  
+                        }
+
+                        pg_close($db);
+                    
+                    }else{
+
+                  
+                     }
+
+
+                           $result = pg_query($db,"SELECT * FROM temporary_tag_schedule NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
+
+                              if (pg_num_rows($result) > 0) {
+                  
+                        while($row = pg_fetch_assoc($result)) { 
+      
+                            $home_list[1] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"orgid" => $row["orgid"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"],"email" => $row["email"],"content" => $row["content"],"address" => $row["address"],"url" => $row["url"],"phonenumber" => $row["phonenumber"],"organization_name" => $row["organization_name"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
+                  
+                        }
+
+                        pg_close($db);
+                    
+                    }else{
+
+                  
+                     }
+
+
+                           $result = pg_query($db,"SELECT * FROM organization NATURAL JOIN poststate WHERE organization.id= $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
+
+
+                                 if (pg_num_rows($result) > 0) {
+                  
+                        while($row = pg_fetch_assoc($result)) { 
+      
+                            $home_list[2] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"orgid" => $row["orgid"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"],"email" => $row["email"],"content" => $row["content"],"address" => $row["address"],"url" => $row["url"],"phonenumber" => $row["phonenumber"],"organization_name" => $row["organization_name"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
+                  
+                        }
+
+                        pg_close($db);
+                    
+                    }else{
+
+                  
+                     }
+
+
+
+
+
+
+
+
+                    }
+
+          ?>
+
+
+
                 </div>
 
 
