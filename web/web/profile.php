@@ -516,7 +516,7 @@ catch (S3Exception $e) {
                       }
 
                       if (isset($product_count)) {
-                        echo ' <li style="display: inline-block;"><b>'.$product_count.'</b> Products</li>';
+                        echo ' <li style="display: inline-block;"><b>'.sizeof($product_count).'</b> Products</li>';
                       }
 
                       if (isset($collections_count)) {
