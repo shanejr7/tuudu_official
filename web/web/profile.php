@@ -629,7 +629,7 @@ catch (S3Exception $e) {
 
 
 
-                      if (isset($home_list[0])) {
+                      if (isset($home_list)) {
 
 
 
@@ -640,9 +640,9 @@ catch (S3Exception $e) {
                             return $time1 - $time2;
                           }    
                           
-                          usort($home_list[0], 'compare_date');
+                          usort($home_list, 'compare_date');
 
-                          foreach($home_list[0] as $item) {
+                          foreach($home_list as $item) {
 
                             $cmd = $s3->getCommand('GetObject', [
                             'Bucket' => ''.$bucket_name.'',
