@@ -478,17 +478,71 @@ catch (S3Exception $e) {
               <div class="col-md-8 ml-auto mr-auto ">
                 <h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Collections</h4>
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>
-            
-                  <li style="display: inline-block;"><b>3</b> Products</li>
-                  <li style="display: inline-block;"><b>4</b> Collections</li>
-                  <li style="display: inline-block;"><b>331</b> Followers</li>
-                  <li style="display: inline-block;"><b>1.2K</b> Likes</li>
-                </div>
-                
+                 <?php 
+
+                      if (isset($_SESSION['id'])) {
+                        
+                        $userid = $_SESSION['id'];
+
+                        try{
+
+                               $db = pg_connect(getenv("DATABASE_URL"));
+                            }catch(Execption $e){
   
+                              header('location:oops.php');
+                            }
+
+
+                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id");
+                          $product_count = pg_fetch_assoc($result);
+
+                          $result = pg_query($db, "SELECT COUNT (userid) FROM feedstate WHERE userid = $user_id");
+                          $collections_count = pg_fetch_assoc($result);
+
+                          $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $user_id");
+                          $following_count = pg_fetch_assoc($result);
+
+                          $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_following_id = $user_id");
+                          $followers_count = pg_fetch_assoc($result);
+
+                          $result = pg_query($db, "SELECT COUNT (user_id) FROM temporary_tag_schedule WHERE user_id = $user_id");
+                          $tag_schedule_count = pg_fetch_assoc($result);
+
+                           $result = pg_query($db, "SELECT COUNT (userid) FROM user_follow_organization WHERE userid = $user_id");
+                          $user_follow_organization_count = pg_fetch_assoc($result);
 
 
 
+
+
+                      }
+
+                      if (isset($product_count)) {
+                        echo ' <li style="display: inline-block;"><b>'.$product_count.'</b> Products</li>';
+                      }
+
+                      if (isset($collections_count)) {
+
+                        $collections_count = $collections_count + $product_count + $temporary_tag_schedule + $user_follow_organization;
+
+                        echo 'li style="display: inline-block;"><b>'.$collections_count.'</b> Collections</li>';
+                        
+                      }
+
+                      if (isset($following_count)) {
+                        
+                        echo '<li style="display: inline-block;"><b>'.$following_count.'</b> Following</li>';
+                      }
+
+                      if (isset($follower_count)) {
+                        
+                        echo '<li style="display: inline-block;"><b>'.$follower_count.'</b> Followers</li>';
+                      }
+
+                 ?>
+            
+                </div>
+    
                 <div class="row ">
                   <div class="col-md-4">
                     <div class="card card-background" style="background-image: url('../assets/img/examples/mariya-georgieva.jpg')">
