@@ -927,6 +927,13 @@ if (isset($stories_list)) {
 
       $(document).ready(function(){
 
+        $('#tabTrack li').each(function() {
+              $(this).removeClass('active');
+    });
+        $('#body div').each(function() {
+              $(this).removeClass('active');
+    });
+
           $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
                localStorage.setItem('activeTab', $(e.target).attr('href'));
           });
