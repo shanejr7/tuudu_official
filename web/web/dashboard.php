@@ -894,6 +894,18 @@ if (isset($stories_list)) {
 
  $("a").on('click', function() {
     history.replaceState(null, null, ' ');
+     $('#tabTrack a').each(function() {
+      $(this).removeClass('active');
+    });
+    $('#body div').each(function() {
+      $(this).removeClass('active');
+    });
+     $('#tabTrack li').each(function() {
+      $(this).removeClass('active');
+    });
+    $('#body div').each(function() {
+      $(this).removeClass('active');
+    });
 
 });
 
@@ -931,12 +943,6 @@ if (isset($stories_list)) {
   }else{
 
 
- $('#tabTrack li').each(function() {
-      $(this).removeClass('active');
-    });
-    $('#body div').each(function() {
-      $(this).removeClass('active');
-    });
 
  
 
