@@ -633,14 +633,7 @@ catch (S3Exception $e) {
 
 
 
-                        // function compare_date($arr1, $arr2)
-                        //   {
-                        //     $time1 = strtotime($arr1['date_submitted']);
-                        //     $time2 = strtotime($arr2['date_submitted']);
-                        //     return $time1 - $time2;
-                        //   }    
-                          
-                        //   usort($home_list, 'compare_date');
+                  
 
                           foreach($home_list as $item) {
 
@@ -666,7 +659,7 @@ catch (S3Exception $e) {
  
 
           if($presignedUrl){
-                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
               } 
