@@ -889,12 +889,32 @@ if (isset($stories_list)) {
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
 
- <!--  <script>
+  <script>
 
-     
-    </script> -->
+           $(document).ready(function(){
 
+        $('#tabTrack li').each(function() {
+              $(this).removeClass('active');
+    });
+        $('#body div').each(function() {
+              $(this).removeClass('active');
+    });
 
+          $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+               localStorage.setItem('activeTab', $(e.target).attr('href'));
+          });
+
+          var activeTab = localStorage.getItem('activeTab');
+          
+            if(activeTab){
+       
+               $('#tabTrack a[href="' + activeTab + '"]').tab('show');
+           }
+      });
+
+    </script>
+
+<!-- 
     <script type="text/javascript">
       
        
@@ -925,33 +945,13 @@ if (isset($stories_list)) {
   }else{
 
 
-      window.location.hash = '';
 
-      $(document).ready(function(){
 
-        $('#tabTrack li').each(function() {
-              $(this).removeClass('active');
-    });
-        $('#body div').each(function() {
-              $(this).removeClass('active');
-    });
-
-          $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-               localStorage.setItem('activeTab', $(e.target).attr('href'));
-          });
-
-          var activeTab = localStorage.getItem('activeTab');
-          
-            if(activeTab){
-       
-               $('#tabTrack a[href="' + activeTab + '"]').tab('show');
-           }
-      });
-
+ 
 
   }
 
-    </script>
+    </script> -->
 
  
     <script type="text/javascript">
