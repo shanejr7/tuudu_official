@@ -152,7 +152,7 @@ echo '<script>
  <div class="navbar-translate">
       <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
                 <li class="nav-item ">
-                  <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                  <a class="nav-link active" href="#dashbaord" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
@@ -356,7 +356,7 @@ if (isset($temp) && $temp ==1) {
             <div class="profile-tabs">
               <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrack" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#studio" id="refresh" role="tab" data-toggle="tab">
+                  <a class="nav-link active" href="#dashbaord" id="refresh" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
@@ -411,7 +411,7 @@ for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
    </script> -->
 
         <div class="tab-content tab-space cd-section" id="body">
-          <div class="tab-pane active text-center gallery section section-sections" id="studio">
+          <div class="tab-pane active text-center gallery section section-sections" id="dashboard">
            <div class="row">
 
           <?php if (count($errors_dashboard) > 0) : ?>
