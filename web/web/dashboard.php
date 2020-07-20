@@ -150,7 +150,7 @@ echo '<script>
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container nav-tabs-navigation">
  <div class="navbar-translate">
-      <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
+      <ul class="nav  navbar-nav nav-tabs"  role="tabs">
                 <li class="nav-item ">
                   <a class="nav-link active" href="#dashboard" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
@@ -889,11 +889,11 @@ if (isset($stories_list)) {
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
 
-  <script>
+<!--   <script>
 
            $(document).ready(function(){
 
-        $('#tabTrack a').each(function() {
+        $('#tabTrack').each(function() {
               $(this).removeClass('active');
     });
         $('#body div').each(function() {
@@ -912,11 +912,12 @@ if (isset($stories_list)) {
            }
       });
 
-    </script>
+    </script> -->
 
-<!-- 
+
     <script type="text/javascript">
       
+       
        
   var hash = window.location.hash;
    
@@ -951,7 +952,7 @@ if (isset($stories_list)) {
 
   }
 
-    </script> -->
+    </script>
 
  
     <script type="text/javascript">
