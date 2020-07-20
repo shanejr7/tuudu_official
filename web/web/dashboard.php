@@ -150,7 +150,7 @@ echo '<script>
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container nav-tabs-navigation">
  <div class="navbar-translate">
-      <ul class="nav  navbar-nav nav-tabs"  role="tabs">
+      <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
                 <li class="nav-item ">
                   <a class="nav-link active" href="#dashboard" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
@@ -918,12 +918,12 @@ if (isset($stories_list)) {
     <script type="text/javascript">
       
        
-       
+
   var hash = window.location.hash;
    
   if (hash != "") {
     
-    $('#tabTrack li').each(function() {
+    $('#tabTrack a').each(function() {
       $(this).removeClass('active');
     });
     $('#body div').each(function() {
@@ -931,7 +931,7 @@ if (isset($stories_list)) {
     });
     
     var link = "";
-    $('#tabTrack li').each(function() {
+    $('#tabTrack a').each(function() {
       link = $(this).find('a').attr('href');
       if (link == hash) {
         $(this).addClass('active');
