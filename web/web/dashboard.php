@@ -905,7 +905,7 @@ if (isset($stories_list)) {
     $('#tabTrack li').each(function() {
       $(this).removeClass('active');
     });
-    $('#body div').each(function() {
+    $('#body').each(function() {
       $(this).removeClass('active');
     });
     
@@ -916,7 +916,7 @@ if (isset($stories_list)) {
         $(this).addClass('active');
       }
     });
-    $('#body div').each(function() {
+    $('#body').each(function() {
       link = $(this).attr('id');
       if ('#'+link == hash) {
         $(this).addClass('active');
@@ -924,6 +924,12 @@ if (isset($stories_list)) {
     });
   }else{
 
+ $('#tabTrack li').each(function() {
+      $(this).removeClass('active');
+    });
+    $('#body').each(function() {
+      $(this).removeClass('active');
+    });
 
     //   $(document).ready(function(){
 
