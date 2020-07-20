@@ -150,7 +150,7 @@ echo '<script>
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container nav-tabs-navigation">
  <div class="navbar-translate">
-      <ul class="nav  navbar-nav nav-tabs"  role="tabs" id="tabTrackMain">
+      <ul class="nav  navbar-nav nav-tabs"  role="tabs" id="tabTrack">
                 <li class="nav-item ">
                   <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
@@ -354,7 +354,7 @@ if (isset($temp) && $temp ==1) {
    <!--      <div class="row">
           <div class="col-md-12 ml-auto mr-auto">
             <div class="profile-tabs">
-              <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrackMain" role="tablist">
+              <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrack" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link active" href="#studio" id="refresh" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
