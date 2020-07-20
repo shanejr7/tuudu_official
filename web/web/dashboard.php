@@ -924,7 +924,8 @@ if (isset($stories_list)) {
     });
   }else{
 
-        
+
+      window.location.hash = '';
 
       $(document).ready(function(){
 
