@@ -907,6 +907,38 @@ if (isset($stories_list)) {
 
     </script>
 
+
+    <script type="text/javascript">
+      
+       
+  var hash = window.location.hash;
+   
+  if (hash != "") {
+    
+    $('#tabTrack li').each(function() {
+      $(this).removeClass('active');
+    });
+    $('#body div').each(function() {
+      $(this).removeClass('active');
+    });
+    
+    var link = "";
+    $('#tabTrack li').each(function() {
+      link = $(this).find('a').attr('href');
+      if (link == hash) {
+        $(this).addClass('active');
+      }
+    });
+    $('#body').each(function() {
+      link = $(this).attr('id');
+      if ('#'+link == hash) {
+        $(this).addClass('active');
+      }
+    });
+  }
+
+    </script>
+
  
     <script type="text/javascript">
     $(document).ready(function() {
