@@ -929,7 +929,7 @@ if (isset($stories_list)) {
         $(this).addClass('active');
       }
     });
-    $('#body').each(function() {
+    $('#body div').each(function() {
       link = $(this).attr('id');
       if ('#'+link == hash) {
         $(this).addClass('active');
