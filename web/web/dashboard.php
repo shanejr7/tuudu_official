@@ -890,11 +890,11 @@ if (isset($stories_list)) {
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
 
   <script>
-history.replaceState(null, null, ' ');
+ 
 
     function clear(){
 
-      history.replaceState({}, document.title, window.location.href.split('#')[0]);
+      history.replaceState(null, null, ' ');
     }
  
 
