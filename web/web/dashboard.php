@@ -152,7 +152,7 @@ echo '<script>
  <div class="navbar-translate">
       <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
                 <li class="nav-item ">
-                  <a class="nav-link active" href="#dashbaord" role="tab" data-toggle="tab">
+                  <a class="nav-link active" href="#dashboard" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
