@@ -569,15 +569,15 @@ catch (S3Exception $e) {
                           header('location:oops.php');
                       }
 
-                           $result = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
+                           $result_one = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
 
-                     echo "req 1 :". pg_num_rows($result)."</br>";
+                     echo "req 1 :". pg_num_rows($result_one)."</br>";
 
 
-                          if (pg_num_rows($result) > 0) {
+                          if (pg_num_rows($result_one) > 0) {
                   
-                        while($row = pg_fetch_assoc($result)) { 
+                        while($row = pg_fetch_assoc($result_one)) { 
       
                             $home_list = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"publickey" => $row["publickey"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"],"email" => $row["email"],"content" => $row["content"],"address" => $row["address"],"url" => $row["url"],"phonenumber" => $row["phonenumber"],"organization_name" => $row["organization_name"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
                   
@@ -591,13 +591,13 @@ catch (S3Exception $e) {
                      }
 
 
-                           $result = pg_query($db,"SELECT * FROM temporary_tag_schedule NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
+                           $result_two = pg_query($db,"SELECT * FROM temporary_tag_schedule NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
-                            echo "req 2 :". pg_num_rows($result)."</br>";
+                            echo "req 2 :". pg_num_rows($result_two)."</br>";
 
-                              if (pg_num_rows($result) > 0) {
+                              if (pg_num_rows($result_two) > 0) {
                   
-                        while($row = pg_fetch_assoc($result)) { 
+                        while($row = pg_fetch_assoc($result_two)) { 
       
                             $home_list = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"publickey" => $row["publickey"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"],"email" => $row["email"],"content" => $row["content"],"address" => $row["address"],"url" => $row["url"],"phonenumber" => $row["phonenumber"],"organization_name" => $row["organization_name"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
                   
@@ -611,14 +611,14 @@ catch (S3Exception $e) {
                      }
 
 
-                           $result = pg_query($db,"SELECT * FROM organization NATURAL JOIN poststate WHERE id= $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
+                           $result_three = pg_query($db,"SELECT * FROM organization NATURAL JOIN poststate WHERE id= $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
-                            echo "req 3 :".pg_num_rows($result)."</br>";
+                            echo "req 3 :".pg_num_rows($result_three)."</br>";
 
 
-                                 if (pg_num_rows($result) > 0) {
+                                 if (pg_num_rows($result_three) > 0) {
                   
-                        while($row = pg_fetch_assoc($result)) { 
+                        while($row = pg_fetch_assoc($result_three)) { 
       
                             $home_list = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"publickey" => $row["publickey"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"],"email" => $row["email"],"content" => $row["content"],"address" => $row["address"],"url" => $row["url"],"phonenumber" => $row["phonenumber"],"organization_name" => $row["organization_name"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
                   
