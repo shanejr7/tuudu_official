@@ -572,7 +572,7 @@ catch (S3Exception $e) {
                            $result_one = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
 
-                     echo "req 1 :". pg_num_rows($result_one)."</br>";
+                      
 
 
                           if (pg_num_rows($result_one) > 0) {
@@ -586,7 +586,7 @@ catch (S3Exception $e) {
                         
                     
                     }else{
-                      echo "empty</br></br></br>";
+                      // echo "empty</br></br></br>";
                   
                      }
 
@@ -607,13 +607,13 @@ catch (S3Exception $e) {
                     
                     }else{
 
-                  echo "empty</br></br></br>";
+                  // echo "empty</br></br></br>";
                      }
 
 
                            $result_three = pg_query($db,"SELECT * FROM organization NATURAL JOIN poststate WHERE id= $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
-                            echo "req 3 :".pg_num_rows($result_three)."</br>";
+                             
 
 
                                  if (pg_num_rows($result_three) > 0) {
@@ -628,7 +628,7 @@ catch (S3Exception $e) {
                     
                     }else{
 
-                  echo "empty</br></br></br>";
+                  // echo "empty</br></br></br>";
                      }
 
                      pg_close($db);
@@ -636,12 +636,18 @@ catch (S3Exception $e) {
                      print_r($home_list);
 
 
-// ///////////////////
                         if (isset($home_list) && sizeof($home_list) > 0) {
 
 
 
-                  
+                  function compare_date($arr1, $arr2)
+                          {
+                            $time1 = strtotime($arr1['date_submitted']);
+                            $time2 = strtotime($arr2['date_submitted']);
+                            return $time1 - $time2;
+                          }    
+                          
+                          usort($product_list, 'compare_date');
 
                           foreach($home_list as $item) {
 
@@ -725,10 +731,6 @@ catch (S3Exception $e) {
 
                        }
                      }
-
-
-// ///////////////////////
-
 
 
 
