@@ -931,7 +931,7 @@ if (isset($stories_list)) {
   }else{
 
 
- $('#tabTrack a').each(function() {
+ $('#tabTrack li').each(function() {
       $(this).removeClass('active');
     });
     $('#body div').each(function() {
