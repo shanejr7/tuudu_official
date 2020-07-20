@@ -635,7 +635,7 @@ catch (S3Exception $e) {
 
                   
 
-                          foreach($home_list as $item) {
+                          foreach($home_list[0] as $item) {
 
                             $cmd = $s3->getCommand('GetObject', [
                             'Bucket' => ''.$bucket_name.'',
