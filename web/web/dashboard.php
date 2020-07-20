@@ -152,7 +152,7 @@ echo '<script>
  <div class="navbar-translate">
       <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
                 <li class="nav-item ">
-                  <a class="nav-link active" href="#dashboard" role="tab" data-toggle="tab">
+                  <a class="nav-link " href="#dashboard" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
@@ -924,11 +924,18 @@ if (isset($stories_list)) {
     });
   }else{
 
- $('#tabTrack li').each(function() {
-      $(this).removeClass('active');
+   var link = "";
+    $('#tabTrack li').each(function() {
+      link = $(this).find('a').attr('href');
+      if (link == hash) {
+        $(this).addClass('active');
+      }
     });
-    $('#body').each(function() {
-      $(this).removeClass('active');
+    $('#dashboard').each(function() {
+      link = $(this).attr('id');
+      if ('#'+link == hash) {
+        $(this).addClass('active');
+      }
     });
 
     //   $(document).ready(function(){
