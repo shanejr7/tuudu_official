@@ -593,7 +593,7 @@ catch (S3Exception $e) {
 
                            $result_two = pg_query($db,"SELECT * FROM temporary_tag_schedule NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
-                            echo "req 2 :". pg_num_rows($result_two)."</br>";
+                         
 
                               if (pg_num_rows($result_two) > 0) {
                   
