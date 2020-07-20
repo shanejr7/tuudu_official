@@ -572,7 +572,7 @@ catch (S3Exception $e) {
                            $result = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
 
-                     echo "string1". pg_num_rows($result)."</br>";
+                     echo "req 1 :". pg_num_rows($result)."</br>";
 
 
                           if (pg_num_rows($result) > 0) {
@@ -586,14 +586,14 @@ catch (S3Exception $e) {
                         pg_close($db);
                     
                     }else{
-                      echo "empty</br>";
+                      echo "empty</br></br></br>";
                   
                      }
 
 
                            $result = pg_query($db,"SELECT * FROM temporary_tag_schedule NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
-                            echo "string2". pg_num_rows($result)."</br>";
+                            echo "req 2 :". pg_num_rows($result)."</br>";
 
                               if (pg_num_rows($result) > 0) {
                   
@@ -607,13 +607,13 @@ catch (S3Exception $e) {
                     
                     }else{
 
-                  echo "empty</br>";
+                  echo "empty</br></br></br>";
                      }
 
 
                            $result = pg_query($db,"SELECT * FROM organization NATURAL JOIN poststate WHERE organization.id= $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
-                            echo "string3". pg_num_rows($result)."</br>";
+                            echo "req 3 :". pg_num_rows($result)."</br>";
 
 
                                  if (pg_num_rows($result) > 0) {
@@ -628,7 +628,7 @@ catch (S3Exception $e) {
                     
                     }else{
 
-                  echo "empty</br>";
+                  echo "empty</br></br></br>";
                      }
 
 
