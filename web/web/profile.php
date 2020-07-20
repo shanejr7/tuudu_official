@@ -509,7 +509,7 @@ catch (S3Exception $e) {
 
                         $collections_num_count =0;
 
-                        $collections_num_count = $tag_schedule_count['count'] + $user_follow_organization['count'];
+                        $collections_num_count = $tag_schedule_count['count'] +  $user_follow_organization_count['count'];
 
                         echo '<li style="display: inline-block;margin-right:3px;">Collections <b>'.$collections_num_count.'</b></li>';
                         
