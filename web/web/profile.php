@@ -637,94 +637,94 @@ catch (S3Exception $e) {
 
 
 // ///////////////////
-          //               if (isset($home_list) && sizeof($home_list) > 0) {
+                        if (isset($home_list) && sizeof($home_list) > 0) {
 
 
 
                   
 
-          //                 foreach($home_list as $item) {
+                          foreach($home_list as $item) {
 
-          //                   $cmd = $s3->getCommand('GetObject', [
-          //                   'Bucket' => ''.$bucket_name.'',
-          //                   'Key'    => ''.trim($item["img"]).'',
-          //                 ]);
+                            $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.trim($item["img"]).'',
+                          ]);
 
-          //     $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
-          //     $presignedUrl = (string)$request->getUri();
+              $presignedUrl = (string)$request->getUri();
 
 
               
 
-          //      echo '<div class="col-md-4">';
+               echo '<div class="col-md-4">';
 
           
-          //     echo '<div class="contain">';
+              echo '<div class="contain">';
 
            
                 
  
 
-          // if($presignedUrl){
-          //        echo  '<img src="'.$presignedUrl.'" class="img rounded">'; 
-          //     }else{
-          //        echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
-          //     } 
+          if($presignedUrl){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
  
               
                 
 
-          //         if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
-          //               echo '<div class="top-right h9"> 
-          //               <i class="material-icons">strikethrough_s</i></div>';
+                        echo '<div class="top-right h9"> 
+                        <i class="material-icons">strikethrough_s</i></div>';
 
-          //               }else{
+                        }else{
 
-          //         echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
+                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
                   
-          //         }
+                  }
 
 
-          //         echo '<div class="top-left h6" style="width:10px;">'
-          //              .toString($item['date']).'</div>';
+                  echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
 
-          //         echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-          //         echo '<div class="bottom-left" style="font-weight: bolder;">
-          //               <a href="profile.php?publickey='.$item['publickey'].'">';
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="profile.php?publickey='.$item['publickey'].'">';
 
-          //               if ($item['favorite']==1) {
-          //                 echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+                        if ($item['favorite']==1) {
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
 
-          //               }else{
+                        }else{
 
-          //                 echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
-          //               }
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                        }
 
                      
 
-          //         // echo '<div class="centered" style="font-weight: bolder;">
-          //         // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
 
                  
-          //         echo '<div class="bottom-right" style="font-weight: bolder;">
-          //                <a href="#"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="#"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
 
 
-          //       echo '</div>';
+                echo '</div>';
               
           
               
-          //   echo '</div>';
+            echo '</div>';
 
 
-          //              }
-          //            }
+                       }
+                     }
 
 
 // ///////////////////////
