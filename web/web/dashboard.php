@@ -893,7 +893,7 @@ if (isset($stories_list)) {
 
            $(document).ready(function(){
 
-        $('#tabTrack li').each(function() {
+        $('#tabTrack a').each(function() {
               $(this).removeClass('active');
     });
         $('#body div').each(function() {
