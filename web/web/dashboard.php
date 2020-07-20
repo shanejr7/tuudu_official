@@ -924,27 +924,28 @@ if (isset($stories_list)) {
     });
   }else{
 
+        history.replaceState(null, null, ' ');
 
-    //   $(document).ready(function(){
+      $(document).ready(function(){
 
-    //     $('#tabTrack li').each(function() {
-    //           $(this).removeClass('active');
-    // });
-    //     $('#body div').each(function() {
-    //           $(this).removeClass('active');
-    // });
+        $('#tabTrack li').each(function() {
+              $(this).removeClass('active');
+    });
+        $('#body div').each(function() {
+              $(this).removeClass('active');
+    });
 
-    //       $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-    //            localStorage.setItem('activeTab', $(e.target).attr('href'));
-    //       });
+          $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+               localStorage.setItem('activeTab', $(e.target).attr('href'));
+          });
 
-    //       var activeTab = localStorage.getItem('activeTab');
+          var activeTab = localStorage.getItem('activeTab');
           
-    //         if(activeTab){
+            if(activeTab){
        
-    //            $('#tabTrack a[href="' + activeTab + '"]').tab('show');
-    //        }
-    //   });
+               $('#tabTrack a[href="' + activeTab + '"]').tab('show');
+           }
+      });
 
 
   }
