@@ -924,7 +924,7 @@ if (isset($stories_list)) {
     });
   }else{
 
-        history.replaceState(null, null, ' ');
+        
 
       $(document).ready(function(){
 
