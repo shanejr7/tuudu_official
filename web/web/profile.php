@@ -269,7 +269,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#posted" role="tab" data-toggle="tab">
-                    <i class="material-icons">insights</i>things
+                    <i class="material-icons">insights</i>products
                     
                   </a>
                 </li>
