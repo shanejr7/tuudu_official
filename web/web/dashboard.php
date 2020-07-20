@@ -892,12 +892,6 @@ if (isset($stories_list)) {
   <script>
  
 
-    function clear(){
-
-      history.replaceState(null, null, ' ');
-    }
- 
-
  $("a").on('click', function() {
     history.replaceState(null, null, ' ');
 
@@ -937,7 +931,12 @@ if (isset($stories_list)) {
   }else{
 
 
-
+ $('#tabTrack a').each(function() {
+      $(this).removeClass('active');
+    });
+    $('#body div').each(function() {
+      $(this).removeClass('active');
+    });
 
  
 
