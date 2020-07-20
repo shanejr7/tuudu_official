@@ -251,7 +251,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#connections" role="tab" data-toggle="tab">
-                    <i class="material-icons">supervised_user_circle</i>connect
+                    <i class="material-icons">supervisor_account</i>connect
                 
                   </a>
                 </li>
