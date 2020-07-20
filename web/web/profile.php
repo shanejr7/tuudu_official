@@ -633,6 +633,8 @@ catch (S3Exception $e) {
 
                      pg_close($db);
 
+                     echo sizeof($home_list);
+
 
 // ///////////////////
           //               if (isset($home_list) && sizeof($home_list) > 0) {
