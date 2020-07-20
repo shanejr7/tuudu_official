@@ -583,7 +583,7 @@ catch (S3Exception $e) {
                   
                         }
 
-                        pg_close($db);
+                        
                     
                     }else{
                       echo "empty</br></br></br>";
@@ -603,7 +603,7 @@ catch (S3Exception $e) {
                   
                         }
 
-                        pg_close($db);
+                        
                     
                     }else{
 
@@ -624,12 +624,14 @@ catch (S3Exception $e) {
                   
                         }
 
-                        pg_close($db);
+                         
                     
                     }else{
 
                   echo "empty</br></br></br>";
                      }
+
+                     pg_close($db);
 
 
 // ///////////////////
