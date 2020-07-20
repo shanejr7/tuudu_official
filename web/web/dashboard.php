@@ -150,7 +150,7 @@ echo '<script>
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container nav-tabs-navigation">
  <div class="navbar-translate">
-      <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
+      <ul class="nav  navbar-nav " id="tabTrack"  role="tabs">
                 <li class="nav-item ">
                   <a onclick='clear()' class="nav-link active" href="#dashboard" role="tab" data-toggle="tab"  >
                     <i class="material-icons">dashboard</i> dashboard
