@@ -257,20 +257,20 @@ $bucket_name = 'tuudu-official-file-storage';
                                                 -->
                 <li class="nav-item">
                   <a class="nav-link active" href="#home" role="tab" data-toggle="tab">
-                   <!--  <i class="material-icons">home</i> -->
-                    Home
+                    <i class="material-icons">home</i>
+                  
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#connections" role="tab" data-toggle="tab">
-                    <!-- <i class="material-icons">people</i> -->
-                    Connections
+                    <i class="material-icons">connect_without_contact</i>
+                
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#posted" role="tab" data-toggle="tab">
-                    <!-- <i class="material-icons">camera</i> -->
-                    Products
+                    <i class="material-icons">amp_stories</i>
+                    
                   </a>
                 </li>
 
