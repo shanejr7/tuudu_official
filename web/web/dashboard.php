@@ -148,10 +148,10 @@ echo '<script>
  
  
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
-    <div class="container">
+    <div class="container nav-tabs-navigation">
  <div class="navbar-translate">
-      <ul class="nav  navbar-nav"  role="tablist">
-                <li class="nav-item active">
+      <ul class="nav  navbar-nav nav-tabs"  role="tabs">
+                <li class="nav-item ">
                   <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
