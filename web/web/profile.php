@@ -485,9 +485,6 @@ catch (S3Exception $e) {
                           $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id");
                           $product_count = pg_fetch_assoc($result);
 
-                          $result = pg_query($db, "SELECT COUNT (userid) FROM feedstate WHERE userid = $user_id");
-                          $feedstate_count = pg_fetch_assoc($result);
-
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $user_id");
                           $following_count = pg_fetch_assoc($result);
 
@@ -508,11 +505,11 @@ catch (S3Exception $e) {
                         echo ' <li style="display: inline-block;margin-right:3px;">Products <b>'.$product_count['count'].'</b> </li>';
                       }
 
-                      if (isset($feedstate_count) && isset($tag_schedule_count) && isset($user_follow_organization_count)) {
+                      if (isset($tag_schedule_count) && isset($user_follow_organization_count)) {
 
                         $collections_num_count =0;
 
-                        $collections_num_count = $feedstate_count['count'] + $tag_schedule_count['count'] + $user_follow_count['count'];
+                        $collections_num_count = $tag_schedule_count['count'] + $user_follow_organization['count'];
 
                         echo '<li style="display: inline-block;margin-right:3px;">Collections <b>'.$collections_num_count.'</b></li>';
                         
