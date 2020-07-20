@@ -557,7 +557,8 @@ catch (S3Exception $e) {
  
                       $user_id = $_SESSION['id'];
 
-                    
+                      $db= "";
+                      
                       try{
   
                           $db = pg_connect(getenv("DATABASE_URL"));
@@ -569,6 +570,8 @@ catch (S3Exception $e) {
 
                            $result = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
+
+                     echo "string1". pg_num_rows($result);
 
 
                           if (pg_num_rows($result) > 0) {
@@ -589,6 +592,8 @@ catch (S3Exception $e) {
 
                            $result = pg_query($db,"SELECT * FROM temporary_tag_schedule NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
+                            echo "string2". pg_num_rows($result);
+
                               if (pg_num_rows($result) > 0) {
                   
                         while($row = pg_fetch_assoc($result)) { 
@@ -606,6 +611,8 @@ catch (S3Exception $e) {
 
 
                            $result = pg_query($db,"SELECT * FROM organization NATURAL JOIN poststate WHERE organization.id= $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
+
+                            echo "string3". pg_num_rows($result);
 
 
                                  if (pg_num_rows($result) > 0) {
