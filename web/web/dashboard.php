@@ -153,7 +153,7 @@ echo '<script>
       <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
                 <li class="nav-item ">
                   <a onclick='clear()' style="font-weight: normal;" class="nav-link active" href="#dashboard" role="tab" data-toggle="tab"  >
-                    <i class="material-icons">view_quilt</i> dashboard
+                    <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
                 <li class="nav-item">

@@ -110,7 +110,7 @@ $bucket_name = 'tuudu-official-file-storage';
               <ul class="nav  navbar-nav" id="tabTrackMain" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link" href="dashboard.php#dashboard">
-                    <i class="material-icons">view_quilt</i> dashboard
+                    <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
                 <li class="nav-item">
