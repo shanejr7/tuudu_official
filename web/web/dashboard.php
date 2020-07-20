@@ -152,12 +152,12 @@ echo '<script>
  <div class="navbar-translate">
       <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
                 <li class="nav-item ">
-                  <a class="nav-link active" href="#dashboard" role="tab" data-toggle="tab" onclick="clear()">
+                  <a onclick="clear()" class="nav-link active" href="#dashboard" role="tab" data-toggle="tab"  >
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#schedule"  role="tab" data-toggle="tab" onclick="clear()">
+                  <a onclick="clear()" class="nav-link" href="#schedule"  role="tab" data-toggle="tab" >
                     <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php
                     if (isset($schedule_list)) {
                       echo sizeof($schedule_list);
@@ -174,7 +174,7 @@ echo '<script>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#list" role="tab" data-toggle="tab" onclick="clear()">
+                  <a onclick="clear()" class="nav-link" href="#list" role="tab" data-toggle="tab">
                     <i class="material-icons">list</i> subscriptions
                   </a>
                 </li>
@@ -894,8 +894,7 @@ if (isset($stories_list)) {
 
     function clear(){
 
-      window.location.hash = '';
-      console.log('yes');
+      history.replaceState({}, document.title, window.location.href.split('#')[0]);
     }
  
 
