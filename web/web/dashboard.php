@@ -931,7 +931,7 @@ if (isset($stories_list)) {
     });
     
     var link = "";
-    $('#tabTrack a').each(function() {
+    $('#tabTrack li').each(function() {
       link = $(this).find('a').attr('href');
       if (link == hash) {
         $(this).addClass('active');
