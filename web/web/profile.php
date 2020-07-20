@@ -633,7 +633,7 @@ catch (S3Exception $e) {
 
                      pg_close($db);
 
-                     print_r($home_list);
+                   
 
 
                         if (isset($home_list) && sizeof($home_list) > 0) {
@@ -647,7 +647,7 @@ catch (S3Exception $e) {
                             return $time1 - $time2;
                           }    
                           
-                          usort($product_list, 'compare_date');
+                          usort($home_list, 'compare_date');
 
                           foreach($home_list as $item) {
 
