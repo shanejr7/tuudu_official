@@ -152,12 +152,12 @@ echo '<script>
  <div class="navbar-translate">
       <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
                 <li class="nav-item ">
-                  <a class="nav-link active" href="#dashboard" role="tab" data-toggle="tab">
+                  <a class="nav-link active" href="#dashboard" role="tab" data-toggle="tab" onclick="clear()">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#schedule"  role="tab" data-toggle="tab">
+                  <a class="nav-link" href="#schedule"  role="tab" data-toggle="tab" onclick="clear()">
                     <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php
                     if (isset($schedule_list)) {
                       echo sizeof($schedule_list);
@@ -174,12 +174,12 @@ echo '<script>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#list" role="tab" data-toggle="tab">
+                  <a class="nav-link" href="#list" role="tab" data-toggle="tab" onclick="clear()">
                     <i class="material-icons">list</i> subscriptions
                   </a>
                 </li>
                   <li class="nav-item">
-                  <a class="nav-link" href="profile.php">
+                  <a class="nav-link" href="profile.php" onclick="clear()">
                     <i class="material-icons">perm_identity</i> profile
                   </a>
                 </li>
@@ -889,30 +889,17 @@ if (isset($stories_list)) {
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
 
-<!--   <script>
+  <script>
 
-           $(document).ready(function(){
 
-        $('#tabTrack').each(function() {
-              $(this).removeClass('active');
-    });
-        $('#body div').each(function() {
-              $(this).removeClass('active');
-    });
+    function clear(){
 
-          $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-               localStorage.setItem('activeTab', $(e.target).attr('href'));
-          });
+      window.location.hash = '';
+      console.log('yes');
+    }
+ 
 
-          var activeTab = localStorage.getItem('activeTab');
-          
-            if(activeTab){
-       
-               $('#tabTrack a[href="' + activeTab + '"]').tab('show');
-           }
-      });
-
-    </script> -->
+  </script>
 
 
     <script type="text/javascript">
