@@ -1204,7 +1204,7 @@ pg_close($db);
 
                  
                   echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="#"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+                         <a href="#" data-toggle="modal" data-target="#chatModal"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
 
@@ -1232,6 +1232,15 @@ pg_close($db);
       </div>
     </div>
   </div>
+
+  <div class="modal-body" id="chatModal">
+  <h5>Comments</h5>
+  <p>USER IMAGE: this is chatty   23m</p>
+  <hr>
+  <p>USER IMAGE: wow thats cool!    1h</p>
+  <p>USER IMAGE: best ever..    2d</p>
+</div>
+
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
