@@ -1249,7 +1249,7 @@ pg_close($db);
   <p>USER IMAGE: wow thats cool!    1h</p>
   <p>USER IMAGE: best ever..    2d</p>
 </br> 
-  <div style="background-color: #fafafa;width: 100%; border: solid; border-radius: 2em; border-color:#9c27b0"><input type="text" name="chatText" style="margin: 5px 5px 5px 5px">USER IMAGE: add comment box : <a href="#"><i class="material-icons" style="float: right">send</i></a></div>
+  <div style="background-color: #fafafa;width: 100%; border: solid; border-radius: 2em; border-color:#9c27b0"><input type="text" name="chatText" style="margin: 5px 5px 5px 5px" placeholder="Add post"><a href="#"><i class="material-icons" style="float: right">send</i></a></div>
       </div>
     </div>
     </div>
