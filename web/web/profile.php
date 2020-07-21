@@ -1236,13 +1236,20 @@ pg_close($db);
  
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <h5>Comments</h5>
-  <p>USER IMAGE: this is chatty   23m</p>
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Comments</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<p>USER IMAGE: this is chatty   23m</p>
   <hr>
   <p>USER IMAGE: wow thats cool!    1h</p>
   <p>USER IMAGE: best ever..    2d</p>
-</div>
+      </div>
+    </div>
     </div>
   </div>
 </div>
