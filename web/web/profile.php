@@ -1248,6 +1248,9 @@ pg_close($db);
   <hr>
   <p>USER IMAGE: wow thats cool!    1h</p>
   <p>USER IMAGE: best ever..    2d</p>
+</br>
+<!-- #6c757d -->
+  <p style="background-color: #fafafa;width: 100%; border: solid; border-radius: 2em; border-color:#9c27b0">USER IMAGE: add comment box : post button</p>
       </div>
     </div>
     </div>
