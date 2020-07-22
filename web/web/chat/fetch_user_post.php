@@ -1,13 +1,15 @@
 <?php 
 
-// USER POST CHAT DATA
+// USER POST CHAT DATA  
 
 	if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
 		echo $_POST['id'];
-		echo $POST['publickey'];
+		echo $_POST['publickey'];
 		$user_id = 0;
 		$publickey = "";
+		$user_post = "";
+		$result ="";
 
 		$publickey = pg_escape_string($db, $_POST['publickey']);
 		$publickey = trim($publickey);
