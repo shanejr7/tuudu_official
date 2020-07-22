@@ -1355,7 +1355,7 @@ pg_close($db);
               </a>
               <div class="media-body">
                 <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Write some nice stuff or nothing...</label>
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to mani_alshars post..</label>
                   <textarea class="form-control" rows="5" id="exampleBlogPost" placeholder="Post your comment"></textarea>
                 </div>
                 <div class="media-footer">
