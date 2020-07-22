@@ -1237,19 +1237,138 @@ pg_close($db);
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
      <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Comments</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="section section-blog-info">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="blog-tags">
+                  Tags:
+                  <span class="badge badge-primary badge-pill">Photography</span>
+                  <span class="badge badge-primary badge-pill">Stories</span>
+                  <span class="badge badge-primary badge-pill">Castle</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <a href="#pablo" class="btn btn-google btn-round float-right">
+                  <i class="fa fa-google"></i> 232
+                </a>
+                <a href="#pablo" class="btn btn-twitter btn-round float-right">
+                  <i class="fa fa-twitter"></i> 910
+                </a>
+                <a href="#pablo" class="btn btn-facebook btn-round float-right">
+                  <i class="fa fa-facebook-square"></i> 872
+                </a>
+              </div>
+            </div>
+            <hr>
+            <div class="card card-profile card-plain">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="card-avatar">
+                    <a href="#pablo">
+                      <img class="img" src="../assets/img/faces/card-profile1-square.jpg">
+                    </a>
+                    <div class="ripple-container"></div>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <h4 class="card-title">Alec Thompson</h4>
+                  <p class="description">I've been trying to figure out the bed design for the master bedroom at our Hidden Hills compound...I like good music from Youtube.</p>
+                </div>
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-default pull-right btn-round">Follow</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-<p>USER IMAGE: this is chatty   23m</p>
-  <hr>
-  <p>USER IMAGE: wow thats cool!    1h</p>
-  <p>USER IMAGE: best ever..    2d</p>
-</br> 
-  <div style="background-color: #fafafa;width: 100%; border: solid; border-radius: 2em; border-color:#9c27b0"><input type="text" name="chatText" style="margin: 5px 5px 5px 5px" placeholder="Add post"><a href="#"><i class="material-icons" style="float: right">send</i></a></div>
+      <div class="section section-comments">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="media-area">
+              <h3 class="title text-center">3 Comments</h3>
+              <div class="media">
+                <a class="float-left" href="#pablo">
+                  <div class="avatar">
+                    <img class="media-object" src="../assets/img/faces/card-profile4-square.jpg" alt="...">
+                  </div>
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">Tina Andrew <small>&#xB7; 7 minutes ago</small></h4>
+                  <h6 class="text-muted"></h6>
+                  <p>Chance too good. God level bars. I&apos;m so proud of @LifeOfDesiigner #1 song in the country. Panda! Don&apos;t be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
+                  <div class="media-footer">
+                    <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
+                      <i class="material-icons">reply</i> Reply
+                    </a>
+                    <a href="#pablo" class="btn btn-danger btn-link float-right">
+                      <i class="material-icons">favorite</i> 243
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="media">
+                <a class="float-left" href="#pablo">
+                  <div class="avatar">
+                    <img class="media-object" alt="Tim Picture" src="../assets/img/faces/card-profile1-square.jpg">
+                  </div>
+                </a>
+                <div class="media-body">
+                  <h4 class="media-heading">John Camber <small>&#xB7; Yesterday</small></h4>
+                  <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                  <p> Don&apos;t forget, You&apos;re Awesome!</p>
+                  <div class="media-footer">
+                    <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
+                      <i class="material-icons">reply</i> Reply
+                    </a>
+                    <a href="#pablo" class="btn btn-link float-right">
+                      <i class="material-icons">favorite</i> 25
+                    </a>
+                  </div>
+                  <div class="media">
+                    <a class="float-left" href="#pablo">
+                      <div class="avatar">
+                        <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile4-square.jpg">
+                      </div>
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading">Tina Andrew <small>&#xB7; 12 Hours Ago</small></h4>
+                      <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                      <p> Don&apos;t forget, You&apos;re Awesome!</p>
+                      <div class="media-footer">
+                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
+                          <i class="material-icons">reply</i> Reply
+                        </a>
+                        <a href="#pablo" class="btn btn-link btn-secondary float-right">
+                          <i class="material-icons">favorite</i> 2
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h3 class="title text-center">Post your comment</h3>
+            <div class="media media-post">
+              <a class="author float-left" href="#pablo">
+                <div class="avatar">
+                  <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile6-square.jpg">
+                </div>
+              </a>
+              <div class="media-body">
+                <div class="form-group label-floating bmd-form-group">
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Write some nice stuff or nothing...</label>
+                  <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
+                </div>
+                <div class="media-footer">
+                  <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Post Comment</a>
+                </div>
+              </div>
+            </div> <!-- end media-post -->
+          </div>
+        </div>
       </div>
     </div>
     </div>
