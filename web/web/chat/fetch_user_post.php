@@ -4,8 +4,7 @@
 
 	if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
-		echo $_POST['id'];
-		echo $_POST['publickey'];
+		
 		$user_id = 0;
 		$publickey = "";
 		$user_post = "";
@@ -41,8 +40,30 @@
   
   				echo "string ".$user_post['user_username'];
 
-  				$data = '<h4 class="card-title">'.$user_post['user_username'].'</h4>
-                  <p class="description">'.$user_post['post_description'].'</p>';
+  				$data = '<div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <hr>
+            <div class="card card-profile card-plain">
+              <div class="row">
+                <div class="col-md-2">
+                  <div class="card-avatar">
+                    <a href="#pablo">
+                      <img class="img" src="../assets/img/examples/me.jpg">
+                    </a>
+                    <div class="ripple-container"></div>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <h4 class="card-title">'.$user_post['user_username'].'</h4>
+                  <p class="description">'.$user_post['post_description'].'</p>
+                </div>
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-default pull-right btn-round">Follow</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>';
 
                   echo $data;
 
