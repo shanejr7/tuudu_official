@@ -1237,6 +1237,7 @@ pg_close($db);
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
      <div class="modal-content">
+      <h3 class="title text-center">Comments</h3>
       <div class="section section-blog-info">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
@@ -1267,7 +1268,7 @@ pg_close($db);
                 <div class="col-md-2">
                   <div class="card-avatar">
                     <a href="#pablo">
-                      <img class="img" src="../assets/img/faces/card-profile1-square.jpg">
+                      <img class="img" src="../assets/img/me.jpg">
                     </a>
                     <div class="ripple-container"></div>
                   </div>
