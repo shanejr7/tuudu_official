@@ -1242,7 +1242,7 @@ pg_close($db);
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    <h3 class="title text-center">Comments</h3>
+    <h3 class="title text-center">Comments <span class="badge badge-default">3</span></h3>
       
       <div class="section section-blog-info">
         <div class="row">
@@ -1295,7 +1295,7 @@ pg_close($db);
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <div class="media-area">
-              <h3 class="title text-center">3 Comments</h3>
+        <!--       <h3 class="title text-center">3 Comments</h3> -->
               <div class="media">
                 <a class="float-left" href="#pablo">
                   <div class="avatar">
@@ -1316,6 +1316,7 @@ pg_close($db);
                   </div>
                 </div>
               </div>
+              <hr>
               <div class="media">
                 <a class="float-left" href="#pablo">
                   <div class="avatar">
@@ -1334,6 +1335,7 @@ pg_close($db);
                       <i class="material-icons">favorite</i> 25
                     </a>
                   </div>
+                  <hr>
                   <div class="media">
                     <a class="float-left" href="#pablo">
                       <div class="avatar">
@@ -1357,6 +1359,7 @@ pg_close($db);
                 </div>
               </div>
             </div>
+            <hr>
             <h3 class="title text-center">Post your comment</h3>
             <div class="media media-post">
               <a class="author float-left" href="#pablo">
