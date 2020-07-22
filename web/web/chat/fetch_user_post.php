@@ -36,7 +36,7 @@
   				echo "string ".$user_post['user_username'];
 
   				$data = '<h4 class="card-title">'.$user_post['user_username'].'</h4>
-                  <p class="description">'.$user_post['description'].'</p>';
+                  <p class="description">'.$user_post['post_description'].'</p>';
 
                   echo $data;
 
