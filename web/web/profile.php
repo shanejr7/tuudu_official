@@ -1248,7 +1248,7 @@ pg_close($db);
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <div class="row">
-              <div class="col-md-7">
+              <div class="col-md-12">
                 <div class="blog-tags">
                   Tags:
                   <span class="badge badge-primary badge-pill">Photography</span>
@@ -1256,7 +1256,7 @@ pg_close($db);
                   <span class="badge badge-primary badge-pill">Castle</span>
                 </div>
               </div>
-              <div class="col-md-5">
+            <!--   <div class="col-md-5">
                 <a href="#pablo" class="btn btn-google btn-round float-right">
                   <i class="fa fa-google"></i> 232
                 </a>
@@ -1266,7 +1266,7 @@ pg_close($db);
                 <a href="#pablo" class="btn btn-facebook btn-round float-right">
                   <i class="fa fa-facebook-square"></i> 872
                 </a>
-              </div>
+              </div> -->
             </div>
             <hr>
             <div class="card card-profile card-plain">
