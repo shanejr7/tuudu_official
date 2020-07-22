@@ -1243,12 +1243,12 @@ pg_close($db);
         </button>
       </div>
     <h3 class="title text-center">Comments <span class="badge badge-default">3</span></h3>
-    <div class="blog-tags">
+    <h7>
                   Tags:
                   <span class="badge badge-primary badge-pill">Photography</span>
                   <span class="badge badge-primary badge-pill">Stories</span>
                   <span class="badge badge-primary badge-pill">Castle</span>
-                </div>
+                </h7>
       
       <div class="section section-blog-info">
         <div class="row">
