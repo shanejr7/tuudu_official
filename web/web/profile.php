@@ -1204,7 +1204,7 @@ pg_close($db);
 
                  
                   echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="#" onclick=fetch_user("'.$item['id'].'") data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+                         <a href="#" class="post_chat" onclick=fetch_user("'.$item['id'].'") data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
 
@@ -1449,7 +1449,21 @@ pg_close($db);
     };
 </script>
 
-<script>  
+<script> 
+
+$(document).on('click', '.post_chat', function () {
+
+
+
+console.log('hello');
+
+});
+
+
+
+
+
+
 $(document).ready(function(){
 
 
