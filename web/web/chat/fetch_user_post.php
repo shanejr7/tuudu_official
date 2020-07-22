@@ -8,6 +8,7 @@
 		$user_id = pg_escape_string($db, $_POST['id']);
 		
 			$db="";
+			
 
 			try{
  	
@@ -28,6 +29,8 @@
 
   				$data = '<h4 class="card-title">'.$user_post['user_username'].'</h4>
                   <p class="description">'.$user_post['description'].'</p>';
+
+                  echo $data;
 
 
 

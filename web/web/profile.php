@@ -1466,7 +1466,8 @@ fetch_user(id,key);
  function fetch_user(id,publickey)
  {
 
-  console.log('hello1');
+  console.log('id ' + id);
+  console.log('publickey ' + key);
   $.ajax({
    url:"chat/fetch_user_post.php",
    method:"POST",
