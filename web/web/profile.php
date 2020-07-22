@@ -1234,7 +1234,7 @@ pg_close($db);
   </div>
 
  
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="margin: 0 0 0 0; padding: 0 0 0 0;">
   <div class="modal-dialog modal-lg">
      <div class="modal-content">
          <div class="modal-header">
@@ -1250,7 +1250,7 @@ pg_close($db);
                   <span class="badge badge-primary badge-pill">Castle</span>
     </div>
       
-      <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0">
+      <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <hr>
