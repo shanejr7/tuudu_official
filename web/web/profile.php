@@ -1345,7 +1345,7 @@ pg_close($db);
               </div>
             </div>
             <hr>
-            <div style="position: -webkit-sticky;position: sticky;bottom: 1rem;align-self: flex-end;background-color: white">
+            <div style="height: 50px;position: -webkit-sticky;position: sticky;align-self: flex-end;background-color: white">
             <h3 class="title text-center">Post your comment</h3>
             <div class="media media-post">
               <a class="author float-left" href="#pablo">
