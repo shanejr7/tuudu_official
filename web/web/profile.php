@@ -1250,7 +1250,7 @@ pg_close($db);
                   <span class="badge badge-primary badge-pill">Castle</span>
     </div>
       
-      <div class="section section-blog-info">
+      <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <hr>
