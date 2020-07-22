@@ -1243,31 +1243,16 @@ pg_close($db);
         </button>
       </div>
     <h3 class="title text-center">Comments <span class="badge badge-default">3</span></h3>
-      
-      <div class="section section-blog-info">
-        <div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="blog-tags">
+    <div class="blog-tags">
                   Tags:
                   <span class="badge badge-primary badge-pill">Photography</span>
                   <span class="badge badge-primary badge-pill">Stories</span>
                   <span class="badge badge-primary badge-pill">Castle</span>
                 </div>
-              </div>
-            <!--   <div class="col-md-5">
-                <a href="#pablo" class="btn btn-google btn-round float-right">
-                  <i class="fa fa-google"></i> 232
-                </a>
-                <a href="#pablo" class="btn btn-twitter btn-round float-right">
-                  <i class="fa fa-twitter"></i> 910
-                </a>
-                <a href="#pablo" class="btn btn-facebook btn-round float-right">
-                  <i class="fa fa-facebook-square"></i> 872
-                </a>
-              </div> -->
-            </div>
+      
+      <div class="section section-blog-info">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
             <hr>
             <div class="card card-profile card-plain">
               <div class="row">
