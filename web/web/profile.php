@@ -1470,6 +1470,8 @@ $(document).ready(function(){
 
  function fetch_user(id,publickey)
  {
+
+  console.log('hello1');
   $.ajax({
    url:"chat/fetch_user_post.php",
    method:"POST",
