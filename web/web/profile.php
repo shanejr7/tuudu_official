@@ -1276,9 +1276,7 @@ pg_close($db);
           </div>
         </div>
       </div>
-      <div class="section section-comments" style="display: flex;
-  justify-content: space-around;
-  align-items: flex-start;">
+      <div class="section section-comments" style="display: flex;justify-content: space-around;align-items: flex-start;">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto" >
             <div class="media-area">
@@ -1347,7 +1345,7 @@ pg_close($db);
               </div>
             </div>
             <hr>
-            <div style="position: -webkit-sticky;position: sticky;bottom: 1rem;align-self: flex-end;">
+            <div style="position: -webkit-sticky;position: sticky;bottom: 1rem;align-self: flex-end;background-color: white">
             <h3 class="title text-center">Post your comment</h3>
             <div class="media media-post">
               <a class="author float-left" href="#pablo">
