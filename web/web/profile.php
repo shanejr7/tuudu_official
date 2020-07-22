@@ -1234,7 +1234,7 @@ pg_close($db);
   </div>
 
  
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="margin: 0 0 0 0; padding: 0 0 0 0;">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg">
      <div class="modal-content">
          <div class="modal-header">
@@ -1242,8 +1242,8 @@ pg_close($db);
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    <h3 class="title text-center">Comments <span class="badge badge-default">3</span></h3>
-    <div class="blog-tags title text-center">
+    <h3 class="title text-center" style="margin-bottom: 0;padding-bottom: 0 ">Comments <span class="badge badge-default">3</span></h3>
+    <div class="blog-tags title text-center" style="margin-top: 0;padding-top: 0 ">
                   Tags:
                   <span class="badge badge-primary badge-pill">Photography</span>
                   <span class="badge badge-primary badge-pill">Stories</span>
@@ -1280,7 +1280,7 @@ pg_close($db);
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <div class="media-area">
-        <!--       <h3 class="title text-center">3 Comments</h3> -->
+     
               <div class="media">
                 <a class="float-left" href="#pablo">
                   <div class="avatar">
