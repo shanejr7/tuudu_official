@@ -1204,7 +1204,7 @@ pg_close($db);
 
                  
                   echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="#" class="post_chat" onclick=fetch_user("'.$item['id'].'") data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+                         <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
 
@@ -1456,6 +1456,29 @@ $(document).on('click', '.post_chat', function () {
 
 
 console.log('hello');
+
+var key=$(this).data("key");
+var id=$(this).data("id");
+
+fetch_user(id,key);
+
+
+ function fetch_user(id,publickey)
+ {
+
+  console.log('hello1');
+  $.ajax({
+   url:"chat/fetch_user_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#user_post').html(data);
+   }
+  })
+ }
 
 });
 

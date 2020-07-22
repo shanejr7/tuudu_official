@@ -2,10 +2,10 @@
 
 // USER POST CHAT DATA
 
-	if (isset($_POST['userID']) && isset($_POST['publickey'])) {
+	if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
 		$publickey = pg_escape_string($db, $_POST['publickey']);
-		$user_id = pg_escape_string($db, $_POST['userID']);
+		$user_id = pg_escape_string($db, $_POST['id']);
 		
 			$db="";
 
