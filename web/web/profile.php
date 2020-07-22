@@ -1204,7 +1204,7 @@ pg_close($db);
 
                  
                   echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+                         <a href="#" onclick=fetch_user("'.$item['id'].'") data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
 
@@ -1264,7 +1264,7 @@ pg_close($db);
                     <div class="ripple-container"></div>
                   </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-8" id="user_post">
                   <h4 class="card-title">Alec Thompson</h4>
                   <p class="description">I've been trying to figure out the bed design for the master bedroom at our Hidden Hills compound...I like good music from Youtube.</p>
                 </div>
@@ -1347,12 +1347,19 @@ pg_close($db);
             <hr>
             <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
             <!-- <h3 class="title text-center">Post your comment</h3> -->
+
+            <form method="POST">
             <div class="media media-post">
               <a class="author float-left" href="#pablo">
                 <div class="avatar">
                   <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile6-square.jpg">
                 </div>
               </a>
+              <input type="hidden" name="username" required>
+              <input type="hidden" name="timestamp" required>
+              <input type="hidden" name="publickey" required>
+              <input type="hidden" name="userid" required>
+              <input type="hidden" name="replyid" value="0" required>
               <div class="media-body">
                 <div class="form-group label-floating bmd-form-group">
                   <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to mani_alshars post..</label>
@@ -1363,6 +1370,9 @@ pg_close($db);
                 </div>
               </div>
             </div> <!-- end media-post -->
+          </form>
+
+
           </div>
           </div>
         </div>
@@ -1437,6 +1447,29 @@ pg_close($db);
      document.getElementById("pAccount").onclick = function () {
         location.href = "profile.php#profileAccount";
     };
+</script>
+
+<script>  
+$(document).ready(function(){
+
+
+
+ function fetch_user(id,publickey)
+ {
+  $.ajax({
+   url:"chat/fetch_user_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        userID : id 
+                    },
+   success:function(data){
+    $('#user_post').html(data);
+   }
+  })
+ }
+ 
+});  
 </script>
 
 <script>
