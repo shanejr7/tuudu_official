@@ -1278,7 +1278,13 @@ pg_close($db);
       </div>
       <div class="section section-comments">
         <div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
+          <div class="col-md-8 ml-auto mr-auto" style="display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  border: 2px dashed rgba(114, 186, 94, 0.35);
+  height: 400px;
+  background: rgba(114, 186, 94, 0.05);">
             <div class="media-area">
      
               <div class="media">
