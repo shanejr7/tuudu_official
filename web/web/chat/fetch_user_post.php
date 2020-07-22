@@ -41,7 +41,7 @@
   				// echo "string ".$user_post['user_username'];
 
   				$data = '<div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
+          <div class="col-md-8 ml-auto mr-auto" style="float:left">
             <hr>
             <div class="card card-profile card-plain">
               <div class="row">

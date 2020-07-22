@@ -1454,9 +1454,6 @@ pg_close($db);
 $(document).on('click', '.post_chat', function () {
 
 
-
-console.log('hello');
-
 var key=$(this).data("key");
 var id=$(this).data("id");
 
@@ -1466,8 +1463,7 @@ fetch_user(id,key);
  function fetch_user(id,publickey)
  {
 
-  console.log('id ' + id);
-  console.log('publickey ' + key);
+ 
   $.ajax({
    url:"chat/fetch_user_post.php",
    method:"POST",
