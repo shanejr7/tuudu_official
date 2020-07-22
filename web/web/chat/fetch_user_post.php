@@ -4,8 +4,7 @@
 
 	if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
-		echo $_POST['id'];
-		echo $_POST['publickey'];
+		
 		$user_id = 0;
 		$publickey = "";
 		$user_post = "";

@@ -1265,8 +1265,8 @@ pg_close($db);
                   </div>
                 </div>
                 <div class="col-md-8" id="user_post">
-                  <!-- <h4 class="card-title">Alec Thompson</h4>
-                  <p class="description">I've been trying to figure out the bed design for the master bedroom at our Hidden Hills compound...I like good music from Youtube.</p> -->
+                  <h4 class="card-title">Alec Thompson</h4>
+                  <p class="description">I've been trying to figure out the bed design for the master bedroom at our Hidden Hills compound...I like good music from Youtube.</p>
                 </div>
                 <div class="col-md-2">
                   <button type="button" class="btn btn-default pull-right btn-round">Follow</button>
