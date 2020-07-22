@@ -83,7 +83,19 @@ $bucket_name = 'tuudu-official-file-storage';
 
  <!--  <script src="../assets/js/custom_js.js"></script> -->
   
- 
+ <style type="text/css">
+   .wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer,
+.push {
+  height: 50px;
+}
+ </style>
  
 </head>
  
@@ -1234,7 +1246,7 @@ pg_close($db);
   </div>
 
  
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+<div class="modal fade bd-example-modal-lg wrapper" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg">
      <div class="modal-content">
          <div class="modal-header">
@@ -1345,6 +1357,7 @@ pg_close($db);
               </div>
             </div>
             <hr>
+            <div class="footer">
             <h3 class="title text-center">Post your comment</h3>
             <div class="media media-post">
               <a class="author float-left" href="#pablo">
@@ -1362,6 +1375,7 @@ pg_close($db);
                 </div>
               </div>
             </div> <!-- end media-post -->
+          </div>
           </div>
         </div>
       </div>
