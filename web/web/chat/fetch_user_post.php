@@ -11,13 +11,6 @@
 		$user_post = "";
 		$result ="";
 
-		$publickey = pg_escape_string($db, $_POST['publickey']);
-		$publickey = trim($publickey);
-		$user_id = pg_escape_string($db, $_POST['id']);
-
-		echo 'user_id '.$user_id;
-		echo "publickey ". $publickey;
-		
 			$db="";
 
 
@@ -29,6 +22,16 @@
  	
  				 header('location:oops.php');
 			}
+			
+
+		$publickey = pg_escape_string($db, $_POST['publickey']);
+		$publickey = trim($publickey);
+		$user_id = pg_escape_string($db, $_POST['id']);
+
+		echo 'user_id '.$user_id;
+		echo "publickey ". $publickey;
+		
+		 
 
 
 
