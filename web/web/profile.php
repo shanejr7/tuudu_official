@@ -1250,8 +1250,8 @@ pg_close($db);
                   <span class="badge badge-primary badge-pill">Castle</span>
     </div>
       
-      <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;">
-        <div class="row">
+      <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;" id="user_post">
+        <!-- <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <hr>
             <div class="card card-profile card-plain">
@@ -1264,7 +1264,7 @@ pg_close($db);
                     <div class="ripple-container"></div>
                   </div>
                 </div>
-                <div class="col-md-8" id="user_post">
+                <div class="col-md-8">
                   <h4 class="card-title">Alec Thompson</h4>
                   <p class="description">I've been trying to figure out the bed design for the master bedroom at our Hidden Hills compound...I like good music from Youtube.</p>
                 </div>
@@ -1274,7 +1274,7 @@ pg_close($db);
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="section section-comments" style="display: flex;justify-content: space-around;align-items: flex-start;">
         <div class="row">
