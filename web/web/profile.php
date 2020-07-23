@@ -1256,21 +1256,6 @@ pg_close($db);
             <hr>
             <div class="card card-profile card-plain">
               <div class="row" id="user_post">
-              <!--   <div class="col-md-2">
-                  <div class="card-avatar">
-                    <a href="#pablo" id="user_img">
-                      <img class="img" src="../assets/img/examples/me.jpg">
-                    </a>
-                    <div class="ripple-container"></div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <h4 class="card-title" id="user_post_name"> </h4>
-                  <p class="description" id="user_description"></p>
-                </div>
-                <div class="col-md-2">
-                  <button type="button" class="btn btn-default pull-right btn-round">Follow</button>
-                </div> -->
               </div>
             </div>
           </div>
@@ -1475,30 +1460,6 @@ fetch_user(id,key);
     $('#user_post').html(data);
    }
   })
-
-  //   $.ajax({
-  //  url:"fetch_user_post.php",
-  //  method:"POST",
-  //  data : {
-  //       publickey : publickey,
-  //       id : id 
-  //                   },
-  //  success:function(data){
-  //   $('#user_post_name').html(data);
-  //  }
-  // })
-
-  //     $.ajax({
-  //  url:"fetch_user_description.php",
-  //  method:"POST",
-  //  data : {
-  //       publickey : publickey,
-  //       id : id 
-  //                   },
-  //  success:function(data){
-  //   $('#user_description').html(data);
-  //  }
-  // })
  }
 
 });
