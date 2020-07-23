@@ -4,22 +4,22 @@
 
 	if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
-// 		// require('../aws/aws-autoloader.php');
-// require('../../aws/Aws/S3/S3Client.php'); 
-// require('../../aws/Aws/S3/ObjectUploader.php'); 
+		// require('../aws/aws-autoloader.php');
+require('../../aws/Aws/S3/S3Client.php'); 
+require('../../aws/Aws/S3/ObjectUploader.php'); 
 
-// use Aws\S3\S3Client;
-// use Aws\Exception\AwsException;
-// use Aws\S3\ObjectUploader;
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+use Aws\S3\ObjectUploader;
 
-// $s3=" ";
-// $s3 = new Aws\S3\S3Client([
-//     'version'  => 'latest',
-//      'region'   => 'us-east-2',
-// ]);
+$s3=" ";
+$s3 = new Aws\S3\S3Client([
+    'version'  => 'latest',
+     'region'   => 'us-east-2',
+]);
 
-// $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
-// $bucket_name = 'tuudu-official-file-storage';
+$bucket = getenv('S3_BUCKET')?: header('location:oops.php');
+$bucket_name = 'tuudu-official-file-storage';
 
 		
 		$user_id = 0;
