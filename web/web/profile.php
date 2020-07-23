@@ -1256,21 +1256,6 @@ pg_close($db);
             <hr>
             <div class="card card-profile card-plain">
               <div class="row" id="user_post">
-                <div class="col-md-2">
-                  <div class="card-avatar">
-                    <a href="#pablo">
-                      <img class="img" src="../assets/img/examples/me.jpg">
-                    </a>
-                    <div class="ripple-container"></div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <h4 class="card-title">Alec Thompson</h4>
-                  <p class="description">I've been trying to figure out the bed design for the master bedroom at our Hidden Hills compound...I like good music from Youtube.</p>
-                </div>
-                <div class="col-md-2">
-                  <button type="button" class="btn btn-default pull-right btn-round">Follow</button>
-                </div>
               </div>
             </div>
           </div>
@@ -1449,7 +1434,7 @@ pg_close($db);
     };
 </script>
 
-<!-- <script> 
+<script> 
 
 $(document).on('click', '.post_chat', function () {
 
@@ -1480,7 +1465,7 @@ fetch_user(id,key);
 });
 
  
-</script> -->
+</script>
 
 <script>
  
