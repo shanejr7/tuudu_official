@@ -85,11 +85,11 @@ $bucket_name = 'tuudu-official-file-storage';
                   </div>
                 </div>
                 <div class="col-md-8">
-                  <h4 class="card-title">'.$user_post['user_username'].'</h4>
-                  <p class="description">'.$user_post['post_description'].'</p>
+                  <h4 class="card-title">'.trim($user_post['user_username']).'</h4>
+                  <p class="description">'.trim($user_post['post_description']).'</p>
                 </div>
                 <div class="col-md-2">
-                  <button type="button" class="btn btn-default pull-right btn-round">Follow</button>
+                  <button type="button" data-id="'.$user_post['user_id'].'"> class="post_follow_user btn btn-default pull-right btn-round">Follow</button>
                 </div>';
 
 

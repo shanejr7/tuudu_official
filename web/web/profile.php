@@ -1242,13 +1242,16 @@ pg_close($db);
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    <h3 class="title text-center" style="margin-bottom: 0;padding-bottom: 0 ">Comments <span class="badge badge-default">3</span></h3>
-    <div class="blog-tags title text-center" style="margin-top: 0;padding-top: 0 ">
+    <h3 class="title text-center" style="margin-bottom: 0;padding-bottom: 0 ">Comments
+     <!-- <span class="badge badge-default">3</span> -->
+       
+     </h3>
+    <!-- <div class="blog-tags title text-center" style="margin-top: 0;padding-top: 0 ">
                   Tags:
                   <span class="badge badge-primary badge-pill">Photography</span>
                   <span class="badge badge-primary badge-pill">Stories</span>
                   <span class="badge badge-primary badge-pill">Castle</span>
-    </div>
+    </div> -->
       
       <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;">
         <div class="row">
