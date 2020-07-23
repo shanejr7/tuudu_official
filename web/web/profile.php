@@ -1255,7 +1255,7 @@ pg_close($db);
           <div class="col-md-8 ml-auto mr-auto">
             <hr>
             <div class="card card-profile card-plain">
-              <div class="row user_post">
+              <div class="row" id="user_post">
               </div>
             </div>
           </div>
@@ -1457,7 +1457,7 @@ fetch_user(id,key);
         id : id 
                     },
    success:function(data){
-    $('user_post').html(data);
+    $('#user_post').html(data);
    }
   })
  }

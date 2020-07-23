@@ -73,7 +73,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
               $presignedUrl = (string)$request->getUri();
 
-              	echo '<img class="img" src="'.$presignedUrl.'">';
+              	echo '<img class="img" style="width: 200px;" src="'.$presignedUrl.'">';
 
               }else{
 
