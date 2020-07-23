@@ -265,8 +265,6 @@ function findReply($id,$index){
               </div>
               <hr>';
 
-   }
-
 
 
 $index++;
