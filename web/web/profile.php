@@ -1269,14 +1269,40 @@ pg_close($db);
             </div>
            
             <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
-            <!-- <h3 class="title text-center">Post your comment</h3> -->
+          <?php 
 
-            <form method="POST">
+            if (isset($_SESSION['id'])) { 
+
+
+
+
+
+                echo '<form method="POST">
             <div class="media media-post">
               <a class="author float-left" href="#pablo">
-                <div class="avatar">
-                  <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile6-square.jpg">
-                </div>
+                <div class="avatar">';
+
+                    if (isset($_SESSION['img_src'])) {
+
+                  $user_img = trim($_SESSION['img_src']);
+
+                         $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.$user_img.'',
+                          ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+                   echo '<img class="media-object" src="'.$presignedUrl.'">';
+                  
+                }else{
+                  echo '<img class="media-object" src="../assets/img/image_placeholder.jpg">';
+                }
+                   
+
+                echo'</div>
               </a>
               <input type="hidden" name="username" required>
               <input type="hidden" name="timestamp" required>
@@ -1292,8 +1318,15 @@ pg_close($db);
                   <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Post Comment</a>
                 </div>
               </div>
-            </div> <!-- end media-post -->
-          </form>
+            </div>  
+          </form>';
+            }
+ 
+
+
+          ?>
+
+             
 
 
           </div>
