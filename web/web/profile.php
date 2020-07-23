@@ -1265,9 +1265,9 @@ pg_close($db);
       <div class="section section-comments" style="display: flex;justify-content: space-around;align-items: flex-start;">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto" >
-            <div class="media-area">
+            <div class="media-area" id="users_post">
      
-              <div class="media">
+              <!-- <div class="media">
                 <a class="float-left" href="#pablo">
                   <div class="avatar">
                     <img class="media-object" src="../assets/img/faces/card-profile4-square.jpg" alt="...">
@@ -1287,8 +1287,8 @@ pg_close($db);
                   </div>
                 </div>
               </div>
-              <hr>
-              <div class="media">
+              <hr> -->
+           <!--    <div class="media">
                 <a class="float-left" href="#pablo">
                   <div class="avatar">
                     <img class="media-object" alt="Tim Picture" src="../assets/img/faces/card-profile1-square.jpg">
@@ -1306,7 +1306,7 @@ pg_close($db);
                       <i class="material-icons">favorite</i> 25
                     </a>
                   </div>
-                  <hr>
+      
                   <div class="media">
                     <a class="float-left" href="#pablo">
                       <div class="avatar">
@@ -1328,7 +1328,7 @@ pg_close($db);
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
             <hr>
             <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
@@ -1461,6 +1461,22 @@ fetch_user(id,key);
     $('#user_post').html(data);
    }
   })
+
+
+    $.ajax({
+   url:"fetch_users_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#users_post').html(data);
+   }
+  })
+
+
+
  }
 
 });
