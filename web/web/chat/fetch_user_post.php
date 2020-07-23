@@ -57,37 +57,12 @@
   
   				// echo "string ".$user_post['user_username'];
 
-  				$data = '<div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
-            <hr>
-            <div class="card card-profile card-plain">
-              <div class="row">
+  				 $data = '
                 <div class="col-md-2">
                   <div class="card-avatar">
-                    <a href="#pablo">';
-
-              //        if (isset($user_post['user.img'])) {
-                 		
-              //    		$user_img = trim($user_post['user.img']);
-
-              //            $cmd = $s3->getCommand('GetObject', [
-              //               'Bucket' => ''.$bucket_name.'',
-              //               'Key'    => ''.$user_img.'',
-              //             ]);
-
-              // $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              // $presignedUrl = (string)$request->getUri();
-
-              // 	echo '<img class="img" src="'.$presignedUrl.'">';
-
-              // else{
-
-              	echo '<img class="img" src="../../assets/img/image_placeholder.jpg">';
-              // }
-                     
-                    
-                    echo'</a>
+                    <a href="#pablo">
+                      <img class="img" src="./../assets/img/image_placeholder.jpg">
+                    </a>
                     <div class="ripple-container"></div>
                   </div>
                 </div>
@@ -97,11 +72,53 @@
                 </div>
                 <div class="col-md-2">
                   <button type="button" class="btn btn-default pull-right btn-round">Follow</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>';
+                </div>';
+
+  				// $data = '<div class="row">
+      //     <div class="col-md-8 ml-auto mr-auto">
+      //       <hr>
+      //       <div class="card card-profile card-plain">
+      //         <div class="row">
+      //           <div class="col-md-2">
+      //             <div class="card-avatar">
+      //               <a href="#pablo">';
+
+      //         //        if (isset($user_post['user.img'])) {
+                 		
+      //         //    		$user_img = trim($user_post['user.img']);
+
+      //         //            $cmd = $s3->getCommand('GetObject', [
+      //         //               'Bucket' => ''.$bucket_name.'',
+      //         //               'Key'    => ''.$user_img.'',
+      //         //             ]);
+
+      //         // $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+      //         // $presignedUrl = (string)$request->getUri();
+
+      //         // 	echo '<img class="img" src="'.$presignedUrl.'">';
+
+      //         // else{
+
+      //         	echo '<img class="img" src="../../assets/img/image_placeholder.jpg">';
+      //         // }
+                     
+                    
+      //               echo'</a>
+      //               <div class="ripple-container"></div>
+      //             </div>
+      //           </div>
+      //           <div class="col-md-8">
+      //             <h4 class="card-title">'.$user_post['user_username'].'</h4>
+      //             <p class="description">'.$user_post['post_description'].'</p>
+      //           </div>
+      //           <div class="col-md-2">
+      //             <button type="button" class="btn btn-default pull-right btn-round">Follow</button>
+      //           </div>
+      //         </div>
+      //       </div>
+      //     </div>
+      //   </div>';
 
                   echo $data;
 

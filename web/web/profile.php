@@ -1250,12 +1250,12 @@ pg_close($db);
                   <span class="badge badge-primary badge-pill">Castle</span>
     </div>
       
-      <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;" id="user_post">
-        <!-- <div class="row">
+      <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;">
+        <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <hr>
             <div class="card card-profile card-plain">
-              <div class="row">
+              <div class="row" id="user_post">
                 <div class="col-md-2">
                   <div class="card-avatar">
                     <a href="#pablo">
@@ -1274,7 +1274,7 @@ pg_close($db);
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
       <div class="section section-comments" style="display: flex;justify-content: space-around;align-items: flex-start;">
         <div class="row">
