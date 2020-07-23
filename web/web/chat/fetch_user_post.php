@@ -74,7 +74,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
               	echo '<img class="img" src="'.$presignedUrl.'">';
 
-              else{
+              }else{
 
               	echo '<img class="img" src="../../assets/img/image_placeholder.jpg">';
               }
