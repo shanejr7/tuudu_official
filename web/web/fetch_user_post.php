@@ -55,7 +55,7 @@ $bucket_name = 'tuudu-official-file-storage';
   				$user_post = pg_fetch_assoc($result);
  
 
-  				 $data = '
+  				 $data .= '
                 <div class="col-md-2">
                   <div class="card-avatar">
                     <a href="#" class="post_account" data-id="'.$user_post['user_id'].'">';
@@ -73,14 +73,14 @@ $bucket_name = 'tuudu-official-file-storage';
 
               $presignedUrl = (string)$request->getUri();
 
-              	echo '<img class="img" style="width: 200px;" src="'.$presignedUrl.'">';
+              	$data.='<img class="img" style="width: 200px;" src="'.$presignedUrl.'">';
 
               }else{
 
-              	echo '<img class="img" src="../../assets/img/image_placeholder.jpg">';
+              	$data.='<img class="img" src="../../assets/img/image_placeholder.jpg">';
               }
                     
-                    echo'</a>
+                    $data.='</a>
                     <div class="ripple-container"></div>
                   </div>
                 </div>
