@@ -2,8 +2,6 @@
 
 // USER POST CHAT DATA  
 
-	if (isset($_POST['id']) && isset($_POST['publickey'])) {
-
 		// require('../aws/aws-autoloader.php');
 require('../../aws/Aws/S3/S3Client.php'); 
 require('../../aws/Aws/S3/ObjectUploader.php'); 
@@ -11,6 +9,10 @@ require('../../aws/Aws/S3/ObjectUploader.php');
 use Aws\S3\S3Client;
 use Aws\Exception\AwsException;
 use Aws\S3\ObjectUploader;
+
+	if (isset($_POST['id']) && isset($_POST['publickey'])) {
+
+ 
 
 $s3=" ";
 $s3 = new Aws\S3\S3Client([
