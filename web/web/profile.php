@@ -2,9 +2,9 @@
 include('feed_state.php'); // retrieves organizations for users
 include('favorite.php');
    
-require('../../aws/aws-autoloader.php');
-require('../../aws/Aws/S3/S3Client.php'); 
-require('../../aws/Aws/S3/ObjectUploader.php'); 
+// require('../aws/aws-autoloader.php');
+require('../aws/Aws/S3/S3Client.php'); 
+require('../aws/Aws/S3/ObjectUploader.php'); 
 
 use Aws\S3\S3Client;
 use Aws\Exception\AwsException;
