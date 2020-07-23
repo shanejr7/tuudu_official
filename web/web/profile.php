@@ -1479,33 +1479,7 @@ fetch_user(id,key);
 
 });
 
-
-
-
-
-
-$(document).ready(function(){
-
-
-
- function fetch_user(id,publickey)
- {
-
-  console.log('hello1');
-  $.ajax({
-   url:"chat/fetch_user_post.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        userID : id 
-                    },
-   success:function(data){
-    $('#user_post').html(data);
-   }
-  })
- }
  
-});  
 </script>
 
 <script>

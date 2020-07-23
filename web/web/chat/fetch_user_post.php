@@ -43,8 +43,8 @@
 		$publickey = trim($publickey);
 		$user_id = pg_escape_string($db, $_POST['id']);
 
-		// echo 'user_id '.$user_id;
-		// echo "publickey ". $publickey;
+		echo 'user_id '.$user_id;
+		echo "publickey ". $publickey;
 		
 		 
 
@@ -55,7 +55,7 @@
   				
   				$user_post = pg_fetch_assoc($result);
   
-  				// echo "string ".$user_post['user_username'];
+  				echo "string ".$user_post['user_username'];
 
   				 $data = '
                 <div class="col-md-2">
