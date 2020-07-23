@@ -1,5 +1,5 @@
 <?php 
-
+include("server.php");
 // USER POST CHAT DATA  
 
 // require('../aws/aws-autoloader.php');
