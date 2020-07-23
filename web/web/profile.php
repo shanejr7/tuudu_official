@@ -1449,7 +1449,7 @@ pg_close($db);
     };
 </script>
 
-<script> 
+<!-- <script> 
 
 $(document).on('click', '.post_chat', function () {
 
@@ -1480,7 +1480,7 @@ fetch_user(id,key);
 });
 
  
-</script>
+</script> -->
 
 <script>
  
