@@ -1264,73 +1264,10 @@ pg_close($db);
       </div>
       <div class="section section-comments" style="display: flex;justify-content: space-around;align-items: flex-start;">
         <div class="row">
-          <div class="col-md-8 ml-auto mr-auto" >
+          <div class="col-md-12 ml-auto mr-auto" >
             <div class="media-area" id="users_post">
-     
-              <!-- <div class="media">
-                <a class="float-left" href="#pablo">
-                  <div class="avatar">
-                    <img class="media-object" src="../assets/img/faces/card-profile4-square.jpg" alt="...">
-                  </div>
-                </a>
-                <div class="media-body">
-                  <h4 class="media-heading">Tina Andrew <small>&#xB7; 7 minutes ago</small></h4>
-                  <h6 class="text-muted"></h6>
-                  <p>Chance too good. God level bars. I&apos;m so proud of @LifeOfDesiigner #1 song in the country. Panda! Don&apos;t be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
-                  <div class="media-footer">
-                    <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
-                      <i class="material-icons">reply</i> Reply
-                    </a>
-                    <a href="#pablo" class="btn btn-danger btn-link float-right">
-                      <i class="material-icons">favorite</i> 243
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <hr> -->
-           <!--    <div class="media">
-                <a class="float-left" href="#pablo">
-                  <div class="avatar">
-                    <img class="media-object" alt="Tim Picture" src="../assets/img/faces/card-profile1-square.jpg">
-                  </div>
-                </a>
-                <div class="media-body">
-                  <h4 class="media-heading">John Camber <small>&#xB7; Yesterday</small></h4>
-                  <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                  <p> Don&apos;t forget, You&apos;re Awesome!</p>
-                  <div class="media-footer">
-                    <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
-                      <i class="material-icons">reply</i> Reply
-                    </a>
-                    <a href="#pablo" class="btn btn-link float-right">
-                      <i class="material-icons">favorite</i> 25
-                    </a>
-                  </div>
-      
-                  <div class="media">
-                    <a class="float-left" href="#pablo">
-                      <div class="avatar">
-                        <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile4-square.jpg">
-                      </div>
-                    </a>
-                    <div class="media-body">
-                      <h4 class="media-heading">Tina Andrew <small>&#xB7; 12 Hours Ago</small></h4>
-                      <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                      <p> Don&apos;t forget, You&apos;re Awesome!</p>
-                      <div class="media-footer">
-                        <a href="#pablo" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
-                          <i class="material-icons">reply</i> Reply
-                        </a>
-                        <a href="#pablo" class="btn btn-link btn-secondary float-right">
-                          <i class="material-icons">favorite</i> 2
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
             </div>
-            <hr>
+           
             <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
             <!-- <h3 class="title text-center">Post your comment</h3> -->
 
