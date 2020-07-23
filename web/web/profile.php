@@ -1450,7 +1450,7 @@ fetch_user(id,key);
 
  
   $.ajax({
-   url:"chat/fetch_user_post.php",
+   url:"fetch_user_post.php",
    method:"POST",
    data : {
         publickey : publickey,
