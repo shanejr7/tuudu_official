@@ -3,16 +3,13 @@
 // USER POST CHAT DATA  
 
 		// require('../aws/aws-autoloader.php');
-require('../aws/Aws/S3/S3Client.php'); 
-require('../aws/Aws/S3/ObjectUploader.php'); 
+require('../../aws/Aws/S3/S3Client.php'); 
+require('../../aws/Aws/S3/ObjectUploader.php'); 
 
 use Aws\S3\S3Client;
 use Aws\Exception\AwsException;
 use Aws\S3\ObjectUploader;
 
-	if (isset($_POST['id']) && isset($_POST['publickey'])) {
-
- 
 
 $s3=" ";
 $s3 = new Aws\S3\S3Client([
@@ -22,6 +19,11 @@ $s3 = new Aws\S3\S3Client([
 
 $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
+
+	if (isset($_POST['id']) && isset($_POST['publickey'])) {
+
+ 
+ 
 
 		
 		$user_id = 0;
