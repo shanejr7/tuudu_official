@@ -1457,7 +1457,7 @@ fetch_user(id,key);
         id : id 
                     },
    success:function(data){
-    $('#user_post').html(data);
+    $('#user_post').innerHTML = data;
    }
   })
  }
