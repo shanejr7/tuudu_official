@@ -55,7 +55,7 @@ $bucket_name = 'tuudu-official-file-storage';
   				
   				$user_post = pg_fetch_assoc($result);
   
-  				// echo "string ".$user_post['user_username'];
+  				echo "string ".$user_post['user_username'];
 
   				$data = '<div class="row">
           <div class="col-md-8 ml-auto mr-auto">
