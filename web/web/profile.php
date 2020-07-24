@@ -1354,39 +1354,40 @@ pg_close($db);
 <script> 
 
 
-  // $(document).on('click', '. post_comment', function () {
+  $(document).on('click', '. post_comment', function () {
 
 
-// var key=$(this).data("key");
-// var id=$(this).data("id");
+var key=$(this).data("key");
+var id=$(this).data("userid");
+var username=$(this).data("username");
+var post=$('#post').val();
 
-// user_post(id,key);
+user_post(id,key,post,username);
 
 
-//  function user_post(id,publickey)
-//  {
+ function user_post(id,publickey,post,username)
+ {
 
  
-//   $.ajax({
-//    url:"user_post_comment.php",
-//    method:"POST",
-//    data : {
-//         publickey : publickey,
-//         id : id 
-//                     },
-//    success:function(data){
-//     $('#user_post').html(data);
-//    }
-//   })
+  $.ajax({
+   url:"user_post_comment.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id,
+        post : post,
+        username : username 
+                    },
+   success:function(data){
+    $('#user_post').html(data);
+   }
+  })
 
 
 
+ }
 
-
-
-//  }
-
-// });
+});
 
 $(document).on('click', '.post_chat', function () {
 

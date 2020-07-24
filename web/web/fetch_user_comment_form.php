@@ -25,6 +25,7 @@ $bucket_name = 'tuudu-official-file-storage';
  		$publickey = "";
  		$username = "";
  		$userid="";
+    $db ="";
  		$user_post_id = "";
  		$replyid = 0;
  		$publickey = filter_var($_POST['publickey'], FILTER_SANITIZE_STRING);
@@ -94,11 +95,11 @@ $bucket_name = 'tuudu-official-file-storage';
               <div class="media-body">
                 <div class="form-group label-floating bmd-form-group">
                   <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['username'].'\'s post..</label>
-                  <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
+                  <textarea class="form-control" rows="5" name="postText" id="postText"></textarea>
                 </div>
                 <div class="media-footer" id="comment_post">
                   <a href="#" class="post_comment btn btn-primary btn-round btn-wd float-right"
-                  data-userid="'.$userid.'" data-username="'.$username.'" data-publickey="'.$publickey.'" data-replyid="'.$replyid.'">Post Comment</a>
+                  data-userid="'.$userid.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'">Post Comment</a>
                 </div>
               </div>
             </div>';
