@@ -1,23 +1,7 @@
 <?php 
 include("server.php");
-// USER POST CHAT DATA  
 
-// require('../aws/aws-autoloader.php');
-require('../aws/Aws/S3/S3Client.php'); 
-require('../aws/Aws/S3/ObjectUploader.php'); 
 
-use Aws\S3\S3Client;
-use Aws\Exception\AwsException;
-use Aws\S3\ObjectUploader;
-
-$s3=" ";
-$s3 = new Aws\S3\S3Client([
-    'version'  => 'latest',
-     'region'   => 'us-east-2',
-]);
-
-$bucket = getenv('S3_BUCKET')?: header('location:oops.php');
-$bucket_name = 'tuudu-official-file-storage';
 
 	if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
@@ -29,25 +13,19 @@ $bucket_name = 'tuudu-official-file-storage';
 		$publickey = "";
 		$username = "";
 
-			$db="";
-
-
-			try{
- 	
- 			$db = pg_connect(getenv("DATABASE_URL"));
-	
-			}catch(Execption $e){
- 	
- 				 header('location:oops.php');
-			}
-
-		$publickey = pg_escape_string($db, $_POST['publickey']);
+			
+		 
+		$publickey= filter_var($_POST['publickey'] FILTER_SANITIZE_STRING);
 		$publickey = trim($publickey);
-		$user_id = $_SESSION['id'];
-		$username = $_SESSION['username'];
+		
+		if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
+				$user_id = $_SESSION['id'];
+				$username = $_SESSION['username'];
+		}
+	 
 
 
-          // echo "string id". $user_post['user_id'];
+      echo "string in";
  
 				$data.='<a href="#" class="post_comment btn btn-primary btn-round btn-wd float-right"
                   data-userid="'.$user_id.'" data-username="'.$username.'" data-publickey="'.$publickey.'" data-replyid="">Post Comment</a>'
