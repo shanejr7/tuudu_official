@@ -93,7 +93,7 @@ $bucket_name = 'tuudu-official-file-storage';
               </a>
               <div class="media-body">
                 <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['username'].' post..</label>
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['username'].'\'s post..</label>
                   <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
                 </div>
                 <div class="media-footer" id="comment_post">
