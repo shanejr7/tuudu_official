@@ -1433,17 +1433,17 @@ fetch_user(id,key);
    }
   })
 
-  $.ajax({
-   url:"fetch_user_comment_form.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#comment_form').html(data);
-   }
-  })
+  // $.ajax({
+  //  url:"fetch_user_comment_form.php",
+  //  method:"POST",
+  //  data : {
+  //       publickey : publickey,
+  //       id : id 
+  //                   },
+  //  success:function(data){
+  //   $('#comment_form').html(data);
+  //  }
+  // })
 
 
  }
