@@ -1419,7 +1419,7 @@ fetch_user(id,key);
 var key=$(this).data("key");
 var id=$(this).data("userid");
 var username=$(this).data("username");
-var post="";
+var post=$('$postText').val();
 
 user_post(id,key,post,username);
 
