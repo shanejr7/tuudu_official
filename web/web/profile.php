@@ -1309,9 +1309,8 @@ pg_close($db);
                   <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to mani_alshars post..</label>
                   <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
                 </div>
-                <div class="media-footer">
-                  <a href="#" class="post_comment btn btn-primary btn-round btn-wd float-right"
-                  data-userid="" data-username="" data-publickey="" data-replyid="">Post Comment</a>
+                <div class="media-footer" id="comment_post">
+                  
                 </div>
               </div>
             </div>  
@@ -1476,7 +1475,17 @@ fetch_user(id,key);
    }
   })
 
-
+    $.ajax({
+   url:"fetch_user_comment_form.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#comment_post').html(data);
+   }
+  })
 
  }
 
