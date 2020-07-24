@@ -37,9 +37,10 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
  		$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
  		$username = trim($username);
 
- 		$result = pg_query($db, "INSERT INTO public.messagestate(
-	user_id, message, publickey, reply_to_id, "timestamp", favorite, username)
+ 		pg_query($db, "INSERT INTO public.messagestate(
+	user_id, message, publickey, reply_to_id, timestamp_message, favorite, username)
 	VALUES ($user_id, '$post', '$publickey', $replyid, now(), 0, '$username')");
+
 
 
  		echo $data;

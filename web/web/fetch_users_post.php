@@ -58,7 +58,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) { 
       
-                      $comment_post_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp"],"favortite" => $row["favortite"],"user_post_id" => $row["id"],"email" => $row["email"],"img" => $row["profile_pic_src"]);
+                      $comment_post_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favortite" => $row["favortite"],"user_post_id" => $row["id"],"email" => $row["email"],"img" => $row["profile_pic_src"]);
                        
                     }
                   
