@@ -49,7 +49,7 @@ $bucket_name = 'tuudu-official-file-storage';
 		$user_id = pg_escape_string($db, $_POST['id']);
 
 
-echo "string2 ".$user_id;
+// echo "string2 ".$user_id;
 
 				$result = pg_query($db, "SELECT * FROM messagestate NATURAL JOIN users");
 
