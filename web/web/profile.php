@@ -1365,6 +1365,7 @@ var id=$(this).data("userid");
 var username=$(this).data("username");
 var post="made up";
 
+console.log(key +" "+ id + " " + username + " " + post);
 user_post(id,key,post,username);
 
 
