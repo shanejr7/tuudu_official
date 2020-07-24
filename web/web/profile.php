@@ -1409,9 +1409,14 @@ fetch_user(id,key);
 
 });
 
+</script>
 
+<script type="text/javascript">
 
 consoele.log("outside");
+
+
+$(document).ready(function() {
 
    $(document).on('click', '.post_comment', function () {
 
@@ -1449,6 +1454,8 @@ console.log("inside function");
  }
 
 });
+
+   });
  
 </script>
 
