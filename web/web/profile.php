@@ -1269,59 +1269,11 @@ pg_close($db);
             </div>
            
             <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
-          <?php 
 
-            if (isset($_SESSION['id'])) { 
-
+                <form method="POST" id="comment_post">
 
 
-
-
-                echo '<form method="POST">
-            <div class="media media-post">
-              <a class="author float-left" href="#pablo">
-                <div class="avatar">';
-
-                    if (isset($_SESSION['img_src'])) {
-
-                  $user_img = trim($_SESSION['img_src']);
-
-                         $cmd = $s3->getCommand('GetObject', [
-                            'Bucket' => ''.$bucket_name.'',
-                            'Key'    => ''.$user_img.'',
-                          ]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-                   echo '<img class="media-object" src="'.$presignedUrl.'">';
-                  
-                }else{
-                  echo '<img class="media-object" src="../assets/img/image_placeholder.jpg">';
-                }
-                   
-
-                echo'</div>
-              </a>
-              <div class="media-body">
-                <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to mani_alshars post..</label>
-                  <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
-                </div>
-                <div class="media-footer" id="comment_post">
-                  
-                </div>
-              </div>
-            </div>  
-          </form>';
-            }
- 
-
-
-          ?>
-
-             
+                </form>
 
           </div>
           </div>
