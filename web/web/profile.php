@@ -1269,9 +1269,62 @@ pg_close($db);
             </div>
            
             <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
-              <div id="comment_form">
-                
+          <?php 
+
+            if (isset($_SESSION['id'])) { 
+
+
+
+
+
+                echo '<form method="POST" id="comment_form">
+            <div class="media media-post">
+              <a class="author float-left" href="#pablo">
+                <div class="avatar">';
+
+                    if (isset($_SESSION['img_src'])) {
+
+                  $user_img = trim($_SESSION['img_src']);
+
+                         $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.$user_img.'',
+                          ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+                   echo '<img class="media-object" src="'.$presignedUrl.'">';
+                  
+                }else{
+                  echo '<img class="media-object" src="../assets/img/image_placeholder.jpg">';
+                }
+                   
+
+                echo'</div>
+              </a>
+              <div class="media-body">
+                <div class="form-group label-floating bmd-form-group">
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to mani_alshars post..</label>
+                  <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
+                </div>
+                <div class="media-footer">
+                  <a href="#" class="post_comment btn btn-primary btn-round btn-wd float-right"
+                  data-userid="'..'" data-username="'..'" data-publickey="'..'" data-replyid="'..'">Post Comment</a>
+                </div>
               </div>
+            </div>  
+          </form>';
+            }
+ 
+
+
+          ?>
+
+             
+
+
           </div>
           </div>
         </div>
@@ -1434,7 +1487,7 @@ fetch_user(id,key);
   })
 
   // $.ajax({
-  //  url:"fetch_user_comment_form.php",
+  //  url:"fetch_users_comment_form.php",
   //  method:"POST",
   //  data : {
   //       publickey : publickey,
