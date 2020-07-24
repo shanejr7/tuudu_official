@@ -1268,7 +1268,10 @@ pg_close($db);
             <div class="media-area" id="users_post">
             </div>
            
-            <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white" id="comment_form">
+            <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
+              <div id="comment_form">
+                
+              </div>
           </div>
           </div>
         </div>

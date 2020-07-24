@@ -29,7 +29,6 @@ $bucket_name = 'tuudu-official-file-storage';
     $reply_to_id =0;
     $username =""
 		$publickey = "";
-		$result ="";
     $db="";
     $data="";
 
@@ -52,7 +51,6 @@ $bucket_name = 'tuudu-official-file-storage';
 
 		$publickey = pg_escape_string($db, $_POST['publickey']);
 		$publickey = trim($publickey);
-		$user_id = pg_escape_string($db, $_POST['id']);
 
 
 
