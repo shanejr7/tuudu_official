@@ -22,13 +22,45 @@ $bucket_name = 'tuudu-official-file-storage';
 	if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
  		$data = "";
+ 		$publickey = "";
+ 		$username = "";
+ 		$userid="";
+ 		$user_post_id = "";
+ 		$replyid = 0;
+ 		$publickey = filter_var($_POST['publickey'], FILTER_SANITIZE_STRING);
+ 		$publickey = trim($publickey);
 
 
+
+
+ 			try{
+ 	
+ 			$db = pg_connect(getenv("DATABASE_URL"));
+	
+			}catch(Execption $e){
+ 	
+ 				 header('location:oops.php');
+			}
+
+				$user_post_id = pg_escape_string($db, $_POST['id']);
+
+
+				$result = pg_query($db, "SELECT username FROM users WHERE user_id = $user_post_id");
+
+  				
+  				$user_post = pg_fetch_assoc($result);
+
+
+
+ 		if (isset($_SESSION['username'])) {
+ 			$username = $_SESSION['username'];
+ 		}
+ 		
 
 
  		      if (isset($_SESSION['id'])) { 
 
-
+ 		      	$userid = $_SESSION['id'];
 
 
 
@@ -61,12 +93,12 @@ $bucket_name = 'tuudu-official-file-storage';
               </a>
               <div class="media-body">
                 <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to mani_alshars post..</label>
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['username'].' post..</label>
                   <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
                 </div>
                 <div class="media-footer" id="comment_post">
                   <a href="#" class="post_comment btn btn-primary btn-round btn-wd float-right"
-                  data-userid="" data-username="" data-publickey="" data-replyid="">Post Comment</a>
+                  data-userid="'.$userid.'" data-username="'.$username.'" data-publickey="'.$publickey.'" data-replyid="'.$replyid.'">Post Comment</a>
                 </div>
               </div>
             </div>';
@@ -77,6 +109,9 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
             	echo $data;
+
+
+            			pg_close($db);
 
 
 	}
