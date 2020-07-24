@@ -1431,7 +1431,7 @@ fetch_user(id,key);
   })
 
   $.ajax({
-   url:"fetch_users_comment_form.php",
+   url:"fetch_user_comment_form.php",
    method:"POST",
    data : {
         publickey : publickey,
