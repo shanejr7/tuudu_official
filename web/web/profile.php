@@ -1311,7 +1311,7 @@ pg_close($db);
                 </div>
                 <div class="media-footer">
                   <a href="#" class="post_comment btn btn-primary btn-round btn-wd float-right"
-                  data-userid="'..'" data-username="'..'" data-publickey="'..'" data-replyid="'..'">Post Comment</a>
+                  data-userid="" data-username="'" data-publickey="" data-replyid="">Post Comment</a>
                 </div>
               </div>
             </div>  
@@ -1429,7 +1429,7 @@ user_post(id,key);
    }
   })
 
-  
+
 
 
 
