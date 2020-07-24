@@ -1404,39 +1404,39 @@ pg_close($db);
 <script> 
 
 
-  $(document).on('click', '. post_comment', function () {
+  // $(document).on('click', '. post_comment', function () {
 
 
-var key=$(this).data("key");
-var id=$(this).data("id");
+// var key=$(this).data("key");
+// var id=$(this).data("id");
 
-user_post(id,key);
+// user_post(id,key);
 
 
- function user_post(id,publickey)
- {
+//  function user_post(id,publickey)
+//  {
 
  
-  $.ajax({
-   url:"user_post_comment.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#user_post').html(data);
-   }
-  })
+//   $.ajax({
+//    url:"user_post_comment.php",
+//    method:"POST",
+//    data : {
+//         publickey : publickey,
+//         id : id 
+//                     },
+//    success:function(data){
+//     $('#user_post').html(data);
+//    }
+//   })
 
 
 
 
 
 
- }
+//  }
 
-});
+// });
 
 $(document).on('click', '.post_chat', function () {
 
