@@ -14,7 +14,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
    	    $db ="";
  		$replyid = 0;
  		$username = "";
- 	
+
 
  		echo "id ".$_POST['id'];
  		echo "publickey ".$_POST['publickey'];
@@ -40,7 +40,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
  		pg_query($db, "INSERT INTO public.messagestate(
 	user_id, message, publickey, reply_to_id, timestamp_message, favorite, username)
-	VALUES ($user_id, '$post', '$publickey', $replyid, now(), 0, '$username')");
+	VALUES ($user_id, '$post', '$publickey', $replyid, '2020-07-23 15:51:35.021755+00', 0, '$username')");
 
 
 
