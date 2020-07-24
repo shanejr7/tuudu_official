@@ -45,7 +45,7 @@ $bucket_name = 'tuudu-official-file-storage';
 				$user_post_id = pg_escape_string($db, $_POST['id']);
 
 
-				$result = pg_query($db, "SELECT username FROM users WHERE user_id = $user_post_id");
+				$result = pg_query($db, "SELECT username FROM users WHERE id = $user_post_id");
 
   				
   				$user_post = pg_fetch_assoc($result);
