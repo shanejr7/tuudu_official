@@ -1268,67 +1268,7 @@ pg_close($db);
             <div class="media-area" id="users_post">
             </div>
            
-            <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
-          <?php 
-
-            if (isset($_SESSION['id'])) { 
-
-
-
-
-
-                echo '<form method="POST">
-            <div class="media media-post">
-              <a class="author float-left" href="#pablo">
-                <div class="avatar">';
-
-                    if (isset($_SESSION['img_src'])) {
-
-                  $user_img = trim($_SESSION['img_src']);
-
-                         $cmd = $s3->getCommand('GetObject', [
-                            'Bucket' => ''.$bucket_name.'',
-                            'Key'    => ''.$user_img.'',
-                          ]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-                   echo '<img class="media-object" src="'.$presignedUrl.'">';
-                  
-                }else{
-                  echo '<img class="media-object" src="../assets/img/image_placeholder.jpg">';
-                }
-                   
-
-                echo'</div>
-              </a>
-              <input type="hidden" name="username" required>
-              <input type="hidden" name="timestamp" required>
-              <input type="hidden" name="publickey" required>
-              <input type="hidden" name="userid" required>
-              <input type="hidden" name="replyid" value="0" required>
-              <div class="media-body">
-                <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to mani_alshars post..</label>
-                  <textarea class="form-control" rows="5" id="exampleBlogPost"></textarea>
-                </div>
-                <div class="media-footer">
-                  <a href="#pablo" class="btn btn-primary btn-round btn-wd float-right">Post Comment</a>
-                </div>
-              </div>
-            </div>  
-          </form>';
-            }
- 
-
-
-          ?>
-
-             
-
-
+            <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white" id="comment_form">
           </div>
           </div>
         </div>
@@ -1407,6 +1347,51 @@ pg_close($db);
 
 <script> 
 
+
+  $(document).on('click', '. post_comment', function () {
+
+
+var key=$(this).data("key");
+var id=$(this).data("id");
+
+user_post(id,key);
+
+
+ function user_post(id,publickey)
+ {
+
+ 
+  $.ajax({
+   url:"user_post_comment.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#user_post').html(data);
+   }
+  })
+
+    $.ajax({
+   url:"user_post_comment.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#user_post').html(data);
+   }
+  })
+
+
+
+
+ }
+
+});
+
 $(document).on('click', '.post_chat', function () {
 
 
@@ -1445,6 +1430,17 @@ fetch_user(id,key);
    }
   })
 
+  $.ajax({
+   url:"fetch_users_comment_form.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#comment_form').html(data);
+   }
+  })
 
 
  }

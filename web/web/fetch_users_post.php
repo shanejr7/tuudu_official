@@ -247,6 +247,7 @@ function findReply($id,$index){
                     <a href="#" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
                       <i class="material-icons">reply</i> Reply
                     </a>';
+
                        if ($item['favorite']>0) {
                       $data.='  <a href="#" class="btn btn-danger btn-link float-right">
                       <i class="material-icons">favorite</i>'.$item['favorite'].'
@@ -256,6 +257,8 @@ function findReply($id,$index){
                       <i class="material-icons">favorite</i>
                     </a>';
                     }
+
+                    
                       $data.='</div>
                     </div>
                   </div>';
