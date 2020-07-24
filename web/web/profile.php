@@ -1277,7 +1277,7 @@ pg_close($db);
 
 
 
-                echo '<form method="POST" id="comment_form">
+                echo '<form method="POST">
             <div class="media media-post">
               <a class="author float-left" href="#pablo">
                 <div class="avatar">';
@@ -1429,17 +1429,7 @@ user_post(id,key);
    }
   })
 
-    $.ajax({
-   url:"user_post_comment.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#user_post').html(data);
-   }
-  })
+  
 
 
 
@@ -1486,17 +1476,6 @@ fetch_user(id,key);
    }
   })
 
-  // $.ajax({
-  //  url:"fetch_users_comment_form.php",
-  //  method:"POST",
-  //  data : {
-  //       publickey : publickey,
-  //       id : id 
-  //                   },
-  //  success:function(data){
-  //   $('#comment_form').html(data);
-  //  }
-  // })
 
 
  }
