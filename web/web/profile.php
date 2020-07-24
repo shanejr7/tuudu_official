@@ -1411,10 +1411,11 @@ fetch_user(id,key);
 
 
 
-
+consoele.log("outside");
 
    $(document).on('click', '.post_comment', function () {
 
+console.log("inside");
 
 var key=$(this).data("key");
 var id=$(this).data("userid");
@@ -1426,7 +1427,7 @@ user_post(id,key,post,username);
 
  function user_post(id,publickey,post,username)
  {
-
+console.log("inside function");
  
   $.ajax({
    url:"user_post_comment.php",
@@ -1439,6 +1440,7 @@ user_post(id,key,post,username);
                     },
    success:function(data){
     $('#postText"').html(data);
+    console.log("function work");
    }
   })
 

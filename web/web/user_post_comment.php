@@ -14,6 +14,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
    	    $db ="";
  		$replyid = 0;
  		$username = "";
+ 		date_default_timezone_set('America/Detroit');
 
  		echo "id ".$_POST['id'];
  		echo "publickey ".$_POST['publickey'];
