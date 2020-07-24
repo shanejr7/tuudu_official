@@ -1413,7 +1413,7 @@ fetch_user(id,key);
 
 
 
-   $(document).on('click', '. post_comment', function () {
+   $(document).on('click', '.post_comment', function () {
 
 
 var key=$(this).data("key");
