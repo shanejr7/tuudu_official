@@ -1270,10 +1270,10 @@ pg_close($db);
            
             <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
 
-                <form method="POST" id="comment_post">
+                <div id="comment_post">
 
 
-                </form>
+                </div>
 
           </div>
           </div>
@@ -1363,7 +1363,7 @@ console.log("inside");
 var key=$(this).data("key");
 var id=$(this).data("userid");
 var username=$(this).data("username");
-var post=$('#postText').val();
+var post="made up";
 
 user_post(id,key,post,username);
 
