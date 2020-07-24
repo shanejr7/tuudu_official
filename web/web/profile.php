@@ -1438,7 +1438,7 @@ user_post(id,key,post,username);
         username : username 
                     },
    success:function(data){
-    // $('#user_post').html(data);
+    $('#postText"').html(data);
    }
   })
 

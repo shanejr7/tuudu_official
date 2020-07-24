@@ -9,6 +9,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
 		$post = "";
  		$publickey = "";
+ 		$data =" ";
  		$userid="";
    	    $db ="";
  		$replyid = 0;
@@ -41,7 +42,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 	VALUES ($user_id, '$post', '$publickey', $replyid, now(), 0, '$username')");
 
 
-
+ 		echo $data;
 }
 
 
