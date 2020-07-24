@@ -1354,6 +1354,44 @@ pg_close($db);
 <script> 
 
 
+$(document).ready(function() {
+
+     $(document).on('click', '.post_comment', function () {
+
+console.log("inside");
+
+var key=$(this).data("key");
+var id=$(this).data("userid");
+var username=$(this).data("username");
+var post=$('#postText').val();
+
+user_post(id,key,post,username);
+
+
+ function user_post(id,publickey,post,username)
+ {
+console.log("inside function");
+ 
+  $.ajax({
+   url:"user_post_comment.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id,
+        post : post,
+        username : username 
+                    },
+   success:function(data){
+    $('#postText"').html(data);
+    console.log("function work");
+   }
+  })
+
+
+
+ }
+
+});
 
 $(document).on('click', '.post_chat', function () {
 
@@ -1409,55 +1447,12 @@ fetch_user(id,key);
 
 });
 
-</script>
-
-<script type="text/javascript">
-
-consoele.log("outside");
-
-
-$(document).ready(function() {
-
-   $(document).on('click', '.post_comment', function () {
-
-console.log("inside");
-
-var key=$(this).data("key");
-var id=$(this).data("userid");
-var username=$(this).data("username");
-var post=$('#postText').val();
-
-user_post(id,key,post,username);
-
-
- function user_post(id,publickey,post,username)
- {
-console.log("inside function");
- 
-  $.ajax({
-   url:"user_post_comment.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id,
-        post : post,
-        username : username 
-                    },
-   success:function(data){
-    $('#postText"').html(data);
-    console.log("function work");
-   }
-  })
-
-
-
- }
-
-});
 
    });
  
 </script>
+
+
 
 <script>
  

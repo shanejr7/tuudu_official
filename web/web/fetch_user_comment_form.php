@@ -98,8 +98,8 @@ $bucket_name = 'tuudu-official-file-storage';
                   <textarea class="form-control" rows="5" value="" id="postText"></textarea>
                 </div>
                 <div class="media-footer">
-                  <a href="#" class="post_comment btn btn-primary btn-round btn-wd float-right"
-                  data-userid="'.$userid.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'">Post Comment</a>
+                  <button type="button" href="#" name="post_comment" class="post_comment btn btn-primary btn-round btn-wd float-right"
+                  data-userid="'.$userid.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'">Post Comment</button>
                 </div>
               </div>
             </div>';
