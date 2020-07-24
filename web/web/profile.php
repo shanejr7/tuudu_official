@@ -1360,7 +1360,7 @@ pg_close($db);
 var key=$(this).data("key");
 var id=$(this).data("userid");
 var username=$(this).data("username");
-var post=$('#post').val();
+var post=$('#postText').val();
 
 user_post(id,key,post,username);
 
@@ -1379,7 +1379,7 @@ user_post(id,key,post,username);
         username : username 
                     },
    success:function(data){
-    $('#user_post').html(data);
+    // $('#user_post').html(data);
    }
   })
 
