@@ -95,7 +95,9 @@ $bucket_name = 'tuudu-official-file-storage';
               <div class="media-body">
                 <div class="form-group label-floating bmd-form-group">
                   <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['username'].'\'s post..</label>
+                  <div id="cleanPost">
                   <textarea class="form-control" rows="5" value="" id="postText"></textarea>
+                  </div>
                 </div>
                 <div class="media-footer">
                   <button type="button" href="#" name="post_comment" class="post_comment btn btn-primary btn-round btn-wd float-right"

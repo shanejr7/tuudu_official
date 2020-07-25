@@ -1363,7 +1363,7 @@ console.log("inside");
 var key=$(this).data("key");
 var id=$(this).data("userid");
 var username=$(this).data("username");
-var post="made up";
+var post=$("#postText");
 
 console.log(key +" "+ id + " " + username + " " + post);
 user_post(id,key,post,username);
@@ -1383,7 +1383,7 @@ console.log("inside function");
         username : username 
                     },
    success:function(data){
-    $('#postText"').html(data);
+    $('#cleanPost"').html(data);
     console.log("function work");
    }
   })
