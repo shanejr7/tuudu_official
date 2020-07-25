@@ -16,12 +16,6 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
  		$username = "";
 
 
- 		echo "id ".$_POST['id'];
- 		echo "publickey ".$_POST['publickey'];
- 		echo "post ".$_POST['post'];
- 		echo "username ".$_POST['username'];
-
-
 
  		try{
  	

@@ -1389,6 +1389,19 @@ console.log("inside function");
   })
 
 
+    $.ajax({
+   url:"fetch_users_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#users_post').html(data);
+   }
+  })
+
+
 
  }
 
