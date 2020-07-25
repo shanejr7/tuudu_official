@@ -33,11 +33,17 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
  		$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
  		$username = trim($username);
 
- 		if (!isset($post) === true && !$post === '') {
- 			 	pg_query($db, "INSERT INTO public.messagestate(
+ 		if ($post=== "" || $post=== " ") {
+
+ 		}else{
+
+ 				 	pg_query($db, "INSERT INTO public.messagestate(
 	user_id, message, publickey, reply_to_id, timestamp_message, favorite, username)
 	VALUES ($userid, '$post', '$publickey', $replyid, now(), 0, '$username')");
+ 		
+
  		}
+ 		 
 
  	 
 
@@ -45,6 +51,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
 
  		echo $data;
+ 		}
 }
 
 
