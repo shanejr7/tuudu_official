@@ -1270,7 +1270,7 @@ pg_close($db);
            
             <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
 
-                <div id="comment_post">
+                <div id="comment_post" class="col-md-12 ">
 
 
                 </div>
