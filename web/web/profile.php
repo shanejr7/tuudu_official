@@ -1383,7 +1383,7 @@ console.log("inside function");
         username : username 
                     },
    success:function(data){
-    $('#cleanPost"').html(data);
+    $('#cleanPost').html(data);
     console.log("function work");
    }
   })
