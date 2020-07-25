@@ -51,7 +51,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 // echo "string2 ".$user_id;
 
-				$result = pg_query($db, "SELECT * FROM messagestate NATURAL JOIN users");
+				$result = pg_query($db, "SELECT * FROM messagestate NATURAL JOIN users WHERE publickey = '$publickey'");
 
 
            if (pg_num_rows($result) > 0) {
