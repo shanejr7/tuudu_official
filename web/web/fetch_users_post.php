@@ -240,7 +240,9 @@ function findReply($id,$index){
                  $data.='</div>
                 </a>
                 <div class="media-body">
-                  <a href="" class="edit_post" data-id="'.$item['user_id'].'" data-key="'.$item['publickey'].'" data-time="'.$item['timestamp'].'"><h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.$item['timestamp'].'</small></h4></a>
+                  <a href="#" role="button" data-toggle="popover" data-trigger="focus" title="Edit post" data-placement="bottom" data-content="<div id="cleanPost">
+                  <textarea class="form-control" rows="5" value="" id="editText">'.$item['message'].'</textarea>
+                  </div><a class="remove_post" >Remove</a>" data-id="'.$item['user_id'].'" data-key="'.$item['publickey'].'" data-time="'.$item['timestamp'].'"><h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.$item['timestamp'].'</small></h4></a>
                   <h6 class="text-muted"></h6>
                   <p>'.$item['message'].'</p>
                   <div class="media-footer">
