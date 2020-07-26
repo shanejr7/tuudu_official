@@ -1364,7 +1364,7 @@ $(document).ready(function() {
           var key=$(this).data("key");
           var id=$(this).data("id");
           var username=$(this).data("username");
-          var message=$(this).data("message");
+          var post=$(this).data("message");
           var time=$(this).data("time");
 
 console.log("in");
@@ -1383,7 +1383,7 @@ console.log("in");
                         id : id,
                         time : time,
                         username : username,
-                        message : message
+                        message : post
                     },
                         success:function(data){
                          $('#comment_post').html(data);
