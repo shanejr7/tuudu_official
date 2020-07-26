@@ -1357,6 +1357,38 @@ pg_close($db);
 $(document).ready(function() {
 
 
+$(document).on('click', '.back_post', function () {
+
+var key=$(this).data("key");
+var id=$(this).data("id");
+
+
+
+back_post(id,key);
+
+
+ function back_post(id,publickey)
+ {
+
+
+    $.ajax({
+   url:"fetch_user_comment_form.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#comment_post').html(data);
+   }
+  })
+
+ }
+
+
+    });
+
+
   $(document).on('click', '.edit_post', function () {
          
 
