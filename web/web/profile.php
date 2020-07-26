@@ -1356,6 +1356,44 @@ pg_close($db);
 
 $(document).ready(function() {
 
+
+  $(document).on('click', '.edit_post', function () {
+         
+
+
+          var key=$(this).data("key");
+          var id=$(this).data("id");
+          var username=$(this).data("username");
+          var message=$(this).data("message");
+          var time=$(this).data("time");
+
+
+          edit_post(id,key,post,username,time);
+
+           function edit_post(id,publickey,post,username,time){
+
+
+                  $.ajax({
+                        url:"fetch_user_comment_form.php",
+                        method:"POST",
+                        data : {
+                        publickey : publickey,
+                        id : id,
+                        time : time,
+                        username : username,
+                        message : message
+                    },
+                        success:function(data){
+                         $('#comment_post').html(data);
+                          }
+                   })
+
+
+           }
+        
+
+    });
+
      $(document).on('click', '.post_comment', function () {
 
 console.log("inside");

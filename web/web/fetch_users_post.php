@@ -240,7 +240,7 @@ function findReply($id,$index){
                  $data.='</div>
                 </a>
                 <div class="media-body">
-                  <a href="#" class="edit_post" data-id="'.$item['user_id'].'" data-key="'.$item['publickey'].'" data-time="'.$item['timestamp'].'"><h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.$item['timestamp'].'</small></h4></a>
+                  <a href="#" class="edit_post" data-id="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'" data-time="'.$item['timestamp'].'" data-message="'.$item['message'].'"><h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.$item['timestamp'].'</small></h4></a>
                   <h6 class="text-muted"></h6>
                   <p>'.$item['message'].'</p>
                   <div class="media-footer">

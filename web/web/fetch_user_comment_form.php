@@ -23,15 +23,17 @@ $bucket_name = 'tuudu-official-file-storage';
 
  		$data = "";
  		$publickey = "";
+    $editBool = false;
  		$username = "";
  		$userid="";
+    $tempid="";
     $db ="";
  		$user_post_id = "";
  		$replyid = 0;
  		$publickey = filter_var($_POST['publickey'], FILTER_SANITIZE_STRING);
  		$publickey = trim($publickey);
-
-
+    $message = "";
+    $time ="";
 
 
  			try{
@@ -42,6 +44,22 @@ $bucket_name = 'tuudu-official-file-storage';
  	
  				 header('location:oops.php');
 			}
+
+
+
+      if (isset($_POST['message'])) {
+
+      $tempid = $_SESSION['id'];
+      $userid = pg_escape_string($db, $_POST['id']);
+      $message = pg_escape_string($db, $_POST['message']);
+      $time = pg_escape_string($db, $_POST['time']);
+      $username = pg_escape_string($db, $_POST['username']);
+
+      if ($tempid === $userid) {
+         $editBool = true;
+      }
+      
+    }
 
 				$user_post_id = pg_escape_string($db, $_POST['id']);
 
@@ -59,7 +77,7 @@ $bucket_name = 'tuudu-official-file-storage';
  		
 
 
- 		      if (isset($_SESSION['id'])) { 
+ 		      if (isset($_SESSION['id']) && $editBool == false) { 
 
  		      	$userid = $_SESSION['id'];
 
@@ -105,6 +123,57 @@ $bucket_name = 'tuudu-official-file-storage';
                 </div>
               </div>
             </div>';
+            }else if(isset($_SESSION) && $editBool == true){
+
+
+                $userid = $_SESSION['id'];
+
+
+
+                $data.=' 
+            <div class="media media-post">
+              <a class="author float-left" href="#pablo">
+                <div class="avatar">';
+
+                    if (isset($_SESSION['img_src'])) {
+
+                  $user_img = trim($_SESSION['img_src']);
+
+                         $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.$user_img.'',
+                          ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+                   $data.='<img class="media-object" src="'.$presignedUrl.'">';
+                  
+                }else{
+                  $data.='<img class="media-object" src="../assets/img/image_placeholder.jpg">';
+                }
+                   
+
+                $data.='</div>
+              </a>
+              <div class="media-body">
+                <div class="form-group label-floating bmd-form-group">
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['username'].'\'s post..</label>
+                  <div id="cleanPost">
+                  <textarea class="form-control" rows="5" placeholder="'.$message.'" value="" id="postText"></textarea>
+                  </div>
+                </div>
+                <div class="media-footer">
+                  <button type="button" href="#" name="edit_comment" class="edit_comment btn btn-primary btn-round btn-wd float-right"
+                  data-userid="'.$userid.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'" data-time="'.$time.'">Post Comment</button>
+                   <button type="button" href="#" name="remove_comment" class="remove_comment btn btn-danger btn-round btn-wd float-right"
+                  data-userid="'.$userid.'" data-key="'.$publickey.'" data-time="'.$time.'">remove</button>
+                </div>
+              </div>
+            </div>';
+
+
             }
  
 
