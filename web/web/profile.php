@@ -1500,9 +1500,7 @@ fetch_user(id,key);
 
 });
 
-$('.popover-dismiss').popover({
-  trigger: 'focus'
-})
+
    });
  
 </script>
