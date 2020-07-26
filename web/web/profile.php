@@ -1235,7 +1235,7 @@ pg_close($db);
 
  
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg post_chat">
      <div class="modal-content">
          <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -1367,12 +1367,11 @@ $(document).ready(function() {
           var post=$(this).data("message");
           var time=$(this).data("time");
 
-console.log("in");
           edit_post(id,key,post,username,time);
 
            function edit_post(id,publickey,post,username,time){
 
-            console.log("in function");
+           
 
 
                   $.ajax({
@@ -1387,7 +1386,6 @@ console.log("in");
                     },
                         success:function(data){
                          $('#comment_post').html(data);
-                         console.log("working");
                           }
                    })
 
@@ -1502,7 +1500,9 @@ fetch_user(id,key);
 
 });
 
-
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
    });
  
 </script>
