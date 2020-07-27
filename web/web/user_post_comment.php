@@ -16,7 +16,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
  		$username = "";
  		$boolEdit = false;
 
- 		if (isset($_SESSION['id']) && isset($_POST['time'])) {
+ 		if (isset($_POST['time'])) {
  			$boolEdit = true;
  		}
 
@@ -33,7 +33,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
 
 
-			if ($boolEdit) {
+			if ($boolEdit == false) {
 				
 
 
@@ -82,7 +82,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
  		if ($post=== "" || $post=== " ") {
 
- 		}else{
+ 		}else if($boolEdit == true){
 
  				 	pg_query($db, "UPDATE messagestate
 	SET user_id=$userid, message='$post', publickey='$publickey', reply_to_id=$replyid, timestamp_message=now(), favorite=0, username='$username'
