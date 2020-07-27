@@ -1624,7 +1624,7 @@ $(document).on('click', '.post_chat', function () {
 console.log("in click");
 var key=$(this).data("key");
 var id=$(this).data("id");
-
+console.log(key +" "+ id);
 fetch_user(id,key);
 
 
