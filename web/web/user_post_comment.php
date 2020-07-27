@@ -1,6 +1,6 @@
 <?php
 
-
+include("server.php");
 
 
 if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) && isset($_POST['username'])) {
