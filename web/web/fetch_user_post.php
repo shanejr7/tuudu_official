@@ -54,8 +54,7 @@ $bucket_name = 'tuudu-official-file-storage';
   				
   				$user_post = pg_fetch_assoc($result);
 
-           echo "string id". $user_post['user_id'];
-           echo " key".$publickey;
+          
  
 
   				 $data .= '
