@@ -555,7 +555,7 @@ catch (S3Exception $e) {
                           header('location:oops.php');
                       }
 
-                           $result_one = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
+                           $result_one = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE userid = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
 
 
                       
