@@ -276,7 +276,7 @@ $index++;
 
 
 
-          $data.='<script>  setInterval(function(){
+          $data.='<script> $(document).ready(function() { setInterval(function(){
                    
                    
                    var id=$(this).data("userid");
@@ -303,7 +303,9 @@ $index++;
 
    }
     
-  },5000);</script>';
+  },5000); 
+   });
+</script>';
 
                   echo $data;
 
