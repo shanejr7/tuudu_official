@@ -1367,12 +1367,11 @@ $(document).on('click', '.remove_comment', function () {
   remove_post(id,key,time);
 
 
-console.log("in click");
+
 
  function remove_post(id,publickey,time)
  {
 
-console.log("in function");
         $.ajax({
    url:"remove_user_post.php",
    method:"POST",
@@ -1382,8 +1381,7 @@ console.log("in function");
         time : time 
                     },
    success:function(data){
-    // $('#comment_post').html(data);
-    console.log("work");
+
    }
   })
 
@@ -1425,78 +1423,78 @@ console.log("in function");
 
 
 
-// $(document).on('click', '.edit_comment', function () {
+$(document).on('click', '.edit_comment', function () {
 
-//     var key=$(this).data("key");
-//     var id=$(this).data("userid");
-//     var time=$(this).data("time");
-//     var username=$(this).data("username");
-//     var replyid=$(this).data("replyid");
-//     var post=$("#postText").val();
-
-
-
-// edit_comment(id,key,time,username,replyid,post);
-
-
-//  function edit_comment(id,publickey,time,username,replyid,post)
-//  {
+    var key=$(this).data("key");
+    var id=$(this).data("userid");
+    var time=$(this).data("time");
+    var username=$(this).data("username");
+    var replyid=$(this).data("replyid");
+    var post=$("#postText").val();
 
 
 
+edit_comment(id,key,time,username,replyid,post);
 
 
-//   $.ajax({
-//    url:"user_post_comment.php",
-//    method:"POST",
-//    data : {
-//         publickey : publickey,
-//         id : id,
-//         post : post,
-//         username : username,
-//         time : time,
-//         username : username,
-//         replyid : replyid,
-//         post : post
-//                     },
-//    success:function(data){
-//     $('#cleanPost').html(data);
+ function edit_comment(id,publickey,time,username,replyid,post)
+ {
+
+
+
+
+
+  $.ajax({
+   url:"user_post_comment.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id,
+        post : post,
+        username : username,
+        time : time,
+        username : username,
+        replyid : replyid,
+        post : post
+                    },
+   success:function(data){
+    $('#cleanPost').html(data);
    
-//    }
-//   })
+   }
+  })
 
 
-//     $.ajax({
-//    url:"fetch_users_post.php",
-//    method:"POST",
-//    data : {
-//         publickey : publickey,
-//         id : id 
-//                     },
-//    success:function(data){
-//     $('#users_post').html(data);
-//    }
-//   })
+    $.ajax({
+   url:"fetch_users_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#users_post').html(data);
+   }
+  })
 
 
 
 
-//     $.ajax({
-//    url:"fetch_user_comment_form.php",
-//    method:"POST",
-//    data : {
-//         publickey : publickey,
-//         id : id 
-//                     },
-//    success:function(data){
-//     $('#comment_post').html(data);
-//    }
-//   })
+    $.ajax({
+   url:"fetch_user_comment_form.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#comment_post').html(data);
+   }
+  })
 
-//  }
+ }
 
 
-//     });
+    });
 
 
 $(document).on('click', '.back_post', function () {
