@@ -1357,6 +1357,12 @@ pg_close($db);
 $(document).ready(function() {
 
 
+  // setUpdate(function(){
+  //   // call function to update
+  //   //set in each click
+    
+  // },5000);
+
 $(document).on('click', '.remove_comment', function () {
 
     var key=$(this).data("key");
