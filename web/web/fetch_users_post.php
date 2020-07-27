@@ -278,9 +278,9 @@ $index++;
 
           $data.='<script> $(document).ready(function() { setInterval(function(){
                    
-                   
-                   var id='.$user_id.';
-                   var publickey='.$publickey.';
+                   var id = "<?php echo $user_id ?>";
+                   var publickey = "<?php echo $publickey ?>";
+                  
                    console.log("id "+id);
                    console.log("publickey "+ publickey);
 
