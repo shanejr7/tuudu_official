@@ -274,16 +274,17 @@ $index++;
 
  }
 
-
+$name = "heytest";
 
           $data.='<script> $(document).ready(function() { setInterval(function(){
                    
-                   var id = "<?php echo $user_id ?>";
-                   var publickey = "<?php echo $publickey ?>";
-                  
+                   
+                   var id='.$user_id.';
+                   var x = "<?php echo"$name"?>";
+                   var publickey='.$publickey.';
                    console.log("id "+id);
                    console.log("publickey "+ publickey);
-
+                    console.log("test"+ x);
                     user_post(id,publickey);
                     
                     function user_post(id,publickey)
