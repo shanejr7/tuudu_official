@@ -1357,6 +1357,56 @@ pg_close($db);
 $(document).ready(function() {
 
 
+$(document).on('click', '.remove_comment', function () {
+
+    var key=$(this).data("key");
+    var id=$(this).data("userid");
+    var key=$(this).data("time");
+
+
+  remove_post(id,key,time);
+
+
+console.log("in click");
+
+ function remove_post(id,publickey)
+ {
+
+console.log("in function");
+        $.ajax({
+   url:"remove_user_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id,
+        time : time 
+                    },
+   success:function(data){
+    // $('#comment_post').html(data);
+    console.log("work");
+   }
+  })
+
+
+
+    $.ajax({
+   url:"fetch_user_comment_form.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#comment_post').html(data);
+   }
+  })
+
+ }
+
+
+    });
+
+
 $(document).on('click', '.back_post', function () {
 
 var key=$(this).data("key");
