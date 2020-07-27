@@ -90,7 +90,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
  		}else if($boolEdit == true){
 
  				 	pg_query($db, "UPDATE messagestate
-	SET user_id=$userid, message='$post', publickey='$publickey', reply_to_id=$replyid, timestamp_message=now(), favorite=0, username='$username'
+	SET user_id=$userid, message='$post', publickey='$publickey', reply_to_id=$replyid, timestamp_message=now(), favorite=0, username='$username', src = '$img_src'
 	WHERE publickey = '$publickey' AND user_id = $userid AND timestamp_message = '$time' AND reply_to_id = $replyid");
  		
 
