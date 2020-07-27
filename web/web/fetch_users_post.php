@@ -276,11 +276,18 @@ $index++;
 
 
 
-          $data.='<script>  ;setInterval(function(){
+          $data.='<script>  setInterval(function(){
                    
-                    
+                   
                    var id=$(this).data("userid");
                    var publickey=$(this).data("key");
+                   console.log("id "+id);
+                   console.log("publickey "+ publickey);
+
+                    user_post(id,publickey);
+                    
+                    function user_post(id,publickey)
+ {
         $.ajax({
    url:"fetch_users_post.php",
    method:"POST",
@@ -293,6 +300,8 @@ $index++;
      
    }
   })
+
+   }
     
   },5000);</script>';
 
