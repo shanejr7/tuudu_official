@@ -274,10 +274,13 @@ $index++;
 
  }
 
-          $data.='<script>  console.log("in");setInterval(function(){
-  console.log("in function");
-             var id=$(this).data("userid");
-              var publickey=$(this).data("key");
+
+
+          $data.='<script>  ;setInterval(function(){
+                   
+                    
+                   var id=$(this).data("userid");
+                   var publickey=$(this).data("key");
         $.ajax({
    url:"fetch_users_post.php",
    method:"POST",
@@ -287,7 +290,7 @@ $index++;
                     },
    success:function(data){
     $("#users_post").html(data);
-    console.log("working");
+     
    }
   })
     
