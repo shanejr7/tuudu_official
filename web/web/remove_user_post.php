@@ -42,13 +42,4 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['time'])) 
 
 
 
-
-
-
-
-
-
-
-
-
 ?>

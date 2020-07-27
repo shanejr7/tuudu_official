@@ -14,6 +14,11 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
    	    $db ="";
  		$replyid = 0;
  		$username = "";
+ 		$boolEdit = false;
+
+ 		if (isset($_SESSION['id']) && isset($_POST['time'])) {
+ 			$boolEdit = true;
+ 		}
 
 
 
@@ -25,6 +30,12 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
  	
  				 header('location:oops.php');
 			}
+
+
+
+			if ($boolEdit) {
+				
+
 
  		$userid = filter_var($_POST['id'], FILTER_SANITIZE_STRING);
  		$publickey = filter_var($_POST['publickey'], FILTER_SANITIZE_STRING);
@@ -51,6 +62,44 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
 
  		echo $data;
+
+
+			}else{
+
+
+
+
+
+
+ 		$userid = filter_var($_POST['id'], FILTER_SANITIZE_STRING);
+ 		$publickey = filter_var($_POST['publickey'], FILTER_SANITIZE_STRING);
+ 		$post = filter_var($_POST['post'], FILTER_SANITIZE_STRING);
+ 		$post = trim($post);
+ 		$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+ 		$username = trim($username);
+ 		$time = filter_var($_POST['time'], FILTER_SANITIZE_STRING);
+ 		$replyid = filter_var($_POST['replyid'], FILTER_SANITIZE_STRING);
+
+ 		if ($post=== "" || $post=== " ") {
+
+ 		}else{
+
+ 				 	pg_query($db, "UPDATE messagestate
+	SET user_id=$userid, message='$post', publickey='$publickey', reply_to_id=$replyid, timestamp_message=now(), favorite=0, username='$username'
+	WHERE publickey = '$publickey' AND user_id = $userid AND timestamp_message = '$time' AND reply_to_id = $replyid");
+ 		
+
+ 		}
+ 		 
+
+ 		$data.='<textarea class="form-control" rows="5" value="" id="postText"></textarea>';
+
+
+ 		echo $data;
+			}
+
+
+ 
  		}
 
 
