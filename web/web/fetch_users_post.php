@@ -51,14 +51,14 @@ $bucket_name = 'tuudu-official-file-storage';
 
 // echo "string2 ".$user_id;
 
-				$result = pg_query($db, "SELECT * FROM messagestate NATURAL JOIN users WHERE publickey = '$publickey'");
+				$result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey'");
 
 
            if (pg_num_rows($result) > 0) {
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) { 
       
-                      $comment_post_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favortite" => $row["favortite"],"user_post_id" => $row["id"],"email" => $row["email"],"img" => $row["profile_pic_src"]);
+                      $comment_post_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favortite" => $row["favortite"],"user_post_id" => $row["id"],"img" => $row["src"]);
                        
                     }
                   
@@ -81,8 +81,7 @@ function findReply($id,$index){
                     "timestamp" => $comment_post_list[$i]["timestamp"],
                     "favortite" => $comment_post_list[$i]["favortite"],
                     "user_post_id" => $comment_post_list[$i]["id"],
-                    "email" => $comment_post_list[$i]["email"],
-                    "img" => $comment_post_list[$i]["profile_pic_src"]);
+                    "img" => $comment_post_list[$i]["img"]);
       }
 
   }
