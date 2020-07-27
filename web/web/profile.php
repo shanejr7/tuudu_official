@@ -1621,7 +1621,7 @@ user_post(id,key,post,username);
 
 $(document).on('click', '.post_chat', function () {
 
-
+console.log("in click");
 var key=$(this).data("key");
 var id=$(this).data("id");
 
@@ -1631,6 +1631,7 @@ fetch_user(id,key);
  function fetch_user(id,publickey)
  {
 
+console.log("in function");
  
   $.ajax({
    url:"fetch_user_post.php",
@@ -1641,6 +1642,7 @@ fetch_user(id,key);
                     },
    success:function(data){
     $('#user_post').html(data);
+    console.log("work");
    }
   })
 
