@@ -107,7 +107,7 @@ if (isset($_POST['id'])) {
       $username = trim($username);
       $time = pg_escape_string($db,$_POST['time']);
     
-echo $publickey ." ".$user_id." ".$time." ".$username;
+
 
 
 
