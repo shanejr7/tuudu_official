@@ -1584,7 +1584,7 @@ back_post(id,key);
 
            function fav_post(id,publickey,username,time){
 
-           
+           console.log(id +" " + publickey +" "+ username +" " + time);
 
 
                   $.ajax({
