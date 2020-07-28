@@ -19,7 +19,7 @@ $s3 = new Aws\S3\S3Client([
 $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
 
-	if (isset($_POST['id']) && isset($_POST['publickey'])) {
+	if (isset($_POST['id']) && isset($_POST['publickey']) ) {
 
  		$data = "";
  		$publickey = "";
@@ -44,7 +44,8 @@ $bucket_name = 'tuudu-official-file-storage';
  				 header('location:oops.php');
 			}
 
-
+      $publickey = pg_escape_string($db, $_POST['publickey']);
+      $publickey = trim($publickey);
 
       if (isset($_POST['message'])) {
 
@@ -53,8 +54,6 @@ $bucket_name = 'tuudu-official-file-storage';
       $message = pg_escape_string($db, $_POST['message']);
       $time = pg_escape_string($db, $_POST['time']);
       $username = pg_escape_string($db, $_POST['username']);
-      $publickey = pg_escape_string($db, $_POST['publickey']);
-      $publickey = trim($publickey);
 
       if ($tempid === $userid) {
          $editBool = true;
