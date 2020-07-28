@@ -116,7 +116,7 @@ if (isset($_SESSION['id']) && isset($_POST['id']) && isset($_POST['publickey']) 
 
       pg_query($db, "UPDATE messagestate
     SET favorite = favorite + 1 
-    WHERE publickey = '$publickey' AND user_id = $user_id AND timestamp_message = '$time' ");
+    WHERE publickey = '$publickey' AND user_id = $user_id AND timestamp_message = $time ");
 
 
    pg_close($db);
