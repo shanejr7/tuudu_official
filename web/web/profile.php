@@ -1460,7 +1460,8 @@ edit_comment(id,key,time,username,replyid,post);
                     },
    success:function(data){
     $('#cleanPost').html(data);
-       $.ajax({
+    
+    $.ajax({
    url:"fetch_users_post.php",
    method:"POST",
    data : {
@@ -1486,14 +1487,13 @@ edit_comment(id,key,time,username,replyid,post);
     $('#comment_post').html(data);
    }
   })
-
- }
    
    }
   })
 
+ 
 
-  
+ }
 
 
     });
