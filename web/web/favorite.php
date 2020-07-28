@@ -80,7 +80,7 @@ if (isset($_GET['publickey']) && isset($_SESSION['id'])) {
 }
 
 
-if (isset($_SESSION['id']) && isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['time']) && isset($_POST['username'])) {
+if (isset($_POST['id'])) {
 
   echo "string";
 
