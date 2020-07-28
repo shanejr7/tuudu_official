@@ -82,6 +82,8 @@ if (isset($_GET['publickey']) && isset($_SESSION['id'])) {
 
 if (isset($_SESSION['id']) && isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['time']) && isset($_POST['username'])) {
 
+  echo "string";
+
 
  $db = pg_connect(getenv("DATABASE_URL"));
 
@@ -105,7 +107,7 @@ if (isset($_SESSION['id']) && isset($_POST['id']) && isset($_POST['publickey']) 
       $username = trim($username);
       $time = pg_escape_string($db,$_POST['time']);
     
-
+echo $publickey ." ".$user_id." ".$time." ".$username;
 
 
 
@@ -116,7 +118,7 @@ if (isset($_SESSION['id']) && isset($_POST['id']) && isset($_POST['publickey']) 
 
       pg_query($db, "UPDATE messagestate
     SET favorite = favorite + 1 
-    WHERE publickey = '$publickey' AND user_id = $user_id AND timestamp_message = '$time' ");
+    WHERE publickey = '$publickey' AND user_id = $user_id AND  timestamp_message= '$time' ");
 
 
    pg_close($db);
