@@ -1460,7 +1460,11 @@ edit_comment(id,key,time,username,replyid,post);
                     },
    success:function(data){
     $('#cleanPost').html(data);
-    
+   
+   }
+  })
+
+
     $.ajax({
    url:"fetch_users_post.php",
    method:"POST",
@@ -1487,11 +1491,6 @@ edit_comment(id,key,time,username,replyid,post);
     $('#comment_post').html(data);
    }
   })
-   
-   }
-  })
-
- 
 
  }
 
@@ -1519,6 +1518,37 @@ back_post(id,key);
    data : {
         publickey : publickey,
         id : id 
+                    },
+   success:function(data){
+    $('#comment_post').html(data);
+   }
+  })
+
+ }
+
+
+    });
+
+$(document).on('click', '.reply_comment', function () {
+
+var key=$(this).data("key");
+var id=$(this).data("userid");
+
+
+
+reply_post(id,key);
+
+
+ function reply_post(id,publickey)
+ {
+
+
+    $.ajax({
+   url:"fetch_user_comment_form.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        replyid : id 
                     },
    success:function(data){
     $('#comment_post').html(data);
@@ -1627,13 +1657,14 @@ back_post(id,key);
 var key=$(this).data("key");
 var id=$(this).data("userid");
 var username=$(this).data("username");
+var replyid=$(this).data("replyid");
 var post=$("#postText").val();
 
  
-user_post(id,key,post,username);
+user_post(id,key,post,username,replyid);
 
 
- function user_post(id,publickey,post,username)
+ function user_post(id,publickey,post,username,replyid)
  {
  
  
@@ -1644,7 +1675,8 @@ user_post(id,key,post,username);
         publickey : publickey,
         id : id,
         post : post,
-        username : username 
+        username : username,
+        replyid : replyid 
                     },
    success:function(data){
     $('#cleanPost').html(data);

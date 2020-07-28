@@ -24,6 +24,7 @@ $bucket_name = 'tuudu-official-file-storage';
  		$data = "";
  		$publickey = "";
     $editBool = false;
+    $replyBool = false;
  		$username = "";
  		$userid="";
     $tempid="";
@@ -74,6 +75,11 @@ $bucket_name = 'tuudu-official-file-storage';
  		if (isset($_SESSION['username'])) {
  			$username = $_SESSION['username'];
  		}
+
+    if (isset($_POST['replyid'])) {
+      $replyid = pg_escape_string($db, $_POST['replyid']);
+      $replyBool = true;
+    }
  		
 
 
@@ -117,10 +123,19 @@ $bucket_name = 'tuudu-official-file-storage';
                   <textarea class="form-control" rows="5" value="" id="postText"></textarea>
                   </div>
                 </div>
-                <div class="media-footer">
-                  <button type="button" href="#" name="post_comment" class="post_comment btn btn-primary btn-round btn-wd float-right"
-                  data-userid="'.$userid.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'">Post Comment</button>
-                </div>
+                <div class="media-footer">';
+
+                if ($replyBool == true) {
+                  $data.='<button type="button" href="#" name="post_comment" class="post_comment btn btn-primary btn-round btn-wd float-right"
+                  data-userid="'.$userid.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'">Reply Comment</button>';
+                }else{
+                  $data.='<button type="button" href="#" name="post_comment" class="post_comment btn btn-primary btn-round btn-wd float-right"
+                  data-userid="'.$userid.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'">Post Comment</button>';
+                }
+
+                   
+
+                $data.='</div>
               </div>
             </div>';
             }else if(isset($_SESSION) && $editBool == true){

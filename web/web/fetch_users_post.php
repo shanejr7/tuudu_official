@@ -131,7 +131,7 @@ function findReply($id,$index){
                   <h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.$item['timestamp'].'</small></h4>
                   <p>'.$item['message'].'</p>
                   <div class="media-footer">
-                    <a href="#" class="btn btn-primary btn-link float-right"  rel="tooltip" title="Reply to Comment">
+                    <a href="#" class="reply_comment btn btn-primary btn-link float-right"  rel="tooltip" title="Reply to Comment" data-userid="'.$item['user_id'].'" data-key="'.$item['publickey'].'" >
                       <i class="material-icons">reply</i> Reply
                     </a>';
 
@@ -184,9 +184,9 @@ function findReply($id,$index){
                       <p>'.$replyItem['message'].'</p>
                  
                       <div class="media-footer">
-                        <a href="#" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
+                        <!--<a href="#" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
                           <i class="material-icons">reply</i> Reply
-                        </a>';
+                        </a>-->';
                          if ($replyItem['favorite']>0) {
                       $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>'.$replyItem['favorite'].'
@@ -243,7 +243,7 @@ function findReply($id,$index){
                   <h6 class="text-muted"></h6>
                   <p>'.$item['message'].'</p>
                   <div class="media-footer">
-                    <a href="#" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
+                    <a href="#" class="reply_comment btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment" data-userid="'.$item['user_id'].'" data-key="'.$item['publickey'].'">
                       <i class="material-icons">reply</i> Reply
                     </a>';
 

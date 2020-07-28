@@ -25,6 +25,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
  			$img_src = trim($_SESSION['img_src']);
  		}
 
+ 		 
 
 
  		try{
@@ -42,12 +43,17 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 				
 
 
- 		$userid = filter_var($_POST['id'], FILTER_SANITIZE_STRING);
- 		$publickey = filter_var($_POST['publickey'], FILTER_SANITIZE_STRING);
- 		$post = filter_var($_POST['post'], FILTER_SANITIZE_STRING);
+ 		$userid = pg_escape_string($db, $_POST['id']);
+ 		$publickey = pg_escape_string($db, $_POST['publickey']);
+ 		$post = pg_escape_string($db, $_POST['post']);
  		$post = trim($post);
- 		$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+ 		$username = pg_escape_string($db, $_POST['username']);
  		$username = trim($username);
+
+ 		if (isset($_POST['replyid'])) {
+ 			$replyid = pg_escape_string($db, $_POST['replyid']);
+ 		}
+
 
  		if ($post=== "" || $post=== " ") {
 
@@ -55,7 +61,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
  				 	pg_query($db, "INSERT INTO public.messagestate(
 	user_id, message, publickey, reply_to_id, timestamp_message, favorite, username,src)
-	VALUES ($userid, '$post', '$publickey', $replyid, now(), 0, '$username','$img_src')");
+	VALUES ($userid, '$post', '$publickey', $replyid, now(), $replyid, '$username','$img_src')");
  		
 
  		}
@@ -75,15 +81,14 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
 
 
-
- 		$userid = filter_var($_POST['id'], FILTER_SANITIZE_STRING);
- 		$publickey = filter_var($_POST['publickey'], FILTER_SANITIZE_STRING);
- 		$post = filter_var($_POST['post'], FILTER_SANITIZE_STRING);
+		$userid = pg_escape_string($db, $_POST['id']);
+ 		$publickey = pg_escape_string($db, $_POST['publickey']);
+ 		$post = pg_escape_string($db, $_POST['post']);
  		$post = trim($post);
- 		$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+ 		$username = pg_escape_string($db, $_POST['username']);
  		$username = trim($username);
- 		$time = filter_var($_POST['time'], FILTER_SANITIZE_STRING);
- 		$replyid = filter_var($_POST['replyid'], FILTER_SANITIZE_STRING);
+ 		$time = pg_escape_string($db, $_POST['time']);
+ 		$replyid = pg_escape_string($db, $_POST['replyid']);
 
  		if ($post=== "" || $post=== " ") {
 
