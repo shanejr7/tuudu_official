@@ -136,11 +136,11 @@ function findReply($id,$index){
                     </a>';
 
                     if ($item['favorite']>0) {
-                      $data.='  <a href="#" class="btn btn-danger btn-link float-right">
+                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>'.$item['favorite'].'
                     </a>';
                     }else{
-                      $data.=' <a href="#" class="btn btn-link float-right">
+                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>
                     </a>';
                     }
@@ -188,11 +188,11 @@ function findReply($id,$index){
                           <i class="material-icons">reply</i> Reply
                         </a>';
                          if ($replyItem['favorite']>0) {
-                      $data.='  <a href="#" class="btn btn-danger btn-link float-right">
+                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>'.$replyItem['favorite'].'
                     </a>';
                     }else{
-                      $data.=' <a href="#" class="btn btn-link float-right">
+                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>
                     </a>';
                     }
@@ -248,11 +248,11 @@ function findReply($id,$index){
                     </a>';
 
                        if ($item['favorite']>0) {
-                      $data.='  <a href="#" class="btn btn-danger btn-link float-right">
+                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>'.$item['favorite'].'
                     </a>';
                     }else{
-                      $data.=' <a href="#" class="btn btn-link float-right">
+                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>
                     </a>';
                     }

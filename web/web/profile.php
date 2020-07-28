@@ -1568,6 +1568,58 @@ back_post(id,key);
 
     });
 
+
+
+
+    $(document).on('click', '.favPost', function () {
+         
+
+
+          var key=$(this).data("key");
+          var id=$(this).data("id");
+          var username=$(this).data("username");
+          var time=$(this).data("time");
+
+          fav_post(id,key,username,time);
+
+           function fav_post(id,publickey,username,time){
+
+           
+
+
+                  $.ajax({
+                        url:"favorite.php",
+                        method:"POST",
+                        data : {
+                        publickey : publickey,
+                        id : id,
+                        time : time,
+                        username : username
+                    },
+                        success:function(data){
+                         console.log("fav worked");
+                          }
+                   })
+
+
+                     $.ajax({
+   url:"fetch_users_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#users_post').html(data);
+   }
+  })
+
+
+           }
+        
+
+    });
+
      $(document).on('click', '.post_comment', function () {
 
  
