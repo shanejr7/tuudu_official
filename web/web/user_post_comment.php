@@ -61,7 +61,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
  				 	pg_query($db, "INSERT INTO public.messagestate(
 	user_id, message, publickey, reply_to_id, timestamp_message, favorite, username,src)
-	VALUES ($userid, '$post', '$publickey', $replyid, now(), $replyid, '$username','$img_src')");
+	VALUES ($userid, '$post', '$publickey', $replyid, now(), 0, '$username','$img_src')");
  		
 
  		}
