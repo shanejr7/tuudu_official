@@ -1460,12 +1460,7 @@ edit_comment(id,key,time,username,replyid,post);
                     },
    success:function(data){
     $('#cleanPost').html(data);
-   
-   }
-  })
-
-
-    $.ajax({
+       $.ajax({
    url:"fetch_users_post.php",
    method:"POST",
    data : {
@@ -1493,6 +1488,12 @@ edit_comment(id,key,time,username,replyid,post);
   })
 
  }
+   
+   }
+  })
+
+
+  
 
 
     });
@@ -1584,8 +1585,6 @@ back_post(id,key);
 
            function fav_post(id,publickey,username,time){
 
-           console.log(id +" " + publickey +" "+ username +" " + time);
-
 
                   $.ajax({
                         url:"favorite.php",
@@ -1599,16 +1598,16 @@ back_post(id,key);
                         success:function(data){
                            
                                                 $.ajax({
-   url:"fetch_users_post.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#users_post').html(data);
-   }
-  })
+                                                url:"fetch_users_post.php",
+                                                method:"POST",
+                                                data : {
+                                                  publickey : publickey,
+                                                   id : id 
+                                                },
+                                                success:function(data){
+                                                    $('#users_post').html(data);
+                                                  }
+                                                })
                           }
                    })
 
