@@ -31,8 +31,6 @@ $bucket_name = 'tuudu-official-file-storage';
     $db ="";
  		$user_post_id = "";
  		$replyid = 0;
- 		$publickey = filter_var($_POST['publickey'], FILTER_SANITIZE_STRING);
- 		$publickey = trim($publickey);
     $message = "";
     $time ="";
 
@@ -55,6 +53,8 @@ $bucket_name = 'tuudu-official-file-storage';
       $message = pg_escape_string($db, $_POST['message']);
       $time = pg_escape_string($db, $_POST['time']);
       $username = pg_escape_string($db, $_POST['username']);
+      $publickey = pg_escape_string($db, $_POST['publickey']);
+      $publickey = trim($publickey);
 
       if ($tempid === $userid) {
          $editBool = true;

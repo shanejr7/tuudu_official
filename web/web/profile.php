@@ -1548,7 +1548,8 @@ reply_post(id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        replyid : id 
+        replyid : id,
+        id : id 
                     },
    success:function(data){
     $('#comment_post').html(data);
