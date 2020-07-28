@@ -1597,12 +1597,8 @@ back_post(id,key);
                         username : username
                     },
                         success:function(data){
-                         console.log("fav worked");
-                          }
-                   })
-
-
-                     $.ajax({
+                           
+                                                $.ajax({
    url:"fetch_users_post.php",
    method:"POST",
    data : {
@@ -1613,6 +1609,11 @@ back_post(id,key);
     $('#users_post').html(data);
    }
   })
+                          }
+                   })
+
+
+ 
 
 
            }
