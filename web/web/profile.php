@@ -1576,7 +1576,7 @@ back_post(id,key);
 
 
           var key=$(this).data("key");
-          var id=$(this).data("id");
+          var id=$(this).data("userid");
           var username=$(this).data("username");
           var time=$(this).data("time");
 
