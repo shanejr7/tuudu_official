@@ -80,7 +80,7 @@ if (isset($_GET['publickey']) && isset($_SESSION['id'])) {
 }
 
 
-if (isset($_POST['id'])) {
+if (isset($_POST['id']) && isset($_SESSION['id'])) {
 
 
 
@@ -122,7 +122,7 @@ if (isset($_POST['id'])) {
 
  if (pg_num_rows($result) <= 0) {
 
-  pg_query($db, "INSERT INTO public.fav_message(user_id, timestamp_message, favorite, publickey, id)
+  pg_query($db, "INSERT INTO fav_message (user_id, timestamp_message, favorite, publickey, id)
   VALUES ($user_id, '$time', 1, '$publickey', $id_fav_by)");
 
 
