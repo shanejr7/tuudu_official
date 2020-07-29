@@ -65,21 +65,24 @@ $bucket_name = 'tuudu-official-file-storage';
                   }else {
 
                   }
- 
- $result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id != 0");
+
+
+
+                   $result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id != 0");
 
 
            if (pg_num_rows($result) > 0) {
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) { 
       
-                      $comment_reply_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favorite" => $row["favorite"],"user_post_id" => $row["id"],"img" => $row["src"]);
+                      $comment_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favorite" => $row["favorite"],"user_post_id" => $row["id"],"img" => $row["src"]);
                        
                     }
                   
                   }else {
 
                   }
+ 
 
 
 
@@ -88,7 +91,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
 
-   if (in_array($item['user_id'], array_column($comment_reply_list, 'reply_to_id'))) {
+   if (in_array($item['user_id'], array_column($comment_list, 'reply_to_id'))) {
 
                   $col_reply_to = array_column($comment_reply_list, 'reply_to_id');
                   $row_index = array_search($item['user_id'], $col_reply_to);
@@ -145,16 +148,34 @@ $bucket_name = 'tuudu-official-file-storage';
                   $data.='</div>';
 
         
+
+                  
                   // reply comment below 
+                   $result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id == $item['user_id']");
+
+
+           if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $comment_reply_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favorite" => $row["favorite"],"user_post_id" => $row["id"],"img" => $row["src"]);
+                       
+                    }
+                  
+                  }else {
+
+                  }
                 
-                    
-                          do{
+                    foreach ($comment_reply_list as $reply) {
+                       
+                   
+                          
                                  $data.=' <div class="media">
-                    <a class="float-left post_account" href="#" data-id="'.$comment_reply_list[$row_index]['user_id'].'">
+                    <a class="float-left post_account" href="#" data-id="'.$reply['user_id'].'">
                       <div class="avatar">';
-                          if (isset($comment_reply_list[$row_index]['img'])) {
+                          if (isset($reply['img'])) {
                     
-                    $user_img = trim($comment_reply_list[$row_index]['img']);
+                    $user_img = trim($reply['img']);
 
                          $cmd = $s3->getCommand('GetObject', [
                             'Bucket' => ''.$bucket_name.'',
@@ -176,34 +197,30 @@ $bucket_name = 'tuudu-official-file-storage';
                      $data.='</div>
                     </a>
                     <div class="media-body">
-                      <h4 class="media-heading">'.$comment_reply_list[$row_index]['username'].'<small>&#xB7; '.$comment_reply_list[$row_index]['timestamp'].'</small></h4>
-                      <p>'.$comment_reply_list[$row_index]['message'].'</p>
+                      <h4 class="media-heading">'.$reply['username'].'<small>&#xB7; '.$reply['timestamp'].'</small></h4>
+                      <p>'.$reply['message'].'</p>
                  
                       <div class="media-footer">
                         <!--<a href="#" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
                           <i class="material-icons">reply</i> Reply
                         </a>-->';
-                         if ($comment_reply_list[$row_index]['favorite']>0) {
-                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$comment_reply_list[$row_index]['user_id'].'" data-username="'.$comment_reply_list[$row_index]['username'].'" data-key="'.$comment_reply_list[$row_index]['publickey'].'"  data-time="'.$comment_reply_list[$row_index]['timestamp'].'">
-                      <i class="material-icons">favorite</i>'.$comment_reply_list[$row_index]['favorite'].'
+                         if ($reply['favorite']>0) {
+                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$reply['user_id'].'" data-username="'.$reply['username'].'" data-key="'.$reply['publickey'].'"  data-time="'.$reply['timestamp'].'">
+                      <i class="material-icons">favorite</i>'.$reply['favorite'].'
                     </a>';
                     }else{
-                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$comment_reply_list[$row_index]['user_id'].'" data-username="'.$comment_reply_list[$row_index]['username'].'" data-key="'.$comment_reply_list[$row_index]['publickey'].'"  data-time="'.$comment_reply_list[$row_index]['timestamp'].'">
+                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$reply['user_id'].'" data-username="'.$reply['username'].'" data-key="'.$reply['publickey'].'"  data-time="'.$reply['timestamp'].'">
                       <i class="material-icons">favorite</i>
                     </a>';
                     }
                       $data.='</div>
                     </div>
                   </div>';
+                 }
 
 
-
-                     // to make sure it is not shown multiple times to same id replied to
-                  unset($comment_reply_list[$row_index]);
-                  $col_reply_to = array_column($comment_reply_list, 'reply_to_id');
-                  $row_index = array_search($item['user_id'], $col_reply_to);
-
-              }while (in_array($item['user_id'], array_column($comment_reply_list, 'reply_to_id')));
+                  
+             
                  
             
 
