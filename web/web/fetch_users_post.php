@@ -204,7 +204,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   </div>';
 
    // to make sure it is not shown multiple times to same id replied to
-                unset($comment_reply_list[$row_index]);
+                // unset($comment_reply_list[$row_index]);
 
         // end of do while  
                   // while value is found in array repeat
