@@ -148,7 +148,7 @@ function findReply($id,$index){
 
                   $data.='</div>';
       
-                if ($comment_reply_list[$index]['reply_to_id'] == $item['id']) {
+                if ($comment_reply_list[$index]['reply_to_id'] == $item['user_id']) {
                   
                 
                     
