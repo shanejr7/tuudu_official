@@ -30,6 +30,7 @@ $bucket_name = 'tuudu-official-file-storage';
 		$result ="";
     $comment_post_list = array();
     $comment_reply_list = array();
+    $id_u="";
    
 
 			$db="";
@@ -149,9 +150,9 @@ $bucket_name = 'tuudu-official-file-storage';
 
         
 
-                  
+                    $id_u =$item['user_id'];
                   // reply comment below 
-                   $result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id = $item['user_id']");
+                   $result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id = $id_u");
 
 
            if (pg_num_rows($result) > 0) {
