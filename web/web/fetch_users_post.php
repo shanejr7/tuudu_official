@@ -151,7 +151,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                   
                   // reply comment below 
-                   $result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id == $item['user_id']");
+                   $result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id = $item['user_id']");
 
 
            if (pg_num_rows($result) > 0) {
