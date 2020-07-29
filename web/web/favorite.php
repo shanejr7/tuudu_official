@@ -97,7 +97,7 @@ if (isset($_POST['id']) && isset($_SESSION['id'])) {
       $user_id = "";
       $time = "";
       $username = "";
-      $id_fav_by= "";
+      $id= "";
 
 
       $publickey = pg_escape_string($db,$_POST['publickey']);
@@ -107,7 +107,7 @@ if (isset($_POST['id']) && isset($_SESSION['id'])) {
       $username = pg_escape_string($db,$_POST['username']);
       $username = trim($username);
       $time = pg_escape_string($db,$_POST['time']);
-      $id_fav_by = $_SESSION['id'];
+      $id= $_SESSION['id'];
       $messagestate = "";
     
 
@@ -115,7 +115,7 @@ if (isset($_POST['id']) && isset($_SESSION['id'])) {
 
 
    // check if user already favorite message
-    $result = pg_query($db, "SELECT * FROM fav_message WHERE publickey = '$publickey' AND user_id = $user_id AND id = $id_fav_by LIMIT 1");
+    $result = pg_query($db, "SELECT * FROM fav_message WHERE publickey = '$publickey' AND user_id = $user_id AND id = $id AND timestamp_message = '$time' LIMIT 1");
 
     $messagestate= pg_fetch_assoc($result);
 
@@ -123,17 +123,17 @@ if (isset($_POST['id']) && isset($_SESSION['id'])) {
  if (pg_num_rows($result) <= 0) {
 
   pg_query($db, "INSERT INTO fav_message (user_id, timestamp_message, favorite, publickey, id)
-  VALUES ($user_id, '$time', 1, '$publickey', $id_fav_by)");
+  VALUES ($user_id, '$time', 1, '$publickey', $id)");
 
 
   pg_query($db, "UPDATE messagestate
     SET favorite = favorite + 1 
-    WHERE publickey = '$publickey' AND user_id = $user_id AND  timestamp_message= '$time' ");
+   WHERE publickey = '$publickey' AND user_id= $user_id AND timestamp_message = '$time'");
 
  }elseif ($messagestate['favorite']==1) {
 
    pg_query($db, "UPDATE fav_message
-    SET favorite = 0 WHERE publickey = '$publickey' AND user_id= $user_id AND id =$id_fav_by");
+    SET favorite = 0 WHERE publickey = '$publickey' AND id=$id AND user_id= $user_id AND timestamp_message = '$time'");
   
   pg_query($db, "UPDATE messagestate
     SET favorite = favorite - 1 
@@ -144,7 +144,7 @@ if (isset($_POST['id']) && isset($_SESSION['id'])) {
  }elseif($messagestate['favorite']==0){
 
      pg_query($db, "UPDATE fav_message
-    SET favorite = 1 WHERE publickey = '$publickey' AND user_id= $user_id");
+    SET favorite = 1 WHERE publickey = '$publickey' AND id=$id AND user_id= $user_id AND timestamp_message = '$time'");
 
     pg_query($db, "UPDATE messagestate
     SET favorite = favorite + 1 
@@ -153,8 +153,8 @@ if (isset($_POST['id']) && isset($_SESSION['id'])) {
 
  }elseif($messagestate['favorite']==null ){
 
-  pg_query($db, "INSERT INTO fav_message (user_id, publickey,favorite)
-  VALUES($user_id,'$publickey',1)");
+  pg_query($db, "INSERT INTO fav_message (user_id, timestamp_message, favorite, publickey, id)
+  VALUES ($user_id, '$time', 1, '$publickey', $id)");
 
   pg_query($db, "UPDATE messagestate
     SET favorite = favorite + 1 
