@@ -158,6 +158,10 @@ $bucket_name = 'tuudu-official-file-storage';
                   $col_reply_to = array_column($comment_reply_list, 'reply_to_id');
                   $row_index = array_search($item['user_id'], $col_reply_to);
 
+                  if (isset($comment_reply_list)) {
+                    # code...
+               
+
                                  $data.=' <div class="media">
                     <a class="float-left post_account" href="#" data-id="'.$comment_reply_list[$row_index]['user_id'].'">
                       <div class="avatar">';
@@ -210,6 +214,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
         // end of do while  
                   // while value is found in array repeat
+              }
 
             } while (in_array($item['user_id'], array_column($comment_reply_list, 'reply_to_id')));
                  
