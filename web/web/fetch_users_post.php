@@ -148,7 +148,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   // reply comment below 
                 
                     
-                          
+                          do{
                                  $data.=' <div class="media">
                     <a class="float-left post_account" href="#" data-id="'.$comment_reply_list[$row_index]['user_id'].'">
                       <div class="avatar">';
@@ -199,7 +199,11 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
                      // to make sure it is not shown multiple times to same id replied to
-                unset($comment_reply_list[$row_index]);
+                  unset($comment_reply_list[$row_index]);
+                  $col_reply_to = array_column($comment_reply_list, 'reply_to_id');
+                  $row_index = array_search($item['user_id'], $col_reply_to);
+
+              }while (in_array($item['user_id'], array_column($comment_reply_list, 'reply_to_id'));
                  
             
 
