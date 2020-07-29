@@ -28,8 +28,6 @@ $bucket_name = 'tuudu-official-file-storage';
 		$user_id = 0;
 		$publickey = "";
 		$result ="";
-    $col_reply_to = "";
-    $row_index = "";
     $comment_post_list = array();
     $comment_reply_list = array();
    
@@ -92,7 +90,8 @@ $bucket_name = 'tuudu-official-file-storage';
 
    if (in_array($item['user_id'], array_column($comment_reply_list, 'reply_to_id'))) {
 
-          
+                  $col_reply_to = array_column($comment_reply_list, 'reply_to_id');
+                  $row_index = array_search($item['user_id'], $col_reply_to);
 
             
 
@@ -146,22 +145,10 @@ $bucket_name = 'tuudu-official-file-storage';
                   $data.='</div>';
 
         
-                   
-                    
-                        // do while loop until runs out of reply_to_id
-                 do{
+                  // reply comment below 
                 
-                   
-                   // reply comment below 
-                  // need to solve array issue
-
-                  $col_reply_to = array_column($comment_reply_list, 'reply_to_id');
-                  $row_index = array_search($item['user_id'], $col_reply_to);
-
-                  if (isset($comment_reply_list)) {
-                    # code...
-               
-
+                    
+                          
                                  $data.=' <div class="media">
                     <a class="float-left post_account" href="#" data-id="'.$comment_reply_list[$row_index]['user_id'].'">
                       <div class="avatar">';
@@ -209,14 +196,10 @@ $bucket_name = 'tuudu-official-file-storage';
                     </div>
                   </div>';
 
-   // to make sure it is not shown multiple times to same id replied to
+
+
+                     // to make sure it is not shown multiple times to same id replied to
                 unset($comment_reply_list[$row_index]);
-
-        // end of do while  
-                  // while value is found in array repeat
-              }
-
-            } while (in_array($item['user_id'], array_column($comment_reply_list, 'reply_to_id')));
                  
             
 
