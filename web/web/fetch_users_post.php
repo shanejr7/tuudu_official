@@ -127,7 +127,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   $data.='</div>
                 </a>
                 <div class="media-body">
-                  <h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.$item['timestamp'].'</small></h4>
+                 <button type="button" style="cursor: pointer;" class="edit_post" data-id="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'" data-time="'.$item['timestamp'].'" data-message="'.$item['message'].'"><h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.$item['timestamp'].'</small></h4></button>
                   <p>'.$item['message'].'</p>
                   <div class="media-footer">
                     <a href="#" class="reply_comment btn btn-primary btn-link float-right"  rel="tooltip" title="Reply to Comment" data-userid="'.$item['user_id'].'" data-key="'.$item['publickey'].'" >
@@ -198,7 +198,7 @@ $bucket_name = 'tuudu-official-file-storage';
                      $data.='</div>
                     </a>
                     <div class="media-body">
-                      <h4 class="media-heading">'.$reply['username'].'<small>&#xB7; '.$reply['timestamp'].'</small></h4>
+                     <button type="button" style="cursor: pointer;" class="edit_post" data-id="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'" data-time="'.$item['timestamp'].'" data-message="'.$item['message'].'"><h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.$item['timestamp'].'</small></h4></button>
                       <p>'.$reply['message'].'</p>
                  
                       <div class="media-footer">
