@@ -130,9 +130,9 @@ $bucket_name = 'tuudu-official-file-storage';
                  <button type="button" style="cursor: pointer;" class="edit_post" data-id="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'" data-time="'.$item['timestamp'].'" data-message="'.$item['message'].'"><h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.$item['timestamp'].'</small></h4></button>
                   <p>'.$item['message'].'</p>
                   <div class="media-footer">
-                    <a href="#" class="reply_comment btn btn-primary btn-link float-right"  rel="tooltip" title="Reply to Comment" data-userid="'.$item['user_id'].'" data-key="'.$item['publickey'].'" >
+                    <!--<a href="#" class="reply_comment btn btn-primary btn-link float-right"  rel="tooltip" title="Reply to Comment" data-userid="'.$item['user_id'].'" data-key="'.$item['publickey'].'" >
                       <i class="material-icons">reply</i> Reply
-                    </a>';
+                    </a>-->';
 
                     if ($item['favorite']>0) {
                       $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
@@ -269,9 +269,9 @@ $bucket_name = 'tuudu-official-file-storage';
                   <h6 class="text-muted"></h6>
                   <p>'.$item['message'].'</p>
                   <div class="media-footer">
-                    <a href="#" class="reply_comment btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment" data-userid="'.$item['user_id'].'" data-key="'.$item['publickey'].'">
+                    <!--<a href="#" class="reply_comment btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment" data-userid="'.$item['user_id'].'" data-key="'.$item['publickey'].'">
                       <i class="material-icons">reply</i> Reply
-                    </a>';
+                    </a>-->';
 
                        if ($item['favorite']>0) {
                       $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
