@@ -97,7 +97,6 @@ function findReply($id,$index){
 
    if ($item['reply_to_id'] >0) {
 
-     findReply($item['user_id'],$index);
             
 
             $data.=' <div class="media">
@@ -149,16 +148,17 @@ function findReply($id,$index){
 
                   $data.='</div>';
       
-           
-                  foreach ($comment_reply_list as $replyItem) {
+                if ($comment_reply_list[$index]['reply_to_id'] == $item['id']) {
+                  
+                
                     
                           
                                  $data.=' <div class="media">
-                    <a class="float-left post_account" href="#" data-id="'.$replyItem['user_id'].'">
+                    <a class="float-left post_account" href="#" data-id="'.$comment_reply_list['user_id'].'">
                       <div class="avatar">';
-                          if (isset($replyItem['img'])) {
+                          if (isset($comment_reply_list['img'])) {
                     
-                    $user_img = trim($replyItem['img']);
+                    $user_img = trim($comment_reply_list['img']);
 
                          $cmd = $s3->getCommand('GetObject', [
                             'Bucket' => ''.$bucket_name.'',
@@ -180,33 +180,37 @@ function findReply($id,$index){
                      $data.='</div>
                     </a>
                     <div class="media-body">
-                      <h4 class="media-heading">'.$replyItem['username'].'<small>&#xB7; '.$replyItem['timestamp'].'</small></h4>
-                      <p>'.$replyItem['message'].'</p>
+                      <h4 class="media-heading">'.$comment_reply_list['username'].'<small>&#xB7; '.$comment_reply_list['timestamp'].'</small></h4>
+                      <p>'.$comment_reply_list['message'].'</p>
                  
                       <div class="media-footer">
                         <!--<a href="#" class="btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment">
                           <i class="material-icons">reply</i> Reply
                         </a>-->';
-                         if ($replyItem['favorite']>0) {
-                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
-                      <i class="material-icons">favorite</i>'.$replyItem['favorite'].'
+                         if ($comment_reply_list['favorite']>0) {
+                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$comment_reply_list['user_id'].'" data-username="'.$comment_reply_list['username'].'" data-key="'.$comment_reply_list['publickey'].'"  data-time="'.$comment_reply_list['timestamp'].'">
+                      <i class="material-icons">favorite</i>'.$comment_reply_list['favorite'].'
                     </a>';
                     }else{
-                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
+                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$comment_reply_list['user_id'].'" data-username="'.$comment_reply_list['username'].'" data-key="'.$comment_reply_list['publickey'].'"  data-time="'.$comment_reply_list['timestamp'].'">
                       <i class="material-icons">favorite</i>
                     </a>';
                     }
                       $data.='</div>
                     </div>
                   </div>';
-                  }
+                 
+                }
+
+                // to make sure it is not shown multiple times to same id replied to
+                unset($comment_reply_list[$index]);
       
                    
            $data.='</div>
               </div>';
 
 
-               unset($comment_reply_list);
+              
 
    }else{
     
