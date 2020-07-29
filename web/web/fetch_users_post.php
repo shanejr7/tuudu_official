@@ -147,7 +147,7 @@ $bucket_name = 'tuudu-official-file-storage';
                    
                     
                         // do while loop until runs out of reply_to_id
-                  while (in_array($item['user_id'], array_column($comment_reply_list, 'reply_to_id'))) {
+                 do{
                 
                    
                    // reply comment below 
@@ -209,7 +209,7 @@ $bucket_name = 'tuudu-official-file-storage';
         // end of do while  
                   // while value is found in array repeat
 
-                }
+            } while (in_array($item['user_id'], array_column($comment_reply_list, 'reply_to_id')));
                  
             
 
