@@ -1611,10 +1611,11 @@ reply_post(id,key);
           var id=$(this).data("userid");
           var username=$(this).data("username");
           var time=$(this).data("time");
+          var user_post=$(this).data("user_post_id");
 
-          fav_post(id,key,username,time);
+          fav_post(id,key,username,time,user_post);
 
-           function fav_post(id,publickey,username,time){
+           function fav_post(id,publickey,username,time,user_post){
 
 
                   $.ajax({
@@ -1624,7 +1625,8 @@ reply_post(id,key);
                         publickey : publickey,
                         id : id,
                         time : time,
-                        username : username
+                        username : username,
+                        user_post_id : user_post
                     },
                         success:function(data){
                            
