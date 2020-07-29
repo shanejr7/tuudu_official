@@ -51,7 +51,7 @@ if (isset($_POST['id'])) {
 
   pg_query($db, "UPDATE messagestate
     SET favorite = favorite + 1 
-   WHERE publickey = '$publickey' AND user_id= $user_id AND timestamp_message = '$time'");
+   WHERE publickey = '$publickey' AND user_id= $id_post AND timestamp_message = '$time'");
 
  }elseif ($messagestate['favorite']==1) {
 
@@ -60,7 +60,7 @@ if (isset($_POST['id'])) {
   
   pg_query($db, "UPDATE messagestate
     SET favorite = favorite - 1 
-    WHERE publickey = '$publickey' AND user_id = $user_id AND  timestamp_message= '$time' ");
+    WHERE publickey = '$publickey' AND user_id = $id_post AND  timestamp_message= '$time' ");
   
   
 
@@ -71,7 +71,7 @@ if (isset($_POST['id'])) {
 
     pg_query($db, "UPDATE messagestate
     SET favorite = favorite + 1 
-    WHERE publickey = '$publickey' AND user_id = $user_id AND  timestamp_message= '$time' ");
+    WHERE publickey = '$publickey' AND user_id = $id_postAND  timestamp_message= '$time' ");
   
 
  }elseif($messagestate['favorite']==null ){
@@ -81,7 +81,7 @@ if (isset($_POST['id'])) {
 
   pg_query($db, "UPDATE messagestate
     SET favorite = favorite + 1 
-    WHERE publickey = '$publickey' AND user_id = $user_id AND  timestamp_message= '$time' ");
+    WHERE publickey = '$publickey' AND user_id = $id_post AND  timestamp_message= '$time' ");
 
 
  }
