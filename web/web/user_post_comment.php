@@ -43,7 +43,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 				
 
 
- 		$userid = pg_escape_string($db, $_POST['id']);
+ 		$userid = pg_escape_string($db, $_POST['userid']);
  		$publickey = pg_escape_string($db, $_POST['publickey']);
  		$post = pg_escape_string($db, $_POST['post']);
  		$post = trim($post);
