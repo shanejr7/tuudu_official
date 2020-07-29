@@ -28,6 +28,8 @@ $bucket_name = 'tuudu-official-file-storage';
 		$user_id = 0;
 		$publickey = "";
 		$result ="";
+    $col_reply_to = "";
+    $row_index = "";
     $comment_post_list = array();
     $comment_reply_list = array();
    
@@ -204,7 +206,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   </div>';
 
    // to make sure it is not shown multiple times to same id replied to
-                // unset($comment_reply_list[$row_index]);
+                unset($comment_reply_list[$row_index]);
 
         // end of do while  
                   // while value is found in array repeat
