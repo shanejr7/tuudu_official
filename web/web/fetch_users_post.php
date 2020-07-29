@@ -59,7 +59,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) { 
       
-                      $comment_post_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favorite" => $row["favorite"],"user_post_id" => $row["user_id"],"img" => $row["src"]);
+                      $comment_post_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favorite" => $row["favorite"],"img" => $row["src"]);
                        
                     }
                   
@@ -76,7 +76,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) { 
       
-                      $comment_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favorite" => $row["favorite"],"user_post_id" => $row["user_id"],"img" => $row["src"]);
+                      $comment_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favorite" => $row["favorite"],"img" => $row["src"]);
                        
                     }
                   
@@ -135,11 +135,11 @@ $bucket_name = 'tuudu-official-file-storage';
                     </a>-->';
 
                     if ($item['favorite']>0) {
-                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_post_id'].'" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
+                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>'.$item['favorite'].'
                     </a>';
                     }else{
-                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$item['user_post_id'].'" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
+                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>
                     </a>';
                     }
@@ -159,7 +159,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) { 
       
-                      $comment_reply_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favorite" => $row["favorite"],"user_post_id" => $row["id"],"img" => $row["src"]);
+                      $comment_reply_list[] = array("username" => $row["username"],"user_id" => $row["user_id"],"message" => $row["message"],"publickey" => $row["publickey"],"reply_to_id" => $row["reply_to_id"],"timestamp" => $row["timestamp_message"],"favorite" => $row["favorite"],"img" => $row["src"]);
                        
                     }
                   
@@ -206,11 +206,11 @@ $bucket_name = 'tuudu-official-file-storage';
                           <i class="material-icons">reply</i> Reply
                         </a>-->';
                          if ($reply['favorite']>0) {
-                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_post_id'].'" data-userid="'.$reply['user_id'].'" data-username="'.$reply['username'].'" data-key="'.$reply['publickey'].'"  data-time="'.$reply['timestamp'].'">
+                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$reply['user_id'].'" data-username="'.$reply['username'].'" data-key="'.$reply['publickey'].'"  data-time="'.$reply['timestamp'].'">
                       <i class="material-icons">favorite</i>'.$reply['favorite'].'
                     </a>';
                     }else{
-                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$item['user_post_id'].'" data-userid="'.$reply['user_id'].'" data-username="'.$reply['username'].'" data-key="'.$reply['publickey'].'"  data-time="'.$reply['timestamp'].'">
+                      $data.=' <a href="#" class="favPost btn btn-link float-right"  data-userid="'.$reply['user_id'].'" data-username="'.$reply['username'].'" data-key="'.$reply['publickey'].'"  data-time="'.$reply['timestamp'].'">
                       <i class="material-icons">favorite</i>
                     </a>';
                     }
@@ -274,11 +274,11 @@ $bucket_name = 'tuudu-official-file-storage';
                     </a>-->';
 
                        if ($item['favorite']>0) {
-                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_post_id'].'" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
+                      $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right"  data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>'.$item['favorite'].'
                     </a>';
                     }else{
-                      $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$item['user_post_id'].'" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
+                      $data.=' <a href="#" class="favPost btn btn-link float-right"  data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>
                     </a>';
                     }

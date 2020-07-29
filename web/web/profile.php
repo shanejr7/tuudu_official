@@ -1611,22 +1611,21 @@ reply_post(id,key);
           var id=$(this).data("userid");
           var username=$(this).data("username");
           var time=$(this).data("time");
-          var user_post=$(this).data("user_post_id");
+          
 
-          fav_post(id,key,username,time,user_post);
+          fav_post(id,key,username,time);
 
-           function fav_post(id,publickey,username,time,user_post){
+           function fav_post(id,publickey,username,time){
 
 
                   $.ajax({
-                        url:"favorite.php",
+                        url:"fav_message.php",
                         method:"POST",
                         data : {
                         publickey : publickey,
                         id : id,
                         time : time,
-                        username : username,
-                        user_post_id : user_post
+                        username : username
                     },
                         success:function(data){
                            
