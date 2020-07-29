@@ -88,7 +88,10 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
 
-   if ($item['reply_to_id'] >0) {
+   if (in_array($item['user_id'], array_column($comment_reply_list, 'reply_to_id')) {
+
+                  $col_reply_to = array_column($comment_reply_list, 'reply_to_id');
+                  $row_index = array_search($item['user_id'], $col_reply_to);
 
             
 
@@ -141,13 +144,8 @@ $bucket_name = 'tuudu-official-file-storage';
 
                   $data.='</div>';
 
-                   
-      
-                if (in_array($item['user_id'], array_column($comment_reply_list, 'reply_to_id'))) {
-                  
-
-                  $col_reply_to = array_column($comment_reply_list, 'reply_to_id');
-                  $row_index = array_search($item['user_id'], $col_reply_to);
+        
+                  // reply comment below 
                 
                     
                           
@@ -203,7 +201,7 @@ $bucket_name = 'tuudu-official-file-storage';
                      // to make sure it is not shown multiple times to same id replied to
                 unset($comment_reply_list[$row_index]);
                  
-                }
+            
 
               
       
@@ -216,7 +214,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
    }else{
     
-
+// single comment
 
           $data.='<div class="media">
                 <a class="float-left" href="#">
