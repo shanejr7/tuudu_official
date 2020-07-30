@@ -1370,23 +1370,44 @@ $(document).ready(function() {
 
 
 $(document).on('click', '.avatar_uploader_form', function () {
-    var file_data = $('#upimg').prop('files')[0];   
-    var form_data = new FormData();                  
-    form_data.append('file', file_data);
-    alert(form_data);                             
-    $.ajax({
-        url: 'user_image_upload.php', 
-        dataType: 'text',  
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: form_data,                         
-        type: 'post',
-        success: function(php_script_response){
-            alert(php_script_response); 
-        }
-     });
-});
+
+var property = document.getElementById('#upimg').files[0];
+var form_data = new FormData();  
+form_data.append("file", file_data);
+var id=$(this).data("userid");
+    
+console.log("clicked");
+console.log(form_data + " "+ id);
+str = JSON.stringify(form_data);
+alert(str);
+
+  update_avatar(id,form_data);
+
+
+
+
+ function update_avatar(id,form_data)
+ {
+  console.log("in function");
+
+        $.ajax({
+   url:"user_image_upload.php",
+   method:"POST",
+   data : {
+    id : id,
+    form_data : form_data
+   },
+   success:function(data){
+     $('#avatar_profile_image').html(data);
+     console.log("work");
+   }
+  })
+
+
+ }
+
+
+    });
 
 $(document).on('click', '.remove_comment', function () {
 
