@@ -1371,8 +1371,7 @@ $(document).ready(function() {
 $(document).on('click', '.avatar_uploader_form', function () {
 var file_data = $("#upimg").prop("files")[0]; 
 
-
-var form_data = new FormData();  
+var form_data = new FormData(document.getElementById('form_img'));
 form_data.append("file", file_data);
 var id=$(this).data("userid");
     
