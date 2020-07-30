@@ -288,7 +288,7 @@ $bucket_name = 'tuudu-official-file-storage';
   }
    
 
-                if (isset($_SESSION['img_src'])|| isset($_GET['upl'])) {
+                if (isset($_SESSION['img_src']) || isset($_GET['upl'])) {
 
                   $user_img = trim($tid);
 
@@ -471,7 +471,7 @@ catch (S3Exception $e) {
 
             pg_close($db);
 
-          header("location:profile.php?upl=upload")
+          header("location:profile.php?upl=upload");
 
 
             } catch(Exception $e){
