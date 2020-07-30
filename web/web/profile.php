@@ -34,6 +34,8 @@ $bucket_name = 'tuudu-official-file-storage';
     unset($_SESSION['email']);
     header("location: login-page.php");
   }
+
+  $GLOBALS["src"] = "";
 ?>
 <!--
  =========================================================
@@ -268,9 +270,13 @@ $bucket_name = 'tuudu-official-file-storage';
               <div class="avatar" data-toggle="modal" data-target="#uploadImage" id="avatar_profile_image" style="width: 120px;height: 200px;">
                 <?php 
 
-                if (isset($_SESSION['img_src'])) {
+                if (isset($_SESSION['img_src']) || isset($src) && sizeof($src)>4) {
 
                   $user_img = trim($_SESSION['img_src']);
+
+                  if (sizeof($src) && isset($src)) {
+                    $user_img = trim($src);
+                  }
 
 
 
@@ -323,143 +329,144 @@ $bucket_name = 'tuudu-official-file-storage';
         if (isset($_SESSION['id'])) {
           $id_av= $_SESSION['id'];
         }
-        // try removing action and method
-          // then put $_FILE in data-file for ajax instead
 
-        echo'<form enctype="multipart/form-data" id="form_img" method="post" action="">
+
+        echo'<form enctype="multipart/form-data" method="post" action="'.$_SERVER['PHP_SELF'].'">
   <label>upload profile picture</label>
                  <div class="row"> 
                   <div class="col-md-4"></div>
                   <div class="col-md-4">
                    
                           <div class="form-group form-file-upload form-file-simple">
-    <input type="text"  class="form-control inputFileVisible" placeholder="upload image..." required>
-    <input type="file" id="file" name="file" class="inputFileHidden">
+    <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
+    <input type="file" name="file1" class="inputFileHidden">
   </div>
                     </div>
 
-                </div><input type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " id="btn_img" data-userid="'.$id_av.'" name="image" value="upload" style="display:inline-block"></form>';
+                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button></form>
 
-              echo '</div>';
+              </div>';
 
 
           
-// if (isset($_POST['image']) && isset($_SESSION['id'])) {
+if (isset($_POST['image']) && isset($_SESSION['id'])) {
   
 
-// $userid = $_SESSION['id'];
-// $randomString = " ";
+$userid = $_SESSION['id'];
+$randomString = " ";
 
 
-// //stores file to aws S3
-// if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['file1']['tmp_name'])) {
+//stores file to aws S3
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['file1']['tmp_name'])) {
 
-//     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
    
-//     $n = 15;
+    $n = 15;
   
-//     for ($i = 0; $i < $n; $i++) { 
-//         $index = rand(0, strlen($characters) - 1); 
-//         $randomString .= $characters[$index]; 
-//     } 
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
  
-// $source = fopen($_FILES['file1']['tmp_name'], 'rb');
-// $key =  "user_profile_img/".$randomString.''. $_FILES['file1']['name']; 
+$source = fopen($_FILES['file1']['tmp_name'], 'rb');
+$key =  "user_profile_img/".$randomString.''. $_FILES['file1']['name']; 
+$GLOBALS['src'] = trim($key);
 
-// $destination = $key;
+$destination = $key;
 
-//     $uploader = new ObjectUploader(
-//     $s3,
-//     $bucket_name,
-//     $key,
-//     $source 
-// );
-//     try
+    $uploader = new ObjectUploader(
+    $s3,
+    $bucket_name,
+    $key,
+    $source 
+);
+    try
+{
+    // echo 'Attempting to delete ' . $keyname . '...' . PHP_EOL;
+
+     try{
+
+ $db = pg_connect(getenv("DATABASE_URL"));
+}catch(Execption $e){
+  header('location:oops.php');
+}
+
+$keyname = "";
+if (isset($_SESSION['img_src'])) {
+  $keyname = trim($_SESSION['img_src']);
+}
+
+$result = pg_query($db, "UPDATE public.users SET profile_pic_src=null WHERE id = $userid");
+
+    $result = $s3->deleteObject([
+        'Bucket' => $bucket_name,
+        'Key'    => $keyname
+    ]);
+
+    if ($result['DeleteMarker'])
+    {
+        // echo $keyname . ' was deleted or does not exist.' . PHP_EOL;
+    } else {
+        // exit('Error: ' . $keyname . ' was not deleted.' . PHP_EOL);
+    }
+}
+catch (S3Exception $e) {
+    // exit('Error: ' . $e->getAwsErrorMessage() . PHP_EOL);
+}
+
+// 2. Check to see if the object was deleted.
+// try
 // {
-//     // echo 'Attempting to delete ' . $keyname . '...' . PHP_EOL;
+//     // echo 'Checking to see if ' . $keyname . ' still exists...' . PHP_EOL;
 
-//      try{
+//     // $result = $s3->getObject([
+//     //     'Bucket' => $bucket,
+//     //     'Key'    => $keyname
+//     // ]);
 
-//  $db = pg_connect(getenv("DATABASE_URL"));
-// }catch(Execption $e){
-//   header('location:oops.php');
-// }
-
-// $keyname = "";
-// if (isset($_SESSION['img_src'])) {
-//   $keyname = trim($_SESSION['img_src']);
-// }
-
-// $result = pg_query($db, "UPDATE public.users SET profile_pic_src=null WHERE id = $userid");
-
-//     $result = $s3->deleteObject([
-//         'Bucket' => $bucket_name,
-//         'Key'    => $keyname
-//     ]);
-
-//     if ($result['DeleteMarker'])
-//     {
-//         // echo $keyname . ' was deleted or does not exist.' . PHP_EOL;
-//     } else {
-//         // exit('Error: ' . $keyname . ' was not deleted.' . PHP_EOL);
-//     }
+//     // echo 'Error: ' . $keyname . ' still exists.';
 // }
 // catch (S3Exception $e) {
-//     // exit('Error: ' . $e->getAwsErrorMessage() . PHP_EOL);
-// }
-
-// // 2. Check to see if the object was deleted.
-// // try
-// // {
-// //     // echo 'Checking to see if ' . $keyname . ' still exists...' . PHP_EOL;
-
-// //     // $result = $s3->getObject([
-// //     //     'Bucket' => $bucket,
-// //     //     'Key'    => $keyname
-// //     // ]);
-
-// //     // echo 'Error: ' . $keyname . ' still exists.';
-// // }
-// // catch (S3Exception $e) {
-// //     exit($e->getAwsErrorMessage());
-// // } 
+//     exit($e->getAwsErrorMessage());
+// } 
    
-//     try {
+    try {
        
-//         $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
+        $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
 
-//           $image_src = $destination;
+          $image_src = $destination;
+          $GLOBALS['src'] = $destination;
 
-//           unset($_SESSION['img_src']);
+          unset($_SESSION['img_src']);
 
-//           $_SESSION['img_src'] = $destination;
+          $_SESSION['img_src'] = $destination;
 
  
-//             $db = pg_connect(getenv("DATABASE_URL"));
-//             // Check connection
-//             if (!$db) {
-//               die("Connection failed: " . pg_connect_error());
-//               header('location:oops.php');
-//             }
+            $db = pg_connect(getenv("DATABASE_URL"));
+            // Check connection
+            if (!$db) {
+              die("Connection failed: " . pg_connect_error());
+              header('location:oops.php');
+            }
 
-//             // update user image
-//             pg_query($db,"UPDATE users SET profile_pic_src ='$image_src' WHERE id= $userid ");
+            // update user image
+            pg_query($db,"UPDATE users SET profile_pic_src ='$image_src' WHERE id= $userid ");
  
 
-//             pg_close($db);
+            pg_close($db);
 
           
 
 
-//             } catch(Exception $e){
-//                header('location:oops.php');
-//           }
+            } catch(Exception $e){
+               header('location:oops.php');
+          }
 
-// }else{
+}else{
  
-// }
+}
 
-// }
+}
 
                 ?>
       </div>
@@ -1366,52 +1373,6 @@ pg_close($db);
 $(document).ready(function() {
 
 
-
-
-$("#btn_img").click(function(){
-
-
-        var Myfile = new FormData();
-        var files = "";
-        
-
-        if (($("#file"))[0].files.length > 0) {
-        files = ($("#file"))[0].files[0];
-         Myfile.append('file',files);
-          } else {
-            alert("empty");
-            console.log("empty");
-        }
-
-
-console.log(Myfile['file']);
-  update_avatar(id,Myfile);
-
-
-
-
- function update_avatar(id,form_data)
- {
-  console.log("in function");
-
-        $.ajax({
-   url:"user_image_upload.php",
-   method:"POST",
-   data : {
-    id : id,
-    form_data : Myfile
-   },
-   success:function(data){
-     $('#avatar_profile_image').html(data);
-     console.log("work");
-   }
-  })
-
-
- }
-
-
-    });
 
 $(document).on('click', '.remove_comment', function () {
 
