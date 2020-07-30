@@ -1381,6 +1381,8 @@ console.log("clicked");
 console.log(form_data["file"] + " "+ id);
 
 alert(form_data["file"]);
+ request.send(formData);
+    console.log(request.response);
 
   update_avatar(id,form_data);
 
