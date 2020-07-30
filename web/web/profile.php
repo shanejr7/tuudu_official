@@ -334,7 +334,7 @@ $bucket_name = 'tuudu-official-file-storage';
                    
                           <div class="form-group form-file-upload form-file-simple">
     <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
-    <input type="file" id="upimg" name="file" class="inputFileHidden">
+    <input type="file" id="upimg" name="file1" class="inputFileHidden">
   </div>
                     </div>
 
@@ -1370,16 +1370,17 @@ $(document).ready(function() {
 
 
 $(document).on('click', '.avatar_uploader_form', function () {
+var file_data = $("#upimg").prop("files")[0]; 
 
-var property = document.getElementById('#upimg').files[0];
+
 var form_data = new FormData();  
 form_data.append("file", file_data);
 var id=$(this).data("userid");
     
 console.log("clicked");
 console.log(form_data + " "+ id);
-str = JSON.stringify(form_data);
-alert(str);
+
+alert(form_data);
 
   update_avatar(id,form_data);
 

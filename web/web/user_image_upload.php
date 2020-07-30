@@ -30,7 +30,7 @@ try{
 }
  
 
- if (isset($_SESSION['id']) {
+ if (isset($_POST['id'])) {
   
 
 $userid = $_SESSION['id'];
@@ -135,9 +135,9 @@ catch (S3Exception $e) {
 
 }
 
-                if (isset($_POST['data'])) {
+                if (isset($_POST['id'])) {
 
-                  $data = $_SESSION['id'];
+                  $data = pg_escape_string($db, $_POST['id']);
                   $result = pg_query($db, "SELECT * FROM users WHERE id =$data LIMIT 1");
                   $user = pg_fetch_assoc($result);
 
