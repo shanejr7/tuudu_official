@@ -1379,8 +1379,8 @@ var id=$(this).data("userid");
     
 console.log("clicked");
 console.log(form_data + " "+ id);
-
-alert(form_data);
+str = JSON.stringify(form_data);
+alert(str);
 
   update_avatar(id,form_data);
 
