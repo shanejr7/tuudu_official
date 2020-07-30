@@ -338,7 +338,7 @@ $bucket_name = 'tuudu-official-file-storage';
   </div>
                     </div>
 
-                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button></form>';
+                </div><input type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " id="btn_img" data-userid="'.$id_av.'" name="image" value="upload" style="display:inline-block"></form>';
 
               echo '</div>';
 
@@ -1368,12 +1368,20 @@ $(document).ready(function() {
 
 
 
-$(document).on('click', '.avatar_uploader_form', function () {
+$("#btn_img").click(function(){
 
 
         var Myfile = new FormData();
-        var files = $('#file')[0].files[0];
-        Myfile.append('file',files);
+        var files = "";
+        
+
+        if (($("#file"))[0].files.length > 0) {
+        files = ($("#file"))[0].files[0];
+         Myfile.append('file',files);
+          } else {
+            alert("empty");
+            console.log("empty");
+        }
 
 
 console.log(Myfile['file']);
