@@ -270,11 +270,11 @@ $bucket_name = 'tuudu-official-file-storage';
               <div class="avatar" data-toggle="modal" data-target="#uploadImage" id="avatar_profile_image" style="width: 120px;height: 200px;">
                 <?php 
 
-                if (isset($_SESSION['img_src']) || isset($src) && sizeof($src)>4) {
+                if (isset($_SESSION['img_src']) || isset($GLOBALS['src']) && sizeof($GLOBALS['src'])>4) {
 
                   $user_img = trim($_SESSION['img_src']);
 
-                  if (sizeof($src) && isset($src)) {
+                  if (sizeof($GLOBALS['src']) && isset($GLOBALS['src'])) {
                     $user_img = trim($src);
                   }
 
