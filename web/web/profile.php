@@ -318,6 +318,11 @@ $bucket_name = 'tuudu-official-file-storage';
       </div>
       <div class="modal-body">
         <?php 
+        $id_av ="";
+
+        if (isset($_SESSION['id'])) {
+          $id_av= $_SESSION['id'];
+        }
 
         echo'<form enctype="multipart/form-data" method="post" action="'.$_SERVER['PHP_SELF'].'">
   <label>upload profile picture</label>
@@ -331,7 +336,7 @@ $bucket_name = 'tuudu-official-file-storage';
   </div>
                     </div>
 
-                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " name="image" value="img" style="display:inline-block">upload</button></form>
+                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button></form>
 
               </div>';
 
@@ -1362,23 +1367,25 @@ $(document).ready(function() {
 
 
 $(document).on('click', '.avatar_uploader_form', function () {
-
+var id=$(this).data("userid");
     
 console.log("clicked");
 
-  update_avatar();
+  update_avatar(id);
 
 
 
 
- function update_avatar()
+ function update_avatar(id)
  {
   console.log("in function");
 
         $.ajax({
    url:"user_image_upload.php",
    method:"POST",
-   data : {},
+   data : {
+    id : id
+   },
    success:function(data){
      $('#avatar_profile_image').html(data);
      console.log("work");
