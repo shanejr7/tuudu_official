@@ -290,7 +290,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                 if (isset($_SESSION['img_src'])|| $tid) {
 
-                  $user_img = trim($_SESSION['img_src']);
+                  $user_img = trim($tid);
 
                   if ($tid) {
                       $user_img = trim($tid);
