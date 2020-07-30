@@ -1364,7 +1364,7 @@ $(document).ready(function() {
 $(document).on('click', '.avatar_uploader_form', function () {
 
     
-
+console.log("clicked");
 
   update_avatar();
 
@@ -1373,6 +1373,7 @@ $(document).on('click', '.avatar_uploader_form', function () {
 
  function update_avatar()
  {
+  console.log("in function");
 
         $.ajax({
    url:"user_image_upload.php",
