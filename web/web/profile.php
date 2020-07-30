@@ -281,6 +281,7 @@ $bucket_name = 'tuudu-official-file-storage';
 }
   $result = pg_query($db, "SELECT profile_pic_src FROM users WHERE id = $tid LIMIT 1");
   $user = pg_fetch_assoc($result);
+  echo "string".$user['profile_pic_src'];
 
                 if (isset($_SESSION['img_src'])|| $user) {
 
