@@ -1370,7 +1370,7 @@ $(document).ready(function() {
 
 
 $(document).on('click', '.avatar_uploader_form', function () {
-var file_data = $("#upimg").prop("file")[0]; 
+var file_data = $("#upimg").prop("files")[0]; 
 
 
 var form_data = new FormData();  
