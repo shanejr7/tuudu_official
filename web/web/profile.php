@@ -274,7 +274,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                   $user_img = trim($_SESSION['img_src']);
 
-                  if (sizeof($GLOBALS['src']) && isset($GLOBALS['src'])) {
+                  if (sizeof($GLOBALS['src']) >4 && isset($GLOBALS['src'])) {
                     $user_img = trim($src);
                   }
 
