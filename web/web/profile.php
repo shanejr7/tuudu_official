@@ -35,7 +35,7 @@ $bucket_name = 'tuudu-official-file-storage';
     header("location: login-page.php");
   }
 
-  $GLOBALS["src"] = "";
+  
 ?>
 <!--
  =========================================================
@@ -271,6 +271,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 <?php 
 
                 if (isset($_SESSION['img_src']) || strlen($GLOBALS['src'])>4) {
+                  echo "g".$GLOBALS['src']);
 
                   $user_img = trim($_SESSION['img_src']);
 
