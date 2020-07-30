@@ -1370,7 +1370,7 @@ $(document).ready(function() {
 
 
 $(document).on('click', '.avatar_uploader_form', function () {
-var file_data = $("#upimg").prop("files")[0]; 
+var file_data = $("#upimg").prop("file")[0]; 
 
 
 var form_data = new FormData();  
@@ -1380,7 +1380,7 @@ var id=$(this).data("userid");
 console.log("clicked");
 console.log(form_data["file"] + " "+ id);
 
-alert(form_data["files"]);
+alert(form_data["file"]);
 
   update_avatar(id,form_data);
 
