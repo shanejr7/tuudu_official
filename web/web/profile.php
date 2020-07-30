@@ -1378,9 +1378,9 @@ form_data.append("file", file_data);
 var id=$(this).data("userid");
     
 console.log("clicked");
-console.log(form_data + " "+ id);
+console.log(form_data["file"] + " "+ id);
 
-alert(form_data);
+alert(form_data["files"]);
 
   update_avatar(id,form_data);
 
