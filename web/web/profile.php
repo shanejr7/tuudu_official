@@ -35,7 +35,6 @@ $bucket_name = 'tuudu-official-file-storage';
     header("location: login-page.php");
   }
 
-  
 ?>
 <!--
  =========================================================
@@ -269,14 +268,26 @@ $bucket_name = 'tuudu-official-file-storage';
                     <div class="profileFollowing">
               <div class="avatar" data-toggle="modal" data-target="#uploadImage" id="avatar_profile_image" style="width: 120px;height: 200px;">
                 <?php 
+                $tid="";
+                if (isset($_SESSION['id'])) {
+                  $tid = $_SESSION['id'];
+                }
+                $db ="";
+                  try{
 
-                if (isset($_SESSION['img_src']) || strlen($GLOBALS['src'])>4) {
-                  echo "g".$GLOBALS['src'];
+ $db = pg_connect(getenv("DATABASE_URL"));
+}catch(Execption $e){
+  header('location:oops.php');
+}
+  $result = pg_query($db, "SELECT profile_pic_src FROM users WHERE id = $tid LIMIT 1");
+  $user = pg_fetch_assoc($result);
+
+                if (isset($_SESSION['img_src'])|| $user) {
 
                   $user_img = trim($_SESSION['img_src']);
 
-                  if (strlen($GLOBALS['src'])) {
-                    $user_img = trim($GLOBALS['src']);
+                  if ($user) {
+                      $user_img = trim($user['profile_pic_src']);
                   }
 
 
@@ -371,7 +382,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file1']) && $_FILES['f
  
 $source = fopen($_FILES['file1']['tmp_name'], 'rb');
 $key =  "user_profile_img/".$randomString.''. $_FILES['file1']['name']; 
-$GLOBALS['src'] = trim($key);
 
 $destination = $key;
 
@@ -436,7 +446,6 @@ catch (S3Exception $e) {
         $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
 
           $image_src = $destination;
-          $GLOBALS['src'] = $destination;
 
           unset($_SESSION['img_src']);
 
@@ -1374,6 +1383,18 @@ pg_close($db);
 $(document).ready(function() {
 
 
+  var temp = "tempval";
+
+   $.ajax({
+   url:"user_image_upload.php",
+   method:"POST",
+   data : {
+    id : temp
+   },
+   success:function(data){
+     $('#form').html(data);
+   }
+  })
 
 $(document).on('click', '.remove_comment', function () {
 
