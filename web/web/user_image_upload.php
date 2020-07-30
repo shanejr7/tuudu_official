@@ -30,7 +30,7 @@ try{
 }
  
 
- if (isset($_POST['id'])) {
+ if (isset($_SESSION['id']) {
   
 
 $userid = $_SESSION['id'];
@@ -38,7 +38,7 @@ $randomString = " ";
 
 
 //stores file to aws S3
-if(isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['file1']['tmp_name'])) {
+if(isset($_FILES['file']) && $_FILES['file']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['file']['tmp_name'])) {
 
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
    
@@ -49,8 +49,8 @@ if(isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_u
         $randomString .= $characters[$index]; 
     } 
  
-$source = fopen($_FILES['file1']['tmp_name'], 'rb');
-$key =  "user_profile_img/".$randomString.''. $_FILES['file1']['name']; 
+$source = fopen($_FILES['file']['tmp_name'], 'rb');
+$key =  "user_profile_img/".$randomString.''. $_FILES['file']['name']; 
 
 $destination = $key;
 
@@ -106,7 +106,7 @@ catch (S3Exception $e) {
    
     try {
        
-        $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
+        $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file']['tmp_name'], 'rb'), 'public-read');
 
           $image_src = $destination;
 
@@ -135,9 +135,9 @@ catch (S3Exception $e) {
 
 }
 
-                if (isset($_POST['id'])) {
+                if (isset($_POST['data'])) {
 
-                  $data = pg_escape_string($db, $_POST['id']);
+                  $data = $_SESSION['id'];
                   $result = pg_query($db, "SELECT * FROM users WHERE id =$data LIMIT 1");
                   $user = pg_fetch_assoc($result);
 
