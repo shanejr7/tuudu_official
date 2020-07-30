@@ -33,10 +33,10 @@ try{
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
-                  $data.= '<img src="'.$presignedUrl.'" title="edit" data-toggle="modal" data-target="#uploadImage" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
+                  $data.= '<img src="'.$presignedUrl.'" title="edit" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
                   
                 }else{
-                  $data.= '<img src="../assets/img/image_placeholder.jpg" title="edit" data-toggle="modal" data-target="#uploadImage" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
+                  $data.= '<img src="../assets/img/image_placeholder.jpg" title="edit"  alt="Circle Image" class="img-raised rounded-circle img-fluid">';
                 }
 
 

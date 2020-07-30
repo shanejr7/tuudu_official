@@ -265,7 +265,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                 <li class="nav-item">
                     <div class="profileFollowing">
-              <div class="avatar" id="avatar_profile_image" style="width: 120px;height: 200px;">
+              <div class="avatar" data-toggle="modal" data-target="#uploadImage" id="avatar_profile_image" style="width: 120px;height: 200px;">
                 <?php 
 
                 if (isset($_SESSION['img_src'])) {
@@ -282,10 +282,10 @@ $bucket_name = 'tuudu-official-file-storage';
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
-                  echo '<img src="'.$presignedUrl.'" title="edit" data-toggle="modal" data-target="#uploadImage" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
+                  echo '<img src="'.$presignedUrl.'" title="edit" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
                   
                 }else{
-                  echo '<img src="../assets/img/image_placeholder.jpg" title="edit" data-toggle="modal" data-target="#uploadImage" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
+                  echo '<img src="../assets/img/image_placeholder.jpg" title="edit" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
                 }
 
 
@@ -307,7 +307,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
         </div>
 
-          <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" tabindex="-1" role="dialog" id="uploadImage" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
