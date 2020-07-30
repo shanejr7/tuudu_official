@@ -326,15 +326,15 @@ $bucket_name = 'tuudu-official-file-storage';
         // try removing action and method
           // then put $_FILE in data-file for ajax instead
 
-        echo'<form enctype="multipart/form-data" id="form_img">
+        echo'<form enctype="multipart/form-data" id="form_img" method="post" action="">
   <label>upload profile picture</label>
                  <div class="row"> 
                   <div class="col-md-4"></div>
                   <div class="col-md-4">
                    
                           <div class="form-group form-file-upload form-file-simple">
-    <input type="text" id="timg" class="form-control inputFileVisible" placeholder="upload image..." required>
-    <input type="file" id="upimg" name="file" class="inputFileHidden">
+    <input type="text"  class="form-control inputFileVisible" placeholder="upload image..." required>
+    <input type="file" id="file" name="file" class="inputFileHidden">
   </div>
                     </div>
 
@@ -1369,20 +1369,15 @@ $(document).ready(function() {
 
 
 $(document).on('click', '.avatar_uploader_form', function () {
-var file_data = $("#timg").prop("files")[0]; 
 
 
-var form_data = new FormData();  
-form_data.append("file", file_data);
-var id=$(this).data("userid");
-    
-console.log("clicked");
-console.log(form_data["file"] + " "+ id);
-
-alert(form_data["file"]);
+        var Myfile = new FormData();
+        var files = $('#file')[0].files[0];
+        Myfile.append('file',files);
 
 
-  update_avatar(id,form_data);
+console.log(Myfile['file']);
+  update_avatar(id,Myfile);
 
 
 
@@ -1396,7 +1391,7 @@ alert(form_data["file"]);
    method:"POST",
    data : {
     id : id,
-    form_data : form_data
+    form_data : Myfile
    },
    success:function(data){
      $('#avatar_profile_image').html(data);
