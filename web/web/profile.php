@@ -478,12 +478,12 @@ catch (S3Exception $e) {
                header('location:oops.php');
           }
 
-          header("location:profile.php?upl=upload");
+          header('location:profile.php?upl=upload');
 
 }else{
  
 }
-
+header('location:profile.php?upl=upload');
 }
 
                 ?>
