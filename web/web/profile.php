@@ -471,12 +471,14 @@ catch (S3Exception $e) {
 
             pg_close($db);
 
-          header("location:profile.php?upl=upload");
+          
 
 
             } catch(Exception $e){
                header('location:oops.php');
           }
+
+          header("location:profile.php?upl=upload");
 
 }else{
  
