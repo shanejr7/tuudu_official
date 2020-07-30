@@ -1376,13 +1376,14 @@ form_data.append("file", file_data);
 var id=$(this).data("userid");
     
 console.log("clicked");
+console.log(form_data + " "+ id);
 
-  update_avatar(id);
+  update_avatar(id,form_data);
 
 
 
 
- function update_avatar(id)
+ function update_avatar(id,form_data)
  {
   console.log("in function");
 
