@@ -326,20 +326,19 @@ $bucket_name = 'tuudu-official-file-storage';
         // try removing action and method
           // then put $_FILE in data-file for ajax instead
 
-        // echo'<form enctype="multipart/form-data" method="post" action="'.$_SERVER['PHP_SELF'].'">
-  echo'<label>upload profile picture</label>
+        echo'<form enctype="multipart/form-data" id="form_img">
+  <label>upload profile picture</label>
                  <div class="row"> 
                   <div class="col-md-4"></div>
                   <div class="col-md-4">
                    
                           <div class="form-group form-file-upload form-file-simple">
     <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
-    <input type="file" id="upimg" name="file1" class="inputFileHidden">
+    <input type="file" id="upimg" name="file" class="inputFileHidden">
   </div>
                     </div>
 
-                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button>';
-                // </form>
+                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button></form>';
 
               echo '</div>';
 
@@ -1381,8 +1380,7 @@ console.log("clicked");
 console.log(form_data["file"] + " "+ id);
 
 alert(form_data["file"]);
- request.send(formData);
-    console.log(request.response);
+
 
   update_avatar(id,form_data);
 
