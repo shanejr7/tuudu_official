@@ -338,7 +338,7 @@ $bucket_name = 'tuudu-official-file-storage';
   </div>
                     </div>
 
-                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button>'
+                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button>';
                 // </form>
 
               echo '</div>';
