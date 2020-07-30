@@ -265,7 +265,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                 <li class="nav-item">
                     <div class="profileFollowing">
-              <div class="avatar" id="avatar_profile_image" style="cursor: pointer;width: 120px;height: 200px;">
+              <div class="avatar" id="avatar_profile_image" style="width: 120px;height: 200px;">
                 <?php 
 
                 if (isset($_SESSION['img_src'])) {
