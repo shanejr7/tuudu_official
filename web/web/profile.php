@@ -272,6 +272,8 @@ $bucket_name = 'tuudu-official-file-storage';
 
                   $user_img = trim($_SESSION['img_src']);
 
+                  echo "string pic ".$user_img;
+
                          $cmd = $s3->getCommand('GetObject', [
                             'Bucket' => ''.$bucket_name.'',
                             'Key'    => ''.$user_img.'',
