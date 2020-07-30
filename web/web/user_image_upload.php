@@ -1,80 +1,50 @@
 <?php 
 include 'server.php';
   
-$fileToMove = $_FILES["file1"]['tmp_name'];
-$destination = "../assets/img/user_profile_img/". $_FILES["file1"]["name"];
-echo $destination;
+  $data="";
+  $db ="";
 
-if (move_uploaded_file($fileToMove, $destination)) {
 
-// 	$image_src = $destination;
-     
-//     $userid = $_SESSION['id'];
-    
 
- 
- 
-//  $_SESSION['img_src'] = $image_src;
-
-// // Create connection
-// $db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-// // Check connection
-// if (!$db) {
-//      die("Connection failed: " . pg_connect_error());
-// }
-
-// // update user image
-//  pg_query($db,$sql = "UPDATE public.users
-// 	SET profile_pic_src= '$image_src'
-// 	WHERE id = $userid");
-
+try{
+ $db = pg_connect(getenv("DATABASE_URL"));
+}catch(Execption $e){
+  header('location:oops.php');
+}
  
 
  
-//   header('location: profile.php');
+
+                if (isset($_SESSION['id'])) {
+
+                  $data = $_SESSION['id'];
+                  $result = pg_query($db, "SELECT * FROM users id =$data LIMIT 1");
+                  $user = pg_fetch_assoc($result);
+
+                  $user_img = trim($user['profile_pic_src']);
+
+
+
+                         $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.$user_img.'',
+                          ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+                  $data.= '<img src="'.$presignedUrl.'" title="edit" data-toggle="modal" data-target="#uploadImage" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
+                  
+                }else{
+                  $data.= '<img src="../assets/img/image_placeholder.jpg" title="edit" data-toggle="modal" data-target="#uploadImage" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
+                }
+
+
+          
    
- 
+              echo $data;
 
 pg_close($db);
 
-
-
-
-
- 
-
-
-
- 
-}else{
-	echo "false";
-}
 ?>
 
-  <?php
-                    if (isset($_SESSION['img_src']) && trim($_SESSION['img_src']) != '') {
-                      
-                      echo ' <div class="avatar">
-         
-                          <img class="media-object" alt="64x64" src="'.trim($_SESSION['img_src']).'"></a>  
-                             </div> ';
-                            
-
-                    }else{
-
-                      echo '<form enctype="multipart/form-data" method="post" action="user_image_upload.php" class="float-left col-md-3" href="#pablo">
-
-                      <div class="avatar" style="background-color: silver; margin-bottom:7px">
-                        
-                            <i class="material-icons" style="margin-left: 5px; margin-top: 18px; color: white;">account_circle</i>
-                             </div> 
-                            <input  type="file" class="btn btn-default" name="file1" id="file1" placeholder="" value =" " style="margin-bottom:7px"> 
-
-                          <input type="submit" class="btn btn-danger" name="submit"  placeholder="" value="Change">
-                         
-                    </form>  ';
-                    }
-
-
-
-                     ?>

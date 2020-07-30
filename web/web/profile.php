@@ -265,14 +265,14 @@ $bucket_name = 'tuudu-official-file-storage';
 
                 <li class="nav-item">
                     <div class="profileFollowing">
-              <div class="avatar" style="width: 120px;height: 200px;">
+              <div class="avatar" id="avatar_profile_image" style="cursor: pointer;width: 120px;height: 200px;">
                 <?php 
 
                 if (isset($_SESSION['img_src'])) {
 
                   $user_img = trim($_SESSION['img_src']);
 
-                
+
 
                          $cmd = $s3->getCommand('GetObject', [
                             'Bucket' => ''.$bucket_name.'',
@@ -307,7 +307,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
         </div>
 
-          <div class="modal fade" id="uploadImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -331,7 +331,7 @@ $bucket_name = 'tuudu-official-file-storage';
   </div>
                     </div>
 
-                </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg " name="image" value="img" style="display:inline-block">upload</button></form>
+                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " name="image" value="img" style="display:inline-block">upload</button></form>
 
               </div>';
 
@@ -1359,6 +1359,36 @@ pg_close($db);
 $(document).ready(function() {
 
 
+
+
+$(document).on('click', '.avatar_uploader_form', function () {
+
+    
+
+
+  update_avatar();
+
+
+
+
+ function update_avatar()
+ {
+
+        $.ajax({
+   url:"user_image_upload.php",
+   method:"POST",
+   data : {},
+   success:function(data){
+     $('#avatar_profile_image').html(data);
+     console.log("work");
+   }
+  })
+
+
+ }
+
+
+    });
 
 $(document).on('click', '.remove_comment', function () {
 
