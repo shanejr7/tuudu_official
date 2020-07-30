@@ -268,33 +268,10 @@ $bucket_name = 'tuudu-official-file-storage';
                     <div class="profileFollowing">
               <div class="avatar" data-toggle="modal" data-target="#uploadImage" id="avatar_profile_image" style="width: 120px;height: 200px;">
                 <?php 
-                $tid="";
-                if (isset($_SESSION['id'])) {
-                  $tid = $_SESSION['id'];
-                }
-                $db ="";
-                  try{
 
- $db = pg_connect(getenv("DATABASE_URL"));
-}catch(Execption $e){
-  header('location:oops.php');
-}
-  $result = pg_query($db, "SELECT profile_pic_src FROM users WHERE id = $tid LIMIT 1");
-  $user = pg_fetch_assoc($result);
-  $tid ="";
-  if ($user) {
-    $tid = trim($user['profile_pic_src']);
-    echo "string".$tid;
-  }
-   
+                if (isset($_SESSION['img_src'])) {
 
-                if (isset($_SESSION['img_src']) || isset($_GET['upl'])) {
-
-                  $user_img = trim($tid);
-
-                  if ($tid) {
-                      $user_img = trim($tid);
-                  }
+                  $user_img = trim($_SESSION['img_src']);
 
 
 
@@ -478,12 +455,10 @@ catch (S3Exception $e) {
                header('location:oops.php');
           }
 
-          header('location:profile.php?upl=upload');
-
 }else{
  
 }
-header('location:profile.php?upl=upload');
+
 }
 
                 ?>
