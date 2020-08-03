@@ -23,6 +23,8 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
  		if (isset($_SESSION['img_src'])) {
  			$img_src = trim($_SESSION['img_src']);
+ 		}else{
+ 			$img_src = null;
  		}
 
  		 
