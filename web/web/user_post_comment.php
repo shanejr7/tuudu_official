@@ -107,9 +107,17 @@ pg_query($db, "INSERT INTO public.messagestate(
 
  		}else if($boolEdit == true){
 
+ 			if ($img_bool_null) {
+
  				 	pg_query($db, "UPDATE messagestate
+	SET user_id=$userid, message='$post', publickey='$publickey', reply_to_id=$replyid, favorite=0, username='$username', src = NULL
+	WHERE publickey = '$publickey' AND user_id = $userid AND timestamp_message = '$time' AND reply_to_id = $replyid");
+
+ 				 }else{
+ 				 				 	pg_query($db, "UPDATE messagestate
 	SET user_id=$userid, message='$post', publickey='$publickey', reply_to_id=$replyid, favorite=0, username='$username', src = '$img_src'
 	WHERE publickey = '$publickey' AND user_id = $userid AND timestamp_message = '$time' AND reply_to_id = $replyid");
+ 				 }
  		
 
  		}
