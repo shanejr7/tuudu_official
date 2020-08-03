@@ -1276,6 +1276,39 @@ pg_close($db);
           <div class="col-md-12 ml-auto mr-auto" >
             <div class="media-area" id="users_post">
             </div>
+            <script type="text/javascript">
+              
+
+       $(document).ready(function() { setInterval(function(){
+                   
+                   
+                var key=$(this).data("key");
+                var id=$(this).data("id");
+                console.log(key + " "+ id);
+                    user_post(id,key);
+                    
+                    function user_post(id,publickey)
+ {
+  console.log("in");
+        $.ajax({
+   url:"fetch_users_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $("#users_post").html(data);
+     console.log("work");
+   }
+  })
+
+   }
+    
+  },5000); 
+   });
+ 
+            </script>
            
             <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
 

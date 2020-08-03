@@ -297,39 +297,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
  }
 
-$name = "heytest";
-
-          $data.='<script> $(document).ready(function() { setInterval(function(){
-                   
-                   
-                   var id='.$user_id.';
-                   var x = "<?php echo"$name"?>";
-                   var publickey='.$publickey.';
-                   console.log("id "+id);
-                   console.log("publickey "+ publickey);
-                    console.log("test"+ x);
-                    user_post(id,publickey);
-                    
-                    function user_post(id,publickey)
- {
-        $.ajax({
-   url:"fetch_users_post.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $("#users_post").html(data);
-     
-   }
-  })
-
-   }
-    
-  },5000); 
-   });
-</script>';
+//  
 
                   echo $data;
 
