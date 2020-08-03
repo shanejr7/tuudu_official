@@ -103,7 +103,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 <a class="float-left post_account" href="#" data-id="'.$item['user_id'].'">
                   <div class="avatar">';
 
-             if (isset($item['img']) && strlen(trim($item['img']))>10) {
+             if (isset($item['img']) && strlen(trim($item['img']))>30) {
                     
                     $user_img = trim($item['img']);
 
