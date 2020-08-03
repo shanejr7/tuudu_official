@@ -304,7 +304,7 @@ $data.='      <script type="text/javascript">
                    
                    
                 var key=$(this).data("key");
-                var id=$(this).data("id");
+                var id=$(this).data("userid");
                 console.log(key + " "+ id);
                     user_post(id,key);
                     
