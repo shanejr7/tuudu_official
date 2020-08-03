@@ -15,6 +15,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
  		$replyid = 0;
  		$username = "";
  		$img_src = "";
+ 		$img_bool_null = true;
  		$boolEdit = false;
 
  		if (isset($_POST['time'])) {
@@ -23,8 +24,9 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
  		if (isset($_SESSION['img_src']) && strlen(trim($_SESSION['img_src'])) >10) {
  			$img_src = trim($_SESSION['img_src']);
+ 			$img_bool_null = false;
  		}else{
- 			$img_src = null;
+ 			$img_bool_null = true;
  		}
 
  		 
@@ -61,9 +63,17 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
 
  		}else{
 
- 				 	pg_query($db, "INSERT INTO public.messagestate(
+ 			if ($img_bool_null) {
+ 				pg_query($db, "INSERT INTO public.messagestate(
 	user_id, message, publickey, reply_to_id, timestamp_message, favorite, username,src)
 	VALUES ($userid, '$post', '$publickey', $replyid, now(), 0, '$username','$img_src')");
+ 			}else{
+pg_query($db, "INSERT INTO public.messagestate(
+	user_id, message, publickey, reply_to_id, timestamp_message, favorite, username,src)
+	VALUES ($userid, '$post', '$publickey', $replyid, now(), 0, '$username',NULL)");
+ 			}
+
+ 				 
  		
 
  		}
