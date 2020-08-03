@@ -66,7 +66,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
  			if ($img_bool_null) {
  				pg_query($db, "INSERT INTO public.messagestate(
 	user_id, message, publickey, reply_to_id, timestamp_message, favorite, username,src)
-	VALUES ($userid, '$post', '$publickey', $replyid, now(), 0, '$username',NULL)")
+	VALUES ($userid, '$post', '$publickey', $replyid, now(), 0, '$username',NULL)");
  				 
  			}else{
 pg_query($db, "INSERT INTO public.messagestate(
