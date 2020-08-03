@@ -328,6 +328,8 @@ $data.='      <script type="text/javascript">
     
   },5000); 
    });
+
+     setTimeout(user_post(id,key), 5000);
  
             </script>';
 
