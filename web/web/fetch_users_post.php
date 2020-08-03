@@ -297,7 +297,39 @@ $bucket_name = 'tuudu-official-file-storage';
 
  }
 
-//  
+$data.='      <script type="text/javascript">
+              
+
+       $(document).ready(function() { setInterval(function(){
+                   
+                   
+                var key=$(this).data("key");
+                var id=$(this).data("id");
+                console.log(key + " "+ id);
+                    user_post(id,key);
+                    
+                    function user_post(id,publickey)
+ {
+  console.log("in");
+        $.ajax({
+   url:"fetch_users_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $("#users_post").html(data);
+     console.log("work");
+   }
+  })
+
+   }
+    
+  },5000); 
+   });
+ 
+            </script>';
 
                   echo $data;
 
