@@ -21,7 +21,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) &
  			$boolEdit = true;
  		}
 
- 		if (isset($_SESSION['img_src'])) {
+ 		if (isset($_SESSION['img_src']) && strlen(trim($_SESSION['img_src'])) >10) {
  			$img_src = trim($_SESSION['img_src']);
  		}else{
  			$img_src = null;
