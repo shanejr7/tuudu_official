@@ -303,8 +303,8 @@ $data.='      <script type="text/javascript">
        $(document).ready(function() { setInterval(function(){
                    
                    
-                var key=$(this).data("key");
-                var id=$(this).data("userid");
+                var key="'.$publickey.'";
+                var id='.$user_id.';
                 console.log(key + " "+ id);
                     user_post(id,key);
                     
