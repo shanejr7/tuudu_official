@@ -405,6 +405,20 @@ pg_close($db);
 //stores file to aws S3
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['file1']['tmp_name'])) {
 
+
+            $db = pg_connect(getenv("DATABASE_URL"));
+            // Check connection
+            if (!$db) {
+              die("Connection failed: " . pg_connect_error());
+              header('location:oops.php');
+            }
+
+            $file_temp = pg_escape_string($db, $_FILES['file1']['tmp_name']);
+            $file_name = pg_escape_string($db, $_FILES['file1']['name']);
+
+
+
+
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
    
     $n = 15;
@@ -414,8 +428,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file1']) && $_FILES['f
         $randomString .= $characters[$index]; 
     } 
  
-$source = fopen($_FILES['file1']['tmp_name'], 'rb');
-$key =  "organization_event_img/".$randomString.''. $_FILES['file1']['name']; 
+$source = fopen($file_temp, 'rb');
+$key =  "organization_event_img/".$randomString.''. $file_name; 
 // save destination into postgresql
 $destination = $key;
 
@@ -430,7 +444,7 @@ $destination = $key;
    
     try {
        
-        $upload = $uploader->upload($bucket, $destination, fopen($_FILES['file1']['tmp_name'], 'rb'), 'public-read');
+        $upload = $uploader->upload($bucket, $destination, fopen($file_temp, 'rb'), 'public-read');
 
           $image_src = $destination;
           $eventTitle= filter_var($_POST['eventTitle'], FILTER_SANITIZE_STRING);
@@ -440,16 +454,6 @@ $destination = $key;
           $content= filter_var($_POST['content'], FILTER_SANITIZE_STRING);   
           $content = preg_replace('/[^A-Za-z0-9\-]!/', '', $content);
  
-
- 
-            // Create connection
-            //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-            $db = pg_connect(getenv("DATABASE_URL"));
-            // Check connection
-            if (!$db) {
-              die("Connection failed: " . pg_connect_error());
-              header('location:oops.php');
-            }
 
             // update user image
             pg_query($db,"UPDATE public.organization SET title ='$eventTitle', description = '$description', content = '$content', img='$image_src' WHERE id= $userid AND publickey = '$publickey'");
