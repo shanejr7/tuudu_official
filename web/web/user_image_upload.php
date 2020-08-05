@@ -2,6 +2,24 @@
 
 include("server.php");
 
+// require('../aws/aws-autoloader.php');
+require('../aws/Aws/S3/S3Client.php'); 
+require('../aws/Aws/S3/ObjectUploader.php'); 
+
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+use Aws\S3\ObjectUploader;
+
+$s3=" ";
+$s3 = new Aws\S3\S3Client([
+    'version'  => 'latest',
+     'region'   => 'us-east-2',
+]);
+
+$bucket = getenv('S3_BUCKET')?: header('location:oops.php');
+$bucket_name = 'tuudu-official-file-storage';
+
+
 if (!isset($_SESSION['username'])) {
  
    header('location: login-page.php');
