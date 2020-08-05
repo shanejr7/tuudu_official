@@ -77,6 +77,7 @@ if (isset($_SESSION['img_src'])) {
 }
 
 $result = pg_query($db, "UPDATE public.users SET profile_pic_src=null WHERE id = $userid");
+$result = pg_query($db, "UPDATE public.messagestate SET src=null WHERE user_id = $userid");
 
     $result = $s3->deleteObject([
         'Bucket' => $bucket_name,
@@ -121,15 +122,10 @@ catch (S3Exception $e) {
           $_SESSION['img_src'] = $destination;
 
  
-            $db = pg_connect(getenv("DATABASE_URL"));
-            // Check connection
-            if (!$db) {
-              die("Connection failed: " . pg_connect_error());
-              header('location:oops.php');
-            }
 
             // update user image
             pg_query($db,"UPDATE users SET profile_pic_src ='$image_src' WHERE id= $userid ");
+            pg_query($db,"UPDATE messagestate SET src ='$image_src' WHERE user_id= $userid ");
 
           
 
