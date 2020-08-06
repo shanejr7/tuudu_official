@@ -1248,36 +1248,36 @@ pg_close($db);
 $(document).ready(function() {
 
 
-// $(document).on('click', '.post_follow_user', function () {
+$(document).on('click', '.post_follow_user', function () {
 
-// var key=$(this).data("publickey");
-// var id=$(this).data("id");
-
-
-
-// follow(id,key);
+var key=$(this).data("publickey");
+var id=$(this).data("id");
 
 
-//  function follow(id,publickey)
-//  {
+
+follow(id,key);
 
 
-//     $.ajax({
-//    url:"follow_user.php",
-//    method:"POST",
-//    data : {
-//         publickey : publickey,
-//         id : id 
-//                     },
-//    success:function(data){
-//     $('#comment_post').html(data);
-//    }
-//   })
-
-//  }
+ function follow(id,publickey)
+ {
 
 
-//     });
+    $.ajax({
+   url:"follow_user.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    // $('#comment_post').html(data);
+   }
+  })
+
+ }
+
+
+    });
 
 $(document).on('click', '.remove_comment', function () {
 
