@@ -850,8 +850,8 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><
-              <a href="profile.php?removeFollower='.$item['user_following_id'].'"><span class="material-icons">remove_circle_outline</span></a></form></h16>
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;">
+              <a href="profile.php?removeFollower='.$item['user_id'].'"><span class="material-icons">remove_circle_outline</span></a></form></h16>
                 </div>
             </div>';
                 }
