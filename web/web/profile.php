@@ -720,7 +720,7 @@ $result = pg_query($db, "SELECT id as user_following_id, username, email, profil
                   <?php
 
                   if (isset($followerArr)) {
-                    echo '<h3 style="margin-bottom: 70px;font-weight: bold">'.sizeof($followingArr).' Followers</h3>';
+                    echo '<h3 style="margin-bottom: 70px;font-weight: bold">'.sizeof($followerArr).' Followers</h3>';
                   }
 
                    ?>
