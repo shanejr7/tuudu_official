@@ -667,6 +667,34 @@ $result = pg_query($db, "SELECT id as user_id, username, email, profile_pic_src
 
 }
 
+if (isset($_GET['removeFollower'])) {
+
+   $follower_id = pg_escape_string($db, $_GET['removeFollower']);
+
+
+   pg_query($db, "DELETE FROM public.user_follow_user
+  WHERE user_id =$follower_id AND user_following_id =$userid");
+
+    $result = pg_query($db, "SELECT id as user_id, username, email, profile_pic_src
+  FROM users WHERE id IN(SELECT user_id FROM user_follow_user WHERE user_following_id =$userid)");
+
+
+
+ if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $followerArr[] = array("user_id" => $row["user_id"], "username" => $row["username"], "email"=> $row["email"], "img" => $row["profile_pic_src"]);
+                  
+                  }
+
+            pg_close($db);
+
+}else{
+
+}
+}
+
 
   $followingArr = array();
 
@@ -822,7 +850,8 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href=""><span class="material-icons">remove_circle_outline</span></a></h16>
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><form method="GET" action="profile.php">
+              <input type="submit" name="removeFollower" value="'.$item['user_following_id'].'"><span class="material-icons">remove_circle_outline</span></a></form></h16>
                 </div>
             </div>';
                 }
