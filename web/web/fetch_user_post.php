@@ -111,7 +111,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                 }elseif($user_follow){
 
-                  $data.='<button type="button" data-id="'.$user_post['user_id'].'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">Following</button>';
+                  $data.='<button type="button" data-id="'.$user_post['user_id'].'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-danger pull-right btn-round">Following</button>';
 
                 }else{
 

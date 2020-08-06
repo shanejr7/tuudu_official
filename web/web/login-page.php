@@ -53,6 +53,7 @@ include('server.php');
       auth2 = gapi.auth2.init({
         client_id: '364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com',
         cookiepolicy: 'single_host_origin',
+        
         // Request scopes in addition to 'profile' and 'email'
         //scope: 'additional_scope'
       });

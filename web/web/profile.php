@@ -407,12 +407,12 @@ $bucket_name = 'tuudu-official-file-storage';
 
                       if (isset($following_count)) {
                         
-                        echo '<li style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
+                        echo '<li style="display: inline-block;margin-right:3px;">Following <b>'.$following_count.'</b></li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        echo '<li style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
+                        echo '<li style="display: inline-block;">Followers <b>'.$followers_count.'</b></li>';
                       }
 
                     }
@@ -1274,7 +1274,7 @@ follow(id,key);
   })
 
 
-     
+
   $.ajax({
    url:"fetch_user_post.php",
    method:"POST",
