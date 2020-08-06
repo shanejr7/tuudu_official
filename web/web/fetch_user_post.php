@@ -29,6 +29,9 @@ $bucket_name = 'tuudu-official-file-storage';
 		$publickey = "";
 		$user_post = "";
 		$result ="";
+    $sid="";
+
+
 
 			$db="";
 
@@ -46,6 +49,12 @@ $bucket_name = 'tuudu-official-file-storage';
 		$publickey = trim($publickey);
 		$user_id = pg_escape_string($db, $_POST['id']);
 
+     if (isset($_SESSION['id'])) {
+
+            $sid = $_SESSION['id'];
+      
+      }
+
 
 
 
@@ -54,6 +63,11 @@ $bucket_name = 'tuudu-official-file-storage';
   				
   				$user_post = pg_fetch_assoc($result);
 
+
+
+          $result = pg_query($db, "SELECT * FROM user_follow_user WHERE user_id = $sid AND user_following_id =$user_id ");
+
+          $user_follow = pg_fetch_assoc($result);
           
  
 
@@ -90,9 +104,26 @@ $bucket_name = 'tuudu-official-file-storage';
                   <h4 class="card-title">'.trim($user_post['user_username']).'</h4>
                   <p class="description">'.trim($user_post['post_description']).'</p>
                 </div>
-                <div class="col-md-2">
-                  <button type="button" data-id="'.$user_post['user_id'].'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">Follow</button>
-                </div>';
+                <div class="col-md-2">';
+                if ($user_id == $sid) {
+
+                  // no follow button
+
+                }elseif($user_follow){
+
+                  $data.='<button type="button" data-id="'.$user_post['user_id'].'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">Following</button>';
+
+                }else{
+
+                  $data.='<button type="button" data-id="'.$user_post['user_id'].'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">Follow</button>';
+
+                }
+
+
+
+                  
+                
+                $data.='</div>';
 
 
                   echo $data;

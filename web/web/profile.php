@@ -1254,13 +1254,12 @@ var key=$(this).data("publickey");
 var id=$(this).data("id");
 
 
-console.log("clicked");
 follow(id,key);
 
 
  function follow(id,publickey)
  {
-console.log("in function");
+
 
     $.ajax({
    url:"follow_user.php",
@@ -1270,8 +1269,35 @@ console.log("in function");
         id : id 
                     },
    success:function(data){
-    // $('#comment_post').html(data);
-    console.log("work");
+   
+   }
+  })
+
+
+     
+  $.ajax({
+   url:"fetch_user_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#user_post').html(data);
+     
+   }
+  })
+
+
+    $.ajax({
+   url:"fetch_users_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#users_post').html(data);
    }
   })
 
