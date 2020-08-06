@@ -1248,18 +1248,36 @@ pg_close($db);
 $(document).ready(function() {
 
 
-  var temp = "tempval";
+// $(document).on('click', '.post_follow_user', function () {
 
-   $.ajax({
-   url:"user_image_upload.php",
-   method:"POST",
-   data : {
-    id : temp
-   },
-   success:function(data){
-     $('#form').html(data);
-   }
-  })
+// var key=$(this).data("publickey");
+// var id=$(this).data("id");
+
+
+
+// follow(id,key);
+
+
+//  function follow(id,publickey)
+//  {
+
+
+//     $.ajax({
+//    url:"follow_user.php",
+//    method:"POST",
+//    data : {
+//         publickey : publickey,
+//         id : id 
+//                     },
+//    success:function(data){
+//     $('#comment_post').html(data);
+//    }
+//   })
+
+//  }
+
+
+//     });
 
 $(document).on('click', '.remove_comment', function () {
 

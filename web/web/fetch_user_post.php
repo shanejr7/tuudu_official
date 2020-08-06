@@ -21,14 +21,12 @@ $bucket_name = 'tuudu-official-file-storage';
 
 	if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
- 
- 
-
-		
+    
 		$user_id = 0;
 		$publickey = "";
 		$user_post = "";
 		$result ="";
+    $sid= "";
 
 			$db="";
 
@@ -45,6 +43,22 @@ $bucket_name = 'tuudu-official-file-storage';
 		$publickey = pg_escape_string($db, $_POST['publickey']);
 		$publickey = trim($publickey);
 		$user_id = pg_escape_string($db, $_POST['id']);
+
+
+    if (isset($_SESSION['id'])) {
+        
+        $sid = $_SESSION['id']; 
+    
+    }
+
+
+    if (isset($_POST['followButton'])) {
+      
+      pg_query($db, "INSERT INTO public.user_follow_user(user_id, user_following_id) 
+        VALUES ($sid, $user_id)");
+
+
+    }
 
 
 
@@ -91,7 +105,11 @@ $bucket_name = 'tuudu-official-file-storage';
                   <p class="description">'.trim($user_post['post_description']).'</p>
                 </div>
                 <div class="col-md-2">
-                  <button type="button" data-id="'.$user_post['user_id'].'" data-publickey="'.$publickey.'" class="post_follow_user_organization btn btn-default pull-right btn-round">Follow</button>
+                <form method="POST" action="fetch_user_post.php">
+                <input type="hidden" name="publickey" value="'.$publickey.'">
+                <input type="hidden" name="id" value="'.$user_post['user_id'].'">
+                  <button type="submit" name="followButton" value="Follow" data-id="'.$user_post['user_id'].'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">Follow</button>
+                  </from>
                 </div>';
 
 
