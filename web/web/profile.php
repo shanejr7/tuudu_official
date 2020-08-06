@@ -669,7 +669,15 @@ $result = pg_query($db, "SELECT id as user_id, username, email, profile_pic_src
 
 if (isset($_GET['removeFollower'])) {
 
+    try{
+
+ $db = pg_connect(getenv("DATABASE_URL"));
+}catch(Execption $e){
+  header('location:oops.php');
+}
+
    $follower_id = pg_escape_string($db, $_GET['removeFollower']);
+   $userid = $_SESSION['id'];
 
 
    pg_query($db, "DELETE FROM public.user_follow_user
@@ -688,11 +696,13 @@ if (isset($_GET['removeFollower'])) {
                   
                   }
 
-            pg_close($db);
+          
 
 }else{
 
 }
+
+ pg_close($db);
 }
 
 
