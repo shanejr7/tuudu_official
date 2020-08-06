@@ -1254,13 +1254,13 @@ var key=$(this).data("publickey");
 var id=$(this).data("id");
 
 
-
+console.log("clicked");
 follow(id,key);
 
 
  function follow(id,publickey)
  {
-
+console.log("in function");
 
     $.ajax({
    url:"follow_user.php",
@@ -1271,11 +1271,12 @@ follow(id,key);
                     },
    success:function(data){
     // $('#comment_post').html(data);
+    console.log("work");
    }
   })
 
 
-    
+
 
  }
 

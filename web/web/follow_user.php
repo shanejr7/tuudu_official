@@ -49,5 +49,7 @@ include("server.php");
 
     pg_close($db);
 
+}
+
 
     ?>
