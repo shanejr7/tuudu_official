@@ -407,12 +407,12 @@ $bucket_name = 'tuudu-official-file-storage';
 
                       if (isset($following_count)) {
                         
-                        echo '<li style="display: inline-block;margin-right:3px;">Following <b>'.$following_count.'</b></li>';
+                        echo '<li style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        echo '<li style="display: inline-block;">Followers <b>'.$followers_count.'</b></li>';
+                        echo '<li style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
                       }
 
                     }
@@ -648,8 +648,8 @@ if (isset($_SESSION['id'])) {
   header('location:oops.php');
 }
 
-$result = pg_query($db, "SELECT user_id, username, email, profile_pic_src
-  FROM public.user_follow_user NATURAL JOIN users WHERE user_following_id = $userid");
+$result = pg_query($db, "SELECT id, username, email, profile_pic_src
+  FROM users  WHERE id IN(SELECT user_following_id FROM user_follow_user WHERE user_following_id =$userid)");
 
 
 
@@ -677,8 +677,8 @@ $result = pg_query($db, "SELECT user_id, username, email, profile_pic_src
   header('location:oops.php');
 }
 
-$result = pg_query($db, "SELECT user_following_id, username, email, profile_pic_src
-  FROM public.user_follow_user NATURAL JOIN users WHERE user_id = $userid");
+$result = pg_query($db, "SELECT id as user_following_id, username, email, profile_pic_src
+  FROM users  WHERE id IN(SELECT user_following_id FROM user_follow_user WHERE user_id =$userid)");
 
 
 
