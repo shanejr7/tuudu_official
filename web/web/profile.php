@@ -805,18 +805,18 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
                 <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href=""><span class="material-icons">remove_circle_outline</span></a></h16>
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_follow_btn" data-userid='.$item['user_id'].' data-key="dummyString"><span class="material-icons">remove_circle_outline</span></a></h16>
                 </div>
             </div>';
                 }else{
 
-                  echo '<div class="profileFollowers" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+                  echo '<div class="profileFollowers" style="margin-left:15px;margin-top:15px;display: inline-block;  margin-right: 15px;">
               <div class="avatar" style="width: 120px;">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
                 <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;">
-              <a href=""><span class="material-icons">remove_circle_outline</span></a></form></h16>
+              <a href="#" class="unfollow_user_follow_btn" data-userid='.$item['user_id'].' data-key="dummyString"><span class="material-icons">remove_circle_outline</span></a></form></h16>
                 </div>
             </div>';
                 }
@@ -1241,15 +1241,90 @@ pg_close($db);
 
 $(document).ready(function() {
 
+
+  $(document).on('click', '.unfollow_user_follow_btn', function () {
+
+var key=$(this).data("key");
+var id=$(this).data("userid");
+
+unfollow_button(id,key);
+
+
+ function unfollow_button(id,publickey)
+ {
+  
+
+            $.ajax({
+   url:"unfollow_user_follow.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+
+       $.ajax({
+   url:"fetch_user_connection_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#connection_follow_tab').html(data);
+   
+     
+   }
+  })
+
+    $('#following').html(data);
+   
+             $.ajax({
+   url:"fetch_user_followers.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#followers').html(data);
+     
+   }
+  })
+   }
+  })
+
+
+       $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+   
+     
+   }
+  })
+
+ }
+
+ 
+
+
+    });
+
   $(document).on('click', '.unfollow_user_btn', function () {
 
 var key=$(this).data("key");
 var id=$(this).data("userid");
 
-follow_button(id,key);
+unfollow_button(id,key);
 
 
- function follow_button(id,publickey)
+ function unfollow_button(id,publickey)
  {
   
 
