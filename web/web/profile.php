@@ -1247,12 +1247,13 @@ var key=$(this).data("key");
 var id=$(this).data("userid");
 
 
-
+  console.log("clicked");
 follow_button(id,key);
 
 
  function follow_button(id,publickey)
  {
+  console.log("in func");
 
             $.ajax({
    url:"unfollow_user.php",
@@ -1263,7 +1264,19 @@ follow_button(id,key);
                     },
    success:function(data){
     $('#following').html(data);
+      console.log("deleted user");
+             $.ajax({
+   url:"fetch_user_followers.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#followers').html(data);
      
+   }
+  })
    }
   })
 
@@ -1277,18 +1290,7 @@ follow_button(id,key);
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
-          $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
+   
      
    }
   })
