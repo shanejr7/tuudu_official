@@ -912,8 +912,8 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
               <div class="avatar" style="width: 120px;">
                 <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
-              <div class="unfollow_user_btn" data-key="dummyString" data-userid="0">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href=""><span class="material-icons">remove_circle_outline</span></a></h16>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_btn" data-key="dummyString" data-userid="0"><span class="material-icons">remove_circle_outline</span></a></h16>
                 </div>
             </div>';
                 }else{
@@ -922,8 +922,8 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
               <div class="avatar" style="width: 120px;">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
-              <div class="unfollow_user_btn" data-key="dummyString" data-userid="0">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href=""><span class="material-icons">remove_circle_outline</span></a></h16>
+              <div class="name">
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_btn" data-key="dummyString" data-userid="0"><span class="material-icons">remove_circle_outline</span></a></h16>
                 </div>
             </div>';
                 }
@@ -1248,6 +1248,7 @@ var id=$(this).data("userid");
 
 
   console.log("clicked");
+  console.log(key + " " + id);
 follow_button(id,key);
 
 
@@ -1263,6 +1264,21 @@ follow_button(id,key);
         id : id 
                     },
    success:function(data){
+
+       $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+   
+     
+   }
+  })
+    
     $('#following').html(data);
       console.log("deleted user");
              $.ajax({
