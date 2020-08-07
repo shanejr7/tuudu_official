@@ -633,8 +633,9 @@ $bucket_name = 'tuudu-official-file-storage';
   $followerArr = array();
   $followingArr = array();
   $userid =0;
+  $db= "";
 
-$data.='<div class="col-md-4 ml-auto mr-auto">
+$echo'<div class="col-md-4 ml-auto mr-auto">
               
               </div>';
 
