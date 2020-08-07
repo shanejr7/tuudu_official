@@ -100,7 +100,7 @@ $bucket_name = 'tuudu-official-file-storage';
               <div class="avatar" style="width: 120px;">
                 <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
-              <div class="name">
+              <div class="name" id="follow_button" data-key="dummyString" data-userid="0">
                 <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href=""><span class="material-icons">remove_circle_outline</span></a></h16>
                 </div>
             </div>';
@@ -110,7 +110,7 @@ $bucket_name = 'tuudu-official-file-storage';
               <div class="avatar" style="width: 120px;">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
-              <div class="name">
+              <div class="name" id="follow_button" data-key="dummyString" data-userid="0">
                 <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;">
               <a href=""><span class="material-icons">remove_circle_outline</span></a></form></h16>
                 </div>
