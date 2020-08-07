@@ -1276,12 +1276,9 @@ unfollow(id,key);
                     },
    success:function(data){
     $('#user_post').html(data);
-     
-   }
-  })
 
 
-    $.ajax({
+        $.ajax({
    url:"fetch_users_post.php",
    method:"POST",
    data : {
@@ -1290,6 +1287,9 @@ unfollow(id,key);
                     },
    success:function(data){
     $('#users_post').html(data);
+   }
+  })
+     
    }
   })
 
@@ -1304,6 +1304,7 @@ unfollow(id,key);
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
+
       $.ajax({
    url:"fetch_user_connection_tab.php",
    method:"POST",
@@ -1313,6 +1314,19 @@ unfollow(id,key);
                     },
    success:function(data){
     $('#connection_follow_tab').html(data);
+
+      $.ajax({
+   url:"fetch_user_followers.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#followers').html(data);
+     
+   }
+  })
      
    }
   })
@@ -1397,7 +1411,7 @@ follow(id,key);
         id : id 
                     },
    success:function(data){
-    
+
     $('#profile_tab_data').html(data);
          $.ajax({
    url:"fetch_user_connection_tab.php",
@@ -1408,6 +1422,19 @@ follow(id,key);
                     },
    success:function(data){
     $('#connection_follow_tab').html(data);
+
+          $.ajax({
+   url:"fetch_user_followers.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#followers').html(data);
+     
+   }
+  })
      
    }
   })
