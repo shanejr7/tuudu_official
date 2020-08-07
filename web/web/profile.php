@@ -1273,6 +1273,8 @@ unfollow(id,key);
                     },
    success:function(data){
 
+      $('#following').html(data);
+
 
       $.ajax({
    url:"fetch_user_post.php",
@@ -1338,12 +1340,9 @@ follow(id,key);
                     },
    success:function(data){
    
-   }
-  })
+    $('#following').html(data);
 
-
-
-  $.ajax({
+    $.ajax({
    url:"fetch_user_post.php",
    method:"POST",
    data : {
@@ -1368,6 +1367,12 @@ follow(id,key);
     $('#users_post').html(data);
    }
   })
+   }
+  })
+
+
+
+ 
 
 
 
