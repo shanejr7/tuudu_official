@@ -635,7 +635,7 @@ $bucket_name = 'tuudu-official-file-storage';
   $userid =0;
   $db= "";
 
-$echo '<div class="col-md-4 ml-auto mr-auto"> </div>';
+echo '<div class="col-md-4 ml-auto mr-auto"> </div>';
 
 
 
@@ -697,7 +697,7 @@ $result = pg_query($db, "SELECT id as user_following_id, username, email, profil
                 
 
                   if (isset($followingArr)) {
-                   $echo'<h3 style="margin-bottom: 70px; font-weight: bold">'.sizeof($followingArr).' Following</h3>';
+                  echo'<h3 style="margin-bottom: 70px; font-weight: bold">'.sizeof($followingArr).' Following</h3>';
                   }
 
                 
@@ -709,12 +709,12 @@ $result = pg_query($db, "SELECT id as user_following_id, username, email, profil
           
 
                   if (isset($followerArr)) {
-                   $echo'<h3 style="margin-bottom: 70px;font-weight: bold">'.sizeof($followerArr).' Followers</h3>';
+                   echo'<h3 style="margin-bottom: 70px;font-weight: bold">'.sizeof($followerArr).' Followers</h3>';
                   }
 
 
 
-                  $echo'</a>
+                  echo'</a>
               </div>
                   <div class="col-md-3 ml-auto mr-auto">
 
