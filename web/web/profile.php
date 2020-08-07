@@ -1838,13 +1838,10 @@ user_post(id,key,post,username,replyid);
         replyid : replyid 
                     },
    success:function(data){
+
     $('#cleanPost').html(data);
-   
-   }
-  })
 
-
-    $.ajax({
+        $.ajax({
    url:"fetch_users_post.php",
    method:"POST",
    data : {
@@ -1869,6 +1866,12 @@ user_post(id,key,post,username,replyid);
      
    }
   })
+   
+   }
+  })
+
+
+ 
 
 
 
