@@ -1458,12 +1458,7 @@ $(document).on('click', '.remove_comment', function () {
                     },
    success:function(data){
 
-   }
-  })
-
-
-
-    $.ajax({
+  $.ajax({
    url:"fetch_users_post.php",
    method:"POST",
    data : {
@@ -1474,7 +1469,6 @@ $(document).on('click', '.remove_comment', function () {
     $('#users_post').html(data);
    }
   })
-
 
 
     $.ajax({
@@ -1489,7 +1483,9 @@ $(document).on('click', '.remove_comment', function () {
    }
   })
 
- }
+   }
+  })
+
 
        $.ajax({
    url:"fetch_user_profile_tab.php",
@@ -1504,6 +1500,13 @@ $(document).on('click', '.remove_comment', function () {
      
    }
   })
+   
+
+ 
+
+ }
+
+ 
 
 
     });
@@ -1549,12 +1552,9 @@ edit_comment(id,key,time,username,replyid,post);
                     },
    success:function(data){
     $('#cleanPost').html(data);
-   
-   }
-  })
 
 
-    $.ajax({
+        $.ajax({
    url:"fetch_users_post.php",
    method:"POST",
    data : {
@@ -1581,7 +1581,6 @@ edit_comment(id,key,time,username,replyid,post);
    }
   })
 
- }
 
        $.ajax({
    url:"fetch_user_profile_tab.php",
@@ -1595,7 +1594,16 @@ edit_comment(id,key,time,username,replyid,post);
     
      
    }
+  }) 
+   
+   }
   })
+
+
+ 
+
+ }
+ 
 
 
     });
@@ -1775,12 +1783,9 @@ reply_post(id,key);
                         username : username
                     },
                         success:function(data){
-                           
-                          }
-                   })
+                             
 
-
- $.ajax({
+                           $.ajax({
      url:"fetch_users_post.php",
       method:"POST",
         data : {
@@ -1804,6 +1809,13 @@ reply_post(id,key);
      
    }
   })
+
+
+                          }
+                   })
+
+
+ 
            }
         
 
