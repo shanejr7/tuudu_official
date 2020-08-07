@@ -60,7 +60,7 @@ $bucket_name = 'tuudu-official-file-storage';
   
       
       pg_query($db, "DELETE FROM public.user_follow_user
-	WHERE user_id =$sid AND user_following_id =$user_id");
+	WHERE user_id =$sid AND user_following_id =$sid");
 
 
 

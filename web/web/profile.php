@@ -1247,14 +1247,12 @@ var key=$(this).data("key");
 var id=$(this).data("userid");
 
 
-  console.log("clicked");
-  console.log(key + " " + id);
 follow_button(id,key);
 
 
  function follow_button(id,publickey)
  {
-  console.log("in func");
+  
 
             $.ajax({
    url:"unfollow_user.php",
@@ -1278,9 +1276,9 @@ follow_button(id,key);
      
    }
   })
-    
+
     $('#following').html(data);
-      console.log("deleted user");
+   
              $.ajax({
    url:"fetch_user_followers.php",
    method:"POST",
