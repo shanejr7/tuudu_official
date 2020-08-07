@@ -354,7 +354,7 @@ $bucket_name = 'tuudu-official-file-storage';
           <div class="tab-pane active work" id="home">
             <div class="row">
 
-              <div class="col-md-8 ml-auto mr-auto ">
+              <div class="col-md-8 ml-auto mr-auto " id="profile_tab_data">
                 <h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Collections</h4>
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>
                  <?php 
@@ -407,12 +407,12 @@ $bucket_name = 'tuudu-official-file-storage';
 
                       if (isset($following_count)) {
                         
-                        echo '<li style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
+                        echo '<li id="following_count" style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        echo '<li style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
+                        echo '<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
                       }
 
                     }
@@ -1259,7 +1259,7 @@ var id=$(this).data("id");
 
 unfollow(id,key);
 
-
+// Following <b>'.$following_count['count'].'</b>
  function unfollow(id,publickey)
  {
 
@@ -1301,6 +1301,22 @@ unfollow(id,key);
     $('#users_post').html(data);
    }
   })
+
+
+
+      $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+     
+   }
+  })
+
    
    }
   })
