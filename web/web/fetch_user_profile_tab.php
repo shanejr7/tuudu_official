@@ -39,6 +39,10 @@ include("server.php");
 
 
 
+
+
+                         $data.='<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Collections</h4>
+                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
                       
 
                       if (isset($product_count)) {
