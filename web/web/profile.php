@@ -626,7 +626,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
           <div class="tab-pane connections" id="connections">
-            <div class="row">
+            <div class="row" id="connection_follow_tab">
 
                 <div class="col-md-4 ml-auto mr-auto">
               
@@ -1259,7 +1259,7 @@ var id=$(this).data("id");
 
 unfollow(id,key);
 
-// Following <b>'.$following_count['count'].'</b>
+
  function unfollow(id,publickey)
  {
 
@@ -1316,6 +1316,22 @@ unfollow(id,key);
      
    }
   })
+
+
+      $.ajax({
+   url:"fetch_user_connection_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#connection_follow_tab').html(data);
+     
+   }
+  })
+
+
 
    
    }
@@ -1386,7 +1402,7 @@ follow(id,key);
 
 
 
-console.log("in");
+ 
       $.ajax({
    url:"fetch_user_profile_tab.php",
    method:"POST",
@@ -1396,7 +1412,7 @@ console.log("in");
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
-    console.log("work");
+    
      
    }
   })
