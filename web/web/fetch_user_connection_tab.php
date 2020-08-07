@@ -101,6 +101,8 @@ $result = pg_query($db, "SELECT id as user_following_id, username, email, profil
 
               </div>';
 
+              echo $data;
+
               pg_close($db);
             
 
