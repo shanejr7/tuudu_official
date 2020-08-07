@@ -1295,18 +1295,18 @@ unfollow(id,key);
 
 
 
-  //     $.ajax({
-  //  url:"fetch_user_profile_tab.php",
-  //  method:"POST",
-  //  data : {
-  //       publickey : publickey,
-  //       id : id 
-  //                   },
-  //  success:function(data){
-  //   $('#profile_tab_data').html(data);
+      $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
      
-  //  }
-  // })
+   }
+  })
 
 
   //     $.ajax({
@@ -1388,19 +1388,19 @@ follow(id,key);
 
 
  
-  //     $.ajax({
-  //  url:"fetch_user_profile_tab.php",
-  //  method:"POST",
-  //  data : {
-  //       publickey : publickey,
-  //       id : id 
-  //                   },
-  //  success:function(data){
-  //   $('#profile_tab_data').html(data);
+      $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
     
      
-  //  }
-  // })
+   }
+  })
 
 
 
@@ -1491,6 +1491,20 @@ $(document).on('click', '.remove_comment', function () {
 
  }
 
+       $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+    
+     
+   }
+  })
+
 
     });
 
@@ -1569,6 +1583,20 @@ edit_comment(id,key,time,username,replyid,post);
 
  }
 
+       $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+    
+     
+   }
+  })
+
 
     });
 
@@ -1596,6 +1624,21 @@ back_post(id,key);
                     },
    success:function(data){
     $('#comment_post').html(data);
+   }
+  })
+
+
+          $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+    
+     
    }
   })
 
@@ -1633,6 +1676,20 @@ reply_post(id,key);
 
  }
 
+       $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+    
+     
+   }
+  })
+
 
     });
 
@@ -1668,6 +1725,21 @@ reply_post(id,key);
                          $('#comment_post').html(data);
                           }
                    })
+
+
+                        $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+    
+     
+   }
+  })
 
 
            }
@@ -1719,7 +1791,19 @@ reply_post(id,key);
         $('#users_post').html(data);
          }
     })
-
+      $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+    
+     
+   }
+  })
            }
         
 
@@ -1769,6 +1853,20 @@ user_post(id,key,post,username,replyid);
                     },
    success:function(data){
     $('#users_post').html(data);
+   }
+  })
+
+          $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+    
+     
    }
   })
 
@@ -1827,6 +1925,20 @@ fetch_user(id,key);
                     },
    success:function(data){
     $('#comment_post').html(data);
+   }
+  })
+
+          $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+    
+     
    }
   })
 
