@@ -631,6 +631,7 @@ $bucket_name = 'tuudu-official-file-storage';
 <?php 
 
   $followerArr = array();
+  $followingArr = array();
   $userid =0;
 
 $data.='<div class="col-md-4 ml-auto mr-auto">
@@ -692,35 +693,35 @@ $result = pg_query($db, "SELECT id as user_following_id, username, email, profil
           }
 
 
-           $data.= '<div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
+           $echo '<div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
                 <a href="#friends" style="text-decoration: none;color:#3c4858;" id="fg" onclick="followingFunction()">';
                 
 
                   if (isset($followingArr)) {
-                   $data.='<h3 style="margin-bottom: 70px; font-weight: bold">'.sizeof($followingArr).' Following</h3>';
+                   $echo'<h3 style="margin-bottom: 70px; font-weight: bold">'.sizeof($followingArr).' Following</h3>';
                   }
 
                 
               
-            $data.='</a>
+            $echo'</a>
               </div>
               <div class="col-md-2 mr-auto ml-auto">
                 <a href="#friends" style="text-decoration: none;color: black" id="fe" onclick="followerFunction()" >';
           
 
                   if (isset($followerArr)) {
-                   $data.='<h3 style="margin-bottom: 70px;font-weight: bold">'.sizeof($followerArr).' Followers</h3>';
+                   $echo'<h3 style="margin-bottom: 70px;font-weight: bold">'.sizeof($followerArr).' Followers</h3>';
                   }
 
 
 
-                  $data.='</a>
+                  $echo'</a>
               </div>
                   <div class="col-md-3 ml-auto mr-auto">
 
               </div>';
 
-              echo $data;
+           
 
               pg_close($db);
 
