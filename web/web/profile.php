@@ -635,9 +635,7 @@ $bucket_name = 'tuudu-official-file-storage';
   $userid =0;
   $db= "";
 
-$echo'<div class="col-md-4 ml-auto mr-auto">
-              
-              </div>';
+$echo '<div class="col-md-4 ml-auto mr-auto"> </div>';
 
 
 
