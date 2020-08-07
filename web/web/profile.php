@@ -1303,7 +1303,7 @@ unfollow(id,key);
   })
 
 
-
+console.log("in");
       $.ajax({
    url:"fetch_user_profile_tab.php",
    method:"POST",
@@ -1313,6 +1313,7 @@ unfollow(id,key);
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
+    console.log("work");
      
    }
   })

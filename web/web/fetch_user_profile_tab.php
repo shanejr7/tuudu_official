@@ -5,7 +5,7 @@
 include("server.php");
 
 
-  if (isset($_SESSION['id']) && isset($_POST['id']) && isset($_POST['publickey'])) {
+  if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
   						$data = "";
   						$result = "";
@@ -69,12 +69,16 @@ include("server.php");
                         $data.='<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
                       }
 
+                      echo $data;
+
+                      pg_close($db);
+
                     }
 
 
 
-echo $data;
 
-	pg_close($db);
+
+	
 
 ?>

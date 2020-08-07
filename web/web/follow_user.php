@@ -79,7 +79,7 @@ $result = pg_query($db, "SELECT id as user_following_id, username, email, profil
                   
                   }
 
-            pg_close($db);
+            
           }else{
 
           }
