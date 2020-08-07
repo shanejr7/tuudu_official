@@ -692,7 +692,7 @@ $result = pg_query($db, "SELECT id as user_following_id, username, email, profil
           }
 
 
-           $echo '<div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
+           echo '<div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
                 <a href="#friends" style="text-decoration: none;color:#3c4858;" id="fg" onclick="followingFunction()">';
                 
 
