@@ -913,7 +913,7 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
                 <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_btn" data-key="dummyString" data-userid="0"><span class="material-icons">remove_circle_outline</span></a></h16>
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_btn" data-key="dummyString" data-userid="'.$item['user_following_id'].'"><span class="material-icons">remove_circle_outline</span></a></h16>
                 </div>
             </div>';
                 }else{
@@ -923,7 +923,7 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_btn" data-key="dummyString" data-userid="0"><span class="material-icons">remove_circle_outline</span></a></h16>
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_btn" data-key="dummyString" data-userid="'.$item['user_following_id'].'"><span class="material-icons">remove_circle_outline</span></a></h16>
                 </div>
             </div>';
                 }
@@ -1245,7 +1245,6 @@ $(document).ready(function() {
 
 var key=$(this).data("key");
 var id=$(this).data("userid");
-
 
 follow_button(id,key);
 
