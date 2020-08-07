@@ -1263,7 +1263,7 @@ follow_button(id,key);
    success:function(data){
 
        $.ajax({
-   url:"fetch_user_profile_tab.php",
+   url:"fetch_user_connection_tab.php",
    method:"POST",
    data : {
         publickey : publickey,
