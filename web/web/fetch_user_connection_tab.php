@@ -3,7 +3,7 @@
 include("server.php");
 
 
-if (isset($POST['id']) && isset($_POST['publickey'])) {
+if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
 
 
