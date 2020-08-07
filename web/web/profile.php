@@ -1251,6 +1251,68 @@ pg_close($db);
 $(document).ready(function() {
 
 
+  $(document).on('click', '.post_unfollow_user', function () {
+
+var key=$(this).data("publickey");
+var id=$(this).data("id");
+
+
+unfollow(id,key);
+
+
+ function unfollow(id,publickey)
+ {
+
+
+    $.ajax({
+   url:"unfollow_user.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+   
+   }
+  })
+
+
+
+  $.ajax({
+   url:"fetch_user_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#user_post').html(data);
+     
+   }
+  })
+
+
+    $.ajax({
+   url:"fetch_users_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#users_post').html(data);
+   }
+  })
+
+
+
+
+ }
+
+
+    });
+
+
 $(document).on('click', '.post_follow_user', function () {
 
 var key=$(this).data("publickey");
