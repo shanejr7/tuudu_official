@@ -628,13 +628,16 @@ $bucket_name = 'tuudu-official-file-storage';
           <div class="tab-pane connections" id="connections">
             <div class="row" id="connection_follow_tab">
 
-                <div class="col-md-4 ml-auto mr-auto">
-              
-              </div>
 <?php 
 
   $followerArr = array();
   $userid =0;
+
+$data.='<div class="col-md-4 ml-auto mr-auto">
+              
+              </div>';
+
+
 
 if (isset($_SESSION['id'])) {
 
@@ -647,6 +650,7 @@ if (isset($_SESSION['id'])) {
 }catch(Execption $e){
   header('location:oops.php');
 }
+
 
 $result = pg_query($db, "SELECT id as user_id, username, email, profile_pic_src
   FROM users WHERE id IN(SELECT user_id FROM user_follow_user WHERE user_following_id =$userid)");
@@ -661,8 +665,6 @@ $result = pg_query($db, "SELECT id as user_id, username, email, profile_pic_src
                   
                   }
 
-            pg_close($db);
-
 }else{
 
 }
@@ -670,14 +672,6 @@ $result = pg_query($db, "SELECT id as user_id, username, email, profile_pic_src
 
 
 
-  $followingArr = array();
-
-  try{
-
- $db = pg_connect(getenv("DATABASE_URL"));
-}catch(Execption $e){
-  header('location:oops.php');
-}
 
 $result = pg_query($db, "SELECT id as user_following_id, username, email, profile_pic_src
   FROM users  WHERE id IN(SELECT user_following_id FROM user_follow_user WHERE user_id =$userid)");
@@ -692,48 +686,45 @@ $result = pg_query($db, "SELECT id as user_following_id, username, email, profil
                   
                   }
 
-            pg_close($db);
+           
           }else{
 
           }
 
 
-?>
-              <div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
-                <a href="#friends" style="text-decoration: none;color:#3c4858;" id="fg" onclick="followingFunction()" >
-                  <?php 
+           $data.= '<div class="col-md-2 ml-auto mr-auto" style="margin-right: 2em;">
+                <a href="#friends" style="text-decoration: none;color:#3c4858;" id="fg" onclick="followingFunction()">';
+                
 
                   if (isset($followingArr)) {
-                    echo '<h3 style="margin-bottom: 70px; font-weight: bold">'.sizeof($followingArr).' Following</h3>';
+                   $data.='<h3 style="margin-bottom: 70px; font-weight: bold">'.sizeof($followingArr).' Following</h3>';
                   }
 
-                  ?>
+                
               
-            </a>
+            $data.='</a>
               </div>
-              
+              <div class="col-md-2 mr-auto ml-auto">
+                <a href="#friends" style="text-decoration: none;color: black" id="fe" onclick="followerFunction()" >';
           
 
-
-
-
-              <div class="col-md-2 mr-auto ml-auto">
-                <a href="#friends" style="text-decoration: none;color: black" id="fe" onclick="followerFunction()" >
-                  <?php
-
                   if (isset($followerArr)) {
-                    echo '<h3 style="margin-bottom: 70px;font-weight: bold">'.sizeof($followerArr).' Followers</h3>';
+                   $data.='<h3 style="margin-bottom: 70px;font-weight: bold">'.sizeof($followerArr).' Followers</h3>';
                   }
 
-                   ?>
-              </a>
+
+
+                  $data.='</a>
               </div>
-
-
                   <div class="col-md-3 ml-auto mr-auto">
 
-              
-              </div>
+              </div>';
+
+              echo $data;
+
+              pg_close($db);
+
+              ?>
             </div>
          
           
@@ -1413,6 +1404,21 @@ follow(id,key);
    success:function(data){
     $('#profile_tab_data').html(data);
     
+     
+   }
+  })
+
+      
+
+      $.ajax({
+   url:"fetch_user_connection_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#connection_follow_tab').html(data);
      
    }
   })
