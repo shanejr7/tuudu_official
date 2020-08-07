@@ -1270,7 +1270,7 @@ follow_button(id,key);
         id : id 
                     },
    success:function(data){
-    $('#profile_tab_data').html(data);
+    $('#connection_follow_tab').html(data);
    
      
    }
