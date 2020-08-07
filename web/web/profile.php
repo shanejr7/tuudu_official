@@ -1303,7 +1303,7 @@ unfollow(id,key);
   })
 
 
-console.log("in");
+
       $.ajax({
    url:"fetch_user_profile_tab.php",
    method:"POST",
@@ -1313,7 +1313,6 @@ console.log("in");
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
-    console.log("work");
      
    }
   })
@@ -1384,6 +1383,25 @@ follow(id,key);
     $('#users_post').html(data);
    }
   })
+
+
+
+console.log("in");
+      $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+    console.log("work");
+     
+   }
+  })
+
+
    }
   })
 
