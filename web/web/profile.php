@@ -1272,13 +1272,9 @@ unfollow(id,key);
         id : id 
                     },
    success:function(data){
-   
-   }
-  })
 
 
-
-  $.ajax({
+      $.ajax({
    url:"fetch_user_post.php",
    method:"POST",
    data : {
@@ -1303,6 +1299,13 @@ unfollow(id,key);
     $('#users_post').html(data);
    }
   })
+   
+   }
+  })
+
+
+
+
 
 
 
