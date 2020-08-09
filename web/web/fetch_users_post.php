@@ -28,6 +28,36 @@ $bucket_name = 'tuudu-official-file-storage';
                  //IF LESS THAN MINUTES
 
 
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+
+
   /* converts integer month to string*/
 function toString(string $timestamp_arr){
 
@@ -51,7 +81,11 @@ function toString(string $timestamp_arr){
   }elseif(date("d")<trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6])){
 
 
-    return 'on '. date("D"); 
+    $week = trim($timestamp_arr[0].''.$timestamp_arr[3]);
+
+    $week_ago = $week - date("Y");
+
+    return $week_ago. ' '.'ago'; 
 
 
   }elseif (date("h")>=trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("d")==trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6])) {
@@ -319,7 +353,7 @@ function toString(string $timestamp_arr){
                  $data.='</div>
                 </a>
                 <div class="media-body">
-                  <button type="button" style="cursor: pointer;" class="edit_post" data-id="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'" data-time="'.$item['timestamp'].'" data-message="'.$item['message'].'"><h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.toString($item['timestamp']).'</small></h4></button>
+                  <button type="button" style="cursor: pointer;" class="edit_post" data-id="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'" data-time="'.$item['timestamp'].'" data-message="'.$item['message'].'"><h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.time_elapsed_string($item['timestamp']).'</small></h4></button>
                   <h6 class="text-muted"></h6>
                   <p>'.$item['message'].'</p>
                   <div class="media-footer">
