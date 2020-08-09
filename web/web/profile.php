@@ -2261,10 +2261,7 @@ fetch_user(id,key);
                     },
    success:function(data){
     $('#users_post').html(data);
-   }
-  })
-
-    $.ajax({
+        $.ajax({
    url:"fetch_user_comment_form.php",
    method:"POST",
    data : {
@@ -2275,6 +2272,10 @@ fetch_user(id,key);
     $('#comment_post').html(data);
    }
   })
+   }
+  })
+
+
 
           $.ajax({
    url:"fetch_user_profile_tab.php",
