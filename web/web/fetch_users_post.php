@@ -326,7 +326,7 @@ function toString(string $timestamp_arr){
     
 // single comment
 
-          $data.='<div class="media col-lg-6">
+          $data.='<div class="media col-lg-11">
                 <a class="float-left" href="#">
                   <div class="avatar">';
 
