@@ -355,7 +355,7 @@ function toString(string $timestamp_arr){
                 <div class="media-body">
                   <button type="button" style="cursor: pointer;" class="edit_post" data-id="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'" data-time="'.$item['timestamp'].'" data-message="'.$item['message'].'"><h4 class="media-heading">'.$item['username'].'<small>&#xB7; '.time_elapsed_string($item['timestamp']).'</small></h4></button>
                   <h6 class="text-muted"></h6>
-                  <p>'.$item['message'].'</p>
+                  <p class="col-lg-9">'.$item['message'].'</p>
                   <div class="media-footer">
                     <!--<a href="#" class="reply_comment btn btn-primary btn-link float-right" rel="tooltip" title="Reply to Comment" data-userid="'.$item['user_id'].'" data-key="'.$item['publickey'].'">
                       <i class="material-icons">reply</i> Reply
