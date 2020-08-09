@@ -54,7 +54,7 @@ function toString(string $timestamp_arr){
     return 'on '. date("D"); 
 
 
-  }elseif (date("h")<trim($timestamp_arr[11].''.$timestamp_arr[12])) {
+  }elseif (date("h")>=trim($timestamp_arr[11].''.$timestamp_arr[12]) &&date("d")==trim($timestamp_arr[8].''.$timestamp_arr[9]) ) {
 
 
     return 'at '.date("h:ia"); 
