@@ -59,7 +59,7 @@ function toString(string $timestamp_arr){
 
     return 'at '.date("h:ia"); 
 
-  }elseif (date("h")>trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("i")<trim($timestamp_arr[14].''.$timestamp_arr[15])) {
+  }elseif (date("h")>trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("i")>=trim($timestamp_arr[14].''.$timestamp_arr[15])) {
 
 
     return 'just '. date("i").' minutes ago'; 
