@@ -19,6 +19,58 @@ $s3 = new Aws\S3\S3Client([
 $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
 
+// TIME CONVERTER FUNCTION
+// IF LESS THAN YEAR 
+        // IF LESS THAN MONTH
+          // IF LESS THAN WEEK
+            //IF LESS THAN DAY
+               //IF LESS THAN HOUR
+                 //IF LESS THAN MINUTES
+
+
+  /* converts integer month to string*/
+function toString(string $timestamp_arr){
+
+  if (date("Y")<trim($timestamp_arr[0].''.$timestamp_arr[3])) {
+
+    $year = trim($timestamp_arr[0].''.$timestamp_arr[3]);
+
+    $year_ago = $year - date("Y");
+
+    return $year_ago. ' '.'ago'; 
+  
+
+  }elseif(date("m")<trim($timestamp_arr[5].''.$timestamp_arr[6])) {
+        
+    $month = trim($timestamp_arr[5].''.$timestamp_arr[6]);
+
+    $month_ago = $month - date("m");
+
+    return $month_ago.' months ago'; 
+
+  }elseif(date("d")<trim($timestamp_arr[8].''.$timestamp_arr[9])){
+
+
+    return 'on '. date("D"); 
+
+
+  }elseif (date("h")<trim($timestamp_arr[11].''.$timestamp_arr[12])) {
+
+
+    return 'at '.date("h:a"); 
+
+  }elseif (date("h")>trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("i")<trim($timestamp_arr[14].''.$timestamp_arr[15])) {
+
+
+    return 'just '. date("i").' minutes ago'; 
+  }else{
+
+    return 'just now';
+  }
+
+
+}
+
 	if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
  
@@ -339,98 +391,6 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
  				pg_close($db);
-
-
-// TIME CONVERTER FUNCTION
-// IF LESS THAN YEAR 
-        // IF LESS THAN MONTH
-          // IF LESS THAN WEEK
-            //IF LESS THAN DAY
-               //IF LESS THAN HOUR
-                 //IF LESS THAN MINUTES
-
-
-  /* converts integer month to string*/
-function toString(string $timestamp_arr){
-
-  if (date("Y")<trim($timestamp_arr[0].''.$timestamp_arr[3])) {
-
-    $year = trim($timestamp_arr[0].''.$timestamp_arr[3]);
-
-    $year_ago = $year - date("Y");
-
-    return $year_ago. ' '.'ago'; 
-  
-
-  }elseif(date("m")<trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-        
-    $month = trim($timestamp_arr[5].''.$timestamp_arr[6]);
-
-    $month_ago = $month - date("m");
-
-    return $month_ago.' months ago'; 
-
-  }elseif(date("d")<trim($timestamp_arr[8].''.$timestamp_arr[9])){
-
-
-    return 'on '. date("D"); 
-
-
-  }elseif (date("h")<trim($timestamp_arr[11].''.$timestamp_arr[12])) {
-
-
-    return 'at '.date("h:a"); 
-
-  }elseif (date("h")>trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("i")<trim($timestamp_arr[14].''.$timestamp_arr[15])) {
-
-
-    return 'just '. date("i").' minutes ago'; 
-  }else{
-
-    return 'just now';
-  }
-
-
-}
-
-function toMonth(string $timestamp_ar){
-  if ("01" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Jan".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("02" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Feb".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("03" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Mar".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("04" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Apr".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("05" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "May".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("06" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Jun".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("07" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Jul".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("08" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Aug".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("09" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Sep".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("10" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Oct".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("11" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Nov".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-if ("12" == trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-  return "Dec".' '.$timestamp_arr[8].''.$timestamp_arr[9];
-}
-}
 
 
 
