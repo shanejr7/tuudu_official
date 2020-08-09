@@ -48,7 +48,7 @@ function toString(string $timestamp_arr){
 
     return $month_ago.' months ago'; 
 
-  }elseif(date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6]) ){
+  }elseif(date("d")>=trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6]) ){
 
 
     return 'on '. date("D"); 
