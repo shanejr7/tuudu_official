@@ -445,7 +445,7 @@ $bucket_name = 'tuudu-official-file-storage';
                           header('location:oops.php');
                       }
 
-                           $result_one = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE userid = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
+                           $result_one = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE userid = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
 
 
                       
@@ -467,7 +467,7 @@ $bucket_name = 'tuudu-official-file-storage';
                      }
 
 
-                           $result_two = pg_query($db,"SELECT * FROM temporary_tag_schedule NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW()");
+                           $result_two = pg_query($db,"SELECT * FROM temporary_tag_schedule NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
 
                          
 
