@@ -48,7 +48,7 @@ function toString(string $timestamp_arr){
 
     return $month_ago.' months ago'; 
 
-  }elseif(date("d")>=trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6])){
+  }elseif(date("d")<trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6])){
 
 
     return 'on '. date("D"); 
@@ -63,7 +63,9 @@ function toString(string $timestamp_arr){
 
 
     return 'just '. date("i").' minutes ago'; 
-  }else{
+
+
+  }elseif(date("h")>trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("i")>=trim($timestamp_arr[14].''.$timestamp_arr[15]) && date("d")==trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>trim($timestamp_arr[5].''.$timestamp_arr[6])){
 
     return 'just now';
   }
