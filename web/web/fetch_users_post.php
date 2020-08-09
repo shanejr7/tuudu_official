@@ -52,7 +52,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
 
-				$result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id = 0");
+				$result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id = 0 ORDER BY timestamp_message ASC");
 
 
            if (pg_num_rows($result) > 0) {
@@ -69,7 +69,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
 
-                   $result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id != 0");
+                   $result = pg_query($db, "SELECT * FROM messagestate  WHERE publickey = '$publickey' AND reply_to_id != 0 ORDER BY timestamp_message ASC");
 
 
            if (pg_num_rows($result) > 0) {
