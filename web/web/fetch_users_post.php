@@ -173,6 +173,8 @@ function toString(string $timestamp_arr){
                   }
  
 
+
+
  foreach ($comment_post_list as $item) {
    
 
@@ -277,7 +279,7 @@ function toString(string $timestamp_arr){
 
               }else{
 
-                $data.='<span style=" height: 25px;width: 25px;background-color: getRandomColor();border-radius: 50%;display: inline-block;"></span>';
+                $data.='<img class="media-object" src="../../assets/img/image_placeholder.jpg">';
               }
 
 
@@ -345,7 +347,7 @@ function toString(string $timestamp_arr){
 
               }else{
 
-              $data.='<span class"media-object" style="background-color: #ff6ff00;border-radius: 50%;display: inline-block;"></span>';
+                $data.='<img class="media-object" src="../../assets/img/image_placeholder.jpg">';
               }
 
                  $data.='</div>
