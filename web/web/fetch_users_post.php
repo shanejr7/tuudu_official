@@ -285,11 +285,7 @@ function toString(string $timestamp_arr){
 
               }else{
 
-                $data.='<span style=" height: 25px;
-                        width: 25px;
-                        background-color: getRandomColor();
-                        border-radius: 50%;
-                        display: inline-block;"></span>';
+                $data.='<span style=" height: 25px;width: 25px;background-color: getRandomColor();border-radius: 50%;display: inline-block;"></span>';
               }
 
 
@@ -357,7 +353,7 @@ function toString(string $timestamp_arr){
 
               }else{
 
-                $data.='<img class="media-object" src="../../assets/img/image_placeholder.jpg">';
+              $data.='<span style=" height: 25px;width: 25px;background-color: getRandomColor();border-radius: 50%;display: inline-block;"></span>';
               }
 
                  $data.='</div>
