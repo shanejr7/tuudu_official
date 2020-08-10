@@ -173,14 +173,6 @@ function toString(string $timestamp_arr){
                   }
  
 
-                  $data.='<script>function getRandomColor() {
-  var letters = "0123456789ABCDEF";var color = "#";
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}</script>';
-
  foreach ($comment_post_list as $item) {
    
 
@@ -353,7 +345,7 @@ function toString(string $timestamp_arr){
 
               }else{
 
-              $data.='<span style=" height: 25px;width: 25px;background-color: getRandomColor();border-radius: 50%;display: inline-block;"></span>';
+              $data.='<span style=" height: 25px;width: 25px;background-color: #ff6ff0;border-radius: 50%;display: inline-block;"></span>';
               }
 
                  $data.='</div>
