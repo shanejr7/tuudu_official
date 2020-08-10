@@ -345,7 +345,7 @@ function toString(string $timestamp_arr){
 
               }else{
 
-              $data.='<span style=" height: 25px;width: 25px;background-color: #ff6ff0;border-radius: 50%;display: inline-block;"></span>';
+              $data.='<span style="background-color: #ff6ff00;border-radius: 50%;display: inline-block;"></span>';
               }
 
                  $data.='</div>
