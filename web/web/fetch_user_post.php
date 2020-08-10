@@ -71,7 +71,13 @@ $bucket_name = 'tuudu-official-file-storage';
           
  
 
-  				 $data .= '
+  				 $data .= '<script>function getRandomColor() {
+  var letters = "0123456789ABCDEF";var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}</script>
                 <div class="col-md-2">
                   <div class="card-avatar">
                     <a href="#" class="post_account" data-id="'.$user_post['user_id'].'">';
@@ -93,7 +99,11 @@ $bucket_name = 'tuudu-official-file-storage';
 
               }else{
 
-              	$data.='<img class="media-object" src="../../assets/img/image_placeholder.jpg">';
+              	$data.='<span style=" height: 25px;
+                        width: 25px;
+                        background-color: getRandomColor();
+                        border-radius: 50%;
+                        display: inline-block;"></span>';
               }
                     
                     $data.='</a>
