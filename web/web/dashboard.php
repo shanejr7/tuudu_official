@@ -458,7 +458,7 @@ if (isset($dashboard_list)  ) {
                 
  
 
-          if($presignedUrl){
+          if($presignedUrl && strlen($presignedUrl)>10){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
