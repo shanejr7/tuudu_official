@@ -24,6 +24,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
 
 $publickey =  pg_escape_string($db,$_GET['subscribe']);
+$publickey = trim($publickey);
    
     
    // checks if the organization ID is already linked to the user ID
@@ -54,7 +55,7 @@ $publickey =  pg_escape_string($db,$_GET['subscribe']);
 
     // if exists as product by user then dont add
 
-  $result1 = pg_query($db, "SELECT id FROM organization WHERE publickey = '$publickey' AND id = $tempID LIMIT 1");
+  $result1 = pg_query($db, "SELECT user_id FROM poststate WHERE publickey = '$publickey' AND user_id = $tempID LIMIT 1");
 
   if (!$result1) {
     
@@ -95,6 +96,7 @@ if (isset($_GET['unsubscribe']) && isset($_SESSION["id"])) {
 
 
   $publickey =  pg_escape_string($db,$_GET['unsubscribe']);
+  $publickey = trim($publickey);
    
     
    // unsubscribes organization and removes poststate
