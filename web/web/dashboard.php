@@ -455,10 +455,13 @@ if (isset($dashboard_list)  ) {
               echo '<div class="contain">';
 
            
-                
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10){
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
@@ -554,7 +557,13 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
 
               $presignedUrl = (string)$request->getUri();
 
-          if($presignedUrl){
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
                       $item['img']= $presignedUrl;  
               }else{
                    $item['img']= '../assets/img/image_placeholder.jpg';
@@ -599,7 +608,13 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
 
               $presignedUrl = (string)$request->getUri();
 
-          if($presignedUrl){
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
                       $item['img']= $presignedUrl;  
               }else{
                    $item['img']= '../assets/img/image_placeholder.jpg';
@@ -640,7 +655,13 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
 
               $presignedUrl = (string)$request->getUri();
 
-          if($presignedUrl){
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
                       $item['img']= $presignedUrl;  
               }else{
                    $item['img']= '../assets/img/image_placeholder.jpg';
@@ -724,8 +745,14 @@ if (isset($stories_list)) {
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
+                
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
 
-          if($presignedUrl){
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
                   echo  '<img src="'.$presignedUrl.'" class="rounded img">';  
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img">';
