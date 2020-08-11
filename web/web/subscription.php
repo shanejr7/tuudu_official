@@ -95,7 +95,7 @@ if (isset($_GET['unsubscribe']) && isset($_SESSION["id"])) {
 
   // if exists as product by user then dont remove
 
-  $result = pg_query($db, "SELECT id FROM organization WHERE publickey = '$publickey' AND id = $tempID LIMIT 1");
+  $result1 = pg_query($db, "SELECT id FROM organization WHERE publickey = '$publickey' AND id = $tempID LIMIT 1");
 
   if (!$result1) {
     
