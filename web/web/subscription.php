@@ -51,9 +51,19 @@ $publickey =  pg_escape_string($db,$_GET['subscribe']);
   WHERE publickey = '$publickey' AND id= $org_id");
   	pg_query($db, "INSERT INTO user_follow_organization (userid, publickey,orgid)
   VALUES($tempID,'$publickey',$org_id)");
+
+    // if exists as product by user then dont add
+
+  $result1 = pg_query($db, "SELECT id FROM organization WHERE publickey = '$publickey' AND id = $tempID LIMIT 1");
+
+  if (!$result1) {
     
-    pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
+     pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
   VALUES($tempID,'$publickey',0,NULL)");
+
+  }
+    
+
  header('location:dashboard.php');
 
 
