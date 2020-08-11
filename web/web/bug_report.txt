@@ -1,0 +1,12 @@
+########## Quality Performance
+
+
+post.php: issue title,description and content is sometimes blank after form submission. And can create errors to overall posts because somewhere in SQL array selection row is empty(null). (disrupts feed).
+
+post.php: before uploading images verify them and its extension type.
+
+important bug: update all validation checking for any input/output users entered.
+
+important fix: continue to convert to AJAX for better quality and performance where users interact on the 				 platform. 
+
+other: continue to make updates on front-end designs, back-end software and (improve/add/analysis) 			   functions to the overall stystem.
