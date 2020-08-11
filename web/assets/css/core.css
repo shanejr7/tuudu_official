@@ -1,5 +1,5 @@
  .img {
-    -webkit-filter: brightness(100%);
+   /* -webkit-filter: brightness(100%);*/
 
     /*for hover transition .img:hover*/
     /*-webkit-transition: all 1s ease;
