@@ -1,6 +1,11 @@
 <?php include('server.php'); ?> 
 
 <?php 
+
+
+// anywhere sub added add null to postate
+// anywhere user post add null to postate
+// remove if sub removed to save space
  
 // $errors = array();
  
@@ -49,6 +54,8 @@ $publickey =  pg_escape_string($db,$_GET['subscribe']);
   WHERE publickey = '$publickey' AND id= $org_id");
   	pg_query($db, "INSERT INTO user_follow_organization (userid, publickey,orgid)
   VALUES($tempID,'$publickey',$org_id)");
+    pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
+  VALUES($tempID,'$publickey',0,NULL)");
  header('location:dashboard.php');
 
 
@@ -82,9 +89,11 @@ if (isset($_GET['unsubscribe']) && isset($_SESSION["id"])) {
   $publickey =  pg_escape_string($db,$_GET['unsubscribe']);
    
     
-   // unsubscribes organization
+   // unsubscribes organization and removes poststate
 
   $result = pg_query($db, "DELETE FROM user_follow_organization WHERE publickey = '$publickey' AND userid = $tempID");
+
+  $result = pg_query($db, "DELETE FROM poststate WHERE publickey = '$publickey' AND user_id = $tempID");
  
 header('location:dashboard.php');
  
