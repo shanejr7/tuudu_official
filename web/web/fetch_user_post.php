@@ -76,7 +76,14 @@ $bucket_name = 'tuudu-official-file-storage';
                   <div class="card-avatar">
                     <a href="#" class="post_account" data-id="'.$user_post['user_id'].'">';
                     	
-                    if (isset($user_post['user_img'])) {
+
+                $splitFileString = strtok(trim($user_post["user_img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+ 
+
+                    if (isset($user_post['user_img']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
                  		
                  		$user_img = trim($user_post['user_img']);
 

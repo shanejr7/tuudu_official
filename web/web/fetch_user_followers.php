@@ -82,8 +82,13 @@ $bucket_name = 'tuudu-official-file-storage';
               
               foreach($followerArr as $item) {
 
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
 
-                if (isset($item['img'])) {
+ 
+
+          if(strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
                  $user_img = trim($item['img']);
 
                          $cmd = $s3->getCommand('GetObject', [

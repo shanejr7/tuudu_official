@@ -83,7 +83,13 @@ $result = pg_query($db, "SELECT id as user_following_id, username, email, profil
               foreach($followingArr as $item) {
 
 
-                if (isset($item['img'])) {
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+ 
+
+          if(strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
                  $user_img = trim($item['img']);
 
                          $cmd = $s3->getCommand('GetObject', [

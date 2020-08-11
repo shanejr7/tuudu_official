@@ -330,7 +330,20 @@ function toString(string $timestamp_arr){
                 <a class="float-left" href="#">
                   <div class="avatar">';
 
-                     if (isset($item['img'])) {
+                      $splitFileString ="";
+                      $fileChecker = "";
+
+
+                if (isset($item["img"])) {
+
+                  $splitFileString = strtok(trim($item["img"]), '.' );
+                  $fileChecker = strtok('');
+                  $fileChecker = strtoupper($fileChecker);
+                  
+                }
+
+
+                     if (isset($item['img']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
                     
                     $user_img = trim($item['img']);
 

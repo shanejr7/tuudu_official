@@ -93,7 +93,22 @@ $bucket_name = 'tuudu-official-file-storage';
               <a class="author float-left" href="#pablo">
                 <div class="avatar">';
 
-                    if (isset($_SESSION['img_src'])) {
+                      $splitFileString ="";
+                      $fileChecker = "";
+
+
+                if (isset($_SESSION["img_src"])) {
+
+                  $splitFileString = strtok(trim($_SESSION["img_src"]), '.' );
+                  $fileChecker = strtok('');
+                  $fileChecker = strtoupper($fileChecker);
+                  
+                }
+
+
+               
+
+                if (isset($_SESSION['img_src']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
 
                   $user_img = trim($_SESSION['img_src']);
 
@@ -149,7 +164,21 @@ $bucket_name = 'tuudu-official-file-storage';
               <a class="author float-left" href="#pablo">
                 <div class="avatar">';
 
-                    if (isset($_SESSION['img_src'])) {
+                      $splitFileString ="";
+                      $fileChecker = "";
+
+
+                if (isset($_SESSION["img_src"])) {
+
+                  $splitFileString = strtok(trim($_SESSION["img_src"]), '.' );
+                  $fileChecker = strtok('');
+                  $fileChecker = strtoupper($fileChecker);
+                  
+                }
+
+               
+
+                if (isset($_SESSION['img_src']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
 
                   $user_img = trim($_SESSION['img_src']);
 
