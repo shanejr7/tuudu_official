@@ -543,8 +543,13 @@ $bucket_name = 'tuudu-official-file-storage';
            
                 
  
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
 
-          if($presignedUrl){
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
@@ -1011,15 +1016,6 @@ pg_close($db);
 
 
 
-                        function compare_date($arr1, $arr2)
-                          {
-                            $time1 = strtotime($arr1['date_submitted']);
-                            $time2 = strtotime($arr2['date_submitted']);
-                            return $time1 - $time2;
-                          }    
-                          
-                          usort($product_list, 'compare_date');
-
                           foreach($product_list as $item) {
 
                             $cmd = $s3->getCommand('GetObject', [
@@ -1042,8 +1038,13 @@ pg_close($db);
            
                 
  
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
 
-          if($presignedUrl){
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
