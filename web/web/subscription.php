@@ -3,9 +3,6 @@
 <?php 
 
 
-// anywhere sub added add null to postate
-// anywhere user post add null to postate
-// remove if sub removed to save space
  
 // $errors = array();
  
