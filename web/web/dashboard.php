@@ -423,7 +423,7 @@ if (isset($dashboard_list)  ) {
  
  
   // make content dynamic
-  shuffle($dashboard_list);
+  // shuffle($dashboard_list);
                 
   // column sizes for row 
   $numberOfColumns = 3;
@@ -458,7 +458,7 @@ if (isset($dashboard_list)  ) {
                 
  
 
-          if($presignedUrl && strlen($presignedUrl)>10){
+          if($presignedUrl && strlen(trim($item["img"]))>10){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
