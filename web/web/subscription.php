@@ -53,11 +53,11 @@ $publickey = trim($publickey);
   	pg_query($db, "INSERT INTO user_follow_organization (userid, publickey,orgid)
   VALUES($tempID,'$publickey',$org_id)");
 
-    // if exists as product by user then dont add
+    // if in poststate by user then dont add
 
-  $result1 = pg_query($db, "SELECT user_id FROM poststate WHERE publickey = '$publickey' AND user_id = $tempID LIMIT 1");
+  $result1 = pg_query($db, "SELECT * FROM poststate WHERE publickey = '$publickey' AND user_id = $tempID LIMIT 1");
 
-  if (!$result1) {
+  if (pg_num_rows($result1)<=0) {
     
      pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
   VALUES($tempID,'$publickey',0,NULL)");
