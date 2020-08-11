@@ -717,8 +717,8 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
 if (isset($stories_list)) {
 
 
-                // make content dynamic
-                  shuffle($stories_list);
+                // // make content dynamic
+                //   shuffle($stories_list);
               
                  
   // column sizes for row 

@@ -269,7 +269,24 @@ $bucket_name = 'tuudu-official-file-storage';
               <div class="avatar" data-toggle="modal" data-target="#uploadImage" id="avatar_profile_image" style="width: 120px;height: 200px;">
                 <?php 
 
-                if (isset($_SESSION['img_src'])) {
+                $splitFileString ="";
+                $fileChecker = "";
+
+
+                if (isset($_SESSION["img_src"])) {
+
+                  $splitFileString = strtok(trim($_SESSION["img_src"]), '.' );
+                  $fileChecker = strtok('');
+                  $fileChecker = strtoupper($fileChecker);
+                  
+                }
+
+
+                 
+
+               
+
+                if (isset($_SESSION['img_src']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
 
                   $user_img = trim($_SESSION['img_src']);
 
@@ -792,7 +809,11 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
               foreach($followerArr as $item) {
 
 
-                if (isset($item['img'])) {
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+                if (isset($item['img']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
                  $user_img = trim($item['img']);
 
                          $cmd = $s3->getCommand('GetObject', [
@@ -899,8 +920,11 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
               
               foreach($followingArr as $item) {
 
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
 
-                if (isset($item['img'])) {
+                if (isset($item['img']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
                  $user_img = trim($item['img']);
 
                          $cmd = $s3->getCommand('GetObject', [
