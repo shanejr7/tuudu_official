@@ -547,7 +547,7 @@ pg_close($db);
 }
    if(isset($_POST['page']) || isset($page)) {
 
- 
+ // add none expiring post element
 
  echo '<h2 class="title">Event | <span style="color:orange">time</span> (<strong>3/5</strong>)</h2>'; 
   
@@ -570,7 +570,28 @@ pg_close($db);
                   <div class="col-sm-10">
                     <input type="date" name="date" class="form-control" id="inputDate" placeholder="05/21/2020" required>
                   </div>
-                </div><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="4" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="display:inline-block">next</button></form>';
+                </div>
+                <div class="form-group row">
+    
+                 <div class="form-check form-check-radio form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio1" value="temp"> Post will expire after date
+    <span class="circle">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+<div class="form-check form-check-radio form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio2" value="permanent"> Post will remain after date
+    <span class="circle">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+
+
+                <button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="4" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="display:inline-block">next</button></form>';
  
   card();
 }else{
@@ -642,6 +663,7 @@ $startTime = filter_var($_POST['startTime'], FILTER_SANITIZE_STRING);
 $endTime = filter_var($_POST['endTime'], FILTER_SANITIZE_STRING);
 $date = filter_var($_POST['date'], FILTER_SANITIZE_STRING); 
 $timezone = pg_escape_string($db, $_POST['timezone']);
+$radioOption = pg_escape_string($db, $_POST['radioOption']);
  
 $time = $startTime.'-'.$endTime;
 
@@ -661,7 +683,7 @@ $date = date("Y-m-d", strtotime($date)).' '.$startTime;
  
   
 // update user image
- pg_query($db,"UPDATE public.organization SET date ='$date', time = '$time' WHERE id= $userid AND publickey = '$publickey'");
+ pg_query($db,"UPDATE public.organization SET date ='$date', time = '$time', post_type = '$radioOption' WHERE id= $userid AND publickey = '$publickey'");
  
 
 pg_close($db);
