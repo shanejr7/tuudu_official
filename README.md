@@ -1,7 +1,7 @@
 _________________________________ ![test](web/assets/img/logo_size_invert.jpg)
 
 ```CSS
-About: An Iot system and method for gathering data to find events,activities or services based on a user’s 
+About: An Iot system and method for gathering data to find events, activities or services based on a user’s 
 preferences and paying forthem that provides a social community. capability to manage payments to third-party 
 providers providing one or more events, activities or services desired by the user. The method for gathering 
 data to find events, activities or services based on a user’s preferences and paying for them may include the 
