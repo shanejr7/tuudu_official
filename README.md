@@ -1,4 +1,4 @@
-![test](web/assets/img/logo_size_invert.jpg)
+_________________________________ ![test](web/assets/img/logo_size_invert.jpg)___________________________________
 
 ```CSS
 About: An Iot system and method for gathering data to find events,activities or services based on a user’s 
