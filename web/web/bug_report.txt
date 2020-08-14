@@ -3,8 +3,7 @@
 
 post.php: issue title,description and content is sometimes blank after form submission. And can create errors to overall posts because somewhere in SQL array selection row is empty(null). (disrupts feed).
 
-post.php: before uploading images verify them and its extension type.
-			if post is not fully done then delete.
+post.php: before uploading images verify them and its extension type. If post is not fully done then delete. re-design if possible and fit ajax where needed.
 
 important bug: update all validation checking for any input/output users entered.
 
