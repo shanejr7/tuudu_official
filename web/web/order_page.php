@@ -68,11 +68,12 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
        // add view to word_tag
 
                   $splitFileString = strtok(trim($organization['word_tag']), '_' );
-                  $fileChecker = strtok('_');
+                  $splitFileString = strtolower($splitFileString);
+                  
 
         pg_query($conn, "UPDATE public.word_tag
     SET views = views + 1
-  WHERE event_type = '$fileChecker'");
+  WHERE event_type = '$splitFileString'");
          
     } else {header('location:oops.php'); }
 

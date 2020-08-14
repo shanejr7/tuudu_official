@@ -55,11 +55,11 @@ $publickey = trim($publickey);
        // add view to word_tag
 
                   $splitFileString = strtok(trim($organization['word_tag']), '_' );
-                  $fileChecker = strtok('_');
+                  $splitFileString = strtolower($splitFileString);
 
         pg_query($db, "UPDATE public.word_tag
     SET views = views + 1
-  WHERE event_type = '$fileChecker'");
+  WHERE event_type = '$splitFileString'");
 
   	pg_query($db, "INSERT INTO user_follow_organization (userid, publickey,orgid)
   VALUES($tempID,'$publickey',$org_id)");
