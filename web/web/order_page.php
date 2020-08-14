@@ -70,7 +70,7 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
                   $splitFileString = strtok(trim($organization['word_tag']), '_' );
                   $fileChecker = strtok('_');
 
-        pg_query($db, "UPDATE public.word_tag
+        pg_query($conn, "UPDATE public.word_tag
     SET views = views + 1
   WHERE event_type = '$fileChecker'");
          

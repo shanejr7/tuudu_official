@@ -15,7 +15,6 @@ other: continue to make updates on front-end designs, back-end software and (imp
 other: create HTTP load balancer.
 
 add-on: create post amount for creating a post + sold out.
-add-on: when cart or subscritpion is clicked add increment to view in feedstate.php
 add-on: create edit user info popup.
 add-on: integrate interest selection from phase 1 development.
 add-on: sharing-joining events.
