@@ -576,7 +576,7 @@ pg_close($db);
                 <div class="form-group row" style="display:inline-block">
     
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio1" value="temp"> Post will expire after date
+    <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio1" value="temp">Expire after date
     <span class="circle">
         <span class="check"></span>
     </span>
@@ -587,7 +587,7 @@ pg_close($db);
 
 
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio2" value="permanent"> Post will remain after date
+    <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio2" value="permanent">Remain after date
     <span class="circle">
         <span class="check"></span>
     </span>
