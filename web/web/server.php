@@ -525,7 +525,7 @@ if (isset($_POST['reg_user'])) {
 <div style="color:#FFFFFF;font-family:Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.2; color: #FFFFFF; mso-line-height-alt: 14px;">
 <p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0;"><em>Connect with the world around you.</em></p>
-<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0;"><strong> Aeravi</strong> 2019 © all rights reserved</p>
+<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0;"><strong> Aeravi</strong> 2020 © all rights reserved</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -1076,7 +1076,7 @@ header('location: dashboard.php');
 <div style="color:#FFFFFF;font-family:Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.2; color: #FFFFFF; mso-line-height-alt: 14px;">
 <p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0;"><em>Connect with the world around you.</em></p>
-<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0;"><strong> Aeravi</strong> 2019 © all rights reserved</p>
+<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0;"><strong> Aeravi</strong> 2020 © all rights reserved</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -1385,7 +1385,7 @@ if (isset($_POST['contactUs'])) {
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 30px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:0px;padding-right:10px;padding-bottom:30px;padding-left:10px;">
 <div style="font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.2; color: #555555; mso-line-height-alt: 14px;">
-<p style="font-size: 22px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 26px; margin: 0;"><span style="font-size: 22px;"> Please use the password given and follow the link below.</span></p>
+<p style="font-size: 22px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 26px; margin: 0;"><span style="font-size: 22px;"> Please review customer ticket.</span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -1425,14 +1425,10 @@ if (isset($_POST['contactUs'])) {
 </tbody>
 </table>
 <table>
-<tr><td> </td> <td>Name'.$contactName.'</td></tr>
-<tr><td> </td> <td>Message'.$contactNumber.'</td></tr>
-<tr><td> </td> <td>Message'.$contactMessage.'</td></tr>
+<tr><td> </td> <td style="font-size: 22px;">Name: '.$contactName.'</td></tr>
+<tr><td> </td> <td style="font-size: 22px;">PhoneNumber: '.$contactNumber.'</td></tr>
+<tr><td> </td> <td style="font-size: 22px;">Message: '.$contactMessage.'</td></tr>
 </table>
-<div align="center" class="button-container" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
-<!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;"><tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px" align="center"><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.tuudu.org/web/login-page.php" style="height:31.5pt; width:206.25pt; v-text-anchor:middle;" arcsize="10%" stroke="false" fillcolor="#0068a5"><w:anchorlock/><v:textbox inset="0,0,0,0"><center style="color:#ffffff; font-family:Tahoma, Verdana, sans-serif; font-size:16px"><![endif]--><a href="https://www.tuudu.org/web/login-page.php" style="-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #0068a5; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; width: auto; width: auto; border-top: 1px solid #0068a5; border-right: 1px solid #0068a5; border-bottom: 1px solid #0068a5; border-left: 1px solid #0068a5; padding-top: 5px; padding-bottom: 5px; font-family: Tahoma, Verdana, Segoe, sans-serif; text-align: center; mso-border-alt: none; word-break: keep-all;" target="_blank"><span style="padding-left:20px;padding-right:20px;font-size:16px;display:inline-block;"><span style="line-height: 32px; word-break: break-word;">confirm your new password</span></span></a>
-<!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
-</div>
 <!--[if (!mso)&(!IE)]><!-->
 </div>
 <!--<![endif]-->
@@ -1572,7 +1568,7 @@ if (isset($_POST['contactUs'])) {
 <div style="color:#FFFFFF;font-family:Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.2; color: #FFFFFF; mso-line-height-alt: 14px;">
 <p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0;"><em>Connect with the world around you.</em></p>
-<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0;"><strong> Aeravi</strong> 2019 © all rights reserved</p>
+<p style="font-size: 14px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 17px; margin: 0;"><strong> Aeravi</strong> 2020 © all rights reserved</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
