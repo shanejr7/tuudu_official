@@ -304,15 +304,15 @@ echo '<h3 class="title">Add Event Tags</h3>
                   ';
 
                       
-                  echo '   <div id="textareaTags">
+                  echo '<div id="textareaTags">
           <div class="row">
   
 
-            <div class="col-md-6">
+            <div class="col-md-12">
               <div class="title">
                <!-- <h3>Tags</h3> -->
               </div>
-              <input type="text" name="word_tags" value="" placeholder="exampleTag" class="tagsinput form-control" data-role="tagsinput" data-color="rose">
+              <input type="text" name="word_tags" value="tags" class="tagsinput form-control" data-role="tagsinput" data-color="rose">
               <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
             </div>
           </div>
