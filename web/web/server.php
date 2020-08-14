@@ -10,7 +10,22 @@ session_start();
 
  Sentry\init(['dsn' => 'https://108609cccc9d45c6bf91d0b6ab41df2d@o328047.ingest.sentry.io/5321309' ]);
  
+ // function proxyRequest() {
+ //    $fixieUrl = getenv("FIXIE_URL");
+ //    $parsedFixieUrl = parse_url($fixieUrl);
 
+ //    $proxy = $parsedFixieUrl['host'].":".$parsedFixieUrl['port'];
+ //    $proxyAuth = $parsedFixieUrl['user'].":".$parsedFixieUrl['pass'];
+
+ //    $ch = curl_init($url);
+ //    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+ //    curl_setopt($ch, CURLOPT_PROXY, $proxy);
+ //    curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyAuth);
+ //    curl_close($ch);
+ //  }
+
+ //  $response = proxyRequest();
+ //  print_r($response);
  
 
 //set up temp ID for new users then disgard it after they sign up or timeout
