@@ -255,7 +255,7 @@ include('server.php');
             </a>
           </li>
           <li>
-           <a href="https://www.tuudu.org/web/contact-us.php" data-toggle="modal" data-target="#exampleModal">
+           <a href="https://www.tuudu.org/web/contact-us.php">
             Contact Us
             </a>
           </li>
