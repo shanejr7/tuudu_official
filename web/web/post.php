@@ -304,7 +304,26 @@ echo '<h3 class="title">Add Event Tags</h3>
                   ';
 
                       
-                  echo ' <input type="text" multiple name="word_tags" class="form-control" id="exampleSelect2" placeholder="#person, #place or #thing" required>';
+                  echo '   <div id="textareaTags">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="title">
+                <h3>Textarea</h3>
+              </div>
+              <div class="form-group label-floating">
+                <label class="form-control-label bmd-label-floating" for="exampleInputTextarea"> You can write your text here...</label>
+                <textarea class="form-control" rows="5" id="exampleInputTextarea"></textarea>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="title">
+                <h3>Tags</h3>
+              </div>
+              <input type="text" name="word_tags" value="" placeholder="exampleTag" class="tagsinput form-control" data-role="tagsinput" data-color="rose">
+              <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
+            </div>
+          </div>
+        </div>';
 
                      
                   echo'</select><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="1" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="3" style="display:inline-block">next</button></div></div></form>';
