@@ -42,7 +42,8 @@ $publickey = trim($publickey);
  }else{
 
 
- $result = pg_query($db, "SELECT id FROM organization WHERE publickey = '$publickey' LIMIT 1");
+
+ $result = pg_query($db, "SELECT id, word_tag FROM organization WHERE publickey = '$publickey' LIMIT 1");
  $organization = pg_fetch_assoc($result);
  $org_id = $organization["id"];
 
@@ -50,6 +51,16 @@ $publickey = trim($publickey);
        pg_query($db, "UPDATE public.organization
     SET views = views + 1
   WHERE publickey = '$publickey' AND id= $org_id");
+
+       // add view to word_tag
+
+                  $splitFileString = strtok(trim($organization['word_tag']), '_' );
+                  $fileChecker = strtok('_');
+
+        pg_query($db, "UPDATE public.word_tag
+    SET views = views + 1
+  WHERE event_type = '$fileChecker'");
+
   	pg_query($db, "INSERT INTO user_follow_organization (userid, publickey,orgid)
   VALUES($tempID,'$publickey',$org_id)");
 

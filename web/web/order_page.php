@@ -56,13 +56,23 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
      
         $org_id = $order_list[0]['org_id'];
 
-        $result = pg_query($conn, "SELECT id FROM organization WHERE publickey = '$organization_publickey' LIMIT 1");
+        $result = pg_query($conn, "SELECT id, word_tag FROM organization WHERE publickey = '$organization_publickey' LIMIT 1");
       $organization = pg_fetch_assoc($result);
       $org_id = $organization["id"];
 
        // add clicked view to organization
        pg_query($conn, "UPDATE public.organization SET views = views + 1 WHERE publickey = '$organization_publickey' 
         AND id=$org_id");
+
+
+       // add view to word_tag
+
+                  $splitFileString = strtok(trim($organization['word_tag']), '_' );
+                  $fileChecker = strtok('_');
+
+        pg_query($db, "UPDATE public.word_tag
+    SET views = views + 1
+  WHERE event_type = '$fileChecker'");
          
     } else {header('location:oops.php'); }
 
