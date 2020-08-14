@@ -589,6 +589,7 @@ pg_close($db);
     </span>
   </label>
 </div>
+</div>
 
 
                 <button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="4" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="display:inline-block">next</button></form>';
