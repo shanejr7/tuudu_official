@@ -76,31 +76,32 @@
   <div class="main main-raised">
     <div class="contact-content">
       <div class="container">
-        <h2 class="title">Send us a message</h2>
+        <h2 class="title">Send us a message  <div class="col-md-4" style="margin-left: 10%; color: orange;"> <?php include('errors.php'); if(count($errors)==0 && isset($string)){echo $string;} ?>
+                        </div> </h2>
         <div class="row">
           <div class="col-md-6">
             <p class="description">You can contact us with anything related to our plaftform. We&apos;ll get in touch with you as soon as possible.<br><br>
             </p>
-            <form role="form" id="contact-form" method="post">
+            <form role="form" id="contact-form" method="post" action="contact-us.php">
               <div class="form-group">
                 <label for="name" class="bmd-label-floating">Your name</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" name="contactName" id="name">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmails" class="bmd-label-floating">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmails">
+                <input type="email" class="form-control" name="contactEmail" id="exampleInputEmails">
                 <span class="bmd-help">We'll never share your email with anyone else.</span>
               </div>
               <div class="form-group">
                 <label for="phone" class="bmd-label-floating">Phone</label>
-                <input type="text" class="form-control" id="phone">
+                <input type="text" class="form-control" name="contactNumber" id="phone">
               </div>
               <div class="form-group label-floating">
                 <label class="form-control-label bmd-label-floating" for="message"> Your message</label>
-                <textarea class="form-control" rows="6" id="message"></textarea>
+                <textarea class="form-control" rows="6" name="contactMessage" id="message"></textarea>
               </div>
               <div class="submit text-center">
-                <input type="submit" class="btn btn-primary btn-raised btn-round" value="Contact Us">
+                <input type="submit" name="contactUs" class="btn btn-primary btn-raised btn-round" value="Contact Us">
               </div>
             </form>
           </div>
@@ -111,7 +112,7 @@
               </div>
               <div class="description">
                 <h4 class="info-title">Find us at the office</h4>
-                <p> Grand Rapids, MI,<br>
+                <p> Grand Rapids, MI 49503,<br>
                   <!-- 7652 Bucharest,<br> -->
                   United States
                 </p>
