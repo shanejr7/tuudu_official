@@ -79,7 +79,7 @@
         <h2 class="title">Send us a message</h2>
         <div class="row">
           <div class="col-md-6">
-            <p class="description">You can contact us with anything related to our Products. We&apos;ll get in touch with you as soon as possible.<br><br>
+            <p class="description">You can contact us with anything related to our plaftform. We&apos;ll get in touch with you as soon as possible.<br><br>
             </p>
             <form role="form" id="contact-form" method="post">
               <div class="form-group">
@@ -111,9 +111,9 @@
               </div>
               <div class="description">
                 <h4 class="info-title">Find us at the office</h4>
-                <p> Bld Mihail Kogalniceanu, nr. 8,<br>
-                  7652 Bucharest,<br>
-                  Romania
+                <p> Grand Rapids, MI,<br>
+                  <!-- 7652 Bucharest,<br> -->
+                  United States
                 </p>
               </div>
             </div>
@@ -123,9 +123,8 @@
               </div>
               <div class="description">
                 <h4 class="info-title">Give us a ring</h4>
-                <p> Michael Jordan<br>
-                  +40 762 321 762<br>
-                  Mon - Fri, 8:00-22:00
+                <p> +1 616 264 4429<br>
+                  Mon - Fri, 9:00am-3:00pm
                 </p>
               </div>
             </div>
@@ -135,11 +134,12 @@
               </div>
               <div class="description">
                 <h4 class="info-title">Legal Information</h4>
-                <p> Creative Tim Ltd.<br>
+                <p>Aeravi</p>
+             <!--    <p> Creative Tim Ltd.<br>
                   VAT &#xB7; EN2341241<br>
                   IBAN &#xB7; EN8732ENGB2300099123<br>
                   Bank &#xB7; Great Britain Bank
-                </p>
+                </p> -->
               </div>
             </div>
           </div>
