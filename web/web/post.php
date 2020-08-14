@@ -573,7 +573,7 @@ pg_close($db);
                   </div>
                 </div>
 
-                <div class="form-group row" style="display:inline-block">
+                <div class="form-group row">
     
   <label class="form-check-label">
     <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio1" value="temp">Expire after date
@@ -583,7 +583,7 @@ pg_close($db);
   </label>
   </div>
 
-  <div class="form-group row" style="display:inline-block">
+  <div class="form-group row">
 
 
   <label class="form-check-label">
