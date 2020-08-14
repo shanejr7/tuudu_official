@@ -3,7 +3,7 @@ materialKitDemo = {
   initContactUsMap: function() {
     var myLatlng = new google.maps.LatLng(42.965035, -85.672285);
     var mapOptions = {
-      zoom: 20,
+      zoom: 14,
       center: myLatlng,
       styles: [{
         "featureType": "water",
@@ -111,7 +111,7 @@ materialKitDemo = {
     var centerPosition = new google.maps.LatLng(lat, centerLong);
 
     var mapOptions = {
-      zoom: 20,
+      zoom: 14,
       center: centerPosition,
       styles: [{
         "featureType": "water",
