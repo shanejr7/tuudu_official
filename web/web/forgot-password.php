@@ -27,7 +27,7 @@
       href="../assets/img/logo_size.jpg"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    forgot password
+    Forgot Password
   </title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
