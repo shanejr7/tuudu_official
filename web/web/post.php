@@ -565,30 +565,33 @@ pg_close($db);
                     <input type="time" name="endTime" class="form-control" id="inputTime" placeholder="5:30pm" required>
                   </div>
                 </div> 
+
                  <div class="form-group row">
     
                   <div class="col-sm-10">
                     <input type="date" name="date" class="form-control" id="inputDate" placeholder="05/21/2020" required>
                   </div>
                 </div>
-                <div class="form-group row">
+
+                <div class="form-group row" style="display:inline-block">
     
-                 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
     <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio1" value="temp"> Post will expire after date
     <span class="circle">
         <span class="check"></span>
     </span>
   </label>
-</div>
-<div class="form-check form-check-radio form-check-inline">
+  </div>
+
+  <div class="form-group row" style="display:inline-block">
+
+
   <label class="form-check-label">
     <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio2" value="permanent"> Post will remain after date
     <span class="circle">
         <span class="check"></span>
     </span>
   </label>
-</div>
 </div>
 
 
