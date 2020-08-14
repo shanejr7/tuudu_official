@@ -5,6 +5,8 @@ post.php: issue title,description and content is sometimes blank after form subm
 
 post.php: before uploading images verify them and its extension type. If post is not fully done then delete. re-design if possible and fit ajax where needed.
 
+contact-us.php: design page
+
 important bug: update all validation checking for any input/output users entered.
 
 important fix: continue to convert to AJAX for better quality and performance where users interact on the 				 platform. 
