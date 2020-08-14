@@ -147,28 +147,53 @@
       </div>
     </div>
   </div>
-  <footer class="footer">
+
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Terms & Agreement</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+ by accepting this agreement and terms with using our services. you agree that all transactions and events are affiliated to independent third-party organizations in which our services only provides data without any association or having liability with third-party organizations. accepting these terms our services is allowed to use data of your liking to provide events and or activitites.If you do not agree with our terms and policy then do not register, download, or use our services.
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button> -->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">
-        <ul>
+     <ul>
           <li>
-            <a href="https://www.creative-tim.com">
-              Creative Tim
+            <a href="https://www.Aeravi.io">
+              Aeravi
             </a>
           </li>
           <li>
-            <a href="https://creative-tim.com/presentation">
+            <a href="https://www.Aeravi.io">
               About Us
             </a>
           </li>
           <li>
-            <a href="http://blog.creative-tim.com">
-              Blog
+            <a href="https://www.Aeravi.io">
+              Licenses
             </a>
           </li>
-          <li>
-            <a href="https://www.creative-tim.com/license">
-              Licenses
+           <li>
+           <a href="#" data-toggle="modal" data-target="#exampleModal">
+            Terms
+            </a>
+          </li>
+           <li>
+           <a href="https://www.tuudu.org/web/contact-us.php" data-toggle="modal" data-target="#exampleModal">
+            Contact Us
             </a>
           </li>
         </ul>
@@ -177,8 +202,8 @@
         &copy;
         <script>
           document.write(new Date().getFullYear())
-        </script>, made with <i class="material-icons">favorite</i> by
-        <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+        </script> created by 
+        <a href="https://www.aeravi.io">Aeravi</a>.
       </div>
     </div>
   </footer>

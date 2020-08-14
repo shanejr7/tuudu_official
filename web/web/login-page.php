@@ -254,6 +254,11 @@ include('server.php');
             Terms
             </a>
           </li>
+          <li>
+           <a href="https://www.tuudu.org/web/contact-us.php" data-toggle="modal" data-target="#exampleModal">
+            Contact Us
+            </a>
+          </li>
         </ul>
       </nav>
       <div class="copyright float-right">
