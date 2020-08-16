@@ -1089,13 +1089,13 @@ pg_close($db);
                   }
 
                   echo '<div class="top-center h5">  <ul class="nav nav-tabs">
-    <li><a href="#" style="width:1px">M</a></li>
-    <li><a href="#" style="width:1px">T</a></li>
-    <li><a href="#" style="width:1px">W</a></li>
-    <li><a href="#" style="width:1px">Th</a></li>
-    <li><a href="#" style="width:1px">F</a></li>
-    <li><a href="#" style="width:1px">S</a></li>
-    <li><a href="#" style="width:1px">S</a></li>
+    <li><a href="#" style="width:3px">M</a></li>
+    <li><a href="#" style="width:3px">T</a></li>
+    <li><a href="#" style="width:3px">W</a></li>
+    <li><a href="#" style="width:3px">Th</a></li>
+    <li><a href="#" style="width:3px">F</a></li>
+    <li><a href="#" style="width:3px">S</a></li>
+    <li><a href="#" style="width:3px">S</a></li>
   </ul></div>';
 
 

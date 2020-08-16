@@ -68,13 +68,12 @@
   position: absolute;
   top: 8px;
   right: 16px;
-  margin: 2px;
 }
  
  .top-center {
   position: absolute;
-  top: -2px;
-  right: 40px;
+  top: 0px;
+  right: 30px;
 }
  
 .bottom-left{
