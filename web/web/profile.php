@@ -1112,9 +1112,9 @@ pg_close($db);
 
                   echo '<div class="centered"  style="font-weight: bolder;">
                     <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">1d</li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1">1w</li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2">2m</li>
   </ol></div>';
 
                  
