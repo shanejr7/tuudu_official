@@ -1110,7 +1110,7 @@ pg_close($db);
 
                      
 
-                  echo '<div class="bottom-cent" style="font-weight: bolder;">
+                  echo '<div class="centered carousel slide" data-ride="carousel" style="font-weight: bolder;">
                     <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
