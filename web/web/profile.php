@@ -1088,6 +1088,16 @@ pg_close($db);
                   
                   }
 
+                  echo '<div class="top-center">  <ul class="nav nav-tabs">
+    <li><a href="#" style="width:1px">M</a></li>
+    <li><a href="#" style="width:1px">T</a></li>
+    <li><a href="#" style="width:1px">W</a></li>
+    <li><a href="#" style="width:1px">Th</a></li>
+    <li><a href="#" style="width:1px">F</a></li>
+    <li><a href="#" style="width:1px">S</a></li>
+    <li><a href="#" style="width:1px">S</a></li>
+  </ul></div>';
+
 
                   echo '<div class="top-left h6" style="width:10px;">'
                        .toString($item['date']).'</div>';

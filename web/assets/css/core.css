@@ -70,6 +70,11 @@
   right: 16px;
 }
  
+ .top-center {
+  position: absolute;
+  top: 1px;
+  right: 24px;
+}
  
 .bottom-left{
    position: absolute;
