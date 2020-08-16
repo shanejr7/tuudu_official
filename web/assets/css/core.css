@@ -70,11 +70,7 @@
   right: 16px;
 }
  
- .top-center {
-  position: absolute;
-  top: 0px;
-  right: 30px;
-}
+
  
 .bottom-left{
    position: absolute;
@@ -96,10 +92,10 @@
 }
 
 .bottom-cent {
- /* position: absolute;
+  position: absolute;
   top: 110px;
   right: 100px;
-  opacity: 0;*/
+  opacity: 0;
 }
 
 .centered {
