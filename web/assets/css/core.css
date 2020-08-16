@@ -102,7 +102,8 @@
   position: absolute;
   top: 110px;
   left: 160px;
-  opacity:0; 
+  opacity:0;
+  width: 12px; 
 }
 .centeredm {
   position: absolute;
