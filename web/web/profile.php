@@ -1088,7 +1088,7 @@ pg_close($db);
                   
                   }
 
-                  echo '<div class="top-center">  <ul class="nav nav-tabs">
+                  echo '<div class="top-center h5">  <ul class="nav nav-tabs">
     <li><a href="#" style="width:1px">M</a></li>
     <li><a href="#" style="width:1px">T</a></li>
     <li><a href="#" style="width:1px">W</a></li>
