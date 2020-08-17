@@ -52,7 +52,7 @@
      <link href="plugins/jquery.countdown/css/jquery.countdown.css" rel="stylesheet">
     <!-- The Project's core CSS file -->
     <!-- Use css/rtl_style.css for RTL version -->
-    <link href="css/style.css" rel="stylesheet" >
+    <link href="../assets/css/style.css" rel="stylesheet" >
     <!-- The Project's Typography CSS file, includes used fonts -->
     <!-- Used font for body: Roboto -->
     <!-- Used font for headings: Raleway -->
