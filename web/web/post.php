@@ -239,10 +239,10 @@ pg_close($db);
             <div class="col-lg-7 mr-auto">
          <div class="card card-login">
           
-      <div class="col-lg-10">
+      <div class="col-lg-9">
                      <!-- <h1 class="title">event submission</h1>
  -->                <div class="main object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
-                <div class="form-block p-20" style="margin-top: 5em; margin-left: 2em;" >
+                <div class="form-block p-30" style="margin-top: 5em; margin-left: 2em;" >
          
  
                     <?php 
