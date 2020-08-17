@@ -865,7 +865,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="radioOptions" id="inlineRadio3" value="story"><i class="material-icons">view_carousel</i>story post
+    <input data-toggle="modal" data-target="#storyPost" class="form-check-input" type="radio" name="radioOptions" id="inlineRadio3" value="story"><i class="material-icons">view_carousel</i>story post
     <span class="circle">
         <span class="check"></span>
     </span>
@@ -903,6 +903,89 @@ card();
       </br>        
           </div>
     </div>
+
+         <div class="modal fade" id="storyPost" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Story Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label>add to story.</label>
+
+        <?php 
+
+        $db= "";
+        $event_story_arr = array();
+        $ssid = "";
+
+        if (isset($_SESSION['id'])) {
+          $ssid = $_SESSION['id'];
+        }
+
+        try{
+ $db = pg_connect(getenv("DATABASE_URL"));
+}catch(Execption $e){
+  header('location:oops.php');
+}
+      $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views
+                  FROM organization
+                    WHERE id =$ssid AND post_type ='dated' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
+
+ 
+                  if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) {
+
+      
+      
+                      $event_story_arr[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"]);
+
+
+
+                    }
+                  
+                  }else { }
+
+            pg_close($db);
+
+ echo'<div class="form-group">
+                  <label for="exampleSelect1">story post</label>
+
+                  <select class="form-control" name="story_type" id="storySelect">';
+                 
+                  for($i=0; $i<sizeof($event_story_arr);$i++){
+  if (trim($event_story_arr[$i]['publickey'])!="") {
+echo '<option>'.$event_story_arr[$i]['publickey'].'</option>';
+
+  } 
+}
+
+echo '</select></div>';
+?>
+
+      </div>
+      <div class="modal-footer">
+        <button onclick="select()" type="button" class="btn btn-secondary" data-dismiss="modal">Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    console.log("open");
+function select() {
+  console.log("function called");
+  var x = document.getElementById("storySelect").value;
+  document.getElementById("inlineRadio3").value = x;
+
+
+}
+</script>
+</div>
+
      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
