@@ -585,27 +585,6 @@ pg_close($db);
                   </div>
                 </div>
 
-                <div class="form-group row">
-    
-  <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio1" value="temp">Expire after date
-    <span class="circle">
-        <span class="check"></span>
-    </span>
-  </label>
-  </div>
-
-  <div class="form-group row">
-
-
-  <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="radioOption" id="inlineRadio2" value="permanent">Remain after date
-    <span class="circle">
-        <span class="check"></span>
-    </span>
-  </label>
-</div>
-
 
                 <button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="4" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="display:inline-block">next</button></form>';
  
@@ -679,7 +658,6 @@ $startTime = filter_var($_POST['startTime'], FILTER_SANITIZE_STRING);
 $endTime = filter_var($_POST['endTime'], FILTER_SANITIZE_STRING);
 $date = filter_var($_POST['date'], FILTER_SANITIZE_STRING); 
 $timezone = pg_escape_string($db, $_POST['timezone']);
-$radioOption = pg_escape_string($db, $_POST['radioOption']);
  
 $time = $startTime.'-'.$endTime;
 
@@ -699,7 +677,7 @@ $date = date("Y-m-d", strtotime($date)).' '.$startTime;
  
   
 // update user image
- pg_query($db,"UPDATE public.organization SET date ='$date', time = '$time', post_type = '$radioOption' WHERE id= $userid AND publickey = '$publickey'");
+ pg_query($db,"UPDATE public.organization SET date ='$date', time = '$time' WHERE id= $userid AND publickey = '$publickey'");
  
 
 pg_close($db);
@@ -866,13 +844,32 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
 
 echo "</select>";
 
-echo '<label for="exampleSelect1">post type</label>
-                  <select class="form-control" name="post_type" id="exampleSelect2">
-                  <option value="temp">timed post</option>
-                  <option value="permanent">permanent post</option>
-                  <option value="story">story post</option>';
+echo '<div class="form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+    <span class="circle">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+<div class="form-check form-check-radio form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+    <span class="circle">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+<div class="form-check form-check-radio form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+    <span class="circle">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>';
                   
-    echo '</select>';
+    
 
 
 
