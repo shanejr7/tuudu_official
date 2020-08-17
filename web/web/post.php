@@ -854,7 +854,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="permanent"><i class="material-icons">event</i>permanent post
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="publish"><i class="material-icons">event</i>publish post<span style="font-size:4px; color:ornage">: limit 1</span>
     <span class="circle">
         <span class="check"></span>
     </span>
