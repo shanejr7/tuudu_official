@@ -15,7 +15,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Tuudu | Interest</title>
+    <title>Interest</title>
     <meta name="description" content="The project">
     <meta name="Aeravi" content="htmlcoder.Aeravi">
 
@@ -24,8 +24,7 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon"  href="images/transparent_lg.png">
-    <!-- location finder -->
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+
     <!-- Web Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
@@ -62,10 +61,9 @@
     <!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
     <link href="css/skins/light_blue.css" rel="stylesheet">
     
- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNNP7DU7U95uTSOgWzYgXnkOgE8NOfTEA&callback=initMap"
-  type="text/javascript"></script>
+
     <!-- Custom css --> 
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="../assets/css/custom.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <style>
  
@@ -189,27 +187,7 @@
   <!-- "transparent-header": makes the header transparent and pulls the banner to top -->
   <!-- "gradient-background-header": applies gradient background to header -->
   <!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
-  <body class="front-page " onload="getLocation()">
- 
-<!-- <p id="demo"></p> -->
-
-<script>
-
-var x = document.getElementById("demo");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
-</script>
+  <body class="front-page " onload="">
  
 
     <!-- scrollToTop -->
@@ -242,8 +220,7 @@ function showPosition(position) {
               </div>
 
                    <div class= "  pv-20">
-                    <a href="apply.php" title="hos"ting an event?">#Whois</a><br>
- <span style="color: orange">Hosting an event?</span>
+                   test demo
 
                 </div>
 
