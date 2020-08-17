@@ -260,11 +260,19 @@ if (isset($_POST['page']) && $_POST['page'] >1) {
 
   $event_type = "";
   $radioOptions = "";
+  $story_key = "";
 
   if (isset($_POST['event_type'])) {
     $event_type =  filter_var($_POST['event_type'], FILTER_SANITIZE_STRING);
     $radioOptions =  filter_var($_POST['radioOptions'], FILTER_SANITIZE_STRING);
     $_SESSION['event_type'] = $event_type;
+  }
+
+  if (isset($_POST['story_key'])) {
+    $story_key = filter_var($_POST['story_key'], FILTER_SANITIZE_STRING);
+    $story_key = trim($story_key);
+  }else{
+    $story_key = null;
   }
 
 if (isset($_POST['event_type'])) {
@@ -291,8 +299,8 @@ if (!$db) {
  pg_query($db, $query);
 
 // update user image
- pg_query($db,"INSERT INTO public.organization(id,publickey,post_type)
-    VALUES ($userid,'$publickey','$radioOptions')");
+ pg_query($db,"INSERT INTO public.organization(id,publickey,post_type, story_key)
+    VALUES ($userid,'$publickey','$radioOptions','$story_key')");
 pg_close($db);
  card();
 }else{
