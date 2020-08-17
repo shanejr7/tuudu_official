@@ -308,7 +308,7 @@ echo '<h3 class="title">Add Event Tags</h3>
           <div class="row">
   
 
-            <div class="col-md-12">
+            <div class="col-md-6">
               <div class="title">
                <!-- <h3>Tags</h3> -->
               </div>
@@ -851,7 +851,7 @@ $publickey = $randomString;
 $_SESSION['publicKey'] = $publickey;
 
 // use key through process 
-  echo '    <h3 class="title">Welcome..</h3><h4 class="title">Select your event</h2>
+  echo '<h3 class="title">Welcome..</h3><h4 class="title">Select your event</h2>
               <form  method="post" action="post.php">
                 <div class="form-group">
                   <label for="exampleSelect1">event type</label>
@@ -863,7 +863,21 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
 
   } 
 }
-    echo '</select><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2">next</button></div></form>';
+
+echo "</select>";
+
+echo '<label for="exampleSelect1">post type</label>
+                  <select class="form-control" name="post_type" id="exampleSelect2">
+                  <option value="temp">timed post</option>
+                  <option value="permanent">permanent post</option>
+                  <option value="story">story post</option>';
+                  
+    echo '</select>';
+
+
+
+
+    echo '<button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="2">next</button></div></form>';
 
  
  
