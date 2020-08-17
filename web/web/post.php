@@ -846,7 +846,7 @@ echo "</select>";
 
 echo '<div class="form-check form-check-radio  form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Add timed post
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="dated">dated post
     <span class="circle">
         <span class="check"></span>
     </span>
@@ -854,7 +854,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Add permanent post
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="permanent">permanent post
     <span class="circle">
         <span class="check"></span>
     </span>
@@ -862,7 +862,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Add to post story
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="story">story post
     <span class="circle">
         <span class="check"></span>
     </span>
