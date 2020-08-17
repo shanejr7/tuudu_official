@@ -120,7 +120,7 @@ if (!isset($_SESSION['username'])) {
             </button>
         </div>
 
-        <div class="collapse navbar-collapse col-lg-8">
+        <div class="collapse navbar-collapse col-lg-10" style="height: 30px;">
             <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a href="login-page.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">LOGOFF</a>
@@ -854,7 +854,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="publish"><i class="material-icons">event</i>publish post<p style="font-size:14px; color:orange">limit 1</p>
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="publish"><i class="material-icons">event</i>publish post
     <span class="circle">
         <span class="check"></span>
     </span>
