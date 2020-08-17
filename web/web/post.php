@@ -271,8 +271,6 @@ if (isset($_POST['page']) && $_POST['page'] >1) {
   if (isset($_POST['story_key'])) {
     $story_key = filter_var($_POST['story_key'], FILTER_SANITIZE_STRING);
     $story_key = trim($story_key);
-  }else{
-    $story_key = null;
   }
 
 if (isset($_POST['event_type'])) {
@@ -299,7 +297,7 @@ if (!$db) {
  pg_query($db, $query);
 
 // update user image
- pg_query($db,"INSERT INTO public.organization(id,publickey,post_type, story_key)
+ pg_query($db,"INSERT INTO public.organization(id,publickey,post_type,story_key)
     VALUES ($userid,'$publickey','$radioOptions','$story_key')");
 pg_close($db);
  card();
@@ -997,7 +995,7 @@ echo '</select></div>';
 
 function select() {
   var x = document.getElementById("storySelect").value;
-  console.log(x);
+ 
   document.getElementById("storyRKey").value = x;
 
 
