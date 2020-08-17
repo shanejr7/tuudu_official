@@ -880,7 +880,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
   </label>
 </div>';
                   
-    echo '<input type="hidden" name="story_key" value="" id="story_key">';
+    echo '<input type="hidden" name="story_key" value="" id="storyRKey">';
 
 
 
@@ -997,7 +997,8 @@ echo '</select></div>';
 
 function select() {
   var x = document.getElementById("storySelect").value;
-  document.getElementById("story_key").value = x;
+  console.log(x);
+  document.getElementById("storyRKey").value = x;
 
 
 }
