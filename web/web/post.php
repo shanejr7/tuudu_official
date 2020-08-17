@@ -257,9 +257,13 @@ pg_close($db);
 if (isset($_POST['page']) && $_POST['page'] >1) {
   $page = filter_var($_POST['page'], FILTER_SANITIZE_STRING);
   if ($page==2) {
+
   $event_type = "";
+  $radioOptions = "";
+
   if (isset($_POST['event_type'])) {
     $event_type =  filter_var($_POST['event_type'], FILTER_SANITIZE_STRING);
+    $radioOptions =  filter_var($_POST['radioOptions'], FILTER_SANITIZE_STRING);
     $_SESSION['event_type'] = $event_type;
   }
 
@@ -274,7 +278,6 @@ if (isset($_POST['event_type'])) {
   
  
 // Create connection
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
 $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
@@ -288,8 +291,8 @@ if (!$db) {
  pg_query($db, $query);
 
 // update user image
- pg_query($db,"INSERT INTO public.organization(id,publickey)
-    VALUES ($userid,'$publickey')");
+ pg_query($db,"INSERT INTO public.organization(id,publickey,post_type)
+    VALUES ($userid,'$publickey','$radioOptions')");
 pg_close($db);
  card();
 }else{
@@ -842,11 +845,11 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
   } 
 }
 
-echo "</select>";
+echo '<option value="other">other</option></select>';
 
 echo '<div class="form-check form-check-radio  form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="dated"><i class="material-icons">date_range</i>dated post
+    <input class="form-check-input" type="radio" name="radioOptions" id="inlineRadio1" value="dated"><i class="material-icons">date_range</i>dated post
     <span class="circle">
         <span class="check"></span>
     </span>
@@ -854,7 +857,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="publish"><i class="material-icons">event</i>publish post
+    <input class="form-check-input" type="radio" name="radioOptions" id="inlineRadio2" value="publish"><i class="material-icons">event</i>publish post
     <span class="circle">
         <span class="check"></span>
     </span>
@@ -862,7 +865,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="story"><i class="material-icons">view_carousel</i>story post
+    <input class="form-check-input" type="radio" name="radioOptions" id="inlineRadio3" value="story"><i class="material-icons">view_carousel</i>story post
     <span class="circle">
         <span class="check"></span>
     </span>
