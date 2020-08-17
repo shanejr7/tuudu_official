@@ -920,6 +920,7 @@ card();
         $db= "";
         $event_story_arr = array();
         $ssid = "";
+        $randomString = "";
 
         if (isset($_SESSION['id'])) {
           $ssid = $_SESSION['id'];
@@ -930,9 +931,9 @@ card();
 }catch(Execption $e){
   header('location:oops.php');
 }
-      $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.title, organization.views,organization.description,organization.publickey, organization.address,organization.views
+      $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.title, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.story_key
                   FROM organization
-                    WHERE id =$ssid AND post_type ='dated' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
+                    WHERE id =$ssid AND post_type ='story' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
 
  
                   if (pg_num_rows($result) > 0) {
@@ -941,7 +942,7 @@ card();
 
       
       
-                      $event_story_arr[] = array("date" => $row["date"], "time" => $row["time"],"title" => $row["title"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"]);
+                      $event_story_arr[] = array("date" => $row["date"], "time" => $row["time"],"title" => $row["title"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"],"story_key" => $row["story_key"]);
 
 
 
@@ -957,11 +958,22 @@ card();
                   <select class="form-control" name="story_type" id="storySelect">';
                  
                   for($i=0; $i<sizeof($event_story_arr);$i++){
-  if (trim($event_story_arr[$i]['publickey'])!="") {
-echo '<option value="'.trim($event_story_arr[$i]['publickey']).'">'.$event_story_arr[$i]['title'].'</option>';
+  if (trim($event_story_arr[$i]['story_key'])!="") {
+echo '<option value="'.trim($event_story_arr[$i]['story_key']).'">'.$event_story_arr[$i]['title'].'</option>';
 
   } 
 }
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+   
+    $n = 15;
+  
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
+
+echo '<option value="'.$randomString.'">new story</option>';
+
 
 echo '</select></div>';
 ?>
@@ -974,9 +986,8 @@ echo '</select></div>';
     </div>
   </div>
   <script>
-    console.log("open");
+
 function select() {
-  console.log("function called");
   var x = document.getElementById("storySelect").value;
   document.getElementById("inlineRadio3").value = x;
 
