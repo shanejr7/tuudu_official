@@ -872,7 +872,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
   </label>
 </div>';
                   
-    
+    echo '<input type="hidden" name="story_key" value="" id="story_key">';
 
 
 
@@ -953,7 +953,7 @@ card();
             pg_close($db);
 
  echo'<div class="form-group">
-                  <label for="exampleSelect1">story post</label>
+                  <label for="exampleSelect1"></label>
 
                   <select class="form-control" name="story_type" id="storySelect">';
                  
@@ -989,7 +989,7 @@ echo '</select></div>';
 
 function select() {
   var x = document.getElementById("storySelect").value;
-  document.getElementById("inlineRadio3").value = x;
+  document.getElementById("story_key").value = x;
 
 
 }
