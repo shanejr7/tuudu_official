@@ -846,7 +846,7 @@ echo "</select>";
 
 echo '<div class="form-check form-check-radio  form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="dated" style="display:none"><i class="material-icons">date_range</i>dated post
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="dated"><i class="material-icons">date_range</i>dated post
     <span class="circle">
         <span class="check"></span>
     </span>
@@ -854,7 +854,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="permanent">permanent post
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="permanent"><i class="material-icons">event</i>permanent post
     <span class="circle">
         <span class="check"></span>
     </span>
@@ -862,7 +862,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="story">story post
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="story"><i class="material-icons">view_carousel</i>story post
     <span class="circle">
         <span class="check"></span>
     </span>
