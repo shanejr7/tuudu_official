@@ -242,7 +242,7 @@ pg_close($db);
       <div class="col-lg-10">
                      <!-- <h1 class="title">event submission</h1>
  -->                <div class="main object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
-                <div class="form-block p-30" style="margin-top: 5em; margin-left: 2em;" >
+                <div class="form-block p-20" style="margin-top: 5em; margin-left: 2em;" >
          
  
                     <?php 
