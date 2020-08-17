@@ -36,7 +36,7 @@ if (!isset($_SESSION['username'])) {
       href="../assets/img/logo_size.jpg"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Post
+    Interest
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -79,7 +79,7 @@ if (!isset($_SESSION['username'])) {
                      </script>
                 </li>
                   <li class="nav-item">
-                    <a href="interest.php" class="nav-link">INTEREST</a>
+                    <a href="dashboard.php" class="nav-link">DASHBOARD</a>
                 </li>
         
         
@@ -91,6 +91,7 @@ if (!isset($_SESSION['username'])) {
 
     <div class="container">
         <div class="row">
+          <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
                      <?php 
                      // error appears if search value cant be found //
@@ -225,9 +226,8 @@ if (!isset($_SESSION['username'])) {
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <label>payments are received after purchases are made and items are validated with a deduction of 0.5%. Invalid items may be subject to return funds.</label>
- by accepting this agreement and terms with using our services. you agree that all transactions and events are affiliated to independent third-party organizations in which our services only provide data without any association or having liability with third party organizations. accepting these terms our services is allowed to use data of your liking to provide events and or activities you do not agree with our terms and policy then do not register, download, or use our services.
+         <div class="modal-body">
+ by accepting this agreement and terms with using our services. you agree that all transactions and events are affiliated to independent third-party organizations in which our services only provides data without any association or having liability with third party organizations. accepting these terms our services is allowed to use data of your liking to provide events and or activitites.If you do not agree with our terms and policy then do not register, download, or use our services.
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button> -->
@@ -236,10 +236,10 @@ if (!isset($_SESSION['username'])) {
     </div>
   </div>
 </div>
-  <footer class="footer footer-default">
+  <footer class="footer footer-default cd-section" id="footer">
     <div class="container">
       <nav class="float-left">
-    <ul>
+        <ul>
           <li>
             <a href="https://www.Aeravi.io">
               Aeravi
@@ -260,6 +260,7 @@ if (!isset($_SESSION['username'])) {
             Terms
             </a>
           </li>
+
         </ul>
       </nav>
       <div class="copyright float-right">
@@ -267,16 +268,12 @@ if (!isset($_SESSION['username'])) {
         <script>
           document.write(new Date().getFullYear())
         </script> created by 
-        <a href="https://www.aeravi.io">Aeravi</a>.
+        <a href="https://www.aeravi.io" target="_blank">Aeravi</a>.
       </div>
     </div>
   </footer>
   </div>
-<!--    <script type="text/javascript">
-    document.getElementByClass("update").onclick = function () {
-        location.href = "dashboard.php";
-    };
-</script> -->
+
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
