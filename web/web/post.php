@@ -844,9 +844,9 @@ echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
 
 echo "</select>";
 
-echo '<div class="form-check-inline">
+echo '<div class="form-check form-check-radio  form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Add timed post
     <span class="circle">
         <span class="check"></span>
     </span>
@@ -854,7 +854,7 @@ echo '<div class="form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Add permanent post
     <span class="circle">
         <span class="check"></span>
     </span>
@@ -862,7 +862,7 @@ echo '<div class="form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Add to post story
     <span class="circle">
         <span class="check"></span>
     </span>
