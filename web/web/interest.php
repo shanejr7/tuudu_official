@@ -47,7 +47,7 @@ if (!isset($_SESSION['username'])) {
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+ <!--  <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> -->
   
 
 
@@ -89,11 +89,12 @@ if (!isset($_SESSION['username'])) {
                      </nav>
       
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 3em;">
         <div class="row">
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
                      <?php 
+                     
                      // error appears if search value cant be found //
                      if(isset($_GET['val'])){
  
@@ -102,87 +103,11 @@ if (!isset($_SESSION['username'])) {
                      ?>
           
 
-                  <div class="circle-container ">
-                  <div class="deg90 media xq2">
-                    <div class="d-flex pr-4">
                        <a href="store-temp-tags.php?valType=sports">
                         <span class="icon circle small default-bg"><i class="fa fa-futbol-o"></i> </span>
                       </a>
                     </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">#Sports</h4>
-                      <!-- text can go here -->
-                    </div>
-                  </div>
-                  <div class="deg0 media xq2">
-                    <div class="d-flex pr-4">
-                      <a href="store-temp-tags.php?valType=music">
-                        <span class="icon circle small default-bg "><i class="icon-music"></i> </span>
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">#Music</h4>
-                     <!-- text can go here -->
-                    </div>
-                  </div>
-                      <div class="deg45 media xq2">
-                    <div class="d-flex pr-4">
-                      <a href="store-temp-tags.php?valType=media">
-                        <span class="icon circle small default-bg"><i class="fa fa-tv"></i> </span>
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">#Food</h4>
-                      <!-- text can go here -->
-                    </div>
-                  </div>
-                  <div class="deg135 media xq2">
-                    <div class="d-flex pr-4">
-                     <a href="store-temp-tags.php?valType=outdoors">
-                      <!-- icon map -->
-                        <span class="icon circle small default-bg"><i class="fa fa-tree"></i> </span>
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">#Outdoors</h4>
-                       <!-- text can go here -->
-                    </div>
-                  </div>
-                  <div class="media deg225 xq2">
-                    <div class="d-flex pr-4">
-                       <a href="store-temp-tags.php?valType=festival">
-                        <span class="icon circle small default-bg"><i class="fa fa-birthday-cake"></i> </span>
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">#Festival</h4>
-                       <!-- text can go here -->
-                    </div>
-                  </div>
-                   <div class="media deg315 xq2">
-                    <div class="d-flex pr-4">
-                     <a href="store-temp-tags.php?valType=hangouts">
-                        <span class="icon circle small default-bg"><i class="fa fa-street-view"></i> </span>
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">#Art</h4>
-                       <!-- text can go here -->
-                    </div>
-                  </div>
-                  <div class="media deg180 xq2">
-                    <div class="d-flex pr-4">
-                       <a href="store-temp-tags.php?valType=attractions">
-                        <span class="icon circle small default-bg"><i class="fa fa-universal-access"></i> </span>
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">#Fashion</h4>
-                       <!-- text can go here -->
-                    </div>
-                  </div>
-                  <div class="media deg270 xq2" id="topic">
-                    <div class="d-flex pr-4">
+      
            
 
                       <!-- search for iTagType ------------------------------------------------------>
@@ -198,20 +123,12 @@ if (!isset($_SESSION['username'])) {
                   
                   
                 
-                      <!-- ------------------------- -->
-                    </div>
-                    <div class="media-body">
-                      <h4 class="media-heading">Search</h4>
-                       <!-- text can go here -->
-                    </div>
-                  </div>
-                  <div class="xq2" >
+                  
+                   
                 <!--proceeds to set-up.php to select iTagName for iTagTypes that were selected  -->
                 <a href="set-up.php" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
-                 </div>
-                </div>
-         
-                </div>
+               
+          
         </div>
     </div>
     
