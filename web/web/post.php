@@ -120,7 +120,7 @@ if (!isset($_SESSION['username'])) {
             </button>
         </div>
 
-        <div class="collapse navbar-collapse col-lg-10" style="height: 30px;">
+        <div class="collapse navbar-collapse col-lg-8">
             <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a href="login-page.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">LOGOFF</a>
@@ -239,7 +239,7 @@ pg_close($db);
             <div class="col-lg-7 mr-auto">
          <div class="card card-login">
           
-      <div class="col-lg-9">
+      <div class="col-lg-10" style="height: 30px;">
                      <!-- <h1 class="title">event submission</h1>
  -->                <div class="main object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
                 <div class="form-block p-30" style="margin-top: 5em; margin-left: 2em;" >
