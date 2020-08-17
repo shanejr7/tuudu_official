@@ -914,7 +914,6 @@ card();
         </button>
       </div>
       <div class="modal-body">
-        <label>add to story.</label>
 
         <?php 
 
@@ -931,7 +930,7 @@ card();
 }catch(Execption $e){
   header('location:oops.php');
 }
-      $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views
+      $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.title, organization.views,organization.description,organization.publickey, organization.address,organization.views
                   FROM organization
                     WHERE id =$ssid AND post_type ='dated' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
 
@@ -942,7 +941,7 @@ card();
 
       
       
-                      $event_story_arr[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"]);
+                      $event_story_arr[] = array("date" => $row["date"], "time" => $row["time"],"title" => $row["title"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"]);
 
 
 
@@ -959,7 +958,7 @@ card();
                  
                   for($i=0; $i<sizeof($event_story_arr);$i++){
   if (trim($event_story_arr[$i]['publickey'])!="") {
-echo '<option>'.$event_story_arr[$i]['publickey'].'</option>';
+echo '<option value="'.trim($event_story_arr[$i]['publickey']).'">'.$event_story_arr[$i]['title'].'</option>';
 
   } 
 }
