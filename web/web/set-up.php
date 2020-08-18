@@ -180,10 +180,6 @@ if(!pg_close($conn)){
 }
 
 // Each selected topic will display tags
-print_r($temp);
-
-print_r($tempArray);
-
 
 
 $max=0;
