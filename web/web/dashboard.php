@@ -207,8 +207,8 @@ echo '<script>
                       <a href="#pablo" class="nav-link"><i class="material-icons">email</i></a>
                     </li> -->
                     
-                    <li class="dropdown nav-item">
-                      <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                    <li class="nav-item">
+                      <a href="#pablo" class=" nav-link" >
                         <i class="material-icons">settings</i>settings
                         <!-- <b class="caret"></b> -->
                       </a>
