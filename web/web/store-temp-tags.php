@@ -4,12 +4,13 @@ include('server.php');
 
  
 $errors = array();
+$db ="";
 
 
 
-if (isset($_GET['valType']) && isset($_session["id"])) {
+if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 
-      $tempID = filter_var($_session["id"], FILTER_SANITIZE_STRING);
+      $tempID = filter_var($_SESSION["id"], FILTER_SANITIZE_STRING);
 
 
       $db = pg_connect(getenv("DATABASE_URL"));
@@ -20,7 +21,7 @@ if (isset($_GET['valType']) && isset($_session["id"])) {
 
   //check if tag was already added
  
-      $result = pg_query($db, "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%_' AND tempid = $tempID LIMIT 1");
+      $result = pg_query($db, "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%_' AND userid = $tempID LIMIT 1");
       
       $user = pg_fetch_assoc($result);
 
@@ -45,6 +46,7 @@ if (isset($_GET['valType']) && isset($_session["id"])) {
     
   	pg_query($db, "INSERT INTO feedstate (userid, word_tag, state)
   VALUES($tempid, '$splitFileString', 1)");
+
    header('location:interest.php');
    
  }
@@ -85,7 +87,7 @@ if (isset($_POST['search']) && isset($_session["id"])) {
       
       //check if type was already added
       
-      $user_check_query = "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%_' and tempid = $tempID  LIMIT 1";
+      $user_check_query = "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%_' and userid = $tempID  LIMIT 1";
       
       $result = pg_query($db, $user_check_query);
     
