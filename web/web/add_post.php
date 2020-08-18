@@ -11,7 +11,7 @@ if (isset($_POST['push'])) {
  $publickey = $_SESSION['publicKey'];
  $userid = $_SESSION['id'];
 
- //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+ 
 // insert into 
 $db = pg_connect(getenv("DATABASE_URL")); 
 
@@ -79,7 +79,7 @@ $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); 
 $publickey = $_SESSION['publicKey'];
 $userid = $_SESSION['id'];
 
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
 // insert into 
 $db = pg_connect(getenv("DATABASE_URL"));
 

@@ -178,19 +178,16 @@ if(!pg_close($conn)){
 
 }
 
-// uses each iTagType as a page counter to display its iTagNames
+// Each selected topic will display tags
+
 $max=0;
 $count=0;
 $set = sizeof($temp);
 $max = sizeof($temp)-1;
-if (isset($_GET['page'])) {
-  $count = $_GET['page'];
-}
+
+if (isset($_GET['page'])) { $count = $_GET['page'];}
 
 
-  
-  // while loop goes through each iTagType in array and displays subsets of iTagName that can be selected ----------------------
-  // stores selected iTagName in store-temp-tags.php in a row related to its iTagType ------------------------------------------
             
 while ($count <= $max && isset($temp[0])) {
  
