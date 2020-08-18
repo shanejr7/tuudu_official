@@ -62,10 +62,10 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 
 
 // uses user input search to find iTagType in data base *home page search button*
-if (isset($_POST['search']) && isset($_session["id"])) {
+if (isset($_POST['search']) && isset($_SESSION["id"])) {
  
 
-  $tempID = filter_var($_session["id"], FILTER_SANITIZE_STRING);
+  $tempID = filter_var($_SESSION["id"], FILTER_SANITIZE_STRING);
 
 
 
@@ -80,9 +80,9 @@ if (isset($_POST['search']) && isset($_session["id"])) {
   $tagType = trim($tagType);
 
 
-//check if search type exists in iTags
+//check if search type exists
 
- $user_check_search_query = "SELECT feedstate FROM word_tag WHERE word_tag LIKE '$tagType%_' LIMIT 1";
+ $user_check_search_query = "SELECT feedstate FROM feedstate WHERE word_tag LIKE '$tagType%_' LIMIT 1";
  
  $result = pg_query($db, $user_check_search_query);
  
