@@ -1,6 +1,8 @@
 <?php 
 include('server.php');
 
+include('show-temp-tags.php');
+
 
 if (!isset($_SESSION['username'])) {
    
@@ -195,8 +197,8 @@ while ($count <= $max && isset($temp[0])) {
  if ($count == 0) {
   echo ' <h2>tag: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
-          if ($tempArray[$x]['temporarytags.iTagType'] == $temp[$count]['temporarytags.iTagType']) {
-             echo ' <a href="store-temp-tags.php?valName='.$tempArray[$x]['itags.iTagName'].'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.$tempArray[$x]['itags.iTagName'].'</a> ';
+          if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
+             echo ' <a href="store-temp-tags.php?valName='.$tempArray[$x]['itag'].'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.$tempArray[$x]['itag'].'</a> ';
           }
        
         }
@@ -211,15 +213,15 @@ if ($count == $max) {
 }
 echo '</div>';
  }else if($count > 0 && $count < $max){
-   echo ' <h2>tag: #'.$temp[$count]['temporarytags.iTagType'].'</h2>'   ;
+   echo ' <h2>tag: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
-          if ($tempArray[$x]['temporarytags.iTagType'] == $temp[$count]['temporarytags.iTagType']) {
+          if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
             // if topic added does not have a tag name give option to add
-            if ($tempArray[$x]['itags.iTagName'] =="") {
-              echo "string";
+            if ($tempArray[$x]['itag'] =="") {
+            
               break;
             }
-             echo ' <a href="store-temp-tags.php?valName='.$tempArray[$x]['itags.iTagName'].'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.$tempArray[$x]['itags.iTagName'].'</a> ';
+             echo ' <a href="store-temp-tags.php?valName='.$tempArray[$x]['itag'].'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.$tempArray[$x]['itag'].'</a> ';
           }
        
         }
@@ -235,18 +237,18 @@ if ($count == $max) {
         
 }
 }else if ($count == $max) {
-   echo ' <h2>tag: #'.$temp[$count]['temporarytags.iTagType'].'</h2>'   ;
+   echo ' <h2>tag: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
 
 
-          if ($tempArray[$x]['temporarytags.iTagType'] == $temp[$count]['temporarytags.iTagType']) {
+          if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
             // if topic added does not have a tag name give option to add else show tag name
           
-           if ($tempArray[$x]['itags.iTagName'] =="") {
+           if ($tempArray[$x]['itag'] =="") {
               echo " add tag name for topic.... must be a is a relationship..fix add this later";
               
             }else{
-            echo ' <a href="store-temp-tags.php?valName='.$tempArray[$x]['itags.iTagName'].'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.$tempArray[$x]['itags.iTagName'].'</a> ';
+            echo ' <a href="store-temp-tags.php?valName='.$tempArray[$x]['itag'].'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.$tempArray[$x]['itag'].'</a> ';
             }
           }
        
