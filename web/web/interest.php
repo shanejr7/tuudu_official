@@ -47,6 +47,7 @@ if (!isset($_SESSION['username'])) {
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
+  <link href="../assets/css/interest.css" rel="stylesheet" />
  <!--  <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> -->
   
 
