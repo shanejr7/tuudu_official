@@ -206,7 +206,7 @@ while ($count <= $max && isset($temp[0])) {
 
               for ($i=0; $i <sizeof($split) ; $i++) { 
                 
-                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($split[$i]['itag']).'</a> ';
+                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($split[$i]).'</a> ';
               }
 
              // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($tempArray[$x]['itag']).'</a> ';
