@@ -110,11 +110,11 @@ if (!isset($_SESSION['username'])) {
                          <div class="row">
   
 
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <div class="title">
                <!-- <h3>Tags</h3> -->
               </div>
-              <a href="store-temp-tags.php?valType=sports" type="text" name="word_tags" value="tags" placeholder="enter here" class="tagsinput form-control" data-role="tagsinput" data-color="rose"></a>
+              <a href="store-temp-tags.php?valType=sports" value="sports" data-color="rose"></a>
               <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
             </div>
           </div>
@@ -127,10 +127,10 @@ if (!isset($_SESSION['username'])) {
            
 
                       <!-- search for iTagType ------------------------------------------------------>
-                    <a href="#"class=" dropdown-toggle--no-caret" id="header-drop-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <span class="icon circle small default-bg"><i class="icon-search"></i></span></a>
+                    <a href="#"class=" dropdown-toggle--no-caret" id="header-drop-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <span class="icon circle small default-bg"><i class="material-icon">face</i></span></a>
                    
                   <!-- this form searches for iTagType in table itags using store-temp-tags.php ------------------------------------>
-                        <form role="search" action="store-temp-tags.php" method="post" class="dropdown-menu dropdown-menu-left dropdown-animation" aria-labelledby="header-drop-1" style="top: 200%; margin-top: -7em; margin-left: -3.5em; padding-bottom: 0%; " > 
+                        <form role="search" action="store-temp-tags.php" method="post" class="dropdown-menu dropdown-menu-left dropdown-animation" aria-labelledby="header-drop-1"  > 
                           <div class="form-group has-feedback" style="margin-bottom: -6em; margin-top: -1em;">
                             <input type="text" class="form-control" name="search" placeholder="Search">
                             <i class="icon-search form-control-feedback"></i>
