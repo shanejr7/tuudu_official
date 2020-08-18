@@ -198,7 +198,7 @@ pg_close($db);
  
 ?>
 
-    <div class="container">
+    <div class="container" style="margin-top: 3em;">
         <div class="row">
           <div class="col-lg-5">
               <div class="col-md-12 mr-auto">
@@ -239,7 +239,7 @@ pg_close($db);
           </div>
        
 
-            <div class="col-lg-7 mr-auto" style="height: 600px;">
+            <div class="col-lg-7 mr-auto" style="height: 600px;margin-top: 3em">
          <div class="card card-login">
           
       <div class="col-lg-10">
