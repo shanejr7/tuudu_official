@@ -36,7 +36,7 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
   //return to topic page dont add identical topic 
   
 
-     header('location:interest.php');
+     header('location:interes.php');
   
 
 
