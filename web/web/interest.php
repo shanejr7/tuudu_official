@@ -211,10 +211,30 @@ if (!isset($_SESSION['username'])) {
   </div>
 
   <script>
-    function cf(id) {
-      var property = document.getElementById(id);
-      property.style.backgroundColor = 'orange';
-    }
+        $( "#m" ).click(function() {
+       $("#m").addClass("btn btn-warning btn-round");
+});
+            $( "#fa" ).click(function() {
+       $("#fa").addClass("btn btn-warning btn-round");
+});
+    $( "#a" ).click(function() {
+       $("#a").addClass("btn btn-warning btn-round");
+});
+        $( "#s" ).click(function() {
+       $("#s").addClass("btn btn-warning btn-round");
+});
+            $( "#fd" ).click(function() {
+       $("#fd").addClass("btn btn-warning btn-round");
+});
+                $( "#o" ).click(function() {
+       $("#o").addClass("btn btn-warning btn-round");
+});
+                    $( "#fe" ).click(function() {
+       $("#fe").addClass("btn btn-warning btn-round");
+});
+                        $( "#ot" ).click(function() {
+       $("#ot").addClass("btn btn-warning btn-round");
+});
   </script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

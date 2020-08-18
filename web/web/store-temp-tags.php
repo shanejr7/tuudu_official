@@ -36,7 +36,7 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
   //return to topic page dont add identical topic 
   
 
-     header('location:interes.php');
+     header('location:interest.php');
   
 
 
@@ -45,7 +45,7 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 //insert new iTageType into DB
     
   	pg_query($db, "INSERT INTO feedstate (userid, word_tag, state)
-  VALUES($tempid, '$splitFileString', 1)");
+  VALUES($tempID, '$splitFileString', 1)");
 
    header('location:interest.php');
    
@@ -111,7 +111,7 @@ if (isset($_POST['search']) && isset($_session["id"])) {
     
 
     $query = "INSERT INTO feedstate (userid,word_tag,state) 
-          VALUES($tempid,'$tagType',1)";
+          VALUES($tempID,'$tagType',1)";
     
     pg_query($db, $query);
 
