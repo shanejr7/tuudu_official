@@ -1,387 +1,175 @@
-<?php  include('show-temp-tags.php'); // query selects iTageName from selected iTagType from table itags
-// setup page:
-// * stores subset iTagName related to iTagType user selected  
-// * setup -> # this page
-// ------------------------------------------more details at line 193,214,246
+<?php 
+include('server.php');
 
 
-?> 
+if (!isset($_SESSION['username'])) {
+   
+   header('location: login-page.php');
+  }
+
+ 
+
+   ?>
+<!--
+ =========================================================
+ Material Kit PRO - v2.1.1
+ =========================================================
+
+ Product Page: https://www.creative-tim.com/product/material-kit-pro
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+
+ Coded by Creative Tim
+
+ =========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
 
 <!DOCTYPE html>
-<!--[if IE 9]> <html lang="zxx" class="ie9"> <![endif]-->
-<!--[if gt IE 9]> <html lang="zxx" class="ie"> <![endif]-->
-<!--[if !IE]><!-->
-<html dir="ltr" lang="zxx">
-	<!--<![endif]-->
+<html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <title>Tuudu | set-up</title>
-    <meta name="description" content="The project">
-    <meta name="Aeravi" content="htmlcoder.Aeravi">
-
-    <!-- Mobile Meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-     <!-- Favicon -->
-       <link rel="shortcut icon"  href="images/transparent_lg.png">
-
-    <!-- Web Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
-
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Font Awesome CSS -->
-    <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <!-- Fontello CSS -->
-    <link href="fonts/fontello/css/fontello.css" rel="stylesheet">
-
-    <!-- Plugins -->
-    <link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
-    <link href="plugins/rs-plugin-5/css/settings.css" rel="stylesheet">
-    <link href="plugins/rs-plugin-5/css/layers.css" rel="stylesheet">
-    <link href="plugins/rs-plugin-5/css/navigation.css" rel="stylesheet">
-    <link href="css/animations.css" rel="stylesheet">
-    <link href="plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">
-    <link href="plugins/hover/hover-min.css" rel="stylesheet">	
-       <link href="plugins/jquery.countdown/css/jquery.countdown.css" rel="stylesheet">	
-    
-    <!-- The Project's core CSS file -->
-    <!-- Use css/rtl_style.css for RTL version -->
-    <link href="css/style.css" rel="stylesheet" >
-    <!-- The Project's Typography CSS file, includes used fonts -->
-    <!-- Used font for body: Roboto -->
-    <!-- Used font for headings: Raleway -->
-    <!-- Use css/rtl_typography-default.css for RTL version -->
-    <link href="css/typography-default.css" rel="stylesheet" >
-    <!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
-    <link href="css/skins/light_blue.css" rel="stylesheet">
-    
-
-    <!-- Custom css --> 
-    <link href="css/custom.css" rel="stylesheet">
-    
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<style type="text/css">
+<head>
+  <meta charset="utf-8" />
+   
+ <link rel="icon" 
+      type="image/jpg" 
+      href="../assets/img/logo_size.jpg"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Interest
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="../assets/css/material-kit.css?v=2.2.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
+  <!-- <link href="../assets/css/interest.css" rel="stylesheet" /> -->
+ <!--  <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> -->
   
-  .popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* The actual popup */
-.popup .popuptext {
-    visibility: hidden;
-    width: 20em;
-    height:22em;
-    background-color:  orange;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-   top: 1px;
-    z-index: 1;
-    bottom: 50%;
-    left: 60em;
-    margin-left: -80px;
-}
-.space{
-  margin-left: 3px;
-  margin-right: 3px;
-}
-/* Popup arrow */
-.popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 200%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-}
 
 
+</head>
 
+<body class="profile-page sidebar-collapse">
 
-/* Popup container - can be anything you want */
-.popup1 {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+<nav class="navbar navbar-expand-lg bg-primary">
+    <div class="container">
+        <div class="navbar-translate col-lg-4">
 
-/* The actual popup */
-.popup1 .popuptext1 {
-    visibility: hidden;
-    width: 160px;
-    background-color: orange;
-    color: #fff ;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-}
+            <a class="navbar-brand" href="interest.php">  <img src="../assets/img/logo.png" style="width: 30%; "></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
 
-/* Popup arrow */
-.popup1 .popuptext1::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-.popup1 .show1 {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-/* Toggle this class - hide and show the popup */
- 
-/*  Popup container - can be anything you want */
-.popup2 {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* The actual popup */
-.popup2 .popuptext2 {
-    visibility: hidden;
-    width: 250px;
-    background-color: orange;
-    color: #fff ;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup2 .popuptext2::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-.popup2 .show2 {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-
-}
-</style>
-  </head>
- 
-  <!-- body classes:  -->
-  <!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
-  <!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
-  <!-- "transparent-header": makes the header transparent and pulls the banner to top -->
-  <!-- "gradient-background-header": applies gradient background to header -->
-  <!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
-
-  <body class="page-loader-6 " onload="tuuduBot()">
- 
-    <!-- scrollToTop -->
-    <!-- ================ -->
-    <div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
-
-    <!-- page wrapper start -->
-    <!-- ================ -->
-    <div class="page-wrapper">
-      <!-- header-container start -->
-      <div id="header" class="header-container">
-        <!-- header start -->
-        <!-- classes:  -->
-        <!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
-        <!-- "fixed-desktop": enables fixed navigation only for desktop devices e.g. class="header fixed fixed-desktop clearfix" -->
-        <!-- "fixed-all": enables fixed navigation only for all devices desktop and mobile e.g. class="header fixed fixed-desktop clearfix" -->
-        <!-- "dark": dark version of header e.g. class="header dark clearfix" -->
-        <!-- "full-width": mandatory class for the full-width menu layout -->
-        <!-- "centered": mandatory class for the centered logo layout -->
-        <!-- ================ --> 
-           <header class="header" style="color: white; background-color:  #2D51A3; height: 84px;">
-          <div class="container">
-           
-
-      
-                    <div class="row" >
-                   <div class="col-lg-2" style="margin-top: 1em">
- 
- <span >pick event tags that interest you...</span>
-
-                </div>
-
-          <!--     <div class="col-lg-8 logo-header"  ><img id="logo-header" class="mx-auto" src="snow_tuudu.gif" alt="">
-  
-              </div> -->
-
-                  <div class="col-lg-2">
-         <!--        <ul class="social-links text-md-right text-center-xs animated-effect-1 circle small clearfix">
-                  <li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                  <li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-                  <li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube-play"></i></a></li>
-                 
-                 
-                </ul> -->
-    
-              </div>
-             
-           
-                  
-              
-           
-
-          </div>
+        <div class="collapse navbar-collapse col-lg-8">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a href="login-page.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">LOGOFF</a>
+                    <script type="text/javascript">
+                      var revokeAllScopes = function() {
+                         auth2.disconnect();
+                      }
+                     </script>
+                </li>
+                  <li class="nav-item">
+                    <a href="dashboard.php" class="nav-link">DASHBOARD</a>
+                </li>
+                 <li class="nav-item">
+                    <a href="profile.php" class="nav-link">PROFILE</a>
+                </li>
         
-          
-          </div>
-        </header>
-        <!-- header end -->
-      </div>
-      <!-- header-container end -->
-      <!-- banner start -->
-      <!-- ================ -->
-    
-    
-        <!-- section end -->
-        <!-- section start -->
-        <!-- ================ -->
-  <!--  -->
-        <!-- section end -->
-      </div>
-      <!-- banner end -->
+        
+   </ul>          
+                
+       </div></div>
+                     </nav>
+      
 
-      <!-- main-container start -->
-      <!-- ================ -->
-      <section class="main-container">
-
-        <div class="container" >
-          <div class="row">
+    <div class="container" style="margin-bottom: 3em;">
+        <div class="row">
+          <div class="col-lg-2"></div>
+           <div class="col-lg-8" style="margin-top: 1em">
+            <h2 style="font-weight: bold;margin-bottom: 2em;">Select topics tags</h2>
+                    
+  
+ <div class="row">
 
             <!-- main start -->
             <!-- ================ -->
-            <div class="main col-md-12">
+            <div class="main col-lg-12">
          
               <div class="row ">
                 <div class="col-lg-2">
-<!-- space to fill up in column -->
-   <aside class="col-lg-4 col-xl-10 order-lg-4">
-              <div class="sidebar">
-                <div class="block clearfix">
-                
-                  <div class="separator-2"></div>
-                  <nav>
-                    <ul class="nav flex-column">
-                        <li class="nav-item"><a class="nav-link" href="home.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="#">Setup</a></li>
-                      <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-                            <li class="nav-item popup" onclick="myFunction()"><a class="nav-link"    href="#">About</a>  <span class="popuptext" id="myPopup"><h4>About Us</h4><hr><p class="space">Tuudu is sorta like a to-do list app but instead it gathers up events and activites to make up a schedule based off wants and needs.</p><hr><p>Our mission is to connect the online community through social events to make a smarter & faster connected world !</p><hr><i class="fa fa-globe"><p>Explore the world around you..</p></i> </span></li>
-                      <li class="nav-item popup1" onclick="myFunction1()"><a class="nav-link"
-                      href="#">Contact</a>  <span class="popuptext1" id="myPopup1"><h5>email us</h5><hr><p><i class="fa fa-envelope-open-o"></i> <strong>contact@tuudu.org</strong></p> </span></li>
-                    </ul>
-                  </nav>
+
                 </div>
-              
-              </div>
-            </aside>
-                </div>
-                <div class="col-lg-9" id="tag">
+                <div class="col-lg-8" id="tag">
           
                          
-              <?php 
-if (isset($_session['ID'])) {
-// connect to database -----------------------------------------------------------------------------------------------------
-
-// given from session.php
-$tagID = $_session["ID"];
+<?php 
 
 
+if (isset($_SESSION['ID'])) {
 
-// Create connection
-//$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
-$conn = pg_connect(getenv("DATABASE_URL"));
- // $conn = pg_connect("host=ec2-54-83-23-121.compute-1.amazonaws.com dbname=d191igjs7stcrv user=taqionqfyxisao password=
-//f411fd2208dece2d0f6ac32df889fb2b9d1f1e616ade43b8ae73acd30ac7ff32");
-// Check connection
-if ($res1 = pg_get_result($conn)) {
-    die("Connection failed: " .  pg_result_error($res1) );
-}
 
-$temp = array();
-// gets user iTagType and the iTagName related to iTagType they selected
-$sql = "SELECT DISTINCT temporarytags.itagtype FROM temporarytags, itags WHERE temporarytags.itagtype = itags.itagtype AND temporarytags.tempid =$tagID";
-$result = pg_query($conn,$sql);
+    // given from session.php
+    
+    $tagID = $_SESSION["ID"];
 
-// loops through rows until there is 0 rows
-if (pg_num_rows($result) > 0) {
-    // output data of each row
-    while($row = pg_fetch_assoc($result)) {
+
+
+    // Create connection
+
+    $conn = pg_connect(getenv("DATABASE_URL"));
+ 
+
+    // Check connection
+    
+    if ($res1 = pg_get_result($conn)) {
+      die("Connection failed: " .  pg_result_error($res1) );
+    }
+
+    $temp = array();
+
+    // gets tag related to topic they selected limit 20 of best selected options from pool
+    
+    $sql = "SELECT DISTINCT word_tag.event_type, word_tag.itag FROM word_tag, feedstate 
+    WHERE word_tag.event_type = feedstate.word_tag AND feedstate.userid = $tagID" LIMIT 20;
+    
+    $result = pg_query($conn,$sql);
+
+    // loops through rows until there is 0 rows
+    
+    if (pg_num_rows($result) > 0) {
       
-      $temp[] = array("temporarytags.iTagType" => $row["itagtype"]);
+      // output data of each row
+      while($row = pg_fetch_assoc($result)) {
+      
+         $temp[] = array("event_type" => $row["event_type"] ,"itag" => $row["itag"]);
 
     }
+
     // if no rows 
+
 } else {
+
   // echo "0 results";
+
 }
 
-if(!pg_close($conn)){//failed
+if(!pg_close($conn)){
+
+//failed
+
 }else{
+
   //passed
 }
 
@@ -405,7 +193,7 @@ if (isset($_GET['page'])) {
 while ($count <= $max && isset($temp[0])) {
  
  if ($count == 0) {
-  echo ' <h2>tag: #'.$temp[$count]['temporarytags.iTagType'].'</h2>'   ;
+  echo ' <h2>tag: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
           if ($tempArray[$x]['temporarytags.iTagType'] == $temp[$count]['temporarytags.iTagType']) {
              echo ' <a href="store-temp-tags.php?valName='.$tempArray[$x]['itags.iTagName'].'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.$tempArray[$x]['itags.iTagName'].'</a> ';
@@ -480,124 +268,104 @@ break;
                     </div>
             <!-- main end -->
           </div>
-          <div class="row">
-<div class="col-lg-8">
-         <div id="tuuduBot" style="margin-left: 50em; margin-top: 4em" ><div class="nav-item popup2"><a class="nav-link" href="#"></a>  <span class="popuptext2" id="myPopup2"><h5>Tuudu Bot <i class="fa fa-eercast fa-spin" style="color: white"></i></h5> <hr><p><strong>picking certain event tags will connect you to social events related to the topic #tag  </strong></p>  </span></div></div> 
-</div>
 
- 
-          </div>
-        </div>
-
-       
-      </section>
-
-      <!-- main-container end -->
-
-      <!-- section end -->
-
-      <!-- section start -->
-      <!-- ================ -->
-       <!-- section start -->
-      <!-- ================ -->
-      <div class="pv-40"  style="color: white; background-color:  #ffffff; height: 1em;  " >
-      <!-- section end -->
-
-      <!-- ================ -->
-      <footer id="footer" class="clearfix " style="color: white; background-color:  #ffffff;">
-
-        <!-- .footer start -->
-        <!-- ================ -->
-        <div class="footer" style="color: white; background-color:  #ffffff;">
-          <div class="container">
-            <div class="footer-inner">
-              <div class="row justify-content-lg-center">
-                <div class="col-lg-6">
-                  <div class="footer-content text-center padding-ver-clear">
+      
           
-               <!--      <ul class="list-inline mb-20">
-                      <li class="list-inline-item"><i class="text-default fa fa-map-marker pr-1"></i>Address</li>
-                      <li class="list-inline-item"><a href="tel:+00 1234567890" class="link-dark"><i class="text-default fa fa-phone pl-10 pr-1"></i>#phone</a></li>
-                      <li class="list-inline-item"><a href="" class="link-dark"><i class="text-default fa fa-envelope-o pl-10 pr-1"></i>email@</a></li>
-                    </ul> -->
+            </div>
+      
+          
+        </div>
+    </div>
+    
          
 
-                     <p class="text-center margin-clear" style="color: black;">Created by <a target="_blank" href="https://www.aeravi.io"  >Aeravi</a>. 2018</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- .footer end -->
-
-      </footer>
-      <!-- footer end -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Terms & Agreement</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+         <div class="modal-body">
+ by accepting this agreement and terms with using our services. you agree that all transactions and events are affiliated to independent third-party organizations in which our services only provides data without any association or having liability with third party organizations. accepting these terms our services is allowed to use data of your liking to provide events and or activitites.If you do not agree with our terms and policy then do not register, download, or use our services.
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button> -->
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
     </div>
-    <!-- page-wrapper end -->
-     <script>
+  </div>
+</div>
+  <footer class="footer footer-default cd-section" id="footer">
+    <div class="container">
+      <nav class="float-left">
+        <ul>
+          <li>
+            <a href="https://www.Aeravi.io">
+              Aeravi
+            </a>
+          </li>
+          <li>
+            <a href="https://www.Aeravi.io">
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="https://www.Aeravi.io">
+              Licenses
+            </a>
+          </li>
+          <li>
+           <a href="#" data-toggle="modal" data-target="#exampleModal">
+            Terms
+            </a>
+          </li>
 
-// When the user clicks on div, open the popup
-function myFunction() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-}
-function myFunction1() {
-    var popup = document.getElementById("myPopup1");
-    popup.classList.toggle("show1");
-}
-$(document).ready(function(){
- $("#appear").hide();
-    $("#toggle").click(function(){
-        $("#appear").toggle();
-    });
-});
+        </ul>
+      </nav>
+      <div class="copyright float-right">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script> created by 
+        <a href="https://www.aeravi.io" target="_blank">Aeravi</a>.
+      </div>
+    </div>
+  </footer>
+  </div>
 
-function tuuduBot() {
 
-    var popup = document.getElementById("myPopup2");
-    popup.classList.toggle("show2");
-  
- 
-}
-</script>
-    <!-- JavaScript files placed at the end of the document so the pages load faster -->
-    <!-- ================================================== -->
-    <!-- Jquery and Bootstap core js files -->
-    <script type="text/javascript" src="plugins/jquery.min.js"></script>
-    <script type="text/javascript" src="plugins/popper.min.js"></script>
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-    <!-- Modernizr javascript -->
-    <script type="text/javascript" src="plugins/modernizr.js"></script>
-    <!-- jQuery Revolution Slider  -->
-    <script type="text/javascript" src="plugins/rs-plugin-5/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
-    <script type="text/javascript" src="plugins/rs-plugin-5/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
-    <!-- Isotope javascript -->
-    <script type="text/javascript" src="plugins/isotope/imagesloaded.pkgd.min.js"></script>
-    <script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
-    <!-- Magnific Popup javascript -->
-    <script type="text/javascript" src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <!-- Appear javascript -->
-    <script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
-    <script type="text/javascript" src="plugins/waypoints/sticky.min.js"></script>
-    <!-- Count To javascript -->
-    <script type="text/javascript" src="plugins/jquery.countTo.js"></script>
-    <!-- Parallax javascript -->
-    <script src="plugins/jquery.parallax-1.1.3.js"></script>
-     <!-- Count Down javascript -->
-    <script type="text/javascript" src="plugins/jquery.countdown/js/jquery.plugin.js"></script>
-    <script type="text/javascript" src="plugins/jquery.countdown/js/jquery.countdown.js"></script>
-    <script type="text/javascript" src="js/coming.soon.config.js"></script>
-    <script type="text/javascript" src="plugins/jquery.countTo.js"></script>
-    <!-- Contact form -->
-    <script src="plugins/jquery.validate.js"></script>
-    <!-- Owl carousel javascript -->
-    <script type="text/javascript" src="plugins/owlcarousel2/owl.carousel.min.js"></script>
-    <!-- Initialization of Plugins -->
-    <script type="text/javascript" src="js/template.js"></script>
-    <!-- Custom Scripts -->
-    <script type="text/javascript" src="js/custom.js"></script>
-    <!-- pace page loader -->
-<script type="text/javascript" src="plugins/pace/pace.min.js"></script>
-  </body>
+  <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <script src="../assets/js/plugins/moment.min.js"></script>
+  <!--  Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+  <!--  Google Maps Plugin    -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+  <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+  <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
+  <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+  <script src="../assets/js/plugins/bootstrap-selectpicker.js" type="text/javascript"></script>
+  <!--  Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+  <script src="../assets/js/plugins/jasny-bootstrap.min.js" type="text/javascript"></script>
+  <!--  Plugin for Small Gallery in Product Page -->
+  <script src="../assets/js/plugins/jquery.flexisel.js" type="text/javascript"></script>
+  <!-- Plugins for presentation and navigation  -->
+  <script src="../assets/demo/modernizr.js" type="text/javascript"></script>
+  <script src="../assets/demo/vertical-nav.js" type="text/javascript"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Js With initialisations For Demo Purpose, Don't Include it in Your Project -->
+  <script src="../assets/demo/demo.js" type="text/javascript"></script>
+  <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
+</body>
+
 </html>
+
+ 
