@@ -130,7 +130,7 @@ if (!isset($_SESSION['username'])) {
                                      // error appears if search value cant be found //
                                        if(isset($_GET['val'])){
  
-                                       echo '<span class="text-warning btn-md-link" style="margin-left: 21em;"><input type="text" class="form-control" placeholder="cant find topic" name="search">cant find topic<i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span>';
+                                       echo '<input type="text" class="form-control" placeholder="can\'t find topic" name="search">';
                                        }else{
                                           echo '<input type="text" class="form-control" placeholder="search" name="search">';
                                        }
