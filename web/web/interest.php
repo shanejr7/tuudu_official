@@ -116,15 +116,9 @@ if (!isset($_SESSION['username'])) {
     <a href="store-temp-tags.php?valType=other" class="btn btn-rose btn-round"><i class="material-icons">emoji_objects</i>other</a>
 
                <!-- search for iTagType ------------------------------------------------------>
-                    <a href="#"class=" dropdown-toggle--no-caret" id="header-drop-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <span class="icon circle small default-bg"><i class="material-icons">search</i></span></a>
-
-
                        <!-- this form searches for iTagType in table itags using store-temp-tags.php ------------------------------------>
-                        <form role="search" action="store-temp-tags.php" method="post" class="dropdown-menu dropdown-menu-left dropdown-animation" aria-labelledby="header-drop-1"  > 
-                          <div class="form-group has-feedback">
-                            <input type="text" class="form-control" name="search" placeholder="Search">
-                            <i class="material-icons">search</i>
-                          </div>
+                        <form role="search" action="store-temp-tags.php" method="post" > 
+                            <i class="material-icons">search</i><input type="text"  name="search" placeholder="Search">
                         </form>
 
         <br>
