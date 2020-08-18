@@ -117,6 +117,7 @@ if (!isset($_SESSION['username'])) {
                          
 <?php 
 
+  $temp = array();
 
 if (isset($_SESSION['ID'])) {
 
@@ -138,7 +139,7 @@ if (isset($_SESSION['ID'])) {
       die("Connection failed: " .  pg_result_error($res1) );
     }
 
-    $temp = array();
+
 
     // gets tag related to topic they selected limit 20 of best selected options from pool
     
@@ -179,7 +180,8 @@ if(!pg_close($conn)){
 }
 
 // Each selected topic will display tags
-if (isset($temp)) {
+print_r($temp);
+
 
 
 $max=0;
@@ -262,7 +264,6 @@ if ($count == $max) {
 break;
 }
 
-}
 
     
               ?>
