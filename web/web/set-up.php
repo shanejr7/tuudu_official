@@ -241,6 +241,7 @@ if ($count == $max) {
    echo ' <h2>tag: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
 
+          echo $tempArray[$x]['event_type'] ' x '. $temp[$count]['event_type'];
 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
             // if topic added does not have a tag name give option to add else show tag name
