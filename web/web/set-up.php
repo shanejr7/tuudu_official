@@ -143,7 +143,7 @@ if (isset($_SESSION['ID'])) {
     // gets tag related to topic they selected limit 20 of best selected options from pool
     
     $sql = "SELECT DISTINCT word_tag.event_type, word_tag.itag FROM word_tag, feedstate 
-    WHERE word_tag.event_type = feedstate.word_tag AND feedstate.userid = $tagID" LIMIT 20;
+    WHERE word_tag.event_type = feedstate.word_tag AND feedstate.userid = $tagID LIMIT 20";
     
     $result = pg_query($conn,$sql);
 

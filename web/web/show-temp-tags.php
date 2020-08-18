@@ -25,7 +25,7 @@ if (isset($_SESSSION['id'])) {
 
 		// query
 		
-		$sql = "SELECT DISTINCT word_tag.event_type, word_tag.itag FROM word_tag, feedstate WHERE word_tag.event_type = feedstate.word_tag AND feedstate.userid =$tagID";
+		$sql = "SELECT DISTINCT word_tag.event_type, word_tag.itag FROM word_tag, feedstate WHERE word_tag.event_type = feedstate.word_tag AND feedstate.userid =$tagID LIMIT 20";
 		
 		$result = pg_query($conn,$sql);
 		
