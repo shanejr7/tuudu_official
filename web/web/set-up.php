@@ -1,5 +1,5 @@
 <?php 
-include('server.php');
+
 
 include('show-temp-tags.php');
 
