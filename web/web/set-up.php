@@ -179,6 +179,8 @@ if(!pg_close($conn)){
 }
 
 // Each selected topic will display tags
+if (isset($temp)) {
+
 
 $max=0;
 $count=0;
@@ -258,6 +260,8 @@ if ($count == $max) {
  
 }
 break;
+}
+
 }
 
     
