@@ -90,10 +90,11 @@ if (!isset($_SESSION['username'])) {
       
 
     <div class="container" style="margin-bottom: 3em;">
-      <h2>Select Topics Of Your Interest</h2>
         <div class="row">
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
+            <h2 style="font-weight: bold;">Select topics</h2>
+            
                      <?php 
 
                      // error appears if search value cant be found //
@@ -116,6 +117,8 @@ if (!isset($_SESSION['username'])) {
               </div>
               <a href="store-temp-tags.php?valType=sports" value="sports" data-color="rose"></a>
               <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
+              <!--proceeds to set-up.php to select iTagName for iTagTypes that were selected  -->
+                <a href="set-up.php" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
             </div>
           </div>
         </div>
@@ -140,9 +143,7 @@ if (!isset($_SESSION['username'])) {
                   
                 
                   
-                   
-                <!--proceeds to set-up.php to select iTagName for iTagTypes that were selected  -->
-                <a href="set-up.php" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
+              
                
           
         </div>
