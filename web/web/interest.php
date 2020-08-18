@@ -118,7 +118,15 @@ if (!isset($_SESSION['username'])) {
                <!-- search for iTagType ------------------------------------------------------>
                        <!-- this form searches for iTagType in table itags using store-temp-tags.php ------------------------------------>
                         <form role="search" action="store-temp-tags.php" method="post" > 
-                            <i class="material-icons">search</i><input type="text" class="form-control" placeholder="search" name="search">
+                            
+
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                             <span class="input-group-text"><i class="material-icons">search</i></span>
+                            </div>
+
+                              <input type="text" class="form-control" placeholder="search" name="search">
+                          </div>
                         </form>
 
         <br>
