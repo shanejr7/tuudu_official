@@ -18,7 +18,7 @@ other: create HTTP load balancer.
 $add-on: create post amount for creating a post + sold out.
 add-on: view user profile.
 add-on: create edit user info popup.
-$add-on: integrate interest selection from phase 1 development.
+$$$$$$add-on: integrate interest selection from phase 1 development.
 add-on: sharing-joining events.
 add-on: Google Natural Language API integration to classify post content into word tags.
 $add-on: none expiring element post/design/layout/functions/editing.

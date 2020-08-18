@@ -90,11 +90,12 @@ if (!isset($_SESSION['username'])) {
       
 
     <div class="container" style="margin-bottom: 3em;">
+      <h2>Select Topics Of Your Interest</h2>
         <div class="row">
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
                      <?php 
-                     
+
                      // error appears if search value cant be found //
                      if(isset($_GET['val'])){
  
@@ -102,10 +103,25 @@ if (!isset($_SESSION['username'])) {
                      }
                      ?>
           
+                     <!-- select al from word tags and put each word into a tag -->
 
-                       <a href="store-temp-tags.php?valType=sports">
+                     <!-- next get tags that are related -->
+                     <div id="textareaTags">
+                         <div class="row">
+  
+
+            <div class="col-md-6">
+              <div class="title">
+               <!-- <h3>Tags</h3> -->
+              </div>
+              <a href="store-temp-tags.php?valType=sports" type="text" name="word_tags" value="tags" placeholder="enter here" class="tagsinput form-control" data-role="tagsinput" data-color="rose"></a>
+              <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
+            </div>
+          </div>
+        </div>
+                      <!--  <a href="store-temp-tags.php?valType=sports">
                         <span class="icon circle small default-bg"><i class="fa fa-futbol-o"></i> </span>
-                      </a>
+                      </a> -->
                     </div>
       
            
