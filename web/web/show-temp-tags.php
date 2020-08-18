@@ -3,6 +3,7 @@
 
 include('server.php');
 
+$tempArray = array();
 
 if (isset($_SESSSION['id'])) {
 
@@ -19,9 +20,6 @@ if (isset($_SESSSION['id'])) {
     		die("Connection failed: " .  pg_result_error($res1) );
 		}
 
-		// holds items for each row
-		
-		$tempArray = array();
 
 		// query
 		
