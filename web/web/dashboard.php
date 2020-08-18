@@ -235,7 +235,7 @@ echo '<script>
 
           echo '<li class="nav-item">
                       <a href="interest.php" class="nav-link">
-                        <i class="material-icons">interest</i>settings
+                        <i class="material-icons">settings</i>interest
                         <b class="caret"></b>
                       </a>
                       </li>';
@@ -249,7 +249,7 @@ echo '<script>
 
                  echo ' <li class="dropdown nav-item">
                       <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i class="material-icons">settings</i>settings
+                        <i class="material-icons">settings</i>interest
                         <b class="caret"></b>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right">
