@@ -22,7 +22,6 @@ if (isset($_SESSSION['id'])) {
 		// holds items for each row
 		
 		$tempArray = array();
-		$splitAssociative = array();
 
 		// query
 		
@@ -39,7 +38,6 @@ if (isset($_SESSSION['id'])) {
     		while($row = pg_fetch_assoc($result)) {
       
     			$tempArray[] = array("event_type" => $row["event_type"], "itag" => $row["itag"]);
-    			$splitAssociative[] = explode("/", $row["itag"]);
 
 			}
     
