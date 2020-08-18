@@ -212,8 +212,8 @@ if (!isset($_SESSION['username'])) {
 
   <script>
     function cf(id) {
-      var property= document.getElementById(id);
-      property.class = 'btn btn-warning btn-round';
+      var property = document.getElementById(id);
+      property.style.backgroundColor = 'orange';
     }
   </script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
