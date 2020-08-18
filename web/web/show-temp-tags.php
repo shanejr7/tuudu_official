@@ -5,10 +5,10 @@ include('server.php');
 
 $tempArray = array();
 
-if (isset($_SESSSION['id'])) {
+if (isset($_SESSION['id'])) {
 
 	
-		$tagID = $_SESSSION["id"];
+		$tagID = $_SESSION["id"];
 
 
 		$conn = pg_connect(getenv("DATABASE_URL"));
