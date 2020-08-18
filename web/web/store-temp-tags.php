@@ -22,7 +22,7 @@ $tagType =  pg_escape_string($db,$_GET['valType']);
 // no dupilcate copy
  if (strcmp(trim($user['itagtype']),$tagType)==0 && $user['tempid'] == $tempID) {
  	//return to topic page dont add identical topic 
-  header('location:home.php');
+  header('location:interest.php');
   
 // echo "no store";
 
@@ -31,7 +31,7 @@ $tagType =  pg_escape_string($db,$_GET['valType']);
     
   	pg_query($db, "INSERT INTO temporarytags (itagtype, itagname, tempid)
   VALUES('$tagType', 'null', $tempID)");
-   header('location:home.php');
+   header('location:interest.php');
    
  }
  pg_close($db);
@@ -65,7 +65,7 @@ $tagType = strtolower($tagType);
 // no dupilcate copy
  if (strcmp(trim($user['itagtype']),$tagType) ==0 && $user['tempid'] == $tempID) {
   //return to topic page dont add identical topic 
-  header('location:home.php');
+  header('location:interest.php');
   
 echo "no store";
 
@@ -75,12 +75,12 @@ echo "no store";
           VALUES('$tagType',$tempID,'null')";
     pg_query($db, $query);
   echo "store";
-   header('location:home.php');
+   header('location:interest.php');
    
  }
 }else{
   // send url error if value cant be found
-   header('location:home.php?val=error');
+   header('location:interest.php?val=error');
 }
  if(!pg_close($db)){
 //failed

@@ -47,7 +47,7 @@ if (!isset($_SESSION['username'])) {
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
-  <link href="../assets/css/interest.css" rel="stylesheet" />
+  <!-- <link href="../assets/css/interest.css" rel="stylesheet" /> -->
  <!--  <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> -->
   
 
@@ -98,13 +98,6 @@ if (!isset($_SESSION['username'])) {
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
             <h2 style="font-weight: bold;margin-bottom: 2em;">Select topics</h2>
-
-
-
-
-              <!-- select al from word tags and put each word into a tag -->
-
-              <!-- next get tags that are related -->
                     
   
 
@@ -121,8 +114,7 @@ if (!isset($_SESSION['username'])) {
     <br>
     <br>
 
-               <!-- search for iTagType ------------------------------------------------------>
-                       <!-- this form searches for iTagType in table itags using store-temp-tags.php ------------------------------------>
+      
                         <form role="search" action="store-temp-tags.php" method="post" > 
                             
 
@@ -137,8 +129,7 @@ if (!isset($_SESSION['username'])) {
 
         <br>
         <br>
-              <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
-              <!--proceeds to set-up.php to select iTagName for iTagTypes that were selected  -->
+              
                 <a href="set-up.php" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
 
                      <?php 
