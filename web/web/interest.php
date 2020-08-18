@@ -123,7 +123,19 @@ if (!isset($_SESSION['username'])) {
                              <span class="input-group-text"><i class="material-icons">search</i></span>
                             </div>
 
-                              <input type="text" class="form-control" placeholder="search" name="search">
+                                <?php 
+
+
+
+                                     // error appears if search value cant be found //
+                                       if(isset($_GET['val'])){
+ 
+                                       echo '<span class="text-warning btn-md-link" style="margin-left: 21em;"><input type="text" class="form-control" placeholder="cant find topic" name="search">cant find topic<i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span>';
+                                       }else{
+                                          echo '<input type="text" class="form-control" placeholder="search" name="search">';
+                                       }
+                                 ?>
+
                           </div>
                         </form>
 
@@ -131,21 +143,7 @@ if (!isset($_SESSION['username'])) {
         <br>
               
                 <a href="set-up.php" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
-
-                     <?php 
-
-
-
-
-
-                     // error appears if search value cant be found //
-                     if(isset($_GET['val'])){
- 
-                  echo '<span class="text-warning btn-md-link" style="margin-left: 21em;">cant find topic<i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>';
-                     }
-                     ?>
       
-            
           
                     </div>
       
