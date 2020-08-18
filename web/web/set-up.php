@@ -201,13 +201,21 @@ while ($count <= $max && isset($temp[0])) {
   echo ' <h2>tag: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
-             echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($tempArray[$x]['itag']).'</a> ';
+
+             $split = explode("/", $tempArray[$x]['itag']);
+
+              for ($i=0; $i <sizeof($split) ; $i++) { 
+                
+                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($split[$i]['itag']).'</a> ';
+              }
+
+             // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($tempArray[$x]['itag']).'</a> ';
           }
        
         }
    
 if ($count == $max) {
-  echo ' <div class="col-lg-9"  ><a href="sign-up.php?" style="display: inline-block;margin-left:1em; " class="btn radius-50 btn-default-transparent btn-bg">sign up</a>';
+  echo ' <div class="col-lg-9"  ><a href="sign-up.php?" style="display: inline-block;margin-left:1em; " class="btn radius-50 btn-default-transparent btn-bg">submit</a>';
  
 }else{
        //button sends next value to this page to go to next phase
