@@ -93,7 +93,7 @@ if (!isset($_SESSION['username'])) {
         <div class="row">
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
-            <h2 style="font-weight: bold;">Select topics</h2>
+            <h2 style="font-weight: bold;margin-bottom: 5em;">Select topics</h2>
 
 
 
@@ -105,8 +105,14 @@ if (!isset($_SESSION['username'])) {
   
 
             
-         
+    <a href="store-temp-tags.php?valType=music" class="btn btn-rose btn-round"><i class="material-icons">music_video</i>music</a>
+    <a href="store-temp-tags.php?valType=fashion" class="btn btn-rose btn-round"><i class="material-icons">shopping_basket</i>fashion</a>
+    <a href="store-temp-tags.php?valType=art" class="btn btn-rose btn-round"><i class="material-icons">color_lens</i>art</a>
     <a href="store-temp-tags.php?valType=sports" class="btn btn-rose btn-round"><i class="material-icons">sports_soccer</i>sports</a>
+    <a href="store-temp-tags.php?valType=food" class="btn btn-rose btn-round"><i class="material-icons">food_bank</i>food</a>
+    <a href="store-temp-tags.php?valType=outdoor" class="btn btn-rose btn-round"><i class="material-icons">terrain</i>outdoor</a>
+    <a href="store-temp-tags.php?valType=festivals" class="btn btn-rose btn-round"><i class="material-icons">cake</i>festival</a>
+    <a href="store-temp-tags.php?valType=other" class="btn btn-rose btn-round"><i class="material-icons">emoji_objects</i>other</a>
               <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
               <!--proceeds to set-up.php to select iTagName for iTagTypes that were selected  -->
                 <a href="set-up.php" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
@@ -126,25 +132,19 @@ if (!isset($_SESSION['username'])) {
           
                <!-- search for iTagType ------------------------------------------------------>
                     <a href="#"class=" dropdown-toggle--no-caret" id="header-drop-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <span class="icon circle small default-bg"><i class="material-icon">search</i></span></a>
-            
-          
-                    </div>
-      
-           
-                   
-                  <!-- this form searches for iTagType in table itags using store-temp-tags.php ------------------------------------>
+
+
+                       <!-- this form searches for iTagType in table itags using store-temp-tags.php ------------------------------------>
                         <form role="search" action="store-temp-tags.php" method="post" class="dropdown-menu dropdown-menu-left dropdown-animation" aria-labelledby="header-drop-1"  > 
                           <div class="form-group has-feedback" style="margin-bottom: -6em; margin-top: -1em;">
                             <input type="text" class="form-control" name="search" placeholder="Search">
                             <i class="icon-search form-control-feedback"></i>
                           </div>
                         </form>
-                  
-                  
-                
-                  
-              
-               
+            
+          
+                    </div>
+      
           
         </div>
     </div>
