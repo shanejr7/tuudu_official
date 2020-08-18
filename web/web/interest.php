@@ -211,29 +211,31 @@ if (!isset($_SESSION['username'])) {
   </div>
 
   <script>
+    $(document).ready(function(){
+
         $( "#m" ).click(function() {
-       $("#m").addClass("btn btn-warning btn-round");
+       $("#m").css("backgroundColor", "#dc7d00");
 });
             $( "#fa" ).click(function() {
-       $("#fa").addClass("btn btn-warning btn-round");
+       $("#fa").css("backgroundColor", "#dc7d00");
 });
     $( "#a" ).click(function() {
-       $("#a").addClass("btn btn-warning btn-round");
+       $("#a").css("backgroundColor", "#dc7d00");
 });
         $( "#s" ).click(function() {
-       $("#s").addClass("btn btn-warning btn-round");
-});
+       $("#s").css("backgroundColor", "#dc7d00");
             $( "#fd" ).click(function() {
-       $("#fd").addClass("btn btn-warning btn-round");
-});
+       $("#fd").css("backgroundColor", "#dc7d00");
                 $( "#o" ).click(function() {
-       $("#o").addClass("btn btn-warning btn-round");
+       $("#o").css("backgroundColor", "#dc7d00");
 });
                     $( "#fe" ).click(function() {
-       $("#fe").addClass("btn btn-warning btn-round");
+       $("#fe").css("backgroundColor", "#dc7d00");
 });
                         $( "#ot" ).click(function() {
-       $("#ot").addClass("btn btn-warning btn-round");
+       $("#ot").css("backgroundColor", "#dc7d00");
+});
+
 });
   </script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
