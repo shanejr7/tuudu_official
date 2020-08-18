@@ -114,6 +114,9 @@ if (!isset($_SESSION['username'])) {
     <a href="store-temp-tags.php?valType=outdoor" class="btn btn-rose btn-round"><i class="material-icons">terrain</i>outdoor</a>
     <a href="store-temp-tags.php?valType=festivals" class="btn btn-rose btn-round"><i class="material-icons">cake</i>festival</a>
     <a href="store-temp-tags.php?valType=other" class="btn btn-rose btn-round"><i class="material-icons">emoji_objects</i>other</a>
+    <br>
+    <br>
+    <br>
 
                <!-- search for iTagType ------------------------------------------------------>
                        <!-- this form searches for iTagType in table itags using store-temp-tags.php ------------------------------------>
