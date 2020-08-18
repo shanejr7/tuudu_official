@@ -1,6 +1,7 @@
 <?php 
 include('server.php');
 include('add_post.php');
+include("proper_nouns.php");
 
  
 require('../aws/Aws/S3/S3Client.php'); 
@@ -343,6 +344,7 @@ echo '<h3 class="title">Add Event Tags</h3>
 
  $userid = $_SESSION['id'];
  $publickey = $_SESSION['publicKey'];
+ $event_type = $_SESSION['event_type'];
 
 if(isset($_POST['word_tags'])) {
 
@@ -351,13 +353,13 @@ if(isset($_POST['word_tags'])) {
  $word_tags =  filter_var($_POST['word_tags'], FILTER_SANITIZE_STRING);  
  $word_tags = preg_replace('/[^A-Za-z0-9\-]/', ' ', $word_tags);
  $word_tags = str_replace(" ","/",trim($word_tags));
+ $word_tags = strtolower($word_tags);
  $word_tag = $event_type.'_/'.$word_tags;  
  
 
     
  
  // Create connection
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
 $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
@@ -368,6 +370,8 @@ if (!$db) {
 // update user image
  pg_query($db,"UPDATE public.organization SET word_tag ='$word_tag' WHERE id= $userid AND publickey = '$publickey'");
  
+// update word_tag itag data
+pg_query($db,"UPDATE public.word_tag SET word_tag ='$word_tags' WHERE event_type = '$event_type'"); 
 
 pg_close($db);
 
@@ -477,10 +481,29 @@ $destination = $key;
           $description = preg_replace('/[^A-Za-z0-9\-]!/', '', $description);
           $content= filter_var($_POST['content'], FILTER_SANITIZE_STRING);   
           $content = preg_replace('/[^A-Za-z0-9\-]!/', '', $content);
+
+          $event_type = $_SESSION['event_type'];
+          $word_tags.= $event_title;
+          $word_tags.= $description;
+          $word_tags.= $content;
+
+           //create instance 
+          $pn = new proper_nouns(); 
+
+          //get array with proper nouns 
+          $arr = $pn->get($word_tags);
+
+          $word_tags = explode(" ", $arr);
+          $word_tags = strtolower($word_tags);
+          $word_tags = str_replace(" ","/",trim($word_tags));
+
  
 
             // update user image
             pg_query($db,"UPDATE public.organization SET title ='$eventTitle', description = '$description', content = '$content', img='$image_src' WHERE id= $userid AND publickey = '$publickey'");
+
+            // update word_tag itag data
+            pg_query($db,"UPDATE public.word_tag SET word_tag ='$word_tags' WHERE event_type = '$event_type'"); 
  
 
             pg_close($db);
@@ -827,6 +850,7 @@ unset($_SESSION['eventTitle']);
 unset($_SESSION['content']);
 unset($_SESSION['description']);
 unset($_SESSION['publicKey']);
+unset($_SESSION['event_type']);
 
  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
  $randomString = ''; 

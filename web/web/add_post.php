@@ -28,23 +28,6 @@ $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); 
  
     $timezone = pg_escape_string($db, $_POST['timezone']);
   
-
-
-  
-    $timezone = explode(" ", $timezone);
-    $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
-    $timezone_str = $timezone_str .' '.$timezone[4];
-
-    $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
-
-    date_default_timezone_set($zone);
-
-    $O = explode("-", $timezone[5]);
- 
-
-    $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
-
-    $timestamp = $timezone_str;
  
     $paymentType = strtoupper(trim($paymentType));
 
@@ -61,17 +44,14 @@ $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); 
 
  
  
-    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp', payment_type = '$paymentType', favorites = 0 WHERE publickey = '$publickey' AND id =$userid");
+    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted =NOW(), payment_type = '$paymentType', favorites = 0 WHERE publickey = '$publickey' AND id =$userid");
 
       pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
   VALUES($userid,'$publickey',0,NULL)");
  
 
 
- // have a prompt confirming submission of event
-    // when string start with it
-    				// use ="e.$val" to get pop up for submission if wanted
-                  // $val = random_str(12, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+
  header('location: dashboard.php');
  
 }elseif (isset($_POST['push_no_payment'])) {
@@ -92,35 +72,16 @@ if (!$db) {
 $privateKey =filter_var('null', FILTER_SANITIZE_STRING); // secret key payment for block
 $privateKey = ltrim($privateKey," ");
 $fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of block
-
-	$timezone = pg_escape_string($db, $_POST['timezone']);
+$timezone = pg_escape_string($db, $_POST['timezone']);
   
 
-
-  
-    $timezone = explode(" ", $timezone);
-    $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
-    $timezone_str = $timezone_str .' '.$timezone[4];
-
-    $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
-
-    date_default_timezone_set($zone);
-
-    $O = explode("-", $timezone[5]);
- 
-
-    $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
-
-    $timestamp = $timezone_str;
   
 
-    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted ='$timestamp', payment_type = 'n/a', favorites =0 WHERE publickey = '$publickey' AND id =$userid");
+    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted =NOW(), payment_type = 'n/a', favorites =0 WHERE publickey = '$publickey' AND id =$userid");
 
     pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
   VALUES($userid,'$publickey',0,NULL)");
 
- 				// use val "=e.val."  to get pop up for submission if wanted
-               // $val = random_str(12, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
                
  header('location: dashboard.php');
 
