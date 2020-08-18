@@ -106,7 +106,7 @@ if (!isset($_SESSION['username'])) {
 
             <!-- main start -->
             <!-- ================ -->
-            <div class="main col-lg-12">
+            <div class="col-lg-12">
          
               <div class="row ">
                 <div class="col-lg-2">
@@ -202,10 +202,10 @@ while ($count <= $max && isset($temp[0])) {
 
               for ($i=0; $i <sizeof($split) ; $i++) { 
                 
-                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($split[$i]).'</a> ';
+                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]).'</a> ';
               }
 
-             // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($tempArray[$x]['itag']).'</a> ';
+             // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($tempArray[$x]['itag']).'</a> ';
           }
        
         }
@@ -233,9 +233,9 @@ echo '</div>';
 
               for ($i=0; $i <sizeof($split) ; $i++) { 
                 
-                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($split[$i]['itag']).'</a> ';
+                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]['itag']).'</a> ';
               }
-             // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($tempArray[$x]['itag']).'</a> ';
+             // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($tempArray[$x]['itag']).'</a> ';
           }
        
         }
@@ -268,9 +268,9 @@ if ($count == $max) {
 
               for ($i=0; $i <sizeof($split) ; $i++) { 
                 
-                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($split[$i]['itag']).'</a> ';
+                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]['itag']).'</a> ';
               }
-            // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($tempArray[$x]['itag']).'</a> ';
+            // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($tempArray[$x]['itag']).'</a> ';
             }
           }
        
