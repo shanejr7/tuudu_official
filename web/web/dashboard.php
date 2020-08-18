@@ -235,7 +235,7 @@ echo '<script>
 
           echo '<li class="nav-item">
                       <a href="interest.php" class="nav-link">
-                        <i class="material-icons">settings</i>settings
+                        <i class="material-icons">interest</i>settings
                         <b class="caret"></b>
                       </a>
                       </li>';
