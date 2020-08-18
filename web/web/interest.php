@@ -142,7 +142,7 @@ if (!isset($_SESSION['username'])) {
         <br>
         <br>
               
-                <a href="set-up.php" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
+                <a href="set-up.php?page=0" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
       
           
                     </div>
