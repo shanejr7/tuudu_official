@@ -163,7 +163,7 @@ pg_close($conn);
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container">
  
-<div class="modal fade" id="loginModal" tabindex="-1" role="">
+<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="">
     <div class="modal-dialog modal-login" role="document">
         <div class="modal-content">
             <div class="card card-signup card-plain">
@@ -182,7 +182,7 @@ pg_close($conn);
                    
                     </div>
                   </div>
-                     <h7>&#xB7; <?php echo $_SESSION['email']?></h7>
+                     <h7>&#xB7; <?php// echo $_SESSION['email']?></h7>
                       </a>
                     </div>
                   </div>
@@ -200,9 +200,9 @@ pg_close($conn);
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-        <div class="navbar-translate ">
+       <!--  <div class="navbar-translate ">
             <a class="navbar-brand" data-toggle="modal" data-target="#loginModal" href="#"> Profile<i class="material-icons">sort</i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -210,8 +210,19 @@ pg_close($conn);
             <span class="navbar-toggler-icon"></span>
             <span class="navbar-toggler-icon"></span>
             </button>
+        </div> -->
+          <div class="navbar-translate col-lg-4">
+
+           
+            <a class="navbar-brand" href="order_page.php">  <img src="../assets/img/logo.png" style="width: 30%; "></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-                <div class="collapse navbar-collapse" id="sectionsNav">
+                <div class="col-lg-8 collapse navbar-collapse" id="sectionsNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
                      <a href="dashboard.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
@@ -223,6 +234,9 @@ pg_close($conn);
                 </li>
                 <li class="nav-item ">
                      <a href="dashboard.php" class="nav-link">Dashboard</a> 
+                </li>
+                 <li class="nav-item ">
+                     <a href="profile.php" class="nav-link">Profile</a> 
                 </li>
             </ul>
 
