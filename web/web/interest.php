@@ -94,7 +94,7 @@ if (!isset($_SESSION['username'])) {
         <div class="row">
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
-            <h2 style="font-weight: bold;margin-bottom: 3em;">Select topics</h2>
+            <h2 style="font-weight: bold;margin-bottom: 2em;">Select topics</h2>
 
 
 
