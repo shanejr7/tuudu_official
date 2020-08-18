@@ -197,7 +197,7 @@ while ($count <= $max && isset($temp[0])) {
   echo ' <h2>tag: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
-             echo ' <a href="store-temp-tags.php?valName='.$tempArray[$x]['itag'].'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.$tempArray[$x]['itag'].'</a> ';
+             echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($tempArray[$x]['itag']).'</a> ';
           }
        
         }
@@ -216,11 +216,11 @@ echo '</div>';
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
             // if topic added does not have a tag name give option to add
-            if ($tempArray[$x]['itag'] =="") {
+            if (trim($tempArray[$x]['itag'])=="") {
             
               break;
             }
-             echo ' <a href="store-temp-tags.php?valName='.$tempArray[$x]['itag'].'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.$tempArray[$x]['itag'].'</a> ';
+             echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($tempArray[$x]['itag']).'</a> ';
           }
        
         }
@@ -243,11 +243,11 @@ if ($count == $max) {
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
             // if topic added does not have a tag name give option to add else show tag name
           
-           if ($tempArray[$x]['itag'] =="") {
+           if (trim($tempArray[$x]['itag'] =="")) {
               echo " add tag name for topic.... must be a is a relationship..fix add this later";
               
             }else{
-            echo ' <a href="store-temp-tags.php?valName='.$tempArray[$x]['itag'].'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.$tempArray[$x]['itag'].'</a> ';
+            echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-default-transparent btn-sm">'.trim($tempArray[$x]['itag']).'</a> ';
             }
           }
        
