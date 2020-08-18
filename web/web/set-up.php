@@ -194,7 +194,7 @@ if (isset($_GET['page'])) { $count = $_GET['page'];}
 while ($count <= $max && isset($temp[0])) {
  
  if ($count == 0) {
-  echo ' <h2>tag: #'.$temp[$count]['event_type'].'</h2>'   ;
+  echo ' <h2>topic: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
 
@@ -220,7 +220,7 @@ if ($count == $max) {
 }
 echo '</div>';
  }else if($count > 0 && $count < $max){
-   echo ' <h2>tag: #'.$temp[$count]['event_type'].'</h2>'   ;
+   echo ' <h2>topic: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
             // if topic added does not have a tag name give option to add
@@ -251,7 +251,7 @@ if ($count == $max) {
         
 }
 }else if ($count == $max) {
-   echo ' <h2>tag: #'.$temp[$count]['event_type'].'</h2>'   ;
+   echo ' <h2>topic: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
 
           echo $tempArray[$x]['event_type'] .' x '. $temp[$count]['event_type'];
