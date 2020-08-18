@@ -17,6 +17,10 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
     
       $tagType =  pg_escape_string($db,$_GET['valType']);
 
+      $tagType = strtolower($tagType);
+
+      $tagType = trim($tagType);
+
 
 
   //check if tag was already added
@@ -30,6 +34,7 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
   // no dupilcate copy
 
       $splitFileString = strtok($user['word_tag'], '_' );
+      $splitFileString = trim($splitFileString);
     
      if (strcmp(trim($splitFileString),$tagType)==0 && $user['userid'] == $tempID) {
  	
@@ -45,7 +50,7 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 //insert new iTageType into DB
     
   	pg_query($db, "INSERT INTO feedstate (userid, word_tag, state)
-  VALUES($tempID, '$splitFileString', 1)");
+  VALUES($tempID, '$tagType', 1)");
 
    header('location:interest.php');
    
@@ -72,6 +77,8 @@ if (isset($_POST['search']) && isset($_session["id"])) {
 
   $tagType = strtolower($tagType);
 
+  $tagType = trim($tagType);
+
 
 //check if search type exists in iTags
 
@@ -96,6 +103,8 @@ if (isset($_POST['search']) && isset($_session["id"])) {
     // no dupilcate copy
 
       $splitFileString = strtok($user['word_tag'], '_' );
+
+      $splitFileString = trim($splitFileString);
     
       if (strcmp(trim($splitFileString),$tagType) ==0 && $user['userid'] == $tempID) {
     
