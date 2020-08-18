@@ -210,7 +210,7 @@ echo '<script>
                     <li class="dropdown nav-item">
                       <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <i class="material-icons">settings</i>settings
-                        <b class="caret"></b>
+                        <!-- <b class="caret"></b> -->
                       </a>
                       <div class="dropdown-menu dropdown-menu-right">
                         <h6 class="dropdown-header">Select interest</h6>

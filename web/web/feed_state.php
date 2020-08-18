@@ -191,7 +191,7 @@ if (isset($_SESSION['id'])) {
     $interest_list = array();
  
 // connect to the database
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
 $db = pg_connect(getenv("DATABASE_URL"));
 
 // Check connection
@@ -218,9 +218,9 @@ if (!$db) {
 
     $check_state = pg_fetch_assoc($resulted);
 
-  echo isset($check_state['state']) .' <-  ';
+ 
     if (isset($check_state['state']) && $check_state['state']==1) { // state is already 1 then remove
-  echo $check_state['state'] .' <- state ';
+  
               
 
               $query = "DELETE FROM feedstate

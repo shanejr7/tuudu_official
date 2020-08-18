@@ -1,6 +1,7 @@
-
-<?php include('server.php'); ?>
 <?php 
+
+include('server.php'); 
+
  
 $errors = array();
 //stores iTagType from buttons url *home page*--------------------------------------------------------
@@ -9,7 +10,7 @@ if (isset($_GET['valType']) && isset($_session["ID"])) {
   $tempID = filter_var($_session["ID"], FILTER_SANITIZE_STRING);
 
 	// connect to database
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
 $db = pg_connect(getenv("DATABASE_URL"));
 // the value passed and security injection
 $tagType =  pg_escape_string($db,$_GET['valType']);
@@ -40,12 +41,10 @@ $tagType =  pg_escape_string($db,$_GET['valType']);
 if (isset($_POST['search']) && isset($_session["ID"])) {
   $tempID = filter_var($_session["ID"], FILTER_SANITIZE_STRING);
 
-  // connect to database
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
 
 $db = pg_connect(getenv("DATABASE_URL"));
- //$db = pg_connect("host=ec2-54-83-23-121.compute-1.amazonaws.com dbname=d191igjs7stcrv user=taqionqfyxisao password=
-//f411fd2208dece2d0f6ac32df889fb2b9d1f1e616ade43b8ae73acd30ac7ff32");
+
 // the value passed and security injection
 $tagType = pg_escape_string($db,$_POST['search']);
 //check if search type exists in iTags
