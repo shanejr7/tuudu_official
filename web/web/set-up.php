@@ -119,12 +119,12 @@ if (!isset($_SESSION['username'])) {
 
   $temp = array();
 
-if (isset($_SESSION['ID'])) {
+if (isset($_SESSION['id'])) {
 
 
     // given from session.php
     
-    $tagID = $_SESSION["ID"];
+    $tagID = $_SESSION["id"];
 
 
 
