@@ -163,54 +163,9 @@ pg_close($conn);
 <nav class="navbar navbar-expand-lg bg-primary cd-section" id="nav">
     <div class="container">
  
-<!-- <div class="modal fade" id="loginModal" tabindex="-1" role="">
-    <div class="modal-dialog modal-login" role="document">
-        <div class="modal-content">
-            <div class="card card-signup card-plain">
-                <div class="modal-header">
-                  <div class="card-header card-header-primary text-center">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                      <i class="material-icons">clear</i>
-                    </button>
 
-                    <h4 class="card-title">Account</h4>
-                    <div class="social-line">
-                    <div class="media row">
- 
-                    <div class="media-body col-md-7">
-              
-                   
-                    </div>
-                  </div>
-                     <h7>&#xB7; <?php// echo $_SESSION['email']?></h7>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-body">
-                </br>
-              
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <a href="#" class="btn btn-primary btn-link btn-wd btn-lg">Contact support</a>
-                </div>
-                 <div class="modal-footer justify-content-center">
-                    <p>support@tuudu.org</p>
-                </div> 
-            </div>
-        </div>
-    </div>
-</div> -->
 
-       <!--  <div class="navbar-translate ">
-            <a class="navbar-brand" data-toggle="modal" data-target="#loginModal" href="#"> Profile<i class="material-icons">sort</i></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-            <span class="navbar-toggler-icon"></span>
-            </button>
-        </div> -->
+      
           <div class="navbar-translate col-lg-4">
 
            

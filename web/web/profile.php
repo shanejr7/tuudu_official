@@ -158,7 +158,54 @@ $bucket_name = 'tuudu-official-file-storage';
         </div>
            
     </div>
-  
+   <div class="collapse navbar-collapse">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a data-toggle="modal" data-target="#loginModal" href="#settings" class="nav-link">
+                        <i class="material-icons">settings</i>profile
+                        <b class="caret"></b>
+                      </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="modal fade" id="loginModal" tabindex="-1" role="">
+    <div class="modal-dialog modal-login" role="document">
+        <div class="modal-content">
+            <div class="card card-signup card-plain">
+                <div class="modal-header">
+                  <div class="card-header card-header-primary text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                      <i class="material-icons">clear</i>
+                    </button>
+
+                    <h4 class="card-title">Account</h4>
+                    <div class="social-line">
+                    <div class="media row">
+ 
+                    <div class="media-body col-md-7">
+              
+                   
+                    </div>
+                  </div>
+                     <h7>&#xB7; <?php echo $_SESSION['email']?></h7>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-body">
+                </br>
+              
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <a href="#" class="btn btn-primary btn-link btn-wd btn-lg">Contact support</a>
+                </div>
+                 <div class="modal-footer justify-content-center">
+                    <p>support@tuudu.org</p>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
 </nav>
 
 
