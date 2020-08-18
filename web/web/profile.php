@@ -158,71 +158,7 @@ $bucket_name = 'tuudu-official-file-storage';
         </div>
            
     </div>
-     <div class="collapse navbar-collapse">
-                  <ul class="navbar-nav ml-auto">
-                   <!--  <li class="nav-item">
-                      <a href="#pablo" class="nav-link"><i class="material-icons">email</i></a>
-                    </li> -->
-                    
-                    <li class="dropdown nav-item">
-                      <a href="#pablo" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                        <i class="material-icons">settings</i>settings
-                        <b class="caret"></b>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right">
-                        <h6 class="dropdown-header">Select interest</h6>
-    
-                        <a href="feed_state.php?word_tag=music" class="dropdown-item">Music
-                        <?php  if (isset($settings_check_mark) && trim($settings_check_mark['music']) =='1') {
-                          echo '<i class="material-icons" style="font-size: 12pt">check</i>';
-                        }else{
-
-                        } ?>  
-                      </a>
-                          <div class="dropdown-divider"></div>
-                        <a href="feed_state.php?word_tag=fashion" class="dropdown-item">Fashion                        <?php  if (isset($settings_check_mark) && trim($settings_check_mark['fashion']) =='1') {
-                          echo '<i class="material-icons" style="font-size: 12pt">check</i>';
-                        }else{
-
-                        } ?>  </a>
-                          <div class="dropdown-divider"></div>
-                        <a href="feed_state.php?word_tag=art" class="dropdown-item">Art <?php if (isset($settings_check_mark) && trim($settings_check_mark['art']) =='1') {
-                          echo '<i class="material-icons" style="font-size: 12pt">check</i>';
-                        }else{
-                        } ?>
-                          
-                        </a>
-                          <div class="dropdown-divider"></div>
-                        <a href="feed_state.php?word_tag=sports" class="dropdown-item">Sports                        <?php  if (isset($settings_check_mark) && trim($settings_check_mark['sports']) =='1') {
-                          echo '<i class="material-icons" style="font-size: 12pt">check</i>';
-                        }else{
-
-                        } ?>  </a>
-                          <div class="dropdown-divider"></div>
-                        <a href="feed_state.php?word_tag=festivals" class="dropdown-item">Festivals
-                          <?php  if (isset($settings_check_mark) && trim($settings_check_mark['festivals']) =='1') {
-                          echo '<i class="material-icons" style="font-size: 12pt">check</i>';
-                        }else{
-
-                        } ?>  </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="feed_state.php?word_tag=food" class="dropdown-item">Food
-                          <?php  if (isset($settings_check_mark) && trim($settings_check_mark['food']) =='1') {
-                          echo '<i class="material-icons" style="font-size: 12pt">check</i>';
-                        }else{
-
-                        } ?>  </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="feed_state.php?word_tag=outdoor" class="dropdown-item">Outdoors
-                          <?php  if (isset($settings_check_mark) && trim($settings_check_mark['outdoor']) =='1') {
-                          echo '<i class="material-icons" style="font-size: 12pt">check</i>';
-                        }else{
-
-                        } ?>  </a>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+  
 </nav>
 
 
