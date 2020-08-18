@@ -94,7 +94,7 @@ if (!isset($_SESSION['username'])) {
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
             <h2 style="font-weight: bold;">Select topics</h2>
-            
+
                      <?php 
 
                      // error appears if search value cant be found //
@@ -115,7 +115,7 @@ if (!isset($_SESSION['username'])) {
               <div class="title">
                <!-- <h3>Tags</h3> -->
               </div>
-              <a href="store-temp-tags.php?valType=sports" value="sports" data-color="rose"></a>
+              <a href="store-temp-tags.php?valType=sports" class="btn btn-rose btn-round"><i class="material-icons">sports_soccer</i></a>
               <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
               <!--proceeds to set-up.php to select iTagName for iTagTypes that were selected  -->
                 <a href="set-up.php" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
@@ -130,7 +130,7 @@ if (!isset($_SESSION['username'])) {
            
 
                       <!-- search for iTagType ------------------------------------------------------>
-                    <a href="#"class=" dropdown-toggle--no-caret" id="header-drop-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <span class="icon circle small default-bg"><i class="material-icon">face</i></span></a>
+                    <a href="#"class=" dropdown-toggle--no-caret" id="header-drop-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <span class="icon circle small default-bg"><i class="material-icon">search</i></span></a>
                    
                   <!-- this form searches for iTagType in table itags using store-temp-tags.php ------------------------------------>
                         <form role="search" action="store-temp-tags.php" method="post" class="dropdown-menu dropdown-menu-left dropdown-animation" aria-labelledby="header-drop-1"  > 
