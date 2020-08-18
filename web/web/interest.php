@@ -93,7 +93,7 @@ if (!isset($_SESSION['username'])) {
         <div class="row">
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
-            <h2 style="font-weight: bold;margin-bottom: 4em;">Select topics</h2>
+            <h2 style="font-weight: bold;margin-bottom: 3em;">Select topics</h2>
 
 
 
@@ -113,8 +113,6 @@ if (!isset($_SESSION['username'])) {
     <a href="store-temp-tags.php?valType=outdoor" class="btn btn-rose btn-round"><i class="material-icons">terrain</i>outdoor</a>
     <a href="store-temp-tags.php?valType=festivals" class="btn btn-rose btn-round"><i class="material-icons">cake</i>festival</a>
     <a href="store-temp-tags.php?valType=other" class="btn btn-rose btn-round"><i class="material-icons">emoji_objects</i>other</a>
-    <br>
-
 
                <!-- search for iTagType ------------------------------------------------------>
                     <a href="#"class=" dropdown-toggle--no-caret" id="header-drop-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  <span class="icon circle small default-bg"><i class="material-icons">search</i></span></a>
@@ -128,6 +126,7 @@ if (!isset($_SESSION['username'])) {
                           </div>
                         </form>
 
+        <br>
         <br>
               <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
               <!--proceeds to set-up.php to select iTagName for iTagTypes that were selected  -->
