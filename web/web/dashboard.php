@@ -203,9 +203,9 @@ echo '<script>
     </div>
      <div class="collapse navbar-collapse">
                   <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                   <!--  <li class="nav-item">
                       <a href="#pablo" class="nav-link"><i class="material-icons">email</i></a>
-                    </li>
+                    </li> -->
 
                     <?php 
 
@@ -225,9 +225,11 @@ echo '<script>
 
 
            // Check if user feedstate exists
-          $resulted = pg_query($db, "SELECT DISTINCT * FROM feedstate WHERE userid = $uid LIMIT 1");
+          $resulted = pg_query($db, "SELECT DISTINCT * FROM feedstate WHERE userid = $uid");
 
-          if (!$resulted) {
+           
+
+          if (pg_num_rows($resulted) <= 0) {
            
 
 
