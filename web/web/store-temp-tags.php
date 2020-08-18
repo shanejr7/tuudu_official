@@ -4,100 +4,155 @@ include('server.php');
 
  
 $errors = array();
-//stores iTagType from buttons url *home page*--------------------------------------------------------
 
-if (isset($_GET['valType']) && isset($_session["ID"])) {
-  $tempID = filter_var($_session["ID"], FILTER_SANITIZE_STRING);
 
-	// connect to database
 
-$db = pg_connect(getenv("DATABASE_URL"));
-// the value passed and security injection
-$tagType =  pg_escape_string($db,$_GET['valType']);
+if (isset($_GET['valType']) && isset($_session["id"])) {
 
-//check if iTagType was already added
+      $tempID = filter_var($_session["id"], FILTER_SANITIZE_STRING);
+
+
+      $db = pg_connect(getenv("DATABASE_URL"));
+    
+      $tagType =  pg_escape_string($db,$_GET['valType']);
+
+
+
+  //check if tag was already added
  
- $result = pg_query($db, "SELECT * FROM temporarytags WHERE itagtype = '$tagType' AND tempid = $tempID LIMIT 1");
- $user = pg_fetch_assoc($result);
+      $result = pg_query($db, "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%_' AND tempid = $tempID LIMIT 1");
+      
+      $user = pg_fetch_assoc($result);
 
-// no dupilcate copy
- if (strcmp(trim($user['itagtype']),$tagType)==0 && $user['tempid'] == $tempID) {
- 	//return to topic page dont add identical topic 
-  header('location:interest.php');
+
+
+  // no dupilcate copy
+
+      $splitFileString = strtok($user['word_tag'], '_' );
+    
+     if (strcmp(trim($splitFileString),$tagType)==0 && $user['userid'] == $tempID) {
+ 	
+  //return to topic page dont add identical topic 
   
-// echo "no store";
+
+     header('location:interest.php');
+  
+
 
  }else{
+
 //insert new iTageType into DB
     
-  	pg_query($db, "INSERT INTO temporarytags (itagtype, itagname, tempid)
-  VALUES('$tagType', 'null', $tempID)");
+  	pg_query($db, "INSERT INTO feedstate (userid, word_tag, state)
+  VALUES($tempid, '$splitFileString', 1)");
    header('location:interest.php');
    
  }
+
  pg_close($db);
+
 }
+
+
 // uses user input search to find iTagType in data base *home page search button*
-if (isset($_POST['search']) && isset($_session["ID"])) {
-  $tempID = filter_var($_session["ID"], FILTER_SANITIZE_STRING);
+if (isset($_POST['search']) && isset($_session["id"])) {
+ 
+
+  $tempID = filter_var($_session["id"], FILTER_SANITIZE_STRING);
 
 
 
-$db = pg_connect(getenv("DATABASE_URL"));
+  $db = pg_connect(getenv("DATABASE_URL"));
 
-// the value passed and security injection
-$tagType = pg_escape_string($db,$_POST['search']);
+  // the value passed and security injection 
+
+  $tagType = pg_escape_string($db,$_POST['search']);
+
+  $tagType = strtolower($tagType);
+
+
 //check if search type exists in iTags
- $user_check_search_query = "SELECT itagtype FROM itags WHERE itagtype='$tagType' LIMIT 1";
+
+ $user_check_search_query = "SELECT feedstate FROM word_tag WHERE word_tag LIKE '$tagType%_' LIMIT 1";
+ 
  $result = pg_query($db, $user_check_search_query);
+ 
  $user_search = pg_fetch_assoc($result);
 
-if ($user_search['iTagType']) {
-  
 
-$tagType = strtolower($tagType);
-//check if type was already added
- $user_check_query = "SELECT * FROM temporarytags WHERE itagtype ='$tagType' and tempid = $tempID  LIMIT 1";
- $result = pg_query($db, $user_check_query);
- $user = pg_fetch_assoc($result);
-
-// no dupilcate copy
- if (strcmp(trim($user['itagtype']),$tagType) ==0 && $user['tempid'] == $tempID) {
-  //return to topic page dont add identical topic 
-  header('location:interest.php');
+    if ($user_search['word_tag']) {
   
-echo "no store";
+      
+      //check if type was already added
+      
+      $user_check_query = "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%_' and tempid = $tempID  LIMIT 1";
+      
+      $result = pg_query($db, $user_check_query);
+    
+      $user = pg_fetch_assoc($result);
+
+    // no dupilcate copy
+
+      $splitFileString = strtok($user['word_tag'], '_' );
+    
+      if (strcmp(trim($splitFileString),$tagType) ==0 && $user['userid'] == $tempID) {
+    
+         //return to topic page dont add identical topic 
+  
+        header('location:interest.php');
+  
 
  }else{
-//insert new topics into DB
- $query = "INSERT INTO temporarytags (itagtype,tempid,itagname) 
-          VALUES('$tagType',$tempID,'null')";
+
+
+    //insert new topics into DB
+    
+
+    $query = "INSERT INTO feedstate (userid,word_tag,state) 
+          VALUES($tempid,'$tagType',1)";
+    
     pg_query($db, $query);
-  echo "store";
-   header('location:interest.php');
+
+    header('location:interest.php');
    
- }
+
+  }
+
 }else{
-  // send url error if value cant be found
-   header('location:interest.php?val=error');
+
+
+    // send url error if value cant be found
+    
+    header('location:interest.php?val=error');
+
 }
+
  if(!pg_close($db)){
-//failed
+
+    // failed to close
+ 
  }else{
-  //conn
+ 
+
+  // closed succesfully 
+
  }
+
 }
-//stores iTagName valName from *buttons url* set-up.php and page number    
+
+
+//stores topic tags from *buttons url* set-up.php and page number    
+
+
 if (isset($_GET['valName']) && isset($_session["ID"]) && isset($_GET['page'])) {
   $tempID = filter_var($_session["ID"], FILTER_SANITIZE_STRING);
 
   $page = filter_var($_GET['page'], FILTER_SANITIZE_STRING);
   
 	// connect to database
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
  $db = pg_connect(getenv("DATABASE_URL"));
-  // $db = pg_connect("host=ec2-54-83-23-121.compute-1.amazonaws.com dbname=d191igjs7stcrv user=taqionqfyxisao password=
-//f411fd2208dece2d0f6ac32df889fb2b9d1f1e616ade43b8ae73acd30ac7ff32");
+  
 // the value passed and security injection
 $tagName =  pg_escape_string($db,$_GET['valName']);
 

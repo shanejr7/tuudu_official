@@ -162,7 +162,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                       <a data-toggle="modal" data-target="#loginModal" href="#settings" class="nav-link">
-                        <i class="material-icons">settings</i>profile
+                        <i class="material-icons">settings</i>settings
                         <b class="caret"></b>
                       </a>
                       </li>
