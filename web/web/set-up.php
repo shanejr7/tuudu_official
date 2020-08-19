@@ -98,11 +98,6 @@ if (!isset($_SESSION['username'])) {
         <div class="row">
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
-            <h2 style="font-weight: bold;">Select tags</h2>
-                    
-  
-   
-    
           
                          
 <?php 
@@ -184,7 +179,7 @@ if (isset($_GET['page'])) { $count = $_GET['page'];}
 while ($count <= $max && isset($temp[0])) {
  
  if ($count == 0) {
-  echo ' <h2>topic: #'.$temp[$count]['event_type'].'</h2>'   ;
+  echo '<h2 style="font-weight: bold;">Select tags: <h8>topic: #'.$temp[$count]['event_type'].'</h8></h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
 
