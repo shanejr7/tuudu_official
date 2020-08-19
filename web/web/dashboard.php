@@ -215,21 +215,21 @@ echo '<script>
     $uid = $_SESSION['id'];
                         
                                       
-          // $db = pg_connect(getenv("DATABASE_URL"));
+          $db = pg_connect(getenv("DATABASE_URL"));
 
-          // // Check connection
-          // if (!$db) {
-          //     die("Connection failed: " . pg_connect_error());
-          //     header('location:oops.php');
-          // }
+          // Check connection
+          if (!$db) {
+              die("Connection failed: " . pg_connect_error());
+              header('location:oops.php');
+          }
 
 
-          //  // Check if user feedstate exists
-          // $resulted = pg_query($db, "SELECT DISTINCT * FROM feedstate WHERE userid = $uid");
+           // Check if user feedstate exists
+          $resulted = pg_query($db, "SELECT DISTINCT * FROM feedstate WHERE userid = $uid");
 
            
 
-          if (sizeof($settings_check_mark) <= 0) {
+          if (sizeof($resulted) <= 0) {
            
 
 
