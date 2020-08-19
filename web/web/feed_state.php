@@ -43,10 +43,8 @@ if (isset($_SESSION['id'])) {
                   *
                   *  and exists == 1
                   */
-                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description, organization.word_tag, organization.publickey,organization.views
-                  FROM organization
-                    WHERE organization.publickey not in(select publickey from user_follow_organization WHERE userid = $id)
-          AND organization.publickey not in(select publickey from feedstate WHERE userid = $id and state = 0) AND organization.publickey in(select publickey from feedstate WHERE userid = $id and state = 1) AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time,organization.fiatvalue, organization.img, organization.id as org_key, organization.views,organization.description, organization.word_tag, organization.publickey,organization.views FROM organization , feedstate WHERE split_part(organization.word_tag,'_',1) LIKE feedstate.word_tag AND feedstate.state =1 AND organization.publickey not in(select publickey FROM user_follow_organization WHERE userid = $id) 
+                    AND organization.publickey not in(select publickey FROM temporary_tag_schedule WHERE user_id = $id)  AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
 
                   if (pg_num_rows($result) > 0) {
