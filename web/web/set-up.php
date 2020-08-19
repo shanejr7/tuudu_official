@@ -98,7 +98,7 @@ if (!isset($_SESSION['username'])) {
         <div class="row">
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
-            <h2 style="font-weight: bold;margin-bottom: 2em;">Select topics tags</h2>
+            <h2 style="font-weight: bold;">Select topics tags</h2>
                     
   
  <div class="row">
@@ -203,7 +203,7 @@ while ($count <= $max && isset($temp[0])) {
         }
    
 if ($count == $max) {
-  echo ' <div class="col-lg-9"  ><a href="sign-up.php?" style="display: inline-block;margin-left:1em; " class="btn radius-50 btn-default-transparent btn-bg">submit</a>';
+  echo ' <div class="col-lg-9"> <a href="sign-up.php?"  class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
 }else{
        //button sends next value to this page to go to next phase
@@ -271,7 +271,7 @@ if ($count == $max) {
           echo  '  <div class="col-lg-9">
    <a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-bg">back</a>
 ';
- echo '<a href="sign-up.php?" style="display: inline-block;margin-left:1em; " class="btn radius-50 btn-default-transparent btn-bg">submit</a>';
+ echo '<a href="sign-up.php?" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
 }
 break;
