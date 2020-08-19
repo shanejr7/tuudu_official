@@ -109,6 +109,8 @@ if (!isset($_SESSION['username'])) {
     <a href="store-temp-tags.php?valType=food"   class="btn btn-rose btn-round" id="fd"><i class="material-icons">food_bank</i>food</a>
     <a href="store-temp-tags.php?valType=outdoor"   class="btn btn-rose btn-round" id="o"><i class="material-icons">terrain</i>outdoor</a>
     <a href="store-temp-tags.php?valType=festivals"   class="btn btn-rose btn-round" id="fe"><i class="material-icons">cake</i>festival</a>
+    <a href="store-temp-tags.php?valType=rental"   class="btn btn-rose btn-round" id="fe"><i class="material-icons">hourglass_top</i>rental</a>
+    <a href="store-temp-tags.php?valType=activities"   class="btn btn-rose btn-round" id="fe"><i class="material-icons">bike_scooter</i>activities</a>
     <a href="store-temp-tags.php?valType=other"   class="btn btn-rose btn-round" id="ot"><i class="material-icons">emoji_objects</i>other</a>
     <br>
     <br>

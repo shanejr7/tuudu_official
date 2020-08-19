@@ -44,6 +44,7 @@
 
 <body class="contact-page sidebar-collapse">
 <nav class="navbar fixed-top navbar-expand-lg bg-primary" color-on-scroll="100" id="sectionsNav">
+    
     <div class="container">
         <div class="navbar-translate col-lg-4">
 
