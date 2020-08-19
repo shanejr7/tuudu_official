@@ -8,7 +8,7 @@ post.php: before uploading images verify them and its extension type. If post is
 
 important bug: update all validation checking for any input/output users entered. 
 
-important bug: small issues on input search and buttons: no duplicate tags.(interest/set-up.php).
+important bug: small issues on input search and buttons.(interest/set-up.php).
 
 important bug: use trim() on all pgsql statments for data insertion. topics/tags are lower cased. 
 

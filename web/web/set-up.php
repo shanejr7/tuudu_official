@@ -251,7 +251,7 @@ if ($count == $max) {
 
               for ($i=0; $i <sizeof($split) ; $i++) { 
                 
-                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]['itag']).'</a> ';
+                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]).'</a> ';
               }
             
             }
