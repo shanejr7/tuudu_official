@@ -37,7 +37,7 @@ if (isset($_SESSION['id'])) {
 
 
 
-                    /* selects all puublickeys of organization not linked to user_follow_organization
+                    /* selects all publickeys of organization not linked to user_follow_organization
                   *   
                   *  and not deleted !=0
                   *
