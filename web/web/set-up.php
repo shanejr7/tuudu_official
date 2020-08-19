@@ -196,12 +196,12 @@ while ($count <= $max && isset($temp[0])) {
         }
    
 if ($count == $max) {
-  echo ' <br><br> <a href="sign-up.php?"  class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
+  echo ' <br><br><br> <a href="sign-up.php?"  class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
 }else{
        //button sends next value to this page to go to next phase
     echo  '
-   <a href="set-up.php?page=1" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-bg">continue</a>';
+   <br><br><br><a href="set-up.php?page=1" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-sm">continue</a>';
 }
 
  }else if($count > 0 && $count < $max){
@@ -226,12 +226,12 @@ if ($count == $max) {
         }
            //button sends next value to this page to go to next phase
           echo  '
-   <a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-bg">back</a>
+   <br><br><br><a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-sm">back</a>
 ';
 if ($count == $max) {
-   echo '<a href="sign-up.php?" style="display: inline-block;margin-left:1em; " class="btn radius-50 btn-default-transparent btn-bg">sign up</a>';
+   echo '<a href="sign-up.php?" style="display: inline-block;margin-left:1em; " class="btn radius-50 btn-default-transparent btn-sm">sign up</a>';
 }else{
-  ++$count; echo ' <a href="set-up.php?page='.++$count.'" style="display: inline-block;margin-left:1em;" class="btn radius-50 btn-default-transparent btn-bg">continue</a>';
+  ++$count; echo ' <a href="set-up.php?page='.++$count.'" style="display: inline-block;margin-left:1em;" class="btn radius-50 btn-default-transparent btn-sm">continue</a>';
 
         
 }
@@ -262,15 +262,13 @@ if ($count == $max) {
         }
            //button sends next value to this page to go to next phase
           echo  '
-   <a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-bg">back</a>
+   <br><br><br<a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-sm">back</a>
 ';
- echo '<br><br><a href="sign-up.php?" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
+ echo '<a href="sign-up.php?" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
 }
 break;
 }
-
-
     
               ?>
       

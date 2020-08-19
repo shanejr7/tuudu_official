@@ -155,24 +155,30 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
 //stores topic tags from *buttons url* set-up.php and page number    
 
 
-if (isset($_GET['valName']) && isset($_session["ID"]) && isset($_GET['page'])) {
-  $tempID = filter_var($_session["ID"], FILTER_SANITIZE_STRING);
+if (isset($_GET['valName']) && isset($_SESSION["id"]) && isset($_GET['page'])) {
+  
+  $tempID = filter_var($_SESSION["id"], FILTER_SANITIZE_STRING);
 
   $page = filter_var($_GET['page'], FILTER_SANITIZE_STRING);
   
 	// connect to database
 
- $db = pg_connect(getenv("DATABASE_URL"));
+  $db = pg_connect(getenv("DATABASE_URL"));
   
-// the value passed and security injection
-$tagName =  pg_escape_string($db,$_GET['valName']);
+  // the value passed and security injection
+  
+  $tagName =  pg_escape_string($db,$_GET['valName']);
 
 
-// gets iTagType of selected iTagName iTagName
-$sql = "SELECT DISTINCT *  FROM itags, temporarytags  WHERE itags.itagname = '$tagName' and temporarytags.itagtype = itags.itagtype AND temporarytags.tempid =$tempID";
-$result = pg_query($db, $sql);
-$tagT = pg_fetch_assoc($result);
-$tagType = $tagT['itagtype'];
+  // gets events of selected tag
+
+  $sql = "SELECT DISTINCT *  FROM itags, temporarytags  WHERE itags.itagname = '$tagName' and temporarytags.itagtype = itags.itagtype AND temporarytags.tempid =$tempID";
+ 
+  $result = pg_query($db, $sql);
+  
+  $tagT = pg_fetch_assoc($result);
+  
+  $tagType = $tagT['itagtype'];
 
 //check if topic name was already added
  $user_check_query = "SELECT * FROM temporarytags WHERE itagname='$tagName' and tempid = $tempID  LIMIT 1";
