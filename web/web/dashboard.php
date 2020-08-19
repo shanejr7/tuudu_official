@@ -256,7 +256,7 @@ echo '<script>
                         <h6 class="dropdown-header">Select interest</h6>
     
                         <a href="feed_state.php?word_tag=music" class="dropdown-item">Music';
-                          if (isset($settings_check_mark) && trim($settings_check_mark['music']) =='music' && $settings_check_mark['state']==1) {
+                          if (isset($settings_check_mark) && trim($settings_check_mark['word_tag']) =='music' && $settings_check_mark['state']==1) {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
 
