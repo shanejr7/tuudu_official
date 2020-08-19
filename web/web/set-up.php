@@ -179,7 +179,7 @@ if (isset($_GET['page'])) { $count = $_GET['page'];}
 while ($count <= $max && isset($temp[0])) {
  
  if ($count == 0) {
-  echo '<h2 style="font-weight: bold;">Select topic: #'.$temp[$count]['event_type'].'</h2>'   ;
+  echo '<h2 style="font-weight: bold;margin-bottom: 2em;">Select topic: #'.$temp[$count]['event_type'].'</h2>'   ;
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
 
