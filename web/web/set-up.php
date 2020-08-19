@@ -195,7 +195,7 @@ while ($count <= $max && isset($temp[0])) {
         }
    
 if ($count == $max) {
-  echo ' <br><br><br> <a href="sign-up.php?"  class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
+  echo ' <br><br><br> <a href="dashboard.php?"  class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
 }else{
        //button sends next value to this page to go to next phase
@@ -237,7 +237,7 @@ if ($count == $max) {
 }else if ($count == $max) {
    echo '<h2 style="font-weight: bold;margin-bottom: 2em;">Select topic: #'.$temp[$count]['event_type'].'</h2>';
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
-          
+
 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
             // if topic added does not have a tag name give option to add else show tag name
@@ -262,7 +262,7 @@ if ($count == $max) {
           echo  '
    <br><br><br<a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-sm">back</a>
 ';
- echo '<a href="sign-up.php?" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
+ echo '<a href="dashboard.php?" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
 }
 break;
