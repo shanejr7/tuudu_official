@@ -229,7 +229,7 @@ echo '<script>
 
            
 
-          if (sizeof($resulted) <= 0) {
+          if (pg_num_rows($resulted) <= 0) {
            
 
 
