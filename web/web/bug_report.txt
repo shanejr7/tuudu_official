@@ -8,6 +8,8 @@ post.php: before uploading images verify them and its extension type. If post is
 
 important bug: update all validation checking for any input/output users entered. 
 
+important bug: use trim() on all pgsql statments for data insertion. topics/tags are lower cased. 
+
 important bug: if image size is incorrect or extension is wrong image will not appear in post.
 
 important fix: continue to convert to AJAX for better quality and performance where users interact on the 				 platform. 
@@ -27,7 +29,7 @@ add-on: sharing-joining events.
 
 $$$$$$$add-on: Google Natural Language API integration to classify post content into word tags.
  			  Add post data to itag for better query.
- 			  
+
 $add-on: none expiring element post/design/layout/functions/editing.
 
 security: methods to handle spam posting with users/event post.

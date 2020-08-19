@@ -189,7 +189,7 @@ if (isset($_GET['valName']) && isset($_SESSION["id"]) && isset($_GET['page'])) {
 
 
 
-  $user_check_query = "SELECT userid, state, word_tag, publickey, orgid, itag FROM feedstate
+  $user_check_query = "SELECT userid, state, word_tag, itag FROM feedstate
   WHERE itag LIKE '%$tagName%' AND word_tag = '$word_tag' AND  userid = $tempID  LIMIT 1";
   
   $result = pg_query($db, $user_check_query);
@@ -208,8 +208,10 @@ if (isset($_GET['valName']) && isset($_SESSION["id"]) && isset($_GET['page'])) {
   }else{
 
     //update new name tags 
+
+    $tagName = $tagName.'/';
  
-    $query = "UPDATE public.feedstate SET itag = itag +'/'+ '$tagName' WHERE userid = $tempID AND word_tag ='$word_tag' ";
+    $query = "UPDATE public.feedstate SET itag = CONCAT(trim(itag),'$tagName') WHERE userid = $tempID AND word_tag ='$word_tag' ";
   	pg_query($db, $query);
 
     header('location:set-up.php?page='.$page.'');
