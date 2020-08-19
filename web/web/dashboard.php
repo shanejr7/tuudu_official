@@ -227,7 +227,7 @@ echo '<script>
            // Check if user feedstate exists
           $resulted = pg_query($db, "SELECT DISTINCT * FROM feedstate WHERE userid = $uid");
 
-           
+          $settings_check_mark = pg_fetch_assoc($resulted)
 
           if (pg_num_rows($resulted) <= 0) {
            
