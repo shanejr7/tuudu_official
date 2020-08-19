@@ -217,7 +217,7 @@ if ($count == $max) {
 
               for ($i=0; $i <sizeof($split) ; $i++) { 
                 
-                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]['itag']).'</a> ';
+                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]).'</a> ';
               }
 
           }
@@ -228,7 +228,7 @@ if ($count == $max) {
    <br><br><br><a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-sm">back</a>
 ';
 if ($count == $max) {
-   echo '<a href="sign-up.php?" style="display: inline-block;margin-left:1em; " class="btn radius-50 btn-default-transparent btn-sm">sign up</a>';
+   echo '<a href="dashboard.php" style="display: inline-block;margin-left:1em;" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
 }else{
   ++$count; echo ' <a href="set-up.php?page='.++$count.'" style="display: inline-block;margin-left:1em;" class="btn radius-50 btn-default-transparent btn-sm">continue</a>';
 
@@ -251,7 +251,7 @@ if ($count == $max) {
 
               for ($i=0; $i <sizeof($split) ; $i++) { 
                 
-                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]['itag']).'</a> ';
+                echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]['itag']).'</a> ';
               }
             
             }
@@ -262,7 +262,7 @@ if ($count == $max) {
           echo  '
    <br><br><br<a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-sm">back</a>
 ';
- echo '<a href="dashboard.php?" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
+ echo '<a href="dashboard.php?" style="margin-left:1em;" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
 }
 break;
