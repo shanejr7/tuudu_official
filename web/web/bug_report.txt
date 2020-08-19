@@ -5,6 +5,8 @@ post.php: issue title,description and content is sometimes blank after form subm
 
 post.php: before uploading images verify them and its extension type. If post is not fully done then delete. re-design if possible and fit ajax where needed.
 
+dashboard.php: when tabs are clicked 2 times data disappears.
+
 
 important bug: update all validation checking for any input/output users entered. 
 
@@ -32,6 +34,6 @@ add-on: create edit user info popup.
 $$$$$$$ add-on: Google Natural Language API integration to classify post content into word tags.
  			  Add post data to itag for better query.
 
-$$$ add-on: none expiring element post/design/layout/functions/editing.
+$$$ add-on: none expiring element post/design/layout/functions/editing.(post story integration)
 
 $$ security: methods to handle spam posting with users/event post.
