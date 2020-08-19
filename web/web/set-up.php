@@ -51,7 +51,6 @@ if (!isset($_SESSION['username'])) {
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
   <!-- <link href="../assets/css/interest.css" rel="stylesheet" /> -->
  <!--  <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> -->
-  
 
 
 </head>
@@ -103,16 +102,9 @@ if (!isset($_SESSION['username'])) {
                     
   
  <div class="row">
-
-            <!-- main start -->
-            <!-- ================ -->
-            <div class="col-lg-12">
-         
-              <div class="row ">
-                <div class="col-lg-2">
-
-                </div>
-                <div class="col-lg-8" id="tag">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-8" id="tag">
           
                          
 <?php 
@@ -288,11 +280,10 @@ break;
 
     
               ?>
-                </div>
-              </div>
-                    </div>
-            <!-- main end -->
-          </div>
+              
+  </div>
+        
+</div>
 
       
           
