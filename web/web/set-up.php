@@ -179,7 +179,7 @@ if (isset($_GET['page'])) { $count = $_GET['page'];}
 while ($count <= $max && isset($temp[0])) {
  
  if ($count == 0) {
-  echo '<h2 style="font-weight: bold;margin-bottom: 2em;">Select topic: #'.$temp[$count]['event_type'].'</h2>'   ;
+  echo '<h2 style="font-weight: bold;margin-bottom: 2em;">Select topic: #'.$temp[$count]['event_type'].'</h2>';
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
 
@@ -196,16 +196,16 @@ while ($count <= $max && isset($temp[0])) {
         }
    
 if ($count == $max) {
-  echo ' <br><br><div class="col-lg-12"> <a href="sign-up.php?"  class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
+  echo ' <br><br> <a href="sign-up.php?"  class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
 }else{
        //button sends next value to this page to go to next phase
-    echo  '  <div class="col-lg-12"  >
+    echo  '
    <a href="set-up.php?page=1" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-bg">continue</a>';
 }
-echo '</div>';
+
  }else if($count > 0 && $count < $max){
-   echo ' <h2>topic: #'.$temp[$count]['event_type'].'</h2>'   ;
+   echo '<h2 style="font-weight: bold;margin-bottom: 2em;">Select topic: #'.$temp[$count]['event_type'].'</h2>';
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
             // if topic added does not have a tag name give option to add
@@ -225,7 +225,7 @@ echo '</div>';
        
         }
            //button sends next value to this page to go to next phase
-          echo  '  <div class="col-lg-12">
+          echo  '
    <a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-bg">back</a>
 ';
 if ($count == $max) {
@@ -236,7 +236,7 @@ if ($count == $max) {
         
 }
 }else if ($count == $max) {
-   echo ' <h2>topic: #'.$temp[$count]['event_type'].'</h2>'   ;
+   echo '<h2 style="font-weight: bold;margin-bottom: 2em;">Select topic: #'.$temp[$count]['event_type'].'</h2>';
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
 
           echo $tempArray[$x]['event_type'] .' x '. $temp[$count]['event_type'];
@@ -261,7 +261,7 @@ if ($count == $max) {
        
         }
            //button sends next value to this page to go to next phase
-          echo  '  <div class="col-lg-12">
+          echo  '
    <a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-bg">back</a>
 ';
  echo '<br><br><a href="sign-up.php?" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
