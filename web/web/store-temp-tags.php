@@ -168,41 +168,63 @@ if (isset($_GET['valName']) && isset($_SESSION["id"]) && isset($_GET['page'])) {
   // the value passed and security injection
   
   $tagName =  pg_escape_string($db,$_GET['valName']);
+  $tagName = strtolower($tagName);
+  $tagName = trim($tagName);
 
 
-  // gets events of selected tag
+  
 
-  $sql = "SELECT DISTINCT *  FROM itags, temporarytags  WHERE itags.itagname = '$tagName' and temporarytags.itagtype = itags.itagtype AND temporarytags.tempid =$tempID";
+  //check if tag name was already added
+
+  $user_check_query = "SELECT event_type FROM word_tag
+  WHERE itag LIKE '%$tagName%'  LIMIT 1";
+
+  $result = pg_query($db, $user_check_query);
+  
+  $data = pg_fetch_assoc($result);
+
+  $word_tag = trim($data['event_type']);
+
+  $word_tag = strtolower($word_tag);
+
+
+
+  $user_check_query = "SELECT userid, state, word_tag, publickey, orgid, itag FROM feedstate
+  WHERE itag LIKE '%$tagName%' AND word_tag = '$word_tag' AND  userid = $tempID  LIMIT 1";
+  
+  $result = pg_query($db, $user_check_query);
+  
+  $user = pg_fetch_assoc($result);
+
+
+
+
+  if (pg_num_rows($result) > 0) {
+ 	  
+    //return to set-up page dont add identical tag 
+    
+    header('location:set-up.php?page='.$page.'');
+
+  }else{
+
+    //update new name tags 
  
-  $result = pg_query($db, $sql);
-  
-  $tagT = pg_fetch_assoc($result);
-  
-  $tagType = $tagT['itagtype'];
-
-//check if topic name was already added
- $user_check_query = "SELECT * FROM temporarytags WHERE itagname='$tagName' and tempid = $tempID  LIMIT 1";
- $result = pg_query($db, $user_check_query);
- $user = pg_fetch_assoc($result);
-
- if (strcmp($user['itagname'],$tagName) == 0 && $user['tempid'] == $tempID) {
- 	//return to set-up page dont add identical name 
-  header('location:set-up.php?page='.$page.'');
-
- }else{
-
-//insert new name tags into DB
- $query = "INSERT INTO temporarytags (itagname,tempid,itagtype) 
-  			  VALUES('$tagName',$tempID,'$tagType')";
+    $query = "UPDATE public.feedstate SET itag = itag +'/'+ '$tagName' WHERE userid = $tempID AND word_tag ='$word_tag' ";
   	pg_query($db, $query);
 
- header('location:set-up.php?page='.$page.'');
+    header('location:set-up.php?page='.$page.'');
  }
+ 
  if(!pg_close($db)){
-//failed
+
+    //failed
+
  }else{
-  //conn
+    
+    //conn
+ 
  }
+
 }
 
 ?>

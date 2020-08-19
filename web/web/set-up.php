@@ -190,7 +190,6 @@ while ($count <= $max && isset($temp[0])) {
                 echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]).'</a> ';
               }
 
-             // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($tempArray[$x]['itag']).'</a> ';
           }
        
         }
@@ -220,7 +219,7 @@ if ($count == $max) {
                 
                 echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]['itag']).'</a> ';
               }
-             // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($tempArray[$x]['itag']).'</a> ';
+
           }
        
         }
@@ -238,8 +237,7 @@ if ($count == $max) {
 }else if ($count == $max) {
    echo '<h2 style="font-weight: bold;margin-bottom: 2em;">Select topic: #'.$temp[$count]['event_type'].'</h2>';
         for ($x=0; $x < sizeof($tempArray) ; $x++) { 
-
-          echo $tempArray[$x]['event_type'] .' x '. $temp[$count]['event_type'];
+          
 
           if ($tempArray[$x]['event_type'] == $temp[$count]['event_type']) {
             // if topic added does not have a tag name give option to add else show tag name
@@ -255,7 +253,7 @@ if ($count == $max) {
                 
                 echo ' <a href="store-temp-tags.php?valName='.trim($split[$i]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($split[$i]['itag']).'</a> ';
               }
-            // echo ' <a href="store-temp-tags.php?valName='.trim($tempArray[$x]['itag']).'&page='.$count.'" class="btn btn-rose btn-round">'.trim($tempArray[$x]['itag']).'</a> ';
+            
             }
           }
        
