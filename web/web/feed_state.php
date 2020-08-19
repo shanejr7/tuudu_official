@@ -212,7 +212,7 @@ if (!$db) {
     $user_I_D = pg_escape_string($db, $_SESSION['id']);
 
    // check if word_tag exists
-    $resulted = pg_query($db, "SELECT state FROM feedstate WHERE word_tag LIKE '$organization_word_tag%_' AND userid = $user_I_D AND state = 1 LIMIT 1");
+    $resulted = pg_query($db, "SELECT state FROM feedstate WHERE word_tag = '$organization_word_tag' AND userid = $user_I_D AND state = 1 LIMIT 1");
 
     $check_state = pg_fetch_assoc($resulted);
 
@@ -222,7 +222,7 @@ if (!$db) {
               
 
               $query = "DELETE FROM feedstate
-              WHERE word_tag LIKE '$organization_word_tag%_' AND state =1";
+              WHERE word_tag = '$organization_word_tag' AND state =1";
           
               pg_query($db, $query);
               pg_close($db);
@@ -238,48 +238,23 @@ if (!$db) {
 
     header('location:dashboard.php');
 
-    }else if(!$check_state['state']==1){ // state is not yet added put 1  
+    }else if(!$check_state['state']==1){ 
+
+    // state is not yet added put 1  
    
-  $result = pg_query($db,"SELECT id, word_tag,publickey FROM organization
-      WHERE word_tag LIKE '$organization_word_tag%_' 
-      AND organization.publickey not in(select publickey from feedstate
-      where feedstate.word_tag LIKE '$organization_word_tag%_') 
-      AND organization.publickey not in(select publickey from user_follow_organization)");
-
- 
- 
-    // loops through rows until there is 0 rows
-    if (pg_num_rows($result) > 0) {
-         // output data of each row
-        while($row = pg_fetch_assoc($result)) {
-      
-             $interest_list[] = array("org_id" => $row["id"],"publickey"=>$row["publickey"],"tag" => $row["word_tag"]);
-        }
-         
-    } 
-echo sizeof($interest_list);
-
     // insert interest associated to organization_id state==1
 
-for ($i=0; $i <sizeof($interest_list) ; $i++) { 
-
-  $organization_id = pg_escape_string($db, $interest_list[$i]['org_id']);
-  $organization_word_tag = pg_escape_string($db, $interest_list[$i]['tag']);
-  $organization_publickey = pg_escape_string($db, $interest_list[$i]['publickey']);
-
-    $query = "INSERT INTO feedstate (orgid,userid, state,word_tag,publickey) 
-          VALUES('$organization_id',$user_I_D, $state,'$organization_word_tag','$organization_publickey')";
+    $query = "INSERT INTO feedstate (userid, state,word_tag) 
+          VALUES($user_I_D, $state,trim('$organization_word_tag'))";
     pg_query($db, $query);
-}
+
    
 
     pg_close($db);
 
-    if (sizeof($interest_list)==0) {
-       header('location:dashboard.php?sorry_not_found');
-    }else{
+  
     header('location:dashboard.php');
-  }
+  
  }
 }
  
