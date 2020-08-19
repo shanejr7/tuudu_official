@@ -260,7 +260,7 @@ if ($count == $max) {
         }
            //button sends next value to this page to go to next phase
           echo  '
-   <br><br><br<a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-sm">back</a>
+   <br><br><br><a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-sm">back</a>
 ';
  echo '<a href="dashboard.php?" style="margin-left:1em;" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
