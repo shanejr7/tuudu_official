@@ -101,9 +101,7 @@ if (!isset($_SESSION['username'])) {
             <h2 style="font-weight: bold;">Select topics tags</h2>
                     
   
- <div class="row">
-    <div class="col-lg-2">
-    </div>
+   
     <div class="col-lg-8" id="tag">
           
                          
@@ -281,7 +279,6 @@ break;
     
               ?>
               
-  </div>
         
 </div>
 
