@@ -215,21 +215,21 @@ echo '<script>
     $uid = $_SESSION['id'];
                         
                                       
-          $db = pg_connect(getenv("DATABASE_URL"));
+          // $db = pg_connect(getenv("DATABASE_URL"));
 
-          // Check connection
-          if (!$db) {
-              die("Connection failed: " . pg_connect_error());
-              header('location:oops.php');
-          }
+          // // Check connection
+          // if (!$db) {
+          //     die("Connection failed: " . pg_connect_error());
+          //     header('location:oops.php');
+          // }
 
 
-           // Check if user feedstate exists
-          $resulted = pg_query($db, "SELECT DISTINCT * FROM feedstate WHERE userid = $uid");
+          //  // Check if user feedstate exists
+          // $resulted = pg_query($db, "SELECT DISTINCT * FROM feedstate WHERE userid = $uid");
 
-          $settings_check_mark = pg_fetch_assoc($resulted);
+           
 
-          if (pg_num_rows($resulted) <= 0) {
+          if (sizeof($settings_check_mark) <= 0) {
            
 
 
@@ -256,7 +256,7 @@ echo '<script>
                         <h6 class="dropdown-header">Select interest</h6>
     
                         <a href="feed_state.php?word_tag=music" class="dropdown-item">Music';
-                          if (isset($settings_check_mark) && trim($settings_check_mark['word_tag']) =='music' && $settings_check_mark['state']==1) {
+                          if (isset($settings_check_mark) && trim($settings_check_mark['music']) =='1') {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
 
