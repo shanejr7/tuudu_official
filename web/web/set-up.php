@@ -98,7 +98,7 @@ if (!isset($_SESSION['username'])) {
         <div class="row">
           <div class="col-lg-2"></div>
            <div class="col-lg-8" style="margin-top: 1em">
-            <h2 style="font-weight: bold;">Select topics tags</h2>
+            <h2 style="font-weight: bold;">Select tags</h2>
                     
   
    
@@ -201,11 +201,11 @@ while ($count <= $max && isset($temp[0])) {
         }
    
 if ($count == $max) {
-  echo ' <div class="col-lg-9"> <a href="sign-up.php?"  class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
+  echo ' <br><br><div class="col-lg-12"> <a href="sign-up.php?"  class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
 }else{
        //button sends next value to this page to go to next phase
-    echo  '  <div class="col-lg-9"  >
+    echo  '  <div class="col-lg-12"  >
    <a href="set-up.php?page=1" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-bg">continue</a>';
 }
 echo '</div>';
@@ -230,7 +230,7 @@ echo '</div>';
        
         }
            //button sends next value to this page to go to next phase
-          echo  '  <div class="col-lg-9">
+          echo  '  <div class="col-lg-12">
    <a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-bg">back</a>
 ';
 if ($count == $max) {
@@ -266,10 +266,10 @@ if ($count == $max) {
        
         }
            //button sends next value to this page to go to next phase
-          echo  '  <div class="col-lg-9">
+          echo  '  <div class="col-lg-12">
    <a href="set-up.php?page='.--$count.'" style="display: inline-block;" class="btn radius-50 btn-default-transparent btn-bg">back</a>
 ';
- echo '<a href="sign-up.php?" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
+ echo '<br><br><a href="sign-up.php?" class="btn radius-50 btn-default-transparent btn-sm">submit</a>';
  
 }
 break;
