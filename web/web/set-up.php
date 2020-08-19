@@ -102,7 +102,7 @@ if (!isset($_SESSION['username'])) {
                     
   
    
-    <div class="col-lg-8" id="tag">
+    
           
                          
 <?php 
@@ -278,10 +278,6 @@ break;
 
     
               ?>
-              
-        
-</div>
-
       
           
             </div>
