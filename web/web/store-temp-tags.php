@@ -90,7 +90,7 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
  $user_search = pg_fetch_assoc($result);
 
 
-    if ($user_search['event_type']) {
+    if (pg_num_rows($result) > 0) {
   
       
       //check if event type was already added
@@ -103,7 +103,7 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
 
       // no dupilcate copy
     
-      if (pg_num_rows($result)<=0) {
+      if (pg_num_rows($result) > 0) {
     
          //return to topic page dont add identical topic 
   
