@@ -31,7 +31,7 @@ session_start();
 //set up temp ID for new users then disgard it after they sign up or timeout
  //change temp id to string if traffic is high
  
-if (!isset($_session['ID'])) {
+if (!isset($_SESSION['ID'])) {
 
    $remoteIP = $_SERVER['REMOTE_ADDR'];
 
@@ -40,7 +40,7 @@ if (!isset($_session['ID'])) {
     $remoteIP = $ips[0];
 }
 $remoteIP = preg_replace('/[^\p{L}\p{N}\s]/u', '', $remoteIP);
-  $_session['ID'] =filter_var($remoteIP, FILTER_SANITIZE_STRING);
+  $_SESSION['ID'] =filter_var($remoteIP, FILTER_SANITIZE_STRING);
 
 }else{
  //echo " still same";
@@ -76,21 +76,6 @@ if (isset($_POST['reg_user'])) {
   $email = pg_escape_string($db, $_POST['email']);
   $account = pg_escape_string($db, $_POST['account_type']);
 
-
-     $timezone = pg_escape_string($db, $_POST['timezone']);
- 
-     $timezone = explode(" ", $timezone);
-     $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
-     $timezone_str = $timezone_str .' '.$timezone[4];
-
-     $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
-
-     date_default_timezone_set($zone);
-
-     $O = explode("-", $timezone[5]);
- 
-
-     $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
  
 
   if (isset($_POST['age'])) {
@@ -142,14 +127,12 @@ if (isset($_POST['reg_user'])) {
 
   $maxId = $max['id'] +1;
   $tempArray = array();
-  $tagID =$_session['ID'];
-  $timestamp = $timezone_str;
+  $tagID =$_SESSION['ID'];
+
   
 
-
-
     pg_query($db, "INSERT INTO public.users (id,username,email,password,age,publickey,hash,date_joined,recent_login_time,active_user,account_type) 
-          VALUES($maxId,'$username','$email','$password','$age',' ', ' ','$timestamp','$timestamp',True,'$account')");
+          VALUES($maxId,'$username','$email','$password','$age',' ', ' ',NOW(),NOW(),True,'$account')");
 
 
    $_SESSION['username'] = $username;

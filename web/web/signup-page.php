@@ -40,7 +40,6 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
-  <script src="../assets/js/local.js"></script>
   <script src="https://apis.google.com/js/api:client.js"></script>
   <script type="text/javascript">
      
@@ -143,7 +142,7 @@
          <div class="card card-login">
              
             <form class="form" method="post" id="form" action="signup-page.php">
-                 <input type="hidden" name="timezone" value="" id="timezone">
+                 
                  
               <div class="card-header card-header-primary text-center">
                 <h4 class="card-title">signup</h4>
