@@ -25,17 +25,18 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 
   //check if tag was already added
  
-      $result = pg_query($db, "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%' AND userid = $tempID LIMIT 1");
+      $result = pg_query($db, "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%_' AND userid = $tempID LIMIT 1");
       
-      $user_feedstate = pg_fetch_assoc($result);
+      $user = pg_fetch_assoc($result);
 
 
 
   // no dupilcate copy
 
+      $splitFileString = strtok($user['word_tag'], '_' );
       $splitFileString = trim($splitFileString);
     
-     if (strcmp(trim($splitFileString),$tagType)==0 && $user_feedstate['userid'] == $tempID) {
+     if (strcmp(trim($splitFileString),$tagType)==0 && $user['userid'] == $tempID) {
  	
   //return to topic page dont add identical topic 
   
@@ -79,7 +80,7 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
   $tagType = trim($tagType);
 
 
-  // find event_type related to search
+//find event_type related to search
 
  $user_check_search_query = "SELECT event_type FROM word_tag WHERE itag LIKE 'tagType%' OR event_type LIKE 'tagType%' LIMIT 1";
  
@@ -97,14 +98,15 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
       
       $result = pg_query($db, $user_check_query);
     
-      $user_feedstate = pg_fetch_assoc($result);
+      $user = pg_fetch_assoc($result);
 
     // no dupilcate copy
 
+      $splitFileString = strtok($user['word_tag'], '_' );
 
       $splitFileString = trim($splitFileString);
     
-      if (strcmp(trim($splitFileString),$tagType) ==0 && $user_feedstate['userid'] == $tempID) {
+      if (strcmp(trim($splitFileString),$tagType) ==0 && $user['userid'] == $tempID) {
     
          //return to topic page dont add identical topic 
   
@@ -118,7 +120,7 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
     
 
     $query = "INSERT INTO feedstate (userid,word_tag,state) 
-          VALUES($tempID,trim('$tagType'),1)";
+          VALUES($tempID,'$tagType',1)";
     
     pg_query($db, $query);
 
@@ -192,7 +194,7 @@ if (isset($_GET['valName']) && isset($_SESSION["id"]) && isset($_GET['page'])) {
   
   $result = pg_query($db, $user_check_query);
   
-  $user_feedstate = pg_fetch_assoc($result);
+  $user = pg_fetch_assoc($result);
 
 
 
