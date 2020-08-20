@@ -33,7 +33,6 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 
   // no dupilcate copy
 
-      $splitFileString = strtok($user['word_tag'], '_' );
       $splitFileString = trim($splitFileString);
     
      if (strcmp(trim($splitFileString),$tagType)==0 && $user['userid'] == $tempID) {
@@ -80,7 +79,7 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
   $tagType = trim($tagType);
 
 
-//find event_type related to search
+  // find event_type related to search
 
  $user_check_search_query = "SELECT event_type FROM word_tag WHERE itag LIKE 'tagType%' OR event_type LIKE 'tagType%' LIMIT 1";
  
@@ -102,7 +101,6 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
 
     // no dupilcate copy
 
-      $splitFileString = strtok($user['word_tag'], '_' );
 
       $splitFileString = trim($splitFileString);
     
