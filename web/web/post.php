@@ -371,7 +371,7 @@ if (!$db) {
  pg_query($db,"UPDATE public.organization SET word_tag ='$word_tag' WHERE id= $userid AND publickey = '$publickey'");
  
 // update word_tag itag data
-pg_query($db,"UPDATE public.word_tag SET itag ='$word_tags' WHERE event_type = '$event_type'"); 
+pg_query($db,"UPDATE public.word_tag SET itag =trim('$word_tags') WHERE event_type = '$event_type'"); 
 
 pg_close($db);
 
@@ -503,7 +503,7 @@ $destination = $key;
             pg_query($db,"UPDATE public.organization SET title ='$eventTitle', description = '$description', content = '$content', img='$image_src' WHERE id= $userid AND publickey = '$publickey'");
 
             // update word_tag itag data
-            pg_query($db,"UPDATE public.word_tag SET itag ='$word_tags' WHERE event_type = '$event_type'"); 
+            pg_query($db,"UPDATE public.word_tag SET itag =CONCAT(trim(itag),trim('$word_tags')) WHERE event_type = '$event_type'"); 
  
 
             pg_close($db);
