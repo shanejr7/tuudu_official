@@ -80,8 +80,10 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
 
   $tagType = trim($tagType);
 
+  $event_type = "";
 
-  // find event_type related to search
+
+  // find event_type related to search 
 
  $user_check_search_query = "SELECT event_type FROM word_tag WHERE itag LIKE '$tagType%' OR event_type LIKE '$tagType%' LIMIT 1";
  
@@ -89,13 +91,17 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
  
  $user_search = pg_fetch_assoc($result);
 
+ $event_type = trim($user_search['event_type']);
+
+ $event_type = strtolower($event_type);
+
 
     if (pg_num_rows($result) > 0) {
   
       
       //check if event type was already added
       
-      $user_check_query = "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%' and userid = $tempID  LIMIT 1";
+      $user_check_query = "SELECT * FROM feedstate WHERE word_tag LIKE '$event_type%' and userid = $tempID  LIMIT 1";
       
       $result = pg_query($db, $user_check_query);
     
@@ -117,7 +123,7 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
     
 
     $query = "INSERT INTO feedstate (userid,word_tag,state) 
-          VALUES($tempID,trim('$tagType'),1)";
+          VALUES($tempID,trim('$event_type'),1)";
     
     pg_query($db, $query);
 
