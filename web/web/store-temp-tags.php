@@ -50,7 +50,7 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 //insert new iTageType into DB
     
   	pg_query($db, "INSERT INTO feedstate (userid, word_tag, state)
-  VALUES($tempID, '$tagType', 1)");
+  VALUES($tempID, trim('$tagType'), 1)");
 
    header('location:interest.php');
    
@@ -120,7 +120,7 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
     
 
     $query = "INSERT INTO feedstate (userid,word_tag,state) 
-          VALUES($tempID,'$tagType',1)";
+          VALUES($tempID,trim('$tagType'),1)";
     
     pg_query($db, $query);
 
