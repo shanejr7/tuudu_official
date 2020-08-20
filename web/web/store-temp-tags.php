@@ -25,13 +25,14 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 
   //check if tag was already added
  
-      $result = pg_query($db, "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%_' AND userid = $tempID LIMIT 1");
+      $result = pg_query($db, "SELECT * FROM feedstate WHERE word_tag = '$tagType' AND userid = $tempID LIMIT 1");
       
       $user = pg_fetch_assoc($result);
 
 
 
   // no dupilcate copy
+      $splitFileString = strtolower($user['word_tag']);
 
       $splitFileString = trim($splitFileString);
     
@@ -101,6 +102,7 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
 
     // no dupilcate copy
 
+      $splitFileString = strtolower($user['word_tag']);
 
       $splitFileString = trim($splitFileString);
     
