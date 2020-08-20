@@ -62,6 +62,7 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 
 
 // uses user input search to find iTagType in data base *home page search button*
+
 if (isset($_POST['search']) && isset($_SESSION["id"])) {
  
 
@@ -100,13 +101,9 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
     
       $user = pg_fetch_assoc($result);
 
-    // no dupilcate copy
-
-      $splitFileString = strtolower($user['word_tag']);
-
-      $splitFileString = trim($splitFileString);
+      // no dupilcate copy
     
-      if (strcmp(trim($splitFileString),$tagType) ==0 && $user['userid'] == $tempID) {
+      if (pg_num_rows($result)<=0) {
     
          //return to topic page dont add identical topic 
   
