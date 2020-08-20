@@ -483,19 +483,19 @@ $destination = $key;
           $content = preg_replace('/[^A-Za-z0-9\-]!/', '', $content);
 
           $event_type = $_SESSION['event_type'];
-          $word_tags.= $event_title;
-          $word_tags.= $description;
-          $word_tags.= $content;
+          $word_tags.= trim($event_title).'/';
+          $word_tags.= trim($description).'/';
+          $word_tags.= trim($content).'/';
 
-           //create instance 
-          $pn = new proper_nouns(); 
+           //create instance dont split sentences only words//
+          // $pn = new proper_nouns(); 
 
-          //get array with proper nouns 
-          $arr = $pn->get($word_tags);
+          // //get array with proper nouns 
+          // $arr = $pn->get($word_tags);
 
-          $word_tags = explode(" ", $arr);
-          $word_tags = strtolower($word_tags);
-          $word_tags = str_replace(" ","/",trim($word_tags));
+          // $word_tags = explode(" ", $arr);
+          // $word_tags = strtolower($word_tags);
+          // $word_tags = str_replace(" ","/",trim($word_tags));
 
  
 

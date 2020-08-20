@@ -130,7 +130,6 @@ if (isset($_POST['reg_user'])) {
 
   $maxId = $max['id'] +1;
   $tempArray = array();
-  $tagID =$_SESSION['ID'];
 
   
 
