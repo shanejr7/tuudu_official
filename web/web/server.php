@@ -61,10 +61,13 @@ $new_password_error = array();
 
 try{
 // connect to the database
-//$db = pg_connect("host=localhost dbname=postgres user=postgres password=Javaoop12!");
+
  $db = pg_connect(getenv("DATABASE_URL"));
+
 }catch(Execption $e){
+ 
   header('location:oops.php');
+
 }
  
    
@@ -131,7 +134,7 @@ if (isset($_POST['reg_user'])) {
 
   
 
-    pg_query($db, "INSERT INTO public.users (id,username,email,password,age,publickey,hash,date_joined,recent_login_time,active_user,account_type) 
+   pg_query($db, "INSERT INTO public.users (id,username,email,password,age,public_key,hash,date_joined,recent_login_time,active_user,account_type) 
           VALUES($maxId,'$username','$email','$password','$age',' ', ' ',NOW(),NOW(),True,'$account')");
 
 
