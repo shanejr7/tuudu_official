@@ -83,7 +83,7 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
 
   // find event_type related to search
 
- $user_check_search_query = "SELECT event_type FROM word_tag WHERE itag LIKE 'tagType%' OR event_type LIKE 'tagType%' LIMIT 1";
+ $user_check_search_query = "SELECT event_type FROM word_tag WHERE itag LIKE '$tagType%' OR event_type LIKE '$tagType%' LIMIT 1";
  
  $result = pg_query($db, $user_check_search_query);
  
