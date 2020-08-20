@@ -48,7 +48,7 @@
     <div class="container">
         <div class="navbar-translate col-lg-4">
 
-            <a class="navbar-brand" href="login-page.php">  <img src="../assets/img/logo.png" style="width: 30%; "></a>
+            <a class="navbar-brand" href="contact-us.php">  <img src="../assets/img/logo.png" style="width: 30%; "></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon"></span>

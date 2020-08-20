@@ -25,18 +25,17 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 
   //check if tag was already added
  
-      $result = pg_query($db, "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%_' AND userid = $tempID LIMIT 1");
+      $result = pg_query($db, "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%' AND userid = $tempID LIMIT 1");
       
-      $user = pg_fetch_assoc($result);
+      $user_feedstate = pg_fetch_assoc($result);
 
 
 
   // no dupilcate copy
 
-      $splitFileString = strtok($user['word_tag'], '_' );
       $splitFileString = trim($splitFileString);
     
-     if (strcmp(trim($splitFileString),$tagType)==0 && $user['userid'] == $tempID) {
+     if (strcmp(trim($splitFileString),$tagType)==0 && $user_feedstate['userid'] == $tempID) {
  	
   //return to topic page dont add identical topic 
   
@@ -80,33 +79,32 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
   $tagType = trim($tagType);
 
 
-//check if search type exists
+  // find event_type related to search
 
- $user_check_search_query = "SELECT feedstate FROM feedstate WHERE word_tag LIKE '$tagType%_' LIMIT 1";
+ $user_check_search_query = "SELECT event_type FROM word_tag WHERE itag LIKE 'tagType%' OR event_type LIKE 'tagType%' LIMIT 1";
  
  $result = pg_query($db, $user_check_search_query);
  
  $user_search = pg_fetch_assoc($result);
 
 
-    if ($user_search['word_tag']) {
+    if ($user_search['event_type']) {
   
       
-      //check if type was already added
+      //check if event type was already added
       
-      $user_check_query = "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%_' and userid = $tempID  LIMIT 1";
+      $user_check_query = "SELECT * FROM feedstate WHERE word_tag LIKE '$tagType%' and userid = $tempID  LIMIT 1";
       
       $result = pg_query($db, $user_check_query);
     
-      $user = pg_fetch_assoc($result);
+      $user_feedstate = pg_fetch_assoc($result);
 
     // no dupilcate copy
 
-      $splitFileString = strtok($user['word_tag'], '_' );
 
       $splitFileString = trim($splitFileString);
     
-      if (strcmp(trim($splitFileString),$tagType) ==0 && $user['userid'] == $tempID) {
+      if (strcmp(trim($splitFileString),$tagType) ==0 && $user_feedstate['userid'] == $tempID) {
     
          //return to topic page dont add identical topic 
   
@@ -120,7 +118,7 @@ if (isset($_POST['search']) && isset($_SESSION["id"])) {
     
 
     $query = "INSERT INTO feedstate (userid,word_tag,state) 
-          VALUES($tempID,'$tagType',1)";
+          VALUES($tempID,trim('$tagType'),1)";
     
     pg_query($db, $query);
 
@@ -194,7 +192,7 @@ if (isset($_GET['valName']) && isset($_SESSION["id"]) && isset($_GET['page'])) {
   
   $result = pg_query($db, $user_check_query);
   
-  $user = pg_fetch_assoc($result);
+  $user_feedstate = pg_fetch_assoc($result);
 
 
 
