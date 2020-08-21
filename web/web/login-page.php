@@ -1,6 +1,8 @@
 <?php 
 
 include('server.php');
+
+include('proper_nouns.php');
 $word_tags ="texas live concert tech mani";
 
  // create instance dont split sentences only words//
