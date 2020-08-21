@@ -166,7 +166,7 @@ echo '<script>
                   </a>
                 </li>
                   <li class="nav-item">
-                  <a class="nav-link" style="font-weight: normal;" href="profile.php" onclick='clear()' role="tab" data-toggle="tab">
+                  <a class="nav-link" style="font-weight: normal;" href="profile.php" onclick='clear()' >
                     <i class="material-icons">perm_identity</i> profile
                   </a>
                 </li>
