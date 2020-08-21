@@ -11,8 +11,6 @@ include("server.php");
 if (isset($_SESSION['id'])) {
 
     $id =  $_SESSION['id'];
-    // $settings_check_mark = array("music" => "0","fashion" => "0","art" => "0",
-    //   "sports" => "0","festivals" => "0","food" => "0","outdoor" => "0");
 
     $keys = array_keys($settings_check_mark);
 
@@ -52,19 +50,6 @@ if (isset($_SESSION['id'])) {
                     while($row = pg_fetch_assoc($result)) { 
       
                       $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"]);
- 
-
-                      // // checking for prefered interest selected
-                      // for ($i=0; $i <sizeof($keys); $i++) { 
-                        
-                      //   if(strpos(trim($row['word_tag']),trim($keys[$i]."_"))!==false){
-                          
-                      //   $settings_check_mark[$keys[$i]] = "1";
-                       
-                        
-                      // }
-
-                      // }
                        
                     }
                   
@@ -81,8 +66,7 @@ if (isset($_SESSION['id'])) {
  *
  */
   
-   //connect to database
-  //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
   $db = pg_connect(getenv("DATABASE_URL"));
 
   // Check connection
@@ -281,7 +265,7 @@ if (!$conn) {
 
 
     // user prefered organizations: organization
-    $stories_list = array();
+    $subscription_list = array();
 
     /* select all organizations linked to user_follow_organization
      * 
@@ -296,7 +280,7 @@ if (!$conn) {
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-    	       $stories_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey" => $row["publickey"]);
+    	       $subscription_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey" => $row["publickey"]);
         }
          
     } else {array_push($errors_list, "0 results");}

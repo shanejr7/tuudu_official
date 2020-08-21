@@ -774,18 +774,18 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
 <?php  endif ?>
 
             <?php 
-if (isset($stories_list)) {
+if (isset($subscription_list)) {
 
 
                 // // make content dynamic
-                //   shuffle($stories_list);
+                //   shuffle($subscription_list);
               
                  
   // column sizes for row 
     $numberOfColumns = 3;
     $bootstrapColWidth = 12 / $numberOfColumns ;
 
-    $arrayChunks = array_chunk($stories_list, $numberOfColumns);
+    $arrayChunks = array_chunk($subscription_list, $numberOfColumns);
     foreach($arrayChunks as $items) {
         echo '<div class="row">';
         foreach($items as $item) {
