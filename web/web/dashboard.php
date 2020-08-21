@@ -967,7 +967,7 @@ if (isset($stories_list)) {
  
 
  $("a").on('click', function() {
-    history.replaceState(null, null, ' ');
+    // history.replaceState(null, null, ' ');
   
      $('#tabTrack li').each(function() {
       $(this).removeClass('active');
