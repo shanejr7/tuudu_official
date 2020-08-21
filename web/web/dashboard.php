@@ -967,60 +967,14 @@ if (isset($stories_list)) {
  
 
  $("a").on('click', function() {
-
-
-  var hash = window.location.hash;
-   
-  if (hash != "") {
-    
-    $('#tabTrack a').each(function() {
-      $(this).removeClass('active');
-    });
-    $('#body div').each(function() {
-      $(this).removeClass('active');
-    });
-
+    history.replaceState(null, null, ' ');
+  
      $('#tabTrack li').each(function() {
       $(this).removeClass('active');
     });
     $('#body div').each(function() {
       $(this).removeClass('active');
     });
-    
-    var link = "";
-    $('#tabTrack li').each(function() {
-      link = $(this).find('a').attr('href');
-      if (link == hash) {
-        $(this).addClass('active');
-      }
-    });
-    $('#body div').each(function() {
-      link = $(this).attr('id');
-      if ('#'+link == hash) {
-        $(this).addClass('active');
-      }
-    });
-  }else{
-
-
-history.replaceState(null, null, ' ');
-$('#tabTrack li').each(function() {
-      $(this).removeClass('active');
-    });
-    $('#body div').each(function() {
-      $(this).removeClass('active');
-    });
- 
-
-  }
-    // history.replaceState(null, null, ' ');
-  
-    //  $('#tabTrack li').each(function() {
-    //   $(this).removeClass('active');
-    // });
-    // $('#body div').each(function() {
-    //   $(this).removeClass('active');
-    // });
 
 });
 
@@ -1032,6 +986,7 @@ $('#tabTrack li').each(function() {
        
 
   var hash = window.location.hash;
+  
    
   if (hash != "") {
     
