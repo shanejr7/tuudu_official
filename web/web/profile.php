@@ -96,14 +96,14 @@ $bucket_name = 'tuudu-official-file-storage';
   
 
         <div class="navbar-translate">
-              <ul class="nav  navbar-nav nav-tabs" id="tabTrackMain" role="tabs">
+              <ul class="nav  navbar-nav" id="tabTrackMain" role="tablist">
                 <li class="nav-item">
                   <a class="nav-link" href="dashboard.php#dashboard">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a onclick='clear()' style="font-weight: normal;" class="nav-link" href="#schedule"  role="tab" data-toggle="tab" >
+                  <a class="nav-link" href="dashboard.php#schedule">
                     <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php
                     if (isset($schedule_list)) {
                       echo sizeof($schedule_list);
@@ -119,8 +119,8 @@ $bucket_name = 'tuudu-official-file-storage';
                     <i class="material-icons">post_add</i> post
                   </a>
                 </li>
-                 <li class="nav-item">
-                  <a onclick='clear()' style="font-weight: normal;" class="nav-link" href="#list" role="tab" data-toggle="tab">
+                <li class="nav-item">
+                  <a class="nav-link" href="dashboard.php#list">
                     <i class="material-icons">list</i> subscriptions
                   </a>
                 </li>
@@ -216,284 +216,6 @@ $bucket_name = 'tuudu-official-file-storage';
     <div class="profile-content " id="main">
       <div class="container">
         <div class="tab-content tab-space cd-section" id="body">
-             <div class="tab-pane text-center gallery" id="schedule">
-              <div class="row"> 
-
-                  <?php if (count($errors_schedule) > 0) : ?>
-                     <div class="error">
-                      <?php foreach ($errors_schedule as $error) : ?>
-                          <p><?php echo $error ?> <span class="text-warning btn-md-link"> <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>
-                      <?php endforeach ?>
-                     </div>
-                  <?php  endif ?>
-
-            <?php 
-
-                  
-  // column sizes for row 
-    $numberOfColumns = 8;
-    $bootstrapColWidth = 12 / $numberOfColumns ;
-if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
-    $arrayChunks = array_chunk($schedule_list, $numberOfColumns);
-    $ticket_time = explode("-", $item["time"]);
-    foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($items as $item) {
-
-                        $cmd = $s3->getCommand('GetObject', [
-                    'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.trim($item["img"]).'',
-]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-                $splitFileString = strtok(trim($item["img"]), '.' );
-                $fileChecker = strtok('');
-                $fileChecker = strtoupper($fileChecker);
-
- 
-
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                      $item['img']= $presignedUrl;  
-              }else{
-                   $item['img']= '../assets/img/image_placeholder.jpg';
-              } 
-          echo '<div class="col-md-12">
-          <div class="contain">
-            <div class="card card-background" style="background-image: url('.$item['img'].');">
-              <div class="card-body">
-                <h6 class="card-category text-info">'.$item['title'].'</h6>
-                <a href="#pablo">
-                  <h3 class="card-title">'.toString($item['date']).'</h3>
-                  <h12 class="card-title">'.date('h:i A', strtotime($ticket_time[0])).'</h12>
-                </a></br></br></br></br> 
-                <p class="card-description" style="font-weight:bolder;font-family: "Anaheim";">
-                 '.$item['address'].'
-                </p><i class="material-icons" style="color:orange">room </i>
-                </br>
-                 
-                  
-              </div>
-               
-            </div>
-           </div>
-          </div>';
-        
-        }
-        echo '</div>';
-    } 
-
-}else if(sizeof($schedule_list)==2){
-  $arrayChunks = array_chunk($schedule_list, $numberOfColumns);
-    foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($items as $item) {
-
-                        $cmd = $s3->getCommand('GetObject', [
-                    'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.trim($item["img"]).'',
-]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-                $splitFileString = strtok(trim($item["img"]), '.' );
-                $fileChecker = strtok('');
-                $fileChecker = strtoupper($fileChecker);
-
- 
-
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                      $item['img']= $presignedUrl;  
-              }else{
-                   $item['img']= '../assets/img/image_placeholder.jpg';
-              } 
-          echo '<div class="col-md-6">
-            <div class="card card-background" style="background-image: url('.$item['img'].');">
-              <div class="card-body">
-                <h6 class="card-category text-info">'.$item['title'].'</h6>
-                <a href="#pablo">
-                  <h3 class="card-title">'.toString($item['date']).'</h3>
-                </a>
-               <p class="card-description" style="font-weight:bolder;font-family: "Anaheim";">
-                 '.$item['address'].'
-                </p><i class="material-icons" style="color:orange">room </i>
-                </br>
-                
-              </div>
-            </div>
-           
-          </div>';
-        
-        }
-        echo '</div>';
-    } 
-
-}else{
-  $arrayChunks = array_chunk($schedule_list, $numberOfColumns);
-    foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($items as $item) {
-
-                          $cmd = $s3->getCommand('GetObject', [
-                    'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.trim($item["img"]).'',
-]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-                $splitFileString = strtok(trim($item["img"]), '.' );
-                $fileChecker = strtok('');
-                $fileChecker = strtoupper($fileChecker);
-
- 
-
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                      $item['img']= $presignedUrl;  
-              }else{
-                   $item['img']= '../assets/img/image_placeholder.jpg';
-              } 
-
-            
-
-          echo '<div class="col-md-4">
-            <div class="card card-background" style="background-image: url('.$item['img'].');">
-              <div class="card-body">
-                <h6 class="card-category text-info">'.$item['title'].'</h6>
-                <a href="#pablo">
-                  <h3 class="card-title">'.toString($item['date']).'</h3>
-                </a>
-                <p class="card-description" style="font-weight:bolder;font-family: "Anaheim";">
-                 '.$item['address'].'
-                </p><i class="material-icons" style="color:orange">room </i>
-                </br>
-              </div>  
-            </div>
-           
-          </div>';
-        
-        }
-        echo '</div>';
-    } 
-}
-   
-         
-
-              ?>
-        
-    
-        </div>
-         
-          </div>
-
-          <div class="tab-pane text-center gallery" id="list">
-
-            <div class="row">
-
-
-
-<?php if (count($errors_list) > 0) : ?>
-  <div class="error">
-    <?php foreach ($errors_list as $error) : ?>
-      <p><?php echo $error ?> <span class="text-warning btn-md-link"> <i class=" text-warning btn-md-link fa fa-warning pl-10"></i><span></p>
-    <?php endforeach ?>
-  </div>
-<?php  endif ?>
-
-            <?php 
-if (isset($stories_list)) {
-
-
-                // // make content dynamic
-                //   shuffle($stories_list);
-              
-                 
-  // column sizes for row 
-    $numberOfColumns = 3;
-    $bootstrapColWidth = 12 / $numberOfColumns ;
-
-    $arrayChunks = array_chunk($stories_list, $numberOfColumns);
-    foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($items as $item) {
-
-            echo '<div class="col-md-4">';
-
-             // echo '<a href="subscription.php?subscribe='.trim($item['org_id']).'">';
-
-             echo '<div class="contain">';
- 
-
-                   $cmd = $s3->getCommand('GetObject', [
-                    'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.trim($item["img"]).'',
-]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-                
-                $splitFileString = strtok(trim($item["img"]), '.' );
-                $fileChecker = strtok('');
-                $fileChecker = strtoupper($fileChecker);
-
- 
-
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                  echo  '<img src="'.$presignedUrl.'" class="rounded img">';  
-              }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img">';
-              } 
-
-            
-
-
-                  if (trim($item['price']) =='0.00') {
-
-                        echo '<div class="top-right h9"> 
-                        <i class="material-icons">strikethrough_s</i></div>';
-
-                        }else{
-
-                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
-                  
-                  }
-
-                  echo '<div class="top-left h6" style="width:10px;">'
-                       .toString($item['date']).'</div>';
-
-                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
-
-                   
-                  echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="subscription.php?unsubscribe='.$item['publickey'].'"><i class="material-icons">bookmark</i></a></div>';
-                   
-                  echo '<div class="bottom-right" style="font-weight: bolder;">
-                        <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons">add_shopping_cart</i></a></div>';
- 
-
-                echo '</div>';
-              
-              // echo '</a>';
-              
-            echo '</div>';
-        }
-        echo '</div>';
-    } 
-
-         }
-
-              ?>
-         
-             
-            </div>
-
-          </div>
       
  <div class="tab-pane active text-center gallery" id="profile">
   <div class="container">
@@ -2649,7 +2371,7 @@ fetch_user(id,key);
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
 
-<!--   <script>
+  <script>
 
       $(document).ready(function(){
 
@@ -2682,7 +2404,7 @@ fetch_user(id,key);
            }
       });
 
-    </script> -->
+    </script>
  
     <script type="text/javascript">
     $(document).ready(function() {
