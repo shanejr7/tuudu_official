@@ -17,7 +17,7 @@ class proper_nouns
 	//conjunctions used in multiple word proper nouns
 	private $conjunctions = array(
 		//can be used in the beggining of proper noun
-		"start" => array("the", "mr", "mrs", "ms", "dr", "mstr", "miss", "sir", "at", "in"),
+		"start" => array("the", "mr", "mrs", "ms", "dr", "mstr", "miss", "sir", "at", "in", "that"),
 		//needs to be in between two proper nouns
 		"middle" => array("of", "the", "and"),
 		//can have dots after them and not be end of the sentence

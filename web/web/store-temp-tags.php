@@ -61,7 +61,7 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 }
 
 
-// uses user input search to find iTagType in data base *home page search button*
+// uses user input search to find itag in data base *home page search button*
 
 if (isset($_POST['search']) && isset($_SESSION["id"])) {
  
@@ -220,6 +220,68 @@ if (isset($_GET['valName']) && isset($_SESSION["id"]) && isset($_GET['page'])) {
     header('location:set-up.php?page='.$page.'');
  }
  
+
+
+  // itag season generator analysis
+
+    
+    $today = new DateTime();
+    $season = "";
+
+  // get the season dates + shift dates to weather
+
+    $spring = new DateTime('March 20');
+    $summer = new DateTime('June 20');
+    $fall = new DateTime('September 22');
+    $winter = new DateTime('December 21');
+
+switch(true) {
+    case $today >= $spring && $today < $summer:
+        $season = "spring"
+        break;
+
+    case $today >= $summer && $today < $fall:
+        $season = "summer";
+        break;
+
+    case $today >= $fall && $today < $winter:
+        $season = "fall";
+        break;
+
+    default:
+        $season = "winter";
+}
+  
+  $check_query_itag = "SELECT itag FROM itag_rank
+  WHERE itag LIKE '%$tagName%'  LIMIT 1";
+
+  $result = pg_query($db, $user_query_itag);
+  
+  $data = pg_fetch_assoc($result);
+
+  $word_tag = trim($data['event_type']);
+
+  $word_tag = strtolower($word_tag);
+
+  if (pg_num_rows($result) >0) {
+    
+     $query = "UPDATE public.itag_rank SET itag=trim('$tagName'), season='$season', views=views+1 WHERE itag = trim('$tagName')";
+     pg_query($db, $query);
+
+  }else{
+
+    $query = " INSERT INTO public.itag_rank(itag, season, views) VALUES (trim('$tagName'), '$season', 0)";
+    pg_query($db, $query);
+
+  }
+
+
+
+
+
+
+
+
  if(!pg_close($db)){
 
     //failed
