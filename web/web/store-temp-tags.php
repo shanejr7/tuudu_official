@@ -47,7 +47,7 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 
  }else{
 
-//insert new iTageType into DB
+//insert new tag into DB
     
   	pg_query($db, "INSERT INTO feedstate (userid, word_tag, state)
   VALUES($tempID, trim('$tagType'), 1)");
@@ -237,7 +237,7 @@ if (isset($_GET['valName']) && isset($_SESSION["id"]) && isset($_GET['page'])) {
 
 switch(true) {
     case $today >= $spring && $today < $summer:
-        $season = "spring"
+        $season = "spring";
         break;
 
     case $today >= $summer && $today < $fall:
