@@ -963,7 +963,7 @@ if (isset($stories_list)) {
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
 
-<!--   <script>
+  <script>
  
 
  $("a").on('click', function() {
@@ -978,10 +978,10 @@ if (isset($stories_list)) {
 
 });
 
-  </script> -->
+  </script>
 
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       
        
 
@@ -1017,7 +1017,7 @@ if (isset($stories_list)) {
 
   }
 
-    </script> -->
+    </script>
 
  
     <script type="text/javascript">
