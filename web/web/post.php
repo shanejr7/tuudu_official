@@ -364,9 +364,13 @@ if(isset($_POST['word_tags'])) {
           //get array with proper nouns 
           $arr = $pn->get($word_tags);
 
-          $word_tags = explode(" ", $arr);
+          for ($i=0; $i < sizeof($arr) ; $i++) { 
+
+            $word_tags.= '/'.$arr[$i];
+
+          }
+
           $word_tags = strtolower($word_tags);
-          $word_tags = str_replace(" ","/",trim($word_tags));
     
  
  // Create connection
