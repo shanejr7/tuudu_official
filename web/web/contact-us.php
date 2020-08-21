@@ -52,7 +52,8 @@
     }</style>
 
 <body class="contact-page sidebar-collapse">
-<nav class="navbar navbar-expand-lg bg-primary">
+<nav class="navbar fixed-top navbar-expand-lg bg-primary" color-on-scroll="100" id="sectionsNav">
+    
     <div class="container">
         <div class="navbar-translate col-lg-4">
 
@@ -67,7 +68,7 @@
 
         <div class="collapse navbar-collapse col-lg-8">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a href="login-page.php" class="nav-link">Login</a>
                 </li>
                 <li class="nav-item">
