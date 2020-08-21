@@ -9,6 +9,9 @@ important bug: update all validation checking for any input/output users entered
 
 important bug: use trim() on pgsql where needed. 
 
+important bug: setInterval with chat box refreshes faster and faster for some odd reason.
+(fetch_users.php) <line 401>.
+
 important bug: <line 490> uses proper_nouns.php dont split sentence '/' only words when space is found
 
 important fix: continue to convert to AJAX for better quality and performance where users interact on the platform. 
