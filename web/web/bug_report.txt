@@ -11,7 +11,7 @@ important bug: use trim() on pgsql where needed.
 
 important bug: <line 490> uses proper_nouns.php dont split sentence '/' only words when space is found
 
-important fix: continue to convert to AJAX for better quality and performance where users interact on the 				 platform. 
+important fix: continue to convert to AJAX for better quality and performance where users interact on the platform. 
 
 
 
@@ -21,15 +21,14 @@ $ add-on: view user profile.
 
 $ add-on: create edit user info popup/ edit info.
 
-$$$$$$$ analysis: when topics/tags are selected add increment. when post are made filter text for itags 
+$$$$$$$ analysis: when topics/tags are selected add increment. when post are made filter text for potential itags and word tags. 
 
-$$$$$$$ add-on: Google Natural Language API integration to classify post content into word tags.
- 			  Add post data to itag for better query.
+$$$$$$$ add-on: Google Natural Language API integration to classify post content into word tags. Add post data to itag for better query.
 
 $$$ add-on: none expiring element post/design/layout/functions/editing.(post story integration)
 
 $$ security: methods to handle spam posting with users/event post.
 
-$$$ other: continue to make updates on front-end designs, back-end software and (improve/add/analysis) 			   functions to the overall stystem.
+$$$ other: continue to make updates on front-end designs, back-end software and (improve/add/analysis) functions to the overall stystem.
 
 other: create HTTP load balancer.
