@@ -256,12 +256,7 @@ switch(true) {
   WHERE itag LIKE '%$tagName%'  LIMIT 1";
 
   $result = pg_query($db, $user_query_itag);
-  
-  $data = pg_fetch_assoc($result);
 
-  $tagName = trim($data['event_type']);
-
-  $tagName = strtolower($tagName);
 
   $tagName = str_replace('/', '', $tagName);
 
