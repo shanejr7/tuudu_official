@@ -124,19 +124,19 @@ if (!isset($_SESSION['username'])) {
 
         <div class="collapse navbar-collapse col-lg-8">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                  <li class="nav-item">
+                    <a href="dashboard.php" class="nav-link">DASHBOARD</a>
+                </li>
+                 <li class="nav-item">
+                    <a href="profile.php" class="nav-link">PROFILE</a>
+                </li>
+                 <li class="nav-item active">
                     <a href="login-page.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">LOGOFF</a>
                     <script type="text/javascript">
                       var revokeAllScopes = function() {
                          auth2.disconnect();
                       }
                      </script>
-                </li>
-                  <li class="nav-item">
-                    <a href="dashboard.php" class="nav-link">DASHBOARD</a>
-                </li>
-                 <li class="nav-item">
-                    <a href="profile.php" class="nav-link">PROFILE</a>
                 </li>
         
    </ul>          
@@ -353,6 +353,7 @@ if(isset($_POST['word_tags'])) {
  $word_tags =  filter_var($_POST['word_tags'], FILTER_SANITIZE_STRING);  
  $word_tags = preg_replace('/[^A-Za-z0-9\-]/', ' ', $word_tags);
  $word_tags = str_replace(" ","/",trim($word_tags));
+ $word_tags = '/'. $word_tags;
  $word_tags = strtolower($word_tags);
  $word_tag = $event_type.'_/'.$word_tags;  
  
