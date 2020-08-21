@@ -263,6 +263,8 @@ switch(true) {
 
   $word_tag = strtolower($word_tag);
 
+  $word_tag = str_replace('/', '', $word_tag);
+
   if (pg_num_rows($result) >0) {
     
      $query = "UPDATE public.itag_rank SET itag=trim('$tagName'), season='$season', views=views+1 WHERE itag = trim('$tagName')";
