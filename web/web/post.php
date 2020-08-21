@@ -325,7 +325,7 @@ echo '<h3 class="title">Add Event Tags</h3>
               <div class="title">
                <!-- <h3>Tags</h3> -->
               </div>
-              <input type="text" name="word_tags" value="tags" placeholder="enter here" class="tagsinput form-control" data-role="tagsinput" data-color="rose">
+              <input type="text" name="word_tags" value="" placeholder="enter here" class="tagsinput form-control" data-role="tagsinput" data-color="rose">
               <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
             </div>
           </div>
@@ -351,7 +351,7 @@ if(isset($_POST['word_tags'])) {
  $event_type = $_SESSION['event_type'];
  $word_tags = "";
  $word_tags =  filter_var($_POST['word_tags'], FILTER_SANITIZE_STRING);  
- $word_tags = preg_replace('/[^A-Za-z0-9\-]/', ' ', $word_tags);
+ $word_tags = preg_replace('/[^A-Za-z0-9\-]/', '', $word_tags);
  $word_tags = str_replace(" ","/",trim($word_tags));
  $word_tags = strtolower($word_tags);
  $word_tag = $event_type.'_/'.$word_tags;  
@@ -371,7 +371,7 @@ if (!$db) {
  pg_query($db,"UPDATE public.organization SET word_tag ='$word_tag' WHERE id= $userid AND publickey = '$publickey'");
  
 // update word_tag itag data
-pg_query($db,"UPDATE public.word_tag SET itag =trim('$word_tags') WHERE event_type = '$event_type'"); 
+pg_query($db,"UPDATE public.word_tag SET itag =CONCAT(trim(itag),trim('$word_tags')) WHERE event_type = '$event_type'"); 
 
 pg_close($db);
 
