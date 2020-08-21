@@ -15,9 +15,9 @@ real-time systems using proximity radius of located users, devices, organization
 services and things.
 
 System Summary:
-It is an object of the present invention to provide a system and method for gathering data to find events or 
-activities based on a user’s preferences and paying for them that provides a social community artificial 
-intelligent system.
+It is an object of the present invention to provide a system and method for gathering data to find events,  
+activities, services and things based on a user’s preferences and paying for them that provides a social 
+community artificial intelligent system.
 
 Design Technologies:
 Frameworks: PHP 7.2, Composer 1.8.0, PostgresSQL 11, HEROKU 7.35.0, Bootstrap, AJAX, JSON, Mailgun,
