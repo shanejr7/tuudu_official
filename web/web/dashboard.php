@@ -969,16 +969,18 @@ if (isset($stories_list)) {
  $("a").on('click', function() {
 
   console.log($(this).attr('id')+ ' -1');
-   console.log(this.id+' -2');
+   
 
     history.replaceState(null, null, ' ');
   
      $('#tabTrack li').each(function() {
       $(this).removeClass('active');
     });
-    $('#body div').each(function() {
-      $(this).removeClass('active');
-    });
+    // $('#body div').each(function() {
+    //   $(this).removeClass('active');
+    // });
+   
+
 
 });
 
