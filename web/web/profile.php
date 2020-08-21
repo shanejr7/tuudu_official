@@ -103,7 +103,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#schedule">
+                  <a onclick='clear()' style="font-weight: normal;" class="nav-link" href="#schedule"  role="tab" data-toggle="tab" >
                     <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php
                     if (isset($schedule_list)) {
                       echo sizeof($schedule_list);
@@ -119,8 +119,8 @@ $bucket_name = 'tuudu-official-file-storage';
                     <i class="material-icons">post_add</i> post
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#list">
+                 <li class="nav-item">
+                  <a onclick='clear()' style="font-weight: normal;" class="nav-link" href="#list" role="tab" data-toggle="tab">
                     <i class="material-icons">list</i> subscriptions
                   </a>
                 </li>
