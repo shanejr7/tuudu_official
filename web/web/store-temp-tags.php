@@ -256,14 +256,14 @@ switch(true) {
   $tagName = str_replace('/', '', $tagName);
 
   $check_query_itag = "SELECT itag FROM itag_rank
-  WHERE itag LIKE '%$tagName%'  LIMIT 1";
+  WHERE itag = '$tagName'  LIMIT 1";
 
   $result = pg_query($db, $user_query_itag);
 
 
   if (pg_num_rows($result) >0) {
     
-     $query = "UPDATE public.itag_rank SET itag=trim('$tagName'), season='$season', views=views+1 WHERE itag = trim('$tagName')";
+     $query = "UPDATE public.itag_rank SET season ='$season', views = views + 1 WHERE itag = '$tagName')";
      pg_query($db, $query);
 
   }else{
