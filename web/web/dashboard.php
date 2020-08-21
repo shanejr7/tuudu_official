@@ -496,7 +496,10 @@ if (isset($dashboard_list)  ) {
         foreach($items as $item) {
  
   //         if(in_array($item["publickey"], $key)) 
+
   // { 
+                           $presignedUrl = "";
+
                            $cmd = $s3->getCommand('GetObject', [
                                         'Bucket' => ''.$bucket_name.'',
                                         'Key'    => ''.trim($item["img"]).'',
