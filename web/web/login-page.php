@@ -1,6 +1,15 @@
 <?php 
 
 include('server.php');
+$word_tags ="texas live concert tech mani";
+
+ // create instance dont split sentences only words//
+          $pn = new proper_nouns($word_tags); 
+
+          //get array with proper nouns 
+          $arr = $pn->get($word_tags);
+
+          print_r($arr);
  
    ?>
 <!--
