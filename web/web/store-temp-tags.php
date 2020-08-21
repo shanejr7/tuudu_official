@@ -252,13 +252,14 @@ switch(true) {
         $season = "winter";
 }
   
+
+  $tagName = str_replace('/', '', $tagName);
+
   $check_query_itag = "SELECT itag FROM itag_rank
   WHERE itag LIKE '%$tagName%'  LIMIT 1";
 
   $result = pg_query($db, $user_query_itag);
 
-
-  $tagName = str_replace('/', '', $tagName);
 
   if (pg_num_rows($result) >0) {
     
