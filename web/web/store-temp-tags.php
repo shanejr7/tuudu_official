@@ -263,7 +263,7 @@ switch(true) {
 
   if (pg_num_rows($result) >0) {
     
-     $query = "UPDATE public.itag_rank SET season ='$season', views = views + 1 WHERE itag = '$tagName')";
+     $query = "UPDATE public.itag_rank SET season ='$season', views = views + 1 WHERE itag = '$tagName'";
      pg_query($db, $query);
 
   }else{
