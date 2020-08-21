@@ -986,6 +986,7 @@ if (isset($stories_list)) {
        
 
   var hash = window.location.hash;
+  console.log(hash);
    
   if (hash != "") {
     
@@ -1011,7 +1012,7 @@ if (isset($stories_list)) {
     });
   }else{
 
-
+console.log('else '+hash);
 
  
 
