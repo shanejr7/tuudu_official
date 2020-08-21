@@ -1003,7 +1003,13 @@ if (isset($stories_list)) {
   }else{
 
 
-
+history.replaceState(null, null, ' ');
+$('#tabTrack li').each(function() {
+      $(this).removeClass('active');
+    });
+    $('#body div').each(function() {
+      $(this).removeClass('active');
+    });
  
 
   }
