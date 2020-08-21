@@ -358,7 +358,7 @@ if(isset($_POST['word_tags'])) {
  $word_tag = $event_type.'_'.$word_tags;  
  
 
-  // create instance dont split sentences only words//
+          // create instance dont split sentences only words//
           $pn = new proper_nouns(); 
 
           //get array with proper nouns 
@@ -504,7 +504,7 @@ $destination = $key;
           $word_tags.= trim($description).'/';
           $word_tags.= trim($content).'/';
 
-           // create instance dont split sentences only words//
+          // create instance dont split sentences only words//
           $pn = new proper_nouns(); 
 
           //get array with proper nouns 
