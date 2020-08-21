@@ -549,7 +549,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
@@ -796,7 +796,7 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
 
-                if (isset($item['img']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
+                if (isset($item['img']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')) {
                  $user_img = trim($item['img']);
 
                          $cmd = $s3->getCommand('GetObject', [

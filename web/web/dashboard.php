@@ -508,9 +508,6 @@ if (isset($dashboard_list)  ) {
 
               $presignedUrl = (string)$request->getUri();
      
-
-              
-              echo "img testing. ".$presignedUrl;
             
               echo '<div class="col-md-4">';
 
@@ -524,7 +521,7 @@ if (isset($dashboard_list)  ) {
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV' || $fileChecker=='HEIC')){
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
@@ -626,7 +623,7 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
                       $item['img']= $presignedUrl;  
               }else{
                    $item['img']= '../assets/img/image_placeholder.jpg';
@@ -677,7 +674,7 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
                       $item['img']= $presignedUrl;  
               }else{
                    $item['img']= '../assets/img/image_placeholder.jpg';
@@ -724,7 +721,7 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
                       $item['img']= $presignedUrl;  
               }else{
                    $item['img']= '../assets/img/image_placeholder.jpg';
@@ -815,7 +812,7 @@ if (isset($stories_list)) {
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
                   echo  '<img src="'.$presignedUrl.'" class="rounded img">';  
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img">';
