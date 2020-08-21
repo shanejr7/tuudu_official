@@ -1,5 +1,7 @@
 <?php 
  
+ // if any post are removed then remove from poststate 
+
  if (!isset($_SESSION['username'])) {
  
    header('location: login-page.php');

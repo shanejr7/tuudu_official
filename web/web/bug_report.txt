@@ -12,8 +12,6 @@ important bug: update all validation checking for any input/output users entered
 
 important bug: contact us logo size is different from login/signup.
 
-important bug: small issues on input search and buttons.(interest/set-up.php).
-
 important bug: use trim() on all pgsql statments for data insertion. topics/tags are lower cased. 
 
 important bug: if image size is incorrect or extension is wrong image will not appear in post.
@@ -24,7 +22,7 @@ important fix: continue to convert to AJAX for better quality and performance wh
 
 $$$ other: continue to make updates on front-end designs, back-end software and (improve/add/analysis) 			   functions to the overall stystem.
 
-$$$$$$$ analysis: when topics/tags are selected add increment. 
+$$$$$$$ analysis: when topics/tags are selected add increment. when post are made filter text for itags 
 
 other: create HTTP load balancer.
 
@@ -32,9 +30,7 @@ $$$$ add-on: create post amount for creating a post + sold out.
 
 add-on: view user profile.
 
-add-on: create edit user info popup.
-
-add-on: update email template.	
+add-on: create edit user info popup/ edit info.
 
 
 $$$$$$$ add-on: Google Natural Language API integration to classify post content into word tags.

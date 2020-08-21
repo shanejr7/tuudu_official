@@ -508,7 +508,7 @@ if (isset($dashboard_list)  ) {
      
 
               
-
+              echo "img testing. ".$presignedUrl;
             
               echo '<div class="col-md-4">';
 
