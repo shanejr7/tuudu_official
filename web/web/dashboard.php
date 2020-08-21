@@ -139,12 +139,12 @@ echo '<script>
  <div class="navbar-translate">
       <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
                 <li class="nav-item ">
-                  <a onclick='clear()' style="font-weight: normal;" class="nav-link active" href="#dashboard" role="tab" data-toggle="tab"  >
+                  <a onclick='clear()' style="font-weight: normal;" id="dash" class="nav-link active" href="#dashboard" role="tab" data-toggle="tab"  >
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a onclick='clear()' style="font-weight: normal;" class="nav-link" href="#schedule"  role="tab" data-toggle="tab" >
+                  <a onclick='clear()' style="font-weight: normal;" id="sched" class="nav-link" href="#schedule"  role="tab" data-toggle="tab" >
                     <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php
                     if (isset($schedule_list)) {
                       echo sizeof($schedule_list);
@@ -161,7 +161,7 @@ echo '<script>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a onclick='clear()' style="font-weight: normal;" class="nav-link" href="#list" role="tab" data-toggle="tab">
+                  <a onclick='clear()' style="font-weight: normal;" id="lis" class="nav-link" href="#list" role="tab" data-toggle="tab">
                     <i class="material-icons">list</i> subscriptions
                   </a>
                 </li>
@@ -967,6 +967,10 @@ if (isset($stories_list)) {
  
 
  $("a").on('click', function() {
+
+  console.log($(this).attr('id')+ ' -1');
+   console.log(this.id+' -2');
+
     history.replaceState(null, null, ' ');
   
      $('#tabTrack li').each(function() {
