@@ -259,11 +259,11 @@ switch(true) {
   
   $data = pg_fetch_assoc($result);
 
-  $word_tag = trim($data['event_type']);
+  $tagName = trim($data['event_type']);
 
-  $word_tag = strtolower($word_tag);
+  $tagName = strtolower($tagName);
 
-  $word_tag = str_replace('/', '', $word_tag);
+  $tagName = str_replace('/', '', $tagName);
 
   if (pg_num_rows($result) >0) {
     
