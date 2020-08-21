@@ -41,10 +41,18 @@
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
 
 </head>
+<style type="text/css">* {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: transparent;
+    }</style>
 
 <body class="contact-page sidebar-collapse">
-<nav class="navbar fixed-top navbar-expand-lg bg-primary" color-on-scroll="100" id="sectionsNav">
-    
+<nav class="navbar navbar-expand-lg bg-primary">
     <div class="container">
         <div class="navbar-translate col-lg-4">
 
@@ -59,7 +67,7 @@
 
         <div class="collapse navbar-collapse col-lg-8">
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="login-page.php" class="nav-link">Login</a>
                 </li>
                 <li class="nav-item">
