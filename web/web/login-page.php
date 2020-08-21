@@ -3,7 +3,7 @@
 include('server.php');
 
 include('proper_nouns.php');
-$word_tags ="texas live concert tech mani";
+$word_tags ="texas live concert house tech mani";
 
  // create instance dont split sentences only words//
           $pn = new proper_nouns(); 
