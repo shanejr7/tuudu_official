@@ -524,7 +524,7 @@ if (isset($dashboard_list)  ) {
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV' || $fileChecker=='HEIC')){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
