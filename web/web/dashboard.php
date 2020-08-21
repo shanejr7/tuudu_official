@@ -498,21 +498,15 @@ if (isset($dashboard_list)  ) {
   //         if(in_array($item["publickey"], $key)) 
 
   // { 
-                           $presignedUrl = "";
 
                            $cmd = $s3->getCommand('GetObject', [
                                         'Bucket' => ''.$bucket_name.'',
                                         'Key'    => ''.trim($item["img"]).'',
                             ]);
 
-                           try{
-
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
-            }catch(Exception $e){
-              echo "error ".$e->getExceptionCode();
-            }
      
 
               
@@ -530,7 +524,7 @@ if (isset($dashboard_list)  ) {
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
                  echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
