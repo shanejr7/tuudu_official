@@ -10,9 +10,7 @@ dashboard.php: when tabs are clicked 2 times data disappears.
 
 important bug: update all validation checking for any input/output users entered. 
 
-important bug: contact us logo size is different from login/signup.
-
-important bug: use trim() on all pgsql statments for data insertion. topics/tags are lower cased. 
+important bug: use trim() on pgsql where needed. 
 
 important bug: <line 490> uses proper_nouns.php dont split sentence '/' only words when space is found
 
