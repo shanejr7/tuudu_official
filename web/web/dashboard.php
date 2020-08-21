@@ -505,9 +505,14 @@ if (isset($dashboard_list)  ) {
                                         'Key'    => ''.trim($item["img"]).'',
                             ]);
 
+                           try{
+
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
+            }catch(Exception $e){
+              echo "error ".$e->getExceptionCode();
+            }
      
 
               
