@@ -358,6 +358,15 @@ if(isset($_POST['word_tags'])) {
  $word_tag = $event_type.'_/'.$word_tags;  
  
 
+  // create instance dont split sentences only words//
+          $pn = new proper_nouns(); 
+
+          //get array with proper nouns 
+          $arr = $pn->get($word_tags);
+
+          $word_tags = explode(" ", $arr);
+          $word_tags = strtolower($word_tags);
+          $word_tags = str_replace(" ","/",trim($word_tags));
     
  
  // Create connection
