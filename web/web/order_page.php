@@ -179,19 +179,19 @@ pg_close($conn);
         </div>
                 <div class="col-lg-8 collapse navbar-collapse" id="sectionsNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item ">
+                     <a href="dashboard.php" class="nav-link">Dashboard</a> 
+                </li>
+                 <li class="nav-item ">
+                     <a href="profile.php" class="nav-link">Profile</a> 
+                </li>
+                     <li class="nav-item active">
                      <a href="dashboard.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
                       <script type="text/javascript">
                       var revokeAllScopes = function() {
                          auth2.disconnect();
                       }
                      </script>
-                </li>
-                <li class="nav-item ">
-                     <a href="dashboard.php" class="nav-link">Dashboard</a> 
-                </li>
-                 <li class="nav-item ">
-                     <a href="profile.php" class="nav-link">Profile</a> 
                 </li>
             </ul>
 

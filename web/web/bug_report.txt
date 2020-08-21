@@ -23,7 +23,7 @@ $ add-on: create edit user info popup/ edit info.
 
 $$$$$$$ analysis: when topics/tags are selected add increment. when post are made filter text for potential itags and word tags. 
 
-$$$$$$$ add-on: Google Natural Language API integration to classify post content into word tags. Add post data to itag for better query.
+$$$$$$$ add-on: Google Natural Language API integration to classify post content into word tags.
 
 $$$ add-on: none expiring element post/design/layout/functions/editing.(post story integration)
 
