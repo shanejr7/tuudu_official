@@ -968,12 +968,19 @@ if (isset($stories_list)) {
 
  $("a").on('click', function() {
 
-  
+
   var hash = window.location.hash;
    
   if (hash != "") {
     
     $('#tabTrack a').each(function() {
+      $(this).removeClass('active');
+    });
+    $('#body div').each(function() {
+      $(this).removeClass('active');
+    });
+
+     $('#tabTrack li').each(function() {
       $(this).removeClass('active');
     });
     $('#body div').each(function() {
