@@ -967,26 +967,9 @@ if (isset($stories_list)) {
  
 
  $("a").on('click', function() {
-    // history.replaceState(null, null, ' ');
+
   
-     $('#tabTrack li').each(function() {
-      $(this).removeClass('active');
-    });
-    $('#body div').each(function() {
-      $(this).removeClass('active');
-    });
-
-});
-
-  </script>
-
-
-    <script type="text/javascript">
-      
-       
-
   var hash = window.location.hash;
-  console.log(hash);
    
   if (hash != "") {
     
@@ -1012,7 +995,56 @@ if (isset($stories_list)) {
     });
   }else{
 
-console.log('else '+hash);
+
+
+ 
+
+  }
+    // history.replaceState(null, null, ' ');
+  
+    //  $('#tabTrack li').each(function() {
+    //   $(this).removeClass('active');
+    // });
+    // $('#body div').each(function() {
+    //   $(this).removeClass('active');
+    // });
+
+});
+
+  </script>
+
+
+    <script type="text/javascript">
+      
+       
+
+  var hash = window.location.hash;
+   
+  if (hash != "") {
+    
+    $('#tabTrack a').each(function() {
+      $(this).removeClass('active');
+    });
+    $('#body div').each(function() {
+      $(this).removeClass('active');
+    });
+    
+    var link = "";
+    $('#tabTrack li').each(function() {
+      link = $(this).find('a').attr('href');
+      if (link == hash) {
+        $(this).addClass('active');
+      }
+    });
+    $('#body div').each(function() {
+      link = $(this).attr('id');
+      if ('#'+link == hash) {
+        $(this).addClass('active');
+      }
+    });
+  }else{
+
+
 
  
 
