@@ -258,7 +258,7 @@ switch(true) {
   $check_query_itag = "SELECT itag FROM itag_rank
   WHERE itag = '$tagName'  LIMIT 1";
 
-  $result = pg_query($db, $user_query_itag);
+  $result = pg_query($db, $check_query_itag);
 
 
   if (pg_num_rows($result) >0) {
