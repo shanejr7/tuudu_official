@@ -26,7 +26,8 @@ session_start();
 
  //  $response = proxyRequest();
  //  print_r($response);
- 
+
+
 
 //set up temp ID for new users then disgard it after they sign up or timeout
  //change temp id to string if traffic is high
@@ -74,6 +75,7 @@ try{
 // REGISTER USER or BUSINESS USER
 if (isset($_POST['reg_user'])) {
 
+ 
   // receive all input values from the form
   $username = pg_escape_string($db, $_POST['username']);
   $email = pg_escape_string($db, $_POST['email']);
@@ -144,6 +146,39 @@ if (isset($_POST['reg_user'])) {
   
     
   $_SESSION['success'] = "You are now logged in";
+
+  // itag season generator analysis
+
+    
+    $today = new DateTime();
+    $season = "";
+
+  // get the season dates + shift dates to weather
+
+    $spring = new DateTime('March 20');
+    $summer = new DateTime('June 20');
+    $fall = new DateTime('September 22');
+    $winter = new DateTime('December 21');
+
+switch(true) {
+    case $today == $spring && $today < $summer:
+        $season = "spring";
+        break;
+
+    case $today == $summer && $today < $fall:
+        $season = "summer";
+        break;
+
+    case $today == $fall && $today < $winter:
+        $season = "fall";
+        break;
+
+    default:
+        $season = "winter";
+}
+ 
+ $query = "UPDATE public.itag_rank SET season = $season";
+    pg_query($db, $query);
 
   $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
 
@@ -565,7 +600,6 @@ if (isset($_POST['reg_user'])) {
 
 
 if (isset($_POST['login_user'])) {
-
  
 
   $email = pg_escape_string($db, $_POST['email']);
@@ -640,6 +674,40 @@ header('location: dashboard.php');
   		array_push($errors, "Wrong username/password combination");
   	}
   }
+
+  // itag season generator analysis
+
+    
+    $today = new DateTime();
+    $season = "";
+
+  // get the season dates + shift dates to weather
+
+    $spring = new DateTime('March 20');
+    $summer = new DateTime('June 20');
+    $fall = new DateTime('September 22');
+    $winter = new DateTime('December 21');
+
+switch(true) {
+    case $today == $spring && $today < $summer:
+        $season = "spring";
+        break;
+
+    case $today == $summer && $today < $fall:
+        $season = "summer";
+        break;
+
+    case $today == $fall && $today < $winter:
+        $season = "fall";
+        break;
+
+    default:
+        $season = "winter";
+}
+ 
+ $query = "UPDATE public.itag_rank SET season = $season";
+    pg_query($db, $query);
+
   pg_close($db);
 }
  
@@ -1110,6 +1178,38 @@ header('location: dashboard.php');
      array_push($errors, "email doesn't exists");
   } 
   
+  // itag season generator analysis
+
+    
+    $today = new DateTime();
+    $season = "";
+
+  // get the season dates + shift dates to weather
+
+    $spring = new DateTime('March 20');
+    $summer = new DateTime('June 20');
+    $fall = new DateTime('September 22');
+    $winter = new DateTime('December 21');
+
+switch(true) {
+    case $today == $spring && $today < $summer:
+        $season = "spring";
+        break;
+
+    case $today == $summer && $today < $fall:
+        $season = "summer";
+        break;
+
+    case $today == $fall && $today < $winter:
+        $season = "fall";
+        break;
+
+    default:
+        $season = "winter";
+}
+ 
+ $query = "UPDATE public.itag_rank SET season = $season";
+    pg_query($db, $query);
  
    pg_close($db);
 }
@@ -1156,7 +1256,38 @@ if (isset($_POST['reset_password'])) {
   }
   
   
+// itag season generator analysis
 
+    
+    $today = new DateTime();
+    $season = "";
+
+  // get the season dates + shift dates to weather
+
+    $spring = new DateTime('March 20');
+    $summer = new DateTime('June 20');
+    $fall = new DateTime('September 22');
+    $winter = new DateTime('December 21');
+
+switch(true) {
+    case $today == $spring && $today < $summer:
+        $season = "spring";
+        break;
+
+    case $today == $summer && $today < $fall:
+        $season = "summer";
+        break;
+
+    case $today == $fall && $today < $winter:
+        $season = "fall";
+        break;
+
+    default:
+        $season = "winter";
+}
+ 
+ $query = "UPDATE public.itag_rank SET season = $season";
+    pg_query($db, $query);
 
    pg_close($db);
 }
@@ -1598,7 +1729,40 @@ if (isset($_POST['contactUs'])) {
  
     }
   
+// itag season generator analysis
 
+    
+    $today = new DateTime();
+    $season = "";
+
+  // get the season dates + shift dates to weather
+
+    $spring = new DateTime('March 20');
+    $summer = new DateTime('June 20');
+    $fall = new DateTime('September 22');
+    $winter = new DateTime('December 21');
+
+switch(true) {
+    case $today == $spring && $today < $summer:
+        $season = "spring";
+        break;
+
+    case $today == $summer && $today < $fall:
+        $season = "summer";
+        break;
+
+    case $today == $fall && $today < $winter:
+        $season = "fall";
+        break;
+
+    default:
+        $season = "winter";
+}
+ 
+ $query = "UPDATE public.itag_rank SET season = $season";
+    pg_query($db, $query);
+
+    pg_close($db);
 
 }
  
