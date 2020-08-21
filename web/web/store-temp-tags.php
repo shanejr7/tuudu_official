@@ -268,7 +268,7 @@ switch(true) {
 
   }else{
 
-    $query = " INSERT INTO public.itag_rank(itag, season, views) VALUES (trim('$tagName'), '$season', 0)";
+    $query = " INSERT INTO public.itag_rank(itag, season, views) VALUES (trim('$tagName'), '$season', 1)";
     pg_query($db, $query);
 
   }

@@ -244,7 +244,7 @@ echo '<script>
 
           }else{
 
-
+                        $settings_check_mark = pg_fetch_assoc($resulted);
 
 
                  echo ' <li class="dropdown nav-item">
@@ -256,7 +256,7 @@ echo '<script>
                         <h6 class="dropdown-header">Select interest</h6>
     
                         <a href="feed_state.php?word_tag=music" class="dropdown-item">Music';
-                          if (isset($settings_check_mark) && trim($settings_check_mark['music']) =='1') {
+                          if (isset($settings_check_mark) && $settings_check_mark['state'] == 1) {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
 
@@ -264,7 +264,7 @@ echo '<script>
                       echo'</a>
                           <div class="dropdown-divider"></div>
                         <a href="feed_state.php?word_tag=fashion" class="dropdown-item">Fashion';
-                          if (isset($settings_check_mark) && trim($settings_check_mark['fashion']) =='1') {
+                          if (isset($settings_check_mark) && $settings_check_mark['state'] == 1) {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
 
@@ -272,14 +272,14 @@ echo '<script>
                         echo'</a>
                           <div class="dropdown-divider"></div>
                         <a href="feed_state.php?word_tag=art" class="dropdown-item">Art';
-                          if (isset($settings_check_mark) && trim($settings_check_mark['art']) =='1') {
+                          if (isset($settings_check_mark) && $settings_check_mark['state'] == 1) {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
                         }
                           
                         echo'</a>
                           <div class="dropdown-divider"></div>
-                        <a href="feed_state.php?word_tag=sports" class="dropdown-item">Sports';          if (isset($settings_check_mark) && trim($settings_check_mark['sports']) =='1') {
+                        <a href="feed_state.php?word_tag=sports" class="dropdown-item">Sports';          if (isset($settings_check_mark) && $settings_check_mark['state'] == 1) {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
 
@@ -287,7 +287,7 @@ echo '<script>
                         echo'</a>
                           <div class="dropdown-divider"></div>
                         <a href="feed_state.php?word_tag=festivals" class="dropdown-item">Festivals';
-                            if (isset($settings_check_mark) && trim($settings_check_mark['festivals']) =='1') {
+                            if (isset($settings_check_mark) && $settings_check_mark['state'] == 1) {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
 
@@ -295,7 +295,7 @@ echo '<script>
                         echo '</a>
                         <div class="dropdown-divider"></div>
                         <a href="feed_state.php?word_tag=food" class="dropdown-item">Food';
-                          if (isset($settings_check_mark) && trim($settings_check_mark['food']) =='1') {
+                          if (isset($settings_check_mark) && $settings_check_mark['state'] == 1) {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
 
@@ -303,7 +303,7 @@ echo '<script>
                         echo'</a>
                         <div class="dropdown-divider"></div>
                         <a href="feed_state.php?word_tag=outdoor" class="dropdown-item">Outdoors';
-                          if (isset($settings_check_mark) && trim($settings_check_mark['outdoor']) =='1') {
+                          if (isset($settings_check_mark) && $settings_check_mark['state'] == 1) {
                           echo '<i class="material-icons" style="font-size: 12pt">check</i>';
                         }else{
 

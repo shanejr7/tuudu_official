@@ -11,8 +11,8 @@ include("server.php");
 if (isset($_SESSION['id'])) {
 
     $id =  $_SESSION['id'];
-    $settings_check_mark = array("music" => "0","fashion" => "0","art" => "0",
-      "sports" => "0","festivals" => "0","food" => "0","outdoor" => "0");
+    // $settings_check_mark = array("music" => "0","fashion" => "0","art" => "0",
+    //   "sports" => "0","festivals" => "0","food" => "0","outdoor" => "0");
 
     $keys = array_keys($settings_check_mark);
 
@@ -54,17 +54,17 @@ if (isset($_SESSION['id'])) {
                       $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"]);
  
 
-                      // checking for prefered interest selected
-                      for ($i=0; $i <sizeof($keys); $i++) { 
+                      // // checking for prefered interest selected
+                      // for ($i=0; $i <sizeof($keys); $i++) { 
                         
-                        if(strpos(trim($row['word_tag']),trim($keys[$i]."_"))!==false){
+                      //   if(strpos(trim($row['word_tag']),trim($keys[$i]."_"))!==false){
                           
-                        $settings_check_mark[$keys[$i]] = "1";
+                      //   $settings_check_mark[$keys[$i]] = "1";
                        
                         
-                      }
+                      // }
 
-                      }
+                      // }
                        
                     }
                   
