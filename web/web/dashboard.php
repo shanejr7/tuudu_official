@@ -981,7 +981,7 @@ if (isset($stories_list)) {
   </script> -->
 
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
       
        
 
@@ -1017,7 +1017,7 @@ if (isset($stories_list)) {
 
   }
 
-    </script>
+    </script> -->
 
  
     <script type="text/javascript">
