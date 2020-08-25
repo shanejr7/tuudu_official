@@ -345,6 +345,7 @@ echo '<h3 class="title">Add Event Tags</h3>
  $userid = $_SESSION['id'];
  $publickey = $_SESSION['publicKey'];
  $event_type = $_SESSION['event_type'];
+ $_SESSION['tags'] = "";
 
 if(isset($_POST['word_tags'])) {
 
@@ -367,7 +368,7 @@ if(isset($_POST['word_tags'])) {
               
               $itag_rank = pg_fetch_assoc($result);
 
-              if (pg_num_rows($itag_rank <= 0)) {
+              if (pg_num_rows($itag_rank) <= 0) {
                 
                    pg_query($db, "INSERT INTO public.itag_rank (itag,views) 
                     VALUES(trim('$tvar[$i]'),0");
@@ -533,7 +534,7 @@ $destination = $key;
               
               $itag_rank = pg_fetch_assoc($result);
 
-              if (pg_num_rows($itag_rank <= 0)) {
+              if (pg_num_rows($itag_rank) <= 0) {
                 
                    pg_query($db, "INSERT INTO public.itag_rank (itag,views) 
                     VALUES(trim('$tvar[$i]'),0");
@@ -835,7 +836,7 @@ $seasonTag = getSeason($tagDate);
               
               $itag_rank = pg_fetch_assoc($result);
 
-              if (pg_num_rows($itag_rank >0)) {
+              if (pg_num_rows($itag_rank)>0) {
                 
                    pg_query($db, "UPDATE public.itag_rank SET itag_season =trim('$seasonTag'), season = trim('$season') 
                     WHERE itag = trim('$tvar[$i]')");
