@@ -355,7 +355,25 @@ if(isset($_POST['word_tags'])) {
  $word_tags = str_replace(" ","/",trim($word_tags));
  $word_tags = '/'. $word_tags;
  $word_tags = strtolower($word_tags);
- $word_tag = $event_type.'_'.$word_tags;  
+ $word_tag = $event_type.'_'.$word_tags;
+ $_SESSION['tags'] .= $word_tags; 
+ $tvar = explode('/', $_SESSION['tags']);
+
+
+          for ($i=0; $i <sizeof($tvar) ; $i++) { 
+        
+          
+            $result = pg_query($db, "SELECT * FROM itag_rank WHERE itag=trim('$tvar[$i]') LIMIT 1");
+              
+              $itag_rank = pg_fetch_assoc($result);
+
+              if (pg_num_rows($itag_rank <= 0)) {
+                
+                   pg_query($db, "INSERT INTO public.itag_rank (itag,views) 
+                    VALUES(trim('$tvar[$i]'),0");
+
+              }
+            } 
  
 
           // create instance dont split sentences only words//
@@ -504,7 +522,7 @@ $destination = $key;
           $word_tags.= trim($description).'/';
           $word_tags.= trim($content).'/';
           $word_tags = strtolower($word_tags);
-          $_SESSION['tags'] = $word_tags;
+          $_SESSION['tags'] .= $word_tags;
           $tvar = explode('/', $_SESSION['tags']);
 
 
