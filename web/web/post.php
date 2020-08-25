@@ -819,7 +819,7 @@ $seasonTag = getSeason($tagDate);
 
               if (pg_num_rows($itag_rank >0)) {
                 
-                   pg_query($db, "UPDATE public.itag_rank SET itag_season =$seasonTag, season = $season 
+                   pg_query($db, "UPDATE public.itag_rank SET itag_season =trim('$seasonTag'), season = trim('$season') 
                     WHERE itag = trim('$tvar[$i]')");
 
               }

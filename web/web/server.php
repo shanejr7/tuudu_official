@@ -177,7 +177,7 @@ switch(true) {
         $season = "winter";
 }
  
- $query = "UPDATE public.itag_rank SET season = $season";
+ $query = "UPDATE public.itag_rank SET season = trim('$season')";
     pg_query($db, $query);
 
   $mgClient = Mailgun::create('3c3cf6e0e1734cfbcd9fbf8f1fd6d011-e470a504-8d00075c'); // For US servers
@@ -705,7 +705,7 @@ switch(true) {
         $season = "winter";
 }
  
- $query = "UPDATE public.itag_rank SET season = $season";
+ $query = "UPDATE public.itag_rank SET season = trim('$season')";
     pg_query($db, $query);
 
   pg_close($db);
@@ -1208,7 +1208,7 @@ switch(true) {
         $season = "winter";
 }
  
- $query = "UPDATE public.itag_rank SET season = $season";
+ $query = "UPDATE public.itag_rank SET season = trim('$season')";
     pg_query($db, $query);
  
    pg_close($db);
@@ -1286,7 +1286,7 @@ switch(true) {
         $season = "winter";
 }
  
- $query = "UPDATE public.itag_rank SET season = $season";
+ $query = "UPDATE public.itag_rank SET season = trim('$season')";
     pg_query($db, $query);
 
    pg_close($db);
@@ -1759,7 +1759,7 @@ switch(true) {
         $season = "winter";
 }
  
- $query = "UPDATE public.itag_rank SET season = $season";
+ $query = "UPDATE public.itag_rank SET season = trim('$season')";
     pg_query($db, $query);
 
     pg_close($db);
