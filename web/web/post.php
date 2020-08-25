@@ -503,20 +503,46 @@ $destination = $key;
           $word_tags.= trim($event_title).'/';
           $word_tags.= trim($description).'/';
           $word_tags.= trim($content).'/';
+          $word_tags = strtolower($word_tags);
+          $_SESSION['tags'] = $word_tags;
+          $tvar = explode('/', $_SESSION['tags'])
 
-          // create instance dont split sentences only words//
+
+          for ($i=0; $i <sizeof($tvar) ; $i++) { 
+        
+          
+            $result = pg_query($db, "SELECT * FROM itag_rank WHERE itag=trim('$tvar[$i]') LIMIT 1");
+              
+              $itag_rank = pg_fetch_assoc($result);
+
+              if (pg_num_rows($itag_rank <= 0)) {
+                
+                   pg_query($db, "INSERT INTO public.itag_rank (itag,views) 
+                    VALUES(trim('$tvar[$i]'),0");
+
+              }
+            }
+
+          // proper noun class to select special nouns used for tags
+
           $pn = new proper_nouns(); 
 
-          //get array with proper nouns 
+          // get array with proper nouns from text used for tags
+
           $arr = $pn->get($word_tags);
 
           $word_tags = "";
 
+
           for ($i=0; $i <sizeof($arr) ; $i++) { 
             
               $word_tags.='/'.$arr[$i];
+
           
           }
+
+
+
           $word_tags = strtolower($word_tags);
           $word_tags = str_replace(" ","/",trim($word_tags));
 
@@ -599,7 +625,7 @@ $_SESSION['name'] = $name;
 
  if (count($errors)==0) {
   // Create connection
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
 $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
@@ -704,7 +730,7 @@ pg_close($db);
  
  if (isset($_POST['startTime'])) {
     // Create connection
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
 $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
@@ -729,13 +755,76 @@ $O = explode("-", $timezone[5]);
 $startTime = date("H:i:s", strtotime($startTime)).''.date("O", strtotime($O[1])); 
   
 
-
+$tagDate = date_format($date,"M d");;
 $date = date("Y-m-d", strtotime($date)).' '.$startTime;
 
  
-  
+
 // update user image
  pg_query($db,"UPDATE public.organization SET date ='$date', time = '$time' WHERE id= $userid AND publickey = '$publickey'");
+
+  // itag season generator analysis
+
+    
+    $today = new DateTime();
+    $season = "";
+    $seasonTag ="";
+
+
+
+function getSeason($today){
+
+
+    // get the season dates + shift dates to weather
+
+    $spring = new DateTime('March 20');
+    $summer = new DateTime('June 20');
+    $fall = new DateTime('September 22');
+    $winter = new DateTime('December 21');
+
+switch(true) {
+    case $today == $spring && $today < $summer:
+        return $season = "spring";
+        break;
+
+    case $today == $summer && $today < $fall:
+        return $season = "summer";
+        break;
+
+    case $today == $fall && $today < $winter:
+        return $season = "fall";
+        break;
+
+    default:
+        return $season = "winter";
+}
+
+}
+
+
+$season = getSeason($today);
+$seasonTag = getSeason($tagDate);
+
+ // set seasons for selected tags
+
+     $tvar = explode('/', $_SESSION['tags'])
+
+
+          for ($i=0; $i <sizeof($tvar) ; $i++) { 
+        
+          
+            $result = pg_query($db, "SELECT * FROM itag_rank WHERE itag=trim('$tvar[$i]') LIMIT 1");
+              
+              $itag_rank = pg_fetch_assoc($result);
+
+              if (pg_num_rows($itag_rank >0)) {
+                
+                   pg_query($db, "UPDATE public.itag_rank SET itag_season =$seasonTag, season = $season 
+                    WHERE itag = trim('$tvar[$i]')");
+
+              }
+            }
+
  
 
 pg_close($db);
@@ -874,6 +963,8 @@ unset($_SESSION['content']);
 unset($_SESSION['description']);
 unset($_SESSION['publicKey']);
 unset($_SESSION['event_type']);
+unset($_SESSION['name']);
+unset($_SESSION['tags']);
 
  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
  $randomString = ''; 
