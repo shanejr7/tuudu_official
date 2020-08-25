@@ -361,6 +361,15 @@ if(isset($_POST['word_tags'])) {
  $tvar = explode('/', $_SESSION['tags']);
 
 
+ // Create connection
+$db = pg_connect(getenv("DATABASE_URL"));
+// Check connection
+if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
+
+
           for ($i=0; $i <sizeof($tvar) ; $i++) { 
         
           
@@ -395,13 +404,7 @@ if(isset($_POST['word_tags'])) {
           $word_tags = str_replace(" ","/",trim($word_tags));
     
  
- // Create connection
-$db = pg_connect(getenv("DATABASE_URL"));
-// Check connection
-if (!$db) {
-     die("Connection failed: " . pg_connect_error());
-     header('location:oops.php');
-}
+ 
 
 // update user image
  pg_query($db,"UPDATE public.organization SET word_tag ='$word_tag' WHERE id= $userid AND publickey = '$publickey'");
