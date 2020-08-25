@@ -380,7 +380,7 @@ if (!$db) {
               if (pg_num_rows($itag_rank) <= 0) {
                 
                    pg_query($db, "INSERT INTO public.itag_rank (itag,views) 
-                    VALUES(trim('$tvar[$i]'),0");
+                    VALUES(trim('$tvar[$i]'),0)");
 
               }
             } 
@@ -540,7 +540,7 @@ $destination = $key;
               if (pg_num_rows($itag_rank) <= 0) {
                 
                    pg_query($db, "INSERT INTO public.itag_rank (itag,views) 
-                    VALUES(trim('$tvar[$i]'),0");
+                    VALUES(trim('$tvar[$i]'),0)");
 
               }
             }
