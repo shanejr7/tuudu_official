@@ -3,11 +3,6 @@
 // later add first and last name
 session_start();
 
-$_SESSION['t'] .= 'q';
-
-$_SESSION['t'].='a';
-
-echo $_SESSION['t'];
 
  include 'local_distance.php';
 
