@@ -358,7 +358,7 @@ if(isset($_POST['word_tags'])) {
  $word_tags = strtolower($word_tags);
  $word_tag = $event_type.'_'.$word_tags;
  $_SESSION['tags'] .= $word_tags; 
- $tvar = explode('/', $_SESSION['tags']);
+ $tvar = explode('/', trim($_SESSION['tags']));
 
 
  // Create connection

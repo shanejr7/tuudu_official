@@ -236,15 +236,15 @@ if (isset($_GET['valName']) && isset($_SESSION["id"]) && isset($_GET['page'])) {
     $winter = new DateTime('December 21');
 
 switch(true) {
-    case $today >= $spring && $today < $summer:
+    case ($today <= $spring || $today >= $spring) && $today < $summer && $today < $fall && $today < $winter:
         $season = "spring";
         break;
 
-    case $today >= $summer && $today < $fall:
+    case ($today <= $summer || $today >= $summer) && $today > $spring &&  $today < $fall && $today < $winter:
         $season = "summer";
         break;
 
-    case $today >= $fall && $today < $winter:
+    case ($today <= $fall || $today >= $fall) && $today > $spring && $today > $summer && $today < $winter:
         $season = "fall";
         break;
 

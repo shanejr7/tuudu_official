@@ -163,15 +163,15 @@ if (isset($_POST['reg_user'])) {
     $winter = new DateTime('December 21');
 
 switch(true) {
-    case $today == $spring && $today < $summer:
+    case ($today <= $spring || $today >= $spring) && $today < $summer && $today < $fall && $today < $winter:
         $season = "spring";
         break;
 
-    case $today == $summer && $today < $fall:
+    case ($today <= $summer || $today >= $summer) && $today > $spring &&  $today < $fall && $today < $winter:
         $season = "summer";
         break;
 
-    case $today == $fall && $today < $winter:
+    case ($today <= $fall || $today >= $fall) && $today > $spring && $today > $summer && $today < $winter:
         $season = "fall";
         break;
 
@@ -691,15 +691,15 @@ header('location: dashboard.php');
     $winter = new DateTime('December 21');
 
 switch(true) {
-    case $today == $spring && $today < $summer:
+    case ($today <= $spring || $today >= $spring) && $today < $summer && $today < $fall && $today < $winter:
         $season = "spring";
         break;
 
-    case $today == $summer && $today < $fall:
+    case ($today <= $summer || $today >= $summer) && $today > $spring &&  $today < $fall && $today < $winter:
         $season = "summer";
         break;
 
-    case $today == $fall && $today < $winter:
+    case ($today <= $fall || $today >= $fall) && $today > $spring && $today > $summer && $today < $winter:
         $season = "fall";
         break;
 
@@ -1194,15 +1194,15 @@ switch(true) {
     $winter = new DateTime('December 21');
 
 switch(true) {
-    case $today == $spring && $today < $summer:
+    case ($today <= $spring || $today >= $spring) && $today < $summer && $today < $fall && $today < $winter:
         $season = "spring";
         break;
 
-    case $today == $summer && $today < $fall:
+    case ($today <= $summer || $today >= $summer) && $today > $spring &&  $today < $fall && $today < $winter:
         $season = "summer";
         break;
 
-    case $today == $fall && $today < $winter:
+    case ($today <= $fall || $today >= $fall) && $today > $spring && $today > $summer && $today < $winter:
         $season = "fall";
         break;
 
@@ -1272,15 +1272,15 @@ if (isset($_POST['reset_password'])) {
     $winter = new DateTime('December 21');
 
 switch(true) {
-    case $today == $spring && $today < $summer:
+    case ($today <= $spring || $today >= $spring) && $today < $summer && $today < $fall && $today < $winter:
         $season = "spring";
         break;
 
-    case $today == $summer && $today < $fall:
+    case ($today <= $summer || $today >= $summer) && $today > $spring &&  $today < $fall && $today < $winter:
         $season = "summer";
         break;
 
-    case $today == $fall && $today < $winter:
+    case ($today <= $fall || $today >= $fall) && $today > $spring && $today > $summer && $today < $winter:
         $season = "fall";
         break;
 
@@ -1745,15 +1745,15 @@ if (isset($_POST['contactUs'])) {
     $winter = new DateTime('December 21');
 
 switch(true) {
-    case $today == $spring && $today < $summer:
+    case ($today <= $spring || $today >= $spring) && $today < $summer && $today < $fall && $today < $winter:
         $season = "spring";
         break;
 
-    case $today == $summer && $today < $fall:
+    case ($today <= $summer || $today >= $summer) && $today > $spring &&  $today < $fall && $today < $winter:
         $season = "summer";
         break;
 
-    case $today == $fall && $today < $winter:
+    case ($today <= $fall || $today >= $fall) && $today > $spring && $today > $summer && $today < $winter:
         $season = "fall";
         break;
 
