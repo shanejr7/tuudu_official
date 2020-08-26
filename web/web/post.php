@@ -353,7 +353,7 @@ if(isset($_POST['word_tags'])) {
  $word_tags = "";
  $word_tags =  filter_var($_POST['word_tags'], FILTER_SANITIZE_STRING);  
  $word_tags = preg_replace('/[^A-Za-z0-9\-]/', ' ', $word_tags);
- $word_tags = str_replace(" ","/",trim($word_tags));
+ // $word_tags = str_replace(" ","/",trim($word_tags));
  $word_tags = '/'. $word_tags;
  $word_tags = strtolower($word_tags);
  $word_tag = $event_type.'_'.$word_tags;
@@ -805,15 +805,15 @@ function getSeason($today){
     $winter = new DateTime('December 21');
 
 switch(true) {
-    case $today == $spring && $today < $summer:
+    case ($today =< $spring || $today >=$spring) && $today < $summer && $today < $fall && $today < $winter:
         return $season = "spring";
         break;
 
-    case $today == $summer && $today < $fall:
+    case ($today =< $summer || $today >= $summer) && $today > $spring &&  $today < $fall && $today < $winter:
         return $season = "summer";
         break;
 
-    case $today == $fall && $today < $winter:
+    case ($today =< $fall || $today >= $fall) && $today > $spring && $today > $summer && $today < $winter:
         return $season = "fall";
         break;
 
