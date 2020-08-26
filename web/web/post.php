@@ -805,15 +805,15 @@ function getSeason($today){
     $winter = new DateTime('December 21');
 
 switch(true) {
-    case ($today =< $spring || $today >=$spring) && $today < $summer && $today < $fall && $today < $winter:
+    case ($today <= $spring || $today >= $spring) && $today < $summer && $today < $fall && $today < $winter:
         return $season = "spring";
         break;
 
-    case ($today =< $summer || $today >= $summer) && $today > $spring &&  $today < $fall && $today < $winter:
+    case ($today <= $summer || $today >= $summer) && $today > $spring &&  $today < $fall && $today < $winter:
         return $season = "summer";
         break;
 
-    case ($today =< $fall || $today >= $fall) && $today > $spring && $today > $summer && $today < $winter:
+    case ($today <= $fall || $today >= $fall) && $today > $spring && $today > $summer && $today < $winter:
         return $season = "fall";
         break;
 
