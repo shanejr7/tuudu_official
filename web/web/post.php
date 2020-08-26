@@ -377,7 +377,7 @@ if (!$db) {
               
               $itag_rank = pg_fetch_assoc($result);
 
-              if (pg_num_rows($itag_rank) <= 0) {
+              if (pg_num_rows($result) <= 0) {
                 
                    pg_query($db, "INSERT INTO public.itag_rank (itag,views) 
                     VALUES(trim('$tvar[$i]'),0)");
@@ -537,7 +537,7 @@ $destination = $key;
               
               $itag_rank = pg_fetch_assoc($result);
 
-              if (pg_num_rows($itag_rank) <= 0) {
+              if (pg_num_rows($result) <= 0) {
                 
                    pg_query($db, "INSERT INTO public.itag_rank (itag,views) 
                     VALUES(trim('$tvar[$i]'),0)");
@@ -839,7 +839,7 @@ $seasonTag = getSeason($tagDate);
               
               $itag_rank = pg_fetch_assoc($result);
 
-              if (pg_num_rows($itag_rank)>0) {
+              if (pg_num_rows($result)>0) {
                 
                    pg_query($db, "UPDATE public.itag_rank SET itag_season =trim('$seasonTag'), season = trim('$season') 
                     WHERE itag = trim('$tvar[$i]')");
