@@ -880,6 +880,7 @@ pg_close($db);
  
 $userid = $_SESSION['id'];
 $publickey = $_SESSION['publicKey'];
+$event_type = trim($_SESSION['event_type']);
 if(isset($_POST['page'])) {
 
 if (isset($_POST['url'])) {
@@ -894,7 +895,6 @@ $adress = preg_replace('/[^A-Za-z0-9\-]/', '', $address);
 
  if (count($errors) == 0){
 // Create connection
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
 $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
@@ -914,7 +914,7 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
 
                     <form method="post" action="post.php"  style="display:inline-block">
 
-                     <input type="hidden" name="timezone" value="" id="timezone">
+                     <input type="hidden" name="e_type" value="'.$event_type.'">
 
 
                       <div class="form-group row">

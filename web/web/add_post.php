@@ -28,7 +28,7 @@ $paymentType =filter_var($_POST['paymentType'], FILTER_SANITIZE_STRING); // valu
  
 $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); // value of block
  
-    $timezone = pg_escape_string($db, $_POST['timezone']);
+    $eventType = pg_escape_string($db, $_POST['e_type']);
   
  
     $paymentType = strtoupper(trim($paymentType));
@@ -50,6 +50,8 @@ $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); 
 
       pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
   VALUES($userid,'$publickey',0,NULL)");
+
+      pg_query($db, "UPDATE public.word_tag SET post_amt =post_amt + 1 WHERE event_type = 'eventType' ");
  
 
 
@@ -74,7 +76,7 @@ if (!$db) {
 $privateKey =filter_var('null', FILTER_SANITIZE_STRING); // secret key payment for block
 $privateKey = ltrim($privateKey," ");
 $fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of block
-$timezone = pg_escape_string($db, $_POST['timezone']);
+$eventType = pg_escape_string($db, $_POST['e_type']);
   
 
   
@@ -83,6 +85,8 @@ $timezone = pg_escape_string($db, $_POST['timezone']);
 
     pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
   VALUES($userid,'$publickey',0,NULL)");
+
+     pg_query($db, "UPDATE public.word_tag SET post_amt =post_amt + 1 WHERE event_type = 'eventType'");
 
                
  header('location: dashboard.php');
