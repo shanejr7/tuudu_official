@@ -527,7 +527,7 @@ $destination = $key;
           $word_tags.= trim($content).'/';
           $word_tags = strtolower($word_tags);
           $_SESSION['tags'] .= $word_tags;
-          $tvar = explode('/', $_SESSION['tags']);
+          $tvar = explode('/', trim($_SESSION['tags']));
 
 
           for ($i=0; $i <sizeof($tvar) ; $i++) { 
