@@ -227,7 +227,7 @@ pg_close($conn);
 
                       echo '<div class="col-md-8"><h2 class="title"> ';
 
-                      echo strtoupper($ticket_name[0]).' TICKET</h2><h9>'.$order_list[0]["title"].'</h9>';
+                      echo strtoupper($ticket_name[0]).' ORDER</h2><h9>'.$order_list[0]["title"].'</h9>';
                       echo '</div>';
 
 
@@ -289,7 +289,6 @@ echo '</div></from></div>';
 
  if (isset($_SESSION['id']) && isset($_POST['schedule']) && isset($_POST["paid_event"]) ) {
 
-   //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
    $db = pg_connect(getenv("DATABASE_URL"));
    // Check connection
     if (!$db) {
