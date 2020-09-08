@@ -61,7 +61,7 @@ if (isset($_GET['valType']) && isset($_SESSION["id"])) {
 }
 
 
-// uses user input search to find itag in data base *home page search button*
+// uses user input search to find itag in data base *home page search button
 
 if (isset($_POST['search']) && isset($_SESSION["id"])) {
  
