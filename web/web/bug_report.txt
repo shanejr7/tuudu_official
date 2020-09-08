@@ -16,8 +16,6 @@ important bug: <line 490> uses proper_nouns.php dont split sentence '/' only wor
 
 important fix: continue to convert to AJAX for better quality and performance where users interact on the platform. 
 
-$ add-on: add season count for tags.
-
 $$$$ add-on: create post amount for creating a post + sold out.
 
 $ add-on: view user profile.

@@ -262,14 +262,59 @@ switch(true) {
 
 
   if (pg_num_rows($result) >0) {
-    
-     $query = "UPDATE public.itag_rank SET season =trim('$season'), views = views + 1 WHERE itag = '$tagName'";
+
+
+     if (trim($season)=='spring') {
+     
+         $query = "UPDATE public.itag_rank SET season =trim('$season'), views = views + 1, spring_count = spring_count + 1 WHERE itag = '$tagName'";
      pg_query($db, $query);
+
+
+    }elseif (trim($season)=='summer') {
+      
+          $query = "UPDATE public.itag_rank SET season =trim('$season'), views = views + 1, summer_count = summer_count + 1 WHERE itag = '$tagName'";
+     pg_query($db, $query);
+
+    }elseif (trim($season)=='fall') {
+      
+          $query = "UPDATE public.itag_rank SET season =trim('$season'), views = views + 1, fall_count = fall_count + 1 WHERE itag = '$tagName'";
+     pg_query($db, $query);
+
+    }elseif (trim($season)=='winter') {
+      
+     
+          $query = "UPDATE public.itag_rank SET season =trim('$season'), views = views + 1, winter_count = winter_count + 1 WHERE itag = '$tagName'";
+     pg_query($db, $query);
+
+    }
+    
+     
 
   }else{
 
-    $query = " INSERT INTO public.itag_rank(itag, season, views) VALUES (trim('$tagName'), trim('$season'), 1)";
+    if (trim($season)=='spring') {
+      
+      $query = " INSERT INTO public.itag_rank(itag, season, views, spring_count, summer_count, fall_count, winter_count) VALUES (trim('$tagName'), trim('$season'), 1,1,0,0,0)";
     pg_query($db, $query);
+
+
+    }elseif (trim($season)=='summer') {
+      
+      $query = " INSERT INTO public.itag_rank(itag, season, views, spring_count, summer_count, fall_count, winter_count) VALUES (trim('$tagName'), trim('$season'), 1,0,1,0,0)";
+    pg_query($db, $query);
+
+    }elseif (trim($season)=='fall') {
+      
+      $query = " INSERT INTO public.itag_rank(itag, season, views, spring_count, summer_count, fall_count, winter_count) VALUES (trim('$tagName'), trim('$season'), 1,0,0,1,0)";
+    pg_query($db, $query);
+
+    }elseif (trim($season)=='winter') {
+      
+      $query = " INSERT INTO public.itag_rank(itag, season, views, spring_count, summer_count, fall_count, winter_count) VALUES (trim('$tagName'), trim('$season'), 1,0,0,0,1)";
+    pg_query($db, $query);
+
+
+    }
 
   }
 
