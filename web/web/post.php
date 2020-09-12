@@ -1176,7 +1176,7 @@ function select() {
         </button>
       </div>
       <div class="modal-body">
-        <label>payments are received after purchases are made and items are validated with a deduction of 0.5%. Invalid items may be subject to return funds.</label>
+        <label>payments are received after purchases are made and items are validated with a deduction of 0.7%. Invalid items may be subject to return funds.</label>
  by accepting this agreement and terms with using our services. you agree that all transactions and events are affiliated to independent third-party organizations in which our services only provide data without any association or having liability with third party organizations. accepting these terms our services is allowed to use data of your liking to provide events and or activities you do not agree with our terms and policy then do not register, download, or use our services.
       </div>
       <div class="modal-footer">
