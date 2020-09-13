@@ -1,4 +1,15 @@
 <?php 
+/* DOCS
+
+  *
+  * stores user selected tag into [feedstate]
+  * stores user selected topic tag related to tag into [feedstate]
+  * stores user searched topic tag related to tag into [feedstate]
+  * stores or updates topic tag into [itag_rank]
+  * analysis on views and season on topic tags selected by user
+  *
+  
+*/
 
 include('server.php'); 
 
@@ -222,7 +233,7 @@ if (isset($_GET['valName']) && isset($_SESSION["id"]) && isset($_GET['page'])) {
  
 
 
-  // itag season generator analysis
+  // itag rank season generator analysis
 
     
     $today = new DateTime();

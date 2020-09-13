@@ -1,4 +1,12 @@
 <?php 
+/* DOCS
+
+  *
+  * user interest tags are selected from [word_tag]
+  * store-temp-tags.php -> stores selected tags 
+  *
+
+*/
 include('server.php');
 
 
@@ -10,20 +18,6 @@ if (!isset($_SESSION['username'])) {
  
 
    ?>
-<!--
- =========================================================
- Material Kit PRO - v2.1.1
- =========================================================
-
- Product Page: https://www.creative-tim.com/product/material-kit-pro
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
- Coded by Creative Tim
-
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 
 <!DOCTYPE html>
 <html lang="en">
