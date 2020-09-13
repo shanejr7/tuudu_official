@@ -487,13 +487,13 @@ if (isset($dashboard_list)  ) {
   // shuffle($dashboard_list);
                 
   // column sizes for row 
-  $numberOfColumns = 3;
-    $bootstrapColWidth = 12 / $numberOfColumns ;
+  // $numberOfColumns = 3;
+    // $bootstrapColWidth = 12 / $numberOfColumns ;
 
-    $arrayChunks = array_chunk($dashboard_list, $numberOfColumns);
-    foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($items as $item) {
+    // $arrayChunks = array_chunk($dashboard_list, $numberOfColumns);
+    foreach($dashboard_list as $items) {
+        // echo '<div class="row">';
+        // foreach($items as $item) {
  
   //         if(in_array($item["publickey"], $key)) 
 
@@ -571,8 +571,8 @@ if (isset($dashboard_list)  ) {
           //   // not local
           // }
           
-        }
-        echo '</div>';
+        // }
+        // echo '</div>';
     } 
 
 
