@@ -92,7 +92,7 @@ if (isset($_SESSION['id'])) {
 
      $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url
      FROM organization
-    WHERE word_tag LIKE '%$string[$i]%' AND organization.id not in(select orgid from feedstate WHERE userid = $id and state = 0) AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+    WHERE word_tag LIKE '%$string[$i]%' AND organization.id not in(select userid from feedstate WHERE userid = $id and state = 0) AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
     // loops through rows until there is 0 rows
     if (pg_num_rows($result) > 0) {
