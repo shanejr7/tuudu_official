@@ -486,14 +486,8 @@ if (isset($dashboard_list)  ) {
   // make content dynamic
   // shuffle($dashboard_list);
                 
-  // column sizes for row 
-  // $numberOfColumns = 3;
-    // $bootstrapColWidth = 12 / $numberOfColumns ;
-
-    // $arrayChunks = array_chunk($dashboard_list, $numberOfColumns);
     foreach($dashboard_list as $item) {
-        // echo '<div class="row">';
-        // foreach($items as $item) {
+  
  
   //         if(in_array($item["publickey"], $key)) 
 
@@ -533,11 +527,11 @@ if (isset($dashboard_list)  ) {
                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
                         echo '<div class="top-right h9"> 
-                        <i class="material-icons">strikethrough_s</i></div>';
+                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
 
                         }else{
 
-                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
+                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
                   
                   }
 
