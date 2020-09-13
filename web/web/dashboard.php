@@ -491,7 +491,7 @@ if (isset($dashboard_list)  ) {
     // $bootstrapColWidth = 12 / $numberOfColumns ;
 
     // $arrayChunks = array_chunk($dashboard_list, $numberOfColumns);
-    foreach($dashboard_list as $items) {
+    foreach($dashboard_list as $item) {
         // echo '<div class="row">';
         // foreach($items as $item) {
  
