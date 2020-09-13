@@ -561,11 +561,11 @@ $bucket_name = 'tuudu-official-file-storage';
                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
                         echo '<div class="top-right h9"> 
-                        <i class="material-icons">strikethrough_s</i></div>';
+                        <a href="'.$item['url'].'"><i class="material-icons">strikethrough_s</i></a></div>';
 
                         }else{
 
-                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
+                  echo '<a href="'.$item['url'].'"><div class="top-right h6">$'.trim($item['price']).'</a></div>';
                   
                   }
 
@@ -1063,11 +1063,11 @@ pg_close($db);
                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
                         echo '<div class="top-right h9"> 
-                        <i class="material-icons">strikethrough_s</i></div>';
+                         <a href="'.$item['url'].'"><i class="material-icons">strikethrough_s</i></a></div>';
 
                         }else{
 
-                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
+                  echo ' <a href="'.$item['url'].'"><div class="top-right h6">$'.trim($item['price']).'</a></div>';
                   
                   }
 
