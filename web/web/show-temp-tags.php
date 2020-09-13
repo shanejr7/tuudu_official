@@ -1,5 +1,12 @@
 
 <?php 
+/* DOCS
+
+  *
+  * selected user tags and related topic tags to be selected from [word_tag]
+  *
+  
+*/
 
 include('server.php');
 
