@@ -7,6 +7,7 @@
   * stores user searched topic tag related to tag into [feedstate]
   * stores or updates topic tag into [itag_rank]
   * analysis on views and season on topic tags selected by user
+  * interest.php --> store-temp-tags.php <store user selected tag>
   *
   
 */

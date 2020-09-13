@@ -2,8 +2,9 @@
 <?php 
 /* DOCS
 
-  *
+  * 
   * selected user tags and related topic tags to be selected from [word_tag]
+  *	show-temp-tags.php --> set-up.php <show users selected tag>
   *
   
 */

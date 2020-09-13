@@ -3,7 +3,7 @@
 
   *
   * user interest tags are selected from [word_tag]
-  * store-temp-tags.php -> stores selected tags 
+  * interest.php --> store-temp-tags.php <stores user selected tag>
   *
 
 */
