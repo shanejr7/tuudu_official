@@ -149,7 +149,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 $data.='</div>
               </div>
             </div>';
-            }else if(isset($_SESSION) && $editBool == true){
+            }else if(isset($_SESSION['id']) && $editBool == true){
 
 
                 $userid = $_SESSION['id'];
