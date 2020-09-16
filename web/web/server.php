@@ -1826,13 +1826,13 @@ $local_distance = array();
    $_SESSION["dynamic_location"] = $_COOKIE["dynamic_location"];
  }else if (empty($_COOKIE['dynamic_location'])) {
    // error
-  echo 'Cookie does not exists or is empty e_dynamic';
+  // echo 'Cookie does not exists or is empty e_dynamic';
 }
 
 
  if (isset($_SESSION["dynamic_location"])) {
    $dynamic_cordinates = explode("/",$_SESSION["dynamic_location"]);
-   echo 'user location: '.$dynamic_cordinates[0].' '.$dynamic_cordinates[1];
+   // echo 'user location: '.$dynamic_cordinates[0].' '.$dynamic_cordinates[1];
  }
 
 
@@ -1842,13 +1842,13 @@ $local_distance = array();
     
  }else if (empty($_COOKIE['static_location'])) {
    // error
-  echo 'Cookie does not exists or is empty e_static';
+  // echo 'Cookie does not exists or is empty e_static';
 }
 
 
  if (isset($_SESSION["static_location"])) {
    $static_cordinates = explode("/",$_SESSION["static_location"]);
-  echo 'organization location: '.$static_cordinates[0].' '.$static_cordinates[1];
+  // echo 'organization location: '.$static_cordinates[0].' '.$static_cordinates[1];
   for ($i=0; $i <$static_cordinates[2] ; $i++) { 
 
  
@@ -1857,7 +1857,7 @@ $local_distance = array();
      $bool = getDistance($dynamic_cordinates,$static_cordinates);
      
      if ($bool ==="yes") {
-         echo "string " .$static_cordinates[3];
+         // echo "string " .$static_cordinates[3];
           echo 'local = '.$bool;
        array_push($local_distance,trim($static_cordinates[3]));
      }
