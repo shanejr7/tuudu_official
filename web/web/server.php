@@ -1809,6 +1809,7 @@ switch(true) {
 <body>
 <script type="text/javascript">Sentry.init({ dsn: 'https://3aef67b48f3f4fce8a6f199673e536b7@sentry.io/1840301' });
 </script>
+<script src="../assets/js/custom_js.js"></script>
  
 <?php 
  
