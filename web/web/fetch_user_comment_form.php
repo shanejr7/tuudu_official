@@ -96,7 +96,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                 if (isset($user_post['post_img'])) {
 
-                  $splitFileString = strtok(trim($user_post['post_img'], '.' );
+                  $splitFileString = strtok(trim($user_post['post_img']), '.' );
                   $fileChecker = strtok('');
                   $fileChecker = strtoupper($fileChecker);
                   
