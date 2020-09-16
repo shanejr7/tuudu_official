@@ -58,7 +58,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
 
-				$result = pg_query($db, "SELECT C.id as post_id, C.publickey as post_publickey ,C.email as post_email, C.description as post_description,C.date_submitted as post_submitted,Z.id as user_id, Z.email as user_email, Z.public_key as user_publickey,Z.username as user_username,  Z.profile_pic_src as user_img FROM organization C ,users Z WHERE C.id = $user_id AND Z.id =$user_id AND C.publickey ='$publickey'");
+				$result = pg_query($db, "SELECT C.id as post_id, C.img as post_img, C.publickey as post_publickey ,C.email as post_email, C.description as post_description,C.date_submitted as post_submitted,Z.id as user_id, Z.email as user_email, Z.public_key as user_publickey,Z.username as user_username,  Z.profile_pic_src as user_img FROM organization C ,users Z WHERE C.id = $user_id AND Z.id =$user_id AND C.publickey ='$publickey'");
 
   				
   				$user_post = pg_fetch_assoc($result);
@@ -77,15 +77,15 @@ $bucket_name = 'tuudu-official-file-storage';
                     <a href="#" class="post_account" data-id="'.$user_post['user_id'].'">';
                     	
 
-                $splitFileString = strtok(trim($user_post["user_img"]), '.' );
+                $splitFileString = strtok(trim($user_post["post_img"]), '.' );
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
 
  
 
-                    if (isset($user_post['user_img']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
+                    if (isset($user_post['post_img']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
                  		
-                 		$user_img = trim($user_post['user_img']);
+                 		$user_img = trim($user_post['post_img']);
 
                          $cmd = $s3->getCommand('GetObject', [
                             'Bucket' => ''.$bucket_name.'',
