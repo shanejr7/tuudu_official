@@ -64,12 +64,9 @@ $bucket_name = 'tuudu-official-file-storage';
 				$user_post_id = pg_escape_string($db, $_POST['id']);
 
 
-				$result = pg_query($db, "SELECT username FROM users WHERE id = $user_post_id");
+        $result = pg_query($db, "SELECT C.id as post_id, C.title as post_title, C.img as post_img, C.publickey as post_publickey ,C.email as post_email, C.description as post_description,C.date_submitted as post_submitted,Z.id as user_id, Z.email as user_email, Z.public_key as user_publickey,Z.username as user_username,  Z.profile_pic_src as user_img FROM organization C ,users Z WHERE C.id = $user_post_id AND Z.id =$user_post_id AND C.publickey ='$publickey'");
 
-  				
-  				$user_post = pg_fetch_assoc($result);
-
-
+          $user_post = pg_fetch_assoc($result);
 
  		if (isset($_SESSION['username'])) {
  			$username = $_SESSION['username'];
@@ -97,9 +94,9 @@ $bucket_name = 'tuudu-official-file-storage';
                       $fileChecker = "";
 
 
-                if (isset($_SESSION["img_src"])) {
+                if (isset($user_post['post_img'])) {
 
-                  $splitFileString = strtok(trim($_SESSION["img_src"]), '.' );
+                  $splitFileString = strtok(trim($user_post['post_img'], '.' );
                   $fileChecker = strtok('');
                   $fileChecker = strtoupper($fileChecker);
                   
@@ -108,9 +105,9 @@ $bucket_name = 'tuudu-official-file-storage';
 
                
 
-                if (isset($_SESSION['img_src']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
+                if (isset($user_post['post_img']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
 
-                  $user_img = trim($_SESSION['img_src']);
+                  $user_img = trim($user_post['post_img']);
 
                          $cmd = $s3->getCommand('GetObject', [
                             'Bucket' => ''.$bucket_name.'',
@@ -132,7 +129,7 @@ $bucket_name = 'tuudu-official-file-storage';
               </a>
               <div class="media-body">
                 <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['username'].'\'s post..</label>
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['title'].'\'s post..</label>
                   <div id="cleanPost">
                   <textarea class="form-control" rows="5" value="" id="postText"></textarea>
                   </div>
@@ -168,9 +165,9 @@ $bucket_name = 'tuudu-official-file-storage';
                       $fileChecker = "";
 
 
-                if (isset($_SESSION["img_src"])) {
+                if (isset($user_post['post_img'])) {
 
-                  $splitFileString = strtok(trim($_SESSION["img_src"]), '.' );
+                  $splitFileString = strtok(trim($user_post['post_img']), '.' );
                   $fileChecker = strtok('');
                   $fileChecker = strtoupper($fileChecker);
                   
@@ -178,9 +175,9 @@ $bucket_name = 'tuudu-official-file-storage';
 
                
 
-                if (isset($_SESSION['img_src']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
+                if (isset($user_post['post_img']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
 
-                  $user_img = trim($_SESSION['img_src']);
+                  $user_img = trim($user_post['post_img']);
 
                          $cmd = $s3->getCommand('GetObject', [
                             'Bucket' => ''.$bucket_name.'',
@@ -202,7 +199,7 @@ $bucket_name = 'tuudu-official-file-storage';
               </a>
               <div class="media-body">
                 <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['username'].'\'s post..</label>
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['title'].'\'s post..</label>
                   <div id="cleanPost">
                   <textarea class="form-control" rows="5"  value="" id="postText">'.trim($message).'</textarea>
                   </div>
