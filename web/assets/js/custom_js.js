@@ -1,7 +1,7 @@
  // Creating a cookie after the document is ready 
 
     $(document).ready(function () { 
-
+  console.log('in file');
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
 

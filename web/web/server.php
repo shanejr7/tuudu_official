@@ -1810,6 +1810,27 @@ switch(true) {
 <script type="text/javascript">Sentry.init({ dsn: 'https://3aef67b48f3f4fce8a6f199673e536b7@sentry.io/1840301' });
 </script>
 <script src="../assets/js/custom_js.js"></script>
+
+<script type="text/javascript">
+     $(document).ready(function () { 
+      console.log('in');
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+        function showPosition(position) {
+
+        createCookie("dynamic_location",1, position.coords.latitude,position.coords.longitude, "30","n/a"); 
+    }
+
+      
+    } else { 
+      console.log("Geolocation is not supported by this browser.");
+    }
+
+     
+}); 
+</script>
  
 <?php 
  
