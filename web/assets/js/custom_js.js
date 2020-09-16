@@ -4,10 +4,12 @@
   console.log('in file');
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
-
+  console.log('in file if');
         function showPosition(position) {
+            console.log('in file function');
 
         createCookie("dynamic_location",1, position.coords.latitude,position.coords.longitude, "30","n/a"); 
+        console.log(position.coords.latitude +' '+position.coords.longitude);
     }
 
       
