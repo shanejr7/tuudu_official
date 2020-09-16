@@ -129,7 +129,7 @@ $bucket_name = 'tuudu-official-file-storage';
               </a>
               <div class="media-body">
                 <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['title'].'\'s post..</label>
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['post_title'].'\'s post..</label>
                   <div id="cleanPost">
                   <textarea class="form-control" rows="5" value="" id="postText"></textarea>
                   </div>
@@ -199,7 +199,7 @@ $bucket_name = 'tuudu-official-file-storage';
               </a>
               <div class="media-body">
                 <div class="form-group label-floating bmd-form-group">
-                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['title'].'\'s post..</label>
+                  <label class="form-control-label bmd-label-floating" for="exampleBlogPost"> Comment to '.$user_post['post_title'].'\'s post..</label>
                   <div id="cleanPost">
                   <textarea class="form-control" rows="5"  value="" id="postText">'.trim($message).'</textarea>
                   </div>
