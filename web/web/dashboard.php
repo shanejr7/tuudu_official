@@ -53,20 +53,6 @@ $bucket_name = 'tuudu-official-file-storage';
     header("location: login-page.php");
   }
 ?>
-<!--
- =========================================================
- Material Kit PRO - v2.1.1
- =========================================================
-
- Product Page: https://www.creative-tim.com/product/material-kit-pro
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
- Coded by Creative Tim
-
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -125,7 +111,7 @@ echo '<script>
 
   ?>
 
- <!--  <script src="../assets/js/custom_js.js"></script> -->
+  <script src="../assets/js/custom_js.js"></script>
   
  
  
@@ -441,11 +427,11 @@ if (isset($temp) && $temp ==1) {
         </div> -->
 
  
-  <!--  <script type="text/javascript">
+   <script type="text/javascript">
      
 
 
-var dashboard_local_distance = <?php// echo json_encode($dashboard_list, JSON_PRETTY_PRINT) ?>;
+var dashboard_local_distance = <?php echo json_encode($dashboard_list, JSON_PRETTY_PRINT) ?>;
 var size = dashboard_local_distance.length; 
 var count = 0;
 console.log('dashboard_local_distance '+ dashboard_local_distance[0].address);
@@ -456,7 +442,7 @@ for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
    count++;
   
 }
-   </script> -->
+   </script>
 
         <div class="tab-content tab-space cd-section" id="body">
           <div class="tab-pane active text-center gallery section section-sections" id="dashboard">
@@ -474,12 +460,12 @@ for (var i = dashboard_local_distance.length - 1; i >= 0; i--) {
                 
 
 if (isset($dashboard_list)  ) {
-//  $key = array();
+ $key = array();
 
  
-// $key = array_column($dashboard_list, 'publickey');
+$key = array_column($dashboard_list, 'publickey');
  
-// $key = array_intersect($key,$local_distance);
+$key = array_intersect($key,$local_distance);
 
  
  
@@ -489,9 +475,9 @@ if (isset($dashboard_list)  ) {
     foreach($dashboard_list as $item) {
   
  
-  //         if(in_array($item["publickey"], $key)) 
+          if(in_array($item["publickey"], $key)) 
 
-  // { 
+  { 
 
                            $cmd = $s3->getCommand('GetObject', [
                                         'Bucket' => ''.$bucket_name.'',
@@ -561,12 +547,12 @@ if (isset($dashboard_list)  ) {
           
               
             echo '</div>';
-          // }else{
-          //   // not local
-          // }
+          }else{
+            // not local
+          }
           
-        // }
-        // echo '</div>';
+ 
+        
     } 
 
 
