@@ -3,7 +3,7 @@
 /* DOCS
 
   * 
-  * selected user tags and related topic tags to be selected from [word_tag]
+  * [word_tag] <selected user tags and related topic tags to be selected from>
   *	show-temp-tags.php --> set-up.php <show users selected tag>
   *
   

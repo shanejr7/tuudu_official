@@ -2,7 +2,7 @@
 /* DOCS
 
   *
-  * stores user selected topic tag into [feedstate]
+  * [feedstate] <stores user selected topic tag into>
   * show-temp-tags.php --> set-up.php <show user selected tag>
   * set-up.php --> store-temp-tags.php <stores user selected topic tag>
   *
