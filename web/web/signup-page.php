@@ -1,18 +1,17 @@
-<?php include('server.php') ?>
-<!--
- =========================================================
- Material Kit PRO - v2.1.1
- =========================================================
+<?php 
+/* DOCS
 
- Product Page: https://www.creative-tim.com/product/material-kit-pro
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
+  * 
+  * [users] <creates user account>
+  * signup-page.php --> server.php 
+  *
+  
+*/
 
- Coded by Creative Tim
+  include('server.php')
+ 
+ ?>
 
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 
 <!DOCTYPE html>
 <html lang="en">

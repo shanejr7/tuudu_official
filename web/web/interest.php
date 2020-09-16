@@ -7,7 +7,8 @@
   *
 
 */
-include('server.php');
+  
+  include('server.php');
 
 
 if (!isset($_SESSION['username'])) {
