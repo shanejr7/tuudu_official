@@ -66,7 +66,7 @@ echo $i;
             // }
             // temporarily stores publickey to emlinate duplicate
             // array_push($organization_publickey_arr,trim($row['publickey']));
-             echo print_r($general_list);
+              
  
         }
          
@@ -266,8 +266,6 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
 if (isset($general_list) || isset($_GET['search'])) {
 
-echo "string";
-print_r($general_list);
   echo '<script type="text/javascript">
      
 
