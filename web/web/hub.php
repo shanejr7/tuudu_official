@@ -175,7 +175,7 @@ $local_distance = array();
                   *  and not deleted
                   */
                   $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url
-                  FROM organization AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+                  FROM organization WHERE date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
  
                   if (pg_num_rows($result) > 0) {
@@ -190,7 +190,9 @@ $local_distance = array();
 
                     }
                   
-                  }else {array_push($errors_dashboard, "0 results");}
+                  }else {
+
+                  }
 
             pg_close($db);
 
