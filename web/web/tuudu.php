@@ -79,7 +79,6 @@ $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, o
   <!-- custom css -->
   <link href="../assets/css/core.css" rel="stylesheet" />
 
-   <script src="../assets/js/local.js"></script>
  
 
 </head>
@@ -353,11 +352,7 @@ $key = array_intersect($key,$local_distance);
     </div>
   </footer>
   </div>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      materialKitDemo.presentationAnimations();
-    });
-  </script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
