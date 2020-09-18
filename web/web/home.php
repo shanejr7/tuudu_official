@@ -40,7 +40,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
   $string = explode(" ", $string);
  
    
-
+echo "string";
 
     /* select all organizations with common string
      * 
@@ -48,7 +48,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
      */
 
     for ($i=0; $i <sizeof($string) ; $i++) { 
-
+echo $i;
      $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url
      FROM organization
     WHERE word_tag LIKE '%$string[$i]%' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
@@ -66,11 +66,12 @@ $db = pg_connect(getenv("DATABASE_URL"));
             // }
             // temporarily stores publickey to emlinate duplicate
             // array_push($organization_publickey_arr,trim($row['publickey']));
+             echo print_r($general_list);
  
         }
          
     }else{
-
+echo "empty";
     } 
     }
 
