@@ -850,6 +850,7 @@ pg_close($db);
  echo '   <form method="post" action="post.php">
                 <div class="form-group row">
                   <div class="col-sm-10">
+                  <label for="eventUrl">post url</label>
                     <input type="url" name="url" class="form-control" id="eventUrl" placeholder="https://www.tuudu.org/web/order_page.php?order='.trim($publickey).'" value="https://www.tuudu.org/web/order_page.php?order='.trim($publickey).'">
                   </div>
                 </div> 
@@ -1027,6 +1028,14 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
     <input data-toggle="modal" data-target="#storyPost" class="form-check-input" type="radio" name="radioOptions" id="inlineRadio3" value="story"><i class="material-icons">view_carousel</i>story post
+    <span class="circle">
+        <span class="check"></span>
+    </span>
+  </label>
+</div>
+<div class="form-check form-check-radio form-check-inline">
+  <label class="form-check-label">
+    <input class="form-check-input" type="radio" name="radioOptions" id="inlineRadio4" value="shippment"><i class="material-icons">view_carousel</i>shippment
     <span class="circle">
         <span class="check"></span>
     </span>
