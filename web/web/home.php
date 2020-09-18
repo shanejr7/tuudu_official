@@ -89,11 +89,7 @@ $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, o
         }
          
     } 
-    }
-
- 
-
-    //else {/*header('location:dashboard.php?sorry_not_found');*/}
+    }else {echo "not found";}
 
 pg_close($db);
                   }
