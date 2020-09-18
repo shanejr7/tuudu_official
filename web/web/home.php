@@ -28,6 +28,7 @@ $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
 
 $general_list = array();
+$organization_publickey_arr = array();
 
 $db = pg_connect(getenv("DATABASE_URL"));
 
@@ -37,10 +38,9 @@ $db = pg_connect(getenv("DATABASE_URL"));
                       // the value passed and security injection
   $string = pg_escape_string($db,$_GET['search']);
   $string = explode(" ", $string);
-  $organization_publickey_arr = array();
-   
-  
  
+   
+
 
     /* select all organizations with common string
      * 
