@@ -2,7 +2,7 @@
 /*order page */
 include('feed_state.php');
 include('add_cart.php');
-include('mailGunRecipient.php');
+
 
 
  
@@ -381,7 +381,7 @@ echo '</div></from></div>';
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(details) {
                   window.location.replace("add_cart.php?purchased='.$id.'");
-                  '.mailGunRecipient($title,$total,$ticket_amt,'contact@tuudu.org',$organization_email).'
+                  
             });
         }
     }).render("#paypal-button-container");
