@@ -9,6 +9,21 @@
 */
   // // local location
 include 'local_distance.php';
+
+require '../../vendor/autoload.php';
+
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+use Aws\S3\ObjectUploader;
+
+$s3=" ";
+$s3 = new Aws\S3\S3Client([
+    'version'  => 'latest',
+     'region'   => 'us-east-2',
+]);
+
+$bucket = getenv('S3_BUCKET')?: header('location:oops.php');
+$bucket_name = 'tuudu-official-file-storage';
   
    ?>
 
