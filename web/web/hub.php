@@ -8,6 +8,7 @@
   
 */
   // // local location
+include 'local_distance.php';
  
 $dynamic_cordinates=array();
 $static_cordinates =array();
