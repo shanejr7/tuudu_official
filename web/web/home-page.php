@@ -8,7 +8,7 @@
   
 */
   // // local location
-include 'server.php';
+include('server.php');
 
 
 require('../aws/Aws/S3/S3Client.php'); 
@@ -50,6 +50,53 @@ $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, o
                   
                   }else { }
 
+                  if (isset($_GET['searchHome'])) {
+                    
+                      // the value passed and security injection
+  $string = pg_escape_string($db,$_GET['search']);
+  $string = explode(" ", $string);
+  $organization_publickey_arr = array();
+   
+  
+ 
+
+    /* select all organizations with common string
+     * 
+     * 
+     */
+
+    for ($i=0; $i <sizeof($string) ; $i++) { 
+
+     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url
+     FROM organization
+    WHERE word_tag LIKE '%$string[$i]%' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+
+    // loops through rows until there is 0 rows
+    if (pg_num_rows($result) > 0) {
+         // output data of each row
+        while($row = pg_fetch_assoc($result)) {
+      
+        if (in_array(trim($row['publickey']), $organization_publickey_arr)) {
+          // ignore already stored
+        }else{
+
+             $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey"=> $row["publickey"], "address" => $row["address"],"url" => $row["url"]);
+            }
+            // temporarily stores publickey to emlinate duplicate
+            array_push($organization_id_arr,trim($row['publickey']));
+ 
+        }
+         
+    } 
+    }
+
+ 
+
+    //else {/*header('location:dashboard.php?sorry_not_found');*/}
+
+pg_close($db);
+                  }
+
             pg_close($db);
  
   
@@ -67,7 +114,7 @@ $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, o
       
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Hub
+    Home
   </title>
   <link href='https://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet'>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -114,6 +161,21 @@ $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, o
             </ul>
     
           
+        </div>
+
+        <div class="collapse navbar-collapse" id="sectionsNav" style="margin-left: 4px;">
+            <ul class="navbar-nav">
+            </ul>
+
+            <form class="form-inline ml-auto" method="GET" action="dashboard.php">
+                <div class="form-group no-border">
+                  <input type="text" class="form-control" name="searchHome" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-white btn-just-icon btn-round">
+                    <i class="material-icons">search</i>
+                </button>
+            </form>
+
         </div>
     
     </div>
@@ -312,9 +374,7 @@ $key = array_intersect($key,$local_distance);
           </div>
         </div>
       </div>
-    </div>
-
-  <footer class="footer footer-default">
+        <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">
      <ul>
@@ -354,6 +414,9 @@ $key = array_intersect($key,$local_distance);
       </div>
     </div>
   </footer>
+    </div>
+
+
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
