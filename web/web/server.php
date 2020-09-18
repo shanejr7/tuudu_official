@@ -36,7 +36,7 @@ session_start();
  $general_list = array();
 
 if (!isset($_SESSION['ID'])) {
-
+echo "string";
    $remoteIP = $_SERVER['REMOTE_ADDR'];
 
  if (strstr($remoteIP, ', ')) {
@@ -49,20 +49,24 @@ $remoteIP = preg_replace('/[^\p{L}\p{N}\s]/u', '', $remoteIP);
 
   $db = pg_connect(getenv("DATABASE_URL"));
 
-   $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time,organization.fiatvalue, organization.img, organization.id as org_key, organization.views,organization.description, organization.word_tag, organization.publickey,organization.views, organization.url FROM organization , feedstate WHERE date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+$result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url
+                  FROM organization
+                    WHERE date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
-
+ 
                   if (pg_num_rows($result) > 0) {
                   // output data of each row
-                    while($row = pg_fetch_assoc($result)) { 
+                    while($row = pg_fetch_assoc($result)) {
+
       
-                      $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"]);
-                       
+      
+                      $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"]);
+
+
+
                     }
                   
-                  }else {
-
-                  }
+                  }else { }
 
             pg_close($db);
 
