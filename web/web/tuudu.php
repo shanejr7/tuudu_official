@@ -10,6 +10,7 @@
   // // local location
 include 'server.php';
 
+
 require('../aws/Aws/S3/S3Client.php'); 
 require('../aws/Aws/S3/ObjectUploader.php'); 
 
@@ -25,6 +26,31 @@ $s3 = new Aws\S3\S3Client([
 
 $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
+
+$general_list = array();
+
+$db = pg_connect(getenv("DATABASE_URL"));
+
+$result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url
+                  FROM organization
+                    WHERE date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+
+ 
+                  if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) {
+
+      
+      
+                      $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"]);
+
+
+
+                    }
+                  
+                  }else { }
+
+            pg_close($db);
  
   
    ?>
@@ -52,12 +78,12 @@ $bucket_name = 'tuudu-official-file-storage';
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
-  <script src="../assets/js/local.js"></script>
-  <script src="https://apis.google.com/js/api:client.js"></script>
   <link href="../assets/css/core.css" rel="stylesheet" />
   <script src="../assets/js/local.js"></script>
+ 
 
 </head>
+
 
 <body class="profile-page sidebar-collapse">
 
@@ -111,16 +137,53 @@ $bucket_name = 'tuudu-official-file-storage';
 </div>
  
     <!-- class"main main-rasied" -->
-        <div class="profile-content " id="main">
-      <div class="container">   
-
-        <div class="tab-content tab-space cd-section" id="body">
-          <div class="tab-pane active text-center gallery section section-sections" id="dashboard">
+    <div class="profile-content " id="main">
+      <div class="container">
+    <div class="tab-content tab-space cd-section" id="body">
+          <div class="tab-pane active text-center gallery section section-sections">
            <div class="row">
 
-    <?php
+
+          <?php
+
+
+   $db = pg_connect(getenv("DATABASE_URL"));
+
+    // Check connection
+    if (!$db) {
+       die("Connection failed: " . pg_connect_error());
+       header('location:oops.php');
+    }
+
+    $general_list = array();
+
+     // selected organizations not saved as favorite by user (default mode)
+                  /* selects all IDs of organization not linked to user_follow_organization
+                  *   
+                  *  and not deleted
+                  */
+                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url
+                  FROM organization WHERE date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+
  
-                
+                  if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) {
+
+      
+      
+                      $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"]);
+
+
+
+                    }
+                  
+                  }else {
+
+                  }
+
+            pg_close($db);
+
 
 if (isset($general_list)  ) {
 
@@ -240,11 +303,11 @@ $key = array_intersect($key,$local_distance);
 
 
                   } 
-               
-              ?>
-         
+
+          ?>
+            
             </div>
-          </div>   
+          </div>
         </div>
       </div>
     </div>
