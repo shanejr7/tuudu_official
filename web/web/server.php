@@ -36,7 +36,6 @@ session_start();
  $general_list = array();
 
 if (!isset($_SESSION['ID'])) {
-echo "string";
    $remoteIP = $_SERVER['REMOTE_ADDR'];
 
  if (strstr($remoteIP, ', ')) {
