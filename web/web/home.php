@@ -51,6 +51,7 @@ $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, o
                   }else { }
 
                   if (isset($_GET['searchHome'])) {
+                    unset($general_list);
                     
                       // the value passed and security injection
   $string = pg_escape_string($db,$_GET['search']);
