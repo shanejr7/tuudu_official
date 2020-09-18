@@ -149,7 +149,7 @@ pg_close($db);
             </button>
         </div>
 
-        <div class="collapse navbar-collapse col-lg-8">
+        <div class="collapse navbar-collapse col-lg-4">
             <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a href="login-page.php" class="nav-link">Login</a>
@@ -163,7 +163,7 @@ pg_close($db);
           
         </div>
 
-        <div class="collapse navbar-collapse" id="sectionsNav" >
+        <div class="collapse navbar-collapse col-lg-4" id="sectionsNav"  >
             <ul class="navbar-nav">
                 <li class="nav-item ">
                    
