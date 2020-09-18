@@ -64,22 +64,22 @@ $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, o
  <link rel="icon" 
       type="image/jpg" 
       href="../assets/img/logo_size.jpg"/>
+      
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    Tuudu
-  </title>
-
+  <link href='https://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet'>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
    <link href="../assets/css/material-kit.css?v=2.2.0" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
+ 
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
+  <!-- custom css -->
   <link href="../assets/css/core.css" rel="stylesheet" />
-  <script src="../assets/js/local.js"></script>
+
+   <script src="../assets/js/local.js"></script>
  
 
 </head>
