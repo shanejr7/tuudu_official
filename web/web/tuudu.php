@@ -274,7 +274,7 @@ $key = array_intersect($key,$local_distance);
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="login-page.php">
+                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
                         <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
 
                   // echo '<div class="centered" style="font-weight: bolder;">
@@ -282,7 +282,7 @@ $key = array_intersect($key,$local_distance);
 
                  
                   echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="login-page.php"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
  
 
 
