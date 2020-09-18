@@ -2,8 +2,11 @@
 
 review code and make docs statements;
 
+******************http not secure will cause failure in geo location*************************
 
 post.php: issue title,description and content is sometimes blank after form submission. And can create errors to overall posts because somewhere in SQL array selection row is empty(null). (disrupts feed).
+
+MailGun to send email to organization after PayPal payment.
 
 post.php: before uploading images verify them and its extension type. If post is not fully done then delete. re-design if possible and fit ajax where needed.
 

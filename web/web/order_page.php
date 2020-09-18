@@ -21,7 +21,6 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
  
  
      // connect to DataBase
-     //$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
      $conn = pg_connect(getenv("DATABASE_URL"));
 
      // Check connection
@@ -41,7 +40,7 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
      * 
     */
 
-    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views, organization.title,organization.organization_name as org_name, organization.date,  organization.address, organization.word_tag,organization.publickey, organization.privatekey
+    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views, organization.title,organization.organization_name as org_name, organization.date,  organization.address, organization.word_tag,organization.publickey, organization.privatekey, organization.email
      FROM organization WHERE publickey = '$organization_publickey' LIMIT 1");
 
     // loops through rows until there is 0 rows
@@ -49,7 +48,7 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-             $order_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"], "title" => $row["title"],"name" => $row["org_name"],"address" => $row["address"],"type" => $row["word_tag"], "publickey" => $row['publickey'],"privatekey"=>$row["privatekey"]);
+             $order_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"], "title" => $row["title"],"name" => $row["org_name"],"address" => $row["address"],"type" => $row["word_tag"], "publickey" => $row['publickey'],"privatekey"=>$row["privatekey"], "email" => $row["email"]);
         }
 
     //increment view to organization event
@@ -97,20 +96,7 @@ pg_close($conn);
     header("location: login-page.php");
   }
 ?>
-<!--
- =========================================================
- Material Kit PRO - v2.1.1
- =========================================================
 
- Product Page: https://www.creative-tim.com/product/material-kit-pro
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
- Coded by Creative Tim
-
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -391,6 +377,7 @@ echo '</div></from></div>';
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(details) {
                   window.location.replace("add_cart.php?purchased='.$id.'");
+                  '.mailGunRecipient($total,$ticket_amt).'
             });
         }
     }).render("#paypal-button-container");
