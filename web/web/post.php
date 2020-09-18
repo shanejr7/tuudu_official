@@ -64,20 +64,6 @@ if (!isset($_SESSION['username'])) {
  
 
    ?>
-<!--
- =========================================================
- Material Kit PRO - v2.1.1
- =========================================================
-
- Product Page: https://www.creative-tim.com/product/material-kit-pro
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
- Coded by Creative Tim
-
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -920,14 +906,20 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                       <div class="form-group row">
     
                   <div class="col-sm-10">
-                    <input type="text" name="paymentType" class="form-control" id="value" placeholder="venmo or PayPal" required>
+                    <input type="text" name="paymentType" class="form-control" id="value1" placeholder="venmo or PayPal" required>
+                  </div>
+                  </div>
+                   <div class="form-group row">
+    
+                  <div class="col-sm-10">
+                    <input type="text" name="paymentEmail" class="form-control" id="value2" placeholder="venmo or Paypal Email" required>
                   </div>
                   </div>
 
                  <div class="form-group row">
     
                   <div class="col-sm-10">
-                    <input type="text" name="fiatValue" class="form-control" id="value" placeholder="0.00 " required>
+                    <input type="text" name="fiatValue" class="form-control" id="value3" placeholder="0.00 " required>
                   </div>
                 </div>
                

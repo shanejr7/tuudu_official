@@ -344,44 +344,72 @@ echo '</div></from></div>';
        
         </div>';
 
-          
+          echo '<script
+    src="https://www.paypal.com/sdk/js?client-id=AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB"> 
+  </script>';
+
+echo '<div id="paypal-button-container"></div>';
 
 
-            echo ' <div class="col-md-4"></div><div class="col-md-4"></div><div class="col-md-3"><div id="paypal-button-container"></div></div>
 
-<script src="https://www.paypal.com/sdk/js?client-id='.$organization_privatekey_paypal.'&currency=USD" data-sdk-integration-source="button-factory">
-</script>
-
-<script>
-    paypal.Buttons({
-        style: {
-            shape: "rect",
-            color: "gold",
-            layout: "horizontal",
-            label: "paypal",
-            
-        },
-        createOrder: function(data, actions) {
-            return actions.order.create({
-                purchase_units: [{
-                    amount: {
-                        "currency_code": "USD",
-                        value: "'.$total.'",
-                        quantity:"'.$ticket_amt.'",
+  echo '<script>
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      // This function sets up the details of the transaction, including the amount and line item details.
+      return actions.order.create({
+        purchase_units: [{
+           amount: {
+              "currency_code": "USD",
+              value: "'.$total.'",
+              quantity:"'.$ticket_amt.'",
                         
-                    },
-                   
-                }]
-            });
-        },
-        onApprove: function(data, actions) {
-            return actions.order.capture().then(function(details) {
-                  window.location.replace("add_cart.php?purchased='.$id.'");
-                  '.mailGunRecipient($total,$ticket_amt).'
-            });
-        }
-    }).render("#paypal-button-container");
+                     },
+                     payee: {
+          email_address: '$organization_privatekey_paypal'
+        }]
+      });
+    }
+  }).render("#paypal-button-container");
 </script>';
+
+
+
+//             echo ' <div class="col-md-4"></div><div class="col-md-4"></div><div class="col-md-3"><div id="paypal-button-container"></div></div>
+
+// <script src="https://www.paypal.com/sdk/js?client-id='.$organization_privatekey_paypal.'&currency=USD" data-sdk-integration-source="button-factory">
+// </script>
+
+// <script>
+//     paypal.Buttons({
+//         style: {
+//             shape: "rect",
+//             color: "gold",
+//             layout: "horizontal",
+//             label: "paypal",
+            
+//         },
+//         createOrder: function(data, actions) {
+//             return actions.order.create({
+//                 purchase_units: [{
+//                     amount: {
+//                         "currency_code": "USD",
+//                         value: "'.$total.'",
+//                         quantity:"'.$ticket_amt.'",
+                        
+//                     },
+//                    payee: {
+//           email_address: '$'
+//         }
+//                 }]
+//             });
+//         },
+//         onApprove: function(data, actions) {
+//             return actions.order.capture().then(function(details) {
+//                   window.location.replace("add_cart.php?purchased='.$id.'");
+//             });
+//         }
+//     }).render("#paypal-button-container");
+// </script>';
 
  
 echo "</br></br> </br></br></br></br>
