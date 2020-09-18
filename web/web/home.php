@@ -264,9 +264,9 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
 
 
-if (isset($general_list)) {
+if (isset($general_list) || isset($_GET['search'])) {
 
-
+echo "string";
   echo '<script type="text/javascript">
      
 
