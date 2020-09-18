@@ -99,7 +99,10 @@
         </div>
 
         <div class="collapse navbar-collapse col-lg-8">
-            <ul class="navbar-nav">
+              <ul class="navbar-nav">
+              <li class="nav-item">
+                    <a href="home.php" class="nav-link">Home</a>
+                </li>
                 <li class="nav-item active">
                     <a href="login-page.php" class="nav-link">Login</a>
                 </li>
