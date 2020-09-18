@@ -365,7 +365,7 @@ echo '<div id="paypal-button-container"></div>';
                         
                      },
                      payee: {
-          email_address: '$organization_privatekey_paypal'
+          email_address: '.$organization_privatekey_paypal.'
         }]
       });
     }

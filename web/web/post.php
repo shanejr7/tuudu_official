@@ -226,7 +226,7 @@ pg_close($db);
           </div>
        
 
-            <div class="col-lg-7 mr-auto" style="height: 600px;">
+            <div class="col-lg-7 mr-auto" style="height: 650px;">
          <div class="card card-login">
           
       <div class="col-lg-10">
@@ -850,7 +850,7 @@ pg_close($db);
  echo '   <form method="post" action="post.php">
                 <div class="form-group row">
                   <div class="col-sm-10">
-                    <input type="url" name="url" class="form-control" id="eventUrl" placeholder="url"  >
+                    <input type="url" name="url" class="form-control" id="eventUrl" placeholder="https://www.tuudu.org/web/order_page.php?order='.trim($publickey).'" value="https://www.tuudu.org/web/order_page.php?order='.trim($publickey).'">
                   </div>
                 </div> 
                  <div class="form-group row">
