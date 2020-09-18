@@ -96,7 +96,7 @@
         <div class="collapse navbar-collapse col-lg-8">
              <ul class="navbar-nav">
               <li class="nav-item">
-                    <a href="home.php" class="nav-link"><i class="material-icons">speaker_phone</i></a>
+                   <a href="home.php" class="nav-link"><i class="material-icons">home</i></a>
                 </li>
                 <li class="nav-item">
                     <a href="login-page.php" class="nav-link">Login</a>
