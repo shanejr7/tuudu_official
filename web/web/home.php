@@ -32,7 +32,7 @@ $general_list = array();
 $db = pg_connect(getenv("DATABASE_URL"));
 
 
-                  if (isset($_GET['searchHome'])) {
+                  if (isset($_GET['search'])) {
                     
                       // the value passed and security injection
   $string = pg_escape_string($db,$_GET['search']);
@@ -70,7 +70,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
         }
          
     }else{
-      
+
     } 
     }
 
@@ -176,7 +176,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
             <form class="form-inline ml-auto" method="GET" action="home.php">
                 <div class="form-group no-border">
-                  <input type="text" class="form-control" name="searchHome" placeholder="Search">
+                  <input type="text" class="form-control" name="search" placeholder="Search">
                 </div>
                 <button type="submit" class="btn btn-white btn-just-icon btn-round">
                     <i class="material-icons">search</i>
@@ -217,43 +217,6 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
           <?php
 
-
-   $db = pg_connect(getenv("DATABASE_URL"));
-
-    // Check connection
-    if (!$db) {
-       die("Connection failed: " . pg_connect_error());
-       header('location:oops.php');
-    }
-
-    $general_list = array();
-
-     // selected organizations not saved as favorite by user (default mode)
-                  /* selects all IDs of organization not linked to user_follow_organization
-                  *   
-                  *  and not deleted
-                  */
-                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url
-                  FROM organization WHERE date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
-
- 
-                  if (pg_num_rows($result) > 0) {
-                  // output data of each row
-                    while($row = pg_fetch_assoc($result)) {
-
-      
-      
-                      $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"]);
-
-
-
-                    }
-                  
-                  }else {
-
-                  }
-
-            pg_close($db);
 
 
 if (isset($general_list)  ) {
