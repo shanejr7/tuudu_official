@@ -199,7 +199,7 @@ function mailGunRecipient($title,$total,$ticket_amt,$email,$sender_email){
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 30px; font-family: Tahoma, Verdana, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Tahoma, Verdana, Segoe, sans-serif;line-height:1.2;padding-top:0px;padding-right:10px;padding-bottom:30px;padding-left:10px;">
 <div style="font-family: Tahoma, Verdana, Segoe, sans-serif; font-size: 12px; line-height: 1.2; color: #555555; mso-line-height-alt: 14px;">
-<p style="font-size: 22px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 26px; margin: 0;"><span style="font-size: 22px;">Order<br>title: '.$title.'<br>total: '.$total.'<br>amount: '$ticket_amt'</span></p>
+<p style="font-size: 22px; line-height: 1.2; word-break: break-word; font-family: Tahoma, Verdana, Segoe, sans-serif; mso-line-height-alt: 26px; margin: 0;"><span style="font-size: 22px;">Order<br>title: '.$title.'<br>total: '.$total.'<br>amount: '.$ticket_amt.'</span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
