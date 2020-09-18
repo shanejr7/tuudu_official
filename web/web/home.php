@@ -163,7 +163,7 @@ pg_close($db);
           
         </div>
 
-        <div class="collapse navbar-collapse" id="sectionsNav" style="margin-left: 4px;">
+        <div class="collapse navbar-collapse" id="sectionsNav" >
             <ul class="navbar-nav">
                 <li class="nav-item ">
                    
