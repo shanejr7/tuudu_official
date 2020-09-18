@@ -229,7 +229,7 @@ $key = array_intersect($key,$local_distance);
   // make content dynamic
   // shuffle($general_list);
                 
-    foreach($dashboard_list as $item) {
+    foreach($general_list as $item) {
   
  
           if(in_array($item["publickey"], $key)) 
