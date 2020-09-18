@@ -222,7 +222,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
 
 
-if (isset($general_list)  ) {
+if (isset($general_list)) {
 
 
   echo '<script type="text/javascript">
