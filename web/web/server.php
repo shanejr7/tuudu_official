@@ -34,7 +34,7 @@ session_start();
 //set up temp ID for new users then disgard it after they sign up or timeout
  //change temp id to string if traffic is high
  $general_list = array();
- 
+
 if (!isset($_SESSION['ID'])) {
 
    $remoteIP = $_SERVER['REMOTE_ADDR'];
@@ -58,7 +58,9 @@ $remoteIP = preg_replace('/[^\p{L}\p{N}\s]/u', '', $remoteIP);
                        
                     }
                   
-                  }else {array_push($errors_dashboard, "0 results");}
+                  }else {
+                    
+                  }
 
             pg_close($db);
 
