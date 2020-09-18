@@ -94,13 +94,17 @@
         </div>
 
         <div class="collapse navbar-collapse col-lg-8">
-            <ul class="navbar-nav">
-                <li class="nav-item ">
+             <ul class="navbar-nav">
+              <li class="nav-item">
+                    <a href="home.php" class="nav-link"><i class="material-icons">speaker_phone</i></a>
+                </li>
+                <li class="nav-item">
                     <a href="login-page.php" class="nav-link">Login</a>
                 </li>
-                <li class="nav-item  active">
-                    <a href="signup-page.php " class="nav-link">Signup</a>
+                <li class="nav-item active">
+                    <a href="signup-page.php" class="nav-link">Signup</a>
                 </li>
+               
             </ul>
         </div>
     </div>
