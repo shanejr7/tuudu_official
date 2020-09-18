@@ -344,32 +344,60 @@ echo '</div></from></div>';
        
         </div>';
 
-          echo '<script
-    src="https://www.paypal.com/sdk/js?client-id=AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB"> 
-  </script>';
+  //         echo '<script
+  //   src="https://www.paypal.com/sdk/js?client-id=AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB"> 
+  // </script>';
 
-echo '<div id="paypal-button-container"></div>';
+echo '<script>
+PAYPAL_CLIENT = "AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB";
+PAYPAL_SECRET = "EJ5tnYnDc1t-Whc-ws1QvU22mnlaJv1zlbzXZaglGaXdLoY_AJ9ilFRU6AjrSH2QGSHdPoPAus1V9nsK";
+PAYPAL_OAUTH_API = "https://api.sandbox.paypal.com/v1/oauth2/token/";
+PAYPAL_ORDER_API = "https://api.sandbox.paypal.com/v2/checkout/orders/";
+
+basicAuth = base64encode(`${ PAYPAL_CLIENT }:${ PAYPAL_SECRET }`);
+auth = http.post(PAYPAL_OAUTH_API {
+  headers: {
+    Accept:        `application/json`,
+    Authorization: `Basic ${ basicAuth }`
+  },
+  data: `grant_type=client_credentials`
+});
 
 
+function handleRequest(request, response) {
 
-  echo '<script>
-  paypal.Buttons({
-    createOrder: function(data, actions) {
-      // This function sets up the details of the transaction, including the amount and line item details.
-      return actions.order.create({
-        purchase_units: [{
-           amount: {
-              "currency_code": "USD",
-              value: "'.$total.'",
-              quantity:"'.$ticket_amt.'",
-                        
-                     },
-                     payee: {
-          email_address: '.$organization_privatekey_paypal.'
-        }]
-      });
+  // 3. Call PayPal to set up a transaction with a payee
+  order = http.post(PAYPAL_ORDER_API, {
+    headers: {
+      Accept:        `application/json`,
+      Authorization: `Bearer ${ auth.access_token }`
+    },
+    data: {
+      intent: "CAPTURE",
+      purchase_units: [{
+        amount: {
+          currency_code: "USD",
+          value: "'.$total.'",
+          quantity:"'.$ticket_amt.'"
+        },
+        payee: {
+          email_address: "'.trim($organization_privatekey_paypal).'"
+        }
+      }]
     }
-  }).render("#paypal-button-container");
+  });
+
+
+    if (order.error) {
+    return response.send(500);
+  }
+
+  // 5. Return a successful response to the client with the order ID
+  response.send(200, {
+    orderID: order.id
+  });
+}
+
 </script>';
 
 
