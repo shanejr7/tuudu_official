@@ -49,7 +49,7 @@ echo "string";
 
     for ($i=0; $i <sizeof($string) ; $i++) { 
 echo $i;
-     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url
+     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url
      FROM organization
     WHERE word_tag LIKE '%$string[$i]%' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
@@ -62,7 +62,7 @@ echo $i;
           // ignore already stored
         // }else{
 
-             $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey"=> $row["publickey"], "address" => $row["address"],"url" => $row["url"]);
+              $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"]);
             // }
             // temporarily stores publickey to emlinate duplicate
             // array_push($organization_publickey_arr,trim($row['publickey']));
@@ -71,7 +71,7 @@ echo $i;
         }
          
     }else{
-echo "empty";
+ 
     } 
     }
 
@@ -267,6 +267,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 if (isset($general_list) || isset($_GET['search'])) {
 
 echo "string";
+print_r($general_list);
   echo '<script type="text/javascript">
      
 
