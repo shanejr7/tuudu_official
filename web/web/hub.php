@@ -8,9 +8,7 @@
   
 */
   // // local location
-include 'local_distance.php';
-
-require '../../vendor/autoload.php';
+include 'server.php';
 
 require('../aws/Aws/S3/S3Client.php'); 
 require('../aws/Aws/S3/ObjectUploader.php'); 
@@ -42,7 +40,7 @@ $bucket_name = 'tuudu-official-file-storage';
       href="../assets/img/logo_size.jpg"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Hub
+    Tuudu
   </title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -56,7 +54,6 @@ $bucket_name = 'tuudu-official-file-storage';
   <link href="../assets/demo/vertical-nav.css" rel="stylesheet" />
   <script src="../assets/js/local.js"></script>
   <script src="https://apis.google.com/js/api:client.js"></script>
-  <script src="../assets/js/custom_js.js"></script>
 
 </head>
 <style type="text/css">* {
@@ -128,55 +125,6 @@ $bucket_name = 'tuudu-official-file-storage';
 
           <?php
 
-
-
-$dynamic_cordinates=array();
-$static_cordinates =array();
-$local_distance = array();
-  if (isset($_COOKIE["dynamic_location"])) {
-
-   $_SESSION["dynamic_location"] = $_COOKIE["dynamic_location"];
- }else if (empty($_COOKIE['dynamic_location'])) {
-   // error
-  // echo 'Cookie does not exists or is empty e_dynamic';
-}
-
-
- if (isset($_SESSION["dynamic_location"])) {
-   $dynamic_cordinates = explode("/",$_SESSION["dynamic_location"]);
-   // echo 'user location: '.$dynamic_cordinates[0].' '.$dynamic_cordinates[1];
- }
-
-
-   if (isset($_COOKIE["static_location0"])) {
-
-   $_SESSION["static_location"] = $_COOKIE["static_location0"];
-    
- }else if (empty($_COOKIE['static_location'])) {
-   // error
-  // echo 'Cookie does not exists or is empty e_static';
-}
-
-
- if (isset($_SESSION["static_location"])) {
-   $static_cordinates = explode("/",$_SESSION["static_location"]);
-  // echo 'organization location: '.$static_cordinates[0].' '.$static_cordinates[1];
-  for ($i=0; $i <$static_cordinates[2] ; $i++) { 
-
- 
-     $static_cordinates = explode("/",$_COOKIE["static_location".$i]);
-    
-     $bool = getDistance($dynamic_cordinates,$static_cordinates);
-     
-     if ($bool ==="yes") {
-         // echo "string " .$static_cordinates[3];
-          // echo 'local = '.$bool;
-       array_push($local_distance,trim($static_cordinates[3]));
-     }
-
-  }
-    
- }
 
    $db = pg_connect(getenv("DATABASE_URL"));
 
