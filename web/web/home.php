@@ -40,7 +40,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
   $string = explode(" ", $string);
  
    
-echo "string";
+
 
     /* select all organizations with common string
      * 
@@ -48,7 +48,7 @@ echo "string";
      */
 
     for ($i=0; $i <sizeof($string) ; $i++) { 
-echo $i;
+
      $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url
      FROM organization
     WHERE word_tag LIKE '%$string[$i]%' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
