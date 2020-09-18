@@ -140,7 +140,7 @@ pg_close($db);
     <div class="container">
         <div class="navbar-translate col-lg-4">
 
-            <a class="navbar-brand" href="login-page.php">  <img src="../assets/img/logo.png" style="width: 30%; "></a>
+            <a class="navbar-brand" href="home.php">  <img src="../assets/img/logo.png" style="width: 30%; "></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon"></span>
@@ -165,9 +165,15 @@ pg_close($db);
 
         <div class="collapse navbar-collapse" id="sectionsNav" style="margin-left: 4px;">
             <ul class="navbar-nav">
+                <li class="nav-item ">
+                   
+                </li>
+                <li class="nav-item">
+                    
+                </li>
             </ul>
 
-            <form class="form-inline ml-auto" method="GET" action="dashboard.php">
+            <form class="form-inline ml-auto" method="GET" action="home.php">
                 <div class="form-group no-border">
                   <input type="text" class="form-control" name="searchHome" placeholder="Search">
                 </div>
@@ -374,7 +380,9 @@ $key = array_intersect($key,$local_distance);
           </div>
         </div>
       </div>
-        <footer class="footer footer-default">
+    </div>
+
+  <footer class="footer footer-default">
     <div class="container">
       <nav class="float-left">
      <ul>
@@ -414,9 +422,6 @@ $key = array_intersect($key,$local_distance);
       </div>
     </div>
   </footer>
-    </div>
-
-
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
