@@ -65,7 +65,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
              $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey"=> $row["publickey"], "address" => $row["address"],"url" => $row["url"]);
             }
             // temporarily stores publickey to emlinate duplicate
-            array_push($organization_id_arr,trim($row['publickey']));
+            $organization_id_arr[]=trim($row['publickey']);
  
         }
          
