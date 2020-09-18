@@ -194,7 +194,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
         <div class="collapse navbar-collapse col-lg-4">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                    <a href="home.php" class="nav-link">Home</a>
+                    <a href="home.php" class="nav-link"><i class="material-icons">rss_feed</i></a>
                 </li>
                 <li class="nav-item">
                     <a href="login-page.php" class="nav-link">Login</a>
