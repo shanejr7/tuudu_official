@@ -24,7 +24,7 @@ if (!$db) {
 }
 
 // $privateKey =filter_var('AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB', FILTER_SANITIZE_STRING); // secret key payment for blockpaymentEmail
-$privateKey =filter_var($_POST['paymentEmail'], FILTER_SANITIZE_STRING); // value of block// secret key payment for block
+$privateKey =filter_var($_POST['paymentID'], FILTER_SANITIZE_STRING); // value of block// secret key payment for block
 $paymentType =filter_var($_POST['paymentType'], FILTER_SANITIZE_STRING); // value of block
  
 $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); // value of block

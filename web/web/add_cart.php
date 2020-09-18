@@ -6,7 +6,7 @@
 	if (isset($_POST["add_cart"])) {
 
      // Create connection
-     //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+   
  
      $db = pg_connect(getenv("DATABASE_URL"));
 
@@ -16,20 +16,12 @@
         header('location:oops.php');
       }
 
-     $timezone = pg_escape_string($db, $_POST['timezone']);
- 
-     $timezone = explode(" ", $timezone);
-     $timezone_str =  date('Y-m-d',strtotime($timezone[1].' '.$timezone[2].' '.$timezone[3]));
-     $timezone_str = $timezone_str .' '.$timezone[4];
-
-     $zone = substr($timezone[6],1,1).''.substr($timezone[7],0,1).''.substr($timezone[8],0,1);
+  
 
      date_default_timezone_set($zone);
 
      $O = explode("-", $timezone[5]);
  
-
-     $timezone_str = $timezone_str.''.date("O", strtotime($O[1]));
 
    $id = pg_escape_string($db, $_SESSION['id']);
    $organization_publickey = trim(pg_escape_string($db, $_POST['publickey']));
@@ -60,7 +52,7 @@
 
 
  $query = "INSERT INTO cart (user_id,org_id,publickey,ticket_amount,price,product_title,date_submitted) 
-          VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$total,'$title','$timezone_str')";
+          VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$total,'$title',NOW())";
 
    pg_query($db, $query);
 

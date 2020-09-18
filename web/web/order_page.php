@@ -2,6 +2,8 @@
 /*order page */
 include('feed_state.php');
 include('add_cart.php');
+include('mailGunRecipient.php');
+
 
  
   if (!isset($_SESSION['username'])) {
@@ -230,6 +232,7 @@ pg_close($conn);
                    <input type="hidden" name="privatekey" value="'.$order_list[0]["privatekey"].'">
                    <input type="hidden" name="org_id" value="'.$order_list[0]["org_id"].'">
                    <input type="hidden" name="price" value="'.$order_list[0]["price"].'">
+                    <input type="hidden" name="email" value="'.$order_list[0]["email"].'">
                    <input type="hidden" name="eventTitle" value="'.$order_list[0]["title"].'">
 
                    <div class="form-group">
@@ -285,6 +288,7 @@ echo '</div></from></div>';
    $id = pg_escape_string($db, $_SESSION['id']);
    $organization_publickey = trim(pg_escape_string($db, $_POST['publickey']));
    $organization_privatekey_paypal = trim(pg_escape_string($db, $_POST['privatekey']));
+   $organization_email = trim(pg_escape_string($db, $_POST['email']));
    $org_id = pg_escape_string($db, $_POST['org_id']);
    $ticket_amt = pg_escape_string($db, $_POST['ticket_amount']);
    $title = pg_escape_string($db, $_POST['eventTitle']);
@@ -344,100 +348,44 @@ echo '</div></from></div>';
        
         </div>';
 
-  //         echo '<script
-  //   src="https://www.paypal.com/sdk/js?client-id=AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB"> 
-  // </script>';
-
-echo '<script>
-PAYPAL_CLIENT = "AbJeJTEuJru1mwZbO5mokcBkwwjWEKX_9O-k5mgXSAC8u81zjPk26Rqo9eEkixQTbZAqq11VhvjmtczB";
-PAYPAL_SECRET = "EJ5tnYnDc1t-Whc-ws1QvU22mnlaJv1zlbzXZaglGaXdLoY_AJ9ilFRU6AjrSH2QGSHdPoPAus1V9nsK";
-PAYPAL_OAUTH_API = "https://api.sandbox.paypal.com/v1/oauth2/token/";
-PAYPAL_ORDER_API = "https://api.sandbox.paypal.com/v2/checkout/orders/";
-
-basicAuth = base64encode(`${ PAYPAL_CLIENT }:${ PAYPAL_SECRET }`);
-auth = http.post(PAYPAL_OAUTH_API {
-  headers: {
-    Accept:        `application/json`,
-    Authorization: `Basic ${ basicAuth }`
-  },
-  data: `grant_type=client_credentials`
-});
+          
 
 
-function handleRequest(request, response) {
+            echo ' <div class="col-md-4"></div><div class="col-md-4"></div><div class="col-md-3"><div id="paypal-button-container"></div></div>
 
-  // 3. Call PayPal to set up a transaction with a payee
-  order = http.post(PAYPAL_ORDER_API, {
-    headers: {
-      Accept:        `application/json`,
-      Authorization: `Bearer ${ auth.access_token }`
-    },
-    data: {
-      intent: "CAPTURE",
-      purchase_units: [{
-        amount: {
-          currency_code: "USD",
-          value: "'.$total.'",
-          quantity:"'.$ticket_amt.'"
-        },
-        payee: {
-          email_address: "'.trim($organization_privatekey_paypal).'"
-        }
-      }]
-    }
-  });
+<script src="https://www.paypal.com/sdk/js?client-id='.$organization_privatekey_paypal.'&currency=USD" data-sdk-integration-source="button-factory">
+</script>
 
-
-    if (order.error) {
-    return response.send(500);
-  }
-
-  // 5. Return a successful response to the client with the order ID
-  response.send(200, {
-    orderID: order.id
-  });
-}
-
-</script>';
-
-
-
-//             echo ' <div class="col-md-4"></div><div class="col-md-4"></div><div class="col-md-3"><div id="paypal-button-container"></div></div>
-
-// <script src="https://www.paypal.com/sdk/js?client-id='.$organization_privatekey_paypal.'&currency=USD" data-sdk-integration-source="button-factory">
-// </script>
-
-// <script>
-//     paypal.Buttons({
-//         style: {
-//             shape: "rect",
-//             color: "gold",
-//             layout: "horizontal",
-//             label: "paypal",
+<script>
+    paypal.Buttons({
+        style: {
+            shape: "rect",
+            color: "gold",
+            layout: "horizontal",
+            label: "paypal",
             
-//         },
-//         createOrder: function(data, actions) {
-//             return actions.order.create({
-//                 purchase_units: [{
-//                     amount: {
-//                         "currency_code": "USD",
-//                         value: "'.$total.'",
-//                         quantity:"'.$ticket_amt.'",
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        "currency_code": "USD",
+                        value: "'.$total.'",
+                        quantity:"'.$ticket_amt.'",
                         
-//                     },
-//                    payee: {
-//           email_address: '$'
-//         }
-//                 }]
-//             });
-//         },
-//         onApprove: function(data, actions) {
-//             return actions.order.capture().then(function(details) {
-//                   window.location.replace("add_cart.php?purchased='.$id.'");
-//             });
-//         }
-//     }).render("#paypal-button-container");
-// </script>';
+                    },
+                   
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                  window.location.replace("add_cart.php?purchased='.$id.'");
+                  '.mailGunRecipient($title,$total,$ticket_amt,'contact@tuudu.org',$organization_email).'
+            });
+        }
+    }).render("#paypal-button-container");
+</script>';
 
  
 echo "</br></br> </br></br></br></br>
