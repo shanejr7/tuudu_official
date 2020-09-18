@@ -3,7 +3,7 @@
 
   * 
   * <general page>
-  * hub.php --> server.php 
+  * home.php --> server.php 
   *
   
 */

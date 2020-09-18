@@ -11,7 +11,10 @@
  *
  *
  */
-
+ if (!isset($_SESSION['username'])) {
+   $_SESSION['msg'] = "You must log in first";
+   header('location: login-page.php');
+  }
 // gets organization ID and user ID
 if (isset($_GET['subscribe']) && isset($_SESSION["id"])) {
  
