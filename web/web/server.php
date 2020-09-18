@@ -47,6 +47,8 @@ $remoteIP = preg_replace('/[^\p{L}\p{N}\s]/u', '', $remoteIP);
 
   $_SESSION['ID'] =filter_var($remoteIP, FILTER_SANITIZE_STRING);
 
+  $db = pg_connect(getenv("DATABASE_URL"));
+
    $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time,organization.fiatvalue, organization.img, organization.id as org_key, organization.views,organization.description, organization.word_tag, organization.publickey,organization.views, organization.url FROM organization , feedstate WHERE date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
 
@@ -59,7 +61,7 @@ $remoteIP = preg_replace('/[^\p{L}\p{N}\s]/u', '', $remoteIP);
                     }
                   
                   }else {
-                    
+
                   }
 
             pg_close($db);
