@@ -28,7 +28,7 @@ $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
 
 $general_list = array();
-$organization_publickey_arr = array();
+// $organization_publickey_arr = array();
 
 $db = pg_connect(getenv("DATABASE_URL"));
 
@@ -58,14 +58,14 @@ $db = pg_connect(getenv("DATABASE_URL"));
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-        if (in_array(trim($row['publickey']), $organization_publickey_arr)) {
+        // if (in_array(trim($row['publickey']), $organization_publickey_arr)) {
           // ignore already stored
-        }else{
+        // }else{
 
              $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey"=> $row["publickey"], "address" => $row["address"],"url" => $row["url"]);
-            }
+            // }
             // temporarily stores publickey to emlinate duplicate
-            array_push($organization_publickey_arr,trim($row['publickey']));
+            // array_push($organization_publickey_arr,trim($row['publickey']));
  
         }
          
