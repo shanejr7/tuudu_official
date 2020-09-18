@@ -152,7 +152,10 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
         <div class="collapse navbar-collapse col-lg-4">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+              <li class="nav-item active">
+                    <a href="home.php" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
                     <a href="login-page.php" class="nav-link">Login</a>
                 </li>
                 <li class="nav-item">
@@ -210,7 +213,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
     <!-- class"main main-rasied" -->
     <div class="profile-content " id="main">
       <div class="container">
-    <div class="tab-content tab-space cd-section" id="body">
+    <div class="tab-content tab-space cd-section">
           <div class="tab-pane active text-center gallery section section-sections">
            <div class="row">
 
