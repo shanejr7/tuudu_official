@@ -7,7 +7,7 @@
         function showPosition(position) {
 
         createCookie("dynamic_location",1, position.coords.latitude,position.coords.longitude, "30","n/a"); 
-        console.log(position.coords.latitude +' '+position.coords.longitude);
+        //console.log(position.coords.latitude +' '+position.coords.longitude);
     }
 
       
@@ -52,7 +52,7 @@
             createCookie("static_location"+count,size,
             	data.results[0].geometry.location.lat,data.results[0].geometry.location.lng,
             	 "1",publickey); 
-             console.log("static_location"+document.cookie);
+             //console.log("static_location"+document.cookie);
 
         }
     });
@@ -80,8 +80,8 @@
          document.cookie = escape(name) + "=" + escape(latitude)+ "/"
           + escape(longitude)+"/"+ escape(size)+"/"+ escape(publickey) + expires + "; path=/"; 
         
-        console.log(expires);
-        console.log(document.cookie); 
+        //console.log(expires);
+        //console.log(document.cookie); 
 
 
     } 
