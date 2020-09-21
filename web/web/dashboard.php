@@ -479,7 +479,7 @@ $key = array_intersect($key,$local_distance);
     foreach($dashboard_list as $item) {
   
  
-          if(in_array($item["publickey"], $key)) 
+          if(in_array($item["publickey"], $key) || trim($item["post_type"])=="shipment") 
 
   { 
 
