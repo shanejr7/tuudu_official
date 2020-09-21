@@ -49,7 +49,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
     for ($i=0; $i <sizeof($string) ; $i++) { 
 
-     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url
+     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url, organization.post_type
      FROM organization
     WHERE word_tag LIKE '%$string[$i]%' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
@@ -62,7 +62,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
           // ignore already stored
         // }else{
 
-              $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"]);
+              $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"], "post_type" => $row["post_type"]);
             // }
             // temporarily stores publickey to emlinate duplicate
             // array_push($organization_publickey_arr,trim($row['publickey']));
@@ -79,7 +79,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
                   }else{
 
-                      $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url
+                      $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url, organization.post_type
                   FROM organization
                     WHERE date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
@@ -90,7 +90,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
       
       
-                      $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"]);
+                      $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"], "post_type" => $row["post_type"]);
 
 
 
@@ -298,7 +298,7 @@ $key = array_intersect($key,$local_distance);
     foreach($general_list as $item) {
   
  
-          if(in_array($item["publickey"], $key)) 
+          if(in_array($item["publickey"], $key) || trim($item["post_type"])=="shipment") 
 
   { 
 

@@ -1035,7 +1035,7 @@ echo '<div class="form-check form-check-radio  form-check-inline">
 </div>
 <div class="form-check form-check-radio form-check-inline">
   <label class="form-check-label">
-    <input class="form-check-input" type="radio" name="radioOptions" id="inlineRadio4" value="shippment"><i class="material-icons">local_shipping</i>shippment
+    <input class="form-check-input" type="radio" name="radioOptions" id="inlineRadio4" value="shipment"><i class="material-icons">local_shipping</i>shippment
     <span class="circle">
         <span class="check"></span>
     </span>
