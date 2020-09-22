@@ -1,20 +1,7 @@
 <?php include('server.php');
  
    ?>
-<!--
- =========================================================
- Material Kit PRO - v2.1.1
- =========================================================
 
- Product Page: https://www.creative-tim.com/product/material-kit-pro
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
- Coded by Creative Tim
-
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +47,9 @@
 
         <div class="collapse navbar-collapse col-lg-8">
             <ul class="navbar-nav">
+               <li class="nav-item">
+                    <a href="home.php" class="nav-link"><i class="material-icons">home</i></a>
+                </li>
                 <li class="nav-item">
                     <a href="login-page.php" class="nav-link">Login</a>
                 </li>
