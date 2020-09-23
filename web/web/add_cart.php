@@ -112,7 +112,8 @@ if (isset($_GET["purchased"])) {
   $total = $price - ($price *.5);
   $currency = 'USD';
   $message = 'payment received';
-  $amount = intval($organization_info["amount"]);
+  $amount = trim(pg_escape_string($db,$organization_info["amount"]));
+  $amount = intval($amount);
   $payment_type = trim(pg_escape_string($db,$organization_info["payment_type"]));
   date_default_timezone_set('UTC');
   $time = date('c');
@@ -123,9 +124,15 @@ if (isset($_GET["purchased"])) {
 
    pg_query($db, $query);
 
+   if (strcmp(trim($organization_info["amount"]), 'unlimited') == 0) {
+     // do nothing
+   }else{
 
-   $amount = $amount -1;
+      $amount = $amount -1;
    pg_query($db, "UPDATE public.organization SET amount= '$amount'  WHERE publickey = '$organization_publickey'");
+   }
+
+ 
 
 
  
