@@ -945,7 +945,7 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                   <div class="col-sm-5" style="display:inline-block">
                   <label for="exampleSelect1">amount</label>
                   <select class="form-control" name="amount" id="amount">
-                  <option value="0.5">unlimited</option>';
+                  <option value="unlimited">unlimited</option>';
                         
                       for ($i=1; $i <50 ; $i++) { 
                         echo '<option value="'.$i.'">'.$i.'</option>';
