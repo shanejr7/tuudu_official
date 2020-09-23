@@ -936,12 +936,13 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
 
                  <div class="form-group row">
     
-                  <div class="col-sm-3" style="display:inline-block">
+                  <div class="col-sm-5" style="display:inline-block">
+                  <label for="exampleSelect1">price</label>
                     <input type="text" name="fiatValue" class="form-control" id="value3" placeholder="0.00 " required>
                     </div>
                    
 
-                  <div class="col-sm-4" style="display:inline-block">
+                  <div class="col-sm-5" style="display:inline-block">
                   <label for="exampleSelect1">amount</label>
                   <select class="form-control" name="amount" id="amount">
                   <option value="0.5">unlimited</option>';
