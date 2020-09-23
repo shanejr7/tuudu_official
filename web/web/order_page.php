@@ -209,9 +209,9 @@ pg_close($conn);
 
                     if(isset($order_list) && !isset($_POST["schedule"])){
 
-                      $amount = intval(trim($order_list["amount"]));
+                      $amount = intval($order_list["amount"]);
                       echo $amount;
-                      echo "string";
+                      echo "string ".$order_list["amount"]."\ ";
                       echo strcmp(trim($order_list["amount"]), 'unlimited');
 
                       if (strcmp(trim($order_list["amount"]), 'unlimited') == 0 || $amount >0) {
