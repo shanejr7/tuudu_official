@@ -1260,13 +1260,11 @@ function select() {
     };
 </script> -->
 <script type="text/javascript">
-   $(".amt").click(function() {
-
-      var clickedId= $(this).attr("postAmount");
+$("#postAmount").on('click', '#postAmount', function () {
+   var clickedId= $(this).attr("#postAmount");
       document.getElementById("post_amt").value = clickedId;
-
-      alert(clickedId);
-   });
+  }
+ 
 </script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
