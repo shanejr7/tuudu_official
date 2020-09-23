@@ -209,9 +209,12 @@ pg_close($conn);
 
                     if(isset($order_list) && !isset($_POST["schedule"])){
 
-                      $amount = intval(trim($order_list['amount']));
+                      $amount = intval(trim($order_list["amount"]));
+                      echo $amount;
+                      echo "string";
+                      echo strcmp(trim($order_list["amount"]), 'unlimited');
 
-                      if (strcmp(trim($order_list['amount']), 'unlimited') == 0 || $amount >0) {
+                      if (strcmp(trim($order_list["amount"]), 'unlimited') == 0 || $amount >0) {
                         
                     
 
@@ -278,12 +281,13 @@ echo '</div></form></div>';
 
                       echo '<div class="col-md-8"><h2 class="title"> ';
 
-                      echo strtoupper($ticket_name[0]).' ORDER</h2><h9>'.$order_list[0]["title"].': sold out</h9>';
+                      echo strtoupper($ticket_name[0]).' ORDER</h2><h9>'.$order_list[0]["title"].'</h9>';
                       echo '</div>';
 
 
                       echo '<div class="col-md-4"></div>';
                       echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>'; 
+                      echo '<div><h2>sold out</h2></div>';
 
   }
            }
