@@ -1,4 +1,20 @@
 <?php 
+/* DOCS
+
+  * 
+  * [organization] <inserts and updates new post>
+  * [word_tag] <concats text from post to event type for word tags and query searches>
+  * [itag_rank] <updates or adds text from post for word tags and query searches>
+  * post.php --> server.php <server>
+  * post.php --> add_post.php <adds new post data>
+  * post.php --> proper_nouns.php <text from post that can be used for word tags and query searches>
+  * <delete any unfinished expired post from organization >
+  * <getSeason() keeps track of event type and tags in seasons>
+  *
+  
+*/
+
+
 include('server.php');
 include('add_post.php');
 include("proper_nouns.php");
@@ -21,7 +37,7 @@ $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
 $key = ' ';
  
-//$conn = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
  $conn = pg_connect(getenv("DATABASE_URL"));
 
  if (!$conn) {
@@ -142,7 +158,7 @@ function card(){
 }
  
 // Create connection
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
 $db = pg_connect(getenv("DATABASE_URL"));
 // Check connection
 if (!$db) {
@@ -922,11 +938,21 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                   <div class="col-sm-10">
                     <input type="text" name="fiatValue" class="form-control" id="value3" placeholder="0.00 " required>
                   </div>
-                </div>
+
+                  <div class="col-sm-10">
+                  <label for="exampleSelect1">amount</label>
+                  <select class="form-control" name="amount" id="amount">
+                  <option value="0.5">unlimited</option>';
+                        
+                      for ($i=1; $i <50 ; $i++) { 
+                        echo '<option>'.$i.'</option></select>';
+                      }
                
                  
-        
-                <button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="push" value="7" style="display:inline-block;margin-right:2em;">push</button>
+                echo '</div>';
+
+
+                echo '<button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="push" value="7" style="display:inline-block;margin-right:2em;">push</button>
 
    
                 </form><p class="title" style="display:inline-block">or </p>

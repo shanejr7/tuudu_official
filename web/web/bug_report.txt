@@ -23,8 +23,6 @@ important fix: continue to convert to AJAX for better quality and performance wh
 
 add description:user:contact info for purchase
 
-$$$$ add-on: create post amount for creating a post + sold out.
-
 $ add-on: view user profile.
 
 $ add-on: create edit user info popup/ edit info.
@@ -40,3 +38,6 @@ $$ security: methods to handle spam posting with users/event post.
 $$$ other: continue to make updates on front-end designs, back-end software and (improve/add/analysis) functions to the overall stystem.
 
 other: create HTTP load balancer.
+
+-------------- currently working on -------------------
+$$$$ add-on: create post amount for creating a post + sold out.

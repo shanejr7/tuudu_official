@@ -1,6 +1,17 @@
 <?php 
  
- // if any post are removed then remove from poststate 
+/* DOCS
+
+  * 
+  * [organization] <inserts and updates new post>
+  * [postate] <adds postate for messenger and favorite count>
+  * [word_tag] <analysis count on event type posted>
+  * post.php --> add_post.php <adds new post data>
+  * <if any post are removed then remove from poststate and subtract event post_amt -1> 
+  *
+  *
+  
+*/
 
  if (!isset($_SESSION['username'])) {
  
@@ -28,6 +39,8 @@ $privateKey =filter_var($_POST['paymentID'], FILTER_SANITIZE_STRING); // value o
 $paymentType =filter_var($_POST['paymentType'], FILTER_SANITIZE_STRING); // value of block
  
 $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); // value of block
+
+$post_amt =doubleval(filter_var($_POST['amount'], FILTER_SANITIZE_STRING));
  
     $eventType = pg_escape_string($db, $_POST['e_type']);
   
@@ -47,7 +60,7 @@ $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); 
 
  
  
-    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted =NOW(), payment_type = '$paymentType', favorites = 0 WHERE publickey = '$publickey' AND id =$userid");
+    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted =NOW(), payment_type = '$paymentType', favorites = 0, amount = $post_amt WHERE publickey = '$publickey' AND id =$userid");
 
       pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
   VALUES($userid,'$publickey',0,NULL)");
@@ -78,11 +91,12 @@ $privateKey =filter_var('null', FILTER_SANITIZE_STRING); // secret key payment f
 $privateKey = ltrim($privateKey," ");
 $fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of block
 $eventType = pg_escape_string($db, $_POST['e_type']);
+$post_amt =doubleval(filter_var($_POST['amount'], FILTER_SANITIZE_STRING));
   
 
   
 
-    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted =NOW(), payment_type = 'n/a', favorites =0 WHERE publickey = '$publickey' AND id =$userid");
+    pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted =NOW(), payment_type = 'n/a', favorites =0, amount = $post_amt WHERE publickey = '$publickey' AND id =$userid");
 
     pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
   VALUES($userid,'$publickey',0,NULL)");
