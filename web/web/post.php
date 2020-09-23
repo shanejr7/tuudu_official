@@ -1261,7 +1261,8 @@ function select() {
 </script> -->
 <script type="text/javascript">
 $("#postAmount").on('click', '#postAmount', function () {
-   var clickedId= $(this).attr("#postAmount");
+   
+    var clickedId = document.getElementById("postAmount"); 
       document.getElementById("post_amt").value = clickedId;
   }
  
