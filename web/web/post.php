@@ -1254,19 +1254,14 @@ function select() {
     </div>
   </footer>
   </div>
-<!--    <script type="text/javascript">
-    document.getElementByClass("update").onclick = function () {
-        location.href = "dashboard.php";
-    };
-</script> -->
-<script type="text/javascript">
-$("#postAmount").on('click', '#postAmount', function () {
-   
-    var clickedId = document.getElementById("postAmount"); 
+   <script type="text/javascript">
+    document.getElementByClass("amt").onclick = function () {
+       var clickedId = document.getElementById("postAmount"); 
+       console("hello"+ clickedId);
       document.getElementById("post_amt").value = clickedId;
-  }
- 
+    };
 </script>
+
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
