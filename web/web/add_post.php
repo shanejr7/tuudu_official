@@ -91,7 +91,7 @@ $privateKey =filter_var('null', FILTER_SANITIZE_STRING); // secret key payment f
 $privateKey = ltrim($privateKey," ");
 $fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of block
 $eventType = pg_escape_string($db, $_POST['e_type']);
-$post_amt =filter_var($_POST['amount'], FILTER_SANITIZE_STRING);
+$post_amt ='unlimited';
   
 
   
