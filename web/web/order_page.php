@@ -211,7 +211,7 @@ pg_close($conn);
 
                       $amount = intval(trim($order_list['amount']));
 
-                      if (trim($order_list) == "unlimited" || $amount >0) {
+                      if (trim($order_list["amount"]) == "unlimited" || $amount >0) {
                         
                     
 
