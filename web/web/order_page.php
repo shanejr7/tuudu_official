@@ -284,7 +284,8 @@ echo '</div></form></div>';
 
                       echo '<div class="col-md-4"></div>';
                       echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>'; 
-                      echo '<div><h2>sold out</h2></div>';
+                       echo '<div class="col-md-4"></div>';
+                      echo '<div class="col-md-8"><h2>sold out</h2></div>';
 
   }
            }

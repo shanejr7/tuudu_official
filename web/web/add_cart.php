@@ -65,7 +65,7 @@ pg_close($db);
 if (isset($_GET["purchased"])) {
 
       // Create connection
-   //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+   
 
    $db = pg_connect(getenv("DATABASE_URL"));
 
@@ -104,7 +104,7 @@ if (isset($_GET["purchased"])) {
  
 
    // insert unique ID 
-   $query = "SELECT email,payment_type FROM organization WHERE publickey = '$organization_publickey'";
+   $query = "SELECT email,payment_type,amount FROM organization WHERE publickey = '$organization_publickey'";
    $result = pg_query($db, $query);   
    $organization_info = pg_fetch_assoc($result);
 
@@ -112,6 +112,7 @@ if (isset($_GET["purchased"])) {
   $total = $price - ($price *.5);
   $currency = 'USD';
   $message = 'payment received';
+  $amount = intval($organization_info["amount"]);
   $payment_type = trim(pg_escape_string($db,$organization_info["payment_type"]));
   date_default_timezone_set('UTC');
   $time = date('c');
@@ -121,6 +122,10 @@ if (isset($_GET["purchased"])) {
  
 
    pg_query($db, $query);
+
+
+   $amount = $amount -1;
+   pg_query($db, "UPDATE public.organization SET amount= '$amount'  WHERE publickey = '$organization_publickey'");
 
 
  
