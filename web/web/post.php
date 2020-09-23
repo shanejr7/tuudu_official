@@ -948,7 +948,7 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                   <option value="0.5">unlimited</option>';
                         
                       for ($i=1; $i <50 ; $i++) { 
-                        echo '<option>'.$i.'</option>';
+                        echo '<option value="'.$i.'">'.$i.'</option>';
                       }
                
                  
@@ -1031,7 +1031,7 @@ $_SESSION['publicKey'] = $publickey;
                   <option value="music">music</option>';
                   for($i=0; $i<sizeof($event_push_arr);$i++){
   if (trim($event_push_arr[$i]['event_type'])!="") {
-echo '<option>'.$event_push_arr[$i]['event_type'].'</option>';
+echo '<option value ="'.trim($event_push_arr[$i]['event_type']).'">'.trim($event_push_arr[$i]['event_type']).'</option>';
 
   } 
 }
