@@ -442,7 +442,7 @@ pg_close($db);
                 
 
                      <div class="form-group row col-sm-10">
-                    <input type="text" name="description" class="form-control" id="inputDescription" placeholder="description" required>
+                    <input type="text" name="description" class="form-control" id="inputDescription" placeholder="post description" value=" ">
                   </div>
                 
                  

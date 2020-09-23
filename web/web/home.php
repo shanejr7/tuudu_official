@@ -331,6 +331,7 @@ $key = array_intersect($key,$local_distance);
               } 
  
               
+                  
                 
 
                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
