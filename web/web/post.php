@@ -1027,16 +1027,16 @@ $_SESSION['publicKey'] = $publickey;
               <form  method="post" action="post.php">
                 <div class="form-group">
                   <label for="exampleSelect1">event type</label>
-                  <select class="form-control" name="event_type" id="exampleSelect1">
-                  <option value="music">music</option>';
+                  <select class="form-control" name="event_type" id="exampleSelect1">';
                   for($i=0; $i<sizeof($event_push_arr);$i++){
   if (trim($event_push_arr[$i]['event_type'])!="") {
 echo '<option value ="'.trim($event_push_arr[$i]['event_type']).'">'.trim($event_push_arr[$i]['event_type']).'</option>';
 
   } 
 }
+echo '</select>';
 
-echo '<option value="other">other</option></select>';
+
 
 echo '<div class="form-check form-check-radio  form-check-inline">
   <label class="form-check-label">
