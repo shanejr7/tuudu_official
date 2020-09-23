@@ -937,14 +937,14 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                  <div class="form-group row">
     
                   <div class="col-sm-5" style="display:inline-block">
-                  <label for="exampleSelect1">price</label>
+                  <label>price</label>
                     <input type="text" name="fiatValue" class="form-control" id="value3" placeholder="0.00 " required>
                     </div>
                    
 
                   <div class="col-sm-5" style="display:inline-block">
-                  <label for="exampleSelect1">amount</label>
-                  <select class="form-control" name="amount" id="amount">
+                  <label for="postAmount">amount</label>
+                  <select class="form-control amt" name="amount" id="postAmount">
                   <option value="unlimited">unlimited</option>';
                         
                       for ($i=1; $i <50 ; $i++) { 
@@ -962,6 +962,8 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                 <form method="post" action="post.php" style="display:inline-block" >
 
               <button   type="submit" class="btn radius-50   btn-default-transparent btn-sm" name="push_no_payment" value="7" style="display:inline-block;">free</button>
+
+              <input type="hidden" name="amount" id="post_amt">
 
    
                 </form>
@@ -1257,6 +1259,15 @@ function select() {
         location.href = "dashboard.php";
     };
 </script> -->
+<script type="text/javascript">
+   $(".amt").click(function() {
+
+      var clickedId= $(this).attr("postAmount");
+      document.getElementById("post_amt").value = clickedId;
+
+      alert(clickedId);
+   });
+</script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
