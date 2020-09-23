@@ -21,6 +21,7 @@ important bug: <line 490> uses proper_nouns.php dont split sentence '/' only wor
 
 important fix: continue to convert to AJAX for better quality and performance where users interact on the platform
 
+jquery bug from getting post amount input to free form from payment form
 add description:user:contact info for purchase
 
 $ add-on: view user profile.

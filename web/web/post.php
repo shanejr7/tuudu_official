@@ -945,10 +945,10 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                   <div class="col-sm-5" style="display:inline-block">
                   <label for="postAmount">amount</label>
                   <select class="form-control amt" name="amount" id="postAmount">
-                  <option value="unlimited">unlimited</option>';
+                  <option value="unlimited" onclick="add("unlimited")">unlimited</option>';
                         
                       for ($i=1; $i <50 ; $i++) { 
-                        echo '<option value="'.$i.'">'.$i.'</option>';
+                        echo '<option value="'.$i.'"> onclick="add('.$i.')"'.$i.'</option>';
                       }
                
                  
@@ -967,6 +967,14 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
 
    
                 </form>
+
+                <script>
+
+                  function add(x) {
+                   
+                   document.getElementById("post_amt").value = x;
+                }
+                </script>
 
              ';
  
@@ -1254,13 +1262,7 @@ function select() {
     </div>
   </footer>
   </div>
-   <script type="text/javascript">
-    document.getElementByClass("amt").onclick = function () {
-       var clickedId = document.getElementById("postAmount"); 
-       console("hello"+ clickedId);
-      document.getElementById("post_amt").value = clickedId;
-    };
-</script>
+
 
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
