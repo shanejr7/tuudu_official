@@ -935,21 +935,21 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
 
                  <div class="form-group row">
     
-                  <div class="col-sm-10">
+                  <div class="col-sm-5">
                     <input type="text" name="fiatValue" class="form-control" id="value3" placeholder="0.00 " required>
-                  </div>
+                   
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-5">
                   <label for="exampleSelect1">amount</label>
                   <select class="form-control" name="amount" id="amount">
                   <option value="0.5">unlimited</option>';
                         
                       for ($i=1; $i <50 ; $i++) { 
-                        echo '<option>'.$i.'</option></select>';
+                        echo '<option>'.$i.'</option>';
                       }
                
                  
-                echo '</div>';
+                echo '</select></div></div>';
 
 
                 echo '<button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="6" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="push" value="7" style="display:inline-block;margin-right:2em;">push</button>
