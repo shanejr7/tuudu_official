@@ -10,6 +10,7 @@
   * post.php --> proper_nouns.php <text from post that can be used for word tags and query searches>
   * <delete any unfinished expired post from organization >
   * <getSeason() keeps track of event type and tags in seasons>
+  * <update itag_rank post_amt and only store when post is fully done>
   *
   
 */
@@ -935,11 +936,12 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
 
                  <div class="form-group row">
     
-                  <div class="col-sm-5">
+                  <div class="col-sm-3" style="display:inline-block">
                     <input type="text" name="fiatValue" class="form-control" id="value3" placeholder="0.00 " required>
+                    </div>
                    
 
-                  <div class="col-sm-5">
+                  <div class="col-sm-4" style="display:inline-block">
                   <label for="exampleSelect1">amount</label>
                   <select class="form-control" name="amount" id="amount">
                   <option value="0.5">unlimited</option>';
