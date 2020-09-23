@@ -42,7 +42,7 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
      * 
     */
 
-    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views, organization.title,organization.organization_name as org_name, organization.date,  organization.address, organization.word_tag,organization.publickey, organization.privatekey, organization.email
+    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views, organization.title,organization.organization_name as org_name, organization.date,  organization.address, organization.word_tag,organization.publickey, organization.privatekey, organization.email, organization.amount
      FROM organization WHERE publickey = '$organization_publickey' LIMIT 1");
 
     // loops through rows until there is 0 rows
@@ -50,7 +50,7 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-             $order_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"], "title" => $row["title"],"name" => $row["org_name"],"address" => $row["address"],"type" => $row["word_tag"], "publickey" => $row['publickey'],"privatekey"=>$row["privatekey"], "email" => $row["email"]);
+             $order_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"], "title" => $row["title"],"name" => $row["org_name"],"address" => $row["address"],"type" => $row["word_tag"], "publickey" => $row['publickey'],"privatekey"=>$row["privatekey"], "email" => $row["email"],"amount" => $row["amount"]);
         }
 
     //increment view to organization event
@@ -209,6 +209,12 @@ pg_close($conn);
 
                     if(isset($order_list) && !isset($_POST["schedule"])){
 
+                      $amount = intval(trim($order_list['amount']));
+
+                      if (trim($order_list) == "unlimited" || $amount >0) {
+                        
+                    
+
                       $ticket_name = explode("_", $order_list[0]["type"]);
                       $ticket_date = explode(" ", $order_list[0]["date"]);
                       $ticket_time = explode("-", $order_list[0]["time"]);
@@ -262,9 +268,24 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
 
     ';}
-echo '</div></from></div>';
+echo '</div></form></div>';
+
+  }else{
+
+                      $ticket_name = explode("_", $order_list[0]["type"]);
+                      $ticket_date = explode(" ", $order_list[0]["date"]);
+                      $ticket_time = explode("-", $order_list[0]["time"]);
+
+                      echo '<div class="col-md-8"><h2 class="title"> ';
+
+                      echo strtoupper($ticket_name[0]).' ORDER</h2><h9>'.$order_list[0]["title"].': sold out</h9>';
+                      echo '</div>';
 
 
+                      echo '<div class="col-md-4"></div>';
+                      echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>'; 
+
+  }
            }
         ?>
  
