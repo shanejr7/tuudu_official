@@ -1,5 +1,12 @@
 <?php include('server.php');
  
+ /* DOCS
+
+  * 
+  * <sends user email for new password setup>
+  *
+  
+*/
    ?>
 
 

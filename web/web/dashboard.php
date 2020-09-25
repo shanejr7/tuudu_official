@@ -1,4 +1,13 @@
 <?php  
+/* DOCS
+
+  * 
+  * dashboard.php --> feed_state.php <generates data for user feed>
+  * dashboard.php --> favorite.php <favoriting data stored for post>
+  *
+  
+*/
+
 include('feed_state.php'); // retrieves organizations for users
 include('favorite.php');
    

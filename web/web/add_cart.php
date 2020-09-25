@@ -1,6 +1,18 @@
 <?php 
  
- 
+ /* DOCS
+
+  * 
+  * [cart] <inserts selected items into cart>
+  * [temporary_tag_schedule] <adds user order in schedule>
+  * [csv_web_payouts] <stores order purchased for payouts>
+  * [organization] <order amount is subtracted if purchased>
+  * order_page.php --> add_cart.php <stores order selected>
+  * 
+  *
+  *
+  
+*/
  
  
 	if (isset($_POST["add_cart"])) {

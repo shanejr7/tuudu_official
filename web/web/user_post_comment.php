@@ -1,7 +1,12 @@
 <?php
 
 include("server.php");
+/* DOCS
 
+  * 
+  *
+  
+*/
 
 if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['post']) && isset($_POST['username'])) {
 

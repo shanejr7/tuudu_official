@@ -1,5 +1,11 @@
 <?php 
+/* DOCS
 
+  * 
+  * profile.php --> fetch_user_following.php <user friend connections>
+  *
+  
+*/
 include("server.php");
 
 // require('../aws/aws-autoloader.php');

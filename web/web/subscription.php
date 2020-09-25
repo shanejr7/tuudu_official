@@ -3,7 +3,13 @@
 <?php 
 
 
- 
+ /* DOCS
+
+  * 
+  *
+  
+*/
+
 // $errors = array();
  
 /* subscribed organizations for users

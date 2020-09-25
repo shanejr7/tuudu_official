@@ -1,5 +1,12 @@
 <?php
 
+/* DOCS
+
+  * 
+  * profile.php --> fetch_user_followers.php <user friend connections>
+  *
+  
+*/
 
 include("server.php");
 

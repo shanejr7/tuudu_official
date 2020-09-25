@@ -1,5 +1,12 @@
 <?php
- 
+
+ /* DOCS
+
+  * 
+  *
+  
+*/
+
 // later add first and last name
 session_start();
 

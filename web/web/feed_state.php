@@ -1,12 +1,15 @@
 <?php
 include("server.php");
  
-/* controls dashboard tab for users 
- *
- *when user id not exists in feedstate (default dashboard)
- *
- *
- */
+ /* DOCS
+
+  * 
+  * dashboard.php --> feed_state.php <generates data for user feed>
+  * <controls dashboard tab for users >
+  *
+  
+*/
+
 
 
 if (isset($_SESSION['id'])) {

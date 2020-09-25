@@ -1,6 +1,12 @@
 <?php include('server.php');
- 
-   ?>
+/* DOCS
+
+  * <form to send email message>
+  *
+  *
+  
+*/ 
+?>
 
 <!DOCTYPE html>
 <html lang="en">

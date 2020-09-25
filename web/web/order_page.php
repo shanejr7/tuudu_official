@@ -1,5 +1,13 @@
 <?php   
 /*order page */
+
+/* DOCS
+
+  * 
+  *
+  
+*/
+
 include('feed_state.php');
 include('add_cart.php');
 

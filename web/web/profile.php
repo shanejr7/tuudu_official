@@ -1,4 +1,12 @@
 <?php  
+/* DOCS
+
+  * 
+  * profile.php --> feed_state.php <user generated data>
+  *
+  
+*/
+
 include('feed_state.php'); // retrieves organizations for users
 include('favorite.php');
    

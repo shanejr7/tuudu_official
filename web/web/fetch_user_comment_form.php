@@ -1,6 +1,13 @@
 <?php 
 include("server.php");
  
+ /* DOCS
+
+  * 
+  * profile.php --> fetch_user_comment_form.php <comment form for post>
+  *
+  
+*/
 
 // require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 

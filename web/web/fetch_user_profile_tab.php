@@ -1,5 +1,11 @@
 <?php
+/* DOCS
 
+  * 
+  * profile.php --> fetch_user_profile_tab.php <user profile data>
+  *
+  
+*/
 
 
 include("server.php");

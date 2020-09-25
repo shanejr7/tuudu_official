@@ -2,6 +2,13 @@
 <?php 
 include("server.php");
 
+/* DOCS
+
+  * 
+  * profile.php --> fetch_user_connection_tab.php <user friend connections>
+  *
+  
+*/
 
 if (isset($_POST['id']) && isset($_POST['publickey'])) {
 

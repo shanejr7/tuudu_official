@@ -2,6 +2,14 @@
 
 include("server.php");
 
+/* DOCS
+
+  * 
+  * profile.php --> follow_user.php <follow user>
+  *
+  
+*/
+
 // require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 
 require('../aws/Aws/S3/ObjectUploader.php'); 
