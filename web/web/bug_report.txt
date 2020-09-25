@@ -41,4 +41,4 @@ $$$ other: continue to make updates on front-end designs, back-end software and 
 other: create HTTP load balancer.
 
 -------------- currently working on -------------------
-$$$$ add-on: create post amount for creating a post + sold out.
+
