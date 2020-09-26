@@ -453,7 +453,10 @@ $bucket_name = 'tuudu-official-file-storage';
                           header('location:oops.php');
                       }
 
-                           $result_one = pg_query($db,"SELECT * FROM user_follow_organization NATURAL JOIN organization NATURAL JOIN poststate WHERE userid = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
+                           $result_one = pg_query($db,"SELECT * FROM organization
+NATURAL JOIN poststate NATURAL JOIN user_follow_organization WHERE publickey in (select DISTINCT publickey from user_follow_organization
+WHERE userid = $user_id) AND user_id =$user_id AND date_submitted 
+is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
 
 
                       
