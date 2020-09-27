@@ -382,8 +382,8 @@ if (!$db) {
 
               if (pg_num_rows($result) <= 0) {
                 
-                   pg_query($db, "INSERT INTO public.itag_rank (itag,views) 
-                    VALUES(trim('$tvar[$i]'),0)");
+                   pg_query($db, "INSERT INTO public.itag_rank (itag,views,post_amt) 
+                    VALUES(trim('$tvar[$i]'),0,0)");
 
               }
             } 
@@ -885,6 +885,7 @@ pg_close($db);
 $userid = $_SESSION['id'];
 $publickey = $_SESSION['publicKey'];
 $event_type = trim($_SESSION['event_type']);
+$tags = explode('/', $_SESSION['tags']);
 if(isset($_POST['page'])) {
 
 if (isset($_POST['url'])) {
@@ -919,6 +920,7 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                     <form method="post" action="post.php"  style="display:inline-block">
 
                      <input type="hidden" name="e_type" value="'.$event_type.'">
+                     <input type="hidden" name="e_tags" value="'.$tags.'">
 
 
                       <div class="form-group row">
@@ -961,9 +963,13 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                 </form><p class="title" style="display:inline-block">or </p>
                 <form method="post" action="post.php" style="display:inline-block" >
 
+                     <input type="hidden" name="e_type" value="'.$event_type.'">
+                     <input type="hidden" name="e_tags" value="'.$tags.'">
+
               <button   type="submit" class="btn radius-50   btn-default-transparent btn-sm" name="push_no_payment" value="7" style="display:inline-block;">free</button>
 
               <input type="hidden" name="amount" id="post_amt">
+
 
    
                 </form> ';

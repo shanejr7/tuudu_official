@@ -42,7 +42,8 @@ $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); 
 
 $post_amt =filter_var($_POST['amount'], FILTER_SANITIZE_STRING);
  
-    $eventType = pg_escape_string($db, $_POST['e_type']);
+    $eventType = trim(pg_escape_string($db, $_POST['e_type']));
+    $eventTags = pg_escape_string($db, $_POST['e_tags']);
   
  
     $paymentType = strtoupper(trim($paymentType));
@@ -65,7 +66,22 @@ $post_amt =filter_var($_POST['amount'], FILTER_SANITIZE_STRING);
       pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
   VALUES($userid,'$publickey',0,NULL)");
 
-      pg_query($db, "UPDATE public.word_tag SET post_amt =post_amt + 1 WHERE event_type = 'eventType' ");
+      pg_query($db, "UPDATE public.word_tag SET post_amt =post_amt + 1 WHERE event_type = '$eventType' ");
+
+       for ($i=0; $i <sizeof($tags) ; $i++) { 
+        
+          
+            $result = pg_query($db, "SELECT * FROM itag_rank WHERE itag=trim('$tags[$i]') LIMIT 1");
+              
+              $itag_rank = pg_fetch_assoc($result);
+
+              if (pg_num_rows($result)>0) {
+                
+                   pg_query($db, "UPDATE public.itag_rank SET post_amt = post_amt + 1 
+                    WHERE itag = trim('$tags[$i]')");
+
+              }
+            }
  
 
 
@@ -87,10 +103,11 @@ if (!$db) {
      header('location:oops.php');
 }
 
-$privateKey =filter_var('null', FILTER_SANITIZE_STRING); // secret key payment for block
+$privateKey =filter_var('null', FILTER_SANITIZE_STRING); // secret key payment for post
 $privateKey = ltrim($privateKey," ");
-$fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of block
-$eventType = pg_escape_string($db, $_POST['e_type']);
+$fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of post
+$eventType = trim(pg_escape_string($db, $_POST['e_type']));
+$eventTags = pg_escape_string($db, $_POST['e_tags']);
 $post_amt ='unlimited';
   
 
@@ -101,7 +118,22 @@ $post_amt ='unlimited';
     pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
   VALUES($userid,'$publickey',0,NULL)");
 
-     pg_query($db, "UPDATE public.word_tag SET post_amt =post_amt + 1 WHERE event_type = 'eventType'");
+     pg_query($db, "UPDATE public.word_tag SET post_amt =post_amt + 1 WHERE event_type = '$eventType'");
+
+       for ($i=0; $i <sizeof($tags) ; $i++) { 
+        
+          
+            $result = pg_query($db, "SELECT * FROM itag_rank WHERE itag=trim('$tags[$i]') LIMIT 1");
+              
+              $itag_rank = pg_fetch_assoc($result);
+
+              if (pg_num_rows($result)>0) {
+                
+                   pg_query($db, "UPDATE public.itag_rank SET post_amt = post_amt + 1 
+                    WHERE itag = trim('$tags[$i]')");
+
+              }
+            }
 
                
  header('location: dashboard.php');
