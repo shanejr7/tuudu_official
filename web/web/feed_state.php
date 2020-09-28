@@ -415,7 +415,7 @@ if (isset($_SESSION['guestID']) && isset($_POST['schedule']) && isset($_POST["fr
 
  if (isset($_SESSION['id']) && isset($_POST['schedule']) && isset($_POST["free_event"])) {
 
-   //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+   
    $db = pg_connect(getenv("DATABASE_URL"));
 
    // Check connection

@@ -28,7 +28,7 @@ if (isset($_GET['subscribe']) && isset($_SESSION["id"])) {
   $tempID = filter_var($_SESSION["id"], FILTER_SANITIZE_STRING);
 
 	// connect to database
-//$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+
 $db = pg_connect(getenv("DATABASE_URL"));
 
 
@@ -69,6 +69,20 @@ $publickey = trim($publickey);
         pg_query($db, "UPDATE public.word_tag
     SET views = views + 1
   WHERE event_type = '$splitFileString'");
+
+        // add view to itag
+                  $splitFileString = " ";
+                  $splitFileString = strtok(trim($organization['word_tag']), '/' );
+                  $splitFileString = strtok("/");
+ 
+ 
+                  while ($splitFileString !== false)
+                    {
+
+                      pg_query($conn, "UPDATE public.itag_rank SET views = views + 1 WHERE itag = '$splitFileString'");
+
+                      $splitFileString = strtok("/");
+                    }
 
   	pg_query($db, "INSERT INTO user_follow_organization (userid, publickey,orgid)
   VALUES($tempID,'$publickey',$org_id)");
@@ -111,7 +125,7 @@ if (isset($_GET['unsubscribe']) && isset($_SESSION["id"])) {
   $tempID = filter_var($_SESSION["id"], FILTER_SANITIZE_STRING);
 
     // connect to database
-  //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+  
     $db = pg_connect(getenv("DATABASE_URL"));
 
 
