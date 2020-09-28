@@ -210,7 +210,7 @@ pg_close($conn);
 
                   }else{
 
-                    echo ' <li class="nav-item active">
+                    echo ' <li class="nav-item">
                    <a href="home.php" class="nav-link"><i class="material-icons">home</i></a>
                 </li>
                 <li class="nav-item">
