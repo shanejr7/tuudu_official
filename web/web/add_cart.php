@@ -35,7 +35,15 @@
      $O = explode("-", $timezone[5]);
  
 
-   $id = pg_escape_string($db, $_SESSION['id']);
+   $id = 0;
+
+   if (isset($_SESSION['id'])) {
+       $id = pg_escape_string($db, $_SESSION['id']);
+     }elseif (isset($_SESSION['guestID'])) {
+       $id = pg_escape_string($db, $_SESSION['guestID']);
+     }
+
+
    $organization_publickey = trim(pg_escape_string($db, $_POST['publickey']));
    $org_id = pg_escape_string($db, $_POST['org_id']);
    $ticket_amt = pg_escape_string($db, $_POST['ticket_amount']);
@@ -105,12 +113,16 @@ if (isset($_GET["purchased"])) {
  
    $price = number_format($price,2);
 
+   if (isset($_SESSION['id'])) {
 
- 
-   $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount,price,product_title) 
+     $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount,price,product_title) 
           VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title')";
 
    pg_query($db, $query);
+
+   }
+ 
+   
 
 
  
@@ -132,9 +144,13 @@ if (isset($_GET["purchased"])) {
 
       $query = "INSERT INTO csv_web_payouts (email,total,currency,message,payment_type,date_submitted,id) 
           VALUES('$email',$total,'$currency','$message','$payment_type','$time','$organization_publickey')";
- 
 
-   pg_query($db, $query);
+      pg_query($db, $query);
+
+
+
+
+
 
    if (strcmp(trim($organization_info["amount"]), 'unlimited') == 0) {
      // do nothing

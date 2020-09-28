@@ -2,20 +2,7 @@
 session_destroy();
  
    ?>
-<!--
- =========================================================
- Material Kit PRO - v2.1.1
- =========================================================
 
- Product Page: https://www.creative-tim.com/product/material-kit-pro
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
- Coded by Creative Tim
-
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -172,8 +159,6 @@ session_destroy();
   <script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-  <!--  Google Maps Plugin    -->
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
   <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
   <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->

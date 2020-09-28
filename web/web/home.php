@@ -11,6 +11,7 @@
 include('server.php');
 
 
+
 require('../aws/Aws/S3/S3Client.php'); 
 require('../aws/Aws/S3/ObjectUploader.php'); 
 
@@ -28,6 +29,24 @@ $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
 
 $general_list = array();
+
+if (!isset($_SESSION['username'])) {
+    
+    $randomString =' ';
+
+    $characters = '0123456789'; 
+   
+    $n = 9;
+  
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
+
+    $_SESSION['guestID'] = $randomString;
+
+  }
+
 // $organization_publickey_arr = array();
 
 $db = pg_connect(getenv("DATABASE_URL"));
@@ -442,8 +461,6 @@ $key = array_intersect($key,$local_distance);
   <script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-  <!--  Google Maps Plugin    -->
- <!--  <script src="https://maps.googleapis.com/maps/api/js?key="></script> -->
   <!--  Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
   <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->

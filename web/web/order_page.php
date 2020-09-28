@@ -13,12 +13,6 @@ include('add_cart.php');
 
 
 
- 
-  if (!isset($_SESSION['username'])) {
-   $_SESSION['msg'] = "You must log in first";
-   header('location: login-page.php');
-  }
-
   if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
@@ -27,7 +21,7 @@ include('add_cart.php');
     header("location: login-page.php");
   }
 
-if (isset($_SESSION['id']) && isset($_GET['order'])) {
+if ((isset($_SESSION['id']) && isset($_GET['order'])) || (isset($_SESSION['guestID']) && isset($_GET['order']))) {
  
  
      // connect to DataBase
@@ -39,7 +33,14 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
         header('location:oops.php');
       }
 
-     $user_I_D =  pg_escape_string($conn, $_SESSION['id']);
+     $user_I_D =0;
+
+     if (isset($_SESSION['id'])) {
+       $user_I_D = $_SESSION['id'];
+     }elseif (isset($_SESSION['guestID'])) {
+       $user_I_D = $_SESSION['guestID'];
+     }
+
      $organization_publickey = pg_escape_string($conn,$_GET['order']);
 
      
@@ -65,7 +66,7 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
      
         $org_id = $order_list[0]['org_id'];
 
-        $result = pg_query($conn, "SELECT id, word_tag FROM organization WHERE publickey = '$organization_publickey' LIMIT 1");
+        $result = pg_query($conn, "SELECT id, word_tag, title, description, content FROM organization WHERE publickey = '$organization_publickey' LIMIT 1");
       $organization = pg_fetch_assoc($result);
       $org_id = $organization["id"];
 
@@ -78,25 +79,33 @@ if (isset($_SESSION['id']) && isset($_GET['order'])) {
 
                   $splitFileString = strtok(trim($organization['word_tag']), '_' );
                   $splitFileString = strtolower($splitFileString);
-                  
 
-        pg_query($conn, "UPDATE public.word_tag
-    SET views = views + 1
-  WHERE event_type = '$splitFileString'");
-         
+                   pg_query($conn, "UPDATE public.word_tag SET views = views + 1 WHERE event_type = '$splitFileString'");
+
+      // add view to itag
+                  $splitFileString = " ";
+                  $splitFileString = strtok(trim($organization['word_tag']), '/' );
+                  $splitFileString = strtok("/");
+ 
+ 
+                  while ($splitFileString !== false)
+                    {
+
+                      pg_query($conn, "UPDATE public.itag_rank SET views = views + 1 WHERE itag = '$splitFileString'");
+
+                      $splitFileString = strtok("/");
+                    }
+
+
     } else {header('location:oops.php'); }
 
 pg_close($conn);
  
 }
- 
 
  
 
-  if (!isset($_SESSION['username'])) {
-   $_SESSION['msg'] = "You must log in first";
-   header('location: login-page.php');
-  }
+
 
   if (isset($_GET['logout'])) {
     session_destroy();
@@ -175,6 +184,15 @@ pg_close($conn);
         </div>
                 <div class="col-lg-8 collapse navbar-collapse" id="sectionsNav">
             <ul class="navbar-nav">
+              <?php
+
+                  if (isset($_SESSION['username'])) {
+                      
+                    $number =1;
+
+                    echo ' <li class="nav-item">
+                   <a href="home.php" class="nav-link"><i class="material-icons">home</i></a>
+                </li>
                 <li class="nav-item ">
                      <a href="dashboard.php" class="nav-link">Dashboard</a> 
                 </li>
@@ -182,13 +200,30 @@ pg_close($conn);
                      <a href="profile.php" class="nav-link">Profile</a> 
                 </li>
                      <li class="nav-item active">
-                     <a href="dashboard.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
+                     <a href="dashboard.php?logout='.$number.'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
                       <script type="text/javascript">
                       var revokeAllScopes = function() {
                          auth2.disconnect();
                       }
                      </script>
+                </li>';
+
+                  }else{
+
+                    echo ' <li class="nav-item active">
+                   <a href="home.php" class="nav-link"><i class="material-icons">home</i></a>
                 </li>
+                <li class="nav-item">
+                    <a href="login-page.php" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="signup-page.php" class="nav-link">Signup</a>
+                </li>';
+                  }
+
+
+              ?>
+
             </ul>
 
         </div>
@@ -307,7 +342,7 @@ echo '</div></form></div>';
   *
   */
 
- if (isset($_SESSION['id']) && isset($_POST['schedule']) && isset($_POST["paid_event"]) ) {
+ if ((isset($_SESSION['id']) || isset($_SESSION['guestID'])) && isset($_POST['schedule']) && isset($_POST["paid_event"]) ) {
 
    $db = pg_connect(getenv("DATABASE_URL"));
    // Check connection
@@ -316,7 +351,14 @@ echo '</div></form></div>';
          header('location:oops.php');
     }
 
-   $id = pg_escape_string($db, $_SESSION['id']);
+   $id =0;
+
+   if (isset($_SESSION['id'])) {
+       $id = pg_escape_string($db, $_SESSION['id']);
+     }elseif (isset($_SESSION['guestID'])) {
+       $id = pg_escape_string($db, $_SESSION['guestID']);
+     }
+   
    $organization_publickey = trim(pg_escape_string($db, $_POST['publickey']));
    $organization_privatekey_paypal = trim(pg_escape_string($db, $_POST['privatekey']));
    $organization_email = trim(pg_escape_string($db, $_POST['email']));
@@ -499,8 +541,6 @@ by accepting this agreement and terms with using our services. you agree that al
   <script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-  <!--  Google Maps Plugin    -->
- <!--  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBidE-PE8nRTYLn-tqLiLipd86XT3yDoiY"></script> -->
   <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>
   <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
