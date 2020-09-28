@@ -213,7 +213,33 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
         <div class="collapse navbar-collapse col-lg-4">
             <ul class="navbar-nav">
-              <li class="nav-item active">
+                    <?php
+
+                  if (isset($_SESSION['username'])) {
+                      
+                    $number =1;
+
+                    echo ' <li class="nav-item active">
+                   <a href="home.php" class="nav-link"><i class="material-icons">home</i></a>
+                </li>
+                <li class="nav-item ">
+                     <a href="dashboard.php" class="nav-link">Dashboard</a> 
+                </li>
+                 <li class="nav-item ">
+                     <a href="profile.php" class="nav-link">Profile</a> 
+                </li>
+                     <li class="nav-item">
+                     <a href="dashboard.php?logout='.$number.'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
+                      <script type="text/javascript">
+                      var revokeAllScopes = function() {
+                         auth2.disconnect();
+                      }
+                     </script>
+                </li>';
+
+                  }else{
+
+                    echo ' <li class="nav-item active">
                    <a href="home.php" class="nav-link"><i class="material-icons">home</i></a>
                 </li>
                 <li class="nav-item">
@@ -221,7 +247,11 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
                 </li>
                 <li class="nav-item">
                     <a href="signup-page.php" class="nav-link">Signup</a>
-                </li>
+                </li>';
+                  }
+
+
+              ?>
                
             </ul>
     
