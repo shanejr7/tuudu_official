@@ -408,6 +408,10 @@ if (!$db) {
   *
   *
   */
+if (isset($_SESSION['guestID']) && isset($_POST['schedule']) && isset($_POST["free_event"])) {
+
+   header('location:home.php');
+}
 
  if (isset($_SESSION['id']) && isset($_POST['schedule']) && isset($_POST["free_event"])) {
 
