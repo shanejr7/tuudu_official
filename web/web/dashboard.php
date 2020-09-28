@@ -171,7 +171,7 @@ echo '<script>
 
         <div class="collapse navbar-collapse" id="sectionsNav" style="margin-left: 4px;">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                      <a href="dashboard.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
                      <script type="text/javascript">
                       var revokeAllScopes = function() {

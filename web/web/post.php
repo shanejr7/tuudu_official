@@ -127,13 +127,16 @@ if (!isset($_SESSION['username'])) {
 
         <div class="collapse navbar-collapse col-lg-8">
             <ul class="navbar-nav">
+               <li class="nav-item">
+                   <a href="home.php" class="nav-link"><i class="material-icons">home</i></a>
+                </li>
                   <li class="nav-item">
                     <a href="dashboard.php" class="nav-link">DASHBOARD</a>
                 </li>
                  <li class="nav-item">
                     <a href="profile.php" class="nav-link">PROFILE</a>
                 </li>
-                 <li class="nav-item active">
+                 <li class="nav-item">
                     <a href="login-page.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">LOGOFF</a>
                     <script type="text/javascript">
                       var revokeAllScopes = function() {

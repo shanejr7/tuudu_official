@@ -199,7 +199,7 @@ pg_close($conn);
                  <li class="nav-item ">
                      <a href="profile.php" class="nav-link">Profile</a> 
                 </li>
-                     <li class="nav-item active">
+                     <li class="nav-item">
                      <a href="dashboard.php?logout='.$number.'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
                       <script type="text/javascript">
                       var revokeAllScopes = function() {

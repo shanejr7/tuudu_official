@@ -44,20 +44,6 @@ $bucket_name = 'tuudu-official-file-storage';
   }
 
 ?>
-<!--
- =========================================================
- Material Kit PRO - v2.1.1
- =========================================================
-
- Product Page: https://www.creative-tim.com/product/material-kit-pro
- Copyright 2019 Creative Tim (https://www.creative-tim.com)
-
- Coded by Creative Tim
-
- =========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -142,7 +128,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
         <div class="collapse navbar-collapse" id="sectionsNav" style="margin-left: 4px;">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                      <a href="profile.php?logout='1'" onclick="revokeAllScopes()" class="nav-link">logoff</a> 
                      <script type="text/javascript">
                       var revokeAllScopes = function() {
