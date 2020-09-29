@@ -164,7 +164,7 @@
               </div>  <div style="margin-left: 30%;"> <?php include('errors.php'); ?></div>  
            <!--    <p class="description text-center">Or Be Classical</p> -->
               <div class="card-body">
-                <div class="form-group">
+                <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                       <i class="material-icons">face</i>
