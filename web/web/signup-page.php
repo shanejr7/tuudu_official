@@ -189,9 +189,11 @@
                   <input type="password" class="form-control"name="password_1" id="inputPassword" placeholder="Password..." required>
                   <input type="hidden" name="account_type" id="account_type" value="user">
                 </div>
-                 <div class="form-group">
+                 <div class="input-group">
+                   <div class="input-group-prepend">
                     <label class="label-control">Birth Date</label>
-                    <input type="text" class="form-control datepicker" name="age" value="<?php echo date('d/m/Y') ?>">
+                    <input type="text" class="form-control datepicker" name="age" value="<?php echo date('m/d/Y') ?>">
+                  </div>
                   </div>
                   <div class="form-check">
                   <label class="form-check-label">
