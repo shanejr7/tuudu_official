@@ -1411,7 +1411,7 @@ var pid=$(this).data("pid");
 unfollow(pid,id,key);
 
 
- function unfollow(,pid,id,publickey)
+ function unfollow(pid,id,publickey)
  {
 
 
@@ -1470,7 +1470,7 @@ var pid=$(this).data("pid");
 follow(pid,id,key);
 
 
- function follow(,pid,id,publickey)
+ function follow(pid,id,publickey)
  {
 
 
