@@ -178,14 +178,6 @@
                     <input type="text" class="form-control datepicker" name="age" value="<?php echo date('m/d/Y') ?>">
                   </div>
                 </div>
-              <!--   <div class="input-group col-md-6">
-                   <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">cake</i>
-                    </span>
-                    <input type="text" class="form-control datepicker" name="age" value="<?php //echo date('m/d/Y') ?>">
-                  </div>
-                  </div> -->
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
