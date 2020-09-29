@@ -164,8 +164,7 @@
               </div>  <div style="margin-left: 30%;"> <?php include('errors.php'); ?></div>  
            <!--    <p class="description text-center">Or Be Classical</p> -->
               <div class="card-body">
-                <div class="row">
-                <div class="input-group col-lg-5">
+                <div class="input-group col-md-4">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                       <i class="material-icons">face</i>
@@ -173,15 +172,14 @@
                   </div>
                   <input type="text" class="form-control" name="username" id="inputName" placeholder="User Name..." required>
                 </div>
-                 <div class="input-group col-lg-5">
+                 <!-- <div class="input-group col-">
                    <div class="input-group-prepend">
                     <span class="input-group-text">
                       <i class="material-icons">cake</i>
                     </span>
-                    <input type="text" class="form-control datepicker" name="age" value="<?php echo date('m/d/Y') ?>">
+                    <input type="text" class="form-control datepicker" name="age" value="<?php //echo date('m/d/Y') ?>">
                   </div>
-                  </div>
-                </div>
+                  </div> -->
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
