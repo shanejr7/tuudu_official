@@ -191,7 +191,9 @@
                 </div>
                  <div class="input-group">
                    <div class="input-group-prepend">
-                    <label class="label-control">Birth Date</label>
+                    <span class="input-group-text">
+                      <i class="material-icons">cake</i>
+                    </span>
                     <input type="text" class="form-control datepicker" name="age" value="<?php echo date('m/d/Y') ?>">
                   </div>
                   </div>
