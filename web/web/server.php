@@ -95,7 +95,7 @@ if (isset($_POST['reg_user'])) {
  
 
   if (isset($_POST['age'])) {
-     $age = pg_escape_string($db, $_POST['age']);
+     $age = trim(pg_escape_string($db, $_POST['age']));
   }
    
   $password_1 = pg_escape_string($db, $_POST['password_1']);

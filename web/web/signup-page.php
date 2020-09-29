@@ -189,6 +189,10 @@
                   <input type="password" class="form-control"name="password_1" id="inputPassword" placeholder="Password..." required>
                   <input type="hidden" name="account_type" id="account_type" value="user">
                 </div>
+                 <div class="form-group">
+                    <label class="label-control">Birth Date</label>
+                    <input type="text" class="form-control datepicker" name="age" value="<?php echo date('d/m/Y') ?>">
+                  </div>
                   <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" id="policy" value="" required>Accept our policy &mdash;
