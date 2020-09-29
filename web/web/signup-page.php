@@ -172,6 +172,14 @@
                   </div>
                   <input type="text" class="form-control" name="username" id="inputName" placeholder="User Name..." required>
                 </div>
+                <div class="input-group col-md-4">
+                   <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">cake</i>
+                    </span>
+                    <input type="text" class="form-control datepicker" name="age" value="<?php echo date('m/d/Y') ?>">
+                  </div>
+                  </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
@@ -189,14 +197,6 @@
                   <input type="password" class="form-control"name="password_1" id="inputPassword" placeholder="Password..." required>
                   <input type="hidden" name="account_type" id="account_type" value="user">
                 </div>
-                 <!-- <div class="input-group">
-                   <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">cake</i>
-                    </span>
-                    <input type="text" class="form-control datepicker" name="age" value="<?php //echo date('m/d/Y') ?>">
-                  </div>
-                  </div> -->
                   <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" id="policy" value="" required>Accept our policy &mdash;
