@@ -32,9 +32,17 @@ if ((isset($_GET['subscribe'])|| isset($_POST['subscribe']) ) && isset($_SESSION
 $db = pg_connect(getenv("DATABASE_URL"));
 
 
-$publickey =  pg_escape_string($db,$_GET['subscribe']);
-$publickey = trim($publickey);
-   
+   $publickey = " ";
+
+  if (isset($_GET['subscribe'])) {
+    $publickey =  pg_escape_string($db,$_GET['subscribe']);
+    
+  }elseif (isset($_POST['subscribe'])) {
+    $publickey =  pg_escape_string($db,$_POST['subscribe']);
+    
+  }
+  
+  $publickey = trim($publickey);
     
    // checks if the organization ID is already linked to the user ID
 
@@ -128,9 +136,17 @@ if ((isset($_GET['unsubscribe'])|| isset($_POST['unsubscribe'])) && isset($_SESS
   
     $db = pg_connect(getenv("DATABASE_URL"));
 
+    $publickey = " ";
 
-  $publickey =  pg_escape_string($db,$_GET['unsubscribe']);
-  $publickey = trim($publickey);
+  if (isset($_GET['unsubscribe'])) {
+    $publickey =  pg_escape_string($db,$_GET['unsubscribe']);
+     
+  }elseif (isset($_POST['unsubscribe'])) {
+    $publickey =  pg_escape_string($db,$_POST['unsubscribe']);
+     
+  }
+ 
+ $publickey = trim($publickey);
    
     
    // unsubscribes organization and removes poststate
