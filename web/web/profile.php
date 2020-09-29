@@ -1401,7 +1401,123 @@ unfollow_button(id,key);
 
     });
 
+    $(document).on('click', '.post_unsubscribe', function () {
 
+var key=$(this).data("publickey");
+var id=$(this).data("id");
+var pid=$(this).data("pid");
+
+
+unfollow(pid,id,key);
+
+
+ function unfollow(,pid,id,publickey)
+ {
+
+
+    $.ajax({
+   url:"subscription.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        unsubscribe : id 
+                    },
+   success:function(data){
+
+
+      $.ajax({
+   url:"fetch_user_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : pid 
+                    },
+   success:function(data){
+    $('#user_post').html(data);
+
+
+        $.ajax({
+   url:"fetch_users_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : pid 
+                    },
+   success:function(data){
+    $('#users_post').html(data);
+   }
+  })
+     
+   }
+  })
+   
+   }
+  })
+
+
+ }
+
+
+    });
+
+  $(document).on('click', '.post_subscribe', function () {
+
+var key=$(this).data("publickey");
+var id=$(this).data("id");
+var pid=$(this).data("pid");
+
+
+follow(pid,id,key);
+
+
+ function follow(,pid,id,publickey)
+ {
+
+
+    $.ajax({
+   url:"subscription.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        subscribe : id 
+                    },
+   success:function(data){
+
+
+      $.ajax({
+   url:"fetch_user_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : pid 
+                    },
+   success:function(data){
+    $('#user_post').html(data);
+
+
+        $.ajax({
+   url:"fetch_users_post.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : pid 
+                    },
+   success:function(data){
+    $('#users_post').html(data);
+   }
+  })
+     
+   }
+  })
+   
+   }
+  })
+
+
+ }
+
+
+    });
 
   $(document).on('click', '.post_unfollow_user', function () {
 

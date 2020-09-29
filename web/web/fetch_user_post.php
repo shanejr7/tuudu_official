@@ -71,10 +71,10 @@ $bucket_name = 'tuudu-official-file-storage';
   				$user_post = pg_fetch_assoc($result);
 
 
+          // instead select subscription
+          $result = pg_query($db, "SELECT * FROM user_follow_organization WHERE userid = $sid AND publickey ='$publickey'");
 
-          $result = pg_query($db, "SELECT * FROM user_follow_user WHERE user_id = $sid AND user_following_id =$user_id ");
-
-          $user_follow = pg_fetch_assoc($result);
+          $user_subscribe = pg_fetch_assoc($result);
           
  
 
@@ -121,15 +121,15 @@ $bucket_name = 'tuudu-official-file-storage';
                 <div class="col-md-2">';
                 if ($user_id == $sid) {
 
-                  // no follow button
+                 
 
-                }elseif($user_follow){
+                }elseif($user_subscribe){
 
-                  $data.='<button type="button" data-id="'.$user_post['user_id'].'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-danger pull-right btn-round">Following</button>';
+                  $data.='<button type="button" data-pid="'.$user_post['post_id'].'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_unsubscribe btn btn-danger pull-right btn-round">Subscribed</button>';
 
                 }else{
 
-                  $data.='<button type="button" data-id="'.$user_post['user_id'].'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">Follow</button>';
+                  $data.='<button type="button" data-pid="'.$user_post['post_id'].'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_subscribe btn btn-default pull-right btn-round">Subscribe</button>';
 
                 }
 

@@ -175,7 +175,7 @@
                     <span class="input-group-text">
                       <i class="material-icons">cake</i>
                     </span>
-                    <input type="text" class="form-control datepicker" name="age" value="<?php echo date('m/d/Y') ?>">
+                    <input type="text" class="form-control datepicker" name="age" value="<?php echo date('m/d/Y') ?>" required>
                   </div>
                 </div>
                 <div class="input-group">

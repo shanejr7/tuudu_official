@@ -22,7 +22,7 @@
    header('location: login-page.php');
   }
 // gets organization ID and user ID
-if (isset($_GET['subscribe']) && isset($_SESSION["id"])) {
+if ((isset($_GET['subscribe'])|| isset($_POST['subscribe']) ) && isset($_SESSION["id"])) {
  
  
   $tempID = filter_var($_SESSION["id"], FILTER_SANITIZE_STRING);
@@ -119,7 +119,7 @@ $publickey = trim($publickey);
  */
 
 // gets organization ID and user ID
-if (isset($_GET['unsubscribe']) && isset($_SESSION["id"])) {
+if ((isset($_GET['unsubscribe'])|| isset($_POST['unsubscribe'])) && isset($_SESSION["id"])) {
  
  
   $tempID = filter_var($_SESSION["id"], FILTER_SANITIZE_STRING);
