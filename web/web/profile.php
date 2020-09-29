@@ -1424,7 +1424,7 @@ unfollow(pid,id,key);
                     },
    success:function(data){
 
-
+console.log('yes');
       $.ajax({
    url:"fetch_user_post.php",
    method:"POST",
@@ -1482,7 +1482,7 @@ follow(pid,id,key);
         subscribe : id 
                     },
    success:function(data){
-
+console.log('yes');
 
       $.ajax({
    url:"fetch_user_post.php",
