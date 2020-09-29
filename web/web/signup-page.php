@@ -164,13 +164,23 @@
               </div>  <div style="margin-left: 30%;"> <?php include('errors.php'); ?></div>  
            <!--    <p class="description text-center">Or Be Classical</p> -->
               <div class="card-body">
-                <div class="input-group">
+                <div class="row">
+                <div class="input-group col-md-4">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                       <i class="material-icons">face</i>
                     </span>
                   </div>
                   <input type="text" class="form-control" name="username" id="inputName" placeholder="User Name..." required>
+                </div>
+                 <div class="input-group col-md-4">
+                   <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">cake</i>
+                    </span>
+                    <input type="text" class="form-control datepicker" name="age" value="<?php echo date('m/d/Y') ?>">
+                  </div>
+                  </div>
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -189,14 +199,6 @@
                   <input type="password" class="form-control"name="password_1" id="inputPassword" placeholder="Password..." required>
                   <input type="hidden" name="account_type" id="account_type" value="user">
                 </div>
-                 <!-- <div class="input-group">
-                   <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="material-icons">cake</i>
-                    </span>
-                    <input type="text" class="form-control datepicker" name="age" value="<?php //echo date('m/d/Y') ?>">
-                  </div>
-                  </div> -->
                   <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" id="policy" value="" required>Accept our policy &mdash;
@@ -309,6 +311,7 @@
   <script src="../assets/js/plugins/moment.min.js"></script>
   <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
   <script src="../assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+
   <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
   <script src="../assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
   <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
