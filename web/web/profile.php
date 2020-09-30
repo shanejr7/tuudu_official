@@ -1424,7 +1424,7 @@ unfollow(pid,id,key);
                     },
    success:function(data){
 
-console.log('yes');
+  
       $.ajax({
    url:"fetch_user_post.php",
    method:"POST",
@@ -1445,6 +1445,19 @@ console.log('yes');
                     },
    success:function(data){
     $('#users_post').html(data);
+
+
+        $.ajax({
+   url:"fetch_user_comment_form.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : pid 
+                    },
+   success:function(data){
+    $('#comment_post').html(data);
+   }
+  })
    }
   })
      
@@ -1453,7 +1466,44 @@ console.log('yes');
    
    }
   })
+      $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
 
+      $.ajax({
+   url:"fetch_user_connection_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#connection_follow_tab').html(data);
+
+      $.ajax({
+   url:"fetch_user_followers.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#followers').html(data);
+     
+   }
+  })
+     
+   }
+  })
+     
+   }
+  })
 
  }
 
@@ -1482,7 +1532,7 @@ follow(pid,id,key);
         subscribe : publickey 
                     },
    success:function(data){
-console.log('yes');
+ 
 
       $.ajax({
    url:"fetch_user_post.php",
@@ -1504,6 +1554,19 @@ console.log('yes');
                     },
    success:function(data){
     $('#users_post').html(data);
+
+        $.ajax({
+   url:"fetch_user_comment_form.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : pid 
+                    },
+   success:function(data){
+    $('#comment_post').html(data);
+   }
+  })
+
    }
   })
      
