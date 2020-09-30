@@ -2043,7 +2043,7 @@ $(document).on('click', '.back_post', function () {
 
 var key=$(this).data("key");
 var id=$(this).data("id");
-
+console.log(id);
 
 
 back_post(id,key);
@@ -2186,9 +2186,7 @@ reply_post(id,key);
           var username=$(this).data("username");
           var post=$(this).data("message");
           var time=$(this).data("time");
-          console.log(key);
-           console.log(id);
-           console.log(uid);
+
 
           edit_post(uid,id,key,post,username,time);
 
@@ -2441,7 +2439,7 @@ $(document).on('click', '.post_chat', function () {
  
 var key=$(this).data("key");
 var id=$(this).data("id");
-console.log("post chat"+ id);
+
  
 fetch_user(id,key);
 
