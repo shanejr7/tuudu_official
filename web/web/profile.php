@@ -1825,7 +1825,8 @@ $(document).on('click', '.remove_comment', function () {
     var id=$(this).data("id");
     var uid=$(this).data("userid");
     var time=$(this).data("time");
-
+       console.log(uid);
+    console.log(id);
 
   remove_post(uid,id,key,time);
 
@@ -1863,8 +1864,8 @@ $(document).on('click', '.remove_comment', function () {
    method:"POST",
    data : {
         publickey : publickey,
-        id : id,
-        uid : uid 
+        id : id ,
+        uid : uid
                     },
    success:function(data){
     $('#comment_post').html(data);
@@ -1935,8 +1936,7 @@ $(document).on('click', '.edit_comment', function () {
     var username=$(this).data("username");
     var replyid=$(this).data("replyid");
     var post=$("#postText").val();
-    console.log(uid);
-    console.log(id);
+
 
 
 
