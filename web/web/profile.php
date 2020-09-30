@@ -1825,8 +1825,7 @@ $(document).on('click', '.remove_comment', function () {
     var id=$(this).data("id");
     var uid=$(this).data("userid");
     var time=$(this).data("time");
-       console.log(uid);
-    console.log(id);
+     
 
   remove_post(uid,id,key,time);
 
