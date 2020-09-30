@@ -2182,15 +2182,17 @@ reply_post(id,key);
 
           var key=$(this).data("key");
           var id=$(this).data("id");
+          var uid=$(this).data("uid");
           var username=$(this).data("username");
           var post=$(this).data("message");
           var time=$(this).data("time");
           console.log(key);
            console.log(id);
+           console.log(uid);
 
-          edit_post(id,key,post,username,time);
+          edit_post(uid,id,key,post,username,time);
 
-           function edit_post(id,publickey,post,username,time){
+           function edit_post(uid,id,publickey,post,username,time){
 
            
 
@@ -2201,6 +2203,7 @@ reply_post(id,key);
                         data : {
                         publickey : publickey,
                         id : id,
+                        uid : uid,
                         time : time,
                         username : username,
                         message : post
@@ -2216,7 +2219,7 @@ reply_post(id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
@@ -2226,7 +2229,7 @@ reply_post(id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#followers').html(data);
@@ -2235,7 +2238,7 @@ reply_post(id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#followers').html(data);

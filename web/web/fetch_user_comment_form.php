@@ -58,7 +58,7 @@ $bucket_name = 'tuudu-official-file-storage';
       if (isset($_POST['message'])) {
 
       $tempid = $_SESSION['id'];
-      $userid = pg_escape_string($db, $_POST['id']);
+      $userid = pg_escape_string($db, $_POST['uid']);
       $message = pg_escape_string($db, $_POST['message']);
       $time = pg_escape_string($db, $_POST['time']);
       $username = pg_escape_string($db, $_POST['username']);
