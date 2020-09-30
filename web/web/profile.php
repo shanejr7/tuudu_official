@@ -1936,10 +1936,10 @@ $(document).on('click', '.edit_comment', function () {
 
 
 
-edit_comment(id,key,time,username,replyid,post);
+edit_comment(uid,id,key,time,username,replyid,post);
 
 
- function edit_comment(id,publickey,time,username,replyid,post)
+ function edit_comment(uid,id,publickey,time,username,replyid,post)
  {
 
 
