@@ -218,7 +218,7 @@ $bucket_name = 'tuudu-official-file-storage';
                    <button type="button" name="remove_comment" class="remove_comment btn btn-danger btn-round btn-wd float-right"
                   data-userid="'.$userid.'" data-id="'.$user_post_id.'" data-key="'.$publickey.'" data-time="'.$time.'">remove</button>
                   <button type="button" name="back" class="back_post btn btn-warning btn-round btn-wd float-right"
-                  data-id="'.$user_post_id.'" data-key="'.$publickey.'">back</button>
+                  data-id="'.$user_post_id.'" data-uid="'.$userid.'" data-key="'.$publickey.'">back</button>
 
                 </div>
               </div>
