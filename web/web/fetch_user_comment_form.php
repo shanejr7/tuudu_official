@@ -146,10 +146,10 @@ $bucket_name = 'tuudu-official-file-storage';
 
                 if ($replyBool == true) {
                   $data.='<button type="button" href="#" name="post_comment" class="post_comment btn btn-primary btn-round btn-wd float-right"
-                  data-userid="'.$userid.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'">Reply Comment</button>';
+                  data-userid="'.$userid.'"  data-id="'.$user_post_id.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'">Reply Comment</button>';
                 }else{
                   $data.='<button type="button" href="#" name="post_comment" class="post_comment btn btn-primary btn-round btn-wd float-right"
-                  data-userid="'.$userid.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'">Post Comment</button>';
+                  data-userid="'.$userid.'"  data-id="'.$user_post_id.'" data-username="'.$username.'" data-key="'.$publickey.'" data-replyid="'.$replyid.'">Post Comment</button>';
                 }
 
                    

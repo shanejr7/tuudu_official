@@ -2356,15 +2356,16 @@ reply_post(id,key);
 
 var key=$(this).data("key");
 var id=$(this).data("userid");
+var pid =$(this).data("id");
 var username=$(this).data("username");
 var replyid=$(this).data("replyid");
 var post=$("#postText").val();
 
  
-user_post(id,key,post,username,replyid);
+user_post(pid,id,key,post,username,replyid);
 
 
- function user_post(id,publickey,post,username,replyid)
+ function user_post(pid,id,publickey,post,username,replyid)
  {
  
  
@@ -2387,7 +2388,7 @@ user_post(id,key,post,username,replyid);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : pid 
                     },
    success:function(data){
     $('#users_post').html(data);
