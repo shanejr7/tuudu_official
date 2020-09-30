@@ -1927,7 +1927,8 @@ $(document).on('click', '.remove_comment', function () {
 $(document).on('click', '.edit_comment', function () {
 
     var key=$(this).data("key");
-    var id=$(this).data("userid");
+    var uid=$(this).data("userid");
+    var id=$(this).data("id");
     var time=$(this).data("time");
     var username=$(this).data("username");
     var replyid=$(this).data("replyid");
@@ -1951,6 +1952,7 @@ edit_comment(id,key,time,username,replyid,post);
    data : {
         publickey : publickey,
         id : id,
+        uid : uid,
         post : post,
         username : username,
         time : time,
@@ -1967,7 +1969,7 @@ edit_comment(id,key,time,username,replyid,post);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : id
                     },
    success:function(data){
     $('#users_post').html(data);
@@ -1982,7 +1984,7 @@ edit_comment(id,key,time,username,replyid,post);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#comment_post').html(data);
@@ -1995,7 +1997,7 @@ edit_comment(id,key,time,username,replyid,post);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
@@ -2004,7 +2006,7 @@ edit_comment(id,key,time,username,replyid,post);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#followers').html(data);
@@ -2013,7 +2015,7 @@ edit_comment(id,key,time,username,replyid,post);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#followers').html(data);
