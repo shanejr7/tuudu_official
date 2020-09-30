@@ -2047,7 +2047,7 @@ var uid=$(this).data("uid");
 
 
 
-back_post(pid,key);
+back_post(uid,id,key);
 
 
  function back_post(uid,id,publickey)
