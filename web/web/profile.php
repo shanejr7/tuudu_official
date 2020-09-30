@@ -1420,7 +1420,7 @@ unfollow(pid,id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        unsubscribe : id 
+        unsubscribe : publickey 
                     },
    success:function(data){
 
@@ -1479,7 +1479,7 @@ follow(pid,id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        subscribe : id 
+        subscribe : publickey 
                     },
    success:function(data){
 console.log('yes');
