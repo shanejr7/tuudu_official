@@ -1447,17 +1447,7 @@ unfollow(pid,id,key);
     $('#users_post').html(data);
 
 
-        $.ajax({
-   url:"fetch_user_comment_form.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : pid 
-                    },
-   success:function(data){
-    $('#comment_post').html(data);
-   }
-  })
+
    }
   })
      
@@ -1555,17 +1545,7 @@ follow(pid,id,key);
    success:function(data){
     $('#users_post').html(data);
 
-        $.ajax({
-   url:"fetch_user_comment_form.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : pid 
-                    },
-   success:function(data){
-    $('#comment_post').html(data);
-   }
-  })
+
 
    }
   })
@@ -2205,6 +2185,8 @@ reply_post(id,key);
           var username=$(this).data("username");
           var post=$(this).data("message");
           var time=$(this).data("time");
+          console.log(key);
+           console.log(id);
 
           edit_post(id,key,post,username,time);
 
