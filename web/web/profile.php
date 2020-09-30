@@ -1822,16 +1822,17 @@ follow(id,key);
 $(document).on('click', '.remove_comment', function () {
 
     var key=$(this).data("key");
-    var id=$(this).data("userid");
+    var id=$(this).data("id");
+    var uid=$(this).data("userid");
     var time=$(this).data("time");
 
 
-  remove_post(id,key,time);
+  remove_post(uid,id,key,time);
 
 
 
 
- function remove_post(id,publickey,time)
+ function remove_post(uid,id,publickey,time)
  {
 
         $.ajax({
@@ -1839,7 +1840,7 @@ $(document).on('click', '.remove_comment', function () {
    method:"POST",
    data : {
         publickey : publickey,
-        id : id,
+        id : uid,
         time : time 
                     },
    success:function(data){
@@ -1862,7 +1863,8 @@ $(document).on('click', '.remove_comment', function () {
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : id,
+        uid : uid 
                     },
    success:function(data){
     $('#comment_post').html(data);
@@ -1878,7 +1880,7 @@ $(document).on('click', '.remove_comment', function () {
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
@@ -1888,7 +1890,7 @@ $(document).on('click', '.remove_comment', function () {
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#followers').html(data);
@@ -1897,7 +1899,7 @@ $(document).on('click', '.remove_comment', function () {
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#followers').html(data);
@@ -1933,6 +1935,8 @@ $(document).on('click', '.edit_comment', function () {
     var username=$(this).data("username");
     var replyid=$(this).data("replyid");
     var post=$("#postText").val();
+    console.log(uid);
+    console.log(id);
 
 
 
@@ -1951,8 +1955,7 @@ edit_comment(uid,id,key,time,username,replyid,post);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id,
-        uid : uid,
+        id : uid,
         post : post,
         username : username,
         time : time,
@@ -1984,7 +1987,8 @@ edit_comment(uid,id,key,time,username,replyid,post);
    method:"POST",
    data : {
         publickey : publickey,
-        id : uid 
+        id : id ,
+        uid : uid
                     },
    success:function(data){
     $('#comment_post').html(data);
