@@ -2043,13 +2043,14 @@ $(document).on('click', '.back_post', function () {
 
 var key=$(this).data("key");
 var id=$(this).data("id");
-console.log(id);
+var uid=$(this).data("uid");
 
 
-back_post(id,key);
+
+back_post(pid,key);
 
 
- function back_post(id,publickey)
+ function back_post(uid,id,publickey)
  {
 
 
@@ -2058,7 +2059,8 @@ back_post(id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : id,
+        uid : uid 
                     },
    success:function(data){
     $('#comment_post').html(data);
@@ -2071,7 +2073,7 @@ back_post(id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
@@ -2081,7 +2083,7 @@ back_post(id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#followers').html(data);
@@ -2090,7 +2092,7 @@ back_post(id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : uid 
                     },
    success:function(data){
     $('#followers').html(data);
