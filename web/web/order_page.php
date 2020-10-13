@@ -281,7 +281,8 @@ pg_close($conn);
 
                       echo '<div class="col-md-8"><h2 class="title"> ';
 
-                      echo strtoupper($ticket_name[0]).' ORDER</h2><h9>'.$order_list[0]["title"].'</h9>';
+                    //  echo strtoupper($ticket_name[0]).' ORDER</h2><h9>'.$order_list[0]["title"].'</h9>';
+                       echo strtoupper($order_list[0]["title"].' page</h2>';
                       echo '</div>';
 
 
