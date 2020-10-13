@@ -333,19 +333,19 @@ pg_close($conn);
 
                 //  echo '<div class="centeredm h4">'.trim($order_list[0]['description']).'</div>';
 
-                  if (isset($_SESSION['id'])) {
+                 // if (isset($_SESSION['id'])) {
                     
                   
-                  echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="profile.php?publickey='.$order_list[0]['publickey'].'">';
+                 // echo '<div class="bottom-left" style="font-weight: bolder;">
+                     //   <a href="profile.php?publickey='.$order_list[0]['publickey'].'">';
 
-                        if ($order_list[0]['favorite']==1) {
-                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+                     //   if ($order_list[0]['favorite']==1) {
+                       //   echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
 
-                        }else{
+                       // }else{
 
-                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
-                        }
+                        //  echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                       // }
 
                      
 
@@ -357,7 +357,7 @@ pg_close($conn);
                       //   <a href="#" class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
 
 
-                    }
+                  //  }
 
 
 
