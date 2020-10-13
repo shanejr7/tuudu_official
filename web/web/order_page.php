@@ -316,22 +316,22 @@ pg_close($conn);
               
                 
 
-                  if (trim($order_list[0]['price']) =='0.00' || $order_list[0]["price"]==NULL || $order_list[0]["price"]==" ") {
+                //  if (trim($order_list[0]['price']) =='0.00' || $order_list[0]["price"]==NULL || $order_list[0]["price"]==" ") {
 
-                        echo '<div class="top-right h9"> 
-                        <a href="'.$order_list[0]['url'].'"><i class="material-icons">strikethrough_s</i></a></div>';
+                     //   echo '<div class="top-right h9"> 
+                     //   <a href="'.$order_list[0]['url'].'"><i class="material-icons">strikethrough_s</i></a></div>';
 
-                        }else{
+                      //  }else{
 
-                  echo '<a href="#"><div class="top-right h6">$'.trim($order_list[0]['price']).'</a></div>';
+                  //echo '<a href="#"><div class="top-right h6">$'.trim($order_list[0]['price']).'</a></div>';
                   
-                  }
+                 // }
 
 
-                  echo '<div class="top-left h6" style="width:10px;">'
-                       .toString($order_list[0]['date']).'</div>';
+                 // echo '<div class="top-left h6" style="width:10px;">'
+                    //   .toString($order_list[0]['date']).'</div>';
 
-                  echo '<div class="centeredm h4">'.trim($order_list[0]['description']).'</div>';
+                //  echo '<div class="centeredm h4">'.trim($order_list[0]['description']).'</div>';
 
                   if (isset($_SESSION['id'])) {
                     
