@@ -357,7 +357,7 @@ pg_close($conn);
                       //   <a href="#" class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
 
 
-                    //}
+                    }
 
 
 
