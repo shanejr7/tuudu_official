@@ -308,9 +308,9 @@ pg_close($conn);
  
 
           if($presignedUrl && strlen(trim($order_list[0]["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                 echo  '<img src="'.$presignedUrl.'" class="img rounded">'; 
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" style="width:200px">'; 
               }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded" style="width:200px">';
               } 
  
               
