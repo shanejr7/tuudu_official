@@ -32,7 +32,7 @@ $bucket_name = 'tuudu-official-file-storage';
  
 
 		
-		$user_id = 0;
+		$post_id = 0;
 		$publickey = "";
 		$user_post = "";
 		$result ="";
@@ -54,7 +54,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 		$publickey = pg_escape_string($db, $_POST['publickey']);
 		$publickey = trim($publickey);
-		$user_id = pg_escape_string($db, $_POST['id']);
+		$post_id = pg_escape_string($db, $_POST['id']);
 
      if (isset($_SESSION['id'])) {
 
@@ -65,7 +65,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
 
-				$result = pg_query($db, "SELECT C.id as post_id, C.title as post_title, C.img as post_img, C.publickey as post_publickey ,C.email as post_email, C.description as post_description,C.date_submitted as post_submitted,Z.id as user_id, Z.email as user_email, Z.public_key as user_publickey,Z.username as user_username,  Z.profile_pic_src as user_img FROM organization C ,users Z WHERE C.id = $user_id AND Z.id =$user_id AND C.publickey ='$publickey'");
+				$result = pg_query($db, "SELECT C.id as post_id, C.title as post_title, C.img as post_img, C.publickey as post_publickey ,C.email as post_email, C.description as post_description,C.date_submitted as post_submitted,Z.id as post_id, Z.email as user_email, Z.public_key as user_publickey,Z.username as user_username,  Z.profile_pic_src as user_img FROM organization C ,users Z WHERE C.id = $post_id AND Z.id =$post_id AND C.publickey ='$publickey'");
 
   				
   				$user_post = pg_fetch_assoc($result);
@@ -81,7 +81,7 @@ $bucket_name = 'tuudu-official-file-storage';
   				 $data .= '
                 <div class="col-md-2">
                   <div class="card-avatar">
-                    <a href="#" class="post_account" data-id="'.$user_post['user_id'].'">';
+                    <a href="#" class="post_account" data-id="'.$user_post['post_id'].'">';
                     	
 
                 $splitFileString = strtok(trim($user_post["post_img"]), '.' );
@@ -119,17 +119,17 @@ $bucket_name = 'tuudu-official-file-storage';
                   <p class="description">'.trim($user_post['post_description']).'</p>
                 </div>
                 <div class="col-md-2">';
-                if ($user_id == $sid) {
+                if ($post_id == $sid) {
 
                  
 
                 }elseif($user_subscribe){
 
-                  $data.='<button type="button" data-pid="'.$user_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_unsubscribe btn btn-danger pull-right btn-round">Subscribed</button>';
+                  $data.='<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_unsubscribe btn btn-danger pull-right btn-round">Subscribed</button>';
 
                 }else{
 
-                  $data.='<button type="button" data-pid="'.$user_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_subscribe btn btn-default pull-right btn-round">Subscribe</button>';
+                  $data.='<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_subscribe btn btn-default pull-right btn-round">Subscribe</button>';
 
                 }
 

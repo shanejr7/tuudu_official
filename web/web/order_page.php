@@ -11,6 +11,23 @@
 include('feed_state.php');
 include('add_cart.php');
 
+// require('../aws/aws-autoloader.php');
+require('../aws/Aws/S3/S3Client.php'); 
+require('../aws/Aws/S3/ObjectUploader.php'); 
+
+use Aws\S3\S3Client;
+use Aws\Exception\AwsException;
+use Aws\S3\ObjectUploader;
+
+$s3=" ";
+$s3 = new Aws\S3\S3Client([
+    'version'  => 'latest',
+     'region'   => 'us-east-2',
+]);
+
+$bucket = getenv('S3_BUCKET')?: header('location:oops.php');
+$bucket_name = 'tuudu-official-file-storage';
+
 
 
   if (isset($_GET['logout'])) {
@@ -51,7 +68,7 @@ if ((isset($_SESSION['id']) && isset($_GET['order'])) || (isset($_SESSION['guest
      * 
     */
 
-    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views, organization.title,organization.organization_name as org_name, organization.date,  organization.address, organization.word_tag,organization.publickey, organization.privatekey, organization.email, organization.amount
+    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views, organization.title,organization.organization_name as org_name, organization.date,  organization.address, organization.word_tag,organization.publickey, organization.privatekey,organization.url, organization.email, organization.amount
      FROM organization WHERE publickey = '$organization_publickey' LIMIT 1");
 
     // loops through rows until there is 0 rows
@@ -59,7 +76,7 @@ if ((isset($_SESSION['id']) && isset($_GET['order'])) || (isset($_SESSION['guest
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-             $order_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"], "title" => $row["title"],"name" => $row["org_name"],"address" => $row["address"],"type" => $row["word_tag"], "publickey" => $row['publickey'],"privatekey"=>$row["privatekey"], "email" => $row["email"],"amount" => $row["amount"]);
+             $order_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"], "title" => $row["title"],"name" => $row["org_name"],"address" => $row["address"],"type" => $row["word_tag"], "publickey" => $row['publickey'],"privatekey"=>$row["privatekey"],"url"=>$row["url"], "email" => $row["email"],"amount" => $row["amount"]);
         }
 
     //increment view to organization event
@@ -268,7 +285,85 @@ pg_close($conn);
                       echo '</div>';
 
 
-                      echo '<div class="col-md-4"></div>';
+                      echo '<div class="col-md-4">';
+
+                       echo '<div class="contain">';
+
+
+
+
+                           $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.trim($order_list[0]["img"]).'',
+                          ]);
+
+                           $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+                           $presignedUrl = (string)$request->getUri();
+
+                            $splitFileString = strtok(trim($order_list[0]["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+ 
+
+          if($presignedUrl && strlen(trim($order_list[0]["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($order_list[0]['price']) =='0.00' || $order_list[0]["price"]==NULL || $order_list[0]["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                        <a href="'.$order_list[0]['url'].'"><i class="material-icons">strikethrough_s</i></a></div>';
+
+                        }else{
+
+                  echo '<a href="#"><div class="top-right h6">$'.trim($order_list[0]['price']).'</a></div>';
+                  
+                  }
+
+
+                  echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($order_list[0]['date']).'</div>';
+
+                  echo '<div class="centeredm h4">'.trim($order_list[0]['description']).'</div>';
+
+                  if (isset($_SESSION['id'])) {
+                    
+                  
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="profile.php?publickey='.$order_list[0]['publickey'].'">';
+
+                        if ($order_list[0]['favorite']==1) {
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+
+                        }else{
+
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                        }
+
+                     
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  //echo '<div class="bottom-right" style="font-weight: bolder;">
+                      //   <a href="#" class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+
+
+                    //}
+
+
+
+                        echo'</div>';
+                      echo'</div>';
+
                       echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>';  
 
 
