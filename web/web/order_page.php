@@ -424,9 +424,63 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
   }
 
     //add messenger comment on right md4 
-     
+
 
        echo '</div>';
+
+
+        echo '<div class="col-md-4">';
+
+
+        echo '  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+         <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <h3 class="title text-center" style="margin-bottom: 0;padding-bottom: 0 ">Comments</h3>
+    <!-- <span class="badge badge-default">3</span> -->
+    <!-- <div class="blog-tags title text-center" style="margin-top: 0;padding-top: 0 ">
+                  Tags:
+                  <span class="badge badge-primary badge-pill">Photography</span>
+                  <span class="badge badge-primary badge-pill">Stories</span>
+                  <span class="badge badge-primary badge-pill">Castle</span>
+    </div> -->
+      
+      <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <hr>
+            <div class="card card-profile card-plain">
+              <div class="row" id="user_post">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-comments" style="display: flex;justify-content: space-around;align-items: flex-start;">
+        <div class="row">
+          <div class="col-md-12 ml-auto mr-auto" >
+            <div class="media-area" id="users_post">
+            </div>
+       
+           
+            <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
+
+                <div id="comment_post" >
+
+
+                </div>
+
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>';
+
+        echo '</div>';
 
   }else{
 
@@ -1853,8 +1907,10 @@ user_post(pid,id,key,post,username,replyid);
 $(document).on('click', '.post_chat', function () {
 
  
-var key=$(this).data("key");
-var id=$(this).data("id");
+var key= <?php echo $order_list[0]["publickey"] ?>;
+var id= <?php echo $order_list[0]["org_id"] ?>;
+
+
 
  
 fetch_user(id,key);
