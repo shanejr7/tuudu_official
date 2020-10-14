@@ -269,7 +269,7 @@ pg_close($conn);
 
                     if(isset($order_list) && !isset($_POST["schedule"])){
 
-                      $string = $order_list[0]["word_tag"];
+                      $string = $order_list[0]["type"];
                       $string = strtolower($string);
                       $token = strtok($string, "_");
 
