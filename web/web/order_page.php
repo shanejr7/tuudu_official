@@ -269,6 +269,10 @@ pg_close($conn);
 
                     if(isset($order_list) && !isset($_POST["schedule"])){
 
+                      $string = $order_list[0]["word_tag"];
+                      $string = strtolower($string);
+                      $token = strtok($string, "_");
+
                       $amount = intval($order_list[0]["amount"]);
 
                       if (strcmp(trim($order_list[0]["amount"]), 'unlimited') == 0 || $amount >0) {
@@ -364,8 +368,14 @@ pg_close($conn);
                         echo'</div>';
                       echo'</div>';
 
-                      // if product,rental, certain activites dont show date
+                      if (isset($token) && $token =='product') {
+                        
+                      }else{
+                          // if product,rental, certain activites dont show date
                       echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>';  
+                      }
+
+                    
 
                       // if free dont show payment button
                       echo '<div class="description col-md-4">';
@@ -430,7 +440,15 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
 
                       echo '<div class="col-md-4"></div>';
-                      echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>'; 
+
+                       if (isset($token) && $token =='product') {
+                        
+                      }else{
+                          // if product,rental, certain activites dont show date
+                       echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>'; 
+                      }
+
+                      
                        echo '<div class="col-md-4"></div>';
                       echo '<div class="col-md-8"><h2>sold out</h2></div>';
 
