@@ -364,10 +364,24 @@ pg_close($conn);
                         echo'</div>';
                       echo'</div>';
 
+                      // if product,rental, certain activites dont show date
                       echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>';  
 
+                      // if free dont show payment button
+                      echo '<div class="description col-md-4">';
 
-                        echo '<div class="description col-md-4">
+                         
+          
+
+if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00")) {
+                // echo ' <div class="form-group">
+                //  <label  style="color: black; font-weight: bold;">price $'.$order_list[0]["price"].'</label>
+                //  <input type="hidden" name="price" value="'. $order_list[0]["price"].'">
+                // </br></br></br>
+                // <button type="submit" class="btn btn-warning  radius-50 btn-sm" value="free" name="free_event">submit</button>';
+}else if(isset($order_list[0]["price"])){
+
+                echo '
                 <form method="POST" action="order_page.php">
         
                    <input type="hidden" name="schedule" value="schedule">
@@ -389,24 +403,19 @@ pg_close($conn);
                    <option>5</option>
                    </select>
                    </div>';
-          
-
-if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00")) {
-                echo ' <div class="form-group">
-                 <label  style="color: black; font-weight: bold;">price $'.$order_list[0]["price"].'</label>
-                 <input type="hidden" name="price" value="'. $order_list[0]["price"].'">
-                </br></br></br>
-                <button type="submit" class="btn btn-warning  radius-50 btn-sm" value="free" name="free_event">submit</button>';
-}else if(isset($order_list[0]["price"])){
 
                 echo ' <div class="form-group">
                 <label  style="color: black; font-weight: bold;">price $'.$order_list[0]["price"].'</label>
                 <input type="hidden" name="add_cart" value="cart">
-                <input type="hidden" name="price" value="'. $order_list[0]["price"].'"></br></br></br> <button type="submit" class="btn btn-warning  radius-50 btn-sm" value="payment" name="paid_event">submit</button>
+                <input type="hidden" name="price" value="'. $order_list[0]["price"].'"></br></br></br> <button type="submit" class="btn btn-warning  radius-50 btn-sm" value="payment" name="paid_event">submit</button> ';
+
+                echo '</div></form>';
+  }
+
+    //add messenger comment on right md4 
 
 
-    ';}
-echo '</div></form></div>';
+       echo '</div>';
 
   }else{
 
@@ -416,7 +425,7 @@ echo '</div></form></div>';
 
                       echo '<div class="col-md-8"><h2 class="title"> ';
 
-                      echo strtoupper($ticket_name[0]).' ORDER</h2><h9>'.$order_list[0]["title"].'</h9>';
+                      echo strtoupper($order_list[0]["title"]).'\'S PAGE</h2>';
                       echo '</div>';
 
 
