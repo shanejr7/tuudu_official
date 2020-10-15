@@ -123,11 +123,11 @@ $bucket_name = 'tuudu-official-file-storage';
 
                  
 
-                }elseif($user_subscribe){
+                }elseif($user_subscribe && isset($_SESSION['id'])){
 
                   $data.='<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_unsubscribe btn btn-danger pull-right btn-round">Subscribed</button>';
 
-                }else{
+                }elseif(isset($_SESSION['id'])){
 
                   $data.='<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_subscribe btn btn-default pull-right btn-round">Subscribe</button>';
 
