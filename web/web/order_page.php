@@ -2015,7 +2015,7 @@ fetch_user(id,key);
   <!--   Core JS Files   -->
   <script type="text/javascript">
     console.log("hello");
-    console.log($("post_chat").data("key"));
+    console.log($("div").data("key"));
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
