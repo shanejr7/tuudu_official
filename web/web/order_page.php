@@ -438,10 +438,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
         echo '  <div class="modal-dialog modal-lg">
      <div class="modal-content">
-         <div class="modal-header">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+       
     <h3 class="title text-center" style="margin-bottom: 0;padding-bottom: 0 ">Comments</h3>
     <!-- <span class="badge badge-default">3</span> -->
     <!-- <div class="blog-tags title text-center" style="margin-top: 0;padding-top: 0 ">
