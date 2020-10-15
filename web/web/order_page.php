@@ -271,11 +271,7 @@ pg_close($conn);
                     if(isset($order_list) && !isset($_POST["schedule"])){
 
 
-                    echo'<div class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'"></div> <script type="text/javascript">
-    console.log("hello");
-    console.log($(".post_chat").data("key"));
-    console.log($(".post_chat").data("id"));
-  </script>';
+                    echo'<div class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'"></div>';
 
                       $string = $order_list[0]["type"];
                       $string = strtolower($string);
@@ -1921,10 +1917,6 @@ $(document).ready(function () {
  
 var key=$(".post_chat").data("key");
 var id=$(".post_chat").data("id");
-console.log("loaded");
-console.log(key+ " key");
-console.log(id+ " id");
-
 
  
 fetch_user(id,key);
