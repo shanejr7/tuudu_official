@@ -429,6 +429,11 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
        echo '</div>';
 
 
+                      // if free dont show payment button
+                      echo '<div class="description col-md-4">messenger</div>';
+
+
+
     //     echo '<div class="col-md-4">';
 
 
