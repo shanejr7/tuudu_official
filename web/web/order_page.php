@@ -367,11 +367,7 @@ pg_close($conn);
 
 
 
-                        echo'</div>';
-
-                              echo '<div class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" </div>';
-
-                      echo'</div>';
+                     
 
                       if (isset($token) && $token =='product') {
                          echo '<div class="col-md-8 title"></div>';
@@ -1909,7 +1905,7 @@ user_post(pid,id,key,post,username,replyid);
 
 });
 
-$(document).on('load', '.post_chat', function () {
+$(document).on('click', '.post_chat', function () {
 
  
 var key=$(this).data("key");
