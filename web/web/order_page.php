@@ -255,7 +255,7 @@ pg_close($conn);
  
     <!-- class"main main-rasied" -->
      <div id="main">
-     
+
     <div class="profile-content ">
       <div class="container">
     
@@ -269,6 +269,9 @@ pg_close($conn);
  
 
                     if(isset($order_list) && !isset($_POST["schedule"])){
+
+
+                    echo'<div class="post_chat" style="display: hidden" data-key="'.$order_list[0]['publickey'].'" data-id="'.$$order_list[0]['org_id'].'"></div>';
 
                       $string = $order_list[0]["type"];
                       $string = strtolower($string);
@@ -2010,6 +2013,10 @@ fetch_user(id,key);
  
 </script>
   <!--   Core JS Files   -->
+  <script type="text/javascript">
+    console.log("hello");
+    console.log($("post_chat").data("key"));
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
