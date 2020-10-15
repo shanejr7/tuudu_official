@@ -1919,7 +1919,7 @@ user_post(pid,id,key,post,username,replyid);
 $(document).ready(function () {
 
  
-var key=$(".chat_post").data("key");
+var key=$(".post_chat").data("key");
 var id=$(this).data("id");
 console.log("loaded");
 console.log(key+ " key");
