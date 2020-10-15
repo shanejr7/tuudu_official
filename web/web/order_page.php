@@ -720,7 +720,7 @@ by accepting this agreement and terms with using our services. you agree that al
     </div>
   </footer>
   
- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script> 
 
 
@@ -2018,7 +2018,6 @@ fetch_user(id,key);
 </script>
   <!--   Core JS Files   -->
  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
