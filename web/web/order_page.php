@@ -1922,6 +1922,8 @@ $(document).ready(function () {
 var key=$(this).data("key");
 var id=$(this).data("id");
 console.log("loaded");
+console.log(key+ " key");
+console.log(id+ " id");
 
 
  
