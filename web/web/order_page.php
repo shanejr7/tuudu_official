@@ -1920,7 +1920,7 @@ $(document).ready(function () {
 
  
 var key=$(".post_chat").data("key");
-var id=$(this).data("id");
+var id=$(".post_chat").data("id");
 console.log("loaded");
 console.log(key+ " key");
 console.log(id+ " id");
