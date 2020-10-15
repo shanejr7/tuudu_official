@@ -370,10 +370,10 @@ pg_close($conn);
                       echo'</div>';
 
                       if (isset($token) && $token =='product') {
-                         echo '<div class="col-md-8 title"></div>';
+                         echo '<div class="col-md-4 title"></div>';
                       }else{
                           // if product,rental, certain activites dont show date
-                      echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>';  
+                      echo '<div class="col-md-4 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>';  
                       }
 
                     
@@ -429,8 +429,6 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
        echo '</div>';
 
 
-                      // if free dont show payment button
-                      echo '<div class="description col-md-4">messenger</div>';
 
 
 
@@ -502,10 +500,10 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                       echo '<div class="col-md-4"></div>';
 
                        if (isset($token) && $token =='product') {
-                        echo '<div class="col-md-8 title"></div>';
+                        echo '<div class="col-md-4 title"></div>';
                       }else{
                           // if product,rental, certain activites dont show date
-                       echo '<div class="col-md-8 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>'; 
+                       echo '<div class="col-md-4 title">'.date("d-m-Y",strtotime($ticket_date[0])).' | '.date('h:i A', strtotime($ticket_time[0])).'-'.date('h:i A', strtotime($ticket_time[1])).'</div>'; 
                       }
 
                       
