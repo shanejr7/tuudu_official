@@ -435,7 +435,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
         echo '<div class="col-md-8">';
 
-         echo '<div class="bottom-right" style="font-weight: bolder;display:hidden">
+         echo '<div class="bottom-right" style="font-weight: bolder;">
                          <a href="#" class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
 
         echo '  <div class="modal-dialog modal-lg">
@@ -1906,7 +1906,7 @@ user_post(pid,id,key,post,username,replyid);
 
 });
 
-$(document).on('load', '.post_chat', function () {
+$(document).on('click', '.post_chat', function () {
 
  
 var key=$(this).data("key");
