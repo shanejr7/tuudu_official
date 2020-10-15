@@ -369,8 +369,8 @@ pg_close($conn);
 
                         echo'</div>';
 
-                              echo '<a href="#" class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a>';
-                              
+                              echo '<div class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" </div>';
+
                       echo'</div>';
 
                       if (isset($token) && $token =='product') {
@@ -1909,7 +1909,7 @@ user_post(pid,id,key,post,username,replyid);
 
 });
 
-$(document).on('click', '.post_chat', function () {
+$(document).on('load', '.post_chat', function () {
 
  
 var key=$(this).data("key");
@@ -2010,6 +2010,7 @@ fetch_user(id,key);
  
 </script>
   <!--   Core JS Files   -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>

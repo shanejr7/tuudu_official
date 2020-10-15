@@ -2543,7 +2543,7 @@ fetch_user(id,key);
 
 
 
-<script>
+ 
  
   
   <!--   Core JS Files   -->
