@@ -1921,7 +1921,7 @@ $(document).on('load', '.post_chat', function () {
  
 var key=$(this).data("key");
 var id=$(this).data("id");
-
+console.log("loaded");
 
 
  
