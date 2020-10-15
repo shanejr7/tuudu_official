@@ -367,7 +367,11 @@ pg_close($conn);
 
 
 
-                     
+                        echo'</div>';
+
+                           
+
+                      echo'</div>';
 
                       if (isset($token) && $token =='product') {
                          echo '<div class="col-md-8 title"></div>';
