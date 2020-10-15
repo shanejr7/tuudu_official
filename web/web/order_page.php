@@ -289,6 +289,7 @@ pg_close($conn);
                       echo strtoupper($order_list[0]["title"]).'\'S PAGE</h2>';
                       echo '</div>';
 
+                        echo '<a href="#" class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a>';
 
                       echo '<div class="col-md-4">';
 
@@ -435,8 +436,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
         echo '<div class="col-md-8">';
 
-         echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="#" class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+       
 
         echo '  <div class="modal-dialog modal-lg">
      <div class="modal-content">
