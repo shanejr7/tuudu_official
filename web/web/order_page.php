@@ -271,7 +271,7 @@ pg_close($conn);
                     if(isset($order_list) && !isset($_POST["schedule"])){
 
 
-                    echo'<div class="post_chat" style="display: hidden" data-key="'.$order_list[0]['publickey'].'" data-id="'.$$order_list[0]['org_id'].'"></div>';
+                    echo'<div class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$$order_list[0]['org_id'].'"></div>';
 
                       $string = $order_list[0]["type"];
                       $string = strtolower($string);
