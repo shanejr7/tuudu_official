@@ -273,7 +273,7 @@ pg_close($conn);
 
                     echo'<div class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'"></div> <script type="text/javascript">
     console.log("hello");
-    console.log($("div").data("key"));
+    console.log($(".post_chat").data("key"));
   </script>';
 
                       $string = $order_list[0]["type"];
