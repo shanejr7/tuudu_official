@@ -1916,7 +1916,7 @@ user_post(pid,id,key,post,username,replyid);
 
 });
 
-$(window).on('load', '.post_chat', function () {
+$(document).ready(function () {
 
  
 var key=$(this).data("key");
