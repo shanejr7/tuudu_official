@@ -289,7 +289,7 @@ pg_close($conn);
                       echo strtoupper($order_list[0]["title"]).'\'S PAGE</h2>';
                       echo '</div>';
 
-                        echo '<a href="#" class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a>';
+
 
                       echo '<div class="col-md-4">';
 
@@ -368,6 +368,9 @@ pg_close($conn);
 
 
                         echo'</div>';
+
+                              echo '<a href="#" class="post_chat" data-key="'.$order_list[0]['publickey'].'" data-id="'.$order_list[0]['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a>';
+                              
                       echo'</div>';
 
                       if (isset($token) && $token =='product') {
