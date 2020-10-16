@@ -81,7 +81,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
           // ignore already stored
         // }else{
 
-              $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"], "post_type" => $row["post_type"],"amount" => $row["amount"]);
+              $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"], "post_type" => $row["post_type"],"amount" => $row["amount"],"word_tag" => $row["word_tag"]);
             // }
             // temporarily stores publickey to emlinate duplicate
             // array_push($organization_publickey_arr,trim($row['publickey']));
@@ -371,6 +371,10 @@ $key = array_intersect($key,$local_distance);
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
 
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
  
 
           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
@@ -395,8 +399,16 @@ $key = array_intersect($key,$local_distance);
                   }
 
 
-                  echo '<div class="top-left h6" style="width:10px;">'
+                  if (isset($token) && $token =='product') {
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
                        .toString($item['date']).'</div>';
+
+                  }
+                   
 
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
