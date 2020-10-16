@@ -544,6 +544,10 @@ is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organizat
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
 
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
  
 
           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
@@ -566,9 +570,20 @@ is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organizat
                   
                   }
 
+                   if (isset($token) && $token =='product') {
 
-                  echo '<div class="top-left h6" style="width:10px;">'
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
                        .toString($item['date']).'</div>';
+
+                  }
+
+
 
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
@@ -1046,6 +1061,10 @@ pg_close($db);
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
 
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
  
 
           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
@@ -1069,10 +1088,20 @@ pg_close($db);
                   }
 
    
+                  if (isset($token) && $token =='product') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
 
 
-                  echo '<div class="top-left h6" style="width:10px;">'
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
                        .toString($item['date']).'</div>';
+
+                  }
+
+                
 
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
