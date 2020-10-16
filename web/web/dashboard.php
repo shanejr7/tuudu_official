@@ -628,6 +628,7 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
 
+
  
 
           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){

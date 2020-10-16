@@ -94,7 +94,7 @@ if (isset($_SESSION['id'])) {
 
     for ($i=0; $i <sizeof($string) ; $i++) { 
 
-     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount
+     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag
      FROM organization
     WHERE word_tag LIKE '%$string[$i]%' AND organization.id not in(select userid from feedstate WHERE userid = $id and state = 0) AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
@@ -107,7 +107,7 @@ if (isset($_SESSION['id'])) {
           // ignore already stored
         }else{
 
-             $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey"=> $row["publickey"], "address" => $row["address"],"url" => $row["url"],"post_type" => $row["post_type"],"amount" => $row["amount"]);
+             $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey"=> $row["publickey"], "address" => $row["address"],"url" => $row["url"],"post_type" => $row["post_type"],"amount" => $row["amount"],"word_tag" => $row["word_tag"]);
             }
             // temporarily stores publickey to emlinate duplicate
             array_push($organization_id_arr,trim($row['publickey']));
@@ -133,7 +133,7 @@ pg_close($db);
                   *   
                   *  and not deleted
                   */
-                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url, organization.post_type,organization.amount
+                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url, organization.post_type,organization.amount, organization.word_tag
                   FROM organization
                     WHERE organization.publickey not in(select publickey from user_follow_organization WHERE userid = $id)
           AND organization.publickey not in(select publickey from feedstate WHERE userid = $id and state = 0) AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
@@ -145,7 +145,7 @@ pg_close($db);
 
       
       
-                      $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"],"post_type" => $row["post_type"],"amount" => $row["amount"]);
+                      $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"],"post_type" => $row["post_type"],"amount" => $row["amount"],"word_tag" => $row["word_tag"]);
 
 
 
