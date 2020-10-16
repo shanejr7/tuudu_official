@@ -512,6 +512,10 @@ $key = array_intersect($key,$local_distance);
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
 
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
  
 
           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
@@ -535,8 +539,18 @@ $key = array_intersect($key,$local_distance);
                   }
 
 
-                  echo '<div class="top-left h6" style="width:10px;">'
+                   if (isset($token) && $token =='product') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
                        .toString($item['date']).'</div>';
+
+                  }
 
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
