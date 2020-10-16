@@ -386,7 +386,7 @@ pg_close($conn);
                     
 
                       // if free dont show payment button
-                      echo '<div class="description col-md-2">';
+                      echo '<div class="description col-md-4">';
 
                          
           
