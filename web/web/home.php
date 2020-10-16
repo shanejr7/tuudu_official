@@ -68,7 +68,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
     for ($i=0; $i <sizeof($string) ; $i++) { 
 
-     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url, organization.post_type,organization.amount
+     $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url, organization.post_type,organization.amount,organization.word_tag
      FROM organization
     WHERE word_tag LIKE '%$string[$i]%' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
@@ -98,7 +98,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
                   }else{
 
-                      $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url, organization.post_type, organization.amount
+                      $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url, organization.post_type, organization.amount,organization.word_tag
                   FROM organization
                     WHERE date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
