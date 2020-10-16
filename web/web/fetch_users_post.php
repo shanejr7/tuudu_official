@@ -230,11 +230,11 @@ function toString(string $timestamp_arr){
                       <i class="material-icons">reply</i> Reply
                     </a>-->';
 
-                    if ($item['favorite']>0) {
+                    if ($item['favorite']>0 && isset($_SESSION['id'])) {
                       $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>'.$item['favorite'].'
                     </a>';
-                    }else{
+                    }elseif($item['favorite']<=0 && isset($_SESSION['id'])){
                       $data.=' <a href="#" class="favPost btn btn-link float-right" data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>
                     </a>';
@@ -382,11 +382,11 @@ function toString(string $timestamp_arr){
                       <i class="material-icons">reply</i> Reply
                     </a>-->';
 
-                       if ($item['favorite']>0) {
+                       if ($item['favorite']>0 && isset($_SESSION['id'])) {
                       $data.='  <a href="#" class="favPost btn btn-danger btn-link float-right"  data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>'.$item['favorite'].'
                     </a>';
-                    }else{
+                    }elseif($item['favorite']<=0 && isset($_SESSION['id'])){
                       $data.=' <a href="#" class="favPost btn btn-link float-right"  data-userid="'.$item['user_id'].'" data-username="'.$item['username'].'" data-key="'.$item['publickey'].'"  data-time="'.$item['timestamp'].'">
                       <i class="material-icons">favorite</i>
                     </a>';
