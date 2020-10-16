@@ -410,7 +410,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                    <input type="hidden" name="price" value="'.$order_list[0]["price"].'">
                     <input type="hidden" name="email" value="'.$order_list[0]["email"].'">
                    <input type="hidden" name="eventTitle" value="'.$order_list[0]["title"].'">
-
+                   <h6>'.$order_list[0]["title"].'</h6>
                    <div class="form-group">
                    <label for="exampleFormControlSelect1">select amount.</label>
                    <select class="form-control select picker" data-style="btn btn-link" id="exampleFormControlSelect1" name="ticket_amount">
