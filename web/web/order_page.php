@@ -386,7 +386,7 @@ pg_close($conn);
                     
 
                       // if free dont show payment button
-                      echo '<div class="description col-md-2">';
+                      echo '<div class="description col-md-3">';
 
                          
           
@@ -411,7 +411,6 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                     <input type="hidden" name="email" value="'.$order_list[0]["email"].'">
                    <input type="hidden" name="eventTitle" value="'.$order_list[0]["title"].'">
                    <h6>'.$order_list[0]["title"].'</h6>
-                   <br>
                    <br>
                    <div class="form-group">
                    <label for="exampleFormControlSelect1">select amount.</label>
@@ -442,7 +441,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
 
 
-        echo '<div class="col-md-6">';
+        echo '<div class="col-md-5">';
 
        
 
