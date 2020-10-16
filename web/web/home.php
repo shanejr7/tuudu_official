@@ -401,6 +401,9 @@ $key = array_intersect($key,$local_distance);
 
                   if (isset($token) && $token =='product') {
 
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
+
 
                   }else{
 
