@@ -109,7 +109,7 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
       
       
-                      $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"], "post_type" => $row["post_type"], "amount" => $row["amount"]);
+                      $general_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"], "publickey" => trim($row['publickey']), "address" => $row["address"], "url" => $row["url"], "post_type" => $row["post_type"], "amount" => $row["amount"],"word_tag" => $row["word_tag"]);
 
 
 
