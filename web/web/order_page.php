@@ -440,7 +440,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
 
 
-        echo '<div class="col-md-8">';
+        echo '<div class="col-md-4">';
 
        
 
