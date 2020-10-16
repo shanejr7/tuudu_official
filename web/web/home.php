@@ -444,7 +444,7 @@ $key = array_intersect($key,$local_distance);
     } 
 
 
-          echo '<iframe width="560" height="315" src="https://www.youtube.com/embed/fQ8jIoAqblE?controls=0&amp;start=3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+          echo '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/fQ8jIoAqblE?start=983" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
                   } 
 
