@@ -289,7 +289,7 @@ pg_close($conn);
 
                       echo '<div class="col-md-8"><h2 class="title"> ';
 
-                      echo strtoupper($order_list[0]["title"]).'\'S PAGE <h15 style="color: #0000FF"><a href="'.trim($order_list[0]["url"]).'">web link <i class="material-icons">info</i></a></h15></h2>';
+                      echo strtoupper($order_list[0]["title"]).'\'S PAGE <a style="color: #0000FF;font-size: 15px;" href="'.trim($order_list[0]["url"]).'">web link <i class="material-icons">info</i></a></h2>';
                       echo '</div>';
 
 
