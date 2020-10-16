@@ -289,7 +289,14 @@ pg_close($conn);
 
                       echo '<div class="col-md-8"><h2 class="title"> ';
 
-                      echo strtoupper($order_list[0]["title"]).'\'S PAGE <a style="color: #0000FF;font-size: 15px;" href="'.trim($order_list[0]["url"]).'">web link <i class="material-icons">info</i></a></h2>';
+
+                      if (strrpos(trim($order_list[0]["url"]),"www.tuudu.org/web/order_page.php?")>=0) {
+                        
+                        echo strtoupper($order_list[0]["title"]).'\'S PAGE <a style="color: #0000FF;font-size: 15px;" href="'.trim($order_list[0]["url"]).'">web link <i class="material-icons">info</i></a></h2>';
+                      }else{
+                        echo strtoupper($order_list[0]["title"]).'\'S PAGE </h2>';
+                      }
+                      
                       echo '</div>';
 
 
@@ -499,7 +506,14 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
                       echo '<div class="col-md-8"><h2 class="title"> ';
 
-                      echo strtoupper($order_list[0]["title"]).'\'S PAGE</h2>';
+                      if (strrpos(trim($order_list[0]["url"]),"www.tuudu.org/web/order_page.php?")>=0) {
+                        
+                        echo strtoupper($order_list[0]["title"]).'\'S PAGE <a style="color: #0000FF;font-size: 15px;" href="'.trim($order_list[0]["url"]).'">web link <i class="material-icons">info</i></a></h2>';
+                      }else{
+                        echo strtoupper($order_list[0]["title"]).'\'S PAGE </h2>';
+                      }
+
+
                       echo '</div>';
 
 
