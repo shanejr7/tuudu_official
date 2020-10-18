@@ -634,7 +634,7 @@ is not NULL ORDER BY organization.date");
 
               
 
-               echo '<div class="col-md-4" style="width:100px">';
+               echo '<div class="col-md-4">';
 
           
               echo '<div class="contain">';
@@ -646,9 +646,9 @@ is not NULL ORDER BY organization.date");
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
 
-                $string = trim($item["word_tag"]);
-                $string = strtolower($string);
-                $token = strtok($string, "_");
+                // $string = trim($item["word_tag"]);
+                // $string = strtolower($string);
+                // $token = strtok($string, "_");
 
  
 
