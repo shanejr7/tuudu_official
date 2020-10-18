@@ -33,6 +33,8 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['time'])) 
 
  				 	pg_query($db, "DELETE FROM messagestate
 	WHERE user_id = $userid AND publickey = '$publickey' AND timestamp_message = '$time'");
+
+
  		
  		}
 

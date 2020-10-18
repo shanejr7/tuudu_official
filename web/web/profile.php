@@ -439,6 +439,13 @@ $bucket_name = 'tuudu-official-file-storage';
                           header('location:oops.php');
                       }
 
+                      // RECONSTRUCT
+                       //add users to post images and commenting post
+                          //cooking recipes/videos..etc
+                          //yoga workouts/lists
+                          //music/playlists/video/movie/shows lists
+                          //activity/products(fashion/tickets/tech/...)/events/reading articles
+
                            $result_one = pg_query($db,"SELECT * FROM organization
 NATURAL JOIN poststate NATURAL JOIN user_follow_organization WHERE publickey in (select DISTINCT publickey from user_follow_organization
 WHERE userid = $user_id) AND user_id =$user_id AND date_submitted 
@@ -515,7 +522,11 @@ is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organizat
                         if (isset($home_list) && sizeof($home_list) > 0) {
 
 
-
+                         //add users to post images and commenting post
+                          //cooking recipes/videos..etc
+                          //yoga workouts/lists
+                          //music/playlists/video/movie/shows lists
+                          //activity/products(fashion/tickets/tech/...)/events/reading articles
                 
 
                           foreach($home_list as $item) {

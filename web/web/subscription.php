@@ -97,14 +97,14 @@ $db = pg_connect(getenv("DATABASE_URL"));
 
     // if in poststate by user then dont add
 
-  $result1 = pg_query($db, "SELECT * FROM poststate WHERE publickey = '$publickey' AND user_id = $tempID LIMIT 1");
+  // $result1 = pg_query($db, "SELECT * FROM poststate WHERE publickey = '$publickey' AND user_id = $tempID LIMIT 1");
 
-  if (pg_num_rows($result1)<=0) {
+  // if (pg_num_rows($result1)<=0) {
     
-     pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
-  VALUES($tempID,'$publickey',0,NULL)");
+  //    pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
+  // VALUES($tempID,'$publickey',0,NULL)");
 
-  }
+  // }
     
 
  header('location:dashboard.php');
@@ -155,13 +155,13 @@ if ((isset($_GET['unsubscribe'])|| isset($_POST['unsubscribe'])) && isset($_SESS
 
   // if exists as product by user then dont remove
 
-  $result1 = pg_query($db, "SELECT id FROM organization WHERE publickey = '$publickey' AND id = $tempID LIMIT 1");
+  // $result1 = pg_query($db, "SELECT id FROM organization WHERE publickey = '$publickey' AND id = $tempID LIMIT 1");
 
-  if (!$result1) {
+  // if (!$result1) {
     
-    $result = pg_query($db, "DELETE FROM poststate WHERE publickey = '$publickey' AND user_id = $tempID");
+  //   $result = pg_query($db, "DELETE FROM poststate WHERE publickey = '$publickey' AND user_id = $tempID");
 
-  }
+  // }
 
   
  
