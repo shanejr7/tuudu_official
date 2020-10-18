@@ -438,7 +438,7 @@ $bucket_name = 'tuudu-official-file-storage';
                             }
 
 
-                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id");
+                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type != 'user_post'";
                           $product_count = pg_fetch_assoc($result);
 
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $user_id");
@@ -525,8 +525,8 @@ $bucket_name = 'tuudu-official-file-storage';
 
                       $result_one = pg_query($db,"SELECT * FROM organization
 NATURAL JOIN poststate WHERE publickey in (select DISTINCT publickey from poststate
-WHERE userid = $user_id) AND post_type ='user_post' AND date_submitted 
-is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
+WHERE user_id = $user_id) AND post_type ='user_post' AND date_submitted 
+is not NULL ORDER BY organization.date");
 
 
                       
