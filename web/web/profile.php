@@ -315,7 +315,7 @@ $bucket_name = 'tuudu-official-file-storage';
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">edit picture</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Picture</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -353,6 +353,52 @@ $bucket_name = 'tuudu-official-file-storage';
     </div>
   </div>
 </div>
+
+          <div class="modal fade" tabindex="-1" role="dialog" id="uploadPost" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?php 
+        $id_av ="";
+
+        if (isset($_SESSION['id'])) {
+          $id_av= $_SESSION['id'];
+        }
+
+
+        echo'<form enctype="multipart/form-data" method="post" action="user_image_upload.php">
+  <label>upload profile picture</label>
+                 <div class="row"> 
+                  <div class="col-md-4"></div>
+                  <div class="col-md-4">
+                   
+                          <div class="form-group form-file-upload form-file-simple">
+    <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
+    <input type="file" name="file1" class="inputFileHidden">
+  </div>
+                    </div>
+
+                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button></form>
+
+              </div>';
+
+                ?>
+      </div>
+      <div class="modal-footer">
+  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
         <div class="tab-content tab-space">
           <div class="tab-pane active work" id="home">
             <div class="row">
@@ -1254,9 +1300,9 @@ pg_close($db);
 
   <div class="col-lg-6"> </div>
 
-  <div class="footer-btn col-lg-4">
+  <div class="footer-btn col-lg-4" data-toggle="modal" data-target="#uploadPost">
 
-    <a href="#"><i class="material-icons" style="font-size: 3em;">center_focus_weak</i></a>
+    <button><i class="material-icons" style="font-size: 3em;">center_focus_weak</i></a></button>
 
   </div>
 
