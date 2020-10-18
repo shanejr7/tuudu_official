@@ -367,23 +367,33 @@ $bucket_name = 'tuudu-official-file-storage';
         $id_av ="";
 
         if (isset($_SESSION['id'])) {
-          $id_av= $_SESSION['id'];
+          $id_post= $_SESSION['id'];
         }
 
 
-        echo'<form enctype="multipart/form-data" method="post" action="user_image_upload.php">
-  <label>POST</label>
-                 <div class="row"> 
+        echo'<form enctype="multipart/form-data" method="post" action="user_post_upload.php">
+                  <label>POST</label>
+                  <div class="row"> 
                   <div class="col-md-4"></div>
                   <div class="col-md-4">
                    
-                          <div class="form-group form-file-upload form-file-simple">
-    <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
-    <input type="file" name="file1" class="inputFileHidden">
+                  <div class="form-group form-file-upload form-file-simple">
+                     <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
+                     <input type="file" name="file1" class="inputFileHidden">
+  
+                  </div>
+
+                  <div class="form-group label-floating has-success">
+                    <label class="control-label">Post title</label>
+                    <input type="text" value="" name="title" class="form-control" />
+                    <span class="form-control-feedback">
+                    <i class="material-icons">art_track</i>
+                    </span>
   </div>
+
                     </div>
 
-                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button></form>
+                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_post.'" name="imagePost" value="img" style="display:inline-block">upload</button></form>
 
               </div>';
 
