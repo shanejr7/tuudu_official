@@ -63,8 +63,8 @@ $post_amt =filter_var($_POST['amount'], FILTER_SANITIZE_STRING);
  
     pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted =NOW(), payment_type = '$paymentType', favorites = 0, amount = '$post_amt' WHERE publickey = '$publickey' AND id =$userid");
 
-      pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
-  VALUES($userid,'$publickey',0,NULL)");
+      pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message,type)
+  VALUES($userid,'$publickey',0,NULL,'org_post')");
 
       pg_query($db, "UPDATE public.word_tag SET post_amt =post_amt + 1 WHERE event_type = '$eventType' ");
 
@@ -115,8 +115,8 @@ $post_amt ='unlimited';
 
     pg_query($db, "UPDATE public.organization SET privatekey='$privateKey', fiatvalue='$fiatValue', views= 0, date_submitted =NOW(), payment_type = 'n/a', favorites =0, amount = '$post_amt' WHERE publickey = '$publickey' AND id =$userid");
 
-    pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message)
-  VALUES($userid,'$publickey',0,NULL)");
+    pg_query($db, "INSERT INTO poststate (user_id, publickey,favorite,message,type)
+  VALUES($userid,'$publickey',0,NULL,'org_post')");
 
      pg_query($db, "UPDATE public.word_tag SET post_amt =post_amt + 1 WHERE event_type = '$eventType'");
 

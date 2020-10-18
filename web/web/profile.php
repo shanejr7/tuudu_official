@@ -331,7 +331,7 @@ $bucket_name = 'tuudu-official-file-storage';
         echo'<form enctype="multipart/form-data" method="post" action="user_image_upload.php">
  
                 <div class="form-group label-floating has-success">
-                  <label class="control-label">EDIT AVATAR</label>
+                  <label class="control-label">EDIT PROFILE PICTURE</label>
                   </div>
                  <div class="row"> 
                   <div class="col-md-3"></div>
@@ -518,16 +518,19 @@ $bucket_name = 'tuudu-official-file-storage';
                           //music/playlists/video/movie/shows lists
                           //activity/products(fashion/tickets/tech/...)/events/reading articles
 
-                           $result_one = pg_query($db,"SELECT * FROM organization
-NATURAL JOIN poststate NATURAL JOIN user_follow_organization WHERE publickey in (select DISTINCT publickey from user_follow_organization
-WHERE userid = $user_id) AND user_id =$user_id AND date_submitted 
+//                            $result_one = pg_query($db,"SELECT * FROM organization
+// NATURAL JOIN poststate NATURAL JOIN user_follow_organization WHERE publickey in (select DISTINCT publickey from user_follow_organization
+// WHERE userid = $user_id) AND user_id =$user_id AND date_submitted 
+// is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
+
+                      $result_one = pg_query($db,"SELECT * FROM organization
+NATURAL JOIN poststate WHERE publickey in (select DISTINCT publickey from poststate
+WHERE userid = $user_id) AND post_type ='user_post' AND date_submitted 
 is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
 
 
                       
-
-
-                          if (pg_num_rows($result_one) > 0) {
+                              if (pg_num_rows($result_one) > 0) {
                   
                         while($row = pg_fetch_assoc($result_one)) { 
       
@@ -541,26 +544,42 @@ is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organizat
                       // echo "empty</br></br></br>";
                   
                      }
+                   
 
-
-                           $result_two = pg_query($db,"SELECT * FROM temporary_tag_schedule NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
-
-                         
-
-                              if (pg_num_rows($result_two) > 0) {
+                    //       if (pg_num_rows($result_one) > 0) {
                   
-                        while($row = pg_fetch_assoc($result_two)) { 
+                    //     while($row = pg_fetch_assoc($result_one)) { 
       
-                            $home_list[] = array("id" => $row["orgid"],"date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"publickey" => $row["publickey"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"],"email" => $row["email"],"content" => $row["content"],"address" => $row["address"],"url" => $row["url"],"phonenumber" => $row["phonenumber"],"organization_name" => $row["organization_name"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
+                    //         $home_list[] = array("id" => $row["orgid"],"date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"publickey" => $row["publickey"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"],"email" => $row["email"],"content" => $row["content"],"address" => $row["address"],"url" => $row["url"],"phonenumber" => $row["phonenumber"],"organization_name" => $row["organization_name"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
                   
-                        }
+                    //     }
 
                         
                     
-                    }else{
+                    // }else{
+                    //   // echo "empty</br></br></br>";
+                  
+                    //  }
 
-                  // echo "empty</br></br></br>";
-                     }
+
+                  //          $result_two = pg_query($db,"SELECT * FROM temporary_tag_schedule NATURAL JOIN organization NATURAL JOIN poststate WHERE id = $user_id AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
+
+                         
+
+                  //             if (pg_num_rows($result_two) > 0) {
+                  
+                  //       while($row = pg_fetch_assoc($result_two)) { 
+      
+                  //           $home_list[] = array("id" => $row["orgid"],"date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"publickey" => $row["publickey"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"],"email" => $row["email"],"content" => $row["content"],"address" => $row["address"],"url" => $row["url"],"phonenumber" => $row["phonenumber"],"organization_name" => $row["organization_name"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
+                  
+                  //       }
+
+                        
+                    
+                  //   }else{
+
+                  // // echo "empty</br></br></br>";
+                  //    }
 
 
 

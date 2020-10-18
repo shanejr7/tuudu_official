@@ -52,6 +52,7 @@ if(isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_u
 
 	$file_temp = pg_escape_string($db, $_FILES['file1']['tmp_name']);
 	$file_name = pg_escape_string($db, $_FILES['file1']['name']);
+  $title = trim(pg_escape_string($db, $_POST['title']));
 
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
    
@@ -64,7 +65,7 @@ if(isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_u
 
  
 $source = fopen($file_temp, 'rb');
-$key =  "user_profile_img/".$randomString.''. $file_name; 
+$key =  "user_profile_post/".$randomString.''. $file_name; 
 
 $destination = $key;
 
@@ -74,33 +75,36 @@ $destination = $key;
     $key,
     $source 
 );
-    try
-{
-    // echo 'Attempting to delete ' . $keyname . '...' . PHP_EOL;
 
-$keyname = "";
-if (isset($_SESSION['img_src'])) {
-  $keyname = trim($_SESSION['img_src']);
-}
 
-$result = pg_query($db, "UPDATE public.users SET profile_pic_src=null WHERE id = $userid");
-$result = pg_query($db, "UPDATE public.messagestate SET src=null WHERE user_id = $userid");
+    // delete post
+//     try
+// {
+//     // echo 'Attempting to delete ' . $keyname . '...' . PHP_EOL;
 
-    $result = $s3->deleteObject([
-        'Bucket' => $bucket_name,
-        'Key'    => $keyname
-    ]);
+// $keyname = "";
+// if (isset($_SESSION['img_src'])) {
+//   $keyname = trim($_SESSION['img_src']);
+// }
 
-    if ($result['DeleteMarker'])
-    {
-        // echo $keyname . ' was deleted or does not exist.' . PHP_EOL;
-    } else {
-        // exit('Error: ' . $keyname . ' was not deleted.' . PHP_EOL);
-    }
-}
-catch (S3Exception $e) {
-    // exit('Error: ' . $e->getAwsErrorMessage() . PHP_EOL);
-}
+// $result = pg_query($db, "UPDATE public.users SET profile_pic_src=null WHERE id = $userid");
+// $result = pg_query($db, "UPDATE public.messagestate SET src=null WHERE user_id = $userid");
+
+//     $result = $s3->deleteObject([
+//         'Bucket' => $bucket_name,
+//         'Key'    => $keyname
+//     ]);
+
+//     if ($result['DeleteMarker'])
+//     {
+//         // echo $keyname . ' was deleted or does not exist.' . PHP_EOL;
+//     } else {
+//         // exit('Error: ' . $keyname . ' was not deleted.' . PHP_EOL);
+//     }
+// }
+// catch (S3Exception $e) {
+//     // exit('Error: ' . $e->getAwsErrorMessage() . PHP_EOL);
+// }
 
 // 2. Check to see if the object was deleted.
 // try
@@ -124,17 +128,13 @@ catch (S3Exception $e) {
 
           $image_src = $destination;
 
-          unset($_SESSION['img_src']);
-
-          $_SESSION['img_src'] = $destination;
-
- 
-
             // update user image
-            pg_query($db,"UPDATE users SET profile_pic_src ='$image_src' WHERE id= $userid ");
-            pg_query($db,"UPDATE messagestate SET src ='$image_src' WHERE user_id= $userid ");
 
-          
+            pg_query($db,"INSERT INTO public.poststate(user_id, publickey, favorite, message,type)VALUES ($userid, '$randomString', 0, '$title','user_post')");
+
+
+            pg_query($db,'INSERT INTO public.organization(word_tag, id, title, organization_name, phonenumber, email, address, date, "time", url, img, description, content, publickey, privatekey, fiatvalue, views, date_submitted, payment_type, favorites, post_type, story_key, amount, size) VALUES (NULL, $userid, "$title", NULL, NULL, NULL, NULL, NOW(), NULL, NULL, "$destination", NULL, NULL, '$randomString', NULL, NULL, 0, NOW(), NULL, 0, "user_post", NULL, NULL, NULL)');
+
 
 
             } catch(Exception $e){

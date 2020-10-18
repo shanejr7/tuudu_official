@@ -18,7 +18,7 @@ if (isset($_SESSION['id'])) {
 
     $keys = array_keys($settings_check_mark);
 
-    //$db = pg_connect("host=localhost dbname=db_tuudu user=postgres password=Javaoop12!");
+  
     $db = pg_connect(getenv("DATABASE_URL"));
 
     // Check connection
@@ -46,7 +46,7 @@ if (isset($_SESSION['id'])) {
                   *  and exists == 1
                   */
                   $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time,organization.fiatvalue, organization.img, organization.id as org_key, organization.views,organization.description, organization.word_tag, organization.publickey,organization.views, organization.url, organization.post_type,organization.amount FROM organization , feedstate WHERE split_part(organization.word_tag,'_',1) LIKE feedstate.word_tag AND feedstate.userid =$id AND feedstate.state =1 AND organization.publickey not in(select publickey FROM user_follow_organization WHERE userid = $id) 
-                    AND organization.publickey not in(select publickey FROM temporary_tag_schedule WHERE user_id = $id)  AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+                    AND organization.publickey not in(select publickey FROM temporary_tag_schedule WHERE user_id = $id) AND post_type !='user_post' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
 
                   if (pg_num_rows($result) > 0) {
@@ -96,7 +96,7 @@ if (isset($_SESSION['id'])) {
 
      $result = pg_query($db,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag
      FROM organization
-    WHERE word_tag LIKE '%$string[$i]%' AND organization.id not in(select userid from feedstate WHERE userid = $id and state = 0) AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+    WHERE word_tag LIKE '%$string[$i]%' AND organization.id not in(select userid from feedstate WHERE userid = $id and state = 0) AND post_type !='user_post' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
     // loops through rows until there is 0 rows
     if (pg_num_rows($result) > 0) {
@@ -136,7 +136,7 @@ pg_close($db);
                   $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_key, organization.views,organization.description,organization.publickey, organization.address,organization.views, organization.url, organization.post_type,organization.amount, organization.word_tag
                   FROM organization
                     WHERE organization.publickey not in(select publickey from user_follow_organization WHERE userid = $id)
-          AND organization.publickey not in(select publickey from feedstate WHERE userid = $id and state = 0) AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+          AND organization.publickey not in(select publickey from feedstate WHERE userid = $id and state = 0) AND post_type !='user_post' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
  
                   if (pg_num_rows($result) > 0) {
@@ -277,7 +277,7 @@ if (!$conn) {
     */
 
     $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey
-     FROM organization WHERE organization.publickey in(select publickey from user_follow_organization WHERE userid = $user_I_D) AND organization.publickey not in(select publickey from feedstate WHERE userid = $user_I_D and state = 0) AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
+     FROM organization WHERE organization.publickey in(select publickey from user_follow_organization WHERE userid = $user_I_D) AND organization.publickey not in(select publickey from feedstate WHERE userid = $user_I_D and state = 0) AND post_type !='user_post' AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
     // loops through rows until there is 0 rows
     if (pg_num_rows($result) > 0) {
@@ -384,7 +384,7 @@ if (!$db) {
    $id = pg_escape_string($db, $_SESSION['id']);
 
      $result = pg_query($db, 'SELECT * FROM public.organization
-  WHERE date is not null AND organization.publickey 
+  WHERE date is not null AND post_type !="user_post" AND organization.publickey 
       in(select publickey from temporary_tag_schedule WHERE user_id = '.$id.') AND "date"::timestamp >= NOW()
   ORDER BY "date"::date asc LIMIT 12');
 
