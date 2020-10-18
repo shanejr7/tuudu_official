@@ -379,6 +379,9 @@ $bucket_name = 'tuudu-official-file-storage';
                    
                   <div class="form-group form-file-upload form-file-simple">
                      <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
+                     <span class="form-control-feedback">
+                    <i class="material-icons">image</i>
+                    </span>
                      <input type="file" name="file1" class="inputFileHidden">
   
                   </div>
