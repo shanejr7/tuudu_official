@@ -82,7 +82,7 @@ $bucket_name = 'tuudu-official-file-storage';
    
    .profile-page{min-height:1000px;}
    .footer-btn{position:-webkit-sticky; position:sticky; bottom:0;}
-   .footer {
+   .footer-btn{
    position: fixed;
    left: 0;
    bottom: 0;
@@ -1262,7 +1262,7 @@ pg_close($db);
 
   <div class="col-lg-4">
 
-    <a href="#"><i class="material-icons" style="font-size: 4em;">center_focus_weak</i></a>
+    <a href="#"><i class="material-icons" style="font-size: 3em;">center_focus_weak</i></a>
 
   </div>
 
