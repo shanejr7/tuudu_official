@@ -133,7 +133,7 @@ $destination = $key;
             pg_query($db,"INSERT INTO public.poststate(user_id, publickey, favorite, message,type)VALUES ($userid, '$randomString', 0, '$title','user_post')");
 
 
-            pg_query($db,'INSERT INTO public.organization(word_tag, id, title, organization_name, phonenumber, email, address, date, "time", url, img, description, content, publickey, privatekey, fiatvalue, views, date_submitted, payment_type, favorites, post_type, story_key, amount, size) VALUES (NULL, $userid, "$title", NULL, NULL, NULL, NULL, NOW(), NULL, NULL, "$destination", NULL, NULL, '$randomString', NULL, NULL, 0, NOW(), NULL, 0, "user_post", NULL, NULL, NULL)');
+            pg_query($db,'INSERT INTO public.organization(word_tag, id, title, organization_name, phonenumber, email, address, date, "time", url, img, description, content, publickey, privatekey, fiatvalue, views, date_submitted, payment_type, favorites, post_type, story_key, amount, size) VALUES (NULL, $userid, "$title", NULL, NULL, NULL, NULL, NOW(), NULL, NULL, "$destination", NULL, NULL, "$randomString", NULL, NULL, 0, NOW(), NULL, 0, "user_post", NULL, NULL, NULL)');
 
 
 
