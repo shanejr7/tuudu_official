@@ -1251,7 +1251,7 @@ pg_close($db);
 
 <div class="row">
 
-  <div class="col-lg-8"></div>
+  <div class="col-lg-6"></div>
 
   <div class="footer-btn col-lg-4">
 
