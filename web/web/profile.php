@@ -1302,7 +1302,7 @@ pg_close($db);
 
   <div class="footer-btn col-lg-4" data-toggle="modal" data-target="#uploadPost">
 
-    <button><i class="material-icons" style="font-size: 3em;">center_focus_weak</i></a></button>
+    <a href="#upload"><i class="material-icons" style="font-size: 3em;">center_focus_weak</i></a>
 
   </div>
 
