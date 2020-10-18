@@ -1255,7 +1255,7 @@ pg_close($db);
 
   <div class="col-lg-4">
 
-    <a href="#"><i class="material-icons" style="font-size: 5em;">center_focus_weak</i></a>
+    <a href="#"><i class="material-icons" style="font-size: 4em;">center_focus_weak</i></a>
 
   </div>
 
