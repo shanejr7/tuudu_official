@@ -661,29 +661,29 @@ is not NULL ORDER BY organization.date");
               
                 
 
-                  // if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
-                  //       echo '<div class="top-right h9"> 
-                  //       <a href="'.$item['url'].'"><i class="material-icons">strikethrough_s</i></a></div>';
+                        echo '<div class="top-right h9"> 
+                        <a href="'.$item['url'].'"><i class="material-icons">strikethrough_s</i></a></div>';
 
-                  //       }else{
+                        }else{
 
-                  // echo '<a href="'.$item['url'].'"><div class="top-right h6">$'.trim($item['price']).'</a></div>';
+                  echo '<a href="'.$item['url'].'"><div class="top-right h6">$'.trim($item['price']).'</a></div>';
                   
-                  // }
+                  }
 
-                  //  if (isset($token) && $token =='product') {
+                   if (isset($token) && $token =='product') {
 
                   
-                  //   echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
 
 
-                  // }else{
+                  }else{
 
-                  //   echo '<div class="top-left h6" style="width:10px;">'
-                  //      .toString($item['date']).'</div>';
+                    echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
 
-                  // }
+                  }
 
 
 
@@ -729,7 +729,7 @@ is not NULL ORDER BY organization.date");
 
           ?>
 
-<!-- <div class="row">
+<div class="row">
 
   <div class="col-lg-6"> </div>
 
@@ -739,7 +739,7 @@ is not NULL ORDER BY organization.date");
 
   </div>
 
-</div> -->
+</div>
 
               </div>
 
