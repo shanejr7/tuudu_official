@@ -687,7 +687,7 @@ is not NULL ORDER BY organization.date");
 
 
 
-                  echo '<div class="centeredm h4">'.trim($item['title']).'</div>';
+                  // echo '<div class="centeredm h4">'.trim($item['title']).'</div>';
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
