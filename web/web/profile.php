@@ -375,6 +375,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   <label>POST</label>
                   <div class="row"> 
                 
+                  <div class="col-md-4"></div>
                   <div class="col-md-6">
                    
                   <div class="form-group form-file-upload form-file-simple">
