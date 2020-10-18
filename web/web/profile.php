@@ -80,7 +80,7 @@ $bucket_name = 'tuudu-official-file-storage';
   
  <style type="text/css">
    
-   
+   .profile-page{min-height:1000px;}
    .footer-btn{position:-webkit-sticky; position:sticky; bottom:0;}
 
  </style>
@@ -1262,7 +1262,7 @@ pg_close($db);
 </div>
 
 
-  <footer class="footer footer-default cd-section" id="footer">
+  <footer class="footer footer-btn footer-default cd-section" id="footer">
     <div class="container">
       <nav class="float-left">
         <ul>
