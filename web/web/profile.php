@@ -373,7 +373,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
         echo'<form enctype="multipart/form-data" method="post" action="user_image_upload.php">
-  <label>upload profile picture</label>
+  <label>POST</label>
                  <div class="row"> 
                   <div class="col-md-4"></div>
                   <div class="col-md-4">
