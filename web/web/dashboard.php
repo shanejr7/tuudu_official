@@ -133,6 +133,9 @@ echo '<script>
     <div class="container nav-tabs-navigation">
  <div class="navbar-translate">
       <ul class="nav  navbar-nav nav-tabs" id="tabTrack"  role="tabs">
+        <li class="nav-item ">
+                   <a href="home.php" class="nav-link"><i class="material-icons">home</i></a>
+                </li>
                 <li class="nav-item ">
                   <a onclick='clear()' style="font-weight: normal;" id="dash" class="nav-link active" href="#dashboard" role="tab" data-toggle="tab"  >
                     <i class="material-icons">dashboard</i> dashboard
