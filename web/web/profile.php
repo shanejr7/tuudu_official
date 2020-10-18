@@ -81,7 +81,7 @@ $bucket_name = 'tuudu-official-file-storage';
  <style type="text/css">
    
    .profile-page{min-height:1000px;}
-   .footer-btn{position: fixed;bottom: 3em;}
+   .footer-btn{position: fixed;bottom: 3em;left: 800px;}
 
  </style>
  
@@ -1249,11 +1249,11 @@ pg_close($db);
 </div>
 </div>
 
-<div class="footer-btn row">
+<div class="row">
 
   <div class="col-lg-6"> </div>
 
-  <div class="col-lg-4">
+  <div class="footer-btn col-lg-4">
 
     <a href="#"><i class="material-icons" style="font-size: 3em;">center_focus_weak</i></a>
 
