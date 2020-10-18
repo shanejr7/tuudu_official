@@ -78,7 +78,12 @@ $bucket_name = 'tuudu-official-file-storage';
 
  <!--  <script src="../assets/js/custom_js.js"></script> -->
   
- 
+ <style type="text/css">
+   
+   .profile-page{min-height:1000px;}
+   .footer-btn{position:-webkit-sticky; position:sticky; bottom:0;}
+   
+ </style>
  
 </head>
  
@@ -1243,6 +1248,20 @@ pg_close($db);
   </div>
 </div>
 </div>
+
+<div class="row">
+
+  <div class="col-lg-4"></div>
+
+  <div class="footer-btn col-lg-4">
+
+    <i class="material-icons">center_focus_weak</i>
+
+  </div>
+
+</div>
+
+
   <footer class="footer footer-default cd-section" id="footer">
     <div class="container">
       <nav class="float-left">
