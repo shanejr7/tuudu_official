@@ -349,7 +349,7 @@ $bucket_name = 'tuudu-official-file-storage';
             <div class="row">
 
               <div class="col-md-8 ml-auto mr-auto " id="profile_tab_data">
-                <h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Collections</h4>
+                <h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts</h4>
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>
                  <?php 
 
