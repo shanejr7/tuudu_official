@@ -92,6 +92,9 @@ $bucket_name = 'tuudu-official-file-storage';
         <div class="navbar-translate">
               <ul class="nav  navbar-nav" id="tabTrackMain" role="tablist">
                 <li class="nav-item">
+                   <a href="home.php" class="nav-link"><i class="material-icons">home</i></a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="dashboard.php#dashboard">
                     <i class="material-icons">dashboard</i> dashboard
                   </a>
