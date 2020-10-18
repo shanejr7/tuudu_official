@@ -487,7 +487,7 @@ $bucket_name = 'tuudu-official-file-storage';
             
                 </div>
               </div>
-    
+    <div class="text-center gallery">
                 <div class="row ">
           <?php
 
@@ -728,6 +728,7 @@ is not NULL ORDER BY organization.date");
                     }
 
           ?>
+        </div>
 
 <div class="row">
 
