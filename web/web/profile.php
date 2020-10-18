@@ -81,7 +81,8 @@ $bucket_name = 'tuudu-official-file-storage';
  <style type="text/css">
    
    .profile-page{min-height:1000px;}
-   .footer-btn{position: fixed;bottom: 3em;left: 700px;}
+   .footer-btn{position: fixed;bottom: 3em;left: 500px;}
+   .footer{position: fixed;bottom: 4em;}
 
  </style>
  
