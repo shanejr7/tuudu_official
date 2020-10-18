@@ -729,7 +729,17 @@ is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organizat
 
           ?>
 
+<div class="row">
 
+  <div class="col-lg-6"> </div>
+
+  <div class="footer-btn col-lg-4" data-toggle="modal" data-target="#uploadPost">
+
+    <a href="#upload"><i class="material-icons" style="font-size: 3em;">center_focus_weak</i></a>
+
+  </div>
+
+</div>
 
               </div>
 
@@ -1332,17 +1342,6 @@ pg_close($db);
 </div>
 </div>
 
-<div class="row">
-
-  <div class="col-lg-6"> </div>
-
-  <div class="footer-btn col-lg-4" data-toggle="modal" data-target="#uploadPost">
-
-    <a href="#upload"><i class="material-icons" style="font-size: 3em;">center_focus_weak</i></a>
-
-  </div>
-
-</div>
 
 
   <footer class="footer footer-default cd-section" id="footer">
