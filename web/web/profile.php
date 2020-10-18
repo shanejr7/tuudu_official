@@ -438,7 +438,7 @@ $bucket_name = 'tuudu-official-file-storage';
                             }
 
 
-                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type != 'user_post'";
+                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type != 'user_post' ");
                           $product_count = pg_fetch_assoc($result);
 
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $user_id");
