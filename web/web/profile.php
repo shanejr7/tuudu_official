@@ -1111,7 +1111,7 @@ header('location:oops.php');
 }
 
   $result = pg_query($db,
-    "SELECT * FROM organization NATURAL JOIN poststate WHERE id = $user_id ORDER BY organization.date");
+    "SELECT * FROM organization NATURAL JOIN poststate WHERE id = $user_id AND post_type != 'user_post' ORDER BY organization.date");
 
   
   if ($result) {
