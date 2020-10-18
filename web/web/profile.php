@@ -729,7 +729,7 @@ is not NULL ORDER BY organization.date");
 
           ?>
 
-<div class="row">
+<!-- <div class="row">
 
   <div class="col-lg-6"> </div>
 
@@ -739,7 +739,7 @@ is not NULL ORDER BY organization.date");
 
   </div>
 
-</div>
+</div> -->
 
               </div>
 
