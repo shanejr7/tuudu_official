@@ -402,22 +402,26 @@ if (isset($temp) && $temp ==1) {
      <div  >
     <div class="profile-content " id="main">
       <div class="container">
+
+
+        <nav class="nav">
+ 
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Activites</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Music</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Shows</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Food</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Art</button></a>
+</nav>
     
-        <div class="row">
+        
           
-          <div class="col-lg-2"><button type="button" class="btn btn-primary btn-round">Posts</button></div>     
-          <div class="col-lg-2"><button type="button" class="btn btn-primary btn-round">Videos</button></div>  
-          <div class="col-lg-2"><button type="button" class="btn btn-primary btn-round">Activites</button></div>  
-          <div class="col-lg-2"><button type="button" class="btn btn-primary btn-round">Music</button></div>  
-          <div class="col-lg-2"><button type="button" class="btn btn-primary btn-round">Shows</button></div>  
-          <div class="col-lg-2"><button type="button" class="btn btn-primary btn-round">Food</button></div> 
-          <div class="col-lg-2"><button type="button" class="btn btn-primary btn-round">Art</button></div>   
-
-
-
-
-
-        </div>
+             
+         
+           
+         
+      
    <!--      <div class="row">
           <div class="col-md-12 ml-auto mr-auto">
             <div class="profile-tabs">
