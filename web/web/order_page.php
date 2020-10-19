@@ -393,7 +393,7 @@ pg_close($conn);
                     
 
                       // if free dont show payment button
-                      echo '<div class="description col-md-3">';
+                      echo '<div class="description col-md-2">';
 
                          
           
@@ -448,7 +448,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
 
 
-        echo '<div class="col-md-5">';
+        echo '<div class="col-md-6">';
 
        
 
