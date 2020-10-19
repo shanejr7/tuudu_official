@@ -414,6 +414,7 @@ if (isset($temp) && $temp ==1) {
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Food</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Art</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">All</button></a>
 </nav>
     
         
