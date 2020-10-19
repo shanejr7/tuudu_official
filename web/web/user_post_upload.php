@@ -63,6 +63,7 @@ if(isset($_FILES['file1']) && $_FILES['file1']['error'] == UPLOAD_ERR_OK && is_u
         $randomString .= $characters[$index]; 
     } 
 
+    $randomString = trim($randomString);
  
 $source = fopen($file_temp, 'rb');
 $key =  "user_profile_post/".$randomString.''. $file_name; 
