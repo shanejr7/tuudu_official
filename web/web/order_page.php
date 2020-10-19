@@ -466,7 +466,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
       
       <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;">
         <div class="row">
-          <div class="col-md-8 ml-auto mr-auto">
+          <div class="col-md-10 ml-auto mr-auto">
             <hr>
             <div class="card card-profile card-plain">
               <div class="row" id="user_post">
