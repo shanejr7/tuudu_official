@@ -28,7 +28,7 @@ include("server.php");
                             }
 
 
-                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id");
+                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type != 'user_post' " );
                           $product_count = pg_fetch_assoc($result);
 
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $user_id");
@@ -47,12 +47,17 @@ include("server.php");
 
 
 
-                         $data.='<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Collections</h4>
+                         $data.='<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts</h4>
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
                       
 
                       if (isset($product_count)) {
-                        $data.=' <li style="display: inline-block;margin-right:3px;">Products <b>'.$product_count['count'].'</b> </li>';
+
+                         $products_num_count =0;
+
+                         $products_num_count = $product_count['count'];
+
+                        $data.=' <li style="display: inline-block;margin-right:3px;">Products <b>'.$products_num_count.'</b> </li>';
                       }
 
                       if (isset($tag_schedule_count) && isset($user_follow_organization_count)) {
