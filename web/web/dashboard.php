@@ -405,12 +405,13 @@ if (isset($temp) && $temp ==1) {
     
         <div class="row">
           
-          <div class="col-lg-2"><button type="button" class="btn btn-warning">Posts</button></div>        
-          <div class="col-lg-2"><button type="button" class="btn btn-warning">Videos</button></div>  
-          <div class="col-lg-2"><button type="button" class="btn btn-warning">Activites</button></div>  
-          <div class="col-lg-2"><button type="button" class="btn btn-warning">Music</button></div>  
-          <div class="col-lg-2"><button type="button" class="btn btn-warning">Shows</button></div>  
-          <div class="col-lg-2"><button type="button" class="btn btn-warning">Food</button></div>  
+          <div class="col-lg-1"><button type="button" class="btn btn-warning btn-round">Posts</button></div>     
+          <div class="col-lg-1"><button type="button" class="btn btn-warning btn-round">Videos</button></div>  
+          <div class="col-lg-1"><button type="button" class="btn btn-warning btn-round">Activites</button></div>  
+          <div class="col-lg-1"><button type="button" class="btn btn-warning btn-round">Music</button></div>  
+          <div class="col-lg-1"><button type="button" class="btn btn-warning btn-round">Shows</button></div>  
+          <div class="col-lg-1"><button type="button" class="btn btn-warning btn-round">Food</button></div> 
+          <div class="col-lg-1"><button type="button" class="btn btn-warning btn-round">Art</button></div>   
 
 
 
