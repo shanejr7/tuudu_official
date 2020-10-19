@@ -76,12 +76,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
           $user_subscribe = pg_fetch_assoc($result);
           
-            echo "string".$post_id;
-            echo "string".$publickey;
-
-            if (isset($user_post)) {
-              echo "string".$user_post['post_id'];
-            }
+          
 
   				 $data .= '
                 <div class="col-md-2">
