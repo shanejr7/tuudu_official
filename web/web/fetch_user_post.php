@@ -65,7 +65,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
 
-				$result = pg_query($db, "SELECT C.id as post_id, C.title as post_title, C.img as post_img, C.publickey as post_publickey ,C.email as post_email, C.description as post_description,C.date_submitted as post_submitted,Z.id as post_id, Z.email as user_email, Z.public_key as user_publickey,Z.username as user_username,  Z.profile_pic_src as user_img FROM organization C ,users Z WHERE C.id = $post_id AND Z.id =$post_id AND C.publickey ='$publickey'");
+				$result = pg_query($db, "SELECT C.id as post_id, C.post_type as post_type, C.title as post_title, C.img as post_img, C.publickey as post_publickey ,C.email as post_email, C.description as post_description,C.date_submitted as post_submitted,Z.id as post_id, Z.email as user_email, Z.public_key as user_publickey,Z.username as user_username,  Z.profile_pic_src as user_img FROM organization C ,users Z WHERE C.id = $post_id AND Z.id =$post_id AND C.publickey ='$publickey'");
 
   				
   				$user_post = pg_fetch_assoc($result);
@@ -104,6 +104,8 @@ $bucket_name = 'tuudu-official-file-storage';
               $presignedUrl = (string)$request->getUri();
 
               	$data.='<img class="media-object"  src="'.$presignedUrl.'">';
+
+              }elseif(trim($user_post["post_type"])=='user_post'){
 
               }else{
 
