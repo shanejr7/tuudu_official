@@ -8,6 +8,13 @@
   
 */
 
+// RECONSTRUCT
+                       //add users to post images and commenting post
+                          //cooking recipes/videos..etc
+                          //yoga workouts/lists
+                          //music/playlists/video/movie/shows lists
+                          //activity/products(fashion/tickets/tech/...)/events/reading articles
+
 include('feed_state.php'); // retrieves organizations for users
 include('favorite.php');
    
@@ -396,7 +403,20 @@ if (isset($temp) && $temp ==1) {
     <div class="profile-content " id="main">
       <div class="container">
     
-        
+        <div class="row">
+          
+          <div class="col-lg-2"><button type="button" class="btn btn-warning">Posts</button></div>        
+          <div class="col-lg-2"><button type="button" class="btn btn-warning">Videos</button></div>  
+          <div class="col-lg-2"><button type="button" class="btn btn-warning">Activites</button></div>  
+          <div class="col-lg-2"><button type="button" class="btn btn-warning">Music</button></div>  
+          <div class="col-lg-2"><button type="button" class="btn btn-warning">Shows</button></div>  
+          <div class="col-lg-2"><button type="button" class="btn btn-warning">Food</button></div>  
+
+
+
+
+
+        </div>
    <!--      <div class="row">
           <div class="col-md-12 ml-auto mr-auto">
             <div class="profile-tabs">
