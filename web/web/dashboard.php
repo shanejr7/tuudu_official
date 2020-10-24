@@ -1007,9 +1007,10 @@ if (isset($subscription_list)) {
   <script>
  
 
- $("a").on('click', function(e) {
+ $("a").on('click', function() {
 
-     console.log(e.target.href);
+     var id = $(this).attr('id');
+     console.log(id);
     history.replaceState(null, null, ' ');
   
      $('#tabTrack li').each(function() {
