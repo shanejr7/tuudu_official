@@ -1010,7 +1010,18 @@ if (isset($subscription_list)) {
  $("a").on('click', function() {
 
      var id = $(this).attr('id');
+     var x = document.getElementById("topic");
      console.log(id);
+
+     if (id == 'sched') {
+
+      x.style.display = "block";
+      
+     }else{
+
+       x.style.display = "none";
+
+     }
     history.replaceState(null, null, ' ');
   
      $('#tabTrack li').each(function() {
