@@ -1020,7 +1020,7 @@ if (isset($subscription_list)) {
   } else {
 
     console.log("n");
-    document.getElementById("topics").style.visibility = "none";
+    document.getElementById("topics").style.visibility = "hidden";
   }
 
  });
