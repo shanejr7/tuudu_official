@@ -461,8 +461,8 @@ if (isset($temp) && $temp ==1) {
  
    
 
-        <div class=" tab-space cd-section" id="body">
-          <div class="tab-pane active text-center gallery section section-sections" id="dashboard">
+        <div class="tab-content tab-space cd-section" id="body">
+          <div class=" active text-center gallery section section-sections" id="dashboard">
            <div class="row">
 
                     <nav class="nav">
