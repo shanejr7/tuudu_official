@@ -1009,6 +1009,7 @@ if (isset($subscription_list)) {
 
  $("a").on('click', function() {
 
+console.log(history.state);
     history.replaceState(null, null, ' ');
   
      $('#tabTrack li').each(function() {
@@ -1028,7 +1029,6 @@ if (isset($subscription_list)) {
   
    
   if (hash != "") {
-    console.log(hash);
     
     $('#tabTrack a').each(function() {
       $(this).removeClass('active');
