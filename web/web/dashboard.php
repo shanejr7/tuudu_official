@@ -1006,24 +1006,26 @@ if (isset($subscription_list)) {
 
   <script>
  
+ $("#sched").on('click', function() {
+
+  console.log("clicked");
+
+   var x = document.getElementById("topics");
+
+  if (x.style.display === "none") {
+
+    document.getElementById("topics").style.visibility = "hidden";
+  } else {
+    document.getElementById("topics").style.visibility = "none";
+  }
+
+ });
 
  $("a").on('click', function() {
 
-     var id = $(this).attr('id');
-     var x = document.getElementById("topic");
-     console.log(id);
-
-     if (id == 'sched') {
-
-      x.style.display = "none";
-      console.log("b");
-
-     }else{
-      console.log("sh");
-
-       x.style.display = "show";
-
-     }
+     // var id = $(this).attr('id');
+     // var x = document.getElementById("topic");
+    
     history.replaceState(null, null, ' ');
   
      $('#tabTrack li').each(function() {
