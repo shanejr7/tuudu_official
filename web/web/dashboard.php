@@ -408,8 +408,8 @@ if (isset($temp) && $temp ==1) {
     <div class="profile-content " id="main">
       <div class="container">
 
-
-        <nav class="nav" id="topics">
+<div id="topics">
+        <nav class="nav">
  
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
@@ -421,6 +421,7 @@ if (isset($temp) && $temp ==1) {
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
   
 </nav>
+</div>
     
         
           
