@@ -1014,11 +1014,11 @@ if (isset($subscription_list)) {
  });
 
   $("#dash").on('click', function() {
-    document.getElementById("topics").style.visibility = "show";
+    document.getElementById("topics").style.visibility = "visible";
 
     });
     $("#lis").on('click', function() {
-      document.getElementById("topics").style.visibility = "show";
+      document.getElementById("topics").style.visibility = "visible";
 
     });
 
