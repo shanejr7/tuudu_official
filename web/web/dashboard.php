@@ -1015,11 +1015,13 @@ if (isset($subscription_list)) {
 
      if (id == 'sched') {
 
-      x.style.display = "block";
-      
-     }else{
+      x.style.display = "none";
+      console.log("b");
 
-       x.style.display = "none";
+     }else{
+      console.log("sh");
+
+       x.style.display = "show";
 
      }
     history.replaceState(null, null, ' ');
