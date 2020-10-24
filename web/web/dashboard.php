@@ -409,7 +409,7 @@ if (isset($temp) && $temp ==1) {
       <div class="container">
 
 
-        <nav class="nav">
+        <nav class="nav" id="topics">
  
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
@@ -1028,6 +1028,7 @@ if (isset($subscription_list)) {
   
    
   if (hash != "") {
+    console.log(hash);
     
     $('#tabTrack a').each(function() {
       $(this).removeClass('active');
