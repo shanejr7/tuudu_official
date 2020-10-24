@@ -1013,9 +1013,12 @@ if (isset($subscription_list)) {
    var x = document.getElementById("topics");
 
   if (x.style.display === "none") {
+    console.log("h");
 
     document.getElementById("topics").style.visibility = "hidden";
   } else {
+
+    console.log("n");
     document.getElementById("topics").style.visibility = "none";
   }
 
