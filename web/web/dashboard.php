@@ -973,7 +973,7 @@ if (isset($subscription_list)) {
     };
 </script> -->
 
-<script>
+
  
   
   <!--   Core JS Files   -->
@@ -1007,9 +1007,9 @@ if (isset($subscription_list)) {
   <script>
  
 
- $("a").on('click', function() {
+ $("a").on('click', function(e) {
 
-console.log(history.state);
+     console.log(e.target.href);
     history.replaceState(null, null, ' ');
   
      $('#tabTrack li').each(function() {
