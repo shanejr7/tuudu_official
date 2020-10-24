@@ -15,6 +15,11 @@
                           //music/playlists/video/movie/shows lists
                           //activity/products(fashion/tickets/tech/...)/events/reading articles
 
+// in dashboard tab
+  // create additional tabs for each topic
+    // differentiate interest from products/rental
+    // to show on store and other topics to show on dashboard
+
 include('feed_state.php'); // retrieves organizations for users
 include('favorite.php');
    
@@ -404,18 +409,6 @@ if (isset($temp) && $temp ==1) {
       <div class="container">
 
 
-        <nav class="nav">
- 
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Activites</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Music</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Shows</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Food</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Art</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
-  
-</nav>
     
         
           
@@ -468,9 +461,22 @@ if (isset($temp) && $temp ==1) {
  
    
 
-        <div class="tab-content tab-space cd-section" id="body">
+        <div class="tab-content cd-section" id="body">
           <div class="tab-pane active text-center gallery section section-sections" id="dashboard">
            <div class="row">
+
+                    <nav class="nav">
+ 
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Activites</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Music</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Shows</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Food</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Art</button></a>
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
+  
+</nav>
 
           <?php if (count($errors_dashboard) > 0) : ?>
               <div class="error">
