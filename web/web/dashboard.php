@@ -409,6 +409,7 @@ if (isset($temp) && $temp ==1) {
       <div class="container">
 
 
+
     
         
           
@@ -462,9 +463,7 @@ if (isset($temp) && $temp ==1) {
    
 
         <div class="tab-content tab-space cd-section" id="body">
-          <div class=" active text-center gallery section section-sections" id="dashboard">
-           <div class="row">
-
+          <div id="dashboard">
                     <nav class="nav">
  
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
@@ -477,6 +476,8 @@ if (isset($temp) && $temp ==1) {
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
   
 </nav>
+<div class="tab-pane active text-center gallery section section-sections">
+           <div class="row">
 
           <?php if (count($errors_dashboard) > 0) : ?>
               <div class="error">
@@ -625,6 +626,7 @@ $key = array_intersect($key,$local_distance);
               ?>
          
             </div>
+          </div>
           </div>
  
           <div class="tab-pane text-center gallery" id="schedule">
