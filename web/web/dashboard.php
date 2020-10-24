@@ -463,7 +463,7 @@ if (isset($temp) && $temp ==1) {
    
 
         <div class="tab-content tab-space cd-section" id="body">
-          <div id="dashboard">
+          <div class="section" id="dashboard">
                     <nav class="nav">
  
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
