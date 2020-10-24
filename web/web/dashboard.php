@@ -1008,27 +1008,22 @@ if (isset($subscription_list)) {
   <script>
  
  $("#sched").on('click', function() {
-
-  console.log("clicked");
-
-   var x = document.getElementById("topics");
-
-  if (x.style.display === "none") {
-    console.log("h");
-
+    
     document.getElementById("topics").style.visibility = "hidden";
-  } else {
-
-    console.log("n");
-    document.getElementById("topics").style.visibility = "hidden";
-  }
 
  });
 
+  $("#dash").on('click', function() {
+    document.getElementById("topics").style.visibility = "show";
+
+    });
+    $("#lis").on('click', function() {
+      document.getElementById("topics").style.visibility = "show";
+
+    });
+
  $("a").on('click', function() {
 
-     // var id = $(this).attr('id');
-     // var x = document.getElementById("topic");
     
     history.replaceState(null, null, ' ');
   
