@@ -1036,45 +1036,45 @@ if (isset($subscription_list)) {
 
     });
 
- $("a").on('click', function() {
+ // $("a").on('click', function() {
 
-   var search = $(this).attr('id');
-   console.log(search);
+ //   var search = $(this).attr('id');
+ //   console.log(search);
 
-   if (search ==='post') {
+ //   if (search ==='post') {
 
-     document.getElementById("posts").style.visibility = "visible";
+ //     document.getElementById("posts").style.visibility = "visible";
      
     
-   }else if(search ==='vid'){
+ //   }else if(search ==='vid'){
 
-     document.getElementById("videos").style.visibility = "visible";
+ //     document.getElementById("videos").style.visibility = "visible";
      
-   }else if(search ==='acti'){
+ //   }else if(search ==='acti'){
 
-     document.getElementById("activities").style.visibility = "visible";
+ //     document.getElementById("activities").style.visibility = "visible";
      
-   }else if(search ==='musc'){
+ //   }else if(search ==='musc'){
 
-     document.getElementById("music").style.visibility = "visible";
+ //     document.getElementById("music").style.visibility = "visible";
     
-   }else if(search ==='shw'){
+ //   }else if(search ==='shw'){
 
-     document.getElementById("shows").style.visibility = "visible";
+ //     document.getElementById("shows").style.visibility = "visible";
      
-   }else if(search ==='fd'){
+ //   }else if(search ==='fd'){
 
-     document.getElementById("food").style.visibility = "visible";
+ //     document.getElementById("food").style.visibility = "visible";
     
-   }else if(search ==='ar'){
+ //   }else if(search ==='ar'){
 
-     document.getElementById("art").style.visibility = "visible";
+ //     document.getElementById("art").style.visibility = "visible";
     
-   }else if(search ==='sprt'){
+ //   }else if(search ==='sprt'){
 
-     document.getElementById("sports").style.visibility = "visible";
+ //     document.getElementById("sports").style.visibility = "visible";
     
-   }
+ //   }
 
     
     history.replaceState(null, null, ' ');
