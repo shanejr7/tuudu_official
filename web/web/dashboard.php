@@ -416,75 +416,77 @@ if (isset($temp) && $temp ==1) {
 
  
   <a class="nav-link" href="#posts" id="post"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Activites</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Music</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Shows</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Food</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Art</button></a>
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
+  <a class="nav-link" href="#videos" id="vid"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
+  <a class="nav-link" href="#activities" id="acti"><button type="button" class="btn btn-primary btn-round">Activites</button></a>
+  <a class="nav-link" href="#music" id="musc"><button type="button" class="btn btn-primary btn-round">Music</button></a>
+  <a class="nav-link" href="#shows" id="shw"><button type="button" class="btn btn-primary btn-round">Shows</button></a>
+  <a class="nav-link" href="#food" id="fd"><button type="button" class="btn btn-primary btn-round">Food</button></a>
+  <a class="nav-link" href="#art" id="ar"><button type="button" class="btn btn-primary btn-round">Art</button></a>
+  <a class="nav-link" href="#sports" id="sprt"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
   
 </nav>
+
+
 </div>
     
-        
-          
-             
-         
-           
-         
-      
-   <!--      <div class="row">
-          <div class="col-md-12 ml-auto mr-auto">
-            <div class="profile-tabs">
-              <ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrack" role="tablist">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#dashbaord" id="refresh" role="tab" data-toggle="tab">
-                    <i class="material-icons">dashboard</i> dashboard
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#schedule"  role="tab" data-toggle="tab">
-                    <i class="material-icons">schedule</i> schedule <span class="badge badge-default"><?php
-                   // if (isset($schedule_list)) {
-                    //  echo sizeof($schedule_list);
-                  //  }else{
-                  //    echo "0";
-                  //  }
-                     
-                      ?></span>
-                  </a>
-                </li>
-                   <li class="nav-item">
-                  <a class="nav-link" href="post.php">
-                    <i class="material-icons">post_add</i> post
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#list" role="tab" data-toggle="tab">
-                    <i class="material-icons">list</i> subscriptions
-                  </a>
-                </li>
-                  <li class="nav-item">
-                  <a class="nav-link" href="profile.php">
-                    <i class="material-icons">perm_identity</i> profile
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div> -->
+  
 
  
    
 
-        <div class="tab-content tab-space cd-section" id="body">
+  <div class="tab-content tab-space cd-section" id="body">
 
           <div class="tab-pane text-center gallery section section-sections" id="posts">
            <div class="row">
-test
+posts
            </div>
          </div>
+
+            <div class="tab-pane text-center gallery section section-sections" id="videos">
+           <div class="row">
+videos
+           </div>
+         </div>
+
+            <div class="tab-pane text-center gallery section section-sections" id="activities">
+           <div class="row">
+activities
+           </div>
+         </div>
+
+            <div class="tab-pane text-center gallery section section-sections" id="music">
+           <div class="row">
+music
+           </div>
+         </div>
+
+            <div class="tab-pane text-center gallery section section-sections" id="shows">
+           <div class="row">
+shows
+           </div>
+         </div>
+
+            <div class="tab-pane text-center gallery section section-sections" id="food">
+           <div class="row">
+food
+           </div>
+         </div>
+
+            <div class="tab-pane text-center gallery section section-sections" id="art">
+           <div class="row">
+art
+           </div>
+
+         </div>
+
+            <div class="tab-pane text-center gallery section section-sections" id="sports">
+           <div class="row">
+sports
+           </div>
+
+         </div>
+
+
 
 
           <div class="tab-pane active text-center gallery section section-sections" id="dashboard">
