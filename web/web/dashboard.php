@@ -1041,7 +1041,7 @@ if (isset($subscription_list)) {
    var search = $(this).attr('id');
    console.log(search);
 
-   if (search ==='posts') {
+   if (search ==='post') {
     console.log("true");
    }
 
