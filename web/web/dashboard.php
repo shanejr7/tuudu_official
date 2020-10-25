@@ -1092,7 +1092,7 @@ if (isset($subscription_list)) {
        
 
   var hash = window.location.hash;
-  
+  console.log(hash + "hash");
    
   if (hash != "") {
     
