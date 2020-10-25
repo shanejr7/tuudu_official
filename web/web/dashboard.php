@@ -8,6 +8,8 @@
   
 */
 
+
+    // show feed state/interest data until tabs are selected
 // RECONSTRUCT
                        //add users to post images and commenting post
                           //cooking recipes/videos..etc
