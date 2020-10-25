@@ -982,11 +982,11 @@ if (isset($subscription_list)) {
     </div>
   </footer>
   
-<!--   <script type="text/javascript">
-    document.getElementById("refresh").onclick = function () {
+  <script type="text/javascript">
+    document.getElementById("dash").onclick = function () {
         location.href = "dashboard.php";
     };
-</script> -->
+</script>
 
 
  
@@ -1074,14 +1074,6 @@ if (isset($subscription_list)) {
 
      document.getElementById("sports").style.visibility = "visible";
     
-   }else if (search ==='dash') {
-
-    document.getElementById("dashboard").style.visibility = "visible";
-
-   }else if (search==='lis') {
-
-    document.getElementById("list").style.visibility = "visible";
-
    }
 
     
