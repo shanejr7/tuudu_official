@@ -982,11 +982,11 @@ if (isset($subscription_list)) {
     </div>
   </footer>
   
-  <script type="text/javascript">
+ <!--  <script type="text/javascript">
     document.getElementById("dash").onclick = function () {
         location.href = "dashboard.php";
     };
-</script>
+</script> -->
 
 
  
