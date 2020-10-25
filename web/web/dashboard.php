@@ -1039,10 +1039,23 @@ if (isset($subscription_list)) {
  $("a").on('click', function() {
 
    var search = $(this).attr('id');
-   console.log(search);
 
    if (search ==='post') {
-    console.log("true");
+    
+   }else if(search ==='vid'){
+
+   }else if(search ==='acti'){
+
+   }else if(search ==='musc'){
+
+   }else if(search ==='shw'){
+
+   }else if(search ==='fd'){
+
+   }else if(search ==='ar'){
+
+   }else if(search ==='sprt'){
+
    }
 
     
