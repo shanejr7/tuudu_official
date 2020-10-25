@@ -480,7 +480,7 @@ if (isset($temp) && $temp ==1) {
 
         <div class="tab-content tab-space cd-section" id="body">
 
-          <div class="tab-pane active text-center gallery section section-sections" id="posts">
+          <div class="tab-pane text-center gallery section section-sections" id="posts">
            <div class="row">
 test
            </div>
