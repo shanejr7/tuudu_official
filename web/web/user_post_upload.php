@@ -140,7 +140,9 @@ $destination = $key;
             pg_query($db,"INSERT INTO public.poststate(user_id, publickey, favorite, message,type)VALUES ($userid, '$randomString', 0, '$title','user_post')");
 
 
-            pg_query($db,"INSERT INTO public.organization(word_tag, id, title, organization_name, phonenumber, email, address, date, url, img, description, content, publickey, privatekey, fiatvalue, views, date_submitted, payment_type, favorites, post_type, story_key, amount, size) VALUES (NULL, $userid, '$user_name', NULL, NULL, NULL, NULL, NULL, NULL, '$destination', '$title', NULL, '$randomString', NULL, NULL, 0, NOW(), NULL, 0, 'user_post', NULL, NULL, NULL)");
+            pg_query($db,"INSERT INTO public.organization(word_tag, id, title, organization_name, phonenumber, email, address, date, url, img, description, content, publickey, privatekey, fiatvalue, views, date_submitted, payment_type, favorites, post_type, story_key, amount, size) VALUES (NULL, $userid, '$user_name', NULL, NULL, NULL, NULL, NOW(), NULL, '$destination', '$title', NULL, '$randomString', NULL, NULL, 0, NOW(), NULL, 0, 'user_post', NULL, NULL, NULL)");
+
+             //pg_query($db,'UPDATE public.organization SET  "date"=NOW() WHERE publickey = "$randomString" AND id =$userid');
 
 
 
