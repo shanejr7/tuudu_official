@@ -26,31 +26,5 @@
      
 // }); 
 
- 
- $("#sched").on('click', function() {
-    
-    document.getElementById("topics").style.visibility = "hidden";
-
- });
-
-  $("#dash").on('click', function() {
-    document.getElementById("topics").style.visibility = "visible";
-
-    });
-    $("#lis").on('click', function() {
-      document.getElementById("topics").style.visibility = "visible";
-
-    });
-
- $("a").on('click', function() {
-
-    
-    history.replaceState(null, null, ' ');
-  
-     $('#tabTrack li').each(function() {
-      $(this).removeClass('active');
-    });
-
-});
 
 
