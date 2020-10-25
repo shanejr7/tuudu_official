@@ -413,9 +413,9 @@ if (isset($temp) && $temp ==1) {
 <div id="topics">
         <nav class="nav">
 
-          
+
  
-  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
+  <a class="nav-link" href="#posts" id="post"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Activites</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Music</button></a>
@@ -479,6 +479,14 @@ if (isset($temp) && $temp ==1) {
    
 
         <div class="tab-content tab-space cd-section" id="body">
+
+          <div class="tab-pane active text-center gallery section section-sections" id="posts">
+           <div class="row">
+test
+           </div>
+         </div>
+
+
           <div class="tab-pane active text-center gallery section section-sections" id="dashboard">
            <div class="row">
 
@@ -1009,7 +1017,7 @@ if (isset($subscription_list)) {
   <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-kit.js?v=2.1.1" type="text/javascript"></script>
 
-  <script>
+ <!--  <script>
  
  $("#sched").on('click', function() {
     
@@ -1037,7 +1045,7 @@ if (isset($subscription_list)) {
 
 });
 
-  </script>
+  </script> -->
 
 
     <script type="text/javascript">
