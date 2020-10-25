@@ -413,12 +413,9 @@ if (isset($temp) && $temp ==1) {
 <div id="topics">
         <nav class="nav">
 
-           <ul class="nav  navbar-nav nav-tabs"  role="tabs">
+          
  
-  <li class="nav-item">
-    <a class="nav-link"  class="btn btn-primary btn-round" id="pst" class="nav-link active" href="#posts" role="tab" data-toggle="tab">Posts</button></a>
-</li>
-
+  <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Activites</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Music</button></a>
@@ -426,10 +423,7 @@ if (isset($temp) && $temp ==1) {
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Food</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Art</button></a>
   <a class="nav-link" href="#0"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
-
-
-
-  </ul>
+  
 </nav>
 </div>
     
@@ -437,7 +431,7 @@ if (isset($temp) && $temp ==1) {
           
              
          
-          
+           
          
       
    <!--      <div class="row">
@@ -485,13 +479,6 @@ if (isset($temp) && $temp ==1) {
    
 
         <div class="tab-content tab-space cd-section" id="body">
-          
-           <div class="tab-pane active text-center gallery section section-sections" id="post">
-           <div class="row">
-            test
-           </div>
-         </div>
-
           <div class="tab-pane active text-center gallery section section-sections" id="dashboard">
            <div class="row">
 
