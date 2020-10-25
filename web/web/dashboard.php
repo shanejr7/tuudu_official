@@ -1043,35 +1043,36 @@ if (isset($subscription_list)) {
    if (search ==='post') {
 
      document.getElementById("posts").style.visibility = "visible";
+     console.log(search);
     
    }else if(search ==='vid'){
 
      document.getElementById("videos").style.visibility = "visible";
-
+     console.log(search);
    }else if(search ==='acti'){
 
      document.getElementById("activities").style.visibility = "visible";
-
+     console.log(search);
    }else if(search ==='musc'){
 
      document.getElementById("music").style.visibility = "visible";
-
+     console.log(search);
    }else if(search ==='shw'){
 
      document.getElementById("shows").style.visibility = "visible";
-
+     console.log(search);
    }else if(search ==='fd'){
 
      document.getElementById("food").style.visibility = "visible";
-
+     console.log(search);
    }else if(search ==='ar'){
 
      document.getElementById("art").style.visibility = "visible";
-
+     console.log(search);
    }else if(search ==='sprt'){
 
      document.getElementById("sports").style.visibility = "visible";
-
+     console.log(search);
    }
 
     
