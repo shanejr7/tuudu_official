@@ -1074,6 +1074,14 @@ if (isset($subscription_list)) {
 
      document.getElementById("sports").style.visibility = "visible";
     
+   }else if (search ==='dash') {
+
+    document.getElementById("dashboard").style.visibility = "visible";
+
+   }else if (search==='lis') {
+
+    document.getElementById("list").style.visibility = "visible";
+
    }
 
     
