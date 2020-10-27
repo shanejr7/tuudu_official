@@ -438,7 +438,137 @@ if (isset($temp) && $temp ==1) {
 
           <div class="tab-pane text-center gallery section section-sections" id="posts">
            <div class="row">
-posts
+<?php 
+
+ $db = pg_connect(getenv("DATABASE_URL"));
+
+    
+    if (!$db) {
+       die("Connection failed: " . pg_connect_error());
+       header('location:oops.php');
+    }
+
+    $posts_list = array();
+
+     $result = pg_query($db, "SELECT *
+      FROM public.organization WHERE post_type='user_post' ORDER BY date, views");
+
+    $posts_list = pg_fetch_assoc($result);
+
+
+
+    if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $posts_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"]);
+                       
+                    }
+                  
+                  }
+
+
+
+     pg_close($db);
+
+
+     if (isset($posts_list)) {
+
+
+       foreach($posts_list as $item) {
+
+
+         $cmd = $s3->getCommand('GetObject', [
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($item["img"]).'',
+                            ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+     
+            
+              echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+           
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
+
+                        }else{
+
+                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
+                  
+                  }
+
+
+                   if (isset($token) && $token =='product') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+                  }
+
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
+                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
+
+
+       }
+       
+
+     }
+
+
+?>
            </div>
          </div>
 
