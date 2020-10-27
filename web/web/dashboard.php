@@ -453,7 +453,6 @@ if (isset($temp) && $temp ==1) {
      $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag
       FROM public.organization WHERE post_type='user_post' ORDER BY date, views");
 
-    $posts_list = pg_fetch_assoc($result);
 
 
 
