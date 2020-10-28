@@ -540,16 +540,23 @@ if (isset($temp) && $temp ==1) {
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                  echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
-                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+                    echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="profile.php?publickey='.$item['publickey'].'">';
+
+                        if ($item['favorite']==1) {
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+
+                        }else{
+
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                        }
 
                   // echo '<div class="centered" style="font-weight: bolder;">
                   // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
 
                  
-                  echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+                 echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
 
@@ -1121,6 +1128,7 @@ if (isset($subscription_list)) {
  
   
   <!--   Core JS Files   -->
+  <script src="../assets/js/core/chat.js" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>

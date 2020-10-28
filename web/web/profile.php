@@ -1375,7 +1375,7 @@ pg_close($db);
     </div>
   </footer>
   
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     document.getElementById("refresh").onclick = function () {
         location.href = "profile.php";
     };
@@ -2677,7 +2677,7 @@ fetch_user(id,key);
 
    });
  
-</script>
+</script> -->
 
 
 
@@ -2685,6 +2685,7 @@ fetch_user(id,key);
  
   
   <!--   Core JS Files   -->
+  <script src="../assets/js/core/chat.js" type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
