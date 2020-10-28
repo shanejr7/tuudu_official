@@ -80,7 +80,7 @@ $bucket_name = 'tuudu-official-file-storage';
           //       <div class="avatar">
 // <a href="#" class="post_account" data-id="'.$user_post['post_id'].'">
   				 $data .= '
-                <div class="col-md-2">
+                <div class="col-md-3">
                   <div class="media media-post">
               <a class="author float-left" href="#pablo">
                 <div class="avatar">';
@@ -117,7 +117,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   </div></a>
                 </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-7">
                   <h4 class="card-title">'.trim($user_post['post_title']).'</h4>
                   <p class="description">'.trim($user_post['post_description']).'</p>
                 </div>
