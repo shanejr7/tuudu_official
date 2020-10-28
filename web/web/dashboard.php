@@ -450,7 +450,7 @@ if (isset($temp) && $temp ==1) {
 
     $posts_list = array();
 
-     $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite,
+     $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite
       FROM public.organization NATURAL JOIN poststate WHERE post_type='user_post' ORDER BY date, views");
 
 
