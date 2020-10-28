@@ -573,7 +573,11 @@ if($presignedUrlUserPrf && strlen(trim($uimg))>10 && ($fileChecker=='JPG' || $fi
             <div class="tab-pane text-center gallery section section-sections" id="videos">
            <div class="row">
 
+<div class="col-md-4">
+  <div class="contain">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1YQOS3PcBGc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VD25RjXCW-8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
