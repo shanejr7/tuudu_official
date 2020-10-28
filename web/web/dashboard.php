@@ -485,6 +485,21 @@ if (isset($temp) && $temp ==1) {
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
+
+              $uid = $item['org_id'];
+
+  $result = pg_query($db, "SELECT DISTINCT profile_pic_src WHERE id =$uid");
+  $user = pg_fetch_assoc($result);
+  $uimg = $user['profile_pic_src'];
+
+          $cmd = $s3->getCommand('GetObject', [
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($uimg).'',
+                            ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrlUserPrf = (string)$request->getUri();
      
             
               echo '<div class="col-md-4">';
@@ -512,30 +527,27 @@ if (isset($temp) && $temp ==1) {
               
                 
 
-                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
 
-                        echo '<div class="top-right h9"> 
-                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
+                   echo '<div class="top-right col-md-2 h9"> 
+                        <a href="#"><img src="'.$presignedUrlUserPrf.'" class="img rounded" onload="myFunction('.$presignedUrlUserPrf.')"></a>
+                        </div>';
 
-                        }else{
+                 
+              }else{
 
-                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
-                  
-                  }
+                 echo '<div class="top-right col-md-2 h9"> 
+                        <a href="#"><img src="../assets/img/image_placeholder.jpg" class="img rounded"></a>
+                        </div>';
+                 
+              } 
 
-
-                   if (isset($token) && $token =='product') {
-
-                  
-                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
-
-
-                  }else{
+                   
 
                     echo '<div class="top-left h6" style="width:10px;">'
                        .toString($item['date']).'</div>';
 
-                  }
+                
 
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
