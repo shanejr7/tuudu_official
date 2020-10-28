@@ -79,7 +79,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
   				 $data .= '
                 <div class="col-md-2">
-                  <div class="card-avatar">
+                  <div class="media media-post">
                     <a href="#" class="post_account" data-id="'.$user_post['post_id'].'">';
                     	
 
