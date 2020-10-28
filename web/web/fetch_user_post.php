@@ -119,14 +119,10 @@ $bucket_name = 'tuudu-official-file-storage';
                 
                 <div class="col-md-8">
                   <h4 class="card-title">'.trim($user_post['post_title']).'</h4>
-                  <p class="description">'.trim($user_post['post_description']).'</p>';
-
-
-                  echo '<div class="row">';
-
-                  echo '<div class="col-md-2">';
-
-                    if ($post_id == $sid) {
+                  <p class="description">'.trim($user_post['post_description']).'</p>
+                </div>
+                <div class="col-md-2">';
+                if ($post_id == $sid) {
 
                  
 
@@ -145,12 +141,6 @@ $bucket_name = 'tuudu-official-file-storage';
                   
                 
                 $data.='</div>';
-
-                  $data.='</div>';
-
-                $data.='</div>';
-                 
-              
 
 
                   echo $data;
