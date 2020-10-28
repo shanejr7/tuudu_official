@@ -399,7 +399,7 @@ if (!$db) {
                   }else {array_push($errors_schedule, "0 results");}
 
   
-
+  pg_close($db);
    
  }
 
@@ -594,7 +594,7 @@ ORDER BY organization.date, organization.views");
 
 
 
-
+  pg_close($db);
 
   }
 
