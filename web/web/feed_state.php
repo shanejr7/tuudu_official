@@ -403,6 +403,69 @@ if (!$db) {
    
  }
 
+  /*topic tags
+  *
+  *
+  *
+  */
+  if (isset($_SESSION['id'])) {
+
+
+     $posts_list = array();
+    // $video_list = array();
+     $activity_list = array();
+     $music_list = array();
+   // $shows_list = array();
+     $food_list = array();
+     $art_list = array();
+     $sports_list = array();
+
+
+
+
+   $db = pg_connect(getenv("DATABASE_URL"));
+
+   // Check connection
+if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
+
+
+
+    $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite
+      FROM public.organization NATURAL JOIN poststate WHERE post_type='user_post' ORDER BY date, views");
+
+
+
+
+    if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $posts_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
+                       
+                    }
+                  
+                  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+
  /*adds orgnaization to schedule 
   *
   *
