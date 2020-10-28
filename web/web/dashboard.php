@@ -488,9 +488,19 @@ if (isset($temp) && $temp ==1) {
 
               $uid = $item['org_id'];
 
+   $db = pg_connect(getenv("DATABASE_URL"));
+
+    
+    if (!$db) {
+       die("Connection failed: " . pg_connect_error());
+       header('location:oops.php');
+    }
+
   $result = pg_query($db, "SELECT DISTINCT profile_pic_src WHERE id =$uid");
   $user = pg_fetch_assoc($result);
   $uimg = $user['profile_pic_src'];
+  
+  pg_close($db);
 
           $cmd = $s3->getCommand('GetObject', [
                                         'Bucket' => ''.$bucket_name.'',
@@ -527,7 +537,7 @@ if (isset($temp) && $temp ==1) {
               
                 
 
-if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+if($presignedUrlUserPrf && strlen(trim($uimg))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
 
                    echo '<div class="top-right col-md-2 h9"> 
                         <a href="#"><img src="'.$presignedUrlUserPrf.'" class="img rounded" onload="myFunction('.$presignedUrlUserPrf.')"></a>
