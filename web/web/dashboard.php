@@ -496,10 +496,10 @@ if (isset($temp) && $temp ==1) {
        header('location:oops.php');
     }
 
-  $result = pg_query($db, "SELECT DISTINCT profile_pic_src WHERE id =$uid");
+  $result = pg_query($db, "SELECT DISTINCT profile_pic_src FROM users WHERE id =$uid");
   $user = pg_fetch_assoc($result);
   $uimg = $user['profile_pic_src'];
-  
+
   pg_close($db);
 
           $cmd = $s3->getCommand('GetObject', [
