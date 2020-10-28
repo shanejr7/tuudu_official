@@ -82,7 +82,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 <div class="media media-post">
               
                   <div class="avatar">
-                    <a href="#" class="post_account" data-id="'.$user_post['post_id'].'">';
+                    <a href="#" class="post_account author" data-id="'.$user_post['post_id'].'">';
                     	
 
                 $splitFileString = strtok(trim($user_post["post_img"]), '.' );
