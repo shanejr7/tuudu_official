@@ -45,7 +45,7 @@ if (isset($_SESSION['id'])) {
                   *
                   *  and exists == 1
                   */
-                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time,organization.fiatvalue, organization.img, organization.id as org_key, organization.views,organization.description, organization.word_tag, organization.publickey,organization.views, organization.url, organization.post_type,organization.amount FROM organization , feedstate WHERE split_part(organization.word_tag,'_',1) LIKE feedstate.word_tag AND feedstate.userid =$id AND feedstate.state =1 AND organization.publickey not in(select publickey FROM user_follow_organization WHERE userid = $id) 
+                  $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time,organization.fiatvalue, organization.img, organization.id as org_key, organization.views,organization.description, organization.word_tag, organization.publickey,organization.views,organization.address, organization.url, organization.post_type,organization.amount FROM organization , feedstate WHERE split_part(organization.word_tag,'_',1) LIKE feedstate.word_tag AND feedstate.userid =$id AND feedstate.state =1 AND organization.publickey not in(select publickey FROM user_follow_organization WHERE userid = $id) 
                     AND organization.publickey not in(select publickey FROM temporary_tag_schedule WHERE user_id = $id) AND post_type !='user_post' AND date_submitted is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
 
@@ -53,7 +53,7 @@ if (isset($_SESSION['id'])) {
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) { 
       
-                      $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"]);
+                      $dashboard_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"address" => $row["address"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"]);
                        
                     }
                   
@@ -433,7 +433,7 @@ if (!$db) {
 
 
 
-    $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite
+    $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite,organization.address
       FROM public.organization NATURAL JOIN poststate WHERE post_type='user_post' ORDER BY date, views");
 
 
@@ -443,7 +443,7 @@ if (!$db) {
                   // output data of each row
                     while($row = pg_fetch_assoc($result)) { 
       
-                      $posts_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
+                      $posts_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"favorite" => $row["favorite"],"favorites" => $row["favorites"],"address" => $row["address"]);
                        
                     }
                   
@@ -452,13 +452,145 @@ if (!$db) {
 
 
 
+ $result = pg_query($db, "SELECT DISTINCT organization.date, 
+organization.time,organization.fiatvalue, 
+organization.img, organization.id as org_key,
+organization.views,organization.description, 
+organization.word_tag, organization.publickey,
+organization.views, organization.url, 
+organization.post_type,organization.amount,organization.address
+FROM organization WHERE
+split_part(organization.word_tag,'_',1) 
+LIKE 'activities' OR split_part(organization.word_tag,'_',1) 
+LIKE 'festivals'
+AND post_type !='user_post' 
+AND date_submitted is not NULL 
+AND date is not NULL AND date::timestamp >= NOW() 
+ORDER BY organization.date, organization.views");
+
+
+                  if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $activity_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"address" => $row["address"]);
+                       
+                    }
+                  
+                  }
+
+
+ $result = pg_query($db, "SELECT DISTINCT organization.date, 
+organization.time,organization.fiatvalue, 
+organization.img, organization.id as org_key,
+organization.views,organization.description, 
+organization.word_tag, organization.publickey,
+organization.views, organization.url, 
+organization.post_type,organization.amount,organization.address
+FROM organization WHERE
+split_part(organization.word_tag,'_',1) 
+LIKE 'music'
+AND post_type !='user_post' 
+AND date_submitted is not NULL 
+AND date is not NULL AND date::timestamp >= NOW() 
+ORDER BY organization.date, organization.views");
+
+
+                  if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $music_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"address" => $row["address"]);
+                       
+                    }
+                  
+                  }
+
+
+
+ $result = pg_query($db, "SELECT DISTINCT organization.date, 
+organization.time,organization.fiatvalue, 
+organization.img, organization.id as org_key,
+organization.views,organization.description, 
+organization.word_tag, organization.publickey,
+organization.views, organization.url, 
+organization.post_type,organization.amount,organization.address
+FROM organization WHERE
+split_part(organization.word_tag,'_',1) 
+LIKE 'food'
+AND post_type !='user_post' 
+AND date_submitted is not NULL 
+AND date is not NULL AND date::timestamp >= NOW() 
+ORDER BY organization.date, organization.views");
+
+
+                  if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $food_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"address" => $row["address"]);
+                       
+                    }
+                  
+                  }
 
 
 
 
+ $result = pg_query($db, "SELECT DISTINCT organization.date, 
+organization.time,organization.fiatvalue, 
+organization.img, organization.id as org_key,
+organization.views,organization.description, 
+organization.word_tag, organization.publickey,
+organization.views, organization.url, 
+organization.post_type,organization.amount,organization.address
+FROM organization WHERE
+split_part(organization.word_tag,'_',1) 
+LIKE 'art'
+AND post_type !='user_post' 
+AND date_submitted is not NULL 
+AND date is not NULL AND date::timestamp >= NOW() 
+ORDER BY organization.date, organization.views");
+
+
+                  if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $art_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"address" => $row["address"]);
+                       
+                    }
+                  
+                  }
 
 
 
+
+ $result = pg_query($db, "SELECT DISTINCT organization.date, 
+organization.time,organization.fiatvalue, 
+organization.img, organization.id as org_key,
+organization.views,organization.description, 
+organization.word_tag, organization.publickey,
+organization.views, organization.url, 
+organization.post_type,organization.amount,organization.address
+FROM organization WHERE
+split_part(organization.word_tag,'_',1) 
+LIKE 'sports'
+AND post_type !='user_post' 
+AND date_submitted is not NULL 
+AND date is not NULL AND date::timestamp >= NOW() 
+ORDER BY organization.date, organization.views");
+
+
+                  if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $sports_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"address" => $row["address"]);
+                       
+                    }
+                  
+                  }
 
 
 
