@@ -121,7 +121,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   <h4 class="card-title">'.trim($user_post['post_title']).'</h4>
                   <p class="description">'.trim($user_post['post_description']).'</p>
                   <div class="row">
-
+                  <div class="col-md-2"></div>
                   <div class="col-md-8">';
 
                         if ($post_id == $sid) {
