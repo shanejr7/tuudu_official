@@ -675,7 +675,7 @@ if (isset($activity_list)) {
         
     } 
 
-  }
+  
 ?>
            </div>
          </div>
@@ -777,7 +777,7 @@ if (isset($music_list)) {
  
         
     } 
-}
+
 
 ?>
            </div>
@@ -885,7 +885,6 @@ if (isset($food_list)) {
  
         
     } 
-}
 
 ?>
            </div>
@@ -993,7 +992,7 @@ if (isset($art_list)) {
  
         
     } 
-}
+
 
 ?>
            </div>
@@ -1096,7 +1095,7 @@ if (isset($sports_list)) {
  
         
     } 
-}
+
 
 ?>
            </div>
