@@ -509,14 +509,14 @@ if (isset($temp) && $temp ==1) {
 
 if($presignedUrlUserPrf && strlen(trim($uimg))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
 
-                   echo '<div class="top-right col-md-2 col-sm-2 h9"> 
+                   echo '<div class="top-right col-md-2 col-sm-1 col-xs-1 h9"> 
                         <a href="#"><img src="'.$presignedUrlUserPrf.'" class="img rounded" onload="myFunction('.$presignedUrlUserPrf.')"></a>
                         </div>';
 
                  
               }else{
 
-                 echo '<div class="top-right col-md-2 col-sm-2 h9"> 
+                 echo '<div class="top-right col-md-2 col-xs-1 h9"> 
                         <a href="#"><img src="../assets/img/image_placeholder.jpg" class="img rounded"></a>
                         </div>';
                  
