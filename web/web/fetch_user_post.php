@@ -82,7 +82,7 @@ $bucket_name = 'tuudu-official-file-storage';
   				 $data .= '
                 <div class="col-md-3">
                   <div class="media media-post">
-              <a class="author float-left" href="#pablo">
+              <a class=" float-left" href="#pablo">
                 <div class="avatar">';
                     	
 
