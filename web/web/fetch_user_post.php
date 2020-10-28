@@ -116,6 +116,7 @@ $bucket_name = 'tuudu-official-file-storage';
                     <div class="ripple-container"></div>
                   </div></a>
                 </div>
+                </div>
                 <div class="col-md-8">
                   <h4 class="card-title">'.trim($user_post['post_title']).'</h4>
                   <p class="description">'.trim($user_post['post_description']).'</p>
