@@ -578,13 +578,208 @@ videos
 
             <div class="tab-pane text-center gallery section section-sections" id="activities">
            <div class="row">
-activities
+
+
+<?php
+if (isset($activity_list)) {
+  
+    foreach($activity_list as $item) {
+  
+ 
+
+                           $cmd = $s3->getCommand('GetObject', [
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($item["img"]).'',
+                            ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+     
+            
+              echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+           
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
+
+                        }else{
+
+                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
+                  
+                  }
+
+
+                   if (isset($token) && $token =='activities') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">accessibility_new</i></div>';
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+                  }
+
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
+                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
+          }
+          
+ 
+        
+    } 
+
+  }
+?>
            </div>
          </div>
 
             <div class="tab-pane text-center gallery section section-sections" id="music">
            <div class="row">
-music
+
+<?php
+if (isset($music_list)) {
+  
+  foreach($music_list as $item) {
+  
+ 
+
+                           $cmd = $s3->getCommand('GetObject', [
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($item["img"]).'',
+                            ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+     
+            
+              echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+           
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
+
+                        }else{
+
+                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
+                  
+                  }
+
+
+                   if (isset($token) && $token =='music') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">music_note</i></div>';
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+                  }
+
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
+                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
+          }
+          
+ 
+        
+    } 
+}
+
+?>
            </div>
          </div>
 
@@ -596,20 +791,314 @@ shows
 
             <div class="tab-pane text-center gallery section section-sections" id="food">
            <div class="row">
-food
+
+<?php
+if (isset($food_list)) {
+  foreach($food_list as $item) {
+  
+ 
+
+                           $cmd = $s3->getCommand('GetObject', [
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($item["img"]).'',
+                            ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+     
+            
+              echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+           
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
+
+                        }else{
+
+                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
+                  
+                  }
+
+
+                   if (isset($token) && $token =='food') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">food_bank</i></div>';
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+                  }
+
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
+                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
+          }
+          
+ 
+        
+    } 
+}
+
+?>
            </div>
          </div>
 
             <div class="tab-pane text-center gallery section section-sections" id="art">
            <div class="row">
-art
+
+<?php
+if (isset($art_list)) {
+  foreach($art_list as $item) {
+  
+ 
+
+                           $cmd = $s3->getCommand('GetObject', [
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($item["img"]).'',
+                            ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+     
+            
+              echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+           
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
+
+                        }else{
+
+                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
+                  
+                  }
+
+
+                   if (isset($token) && $token =='art') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">color_lens</i></div>';
+
+
+                  }elseif(isset($token) && $token =='festivals'){
+
+
+
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">cake</i></div>';
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+                  }
+
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
+                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
+          }
+          
+ 
+        
+    } 
+}
+
+?>
            </div>
 
          </div>
 
             <div class="tab-pane text-center gallery section section-sections" id="sports">
            <div class="row">
-sports
+
+<?php
+if (isset($sports_list)) {
+  foreach($sports_list as $item) {
+  
+ 
+
+                           $cmd = $s3->getCommand('GetObject', [
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($item["img"]).'',
+                            ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+     
+            
+              echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+           
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
+
+                        }else{
+
+                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
+                  
+                  }
+
+
+                   if (isset($token) && $token =='sports') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">sports_kabaddi</i></div>';
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+                  }
+
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
+                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
+          }
+          
+ 
+        
+    } 
+}
+
+?>
            </div>
 
          </div>
@@ -661,7 +1150,7 @@ $key = array_intersect($key,$local_distance);
  
  
   // make content dynamic
-  // shuffle($dashboard_list);
+  
                 
     foreach($dashboard_list as $item) {
   
