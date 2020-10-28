@@ -75,14 +75,15 @@ $bucket_name = 'tuudu-official-file-storage';
 
           $user_subscribe = pg_fetch_assoc($result);
           
-       
-
+          // <div class="media media-post">
+          //     <a class="author float-left" href="#pablo">
+          //       <div class="avatar">
+// <a href="#" class="post_account" data-id="'.$user_post['post_id'].'">
   				 $data .= '
                 <div class="col-md-2">
-                <div class="media media-post">
-              
-                  <div class="avatar">
-                    <a href="#" class="post_account author" data-id="'.$user_post['post_id'].'">';
+                  <div class="media media-post">
+              <a class="author float-left" href="#pablo">
+                <div class="avatar">';
                     	
 
                 $splitFileString = strtok(trim($user_post["post_img"]), '.' );
@@ -111,12 +112,10 @@ $bucket_name = 'tuudu-official-file-storage';
               	$data.='<img class="media-object" src="../../assets/img/image_placeholder.jpg">';
               }
                     
-                    $data.='</a>
+                    $data.='
                     <div class="ripple-container"></div>
-                  </div>
+                  </div></a>
                 </div>
-                </div>
-                 
                 <div class="col-md-8">
                   <h4 class="card-title">'.trim($user_post['post_title']).'</h4>
                   <p class="description">'.trim($user_post['post_description']).'</p>
