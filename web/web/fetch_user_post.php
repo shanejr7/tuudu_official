@@ -122,15 +122,9 @@ $bucket_name = 'tuudu-official-file-storage';
                   <p class="description">'.trim($user_post['post_description']).'</p>
                   <div class="row">
 
-                  <div class="col-md-8">
+                  <div class="col-md-8">';
 
-sub
-                  </div>
-
-                  </div>
-                </div>
-                <div class="col-md-2">';
-                if ($post_id == $sid) {
+                        if ($post_id == $sid) {
 
                  
 
@@ -145,10 +139,33 @@ sub
                 }
 
 
+                  $data.='</div>
+
+                  </div>
+                </div>';
+
+
+
+                // <div class="col-md-2">';
+                // if ($post_id == $sid) {
+
+                 
+
+                // }elseif($user_subscribe && isset($_SESSION['id'])){
+
+                //   $data.='<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_unsubscribe btn btn-danger pull-right btn-round">Subscribed</button>';
+
+                // }elseif(!$user_subscribe && isset($_SESSION['id'])){
+
+                //   $data.='<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_subscribe btn btn-default pull-right btn-round">Subscribe</button>';
+
+                // }
+
+
 
                   
                 
-                $data.='</div>';
+                // $data.='</div>';
 
 
                   echo $data;
