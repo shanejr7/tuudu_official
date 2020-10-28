@@ -75,11 +75,13 @@ $bucket_name = 'tuudu-official-file-storage';
 
           $user_subscribe = pg_fetch_assoc($result);
           
-          
+       
 
   				 $data .= '
                 <div class="col-md-2">
-                  <div class="media media-post">
+                <div class="media media-post">
+              
+                  <div class="avatar">
                     <a href="#" class="post_account" data-id="'.$user_post['post_id'].'">';
                     	
 
@@ -113,6 +115,8 @@ $bucket_name = 'tuudu-official-file-storage';
                     <div class="ripple-container"></div>
                   </div>
                 </div>
+                </div>
+                 
                 <div class="col-md-8">
                   <h4 class="card-title">'.trim($user_post['post_title']).'</h4>
                   <p class="description">'.trim($user_post['post_description']).'</p>
