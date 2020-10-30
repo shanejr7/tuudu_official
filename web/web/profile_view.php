@@ -46,7 +46,46 @@ $bucket_name = 'tuudu-official-file-storage';
   }
 
 
+ /* converts integer month to string*/
+function toString(string $month_arr){
 
+if ("01" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Jan".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("02" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Feb".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("03" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Mar".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("04" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Apr".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("05" == trim($month_arr[5].''.$month_arr[6])) {
+  return "May".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("06" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Jun".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("07" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Jul".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("08" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Aug".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("09" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Sep".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("10" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Oct".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("11" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Nov".' '.$month_arr[8].''.$month_arr[9];
+}
+if ("12" == trim($month_arr[5].''.$month_arr[6])) {
+  return "Dec".' '.$month_arr[8].''.$month_arr[9];
+}
+}
 
 ?>
 
