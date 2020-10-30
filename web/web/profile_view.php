@@ -375,11 +375,11 @@ $bucket_name = 'tuudu-official-file-storage';
 
                  $home_list = array();
 
-                 $user_id = "";
+                 $user_signed_in_id = '';
                          
-                 if (isset($_SESSION['id'])) {
+                 if (isset($_SESSION['id']) && isset($_GET['user']) && isset($_GET['id'])) {
  
-                      $user_id = $_SESSION['id'];
+                    $user_signed_in_id = $_SESSION['id'];
 
                       $db= "";
                       
@@ -392,7 +392,9 @@ $bucket_name = 'tuudu-official-file-storage';
                           header('location:oops.php');
                       }
 
-                  
+                  				$publickey = pg_escape_string($db, $_GET['user']);
+
+                            	$user_id = pg_escape_string($db, $_GET['id']);
 
 //                            $result_one = pg_query($db,"SELECT * FROM organization
 // NATURAL JOIN poststate NATURAL JOIN user_follow_organization WHERE publickey in (select DISTINCT publickey from user_follow_organization
