@@ -1592,7 +1592,7 @@ if (isset($subscription_list)) {
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    <h3 class="title text-center" id="user_profile_header" style="margin-bottom: 0;padding-bottom: 0 "> </h3>
+    <h3 class="title text-center" id="user_profile_body" style="margin-bottom: 0;padding-bottom: 0 "> </h3>
     <!-- <span class="badge badge-default">3</span> -->
     <!-- <div class="blog-tags title text-center" style="margin-top: 0;padding-top: 0 ">
                   Tags:
@@ -2975,18 +2975,18 @@ fetch_user(id,key);
 
  
  
-  $.ajax({
-   url:"fetch_user_profile_header.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#user_profile_header').html(data);
+  // $.ajax({
+  //  url:"fetch_user_profile_header.php",
+  //  method:"POST",
+  //  data : {
+  //       publickey : publickey,
+  //       id : id 
+  //                   },
+  //  success:function(data){
+  //   $('#user_profile_header').html(data);
      
-   }
-  })
+  //  }
+  // })
 
     $.ajax({
    url:"fetch_users_profile_body.php",
