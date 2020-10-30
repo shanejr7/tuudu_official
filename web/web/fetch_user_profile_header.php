@@ -83,7 +83,7 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
   				if ($user_profile && $user_profile_following && $user_profile_followers) {
 
 
-  					$img = $user_profile['img'];
+  					$img = $user_profile['profile_pic_src'];
 
   					 $cmd = $s3->getCommand('GetObject', [
                                         'Bucket' => ''.$bucket_name.'',
@@ -101,7 +101,7 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
                 <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
               <div class="name">
-                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$user_profil['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_follow_btn" data-userid='.$user_profil['user_id'].' data-key="dummyString""><span class="material-icons">remove_circle_outline</span></a></h16>
+                <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$user_profil['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_follow_btn" data-userid='.$user_profil['id'].' data-key="dummyString""><span class="material-icons">remove_circle_outline</span></a></h16>
                 </div>
             </div>';
 
