@@ -1606,16 +1606,16 @@ if (isset($subscription_list)) {
           <div class="col-md-8 ml-auto mr-auto">
             <hr>
             <div class="card card-profile card-plain">
-              <div class="row" id="user_profile_body">
+              <div class="row" id="">
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="" style="display: flex;justify-content: space-around;align-items: flex-start;">
+      <div class="" style="">
         <div class="row">
           <div class="col-md-12 ml-auto mr-auto" >
-            <div class="" id="">
+            <div class="" id="user_profile_body">
             </div>
        
            
@@ -2997,7 +2997,7 @@ fetch_user(id,key);
                     },
    success:function(data){
     $('#user_profile_body').html(data);
-    
+    console.log("q");
    }
   })
 
