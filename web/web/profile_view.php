@@ -313,7 +313,7 @@ $bucket_name = 'tuudu-official-file-storage';
                
                  <?php 
 
-                      if (isset($_SESSION['id']) && isset($_GET['username']) && isset($_GET['id'])) {
+                      if (isset($_SESSION['id']) && isset($_GET['user']) && isset($_GET['id'])) {
                         
                         $user_id = $_SESSION['id'];
 
