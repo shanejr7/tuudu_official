@@ -456,30 +456,30 @@ if (isset($temp) && $temp ==1) {
 
               $presignedUrl = (string)$request->getUri();
 
-  //             $uid = $item['org_id'];
+              $uid = $item['org_id'];
 
-  //  $db = pg_connect(getenv("DATABASE_URL"));
+   $db = pg_connect(getenv("DATABASE_URL"));
 
     
-  //   if (!$db) {
-  //      die("Connection failed: " . pg_connect_error());
-  //      header('location:oops.php');
-  //   }
+    if (!$db) {
+       die("Connection failed: " . pg_connect_error());
+       header('location:oops.php');
+    }
 
-  // $result = pg_query($db, "SELECT DISTINCT profile_pic_src FROM users WHERE id =$uid");
-  // $user = pg_fetch_assoc($result);
-  // $uimg = $user['profile_pic_src'];
+  $result = pg_query($db, "SELECT DISTINCT profile_pic_src FROM users WHERE id =$uid");
+  $user = pg_fetch_assoc($result);
+  $uimg = $user['profile_pic_src'];
 
-  // pg_close($db);
+  pg_close($db);
 
-  //         $cmd = $s3->getCommand('GetObject', [
-  //                                       'Bucket' => ''.$bucket_name.'',
-  //                                       'Key'    => ''.trim($uimg).'',
-  //                           ]);
+          $cmd = $s3->getCommand('GetObject', [
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($uimg).'',
+                            ]);
 
-  //             $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
-  //             $presignedUrlUserPrf = (string)$request->getUri();
+              $presignedUrlUserPrf = (string)$request->getUri();
      
             
               echo '<div class="col-md-4">';
@@ -507,25 +507,25 @@ if (isset($temp) && $temp ==1) {
               
                 
 
-// if($presignedUrlUserPrf && strlen(trim($uimg))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+if($presignedUrlUserPrf && strlen(trim($uimg))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
 
-//                    echo '<div class="top-right col-md-2 col-sm-1 col-xs-1 h9"> 
-//                         <a href="#"><img src="'.$presignedUrlUserPrf.'" class="img rounded" onload="myFunction('.$presignedUrlUserPrf.')"></a>
-//                         </div>';
+                   echo '<div class="top-right col-md-2 col-sm-1 col-xs-1 h9 style="width:50px"> 
+                        <a href="profile_view.php?user='.$item['username'].'"><img src="'.$presignedUrlUserPrf.'" class="img rounded" onload="myFunction('.$presignedUrlUserPrf.')"></a>
+                        </div>';
 
                  
-//               }else{
+              }else{
 
-//                  echo '<div class="top-right col-md-2 col-xs-1 h9"> 
-//                         <a href="#"><img src="../assets/img/image_placeholder.jpg" class="img rounded"></a>
-//                         </div>';
+                 echo '<div class="top-right col-md-2 col-xs-1 h9" style="width:50px"> 
+                        <a href="profile_view.php?user='.$item['username'].'"><img src="../assets/img/image_placeholder.jpg" class="img rounded"></a>
+                        </div>';
                  
-//               } 
+              } 
 
                    
-                      echo '<div class="top-right"> 
-                         <a href="#" class="user_home_page" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_box</i></a>
-                         </div>';
+                      // echo '<div class="top-right"> 
+                      //    <a href="profile_view.php?user='.$item['username'].'" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
+                      //    </div>';
 
 
                     echo '<div class="top-left h6" style="width:10px;">'
@@ -1603,7 +1603,7 @@ if (isset($subscription_list)) {
       
       <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;">
         <div class="row">
-          <div class="col-md-12 ml-auto mr-auto">
+          <div class="col-md-10 ml-auto mr-auto">
             <hr>
             <div class="card card-profile card-plain">
               <div class="row" id="user_profile_body">
