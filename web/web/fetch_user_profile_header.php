@@ -38,7 +38,7 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 		$result ="";
     	$sid= "";
     	$data="";
-    	$followingArr = array();
+    	
 
 
 			$db="";
@@ -96,12 +96,16 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
 
 
-                $data.= '<div style="margin-left:15px;;margin-top:15px;display: inline-block;">
-              <div class="avatar">
-                <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">'.$user_profile['username'].'
+                $data.= '<div style="margin-top:15px;display: inline-block;">
+              <div class="avatar" style="width:15px;">
+                <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
-           
-            </div>';
+           </div>';
+
+
+           $data.='<div style="display: inline-block;">'.$user_profile['username'].'</div>';
+           $data.='<div style="display: inline-block;">following '.$user_profile_following['count'].'</div>';
+           $data.='<div style="display: inline-block;">followers '.$user_profile_followers['count'].'</div>';
 
   					
   				}
