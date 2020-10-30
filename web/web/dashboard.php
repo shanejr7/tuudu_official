@@ -1584,39 +1584,6 @@ if (isset($subscription_list)) {
     </div>
   </div>
 
-   <div class="modal fade user_profile" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
-  <div class="modal-dialog modal-lg">
-     <div class="modal-content">
-         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    <h3 class="title text-center" id="user_profile_header" style="margin-bottom: 0;padding-bottom: 0 "> </h3>
-    <!-- <span class="badge badge-default">3</span> -->
-    <!-- <div class="blog-tags title text-center" style="margin-top: 0;padding-top: 0 ">
-                  Tags:
-                  <span class="badge badge-primary badge-pill">Photography</span>
-                  <span class="badge badge-primary badge-pill">Stories</span>
-                  <span class="badge badge-primary badge-pill">Castle</span>
-    </div> -->
-      
-      <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;">
-        <div class="row">
-          <div class="col-md-10 ml-auto mr-auto">
-            <hr>
-            <div class="card card-profile card-plain">
-              <div class="row" id="user_profile_body">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-     
-    </div>
-    </div>
-  </div>
-
 
 
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
@@ -2943,52 +2910,7 @@ user_post(pid,id,key,post,username,replyid);
     
 
 
-     $(document).on('click', '.user_home_page', function () {
 
- 
-var key=$(this).data("key");
-var id=$(this).data("id");
-
- 
-fetch_user(id,key);
-
-
- function fetch_user(id,publickey)
- {
-
- 
- 
-  $.ajax({
-   url:"fetch_user_profile_header.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#user_profile_header').html(data);
-     
-   }
-  })
-
-    $.ajax({
-   url:"fetch_users_profile_body.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#user_profile_body').html(data);
-    console.log("q");
-   }
-  })
-
-
-
- }
-
-});
 
 $(document).on('click', '.post_chat', function () {
 
