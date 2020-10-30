@@ -524,7 +524,7 @@ if (isset($temp) && $temp ==1) {
 
                    
                       echo '<div class="top-right"> 
-                         <a href="#" class="user_home_page" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">perm_identity</i></a>
+                         <a href="#" class="user_home_page" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_box</i></a>
                          </div>';
 
 
