@@ -498,11 +498,11 @@ if (isset($temp) && $temp ==1) {
 
  
 
-//           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-//                  echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
-//               }else{
-//                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
-//               } 
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
  
               
                 
