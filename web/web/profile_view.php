@@ -370,7 +370,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
           <div class="tab-pane active work" id="home">
             <div class="row">
 
-              <div class="col-md-8 ml-auto mr-auto " id="profile_tab_data">
+              <div class="col-md-8 ml-auto mr-auto " id="">
                
                  <?php 
 

@@ -435,7 +435,7 @@ $bucket_name = 'tuudu-official-file-storage';
                               header('location:oops.php');
                             }
 
-                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type = 'user_post' ");
+                          $result = pg_query($db, "SELECT COUNT(*) FROM organization WHERE id = $user_id AND post_type = 'user_post' ");
                           $posts_count = pg_fetch_assoc($result);
 
                           $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type != 'user_post' ");
