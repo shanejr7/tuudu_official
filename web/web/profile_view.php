@@ -329,8 +329,11 @@ $bucket_name = 'tuudu-official-file-storage';
 
                             	$user_id = pg_escape_string($db, $_GET['id']);
 
+echo "string".$user_signed_in_id;
+echo "string".$user_id;
 
-                        if ($user_signed_in_id ==$user_id) {
+
+                        if (isset($user_id) && isset($user_signed_in_id ) && $user_signed_in_id ==$user_id) {
                         	   header('location:profile.php');
                         }
 
