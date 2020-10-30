@@ -47,17 +47,14 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
 
 
-    	$db="";
+    	   $db = pg_connect(getenv("DATABASE_URL"));
 
+   // Check connection
+if (!$db) {
+     die("Connection failed: " . pg_connect_error());
+     header('location:oops.php');
+}
 
-			try{
- 	
- 			$db = pg_connect(getenv("DATABASE_URL"));
-	
-			}catch(Execption $e){
- 	
- 				 header('location:oops.php');
-			}
 
 
 			$publickey = pg_escape_string($db, $_POST['publickey']);

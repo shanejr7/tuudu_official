@@ -38,7 +38,6 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 		$result ="";
     	$sid= "";
     	$data="";
-      $user_view = array();
     	
 
 
@@ -116,117 +115,6 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
   					
   				}
-
-           $result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite,organization.address
-      FROM public.organization NATURAL JOIN poststate WHERE post_type='user_post' ORDER BY date, views");
-
-
-
-
-    if (pg_num_rows($result) > 0) {
-                  // output data of each row
-                    while($row = pg_fetch_assoc($result)) { 
-      
-                      $user_view[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"favorite" => $row["favorite"],"favorites" => $row["favorites"],"address" => $row["address"]);
-                       
-                    }
-                  
-                  }
-
-                  $data.='<div class="tab-content tab-space cd-section">
-
-          <div class="tab-pane text-center gallery section section-sections">
-           <div class="row">';
-
-        if (isset($user_view)) {
-
-
-       foreach($user_view as $item) {
-
-
-         $cmd = $s3->getCommand('GetObject', [
-                                        'Bucket' => ''.$bucket_name.'',
-                                        'Key'    => ''.trim($item["img"]).'',
-                            ]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-
-            
-              $data.= '<div class="col-md-4">';
-
-          
-              $data.= '<div class="contain">';
-
-           
-                $splitFileString = strtok(trim($item["img"]), '.' );
-                $fileChecker = strtok('');
-                $fileChecker = strtoupper($fileChecker);
-
-                $string = trim($item["word_tag"]);
-                $string = strtolower($string);
-                $token = strtok($string, "_");
-
- 
-
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                 $data.=  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
-              }else{
-                 $data.=  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
-              } 
- 
-      
-
-                   
-                      $data.= '<div class="top-right"> 
-                         <a href="#" class="user_home_page" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_box</i></a>
-                         </div>';
-
-
-                    $data.= '<div class="top-left h6" style="width:10px;">'
-                       .toString($item['date']).'</div>';
-
-                
-
-                  $data.= '<div class="centeredm h4">'.trim($item['description']).'</div>';
-
-
-                    $data.= '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="profile.php?publickey='.$item['publickey'].'">';
-
-                        if ($item['favorite']==1) {
-                          $data.= '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
-
-                        }else{
-
-                          $data.= '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
-                        }
-
-                  // $data.= '<div class="centered" style="font-weight: bolder;">
-                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
-
-                 
-                 $data.= '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
- 
-
-
-
-                $data.= '</div>';
-              
-          
-              
-            $data.= '</div>';
-
-
-       }
-       
-
-     }
-
-        $data.='</div></div></div>';
     		
     		  pg_close($db);
 
