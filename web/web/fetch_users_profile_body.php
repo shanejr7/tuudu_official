@@ -118,9 +118,9 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
 
-                $string = trim($item["word_tag"]);
-                $string = strtolower($string);
-                $token = strtok($string, "_");
+                // $string = trim($item["word_tag"]);
+                // $string = strtolower($string);
+                // $token = strtok($string, "_");
 
  
 
@@ -192,22 +192,6 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
 
 }
- // show users posts 
- // copy from dashbaord sql statement
- // 2x2 or 3x3 view of posts
 
-
-
- //  <div class="tab-content tab-space cd-section">
-
-        //  <div class="tab-pane text-center gallery section section-sections">
-         //  <div class="row">
-
-
-
-
- //</div>
- //</div>
- //</div>
 
  ?>
