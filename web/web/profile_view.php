@@ -224,7 +224,7 @@ $bucket_name = 'tuudu-official-file-storage';
      <div  >
     <div class="profile-content " id="main">
       <div class="container">
-        <div class="cd-section" id="body">
+        <div class="tab-content tab-space cd-section" id="body">
       
  <div class="tab-pane active text-center gallery" id="profile">
   <div class="container">
@@ -239,7 +239,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                 <li class="nav-item">
                     <div class="profileFollowing">
-              <div class="avatar" data-toggle="modal" data-target="#uploadImage" id="avatar_profile_image" style="width: 120px;height: 200px;">
+              <div class="avatar" data-toggle="modal"  id="#" style="width: 120px;height: 200px;">
                 <?php 
 
                 $splitFileString ="";
@@ -298,51 +298,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
         </div>
 
-          <div class="modal fade" tabindex="-1" role="dialog" id="uploadImage" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-    
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <?php 
-        $id_av ="";
 
-        if (isset($_SESSION['id'])) {
-          $id_av= $_SESSION['id'];
-        }
-
-
-        echo'<form enctype="multipart/form-data" method="post" action="user_image_upload.php">
- 
-                <div class="form-group label-floating has-success">
-                  <label class="control-label">EDIT PROFILE PICTURE</label>
-                  </div>
-                 <div class="row"> 
-                  <div class="col-md-3"></div>
-                  <div class="col-md-6">
-                   
-                          <div class="form-group form-file-upload form-file-simple">
-    <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
-    <input type="file" name="file1" class="inputFileHidden">
-  </div>
-                    </div>
-
-                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button></form>
-
-              </div>';
-
-                ?>
-      </div>
-      <div class="modal-footer">
-  
-      </div>
-    </div>
-  </div>
-</div>
 
     
 
@@ -354,11 +310,10 @@ $bucket_name = 'tuudu-official-file-storage';
             <div class="row">
 
               <div class="col-md-8 ml-auto mr-auto " id="profile_tab_data">
-                <h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts</h4>
-                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>
+               
                  <?php 
 
-                      if (isset($_SESSION['id'])) {
+                      if (isset($_SESSION['id']) && isset($_GET['username']) && isset($_GET['id'])) {
                         
                         $user_id = $_SESSION['id'];
 
@@ -370,9 +325,8 @@ $bucket_name = 'tuudu-official-file-storage';
                               header('location:oops.php');
                             }
 
-
-                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type != 'user_post' ");
-                          $product_count = pg_fetch_assoc($result);
+                           $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type = 'user_post' ");
+                          $posts_count = pg_fetch_assoc($result);
 
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $user_id");
                           $following_count = pg_fetch_assoc($result);
@@ -380,34 +334,16 @@ $bucket_name = 'tuudu-official-file-storage';
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_following_id = $user_id");
                           $followers_count = pg_fetch_assoc($result);
 
-                          $result = pg_query($db, "SELECT COUNT (user_id) FROM temporary_tag_schedule WHERE user_id = $user_id");
-                          $tag_schedule_count = pg_fetch_assoc($result);
-
-                           $result = pg_query($db, "SELECT COUNT (userid) FROM user_follow_organization WHERE userid = $user_id");
-                          $user_follow_organization_count = pg_fetch_assoc($result);
 
 
+                          if (isset($posts_count)) {
+                          	 echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts '.$posts_count['count'].'</h4>
+                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
+                          }else{
+                          	 echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts 0</h4>
+                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
+                          }
 
-                      
-
-                      if (isset($product_count)) {
-
-                        $products_num_count =0;
-
-                        $products_num_count = $product_count['count'];
-                        
-                        echo ' <li style="display: inline-block;margin-right:3px;">Products <b>'.$products_num_count.'</b> </li>';
-                      }
-
-                      if (isset($tag_schedule_count) && isset($user_follow_organization_count)) {
-
-                        $collections_num_count =0;
-
-                        $collections_num_count = $tag_schedule_count['count'] +  $user_follow_organization_count['count'];
-
-                        echo '<li style="display: inline-block;margin-right:3px;">Collections <b>'.$collections_num_count.'</b></li>';
-                        
-                      }
 
                       if (isset($following_count)) {
                         
@@ -592,7 +528,7 @@ is not NULL ORDER BY organization.date");
 
 
 
-                    
+                  
 
           ?>
         </div>

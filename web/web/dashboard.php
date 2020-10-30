@@ -524,7 +524,7 @@ if (isset($temp) && $temp ==1) {
 
                    
                       echo '<div class="top-right"> 
-                         <a href="profile_view.php?user='.$item['username'].'" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
+                         <a href="profile_view.php?user='.$item['username'].'&id='.$item['org_id'].'" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
                          </div>';
 
 
