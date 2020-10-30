@@ -1606,30 +1606,13 @@ if (isset($subscription_list)) {
           <div class="col-md-8 ml-auto mr-auto">
             <hr>
             <div class="card card-profile card-plain">
-              <div class="row" id="">
+              <div class="row" id="user_profile_body">
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="" style="">
-        <div class="row">
-          <div class="col-md-12 ml-auto mr-auto" >
-            <div class="" id="user_profile_body">
-            </div>
-       
-           
-         <!--    <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
-
-                <div id="comment_post" >
-
-
-                </div>
-
-          </div> -->
-          </div>
-        </div>
-      </div>
+     
     </div>
     </div>
   </div>

@@ -107,7 +107,7 @@ if (!$db) {
 
 
             
-              $data.= '<div class="col-md-4">';
+              $data.= '<div class="col-md-4" style="margin:3px;">';
 
           
               $data.= '<div class="contain">';
