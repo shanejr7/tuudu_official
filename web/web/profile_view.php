@@ -329,6 +329,12 @@ $bucket_name = 'tuudu-official-file-storage';
 
                             	$user_id = pg_escape_string($db, $_GET['id']);
 
+
+                        if ($user_signed_in_id ==$user_id) {
+                        	   header('location:profile.php');
+                        }
+
+
                            $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type = 'user_post' ");
                           $posts_count = pg_fetch_assoc($result);
 
