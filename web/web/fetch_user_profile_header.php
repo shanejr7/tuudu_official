@@ -96,8 +96,8 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
 
 
-                $data.= '<div style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
-              <div class="avatar" style="width: 120px;">
+                $data.= '<div style="margin-left:15px;;margin-top:15px;display: inline-block;">
+              <div class="avatar">
                 <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">'.$user_profile['username'].'
               </div>
            
