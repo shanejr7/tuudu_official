@@ -74,7 +74,6 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
     		$result = pg_query($db, "SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite,organization.address
       FROM public.organization NATURAL JOIN poststate WHERE id = $user_id AND post_type='user_post' ORDER BY date, views");
 
-    		echo pg_num_rows($result);
 
 
 
@@ -101,7 +100,7 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
          $cmd = $s3->getCommand('GetObject', [
                                         'Bucket' => ''.$bucket_name.'',
-                                        'Key'    => ''.trim($item["img"]).'',
+                                        'Key'    => ''.trim($item['img']).'',
                             ]);
 
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
@@ -110,7 +109,7 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
      
             
-              $data.='<div class="col-md-6">';
+              $data.='<div class="col-md-4">';
 
           
               $data.='<div class="contain">';
