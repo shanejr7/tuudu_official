@@ -936,7 +936,7 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
 
 
                 echo '<div class="profileFollowers" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
-                 <a href="profile_view.php?user='.$item['username'].'&id='.$item['user_following_id'].'">
+                 <a href="profile_view.php?user='.$item['username'].'&id='.$item['user_id'].'">
               <div class="avatar" style="width: 120px;">
                 <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
@@ -948,7 +948,7 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
                 }else{
 
                   echo '<div class="profileFollowers" style="margin-left:15px;margin-top:15px;display: inline-block;  margin-right: 15px;">
-                   <a href="profile_view.php?user='.$item['username'].'&id='.$item['user_following_id'].'">
+                   <a href="profile_view.php?user='.$item['username'].'&id='.$item['user_id'].'">
               <div class="avatar" style="width: 120px;">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
