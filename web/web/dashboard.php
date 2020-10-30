@@ -523,6 +523,10 @@ if (isset($temp) && $temp ==1) {
 //               } 
 
                    
+                      echo '<div class="top-right"> 
+                         <a href="#" class="user_home_page" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">perm_identity</i></a>
+                         </div>';
+
 
                     echo '<div class="top-left h6" style="width:10px;">'
                        .toString($item['date']).'</div>';
@@ -1579,6 +1583,58 @@ if (isset($subscription_list)) {
       </div>
     </div>
   </div>
+
+   <div class="modal fade user_profile" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+         <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <h3 class="title text-center" style="margin-bottom: 0;padding-bottom: 0 ">Comments</h3>
+    <!-- <span class="badge badge-default">3</span> -->
+    <!-- <div class="blog-tags title text-center" style="margin-top: 0;padding-top: 0 ">
+                  Tags:
+                  <span class="badge badge-primary badge-pill">Photography</span>
+                  <span class="badge badge-primary badge-pill">Stories</span>
+                  <span class="badge badge-primary badge-pill">Castle</span>
+    </div> -->
+      
+      <div class="section section-blog-info" style="margin: 0 0 0 0; padding: 0 0 0 0;">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <hr>
+            <div class="card card-profile card-plain">
+              <div class="row" id="user_profile_header">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section section-comments" style="display: flex;justify-content: space-around;align-items: flex-start;">
+        <div class="row">
+          <div class="col-md-12 ml-auto mr-auto" >
+            <div class="media-area" id="users_profile_body">
+            </div>
+       
+           
+         <!--    <div style="position: -webkit-sticky;position: sticky;bottom: 1px;align-self: flex-end;background-color: white">
+
+                <div id="comment_post" >
+
+
+                </div>
+
+          </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
 
   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-lg">
@@ -2895,6 +2951,93 @@ user_post(pid,id,key,post,username,replyid);
  
 
 
+
+ }
+
+});
+
+
+    
+
+
+     $(document).on('click', '.user_home_page', function () {
+
+ 
+var key=$(this).data("key");
+var id=$(this).data("id");
+
+ 
+fetch_user(id,key);
+
+
+ function fetch_user(id,publickey)
+ {
+
+ 
+ 
+  $.ajax({
+   url:"fetch_user_profile_header.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#user_profile_header').html(data);
+     
+   }
+  })
+
+    $.ajax({
+   url:"fetch_users_profile_body.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#user_profile_body').html(data);
+    
+   }
+  })
+
+
+
+          $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+    
+              $.ajax({
+   url:"fetch_user_followers.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#followers').html(data);
+            $.ajax({
+   url:"fetch_user_following.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#followers').html(data);
+     
+   }
+  })
+   }
+  })
+   }
+  })
 
  }
 
