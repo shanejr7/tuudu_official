@@ -1047,9 +1047,11 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
 
 
                 echo '<div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+                <a href="profile_view.php?user='.$item['username'].'&id='.$item['user_following_id'].'">
               <div class="avatar" style="width: 120px;">
                 <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
+              </a>
               <div class="name">
                 <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_btn" data-key="dummyString" data-userid="'.$item['user_following_id'].'"><span class="material-icons">remove_circle_outline</span></a></h16>
                 </div>
@@ -1057,9 +1059,11 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
                 }else{
 
                   echo '<div class="profileFollowing" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
+                  <a href="profile_view.php?user='.$item['username'].'&id='.$item['user_following_id'].'">
               <div class="avatar" style="width: 120px;">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
+              </a>
               <div class="name">
                 <h6 class="title" style="display: inline-block; margin-right: 10px;">'.$item['username'].'</h6> <h16 style="font-size: 12px;"><a href="#" class="unfollow_user_btn" data-key="dummyString" data-userid="'.$item['user_following_id'].'"><span class="material-icons">remove_circle_outline</span></a></h16>
                 </div>
