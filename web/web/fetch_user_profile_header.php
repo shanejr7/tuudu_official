@@ -104,8 +104,8 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
 
            $data.='<div style="display: inline-block; margin-right:9px;">'.$user_profile['username'].'</div>';
-           $data.='<div style="display: inline-block;margin-right:9px;font-size:10px;">following '.$user_profile_following['count'].'</div>';
-           $data.='<div style="display: inline-block;font-size:10px;">followers '.$user_profile_followers['count'].'</div>';
+           $data.='<div style="display: inline-block;margin-right:9px;font-size:15px;">following '.$user_profile_following['count'].'</div>';
+           $data.='<div style="display: inline-block;font-size:15px;">followers '.$user_profile_followers['count'].'</div>';
 
   					
   				}
