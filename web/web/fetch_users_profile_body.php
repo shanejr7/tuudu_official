@@ -108,10 +108,10 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
      
             
-              echo '<div class="col-md-6">';
+              $data.='<div class="col-md-6">';
 
           
-              echo '<div class="contain">';
+              $data.='<div class="contain">';
 
            
                 $splitFileString = strtok(trim($item["img"]), '.' );
@@ -125,52 +125,52 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
  
 
           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+                 $data.= '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+                 $data.= '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
               } 
  
 
                    
-                      // echo '<div class="top-right"> 
+                      // $data.='<div class="top-right"> 
                       //    <a href="#" class="user_home_page" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_box</i></a>
                       //    </div>';
 
 
-                    echo '<div class="top-left h6" style="width:10px;">'
+                    $data.='<div class="top-left h6" style="width:10px;">'
                        .toString($item['date']).'</div>';
 
                 
 
-                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+                  $data.='<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                    echo '<div class="bottom-left" style="font-weight: bolder;">
+                    $data.='<div class="bottom-left" style="font-weight: bolder;">
                         <a href="profile.php?publickey='.$item['publickey'].'">';
 
                         if ($item['favorite']==1) {
-                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+                          $data.='<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
 
                         }else{
 
-                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                          $data.='<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
                         }
 
-                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // $data.='<div class="centered" style="font-weight: bolder;">
                   // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
 
                  
-                 echo '<div class="bottom-right" style="font-weight: bolder;">
+                 $data.='<div class="bottom-right" style="font-weight: bolder;">
                          <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
 
 
-                echo '</div>';
+                $data.='</div>';
               
           
               
-            echo '</div>';
+            $data.='</div>';
 
 
        }
