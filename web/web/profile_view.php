@@ -592,7 +592,7 @@ is not NULL ORDER BY organization.date");
 
 
 
-                    }
+                    
 
           ?>
         </div>
