@@ -246,9 +246,31 @@ $bucket_name = 'tuudu-official-file-storage';
                 $fileChecker = "";
 
 
-                if (isset($_SESSION["img_src"])) {
+                if (isset($_SESSION["id"]) && isset($_GET['user']) && isset($_GET['id'])) {
 
-                  $splitFileString = strtok(trim($_SESSION["img_src"]), '.' );
+
+                	try{
+
+                               $db = pg_connect(getenv("DATABASE_URL"));
+                            }catch(Execption $e){
+  
+                              header('location:oops.php');
+                            }
+
+                            	$publickey = pg_escape_string($db, $_GET['user']);
+
+                            	$user_id = pg_escape_string($db, $_GET['id']);
+
+
+                            	$result = pg_query($db, "SELECT username , img as profile_pic_src FROM users WHERE id = $user_id");
+                          		$user_post = pg_fetch_assoc($result);
+
+
+
+
+
+
+                  $splitFileString = strtok(trim($user_post["img"]), '.' );
                   $fileChecker = strtok('');
                   $fileChecker = strtoupper($fileChecker);
                   
@@ -259,9 +281,9 @@ $bucket_name = 'tuudu-official-file-storage';
 
                
 
-                if (isset($_SESSION['img_src']) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
+                if (isset($user_post["img"]) && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')) {
 
-                  $user_img = trim($_SESSION['img_src']);
+                  $user_img = trim($user_post["img"]);
 
 
 
@@ -278,7 +300,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 }else{
                   echo '<img src="../assets/img/image_placeholder.jpg" title="edit" alt="Circle Image" class="img-raised rounded-circle img-fluid">';
                 }
-
+ pg_close($db);
 
                 ?>
               
@@ -287,8 +309,8 @@ $bucket_name = 'tuudu-official-file-storage';
             </div>
                 </li>
                 <li class="nav-item">
-                     <h4 style="font-weight: bold;"><?php if (isset($_SESSION['username'])) {
-                       echo trim($_SESSION['username']);
+                     <h4 style="font-weight: bold;"><?php if (isset($user_post['username'])) {
+                       echo trim($user_post['username']);
                      } ?></h4>
                 </li>
               </ul>
@@ -363,7 +385,7 @@ $bucket_name = 'tuudu-official-file-storage';
                       }
 
                     }
-
+ pg_close($db);
                  ?>
             
                 </div>
