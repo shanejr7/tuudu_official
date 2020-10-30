@@ -418,10 +418,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                             	$user_id = pg_escape_string($db, $_GET['id']);
 
-//                            $result_one = pg_query($db,"SELECT * FROM organization
-// NATURAL JOIN poststate NATURAL JOIN user_follow_organization WHERE publickey in (select DISTINCT publickey from user_follow_organization
-// WHERE userid = $user_id) AND user_id =$user_id AND date_submitted 
-// is not NULL AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date");
+
 
                       $result_one = pg_query($db,"SELECT * FROM organization
 NATURAL JOIN poststate WHERE publickey in (select DISTINCT publickey from poststate
@@ -519,9 +516,11 @@ is not NULL ORDER BY organization.date");
 
                   // }
 
+   					echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
 
 
-                  // echo '<div class="centeredm h4">'.trim($item['title']).'</div>';
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
