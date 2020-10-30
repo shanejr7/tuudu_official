@@ -91,7 +91,7 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
 			if (isset($user_post_view)) {
 
-				$data.=$user_id.' l'.;
+				$data.=$user_id.' l';
 
 				// $data.='<div class="tab-content tab-space cd-section">
 				// <div class="tab-pane text-center gallery section section-sections">
