@@ -114,7 +114,7 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
               $data.='<div class="contain">';
 
            
-                $splitFileString = strtok(trim($item["img"]), '.' );
+                $splitFileString = strtok(trim($item['img']), '.' );
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
 
@@ -124,7 +124,7 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+          if($presignedUrl && strlen(trim($item['img']))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
                  $data.= '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  $data.= '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
