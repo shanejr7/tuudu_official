@@ -1592,7 +1592,7 @@ if (isset($subscription_list)) {
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    <h3 class="title text-center" style="margin-bottom: 0;padding-bottom: 0 ">Comments</h3>
+   <!--  <h3 class="title text-center" style="margin-bottom: 0;padding-bottom: 0 "> </h3> -->
     <!-- <span class="badge badge-default">3</span> -->
     <!-- <div class="blog-tags title text-center" style="margin-top: 0;padding-top: 0 ">
                   Tags:
