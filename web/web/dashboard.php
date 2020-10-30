@@ -2975,18 +2975,18 @@ fetch_user(id,key);
 
  
  
-  // $.ajax({
-  //  url:"fetch_user_profile_header.php",
-  //  method:"POST",
-  //  data : {
-  //       publickey : publickey,
-  //       id : id 
-  //                   },
-  //  success:function(data){
-  //   $('#user_profile_header').html(data);
+  $.ajax({
+   url:"fetch_user_profile_header.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#user_profile_header').html(data);
      
-  //  }
-  // })
+   }
+  })
 
     $.ajax({
    url:"fetch_users_profile_body.php",
