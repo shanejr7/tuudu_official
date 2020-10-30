@@ -87,7 +87,7 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
                   
                   }
 
-
+$data.=$user_id.' l';
 
 			if (isset($user_post_view)) {
 
