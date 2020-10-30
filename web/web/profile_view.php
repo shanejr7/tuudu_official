@@ -393,7 +393,10 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
                             	$user_id = pg_escape_string($db, $_GET['id']);
 
 
+                             // instead select subscription
+          $result = pg_query($db, "SELECT * FROM user_follow_user WHERE user_id =  $user_signed_in_id AND user_following_id =$user_id LIMIT 1");
 
+          $user_follow = pg_fetch_assoc($result);
 
                            $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type = 'user_post' ");
                           $posts_count = pg_fetch_assoc($result);
@@ -428,7 +431,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
                       if($user_follow){
 
-                  $data.='<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-danger pull-right btn-round">unfollow</button>';
+                  $data.='<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button>';
 
                 }elseif(!$user_follow){
 
