@@ -2997,7 +2997,7 @@ fetch_user(id,key);
                     },
    success:function(data){
     $('#user_profile_body').html(data);
-    
+    console.log("work");
    }
   })
 
