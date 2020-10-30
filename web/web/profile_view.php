@@ -431,11 +431,11 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
                       if($user_follow){
 
-                  echo'<div id="following_btn"><button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button></div>';
+                  echo'<li id="following_btn"><button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button></li>';
 
                 }elseif(!$user_follow){
 
-                  echo'<div id="follow_btn"><button type="button"  data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">follow</button>';
+                  echo'<li id="follow_btn"><button type="button"  data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">follow</button></li>';
 
                 }
 
@@ -1112,9 +1112,10 @@ follow(pid,id,key);
 
 var key=$(this).data("publickey");
 var id=$(this).data("id");
+var toggle =1;
 
 
-unfollow(id,key);
+unfollow(id,key,toggle);
 
 
  function unfollow(id,publickey)
@@ -1126,7 +1127,8 @@ unfollow(id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : id,
+        toggle: toggle
                     },
    success:function(data){
 
@@ -1220,12 +1222,13 @@ $(document).on('click', '.post_follow_user', function () {
 
 var key=$(this).data("publickey");
 var id=$(this).data("id");
+var toggle =1;
 
 
-follow(id,key);
+follow(id,key,toggle);
 
 
- function follow(id,publickey)
+ function follow(id,publickey,toggle)
  {
 
 
@@ -1234,11 +1237,12 @@ follow(id,key);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : id,
+        toggle: toggle 
                     },
    success:function(data){
    
-    $('#following').html(data);
+    $('#follow_btn').html(data);
 
     $.ajax({
    url:"fetch_user_post.php",

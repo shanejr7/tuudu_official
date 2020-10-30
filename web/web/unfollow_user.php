@@ -25,7 +25,62 @@ $s3 = new Aws\S3\S3Client([
 $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
 
-	if (isset($_POST['id']) && isset($_POST['publickey'])) {
+
+
+if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['toggle'])) {
+
+
+      $user_id = 0;
+    $publickey = "";
+    $user_post = "";
+    $result ="";
+      $sid= "";
+      $data= "";
+
+
+
+
+
+
+      $db="";
+
+
+      try{
+  
+      $db = pg_connect(getenv("DATABASE_URL"));
+  
+      }catch(Execption $e){
+  
+         header('location:oops.php');
+      }
+
+
+    $publickey = pg_escape_string($db, $_POST['publickey']);
+    $publickey = trim($publickey);
+    $user_id = pg_escape_string($db, $_POST['id']);
+
+
+      if (isset($_SESSION['id'])) {
+        
+            $sid = $_SESSION['id']; 
+    
+        }
+  
+      
+      pg_query($db, "INSERT INTO public.user_follow_user(user_id, user_following_id) 
+        VALUES ($sid, $user_id)");
+
+
+
+      $data.='<button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button>';
+
+
+
+      echo $data;
+
+    }
+
+	if (isset($_POST['id']) && isset($_POST['publickey']) && !isset($_POST['toggle'])) {
 
     
 		$user_id = 0;
