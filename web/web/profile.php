@@ -421,8 +421,6 @@ $bucket_name = 'tuudu-official-file-storage';
             <div class="row">
 
               <div class="col-md-8 ml-auto mr-auto " id="profile_tab_data">
-                <h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts</h4>
-                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>
                  <?php 
 
                       if (isset($_SESSION['id'])) {
@@ -437,6 +435,8 @@ $bucket_name = 'tuudu-official-file-storage';
                               header('location:oops.php');
                             }
 
+                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type = 'user_post' ");
+                          $posts_count = pg_fetch_assoc($result);
 
                           $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type != 'user_post' ");
                           $product_count = pg_fetch_assoc($result);
@@ -456,6 +456,14 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
                       
+                        if (isset($posts_count)) {
+                             echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts '.$posts_count['count'].'</h4>
+                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
+                          }else{
+                             echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts 0</h4>
+                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
+                          }
+
 
                       if (isset($product_count)) {
 
