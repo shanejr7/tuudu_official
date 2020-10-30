@@ -315,7 +315,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                       if (isset($_SESSION['id']) && isset($_GET['user']) && isset($_GET['id'])) {
                         
-                        $user_id = $_SESSION['id'];
+                        $user_signed_in_id = $_SESSION['id'];
 
                         try{
 
@@ -324,6 +324,10 @@ $bucket_name = 'tuudu-official-file-storage';
   
                               header('location:oops.php');
                             }
+
+                            	$publickey = pg_escape_string($db, $_GET['user']);
+
+                            	$user_id = pg_escape_string($db, $_GET['id']);
 
                            $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type = 'user_post' ");
                           $posts_count = pg_fetch_assoc($result);
