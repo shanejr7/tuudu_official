@@ -431,11 +431,11 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
                       if($user_follow){
 
-                  echo'<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button>';
+                  echo'<button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button>';
 
                 }elseif(!$user_follow){
 
-                  echo'<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">follow</button>';
+                  echo'<button type="button"  data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">follow</button>';
 
                 }
 
