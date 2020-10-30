@@ -300,7 +300,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
                             	$user_id = pg_escape_string($db, $_GET['id']);
 
-                            	echo "string".$user_id;
+                            	
                             	$result = pg_query($db, "SELECT username , profile_pic_src as img FROM users WHERE id = $user_id");
                           		$user_post = pg_fetch_assoc($result);
 
