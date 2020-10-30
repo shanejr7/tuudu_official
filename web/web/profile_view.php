@@ -431,11 +431,11 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
                       if($user_follow){
 
-                  echo'<li id="following_btn"><button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button></li>';
+                  echo'<div style="display:inline-block" id="following_btn"><button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button></div>';
 
                 }elseif(!$user_follow){
 
-                  echo'<li id="follow_btn"><button type="button"  data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">follow</button></li>';
+                  echo'<div style="display:inline-block" id="follow_btn"><button type="button"  data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">follow</button></div>';
 
                 }
 
@@ -1118,7 +1118,7 @@ var toggle =1;
 unfollow(id,key,toggle);
 
 
- function unfollow(id,publickey)
+ function unfollow(id,publickey,toggle)
  {
 
 
