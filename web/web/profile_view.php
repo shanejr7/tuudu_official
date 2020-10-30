@@ -334,7 +334,7 @@ echo "string".$user_id;
 
 
                         if (isset($user_id) && isset($user_signed_in_id ) && intval($user_signed_in_id) ==intval($user_id)) {
-                        	   header('location:profile.php');
+                        	   header('Location: profile.php');
                         	   echo "true";
                         }else{
                         	echo "false";
