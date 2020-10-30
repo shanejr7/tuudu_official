@@ -1592,7 +1592,7 @@ if (isset($subscription_list)) {
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-   <!--  <h3 class="title text-center" style="margin-bottom: 0;padding-bottom: 0 "> </h3> -->
+    <h3 class="title text-center" id="user_profile_header" style="margin-bottom: 0;padding-bottom: 0 "> </h3>
     <!-- <span class="badge badge-default">3</span> -->
     <!-- <div class="blog-tags title text-center" style="margin-top: 0;padding-top: 0 ">
                   Tags:
@@ -1606,7 +1606,7 @@ if (isset($subscription_list)) {
           <div class="col-md-8 ml-auto mr-auto">
             <hr>
             <div class="card card-profile card-plain">
-              <div class="row" id="user_profile_header">
+              <div class="row" id="#">
               </div>
             </div>
           </div>
