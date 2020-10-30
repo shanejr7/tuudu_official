@@ -67,16 +67,18 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['toggle'])
         }
   
       
-      pg_query($db, "INSERT INTO public.user_follow_user(user_id, user_following_id) 
-        VALUES ($sid, $user_id)");
+       pg_query($db, "DELETE FROM public.user_follow_user WHERE user_id =$sid AND user_following_id =$user_id");
 
 
 
-      $data.='<button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button>';
+      $data.='<button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-primary pull-right btn-round">follow</button>';
 
 
 
       echo $data;
+
+
+       pg_close($db);
 
     }
 

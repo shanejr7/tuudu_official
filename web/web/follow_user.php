@@ -79,6 +79,8 @@ $bucket_name = 'tuudu-official-file-storage';
 
       echo $data;
 
+      pg_close($db);
+
     }
 
 	if (isset($_POST['id']) && isset($_POST['publickey']) && !isset($_POST['toggle'])) {

@@ -431,7 +431,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
                       if($user_follow){
 
-                  echo'<div style="display:inline-block" id="following_btn"><button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button></div>';
+                  echo'<div style="display:inline-block" id="follow_btn"><button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button></div>';
 
                 }elseif(!$user_follow){
 
@@ -1114,13 +1114,13 @@ var key=$(this).data("publickey");
 var id=$(this).data("id");
 var toggle =1;
 
-
+console.log("true");
 unfollow(id,key,toggle);
 
 
  function unfollow(id,publickey,toggle)
  {
-
+console.log("true");
 
     $.ajax({
    url:"unfollow_user.php",
@@ -1132,8 +1132,8 @@ unfollow(id,key,toggle);
                     },
    success:function(data){
 
-      $('#following_btn').html(data);
-
+      $('#follow_btn').html(data);
+console.log("true");
 
       $.ajax({
    url:"fetch_user_post.php",
@@ -1243,7 +1243,7 @@ follow(id,key,toggle);
    success:function(data){
    
     $('#follow_btn').html(data);
-
+console.log("true");
     $.ajax({
    url:"fetch_user_post.php",
    method:"POST",
