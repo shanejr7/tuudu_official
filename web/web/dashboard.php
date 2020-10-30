@@ -1612,10 +1612,10 @@ if (isset($subscription_list)) {
           </div>
         </div>
       </div>
-      <div class="section section-comments" style="display: flex;justify-content: space-around;align-items: flex-start;">
+      <div class="" style="display: flex;justify-content: space-around;align-items: flex-start;">
         <div class="row">
           <div class="col-md-12 ml-auto mr-auto" >
-            <div class="media-area" id="user_profile_body">
+            <div class="" id="user_profile_body">
             </div>
        
            
