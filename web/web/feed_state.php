@@ -384,7 +384,7 @@ if (!$db) {
    $id = pg_escape_string($db, $_SESSION['id']);
 
      $result = pg_query($db, 'SELECT * FROM public.organization
-  WHERE date is not null AND post_type !="user_post" AND organization.publickey 
+  WHERE date is not null AND organization.post_type !="user_post" AND organization.publickey 
       in(select publickey from temporary_tag_schedule WHERE user_id = '.$id.') AND "date"::timestamp >= NOW()
   ORDER BY "date"::date asc LIMIT 12');
 
