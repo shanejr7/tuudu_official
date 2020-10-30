@@ -329,17 +329,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                             	$user_id = pg_escape_string($db, $_GET['id']);
 
-echo "string".$user_signed_in_id;
-echo "string".$user_id;
 
-
-                        if (isset($user_id) && isset($user_signed_in_id ) && intval($user_signed_in_id) ==intval($user_id)) {
-                        
-                        	   exit(header('Location: profile.php'));
-                        	   echo "true";
-                        }else{
-                        	echo "false";
-                        }
 
 
                            $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type = 'user_post' ");
