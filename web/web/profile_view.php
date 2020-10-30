@@ -374,6 +374,8 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
                
                  <?php 
 
+                 $user_follow = array();
+
                       if (isset($_SESSION['id']) && isset($_GET['user']) && isset($_GET['id'])) {
                         
                         $user_signed_in_id = $_SESSION['id'];
