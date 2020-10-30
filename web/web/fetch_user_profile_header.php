@@ -80,6 +80,11 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
   				$user_profile_followers = pg_fetch_assoc($result);
 
 
+  				$result = pg_query($db, "SELECT COUNT(*) FROM public.organization WHERE id =1 AND post_type ='user_post'");
+
+  				$user_profile_posts = pg_fetch_assoc($result);
+
+
   				if ($user_profile && $user_profile_following && $user_profile_followers) {
 
 
@@ -105,7 +110,8 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
            $data.='<div style="display: inline-block; margin-right:9px;">'.$user_profile['username'].'</div>';
            $data.='<div style="display: inline-block;margin-right:9px;font-size:15px;">following '.$user_profile_following['count'].'</div>';
-           $data.='<div style="display: inline-block;font-size:15px;">followers '.$user_profile_followers['count'].'</div>';
+           $data.='<div style="display: inline-block;margin-right:12px;font-size:15px;">followers '.$user_profile_followers['count'].'</div>';
+            $data.='<div style="display: inline-block;font-size:15px;">posts '.$user_profile_posts['count'].'</div>';
 
   					
   				}
