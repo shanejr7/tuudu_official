@@ -2997,47 +2997,11 @@ fetch_user(id,key);
                     },
    success:function(data){
     $('#user_profile_body').html(data);
-    console.log("work");
-   }
-  })
-
-
-
-          $.ajax({
-   url:"fetch_user_profile_tab.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#profile_tab_data').html(data);
     
-              $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-            $.ajax({
-   url:"fetch_user_following.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
    }
   })
-   }
-  })
-   }
-  })
+
+
 
  }
 
