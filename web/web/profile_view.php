@@ -423,6 +423,17 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
                         echo '<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
                       }
 
+
+                      if($user_follow){
+
+                  $data.='<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-danger pull-right btn-round">unfollow</button>';
+
+                }elseif(!$user_follow){
+
+                  $data.='<button type="button" data-pid="'.$post_id.'" data-id="'.$sid.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">follow</button>';
+
+                }
+
                     }
  pg_close($db);
                  ?>
