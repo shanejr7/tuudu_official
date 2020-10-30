@@ -85,9 +85,9 @@ if (!$db) {
                   
                   }
 
-                  $data.='<div class="tab-content tab-space cd-section">
+                  $data.='a
 
-          <div class="tab-pane text-center gallery section section-sections">
+          
            <div class="row">';
 
     		if (isset($user_view)) {
@@ -178,7 +178,7 @@ if (!$db) {
 
      }
 
-     		$data.='</div></div></div>';
+     		$data.='</div>';
 
 
 
