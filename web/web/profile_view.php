@@ -421,11 +421,16 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
                       if (isset($following_count)) {
                         
                         echo '<li id="following_count" style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
+                      }else{
+
+                      	echo '<li id="following_count" style="display: inline-block;margin-right:3px;">Following <b>0</b></li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        echo '<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
+                        echo '<li id="followers_count" style="display: inline-block;">Followers <b>0</b></li>';
+                      }else{
+                      	echo '<li id="followers_count" style="display: inline-block;">Followers <b>0</b></li>';
                       }
 
 
