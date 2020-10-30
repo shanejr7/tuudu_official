@@ -333,8 +333,10 @@ echo "string".$user_signed_in_id;
 echo "string".$user_id;
 
 
-                        if (isset($user_id) && isset($user_signed_in_id ) && $user_signed_in_id ==$user_id) {
+                        if (isset($user_id) && isset($user_signed_in_id ) && intval($user_signed_in_id) ==intval($user_id)) {
                         	   header('location:profile.php');
+                        }else{
+                        	echo "false";
                         }
 
 
