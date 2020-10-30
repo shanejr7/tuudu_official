@@ -97,15 +97,15 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
 
                 $data.= '<div style="margin-top:15px;display: inline-block;">
-              <div class="avatar" style="width:120px;">
+              <div class="avatar" style="width:120px;margin-right:10px;">
                 <img src="'.$presignedUrl.'" alt="Circle Image" class="img-raised rounded-circle img-fluid">
               </div>
            </div>';
 
 
-           $data.='<div style="display: inline-block; margin-right:3px;">'.$user_profile['username'].'</div>';
-           $data.='<div style="display: inline-block;margin-right:3px;">following '.$user_profile_following['count'].'</div>';
-           $data.='<div style="display: inline-block;">followers '.$user_profile_followers['count'].'</div>';
+           $data.='<div style="display: inline-block; margin-right:9px;">'.$user_profile['username'].'</div>';
+           $data.='<div style="display: inline-block;margin-right:9px;font-size:10px;">following '.$user_profile_following['count'].'</div>';
+           $data.='<div style="display: inline-block;font-size:10px;">followers '.$user_profile_followers['count'].'</div>';
 
   					
   				}
