@@ -431,11 +431,11 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
                       if($user_follow){
 
-                  echo'<button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button>';
+                  echo'<div id="following_btn"><button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_unfollow_user btn btn-primary pull-right btn-round">following</button></div>';
 
                 }elseif(!$user_follow){
 
-                  echo'<button type="button"  data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">follow</button>';
+                  echo'<div id="follow_btn"><button type="button"  data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">follow</button>';
 
                 }
 
@@ -1130,7 +1130,7 @@ unfollow(id,key);
                     },
    success:function(data){
 
-      $('#following').html(data);
+      $('#following_btn').html(data);
 
 
       $.ajax({
