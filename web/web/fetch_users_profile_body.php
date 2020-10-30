@@ -70,7 +70,7 @@ if (isset($_POST['id']) && isset($_POST['publickey'])) {
     
     		}
 
-    		$data.='hello';
+    		$data.=$user_id.' hello';
 
 
 
