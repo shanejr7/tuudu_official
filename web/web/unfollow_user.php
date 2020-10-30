@@ -71,7 +71,7 @@ if (isset($_POST['id']) && isset($_POST['publickey']) && isset($_POST['toggle'])
 
 
 
-      $data.='<button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-primary pull-right btn-round">follow</button>';
+      $data.='<button type="button" data-id="'.$user_id.'" data-publickey="'.$publickey.'" class="post_follow_user btn btn-default pull-right btn-round">follow</button>';
 
 
 
