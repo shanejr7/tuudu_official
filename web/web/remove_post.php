@@ -62,6 +62,11 @@ if (isset($_SESSION['id']) && isset($_POST['publickey']) && isset($_POST['remove
 
 // removing user post
 
+  	  $result = pg_query($db, "DELETE FROM public.organization WHERE id = $user_id AND publickey = '$publickey'");
+	  $result = pg_query($db, "DELETE FROM public.poststate WHERE publickey = '$publickey'");
+	  $result = pg_query($db, "DELETE FROM public.fav_message WHERE publickey = '$publickey'");
+	  $result = pg_query($db, "DELETE FROM public.messagestate WHERE publickey = '$publickey'");
+
 	     try
 {
     // echo 'Attempting to delete ' . $keyname . '...' . PHP_EOL;
@@ -91,12 +96,6 @@ if ($user) {
     {
         // echo $keyname . ' was deleted or does not exist.' . PHP_EOL;
 
-        // remove post assocications in db
-
-$result = pg_query($db, "DELETE FROM public.organization WHERE id = $user_id AND publickey = '$publickey'");
-$result = pg_query($db, "DELETE FROM public.poststate WHERE publickey = '$publickey'");
-$result = pg_query($db, "DELETE FROM public.fav_message WHERE publickey = '$publickey'");
-$result = pg_query($db, "DELETE FROM public.messagestate WHERE publickey = '$publickey'");
 
     } else {
         // exit('Error: ' . $keyname . ' was not deleted.' . PHP_EOL);
