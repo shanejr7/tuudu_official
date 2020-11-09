@@ -673,7 +673,7 @@ is not NULL ORDER BY organization.date");
                   
                   // }
 
-                  //  if (isset($token) && $token =='product') {
+                  //   if (isset($token) && $token =='product') {
 
                   
                   //   echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
@@ -685,6 +685,8 @@ is not NULL ORDER BY organization.date");
                   //      .toString($item['date']).'</div>';
 
                   // }
+
+               echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">close</i><span class="span">remove</span></div>';
 
 
 
