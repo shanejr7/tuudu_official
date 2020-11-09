@@ -9,7 +9,6 @@
 
 include('feed_state.php'); // retrieves organizations for users
 include('favorite.php'); // favoriting posts
-include('remove_post.php'); // removes posts
    
 // require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 
