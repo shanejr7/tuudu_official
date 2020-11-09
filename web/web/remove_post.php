@@ -7,6 +7,9 @@
 */
 
 include('server.php'); //server
+
+
+
 // require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 
 require('../aws/Aws/S3/ObjectUploader.php'); 
@@ -24,6 +27,13 @@ $s3 = new Aws\S3\S3Client([
 $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
 
+
+
+
+
+
+
+
 if (isset($_SESSION['id']) && isset($_POST['publickey']) && isset($_POST['remove_post'])) {
 	
 
@@ -40,7 +50,7 @@ if (isset($_SESSION['id']) && isset($_POST['publickey']) && isset($_POST['remove
       }
 
    	 $publickey = "";
-	 $publickey = pg_escape_string($db,$_GET['publickey']);
+	 $publickey = pg_escape_string($db,$_POST['publickey']);
 	 $publickey = trim($publickey);
 
 
