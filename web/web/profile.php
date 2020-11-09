@@ -8,7 +8,8 @@
 */
 
 include('feed_state.php'); // retrieves organizations for users
-include('favorite.php');
+include('favorite.php'); // favoriting posts
+include('remove_post.php'); // removes posts
    
 // require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 
@@ -687,7 +688,7 @@ is not NULL ORDER BY organization.date");
                   // }
 
                echo '<div  class="top-leftOpacity h6" style="width:10px;">
-               <a href="#">
+               <a href="#remove" data-toggle="modal" data-target=".bd-example-modal-sm">
                <i class="material-icons">more_horiz</i>
                </a>
                </div>';
@@ -736,6 +737,15 @@ is not NULL ORDER BY organization.date");
 
           ?>
         </div>
+
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-sm">
+                   <div class="modal-content">
+      Remove post..
+      <a href="#"><button class="btn btn-danger btn-sm">okay</button></a>
+                  </div>
+              </div>
+      </div>
 
 <div class="row">
 
