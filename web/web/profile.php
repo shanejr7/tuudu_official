@@ -736,7 +736,10 @@ is not NULL ORDER BY organization.date");
                    <div class="modal-content">
                       Remove post..
 
-      <a href="remove_post.php?publickey='.$item['publickey'].'"><button class="btn btn-danger btn-sm">okay</button></a>
+      <form method="post" action="remove_post.php">
+      <input type="hidden" value="'.$item['publickey'].'" name="publickey">
+      <button type="submit" value="true" name="remove_post" class="btn btn-danger btn-sm">okay</button>
+      </form>
                   </div>
               </div>
       </div>';

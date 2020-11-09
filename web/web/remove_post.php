@@ -9,7 +9,7 @@
 
 
 
-if (isset($_SESSION['id']) && isset($_GET['publickey'])) {
+if (isset($_SESSION['id']) && isset($_POST['publickey']) && isset($_POST['remove_post'])) {
 	
 
 	  $user_id = "";
