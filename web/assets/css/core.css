@@ -37,7 +37,7 @@
   color: white;
 }
  
-.contain:hover .bottom-left,.contain:hover .bottom-right,.contain:hover .centered{
+.contain:hover .bottom-left, .top-leftOpacity,.contain:hover .bottom-right,.contain:hover .centered{
   opacity: 1;
 
     /*for hover transition .img:hover*/
@@ -64,6 +64,7 @@
   left: 16px;
 }
 
+
 .top-right {
   position: absolute;
   top: 8px;
@@ -71,7 +72,13 @@
 }
  
 
- 
+ .top-leftOpacity {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  opacity: 0;
+}
+
 .bottom-left{
    position: absolute;
 
