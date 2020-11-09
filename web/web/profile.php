@@ -729,6 +729,17 @@ is not NULL ORDER BY organization.date");
 
 
                        }
+
+
+                       echo '<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-sm">
+                   <div class="modal-content">
+                      Remove post..
+
+      <a href="remove_post.php?publickey='.$item['publickey'].'"><button class="btn btn-danger btn-sm">okay</button></a>
+                  </div>
+              </div>
+      </div>';
                      }
 
 
@@ -738,17 +749,7 @@ is not NULL ORDER BY organization.date");
           ?>
         </div>
 
-        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-               <div class="modal-dialog modal-sm">
-                <div class="modal-header">
-                   Remove post..
-                </div>
-                   <div class="modal-content">
-
-      <a href="#"><button class="btn btn-danger btn-sm">okay</button></a>
-                  </div>
-              </div>
-      </div>
+      
 
 <div class="row">
 
