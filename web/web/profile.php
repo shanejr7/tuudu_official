@@ -686,9 +686,9 @@ is not NULL ORDER BY organization.date");
 
                   // }
 
-               echo '<div style="color:red" class="top-leftOpacity h6" style="width:10px;">
+               echo '<div  class="top-leftOpacity h6" style="width:10px;">
                <a href="#">
-               <i class="material-icons">close</i>
+               <i class="material-icons">more_horiz</i>
                </a>
                </div>';
 
