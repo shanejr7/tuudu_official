@@ -70,7 +70,7 @@ if ($user) {
 
 $result = pg_query($db, "DELETE FROM public.organization WHERE id = $user_id AND publickey = '$publickey'");
 $result = pg_query($db, "DELETE FROM public.poststate WHERE publickey = '$publickey'");
-$result = pg_query($db, "DELETE FROM public.favorite WHERE publickey = '$publickey'");
+$result = pg_query($db, "DELETE FROM public.fav_message WHERE publickey = '$publickey'");
 $result = pg_query($db, "DELETE FROM public.messagestate WHERE publickey = '$publickey'");
 
     } else {
