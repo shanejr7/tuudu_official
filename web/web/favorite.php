@@ -81,9 +81,9 @@ if (isset($_GET['publickey']) && isset($_SESSION['id'])) {
 
 	 pg_close($db);
 
-   $_SERVER['REQUEST_URI'] = strtok($_SERVER['REQUEST_URI', '?');
+   //$_SERVER['REQUEST_URI'] = strtok($_SERVER['REQUEST_URI', '?');
 
-   
+
 
 }
 
