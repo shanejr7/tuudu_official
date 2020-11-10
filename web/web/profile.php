@@ -1703,6 +1703,7 @@ var toggle=$(this).data("toggle");
 
 console.log(key);
 console.log(id);
+console.log(toggle);
 fav(id,key,toggle);
 
 
