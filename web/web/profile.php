@@ -1688,7 +1688,18 @@ fav(id,key);
  function fav(id,publickey)
  {
 
-
+   $.ajax({
+   url:"fetch_user_followers.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+   
+     
+   }
+  })
       $.ajax({
    url:"fetch_user_profile_tab.php",
    method:"POST",
@@ -1722,18 +1733,6 @@ fav(id,key);
    }
   })
 
-      $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
      
    }
   })
