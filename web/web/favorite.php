@@ -202,7 +202,7 @@ is not NULL ORDER BY organization.date");
 
 
                   $data.= '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="profile.php?publickey='.$item['publickey'].' class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'"">';
+                        <a href="#" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'"">';
 
                         if ($item['favorite']==1) {
                           $data.= '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
