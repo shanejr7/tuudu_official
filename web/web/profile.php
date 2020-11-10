@@ -698,7 +698,7 @@ is not NULL ORDER BY organization.date");
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="#" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'"">';
+                        <a href="#" class="" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'"">';
 
                         if ($item['favorite']==1) {
                           echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
@@ -1688,57 +1688,18 @@ fav(id,key);
  {
 
 
-      $.ajax({
-   url:"fetch_user_profile_tab.php",
+    $.ajax({
+   url:"favorite.php",
    method:"POST",
    data : {
-        publickey : publickey,
-        id : id 
+        publickey : publickey
                     },
    success:function(data){
-    $('#home').html(data);
-      $.ajax({
-   url:"fetch_user_connection_tab.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#connection_follow_tab').html(data);
+ $('#fav_chat_heart').html(data);
 
-      $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
+
    }
   })
-     
-   }
-  })
-     
-   }
-  })
-
-
- //    $.ajax({
- //   url:"favorite.php",
- //   method:"POST",
- //   data : {
- //        publickey : publickey
- //                    },
- //   success:function(data){
- // $('#fav_chat_heart').html(data);
-
-
- //   }
- //  })
 
  }
 
