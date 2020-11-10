@@ -1677,7 +1677,7 @@ unfollow(pid,id,key);
     });
       $(document).on('click', '.fav_chat', function () {
 
-var key=$(this).data("publickey");
+var key=$(this).data("key");
 var id=$(this).data("id");
 
 console.log(key);
