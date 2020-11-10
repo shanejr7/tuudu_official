@@ -437,7 +437,7 @@ if (isset($temp) && $temp ==1) {
   <div class="tab-content tab-space cd-section" id="body" role="tabs">
 
           <div class="tab-pane text-center gallery section section-sections" id="posts">
-           <div class="row">
+           <div class="row" id="posted">
 <?php 
 
 
@@ -553,7 +553,7 @@ if (isset($temp) && $temp ==1) {
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                    echo '<div class="bottom-left" style="font-weight: bolder;">
+                    echo '<div class="bottom-left" style="font-weight: bolder;" >
                         <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="2">';
 
                         if ($item['favorite']==1) {
@@ -1835,8 +1835,8 @@ fav(id,key,toggle);
         toggle : toggle
                     },
    success:function(data){
- $('#posts').html(data);
-
+ $('#posted').html(data);
+console.log("success");
 
 
    }
