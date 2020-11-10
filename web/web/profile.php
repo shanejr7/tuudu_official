@@ -1741,7 +1741,7 @@ fav(id,key,toggle);
    url:"favorite.php",
    method:"POST",
    data : {
-        publickey : publickey
+        publickey : publickey,
         toggle : toggle
                     },
    success:function(data){
