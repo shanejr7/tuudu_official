@@ -27,12 +27,15 @@ $bucket_name = 'tuudu-official-file-storage';
 // issue may appear getting negative value when unfavoriting 
 
 
-if (isset($_POST['publickey']) && isset($_SESSION['id'])) {
+if (isset($_POST['toggle']) && isset($_POST['publickey']) && isset($_SESSION['id'])) {
 	  
 	  $user_id = "";
 	  $user_id = $_SESSION['id'];
     $data="";
     $home_list = array();
+    $product_list = array();
+    $publickey = "";
+    $toggle = "";
 
 
 	  $db = pg_connect(getenv("DATABASE_URL"));
@@ -43,7 +46,8 @@ if (isset($_POST['publickey']) && isset($_SESSION['id'])) {
         header('location:oops.php');
       }
 
-   $publickey = "";
+  
+   $toggle = pg_escape_string($db,$_POST['toggle']);
 	 $publickey = pg_escape_string($db,$_POST['publickey']);
 	 $publickey = trim($publickey);
 
@@ -99,7 +103,11 @@ if (isset($_POST['publickey']) && isset($_SESSION['id'])) {
  }
 
 
-                    $result_one = pg_query($db,"SELECT * FROM organization
+if ($toggle==0) {
+  // home profile tab
+
+
+                 $result_one = pg_query($db,"SELECT * FROM organization
 NATURAL JOIN poststate WHERE publickey in (select DISTINCT publickey from poststate
 WHERE user_id = $user_id) AND post_type ='user_post' AND date_submitted 
 is not NULL ORDER BY organization.date");
@@ -135,6 +143,18 @@ is not NULL ORDER BY organization.date");
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
+
+              // id for post on page
+
+                $randomString = "";
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+   
+                $n = 10;
+  
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
 
 
               
@@ -190,7 +210,7 @@ is not NULL ORDER BY organization.date");
 
                   // }
 
-               $data.= '<div  class="top-leftOpacity h6" style="width:10px;" id="like'.$item['id'].'">
+               $data.= '<div  class="top-leftOpacity h6" style="width:10px;" id="like'.$randomString.'">
                <a href="#remove" data-toggle="modal" data-target=".bd-example-modal-sm">
                <i class="material-icons">more_horiz</i>
                </a>
@@ -202,7 +222,7 @@ is not NULL ORDER BY organization.date");
 
 
                   $data.= '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="#like'.$item['id'].'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'">';
+                        <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="0">';
 
                         if ($item['favorite']==1) {
                           $data.= '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
@@ -251,6 +271,172 @@ is not NULL ORDER BY organization.date");
 
 
                     }
+  
+}elseif ($toggle==1) {
+  // product profile tab
+
+
+   $result = pg_query($db,
+    "SELECT * FROM organization NATURAL JOIN poststate WHERE id = $user_id AND post_type != 'user_post' ORDER BY organization.date");
+
+
+     if ($result) {
+
+      if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) {
+                      
+      
+                      $product_list[] = array("word_tag" => $row["word_tag"], "id" =>$row["id"], "title" => $row["title"], "organization_name" => $row["organization_name"], "phonenumber" => $row['phonenumber'], "email" => $row['email'], "address" => $row['address'], "date" => $row['date'], "time" => $row['time'], "url" => $row['url'], "img" => $row['img'],
+                        "description" => $row['description'], "content" => $row['content'], "publickey" => $row['publickey'], "price" => $row['fiatvalue'], "views" => $row['views'], "date_submitted" => $row['date_submitted'], "payment_type" => $row['payment_type'], "favorites" => $row['favorites'],"user_id" => $row['user_id'], "favorite" => $row['favorite'], "message" => $row['message']);
+
+
+                    }
+                  
+                  }else {
+array_push($errors_products, "0 results");
+                    
+                  }
+
+
+
+                       }else{
+                        header('location:oops.php');
+                       }
+
+
+
+
+                         if (isset($product_list)) {
+
+
+
+                          foreach($product_list as $item) {
+
+                            $cmd = $s3->getCommand('GetObject', [
+                            'Bucket' => ''.$bucket_name.'',
+                            'Key'    => ''.trim($item["img"]).'',
+                          ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+
+                  $randomString = "";
+                  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+   
+                $n = 10;
+  
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
+
+
+
+              
+
+               echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain carousel slide" data-ride="carousel">';
+
+           
+                
+ 
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                         <a href="'.$item['url'].'"><i class="material-icons">strikethrough_s</i></a></div>';
+
+                        }else{
+
+                  echo ' <a href="'.$item['url'].'"><div class="top-right h6">$'.trim($item['price']).'</a></div>';
+                  
+                  }
+
+   
+                  if (isset($token) && $token =='product') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+                  }
+
+                
+
+                  echo '<div class="centeredm h4" id="like'.$randomString.'">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                       <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="1">';
+
+                        if ($item['favorite']==1) {
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+
+                        }else{
+
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                        }
+
+                     
+
+  //                 echo '<div class="centered"  style="font-weight: bolder;">
+  //                   <ol class="carousel-indicators">
+  //   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">1d</li>
+  //   <li data-target="#carouselExampleIndicators" data-slide-to="1">1w</li>
+  //   <li data-target="#carouselExampleIndicators" data-slide-to="2">2m</li>
+  // </ol></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
+
+
+                       }
+                     }
+
+  
+}else{
+  // dashboard post tab 
+
+}
+
+     
 
    echo $data;
 	 pg_close($db);

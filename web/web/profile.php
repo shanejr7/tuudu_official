@@ -632,8 +632,17 @@ is not NULL ORDER BY organization.date");
 
               $presignedUrl = (string)$request->getUri();
 
+               // id for post on page
 
-              
+                $randomString = "";
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+   
+                $n = 10;
+  
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
 
                echo '<div class="col-md-4">';
 
@@ -686,7 +695,7 @@ is not NULL ORDER BY organization.date");
 
                   // }
 
-               echo '<div  class="top-leftOpacity h6" style="width:10px;" id="like'.$item['id'].'">
+               echo '<div  class="top-leftOpacity h6" style="width:10px;" id="like'.$randomString.'">
                <a href="#remove" data-toggle="modal" data-target=".bd-example-modal-sm">
                <i class="material-icons">more_horiz</i>
                </a>
@@ -698,7 +707,7 @@ is not NULL ORDER BY organization.date");
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="#like'.$item['id'].'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'">';
+                        <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="0">';
 
                         if ($item['favorite']==1) {
                           echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
@@ -1135,7 +1144,7 @@ if (isset($_SESSION['id'])) {
 
                         // select user org post where id == session
                         try{
-   // $db_course = pg_connect("host=localhost dbname=postgres user=postgres password=manny6377");
+   
    $db = pg_connect(getenv("DATABASE_URL"));
 
 }catch(Execption $e){
@@ -1189,6 +1198,17 @@ pg_close($db);
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
+
+                  $randomString = "";
+                  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+   
+                $n = 10;
+  
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
+
 
 
               
@@ -1247,11 +1267,11 @@ pg_close($db);
 
                 
 
-                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+                  echo '<div class="centeredm h4" id="like'.$randomString.'">'.trim($item['description']).'</div>';
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="profile.php?publickey='.$item['publickey'].'">';
+                       <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="1">';
 
                         if ($item['favorite']==1) {
                           echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
@@ -1679,13 +1699,14 @@ unfollow(pid,id,key);
 
 var key=$(this).data("key");
 var id=$(this).data("id");
+var toggle=$(this).data("toggle");
 
 console.log(key);
 console.log(id);
-fav(id,key);
+fav(id,key,toggle);
 
 
- function fav(id,publickey)
+ function fav(id,publickey,toggle)
  {
 
 
@@ -1697,11 +1718,14 @@ fav(id,key);
         id : id 
                     },
    success:function(data){
-      $.ajax({
+
+    if (toggle ==0) {
+         $.ajax({
    url:"favorite.php",
    method:"POST",
    data : {
         publickey : publickey
+        toggle : toggle
                     },
    success:function(data){
  $('#fav_chat_heart').html(data);
@@ -1710,6 +1734,23 @@ fav(id,key);
 
    }
   })
+    }else if(toggle==1){
+         $.ajax({
+   url:"favorite.php",
+   method:"POST",
+   data : {
+        publickey : publickey
+        toggle : toggle
+                    },
+   success:function(data){
+ $('#posted').html(data);
+
+
+
+   }
+  })
+    }
+   
 
     $('#profile_tab_data').html(data);
       $.ajax({
