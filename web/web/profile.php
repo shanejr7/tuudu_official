@@ -8,7 +8,7 @@
 */
 
 include('feed_state.php'); // retrieves organizations for users
-include('favorite.php'); // favoriting posts
+//include('favorite.php'); // favoriting posts
    
 // require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 
@@ -501,7 +501,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 </div>
               </div>
     <div class="text-center gallery">
-                <div class="row " id="fav_chat">
+                <div class="row " id="fav_chat_heart">
           <?php
 
 
@@ -1688,18 +1688,6 @@ fav(id,key);
  {
 
 
-    $.ajax({
-   url:"favorite.php",
-   method:"POST",
-   data : {
-        publickey : publickey
-                    },
-   success:function(data){
- $('#fav_chat').html(data);
-
-
-   }
-  })
       $.ajax({
    url:"fetch_user_profile_tab.php",
    method:"POST",
@@ -1736,6 +1724,20 @@ fav(id,key);
    }
   })
      
+   }
+  })
+
+
+    $.ajax({
+   url:"favorite.php",
+   method:"POST",
+   data : {
+        publickey : publickey
+                    },
+   success:function(data){
+ $('#fav_chat_heart').html(data);
+
+
    }
   })
 
