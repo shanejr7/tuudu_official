@@ -190,7 +190,7 @@ is not NULL ORDER BY organization.date");
 
                   // }
 
-               $data.= '<div  class="top-leftOpacity h6" style="width:10px;">
+               $data.= '<div  class="top-leftOpacity h6" style="width:10px;" id="like'.$item['id'].'">
                <a href="#remove" data-toggle="modal" data-target=".bd-example-modal-sm">
                <i class="material-icons">more_horiz</i>
                </a>
@@ -202,7 +202,7 @@ is not NULL ORDER BY organization.date");
 
 
                   $data.= '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="#" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'">';
+                        <a href="#like'.$item['id'].'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'">';
 
                         if ($item['favorite']==1) {
                           $data.= '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';

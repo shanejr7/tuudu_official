@@ -686,7 +686,7 @@ is not NULL ORDER BY organization.date");
 
                   // }
 
-               echo '<div  class="top-leftOpacity h6" style="width:10px;">
+               echo '<div  class="top-leftOpacity h6" style="width:10px;" id="like'.$item['id'].'">
                <a href="#remove" data-toggle="modal" data-target=".bd-example-modal-sm">
                <i class="material-icons">more_horiz</i>
                </a>
@@ -698,7 +698,7 @@ is not NULL ORDER BY organization.date");
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="#fav_chat_heart" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'">';
+                        <a href="#like'.$item['id'].'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'">';
 
                         if ($item['favorite']==1) {
                           echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
