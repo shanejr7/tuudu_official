@@ -23,7 +23,7 @@
     // to show on store and other topics to show on dashboard
 
 include('feed_state.php'); // retrieves organizations for users
-//include('favorite.php');
+
    
 // require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 
@@ -456,6 +456,18 @@ if (isset($temp) && $temp ==1) {
 
               $presignedUrl = (string)$request->getUri();
 
+                $randomString = "";
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+   
+                $n = 10;
+              
+  
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
+
+
   //             $uid = $item['org_id'];
 
   //  $db = pg_connect(getenv("DATABASE_URL"));
@@ -542,7 +554,7 @@ if (isset($temp) && $temp ==1) {
 
 
                     echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="profile.php?publickey='.$item['publickey'].'">';
+                        <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="2">';
 
                         if ($item['favorite']==1) {
                           echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
@@ -556,7 +568,7 @@ if (isset($temp) && $temp ==1) {
                   // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
 
                  
-                 echo '<div class="bottom-right" style="font-weight: bolder;">
+                 echo '<div class="bottom-right" style="font-weight: bolder;" id="like'.$randomString.'">
                          <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
@@ -1792,6 +1804,44 @@ unfollow_button(id,key);
  }
 
  
+
+
+    });
+
+
+        $(document).on('click', '.fav_chat', function () {
+
+var key=$(this).data("key");
+var id=$(this).data("id");
+var toggle=$(this).data("toggle");
+
+
+fav(id,key,toggle);
+
+
+ function fav(id,publickey,toggle)
+ {
+
+
+            $.ajax({
+   url:"favorite.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        toggle : toggle
+                    },
+   success:function(data){
+ $('#posts').html(data);
+
+
+
+   }
+  })
+
+
+ 
+
+ }
 
 
     });

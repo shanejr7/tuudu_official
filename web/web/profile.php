@@ -1268,10 +1268,10 @@ pg_close($db);
 
                 
 
-                  echo '<div class="centeredm h4" id="like'.$randomString.'">'.trim($item['description']).'</div>';
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                  echo '<div class="bottom-left" style="font-weight: bolder;" id="like'.$randomString.'">
                        <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="1">';
 
                         if ($item['favorite']==1) {
