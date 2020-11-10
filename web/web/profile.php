@@ -698,7 +698,7 @@ is not NULL ORDER BY organization.date");
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="#" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'">';
+                        <a href="#fav_chat_heart" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'">';
 
                         if ($item['favorite']==1) {
                           echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
@@ -1706,12 +1706,11 @@ fav(id,key);
    success:function(data){
  $('#fav_chat_heart').html(data);
 
- console.log("success");
 
 
    }
   })
-      
+
     $('#profile_tab_data').html(data);
       $.ajax({
    url:"fetch_user_connection_tab.php",
