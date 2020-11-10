@@ -1714,6 +1714,7 @@ fav(id,key);
                     },
    success:function(data){
  $('#fav_chat_heart').html(data);
+ $('#fav_chat_heart').show();
  console.log("success");
 
 
