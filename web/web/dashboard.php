@@ -1832,7 +1832,6 @@ fav(id,key,toggle);
                     },
    success:function(data){
  $('#posted').html(data);
-console.log("success");
 
 
    }

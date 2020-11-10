@@ -5,7 +5,7 @@
   *
   
 */
-include("feed_state.php");
+include("server.php");
 
 
 // require('../aws/aws-autoloader.php');
@@ -34,6 +34,7 @@ if (isset($_POST['toggle']) && isset($_POST['publickey']) && isset($_SESSION['id
     $data="";
     $home_list = array();
     $product_list = array();
+    $posts_list = array();
     $publickey = "";
     $toggle = "";
 
@@ -434,6 +435,22 @@ array_push($errors_products, "0 results");
 }else if($toggle ==2){
   // dashboard post tab
 
+  
+ $result = pg_query($db, "SELECT DISTINCT USERS.username, organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite,organization.address
+      FROM public.organization NATURAL JOIN poststate,users WHERE users.id = poststate.user_id AND post_type='user_post' ORDER BY date, views");
+
+
+
+
+    if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $posts_list[] = array("username" => $row["username"],"date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"favorite" => $row["favorite"],"favorites" => $row["favorites"],"address" => $row["address"]);
+                       
+                    }
+                  
+                  }
 
   if (isset($posts_list)) {
 
