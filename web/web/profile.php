@@ -1697,7 +1697,7 @@ fav(id,key);
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
-
+console.log("hey");
       $.ajax({
    url:"fetch_user_connection_tab.php",
    method:"POST",

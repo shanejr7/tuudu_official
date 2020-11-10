@@ -254,11 +254,10 @@ is not NULL ORDER BY organization.date");
 
                     }
 
-
+  
+   echo $data;
 	 pg_close($db);
 
-
-   echo $data;
 
 
 }
