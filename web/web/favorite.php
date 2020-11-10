@@ -5,7 +5,6 @@
   *
   
 */
-
 include("server.php");
 
 
@@ -25,7 +24,6 @@ $s3 = new Aws\S3\S3Client([
 
 $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
-
 // issue may appear getting negative value when unfavoriting 
 
 
@@ -254,10 +252,11 @@ is not NULL ORDER BY organization.date");
 
                     }
 
-  
    echo $data;
 	 pg_close($db);
 
+
+   
 
 
 }
