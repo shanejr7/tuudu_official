@@ -1693,9 +1693,11 @@ fav(id,key);
    method:"POST",
    data : {
         publickey : publickey
+        id : id
                     },
    success:function(data){
  $('#fav_chat_heart').html(data);
+ console.log("success");
 
 
    }

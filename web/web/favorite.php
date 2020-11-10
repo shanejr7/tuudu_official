@@ -44,7 +44,7 @@ if (isset($_POST['publickey']) && isset($_SESSION['id'])) {
       }
 
    $publickey = "";
-	 $publickey = pg_escape_string($db,$_GET['publickey']);
+	 $publickey = pg_escape_string($db,$_POST['publickey']);
 	 $publickey = trim($publickey);
 
 
