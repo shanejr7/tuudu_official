@@ -1815,6 +1815,10 @@ var key=$(this).data("key");
 var id=$(this).data("id");
 var toggle=$(this).data("toggle");
 
+console.log(key);
+console.log(id);
+console.log(toggle);
+
 
 fav(id,key,toggle);
 
