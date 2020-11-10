@@ -31,7 +31,7 @@ if (isset($_POST['publickey']) && isset($_SESSION['id'])) {
 	  
 	  $user_id = "";
 	  $user_id = $_SESSION['id'];
-    $data.="";
+    $data="";
     $home_list = array();
 
 
