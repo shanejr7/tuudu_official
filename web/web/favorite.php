@@ -33,7 +33,7 @@ if (isset($_POST['publickey']) && isset($_SESSION['id'])) {
 	  $user_id = $_SESSION['id'];
     $data="";
     $home_list = array();
-
+    $data.='in';
 
 	  $db = pg_connect(getenv("DATABASE_URL"));
 
@@ -118,12 +118,12 @@ is not NULL ORDER BY organization.date");
                     
                     }else{
                       // echo "empty</br></br></br>";
-                  
+                  $data.='fas';
                      }
 
 
                       if (isset($home_list) && sizeof($home_list) > 0) {
-                
+                $data.='start';
 
                           foreach($home_list as $item) {
 
@@ -248,10 +248,10 @@ is not NULL ORDER BY organization.date");
       </div>';
                      }
 
-
+$data.='a';
 
                     }
-
+$data.='q';
    echo $data;
 	 pg_close($db);
 
