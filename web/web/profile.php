@@ -1728,18 +1728,18 @@ fav(id,key);
   })
 
 
-    $.ajax({
-   url:"favorite.php",
-   method:"POST",
-   data : {
-        publickey : publickey
-                    },
-   success:function(data){
- $('#fav_chat_heart').html(data);
+ //    $.ajax({
+ //   url:"favorite.php",
+ //   method:"POST",
+ //   data : {
+ //        publickey : publickey
+ //                    },
+ //   success:function(data){
+ // $('#fav_chat_heart').html(data);
 
 
-   }
-  })
+ //   }
+ //  })
 
  }
 
