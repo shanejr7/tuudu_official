@@ -9,11 +9,11 @@
 
 
 include("server.php");
-
+$data = "";
 
   if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
-  						$data = "";
+  						
   						$result = "";
   						$db="";
                         
@@ -80,14 +80,14 @@ include("server.php");
                         $data.='<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
                       }
 
-                      echo $data;
+                   
 
                       pg_close($db);
 
                     }
 
 
-
+   echo $data;
 
 
 	
