@@ -501,7 +501,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 </div>
               </div>
     <div class="text-center gallery">
-                <div class="row ">
+                <div class="row " id="fav_chat">
           <?php
 
 
@@ -698,7 +698,7 @@ is not NULL ORDER BY organization.date");
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="profile.php?publickey='.$item['publickey'].'">';
+                        <a href="profile.php?publickey='.$item['publickey'].' class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'"">';
 
                         if ($item['favorite']==1) {
                           echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
@@ -1630,6 +1630,74 @@ unfollow(pid,id,key);
    }
   })
    
+   }
+  })
+      $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#profile_tab_data').html(data);
+
+      $.ajax({
+   url:"fetch_user_connection_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#connection_follow_tab').html(data);
+
+      $.ajax({
+   url:"fetch_user_followers.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#followers').html(data);
+     
+   }
+  })
+     
+   }
+  })
+     
+   }
+  })
+
+ }
+
+
+    });
+      $(document).on('click', '.fav_chat', function () {
+
+var key=$(this).data("publickey");
+var id=$(this).data("id");
+
+
+fav(id,key);
+
+
+ function fav(id,publickey)
+ {
+
+
+    $.ajax({
+   url:"favorite.php",
+   method:"POST",
+   data : {
+        publickey : publickey
+                    },
+   success:function(data){
+ $('#fav_chat').html(data);
+
+
    }
   })
       $.ajax({
