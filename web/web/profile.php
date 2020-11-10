@@ -1706,6 +1706,19 @@ fav(id,key);
                     },
    success:function(data){
     $('#connection_follow_tab').html(data);
+        $.ajax({
+   url:"favorite.php",
+   method:"POST",
+   data : {
+        publickey : publickey
+                    },
+   success:function(data){
+ $('#fav_chat_heart').html(data);
+ console.log("success");
+
+
+   }
+  })
 
       $.ajax({
    url:"fetch_user_followers.php",
@@ -1727,19 +1740,7 @@ fav(id,key);
   })
 
 
-    $.ajax({
-   url:"favorite.php",
-   method:"POST",
-   data : {
-        publickey : publickey
-                    },
-   success:function(data){
- $('#fav_chat_heart').html(data);
- console.log("success");
-
-
-   }
-  })
+ 
 
  }
 
