@@ -213,7 +213,7 @@ is not NULL ORDER BY organization.date");
             $data.= '</div>';
 
 
-                       }
+                       
 
 
                        $data.= '<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
