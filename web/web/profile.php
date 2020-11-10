@@ -1680,7 +1680,8 @@ unfollow(pid,id,key);
 var key=$(this).data("publickey");
 var id=$(this).data("id");
 
-
+console.log(key);
+console.log(id);
 fav(id,key);
 
 
@@ -1714,7 +1715,7 @@ fav(id,key);
                     },
    success:function(data){
  $('#fav_chat_heart').html(data);
- $('#fav_chat_heart').show();
+
  console.log("success");
 
 
