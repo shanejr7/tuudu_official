@@ -390,7 +390,7 @@ array_push($errors_products, "0 results");
 
                 
 
-                  echo '<div class="centeredm h4" id="like'.$randomString.'">'.trim($item['description']).'</div>';
+                  echo '<div class="centeredm h4" >'.trim($item['description']).'</div>';
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;">
@@ -414,7 +414,7 @@ array_push($errors_products, "0 results");
   // </ol></div>';
 
                  
-                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                  echo '<div class="bottom-right" style="font-weight: bolder;" id="like'.$randomString.'">
                          <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
