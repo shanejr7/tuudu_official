@@ -1,7 +1,7 @@
 <?php 
 
 include("server.php");
-include('favorite.php');
+
 
 /* DOCS
 
