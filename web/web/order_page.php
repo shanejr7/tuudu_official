@@ -10,7 +10,6 @@
 
 include('feed_state.php');
 include('add_cart.php');
-include('favorite.php');
 
 // require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 
