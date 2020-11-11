@@ -434,7 +434,7 @@ if (!$db) {
 
 
     $result = pg_query($db, "SELECT DISTINCT USERS.username, organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite,organization.address
-      FROM public.organization NATURAL JOIN poststate,users WHERE users.id = poststate.user_id AND post_type='user_post' ORDER BY date, views");
+      FROM public.organization NATURAL JOIN poststate,users WHERE users.id = poststate.user_id AND post_type='user_post' AND type='user_post' ORDER BY date, views");
 
 
 
