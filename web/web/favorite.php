@@ -566,7 +566,7 @@ array_push($errors_products, "0 results");
                  // $data.= '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                   $data.= '<a href="#like'.$css_id.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="2">';
+                   $data.= '<a href="#like'.$css_id.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-pid="'.$css_id.'" data-toggle="2">';
 
                         if ($item['favorite']==1) {
                          $data.= '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a>';
