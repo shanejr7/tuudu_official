@@ -553,22 +553,25 @@ if (isset($temp) && $temp ==1) {
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                    echo '<div class="bottom-left" style="font-weight: bolder;" >
-                        <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="2">';
+                  echo '<div class="bottom-left" style="font-weight: bolder;" id="like'.$randomString.'">
+                        <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-pid="'.$randomString.'" data-toggle="2">';
 
                         if ($item['favorite']==1) {
-                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a>';
 
                         }else{
 
-                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a>';
                         }
+
+                        echo "</div>";
+
 
                   // echo '<div class="centered" style="font-weight: bolder;">
                   // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
 
                  
-                 echo '<div class="bottom-right" style="font-weight: bolder;" id="like'.$randomString.'">
+                 echo '<div class="bottom-right" style="font-weight: bolder;">
                          <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
@@ -1814,13 +1817,14 @@ unfollow_button(id,key);
 var key=$(this).data("key");
 var id=$(this).data("id");
 var toggle=$(this).data("toggle");
+var pid=$(this).data("pid");
 
 
 
-fav(id,key,toggle);
+fav(id,key,toggle,pid);
 
 
- function fav(id,publickey,toggle)
+ function fav(id,publickey,toggle,pid)
  {
 
             $.ajax({
@@ -1828,7 +1832,8 @@ fav(id,key,toggle);
    method:"POST",
    data : {
         publickey : publickey,
-        toggle : toggle
+        toggle : toggle,
+        pid : pid
                     },
    success:function(data){
  $('#posted').html(data);

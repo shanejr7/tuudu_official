@@ -27,11 +27,12 @@ $bucket_name = 'tuudu-official-file-storage';
 // issue may appear getting negative value when unfavoriting 
 
 
-if (isset($_POST['toggle']) && isset($_POST['publickey']) && isset($_SESSION['id'])) {
+if (isset($_POST['pid']) && isset($_POST['toggle']) && isset($_POST['publickey']) && isset($_SESSION['id'])) {
 	  
 	  $user_id = "";
 	  $user_id = $_SESSION['id'];
     $data="";
+    $pid ="";
     $home_list = array();
     $product_list = array();
     $posts_list = array();
@@ -47,7 +48,8 @@ if (isset($_POST['toggle']) && isset($_POST['publickey']) && isset($_SESSION['id
         header('location:oops.php');
       }
 
-  
+    
+   $css_id = pg_escape_string($db,$_POST['pid']);
    $toggle = pg_escape_string($db,$_POST['toggle']);
 	 $publickey = pg_escape_string($db,$_POST['publickey']);
 	 $publickey = trim($publickey);
@@ -435,48 +437,48 @@ array_push($errors_products, "0 results");
 }else if($toggle ==2){
   // dashboard post tab
 
-  
- $result = pg_query($db, "SELECT DISTINCT USERS.username, organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite,organization.address
-      FROM public.organization NATURAL JOIN poststate,users WHERE users.id = poststate.user_id AND post_type='user_post' ORDER BY date, views");
+
+ // $result = pg_query($db, "SELECT DISTINCT USERS.username, organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite,organization.address
+ //      FROM public.organization NATURAL JOIN poststate,users WHERE users.id = poststate.user_id AND post_type='user_post' ORDER BY date, views");
 
 
 
 
-    if (pg_num_rows($result) > 0) {
-                  // output data of each row
-                    while($row = pg_fetch_assoc($result)) { 
+    // if (pg_num_rows($result) > 0) {
+    //               // output data of each row
+    //                 while($row = pg_fetch_assoc($result)) { 
       
-                      $posts_list[] = array("username" => $row["username"],"date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"favorite" => $row["favorite"],"favorites" => $row["favorites"],"address" => $row["address"]);
+    //                   $posts_list[] = array("username" => $row["username"],"date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"favorite" => $row["favorite"],"favorites" => $row["favorites"],"address" => $row["address"]);
                        
-                    }
+    //                 }
                   
-                  }
+    //               }
 
-  if (isset($posts_list)) {
-
-
-       foreach($posts_list as $item) {
+  // if (isset($posts_list)) {
 
 
-         $cmd = $s3->getCommand('GetObject', [
-                                        'Bucket' => ''.$bucket_name.'',
-                                        'Key'    => ''.trim($item["img"]).'',
-                            ]);
+       // foreach($posts_list as $item) {
 
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
-              $presignedUrl = (string)$request->getUri();
+    //      $cmd = $s3->getCommand('GetObject', [
+    //                                     'Bucket' => ''.$bucket_name.'',
+    //                                     'Key'    => ''.trim($item["img"]).'',
+    //                         ]);
 
-                $randomString = "";
-                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+    //           $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+    //           $presignedUrl = (string)$request->getUri();
+
+    //             $randomString = "";
+    //             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
    
-                $n = 10;
+    //             $n = 10;
               
   
-    for ($i = 0; $i < $n; $i++) { 
-        $index = rand(0, strlen($characters) - 1); 
-        $randomString .= $characters[$index]; 
-    } 
+    // for ($i = 0; $i < $n; $i++) { 
+    //     $index = rand(0, strlen($characters) - 1); 
+    //     $randomString .= $characters[$index]; 
+    // } 
 
 
   //             $uid = $item['org_id'];
@@ -505,27 +507,27 @@ array_push($errors_products, "0 results");
   //             $presignedUrlUserPrf = (string)$request->getUri();
      
             
-              $data.='<div class="col-md-4">';
+              // $data.='<div class="col-md-4">';
 
           
-              $data.='<div class="contain">';
+              // $data.='<div class="contain">';
 
            
-                $splitFileString = strtok(trim($item["img"]), '.' );
-                $fileChecker = strtok('');
-                $fileChecker = strtoupper($fileChecker);
+              //   $splitFileString = strtok(trim($item["img"]), '.' );
+              //   $fileChecker = strtok('');
+              //   $fileChecker = strtoupper($fileChecker);
 
-                $string = trim($item["word_tag"]);
-                $string = strtolower($string);
-                $token = strtok($string, "_");
+              //   $string = trim($item["word_tag"]);
+              //   $string = strtolower($string);
+              //   $token = strtok($string, "_");
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                 $data.= '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
-              }else{
-                 $data.= '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
-              } 
+          // if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+          //        $data.= '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+          //     }else{
+          //        $data.= '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+          //     } 
  
               
                 
@@ -545,57 +547,61 @@ array_push($errors_products, "0 results");
                  
 //               } 
 
-                   if ($item['org_id']==$_SESSION['id']) {
-                    $data.= '<div class="top-right"> 
-                         <a href="profile.php" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
-                         </div>';
-                   }else{
-                     $data.= '<div class="top-right"> 
-                         <a href="profile_view.php?user='.$item['username'].'&id='.$item['org_id'].'" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
-                         </div>';
-                   }
+                   // if ($item['org_id']==$_SESSION['id']) {
+                   //  $data.= '<div class="top-right"> 
+                   //       <a href="profile.php" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
+                   //       </div>';
+                   // }else{
+                   //   $data.= '<div class="top-right"> 
+                   //       <a href="profile_view.php?user='.$item['username'].'&id='.$item['org_id'].'" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
+                   //       </div>';
+                   // }
 
 
-                   $data.= '<div class="top-left h6" style="width:10px;">'
-                       .toString($item['date']).'</div>';
+                   // $data.= '<div class="top-left h6" style="width:10px;">'
+                   //     .toString($item['date']).'</div>';
 
                 
 
-                 $data.= '<div class="centeredm h4">'.trim($item['description']).'</div>';
+                 // $data.= '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                   $data.= '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="2">';
+                   $data.= '<div class="bottom-left" style="font-weight: bolder;" id="like'.$css_id.'">
+                        <a href="#like'.$css_id.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="2">';
 
                         if ($item['favorite']==1) {
-                         $data.= '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+                         $data.= '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a>';
 
                         }else{
 
-                         $data.= '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                         $data.= '<i class="material-icons" style="font-size:18pt;">favorite</i></a>';
                         }
 
+
+                        $data.= '</div>';
+
+                        
                   // echo '<div class="centered" style="font-weight: bolder;">
                   // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
 
                  
-                 $data.= '<div class="bottom-right" style="font-weight: bolder;" id="like'.$randomString.'">
-                         <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
+                 // $data.= '<div class="bottom-right" style="font-weight: bolder;" id="like'.$randomString.'">
+                 //         <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
  
 
 
 
-                $data.= '</div>';
+                // $data.= '</div>';
               
           
               
-            $data.= '</div>';
+            // $data.= '</div>';
 
 
-       }
+       // }
        
 
-     } 
+     // } 
 
 }
 
