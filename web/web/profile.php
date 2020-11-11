@@ -709,7 +709,7 @@ is not NULL ORDER BY organization.date");
                   // echo '<div class="centeredm h4">'.trim($item['title']).'</div>';
 
 
-                  echo '<div class="bottom-left" style="font-weight: bolder;" id="postLike">
+              echo '<div class="bottom-left" style="font-weight: bolder;" id="postLike'.$randomString.'">
                         <a href="#postLike'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-cid="'.$randomString.'" data-toggle="0">';
 
                         if ($item['favorite']==1) {
