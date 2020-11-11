@@ -710,17 +710,17 @@ is not NULL ORDER BY organization.date");
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;" id="postLike">
-                        <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="0">';
+                        <a href="#postLike'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-cid="'.$randomString.'" data-toggle="0">';
 
                         if ($item['favorite']==1) {
-                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a>';
 
                         }else{
 
-                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a>';
                         }
 
-                     
+                     echo '</div>';
 
                   // echo '<div class="centered" style="font-weight: bolder;">
                   // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
