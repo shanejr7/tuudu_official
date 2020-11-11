@@ -1823,7 +1823,7 @@ var cid=$(this).data("cid");
 
 
 
-fav(id,key,toggle,pid);
+fav(id,key,toggle,cid);
 
 
  function fav(id,publickey,toggle,cid)
@@ -1839,7 +1839,7 @@ fav(id,key,toggle,pid);
         id : id
                     },
    success:function(data){
- $('#like'+pid).html(data);
+ $('#like'+cid).html(data);
 
 
    }
