@@ -565,15 +565,19 @@ if (isset($temp) && $temp ==1) {
                       if (strcmp(trim($itemLike['publickey']),trim($item['publickey']))) {
 
                         $item['favorite']=1;
+                        echo "1";
 
                         break;
 
                       }else{
 
                          $item['favorite']=0;
+                         echo "2";
                       }
                     }
                     
+                  }else{
+                    echo "empty";
                   }
 
                   echo '<div class="bottom-left" style="font-weight: bolder;" id="like'.$randomString.'">
