@@ -541,6 +541,19 @@ $result = pg_query($db, "SELECT favorite,publickey from public.organization as o
 
               $presignedUrl = (string)$request->getUri();
 
+                $randomString = "";
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+   
+                $n = 10;
+              
+  
+    for ($i = 0; $i < $n; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
+
+    $randomString = trim($randomString);
+
 
               
 
