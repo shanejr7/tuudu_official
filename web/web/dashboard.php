@@ -562,7 +562,7 @@ if (isset($temp) && $temp ==1) {
                     
                     foreach ($userFav as $itemLike) {
                       
-                      if (strcmp($itemLike['publickey'],$itemLike['publickey'])) {
+                      if (strcmp($itemLike['publickey'],$item['publickey'])) {
 
                         $item['favorite']=1;
 
