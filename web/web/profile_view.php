@@ -626,7 +626,7 @@ $result = pg_query($db, "SELECT favorite,publickey from public.organization as o
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;" id="postLike'.$randomString.'">
-                        <a href="#postLike'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-cid="'.$randomString.'" data-toggle="0">';
+                        <a href="#postLike'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-cid="'.$randomString.'" data-toggle="2">';
 
                         if ($item['favorite']==1) {
                           echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a>';
