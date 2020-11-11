@@ -484,7 +484,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
                       $result_one = pg_query($db,"SELECT * FROM organization
 NATURAL JOIN poststate WHERE publickey in (select DISTINCT publickey from poststate
-WHERE user_id = $user_id) AND post_type ='user_post' AND type='user_post' AND date_submitted 
+WHERE user_id = $user_id AND type='user_post') AND post_type ='user_post' AND type='user_post' AND date_submitted 
 is not NULL ORDER BY organization.date");
 
 
