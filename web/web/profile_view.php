@@ -456,6 +456,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
 
                  $home_list = array();
+                 $user_fav = array();
 
                  $user_signed_in_id = '';
                          
@@ -502,6 +503,24 @@ is not NULL ORDER BY organization.date");
                   
                      }
                     }
+
+
+$result = pg_query($db, "SELECT favorite,publickey from public.organization as o 
+    NATURAL JOIN poststate as p WHERE user_id=$user_signed_in_id AND publickey in(select publickey from poststate)");
+
+
+
+
+    if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                    $user_fav[] = array("favorite" => $row["favorite"],"publickey" => $row["publickey"]);
+                       
+                    }
+                  
+                  }
+
 
                      pg_close($db);
 
@@ -583,16 +602,41 @@ is not NULL ORDER BY organization.date");
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                  echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="profile.php?publickey='.$item['publickey'].'">';
+                        if (isset($user_fav)) {
+                    
+                    foreach ($user_fav as $itemLike) {
+                      
+                      if (strcmp(trim($itemLike['publickey']),trim($item['publickey'])) && $itemLike['favorite']==1) {
+
+                        $item['favorite']=1;
+                         // echo "1";
+
+                        break;
+
+                      }else{
+
+                         $item['favorite']=0;
+                          // echo "2";
+                      }
+                    }
+                    
+                  }else{
+                    // echo "empty";
+                  }
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;" id="postLike'.$randomString.'">
+                        <a href="#postLike'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-cid="'.$randomString.'" data-toggle="0">';
 
                         if ($item['favorite']==1) {
-                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a>';
 
                         }else{
 
-                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a>';
                         }
+
+                        echo "</div>";
 
                      
 
@@ -1778,7 +1822,84 @@ reply_post(id,key);
     });
 
 
+      $(document).on('click', '.fav_chat', function () {
 
+var key=$(this).data("key");
+var id=$(this).data("id");
+var toggle=$(this).data("toggle");
+var cid=$(this).data("cid");
+
+
+fav(id,key,toggle,cid);
+
+
+ function fav(id,publickey,toggle,cid)
+ {
+
+
+      $.ajax({
+   url:"fetch_user_profile_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id
+                    },
+   success:function(data){
+
+         $.ajax({
+   url:"favorite.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        toggle : toggle,
+        cid : cid,
+        id : id
+                    },
+   success:function(data){
+ $('#postLike'+cid).html(data);
+
+   }
+  })
+    
+   
+
+    $('#profile_tab_data').html(data);
+      $.ajax({
+   url:"fetch_user_connection_tab.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#connection_follow_tab').html(data);
+
+      $.ajax({
+   url:"fetch_user_followers.php",
+   method:"POST",
+   data : {
+        publickey : publickey,
+        id : id 
+                    },
+   success:function(data){
+    $('#followers').html(data);
+     
+   }
+  })
+     
+   }
+  })
+     
+   }
+  })
+
+
+ 
+
+ }
+
+
+    });
 
     $(document).on('click', '.favPost', function () {
          

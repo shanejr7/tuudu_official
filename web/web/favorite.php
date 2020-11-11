@@ -55,6 +55,7 @@ if (isset($_POST['id']) && isset($_POST['cid']) && isset($_POST['toggle']) && is
    $css_id = trim($css_id);
 	 $publickey = trim($publickey);
 
+// delete user from poststate that unlike posts but did not make that post
 
 
 	 // check if user already favorite post
