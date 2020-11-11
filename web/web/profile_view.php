@@ -429,7 +429,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
                       if (isset($followers_count)) {
                         
-                        echo '<li id="followers_count" style="display: inline-block;">Followers <b>'..$followers_count['count'].'</b></li>';
+                        echo '<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
                       }else{
                       	echo '<li id="followers_count" style="display: inline-block;">Followers <b>0</b></li>';
                       }
