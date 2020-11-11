@@ -37,7 +37,7 @@
   color: white;
 }
  
-.contain:hover .bottom-left,.contain:hover .top-leftOpacity,.contain:hover .bottom-right,.contain:hover .centered{
+.contain:hover .bottom-left,.contain:hover .top-rightOpacity,.contain:hover .bottom-right,.contain:hover .centered{
   opacity: 1;
 
     /*for hover transition .img:hover*/
@@ -72,10 +72,10 @@
 }
  
 
- .top-leftOpacity {
-  position: absolute;
+ .top-rightOpacity {
+   position: absolute;
   top: 8px;
-  left: 16px;
+  right: 16px;
   opacity: 0;
 }
 

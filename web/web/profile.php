@@ -544,7 +544,7 @@ is not NULL ORDER BY organization.date");
                   
                         while($row = pg_fetch_assoc($result_one)) { 
       
-                            $home_list[] = array("id" => $row["id"],"date" => $row["date"], "img" => $row["img"],"publickey" => $row["publickey"],"views" => $row["views"],"word_tag" => $row["word_tag"],"favorite" => $row["favorite"],"favorites" => $row["favorites"]);
+                            $home_list[] = array("id" => $row["id"],"date" => $row["date"], "img" => $row["img"],"publickey" => $row["publickey"],"views" => $row["views"],"word_tag" => $row["word_tag"],"favorite" => $row["favorite"],"favorites" => $row["favorites"],"description" => $row["description"]);
                   
                         }
 
@@ -698,7 +698,10 @@ is not NULL ORDER BY organization.date");
 
                   // }
 
-               echo '<div  class="top-leftOpacity h6" style="width:10px;" id="like'.$randomString.'">
+              echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+               echo '<div  class="top-rightOpacity h6" style="width:10px;" id="like'.$randomString.'">
                <a href="#remove" data-toggle="modal" data-target=".bd-example-modal-sm">
                <i class="material-icons">more_horiz</i>
                </a>
@@ -706,7 +709,7 @@ is not NULL ORDER BY organization.date");
 
 
 
-                  // echo '<div class="centeredm h4">'.trim($item['title']).'</div>';
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
               echo '<div class="bottom-left" style="font-weight: bolder;" id="postLike'.$randomString.'">
