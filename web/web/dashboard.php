@@ -1836,7 +1836,7 @@ fav(id,key,toggle,pid);
         pid : pid
                     },
    success:function(data){
- $('#posted').html(data);
+ $('#like'+pid).html(data);
 
 
    }

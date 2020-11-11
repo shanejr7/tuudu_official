@@ -566,8 +566,7 @@ array_push($errors_products, "0 results");
                  // $data.= '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                   $data.= '<div class="bottom-left" style="font-weight: bolder;" id="like'.$css_id.'">
-                        <a href="#like'.$css_id.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="2">';
+                   $data.= '<a href="#like'.$css_id.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-toggle="2">';
 
                         if ($item['favorite']==1) {
                          $data.= '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a>';
@@ -578,9 +577,9 @@ array_push($errors_products, "0 results");
                         }
 
 
-                        $data.= '</div>';
+                        // $data.= '</div>';
 
-                        
+
                   // echo '<div class="centered" style="font-weight: bolder;">
                   // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
 
