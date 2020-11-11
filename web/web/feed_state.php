@@ -410,6 +410,7 @@ if (!$db) {
   */
   if (isset($_SESSION['id'])) {
 
+    $ufavID = $_SESSION['id'];
 
      $posts_list = array();
     // $video_list = array();
@@ -419,6 +420,7 @@ if (!$db) {
      $food_list = array();
      $art_list = array();
      $sports_list = array();
+     $user_fav = array();
 
 
 
@@ -431,6 +433,22 @@ if (!$db) {
      header('location:oops.php');
 }
 
+
+$result = pg_query($db, "SELECT favorite,publickey from public.organization as o 
+    NATURAL JOIN poststate as p WHERE user_id=$ufavID AND publickey in(select publickey from poststate)");
+
+
+
+
+    if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                    $user_fav[] = array("favorite" => $row["favorite"],"publickey" => $row["publickey"]);
+                       
+                    }
+                  
+                  }
 
 
     $result = pg_query($db, "SELECT DISTINCT USERS.username, organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey, organization.address, organization.url,organization.post_type,organization.amount,organization.word_tag,organization.favorites,poststate.favorite,organization.address

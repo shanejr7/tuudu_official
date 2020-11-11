@@ -554,6 +554,27 @@ if (isset($temp) && $temp ==1) {
 
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
+                  // parallel search query for fav stats
+                  
+
+
+                  if (isset($userFav)) {
+                    
+                    foreach ($userFav as $itemLike) {
+                      
+                      if ($itemLike['publickey']==$item['publickey']) {
+
+                        $item['favorite']=1;
+
+                        break;
+
+                      }else{
+
+                         $item['favorite']=0;
+                      }
+                    }
+                    
+                  }
 
                   echo '<div class="bottom-left" style="font-weight: bolder;" id="like'.$randomString.'">
                         <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-cid="'.$randomString.'" data-toggle="2">';
