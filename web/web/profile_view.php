@@ -409,6 +409,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
 
 
+
                           if (isset($posts_count)) {
                           	 echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts '.$posts_count['count'].'</h4>
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
@@ -428,7 +429,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
 
                       if (isset($followers_count)) {
                         
-                        echo '<li id="followers_count" style="display: inline-block;">Followers <b>0</b></li>';
+                        echo '<li id="followers_count" style="display: inline-block;">Followers <b>'..$followers_count['count'].'</b></li>';
                       }else{
                       	echo '<li id="followers_count" style="display: inline-block;">Followers <b>0</b></li>';
                       }
