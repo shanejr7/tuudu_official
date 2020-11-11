@@ -8,7 +8,9 @@
 */
 
 include('feed_state.php'); // retrieves organizations for users
-//include('favorite.php'); // favoriting posts
+
+
+
    
 // require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 
@@ -501,7 +503,7 @@ $bucket_name = 'tuudu-official-file-storage';
                 </div>
               </div>
     <div class="text-center gallery">
-                <div class="row " id="fav_chat_heart">
+                <div class="row ">
           <?php
 
 
@@ -707,7 +709,7 @@ is not NULL ORDER BY organization.date");
                   // echo '<div class="centeredm h4">'.trim($item['title']).'</div>';
 
 
-                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                  echo '<div class="bottom-left" style="font-weight: bolder;" id="postLike">
                         <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="0">';
 
                         if ($item['favorite']==1) {
@@ -1210,7 +1212,7 @@ pg_close($db);
         $randomString .= $characters[$index]; 
     } 
 
-
+    $randomString = trim($randomString);
 
               
 
@@ -1271,16 +1273,18 @@ pg_close($db);
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                  echo '<div class="bottom-left" style="font-weight: bolder;" id="like'.$randomString.'">
-                       <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="1">';
+                  echo '<div class="bottom-left" style="font-weight: bolder;" id="productLike'.$randomString.'">
+                       <a href="#productLike'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-cid="'.$randomString.'" data-toggle="1">';
 
                         if ($item['favorite']==1) {
-                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
+                          echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a>';
 
                         }else{
 
-                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                          echo '<i class="material-icons" style="font-size:18pt;">favorite</i></a>';
                         }
+
+                        echo '</div>';
 
                      
 
@@ -1701,12 +1705,13 @@ unfollow(pid,id,key);
 var key=$(this).data("key");
 var id=$(this).data("id");
 var toggle=$(this).data("toggle");
+var cid=$(this).data("cid");
 
 
-fav(id,key,toggle);
+fav(id,key,toggle,cid);
 
 
- function fav(id,publickey,toggle)
+ function fav(id,publickey,toggle,cid)
  {
 
 
@@ -1715,7 +1720,7 @@ fav(id,key,toggle);
    method:"POST",
    data : {
         publickey : publickey,
-        id : id 
+        id : id
                     },
    success:function(data){
 
@@ -1725,10 +1730,12 @@ fav(id,key,toggle);
    method:"POST",
    data : {
         publickey : publickey,
-        toggle : toggle
+        toggle : toggle,
+        cid : cid,
+        id : id
                     },
    success:function(data){
- $('#fav_chat_heart').html(data);
+ $('#postLike').html(data);
 
 
 
@@ -1740,10 +1747,12 @@ fav(id,key,toggle);
    method:"POST",
    data : {
         publickey : publickey,
-        toggle : toggle
+        toggle : toggle,
+        cid : cid,
+        id : id
                     },
    success:function(data){
- $('#posted').html(data);
+  $('#productLike'+cid).html(data);
 
 
 

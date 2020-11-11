@@ -280,160 +280,22 @@ is not NULL ORDER BY organization.date");
   // product profile tab
 
 
-   $result = pg_query($db,
-    "SELECT * FROM organization NATURAL JOIN poststate WHERE id = $user_id AND post_type != 'user_post' ORDER BY organization.date");
+$result = pg_query($db, "SELECT DISTINCT favorite FROM poststate WHERE user_id =$user_id AND publickey = '$publickey' LIMIT 1");
+
+   $user = pg_fetch_assoc($result);
 
 
-     if ($result) {
+                   $data.= '<a href="#productLike'.$css_id.'" class="fav_chat" data-key="'.$publickey.'" data-id="'.$pid.'" data-cid="'.$css_id.'" data-toggle="1">';
 
-      if (pg_num_rows($result) > 0) {
-                  // output data of each row
-                    while($row = pg_fetch_assoc($result)) {
-                      
-      
-                      $product_list[] = array("word_tag" => $row["word_tag"], "id" =>$row["id"], "title" => $row["title"], "organization_name" => $row["organization_name"], "phonenumber" => $row['phonenumber'], "email" => $row['email'], "address" => $row['address'], "date" => $row['date'], "time" => $row['time'], "url" => $row['url'], "img" => $row['img'],
-                        "description" => $row['description'], "content" => $row['content'], "publickey" => $row['publickey'], "price" => $row['fiatvalue'], "views" => $row['views'], "date_submitted" => $row['date_submitted'], "payment_type" => $row['payment_type'], "favorites" => $row['favorites'],"user_id" => $row['user_id'], "favorite" => $row['favorite'], "message" => $row['message']);
-
-
-                    }
-                  
-                  }else {
-array_push($errors_products, "0 results");
-                    
-                  }
-
-
-
-                       }else{
-                        header('location:oops.php');
-                       }
-
-
-
-
-                         if (isset($product_list)) {
-
-
-
-                          foreach($product_list as $item) {
-
-                            $cmd = $s3->getCommand('GetObject', [
-                            'Bucket' => ''.$bucket_name.'',
-                            'Key'    => ''.trim($item["img"]).'',
-                          ]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
-
-                  $randomString = "";
-                  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
-   
-                $n = 10;
-  
-    for ($i = 0; $i < $n; $i++) { 
-        $index = rand(0, strlen($characters) - 1); 
-        $randomString .= $characters[$index]; 
-    } 
-
-
-
-              
-
-               $data.= '<div class="col-md-4">';
-
-          
-              $data.= '<div class="contain carousel slide" data-ride="carousel">';
-
-           
-                
- 
-                $splitFileString = strtok(trim($item["img"]), '.' );
-                $fileChecker = strtok('');
-                $fileChecker = strtoupper($fileChecker);
-
-                $string = trim($item["word_tag"]);
-                $string = strtolower($string);
-                $token = strtok($string, "_");
-
- 
-
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG')){
-                 $data.=  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
-              }else{
-                 $data.=  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
-              } 
- 
-              
-                
-
-                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
-
-                        $data.= '<div class="top-right h9"> 
-                         <a href="'.$item['url'].'"><i class="material-icons">strikethrough_s</i></a></div>';
+                        if ($user['favorite']==1) {
+                         $data.= '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a>';
 
                         }else{
 
-                  $data.= ' <a href="'.$item['url'].'"><div class="top-right h6">$'.trim($item['price']).'</a></div>';
-                  
-                  }
-
-   
-                  if (isset($token) && $token =='product') {
-
-                  
-                    $data.= '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
-
-
-                  }else{
-
-                   $data.= '<div class="top-left h6" style="width:10px;">'
-                       .toString($item['date']).'</div>';
-
-                  }
-
-                
-
-                 $data.= '<div class="centeredm h4" >'.trim($item['description']).'</div>';
-
-
-                 $data.= '<div class="bottom-left" style="font-weight: bolder;">
-                       <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="1">';
-
-                        if ($item['favorite']==1) {
-                         $data.= '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a></div>';
-
-                        }else{
-
-                          $data.= '<i class="material-icons" style="font-size:18pt;">favorite</i></a></div>';
+                         $data.= '<i class="material-icons" style="font-size:18pt;">favorite</i></a>';
                         }
 
-                     
-
-  //                 echo '<div class="centered"  style="font-weight: bolder;">
-  //                   <ol class="carousel-indicators">
-  //   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">1d</li>
-  //   <li data-target="#carouselExampleIndicators" data-slide-to="1">1w</li>
-  //   <li data-target="#carouselExampleIndicators" data-slide-to="2">2m</li>
-  // </ol></div>';
-
-                 
-                  $data.= '<div class="bottom-right" style="font-weight: bolder;" id="like'.$randomString.'">
-                         <a href="#" class="post_chat" data-key="'.$item['publickey'].'" data-id="'.$item['id'].'" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="material-icons" style="font-size:18pt;">chat_bubble_outline</i></a></div>';
- 
-
-
-
-                $data.= '</div>';
-              
-          
-              
-            $data.= '</div>';
-
-
-                       }
-                     }
-
+     
   
 }else if($toggle ==2){
   // dashboard post tab
