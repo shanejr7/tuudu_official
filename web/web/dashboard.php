@@ -467,6 +467,8 @@ if (isset($temp) && $temp ==1) {
         $randomString .= $characters[$index]; 
     } 
 
+    $randomString = trim($randomString);
+
 
   //             $uid = $item['org_id'];
 
@@ -554,7 +556,7 @@ if (isset($temp) && $temp ==1) {
 
 
                   echo '<div class="bottom-left" style="font-weight: bolder;" id="like'.$randomString.'">
-                        <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-pid="'.$randomString.'" data-toggle="2">';
+                        <a href="#like'.$randomString.'" class="fav_chat" data-key="'.$item['publickey'].'" data-id="'.$item['org_id'].'" data-cid="'.$randomString.'" data-toggle="2">';
 
                         if ($item['favorite']==1) {
                           echo '<i class="material-icons" style="color:red;font-size:18pt;">favorite</i></a>';
@@ -1817,14 +1819,14 @@ unfollow_button(id,key);
 var key=$(this).data("key");
 var id=$(this).data("id");
 var toggle=$(this).data("toggle");
-var pid=$(this).data("pid");
+var cid=$(this).data("cid");
 
 
 
 fav(id,key,toggle,pid);
 
 
- function fav(id,publickey,toggle,pid)
+ function fav(id,publickey,toggle,cid)
  {
 
             $.ajax({
@@ -1833,7 +1835,8 @@ fav(id,key,toggle,pid);
    data : {
         publickey : publickey,
         toggle : toggle,
-        pid : pid
+        cid : cid,
+        id : id
                     },
    success:function(data){
  $('#like'+pid).html(data);
