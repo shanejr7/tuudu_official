@@ -558,9 +558,9 @@ if (isset($temp) && $temp ==1) {
                   
 
 
-                  if (isset($userFav)) {
+                  if (isset($user_fav)) {
                     
-                    foreach ($userFav as $itemLike) {
+                    foreach ($user_fav as $itemLike) {
                       
                       if (strcmp(trim($itemLike['publickey']),trim($item['publickey']))) {
 
