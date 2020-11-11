@@ -1735,9 +1735,7 @@ fav(id,key,toggle,cid);
         id : id
                     },
    success:function(data){
- $('#postLike').html(data);
-
-
+ $('#postLike'+cid).html(data);
 
    }
   })
