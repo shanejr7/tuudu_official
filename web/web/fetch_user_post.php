@@ -125,7 +125,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   <div class="col-md-8">';
                   $data.='heyyyyy='.$user_post['post_type'];
 
-                if ($post_id == $sid || ( isset($user_post['post_type']) && strcmp(trim($user_post['post_type']), 'user_post')) ) {
+                if ($post_id == $sid || ( isset($user_post['post_type']) && strcmp(trim($user_post['post_type']), "user_post")) ) {
 
                  
 
