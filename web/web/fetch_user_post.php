@@ -123,15 +123,18 @@ $bucket_name = 'tuudu-official-file-storage';
                   <div class="row">
                   <div class="col-md-1"></div>
                   <div class="col-md-8">';
-                  $data.='heyyyyy='.$user_post['post_type'];
+            
 
-                if ( ($post_id == $sid) || ( isset($user_post['post_type']) && trim($user_post['post_type']) === "user_post") ) {
+                if ($post_id == $sid) {
 
-                 
+                 // user that posted
 
                 }elseif( trim($user_post['post_type']) === "user_post" ){
 
-                  
+
+                  // post not organization 
+                  // no subscription
+
 
                 }elseif($user_subscribe && isset($_SESSION['id'])){
 
