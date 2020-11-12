@@ -24,7 +24,7 @@ $s3 = new Aws\S3\S3Client([
 
 $bucket = getenv('S3_BUCKET')?: header('location:oops.php');
 $bucket_name = 'tuudu-official-file-storage';
-// issue may appear getting negative value when unfavoriting 
+
 
 
 if (isset($_POST['id']) && isset($_POST['cid']) && isset($_POST['toggle']) && isset($_POST['publickey']) && isset($_SESSION['id'])) {
@@ -56,6 +56,7 @@ if (isset($_POST['id']) && isset($_POST['cid']) && isset($_POST['toggle']) && is
 	 $publickey = trim($publickey);
 
 // delete user from poststate that unlike posts but did not make that post
+   // ajax on profile view when click follow/unfollow
 
 
 	 // check if user already favorite post

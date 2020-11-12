@@ -37,6 +37,7 @@ $bucket_name = 'tuudu-official-file-storage';
 		$user_post = "";
 		$result ="";
     $sid="";
+    $post_type = "";
 
 
 
@@ -68,6 +69,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
   				
   				$user_post = pg_fetch_assoc($result);
+          $post_type = trim($user_post['post_type']);
 
 
           // instead select subscription
@@ -124,7 +126,7 @@ $bucket_name = 'tuudu-official-file-storage';
                   <div class="col-md-1"></div>
                   <div class="col-md-8">';
 
-                        if ($post_id == $sid) {
+                        if ($post_id == $sid || strcmp($post_type, 'user_post')) {
 
                  
 
