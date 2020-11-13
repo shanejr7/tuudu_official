@@ -57,6 +57,7 @@ if (isset($_POST['id']) && isset($_POST['cid']) && isset($_POST['toggle']) && is
 
 // delete user from poststate that unlike posts but did not make that post
    // ajax on profile view when click follow/unfollow
+   //click profile view if user page
 
 
 	 // check if user already favorite post

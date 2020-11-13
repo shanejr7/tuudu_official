@@ -11,11 +11,20 @@
     "sentry/sdk": "2.0.3",
     "mailgun/mailgun-php": "^3.0",
     "php-http/guzzle6-adapter": "^2.0",
-    "php-http/message": "^1.8"
+    "php-http/message": "^1.8",
+    "google/apiclient": "^2.7"
   },
+   "scripts": {
+        "post-update-cmd": "Google\\Task\\Composer::cleanup"
+    },
+    "extra": {
+        "google/apiclient-services": [
+            "Drive",
+            "YouTube"
+        ]
+    },
   "require-dev": {
-    "heroku/heroku-buildpack-php": "*",
-    "sendgrid/sendgrid": "~7"
+    "heroku/heroku-buildpack-php": "*"
   }
  
 }
