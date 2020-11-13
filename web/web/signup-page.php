@@ -150,12 +150,12 @@
               <div class="card-header card-header-primary text-center">
                 <h4 class="card-title">signup</h4>
                 <div class="social-line"  >
-                  <a href="#pablo" class="btn btn-just-icon btn-link">
+                  <!-- <a href="#pablo" class="btn btn-just-icon btn-link">
                     <i class="fa fa-facebook-square" style="color: #898F9C;"></i>
-                  </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link">
+                  </a> -->
+                 <!--  <a href="#pablo" class="btn btn-just-icon btn-link">
                     <i class="fa fa-twitter"></i>
-                  </a>
+                  </a> -->
                   <a href="#googleSignin" id="customBtn"  class="btn btn-just-icon btn-link">
                     <i class="fa fa-google-plus" style="color: yellowgreen;"></i>
                   </a>
