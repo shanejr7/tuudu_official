@@ -629,21 +629,28 @@ if (isset($temp) && $temp ==1) {
             <?php   
 
 
-                  $client = new Google\Client();
-$client->setApplicationName("Client_Library_Examples");
-$client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
+//                   $client = new Google\Client();
+// $client->setApplicationName("Client_Library_Examples");
+// $client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
 
-$service = new Google_Service_Books($client);
-$optParams = array(
-  'filter' => 'free-ebooks',
-  'q' => 'Henry David Thoreau'
-);
-$results = $service->volumes->listVolumes($optParams);
+// $service = new Google_Service_Drive($client);
+// $optParams = array(
+//   'filter' => 'free-ebooks',
+//   'q' => 'Henry David Thoreau'
+// );
+// $results = $service->volumes->listVolumes($optParams);
 
-foreach ($results->getItems() as $item) {
-  echo $item['volumeInfo']['title'], "<br /> \n";
-}
+// foreach ($results->getItems() as $item) {
+//   echo $item['volumeInfo']['title'], "<br /> \n";
+// }
+$key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
+$base_url = "https://www.googleapis.com/youtube/v3/";
+$channelId="UCxnUFZ_e7ajFw3Tm8mA7pvQ";
+$maxResult=10;
+$API_URL = $base_url . 
+"search?part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
 
+echo $API_URL;
 
 
             ?>
