@@ -650,7 +650,7 @@ $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
 $maxResult=10;
 //$API_URL = $base_url . 
 //"search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
-$API_URL = "search.list?
+$API_URL = $base_url."search.list?
         part=snippet
         &chart=mostPopular
         &regionCode=us
