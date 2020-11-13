@@ -648,9 +648,12 @@ $base_url = "https://www.googleapis.com/youtube/v3/";
 $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
 $maxResult=10;
 $API_URL = $base_url . 
-"search?part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
+"search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
 
-echo $API_URL;
+
+$videos = json_decode(file_get_contents($API_URL));
+
+print_r($videos);
 
 
             ?>
