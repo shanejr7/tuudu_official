@@ -631,7 +631,7 @@ if (isset($temp) && $temp ==1) {
 
                   $client = new Google\Client();
 $client->setApplicationName("Client_Library_Examples");
-$client->setDeveloperKey("364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com");
+$client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
 
 $service = new Google_Service_Books($client);
 $optParams = array(
