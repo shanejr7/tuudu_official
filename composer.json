@@ -14,15 +14,6 @@
     "php-http/message": "^1.8",
     "google/apiclient": "^2.7"
   },
-   "scripts": {
-        "post-update-cmd": "Google\\Task\\Composer::cleanup"
-    },
-    "extra": {
-        "google/apiclient-services": [
-            "Drive",
-            "YouTube"
-        ]
-    },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
   }
