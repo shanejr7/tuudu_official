@@ -25,7 +25,7 @@
 include('feed_state.php'); // retrieves organizations for users
 
    
- require('../aws/aws-autoloader.php');
+// require('../aws/aws-autoloader.php');
 require('../aws/Aws/S3/S3Client.php'); 
 require('../aws/Aws/S3/ObjectUploader.php'); 
 
