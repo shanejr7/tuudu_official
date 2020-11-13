@@ -626,6 +626,29 @@ if (isset($temp) && $temp ==1) {
            <div class="row">
 
 
+            <?php   
+
+
+                  $client = new Google\Client();
+$client->setApplicationName("Client_Library_Examples");
+$client->setDeveloperKey("364968110969-p4uifadifi3la4pia4j8d8rar97tepu3.apps.googleusercontent.com");
+
+$service = new Google_Service_Books($client);
+$optParams = array(
+  'filter' => 'free-ebooks',
+  'q' => 'Henry David Thoreau'
+);
+$results = $service->volumes->listVolumes($optParams);
+
+foreach ($results->getItems() as $item) {
+  echo $item['volumeInfo']['title'], "<br /> \n";
+}
+
+
+
+            ?>
+
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1YQOS3PcBGc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
