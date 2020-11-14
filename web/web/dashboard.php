@@ -626,42 +626,6 @@ if (isset($temp) && $temp ==1) {
            <div class="row">
 
 
-            <?php   
-
-
-//                   $client = new Google\Client();
-// $client->setApplicationName("Client_Library_Examples");
-// $client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
-
-// $service = new Google_Service_Drive($client);
-// $optParams = array(
-//   'filter' => 'free-ebooks',
-//   'q' => 'Henry David Thoreau'
-// );
-// $results = $service->volumes->listVolumes($optParams);
-
-// foreach ($results->getItems() as $item) {
-//   echo $item['volumeInfo']['title'], "<br /> \n";
-// }
-// $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
-// $base_url = "https://www.googleapis.com/youtube/v3/";
-// $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
-// $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-// $maxResult=10;
-//$API_URL = $base_url . 
-//"search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
-// $API_URL = $base_url."search.list?
-//         part=snippet
-//         &chart=mostPopular
-//         &regionCode=us
-//         &videoCategoryId=17";
-
-// $videos = json_decode(file_get_contents($API_URL));
-
-// print_r($videos);
-
-
-            ?>
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1YQOS3PcBGc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
