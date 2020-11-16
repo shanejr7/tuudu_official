@@ -643,12 +643,14 @@ if (isset($temp) && $temp ==1) {
 //   echo $item['volumeInfo']['title'], "<br /> \n";
 // }
 $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
-$base_url = "https://www.googleapis.com/youtube/v3/";
+// $base_url = "https://www.googleapis.com/youtube/v3/";
+$keyword="trending videos";
 // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
-$channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-$maxResult=10;
-$API_URL = $base_url . 
-"search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
+// $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
+$maxResult=30;
+$API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' . $keyword . '&maxResults=' .$maxResult. '&key=' . $key;
+// $API_URL = $base_url . 
+// "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
 // $API_URL = $base_url."search.list?
 //         part=snippet
 //         &chart=mostPopular
@@ -678,7 +680,7 @@ foreach ($videos->items as $items) {
 
               // echo '<label>'.$title.'</label>';
 
-          echo '<iframe width="350" height="315" class="img rounded" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+          echo '<iframe width="390" height="315" class="img rounded" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
 
 
 
