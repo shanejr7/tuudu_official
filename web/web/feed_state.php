@@ -276,7 +276,7 @@ if (!$conn) {
      * and not deleted or selected as interest
     */
 
-    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey
+    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views,organization.publickey,organization.url
      FROM organization WHERE organization.publickey in(select publickey from user_follow_organization WHERE userid = $user_I_D) AND organization.publickey not in(select publickey from feedstate WHERE userid = $user_I_D and state = 0) AND post_type !='user_post' AND date is not NULL AND date::timestamp >= NOW() ORDER BY organization.date, organization.views");
 
     // loops through rows until there is 0 rows
@@ -284,7 +284,7 @@ if (!$conn) {
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-    	       $subscription_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey" => $row["publickey"]);
+    	       $subscription_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"],"publickey" => $row["publickey"],"url" => $row["url"]);
         }
          
     } else {array_push($errors_list, "0 results");}

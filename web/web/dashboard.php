@@ -2131,19 +2131,32 @@ if (isset($subscription_list)) {
             
 
 
-                  if (trim($item['price']) =='0.00') {
+                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
                         echo '<div class="top-right h9"> 
-                        <i class="material-icons">strikethrough_s</i></div>';
+                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
 
                         }else{
 
-                  echo '<div class="top-right h6">$'.trim($item['price']).'</div>';
+                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
                   
                   }
 
-                  echo '<div class="top-left h6" style="width:10px;">'
+
+                    if (isset($token) && $token =='product') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
                        .toString($item['date']).'</div>';
+
+                  }
+
+               
 
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
