@@ -2089,13 +2089,13 @@ if (isset($subscription_list)) {
               
                  
   // column sizes for row 
-    $numberOfColumns = 3;
-    $bootstrapColWidth = 12 / $numberOfColumns ;
+    // $numberOfColumns = 3;
+    // $bootstrapColWidth = 12 / $numberOfColumns ;
 
-    $arrayChunks = array_chunk($subscription_list, $numberOfColumns);
-    foreach($arrayChunks as $items) {
+    // $arrayChunks = array_chunk($subscription_list, $numberOfColumns);
+    // foreach($arrayChunks as $items) {
         echo '<div class="row">';
-        foreach($items as $item) {
+        foreach($subscription_list as $item) {
 
             echo '<div class="col-md-4">';
 
@@ -2116,6 +2116,10 @@ if (isset($subscription_list)) {
                 $splitFileString = strtok(trim($item["img"]), '.' );
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
+
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
 
  
 
@@ -2172,7 +2176,7 @@ if (isset($subscription_list)) {
             echo '</div>';
         }
         echo '</div>';
-    } 
+    // } 
 
          }
 
