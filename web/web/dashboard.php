@@ -2088,12 +2088,12 @@ if (isset($subscription_list)) {
 
               
                  
-  // // column sizes for row 
-  //   $numberOfColumns = 3;
-  //   $bootstrapColWidth = 12 / $numberOfColumns ;
+  // column sizes for row 
+    $numberOfColumns = 3;
+    $bootstrapColWidth = 12 / $numberOfColumns ;
 
-  //   $arrayChunks = array_chunk($subscription_list, $numberOfColumns);
-    foreach($subscription_list as $items) {
+    $arrayChunks = array_chunk($subscription_list, $numberOfColumns);
+    foreach($arrayChunks as $items) {
         echo '<div class="row">';
         foreach($items as $item) {
 
