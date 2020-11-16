@@ -642,22 +642,22 @@ if (isset($temp) && $temp ==1) {
 // foreach ($results->getItems() as $item) {
 //   echo $item['volumeInfo']['title'], "<br /> \n";
 // }
-//$key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
-// $base_url = "https://www.googleapis.com/youtube/v3/";
-// $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
-// $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-// $maxResult=10;
-//$API_URL = $base_url . 
-//"search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
+$key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
+$base_url = "https://www.googleapis.com/youtube/v3/";
+$base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
+$channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
+$maxResult=10;
+$API_URL = $base_url . 
+"search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
 // $API_URL = $base_url."search.list?
 //         part=snippet
 //         &chart=mostPopular
 //         &regionCode=us
 //         &videoCategoryId=17";
 
-// $videos = json_decode(file_get_contents($API_URL));
+$videos = json_decode(file_get_contents($API_URL));
 
-// print_r($videos);
+print_r($videos);
 
 
             ?>
