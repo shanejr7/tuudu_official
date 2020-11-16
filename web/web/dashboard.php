@@ -657,10 +657,12 @@ $API_URL = $base_url .
 
 $videos = json_decode(file_get_contents($API_URL));
 
+print_r($videos);
+
 
 if (isset($videos)) {
 
-foreach ($videos as $items) {
+foreach ($videos->items as $items) {
 
 
   $vId = trim($items->id->videoId);
@@ -677,7 +679,7 @@ foreach ($videos as $items) {
 
               echo '<label>'.$title.'</label>';
 
-          echo '<iframe width="460" height="315" class="img rounded" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+          echo '<iframe  class="img rounded" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
 
 
