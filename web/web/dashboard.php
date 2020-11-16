@@ -2069,7 +2069,7 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
          
           </div>
 
-          <div class="tab-pane text-center gallery section section-sections" id="list">
+          <div class="tab-pane text-center gallery" id="list">
 
             <div class="row">
 
@@ -2124,9 +2124,9 @@ if (isset($subscription_list)) {
  
 
           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                  echo  '<img src="'.$presignedUrl.'" class="img rounded">';  
+                  echo  '<img src="'.$presignedUrl.'" class="rounded img" style="width:320px;">';  
               }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img" style="width:320px;">';
               } 
 
             
