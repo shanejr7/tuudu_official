@@ -413,6 +413,7 @@ if (!$db) {
     $ufavID = $_SESSION['id'];
 
      $posts_list = array();
+     $outdoor_list = array();
     // $video_list = array();
      $activity_list = array();
      $music_list = array();
@@ -467,6 +468,34 @@ $result = pg_query($db, "SELECT favorite,publickey from public.organization as o
                   
                   }
 
+
+
+
+ $result = pg_query($db, "SELECT DISTINCT organization.date, 
+organization.time,organization.fiatvalue, 
+organization.img, organization.id as org_key,
+organization.views,organization.description, 
+organization.word_tag, organization.publickey,
+organization.views, organization.url, 
+organization.post_type,organization.amount,organization.address
+FROM organization WHERE
+split_part(organization.word_tag,'_',1) 
+LIKE 'outdoor'
+AND post_type !='user_post' 
+AND date_submitted is not NULL 
+AND date is not NULL AND date::timestamp >= NOW() 
+ORDER BY organization.date, organization.views");
+
+
+                  if (pg_num_rows($result) > 0) {
+                  // output data of each row
+                    while($row = pg_fetch_assoc($result)) { 
+      
+                      $outdoor_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_key"],"description" => $row["description"],"views" => $row["views"],"word_tag" => $row["word_tag"], "publickey" => $row["publickey"], "url" => $row["url"],"post_type" => $row["post_type"], "amount" => $row["amount"],"address" => $row["address"]);
+                       
+                    }
+                  
+                  }
 
 
 

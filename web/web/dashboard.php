@@ -628,6 +628,100 @@ if (isset($temp) && $temp ==1) {
             <?php   
 
 
+            if (isset($outdoor_list)) {
+  
+    foreach($outdoor_list as $item) {
+  
+ 
+
+                           $cmd = $s3->getCommand('GetObject', [
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($item["img"]).'',
+                            ]);
+
+              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
+
+              $presignedUrl = (string)$request->getUri();
+     
+            
+              echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+           
+                $splitFileString = strtok(trim($item["img"]), '.' );
+                $fileChecker = strtok('');
+                $fileChecker = strtoupper($fileChecker);
+
+                $string = trim($item["word_tag"]);
+                $string = strtolower($string);
+                $token = strtok($string, "_");
+
+ 
+
+          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+              }else{
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+              } 
+ 
+              
+                
+
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+
+                        echo '<div class="top-right h9"> 
+                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
+
+                        }else{
+
+                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
+                  
+                  }
+
+
+                   if (isset($token) && $token =='outdoor') {
+
+                  
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">terrain</i></div>';
+
+
+                  }else{
+
+                    echo '<div class="top-left h6" style="width:10px;">'
+                       .toString($item['date']).'</div>';
+
+                  }
+
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+
+
+                  echo '<div class="bottom-left" style="font-weight: bolder;">
+                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
+                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
+                  echo '<div class="bottom-right" style="font-weight: bolder;">
+                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+ 
+
+
+
+                echo '</div>';
+              
+          
+              
+            echo '</div>';
+          }
+          
+ 
+        
+    } 
+
 //                   $client = new Google\Client();
 // $client->setApplicationName("Client_Library_Examples");
 // $client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
@@ -641,59 +735,59 @@ if (isset($temp) && $temp ==1) {
 
 // foreach ($results->getItems() as $item) {
 //   echo $item['volumeInfo']['title'], "<br /> \n";
-// }
-$key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
-// $base_url = "https://www.googleapis.com/youtube/v3/";
-$keyword="trending";
-// $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
-// $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-$maxResult=30;
-$API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
-// $API_URL = $base_url . 
-// "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
-// $API_URL = $base_url."search.list?
-//         part=snippet
-//         &chart=mostPopular
-//         &regionCode=us
-//         &videoCategoryId=17";
+// // }
+// $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
+// // $base_url = "https://www.googleapis.com/youtube/v3/";
+// $keyword="trending";
+// // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
+// // $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
+// $maxResult=30;
+// $API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
+// // $API_URL = $base_url . 
+// // "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
+// // $API_URL = $base_url."search.list?
+// //         part=snippet
+// //         &chart=mostPopular
+// //         &regionCode=us
+// //         &videoCategoryId=17";
 
-$videos = json_decode(file_get_contents($API_URL));
-
-
+// $videos = json_decode(file_get_contents($API_URL));
 
 
-if (isset($videos)) {
-
-foreach ($videos->items as $items) {
 
 
-  $vId = trim($items->id->videoId);
-  $title = trim($items->snippet->title);
-  $urlIMG = trim($items->snippet->thumbnails->high->url);
-  $date = $items->snippet->publishedAt;
+// if (isset($videos)) {
+
+// foreach ($videos->items as $items) {
+
+
+//   $vId = trim($items->id->videoId);
+//   $title = trim($items->snippet->title);
+//   $urlIMG = trim($items->snippet->thumbnails->high->url);
+//   $date = $items->snippet->publishedAt;
   
 
-   echo '<div class="col-md-4">';
+//    echo '<div class="col-md-4">';
 
           
-              echo '<div class="contain">';
+//               echo '<div class="contain">';
 
-              // echo '<label>'.$title.'</label>';
+//               // echo '<label>'.$title.'</label>';
 
-          echo '<iframe width="350" height="315" class="img rounded embed-responsive" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
-
-
-
-  echo '</div>';
-
-  echo '</div>';
+//           echo '<iframe width="350" height="315" class="img rounded embed-responsive" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
 
 
 
-}
+//   echo '</div>';
+
+//   echo '</div>';
 
 
-}
+
+// }
+
+
+// }
 
 
             ?>
