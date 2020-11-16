@@ -416,7 +416,7 @@ if (isset($temp) && $temp ==1) {
 
  
   <a class="nav-link nav-item" href="#posts" id="post" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
-  <a class="nav-link nav-item" href="#videos" id="vid" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
+  <a class="nav-link nav-item" href="#outdoor" id="outd" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">outdoor</button></a>
   <a class="nav-link nav-item" href="#activities" id="acti" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Activites</button></a>
   <a class="nav-link nav-item" href="#music" id="musc" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Music</button></a>
   <a class="nav-link nav-item" href="#shows" id="shw" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Shows</button></a>
@@ -621,7 +621,7 @@ if (isset($temp) && $temp ==1) {
            </div>
          </div>
 
-            <div class="tab-pane text-center gallery section section-sections" id="videos">
+            <div class="tab-pane text-center gallery section section-sections" id="outdoor">
            <div class="row">
 
 
@@ -3607,7 +3607,7 @@ fetch_user(id,key);
      document.getElementById("posts").style.visibility = "visible";
      
     
-   }else if(search ==='vid'){
+   }else if(search ==='outd'){
 
      document.getElementById("videos").style.visibility = "visible";
      
