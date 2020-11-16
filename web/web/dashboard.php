@@ -538,7 +538,7 @@ if (isset($temp) && $temp ==1) {
 
                    if ($item['org_id']==$_SESSION['id']) {
                      echo '<div class="top-right"> 
-                         <a href="profile.php" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">person_outline</i></a>
+                         <a href="profile.php" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
                          </div>';
                    }else{
                       echo '<div class="top-right"> 
