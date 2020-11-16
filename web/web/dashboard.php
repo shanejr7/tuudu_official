@@ -617,7 +617,65 @@ if (isset($temp) && $temp ==1) {
      }
 
 
-?>
+?>    <div class="container" style="margin-bottom: 3em;">
+        <div class="row">
+          <div class="col-lg-2"></div>
+           <div class="col-lg-4" style="margin-top: 1em">
+            <h2 style="font-weight: bold;margin-bottom: 2em;">Select topics</h2>
+                    
+  
+
+            
+    <a href="store-temp-tags.php?valType=music"  class="btn btn-rose btn-round" id="m"><i class="material-icons">music_video</i>music</a>
+    <a href="store-temp-tags.php?valType=fashion"   class="btn btn-rose btn-round" id="fa"><i class="material-icons">shopping_basket</i>fashion</a>
+    <a href="store-temp-tags.php?valType=art"   class="btn btn-rose btn-round" id="a"><i class="material-icons">color_lens</i>art</a>
+    <a href="store-temp-tags.php?valType=sports"   class="btn btn-rose btn-round" id="s"><i class="material-icons">sports_soccer</i>sports</a>
+    <a href="store-temp-tags.php?valType=food"   class="btn btn-rose btn-round" id="fd"><i class="material-icons">food_bank</i>food</a>
+    <a href="store-temp-tags.php?valType=outdoor"   class="btn btn-rose btn-round" id="o"><i class="material-icons">terrain</i>outdoor</a>
+    <a href="store-temp-tags.php?valType=festivals"   class="btn btn-rose btn-round" id="fe"><i class="material-icons">cake</i>festival</a>
+    <a href="store-temp-tags.php?valType=rental"   class="btn btn-rose btn-round" id="fe"><i class="material-icons">hourglass_top</i>rental</a>
+    <a href="store-temp-tags.php?valType=activities"   class="btn btn-rose btn-round" id="fe"><i class="material-icons">bike_scooter</i>activities</a>
+    <a href="store-temp-tags.php?valType=other"   class="btn btn-rose btn-round" id="ot"><i class="material-icons">emoji_objects</i>other</a>
+    <br>
+    <br>
+    <br>
+
+      
+                        <form role="search" action="store-temp-tags.php" method="post" > 
+                            
+
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                             <span class="input-group-text"><i class="material-icons">search</i></span>
+                            </div>
+
+                                <?php 
+
+
+
+                                     // error appears if search value cant be found //
+                                       if(isset($_GET['val'])){
+ 
+                                       echo '<input type="text" class="form-control" placeholder="can\'t find topic" name="search">';
+                                       }else{
+                                          echo '<input type="text" class="form-control" placeholder="search" name="search">';
+                                       }
+                                 ?>
+
+                          </div>
+                        </form>
+
+        <br>
+        <br>
+              
+                <a href="set-up.php" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
+      
+          
+                    </div>
+      
+          
+        </div>
+    </div>
            </div>
          </div>
 
@@ -684,7 +742,7 @@ if (isset($temp) && $temp ==1) {
                    if (isset($token) && $token =='outdoor') {
 
                   
-                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">terrain</i></div>';
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">terrain3</i></div>';
 
 
                   }else{
