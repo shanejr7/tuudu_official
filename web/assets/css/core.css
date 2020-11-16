@@ -38,7 +38,7 @@
 }
  
 .contain:hover .bottom-left,.contain:hover .top-rightOpacity,.contain:hover .bottom-right,.contain:hover .centered{
-  opacity: 1;
+  opacity: 9;
 
     /*for hover transition .img:hover*/
     -webkit-transition: all 1s ease;
