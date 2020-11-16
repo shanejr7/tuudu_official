@@ -801,6 +801,75 @@ if (isset($activity_list)) {
         
     } 
 
+
+
+//                   $client = new Google\Client();
+// $client->setApplicationName("Client_Library_Examples");
+// $client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
+
+// $service = new Google_Service_Drive($client);
+// $optParams = array(
+//   'filter' => 'free-ebooks',
+//   'q' => 'Henry David Thoreau'
+// );
+// $results = $service->volumes->listVolumes($optParams);
+
+// foreach ($results->getItems() as $item) {
+//   echo $item['volumeInfo']['title'], "<br /> \n";
+// }
+$key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
+// $base_url = "https://www.googleapis.com/youtube/v3/";
+$keyword="activities";
+// $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
+// $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
+$maxResult=80;
+$API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
+// $API_URL = $base_url . 
+// "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
+// $API_URL = $base_url."search.list?
+//         part=snippet
+//         &chart=mostPopular
+//         &regionCode=us
+//         &videoCategoryId=17";
+
+$videos = json_decode(file_get_contents($API_URL));
+
+
+
+
+if (isset($videos)) {
+
+foreach ($videos->items as $items) {
+
+
+  $vId = trim($items->id->videoId);
+  $title = trim($items->snippet->title);
+  $urlIMG = trim($items->snippet->thumbnails->high->url);
+  $date = $items->snippet->publishedAt;
+  
+
+   echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+              // echo '<label>'.$title.'</label>';
+
+          echo '<iframe width="350" height="315" class="img rounded embed-responsive" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
+
+
+
+  echo '</div>';
+
+  echo '</div>';
+
+
+
+}
+
+
+}
+
   
 ?>
            </div>
@@ -903,6 +972,77 @@ if (isset($music_list)) {
  
         
     } 
+
+
+
+//                   $client = new Google\Client();
+// $client->setApplicationName("Client_Library_Examples");
+// $client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
+
+// $service = new Google_Service_Drive($client);
+// $optParams = array(
+//   'filter' => 'free-ebooks',
+//   'q' => 'Henry David Thoreau'
+// );
+// $results = $service->volumes->listVolumes($optParams);
+
+// foreach ($results->getItems() as $item) {
+//   echo $item['volumeInfo']['title'], "<br /> \n";
+// }
+$key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
+// $base_url = "https://www.googleapis.com/youtube/v3/";
+$keyword="music";
+// $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
+// $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
+$maxResult=80;
+$API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
+// $API_URL = $base_url . 
+// "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
+// $API_URL = $base_url."search.list?
+//         part=snippet
+//         &chart=mostPopular
+//         &regionCode=us
+//         &videoCategoryId=17";
+
+$videos = json_decode(file_get_contents($API_URL));
+
+
+
+
+if (isset($videos)) {
+
+foreach ($videos->items as $items) {
+
+
+  $vId = trim($items->id->videoId);
+  $title = trim($items->snippet->title);
+  $urlIMG = trim($items->snippet->thumbnails->high->url);
+  $date = $items->snippet->publishedAt;
+  
+
+   echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+              // echo '<label>'.$title.'</label>';
+
+          echo '<iframe width="350" height="315" class="img rounded embed-responsive" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
+
+
+
+  echo '</div>';
+
+  echo '</div>';
+
+
+
+}
+
+
+}
+
+
 
 
 ?>
@@ -1081,6 +1221,73 @@ if (isset($food_list)) {
               
             echo '</div>';
           }
+
+          //                   $client = new Google\Client();
+// $client->setApplicationName("Client_Library_Examples");
+// $client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
+
+// $service = new Google_Service_Drive($client);
+// $optParams = array(
+//   'filter' => 'free-ebooks',
+//   'q' => 'Henry David Thoreau'
+// );
+// $results = $service->volumes->listVolumes($optParams);
+
+// foreach ($results->getItems() as $item) {
+//   echo $item['volumeInfo']['title'], "<br /> \n";
+// }
+$key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
+// $base_url = "https://www.googleapis.com/youtube/v3/";
+$keyword="recipes";
+// $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
+// $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
+$maxResult=80;
+$API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
+// $API_URL = $base_url . 
+// "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
+// $API_URL = $base_url."search.list?
+//         part=snippet
+//         &chart=mostPopular
+//         &regionCode=us
+//         &videoCategoryId=17";
+
+$videos = json_decode(file_get_contents($API_URL));
+
+
+
+
+if (isset($videos)) {
+
+foreach ($videos->items as $items) {
+
+
+  $vId = trim($items->id->videoId);
+  $title = trim($items->snippet->title);
+  $urlIMG = trim($items->snippet->thumbnails->high->url);
+  $date = $items->snippet->publishedAt;
+  
+
+   echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+              // echo '<label>'.$title.'</label>';
+
+          echo '<iframe width="350" height="315" class="img rounded embed-responsive" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
+
+
+
+  echo '</div>';
+
+  echo '</div>';
+
+
+
+}
+
+
+}
           
  
         
@@ -1194,6 +1401,74 @@ if (isset($art_list)) {
     } 
 
 
+//                   $client = new Google\Client();
+// $client->setApplicationName("Client_Library_Examples");
+// $client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
+
+// $service = new Google_Service_Drive($client);
+// $optParams = array(
+//   'filter' => 'free-ebooks',
+//   'q' => 'Henry David Thoreau'
+// );
+// $results = $service->volumes->listVolumes($optParams);
+
+// foreach ($results->getItems() as $item) {
+//   echo $item['volumeInfo']['title'], "<br /> \n";
+// }
+$key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
+// $base_url = "https://www.googleapis.com/youtube/v3/";
+$keyword="art";
+// $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
+// $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
+$maxResult=80;
+$API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
+// $API_URL = $base_url . 
+// "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
+// $API_URL = $base_url."search.list?
+//         part=snippet
+//         &chart=mostPopular
+//         &regionCode=us
+//         &videoCategoryId=17";
+
+$videos = json_decode(file_get_contents($API_URL));
+
+
+
+
+if (isset($videos)) {
+
+foreach ($videos->items as $items) {
+
+
+  $vId = trim($items->id->videoId);
+  $title = trim($items->snippet->title);
+  $urlIMG = trim($items->snippet->thumbnails->high->url);
+  $date = $items->snippet->publishedAt;
+  
+
+   echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+              // echo '<label>'.$title.'</label>';
+
+          echo '<iframe width="350" height="315" class="img rounded embed-responsive" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
+
+
+
+  echo '</div>';
+
+  echo '</div>';
+
+
+
+}
+
+
+}
+
+
 ?>
            </div>
 
@@ -1296,6 +1571,73 @@ if (isset($sports_list)) {
         
     } 
 
+
+//                   $client = new Google\Client();
+// $client->setApplicationName("Client_Library_Examples");
+// $client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
+
+// $service = new Google_Service_Drive($client);
+// $optParams = array(
+//   'filter' => 'free-ebooks',
+//   'q' => 'Henry David Thoreau'
+// );
+// $results = $service->volumes->listVolumes($optParams);
+
+// foreach ($results->getItems() as $item) {
+//   echo $item['volumeInfo']['title'], "<br /> \n";
+// }
+$key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
+// $base_url = "https://www.googleapis.com/youtube/v3/";
+$keyword="sports";
+// $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
+// $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
+$maxResult=80;
+$API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
+// $API_URL = $base_url . 
+// "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
+// $API_URL = $base_url."search.list?
+//         part=snippet
+//         &chart=mostPopular
+//         &regionCode=us
+//         &videoCategoryId=17";
+
+$videos = json_decode(file_get_contents($API_URL));
+
+
+
+
+if (isset($videos)) {
+
+foreach ($videos->items as $items) {
+
+
+  $vId = trim($items->id->videoId);
+  $title = trim($items->snippet->title);
+  $urlIMG = trim($items->snippet->thumbnails->high->url);
+  $date = $items->snippet->publishedAt;
+  
+
+   echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+              // echo '<label>'.$title.'</label>';
+
+          echo '<iframe width="350" height="315" class="img rounded embed-responsive" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
+
+
+
+  echo '</div>';
+
+  echo '</div>';
+
+
+
+}
+
+
+}
 
 ?>
            </div>
