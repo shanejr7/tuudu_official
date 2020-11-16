@@ -2172,15 +2172,10 @@ if (isset($subscription_list)) {
           
               
             echo '</div>';
-          }else{
-            // not local
-          }
+        }
           
  
-        
-    } 
-
-  }
+   }
 
 
               ?>
