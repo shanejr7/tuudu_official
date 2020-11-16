@@ -657,7 +657,7 @@ $API_URL = $base_url .
 
 $videos = json_decode(file_get_contents($API_URL));
 
-print_r($videos);
+
 
 
 if (isset($videos)) {
@@ -672,7 +672,7 @@ foreach ($videos->items as $items) {
   
   echo $vId;
   echo $title;
-   echo '<div class="col-md-6">';
+   echo '<div class="col-md-4">';
 
           
               echo '<div class="contain">';
