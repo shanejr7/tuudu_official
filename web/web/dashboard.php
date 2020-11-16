@@ -647,7 +647,7 @@ $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
 $keyword="trending";
 // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
 // $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-$maxResult=30;
+$maxResult=80;
 $API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
 // $API_URL = $base_url . 
 // "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
@@ -699,22 +699,6 @@ foreach ($videos->items as $items) {
             ?>
 
 
-
-
-<!-- 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VD25RjXCW-8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lvSkIw2MLGM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iA_PpvnXHMs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Kn3uZ6-jSWI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/B6exKZzXveM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PCbNLIdx-Pg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8qTQbk2A02M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
            </div>
          </div>
 
@@ -928,25 +912,78 @@ if (isset($music_list)) {
             <div class="tab-pane text-center gallery section section-sections" id="shows">
            <div class="row">
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/C-e4SC4KomE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5oZh7unviAI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <?php   
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-6Jdcy6CFws" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+//                   $client = new Google\Client();
+// $client->setApplicationName("Client_Library_Examples");
+// $client->setDeveloperKey("AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk");
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KFuhPc16Iys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+// $service = new Google_Service_Drive($client);
+// $optParams = array(
+//   'filter' => 'free-ebooks',
+//   'q' => 'Henry David Thoreau'
+// );
+// $results = $service->volumes->listVolumes($optParams);
+
+// foreach ($results->getItems() as $item) {
+//   echo $item['volumeInfo']['title'], "<br /> \n";
+// }
+$key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
+// $base_url = "https://www.googleapis.com/youtube/v3/";
+$keyword="shows";
+// $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
+// $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
+$maxResult=80;
+$API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
+// $API_URL = $base_url . 
+// "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
+// $API_URL = $base_url."search.list?
+//         part=snippet
+//         &chart=mostPopular
+//         &regionCode=us
+//         &videoCategoryId=17";
+
+$videos = json_decode(file_get_contents($API_URL));
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ON2K5LhrSls" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gBsBqbcl9Mg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+if (isset($videos)) {
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iLc4wHK_3Zg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+foreach ($videos->items as $items) {
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bEFD3nq71Ec" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  $vId = trim($items->id->videoId);
+  $title = trim($items->snippet->title);
+  $urlIMG = trim($items->snippet->thumbnails->high->url);
+  $date = $items->snippet->publishedAt;
+  
+
+   echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+              // echo '<label>'.$title.'</label>';
+
+          echo '<iframe width="350" height="315" class="img rounded embed-responsive" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
+
+
+
+  echo '</div>';
+
+  echo '</div>';
+
+
+
+}
+
+
+}
+
+
+            ?>
 
 
            </div>
