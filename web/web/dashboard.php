@@ -552,7 +552,7 @@ if (isset($temp) && $temp ==1) {
 
                 
 
-                  // echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
                   // parallel search query for fav stats
                   
