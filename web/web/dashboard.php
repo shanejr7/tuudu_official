@@ -2124,9 +2124,9 @@ if (isset($subscription_list)) {
  
 
           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                  echo  '<img src="'.$presignedUrl.'" class="rounded img" style="width:50px;">';  
+                  echo  '<img src="'.$presignedUrl.'" class="rounded img" style="width:500px;">';  
               }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img" style="width:50px;">';
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img" style="width:500px;">';
               } 
 
             
