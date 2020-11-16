@@ -673,14 +673,14 @@ foreach ($videos->items as $items) {
   $date = $items->snippet->publishedAt;
   
 
-   echo '<div class="col-md-4 embed-responsive">';
+   echo '<div class="col-md-4">';
 
           
               echo '<div class="contain">';
 
               // echo '<label>'.$title.'</label>';
 
-          echo '<iframe width="350" height="315" class="img rounded" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
+          echo '<iframe width="350" height="315" class="img rounded embed-responsive" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
 
 
 
