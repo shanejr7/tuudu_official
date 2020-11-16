@@ -2093,7 +2093,7 @@ if (isset($subscription_list)) {
   //   $bootstrapColWidth = 12 / $numberOfColumns ;
 
   //   $arrayChunks = array_chunk($subscription_list, $numberOfColumns);
-  //   foreach($arrayChunks as $items) {
+    foreach($subscription_list as $items) {
         echo '<div class="row">';
         foreach($items as $item) {
 
@@ -2174,7 +2174,7 @@ if (isset($subscription_list)) {
         echo '</div>';
     } 
 
-         // }
+         }
 
               ?>
          
