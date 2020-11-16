@@ -670,13 +670,13 @@ foreach ($videos->items as $items) {
   $urlIMG = trim($items->snippet->thumbnails->high->url);
   $date = $items->snippet->publishedAt;
   
-  echo $vId;
-  echo $title;
+
    echo '<div class="col-md-4">';
 
           
               echo '<div class="contain">';
 
+              echo '<label>'.$title.'</label>';
 
           echo '<iframe  class="img rounded" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
