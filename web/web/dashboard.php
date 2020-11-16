@@ -673,7 +673,7 @@ foreach ($videos->items as $items) {
   $date = $items->snippet->publishedAt;
   
 
-   echo '<div class="col-md-4">';
+   echo '<div class="col-md-4 embed-responsive">';
 
           
               echo '<div class="contain">';

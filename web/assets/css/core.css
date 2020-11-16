@@ -9,6 +9,9 @@
     transition: all 1s ease;*/
    
 }
+.embed-responsive {
+  margin-bottom: 20px;
+}
  
 .overlay {
   position: absolute;
