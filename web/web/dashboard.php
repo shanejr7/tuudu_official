@@ -677,7 +677,6 @@ foreach ($videos->items as $items) {
           
               echo '<div class="contain">';
 
-              echo '<label>'.$title.'</label>';
 
           echo '<iframe  class="img rounded" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
