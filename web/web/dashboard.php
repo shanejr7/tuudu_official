@@ -617,10 +617,9 @@ if (isset($temp) && $temp ==1) {
      }
 
 
-?>    <div class="container" style="margin-bottom: 3em;">
-        <div class="row">
+?>     
           <div class="col-lg-2"></div>
-           <div class="col-lg-4" style="margin-top: 1em">
+           <div class="col-lg-8" style="margin-top: 1em">
             <h2 style="font-weight: bold;margin-bottom: 2em;">Select topics</h2>
                     
   
@@ -671,10 +670,7 @@ if (isset($temp) && $temp ==1) {
                 <a href="set-up.php" class="btn radius-50 btn-default-transparent btn-sm">enter</a>
       
           
-                    </div>
-      
-          
-        </div>
+           
     </div>
            </div>
          </div>
