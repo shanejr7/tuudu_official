@@ -647,7 +647,7 @@ $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
 $keyword="trending";
 // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
 // $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-$maxResult=80;
+$maxResult=30;
 $API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
 // $API_URL = $base_url . 
 // "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
@@ -822,7 +822,7 @@ $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
 $keyword="activities";
 // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
 // $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-$maxResult=80;
+$maxResult=30;
 $API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
 // $API_URL = $base_url . 
 // "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
@@ -994,7 +994,7 @@ $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
 $keyword="music";
 // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
 // $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-$maxResult=80;
+$maxResult=30;
 $API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
 // $API_URL = $base_url . 
 // "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
@@ -1074,7 +1074,7 @@ $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
 $keyword="shows";
 // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
 // $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-$maxResult=80;
+$maxResult=30;
 $API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
 // $API_URL = $base_url . 
 // "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
@@ -1241,7 +1241,7 @@ $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
 $keyword="recipes";
 // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
 // $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-$maxResult=80;
+$maxResult=30;
 $API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
 // $API_URL = $base_url . 
 // "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
@@ -1420,7 +1420,7 @@ $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
 $keyword="art";
 // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
 // $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-$maxResult=80;
+$maxResult=30;
 $API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
 // $API_URL = $base_url . 
 // "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
@@ -1591,7 +1591,7 @@ $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
 $keyword="sports";
 // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
 // $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
-$maxResult=80;
+$maxResult=30;
 $API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
 // $API_URL = $base_url . 
 // "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
