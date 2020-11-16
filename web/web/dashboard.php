@@ -644,11 +644,11 @@ if (isset($temp) && $temp ==1) {
 // }
 $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
 // $base_url = "https://www.googleapis.com/youtube/v3/";
-$keyword="trending videos";
+$keyword="trending";
 // $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
 // $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
 $maxResult=30;
-$API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' . $keyword . '&maxResults=' .$maxResult. '&key=' . $key;
+$API_URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&q=' .$keyword . '&maxResults=' .$maxResult. '&key=' . $key;
 // $API_URL = $base_url . 
 // "search?order=date&part=snippet&channelId=".$channelId."&maxResult".$maxResult."&key=".$key;
 // $API_URL = $base_url."search.list?
