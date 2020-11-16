@@ -415,14 +415,14 @@ if (isset($temp) && $temp ==1) {
 
 
  
-  <a class="nav-link nav-item" href="#posts" id="post" role="tab" data-toggle="tab"><button type="button" class="btn btn-warning btn-round">Posts</button></a>
-  <a class="nav-link nav-item" href="#videos" id="vid" role="tab" data-toggle="tab"><button type="button" class="btn btn-warning btn-round">Videos</button></a>
-  <a class="nav-link nav-item" href="#activities" id="acti" role="tab" data-toggle="tab"><button type="button" class="btn btn-warning btn-round">Activites</button></a>
-  <a class="nav-link nav-item" href="#music" id="musc" role="tab" data-toggle="tab"><button type="button" class="btn btn-warning btn-round">Music</button></a>
-  <a class="nav-link nav-item" href="#shows" id="shw" role="tab" data-toggle="tab"><button type="button" class="btn btn-warning btn-round">Shows</button></a>
-  <a class="nav-link nav-item" href="#food" id="fd" role="tab" data-toggle="tab"><button type="button" class="btn btn-warning btn-round">Food</button></a>
-  <a class="nav-link nav-item" href="#art" id="ar" role="tab" data-toggle="tab"><button type="button" class="btn btn-warning btn-round">Art</button></a>
-  <a class="nav-link nav-item" href="#sports" id="sprt" role="tab" data-toggle="tab"><button type="button" class="btn btn-warning btn-round">Sports</button></a>
+  <a class="nav-link nav-item" href="#posts" id="post" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
+  <a class="nav-link nav-item" href="#videos" id="vid" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Videos</button></a>
+  <a class="nav-link nav-item" href="#activities" id="acti" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Activites</button></a>
+  <a class="nav-link nav-item" href="#music" id="musc" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Music</button></a>
+  <a class="nav-link nav-item" href="#shows" id="shw" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Shows</button></a>
+  <a class="nav-link nav-item" href="#food" id="fd" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Food</button></a>
+  <a class="nav-link nav-item" href="#art" id="ar" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Art</button></a>
+  <a class="nav-link nav-item" href="#sports" id="sprt" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
   
 </nav>
 
@@ -552,7 +552,7 @@ if (isset($temp) && $temp ==1) {
 
                 
 
-                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+                  // echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
                   // parallel search query for fav stats
                   
