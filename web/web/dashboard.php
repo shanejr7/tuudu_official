@@ -680,7 +680,7 @@ foreach ($videos->items as $items) {
 
               // echo '<label>'.$title.'</label>';
 
-          echo '<iframe width="390" height="315" class="img rounded" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
+          echo '<iframe width="350" height="315" class="img rounded" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>';
 
 
 
