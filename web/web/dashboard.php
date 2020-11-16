@@ -644,7 +644,7 @@ if (isset($temp) && $temp ==1) {
 // }
 $key = "AIzaSyClVYzFzJZnEBMnh8-ZCHRBVqmCAUYB_Qk";
 $base_url = "https://www.googleapis.com/youtube/v3/";
-$base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
+// $base_url = "https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.";
 $channelId="UCxnUFZ_e7aJFw3Tm8mA7pvQ";
 $maxResult=10;
 $API_URL = $base_url . 
