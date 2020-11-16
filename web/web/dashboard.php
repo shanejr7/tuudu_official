@@ -659,11 +659,46 @@ $videos = json_decode(file_get_contents($API_URL));
 
 print_r($videos);
 
+if (isset($videos)) {
+
+foreach ($videos as $items) {
+
+
+  $vId = $items->id->videoId;
+  $title = $items->snippet->title;
+  $urlIMG = $items->snippet->thumbnails->high->url;
+  $date = $items->snippet->publishedAt;
+  
+
+   echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+
+
+          echo'<img src="'.$urlIMG.'" class="img rounded" >'; 
+
+          echo '<iframe width="460" height="315" src="https://www.youtube.com/embed/'.$vId.'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+
+
+  echo '</div>';
+
+  echo '</div>';
+
+
+
+}
+
+
+}
+
 
             ?>
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1YQOS3PcBGc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VD25RjXCW-8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
