@@ -2086,33 +2086,26 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
             <?php 
 if (isset($subscription_list)) {
 
-              
-                 
-  // column sizes for row 
-    // $numberOfColumns = 3;
-    // $bootstrapColWidth = 12 / $numberOfColumns ;
 
-    // $arrayChunks = array_chunk($subscription_list, $numberOfColumns);
-    // foreach($arrayChunks as $items) {
-        echo '<div class="row">';
-        foreach($subscription_list as $item) {
+  foreach ($subscription_list as $item) {
+    
 
-            echo '<div class="col-md-4">';
-
-             // echo '<a href="subscription.php?subscribe='.trim($item['org_id']).'">';
-
-             echo '<div class="contain">';
- 
-
-                   $cmd = $s3->getCommand('GetObject', [
-                    'Bucket' => ''.$bucket_name.'',
-                    'Key'    => ''.trim($item["img"]).'',
-]);
+                                   $cmd = $s3->getCommand('GetObject', [
+                                        'Bucket' => ''.$bucket_name.'',
+                                        'Key'    => ''.trim($item["img"]).'',
+                            ]);
 
               $request = $s3->createPresignedRequest($cmd, '+20 minutes');
 
               $presignedUrl = (string)$request->getUri();
-                
+     
+            
+              echo '<div class="col-md-4">';
+
+          
+              echo '<div class="contain">';
+
+           
                 $splitFileString = strtok(trim($item["img"]), '.' );
                 $fileChecker = strtok('');
                 $fileChecker = strtoupper($fileChecker);
@@ -2124,15 +2117,15 @@ if (isset($subscription_list)) {
  
 
           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                  echo  '<img src="'.$presignedUrl.'" class="rounded img" style="width:320px;">';  
+                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
               }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="rounded img" style="width:320px;">';
+                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
               } 
+ 
+              
+                
 
-            
-
-
-                   if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
                         echo '<div class="top-right h9"> 
                         <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
@@ -2144,7 +2137,7 @@ if (isset($subscription_list)) {
                   }
 
 
-                    if (isset($token) && $token =='product') {
+                   if (isset($token) && $token =='product') {
 
                   
                     echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">store</i></div>';
@@ -2157,28 +2150,38 @@ if (isset($subscription_list)) {
 
                   }
 
-               
-
                   echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
-                   
+
                   echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="subscription.php?unsubscribe='.$item['publickey'].'"><i class="material-icons">bookmark</i></a></div>';
-                   
+                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
+                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+
+                  // echo '<div class="centered" style="font-weight: bolder;">
+                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+
+                 
                   echo '<div class="bottom-right" style="font-weight: bolder;">
-                        <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons">add_shopping_cart</i></a></div>';
+                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
  
+
+
 
                 echo '</div>';
               
-              // echo '</a>';
+          
               
             echo '</div>';
-        }
-        echo '</div>';
-    // } 
+          }else{
+            // not local
+          }
+          
+ 
+        
+    } 
 
-         }
+  }
+
 
               ?>
          
