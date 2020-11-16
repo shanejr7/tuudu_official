@@ -1741,7 +1741,7 @@ if (isset($sports_list)) {
 
 
 
-          <div class="tab-pane active text-center gallery section section-sections" id="dashboard">
+          <div class="tab-pane text-center gallery active" id="dashboard">
            <div class="row">
 
           <?php if (count($errors_dashboard) > 0) : ?>
