@@ -2086,17 +2086,14 @@ if (sizeof($schedule_list) ==1 && isset($schedule_list)) {
             <?php 
 if (isset($subscription_list)) {
 
-
-                // // make content dynamic
-                //   shuffle($subscription_list);
               
                  
-  // column sizes for row 
-    $numberOfColumns = 3;
-    $bootstrapColWidth = 12 / $numberOfColumns ;
+  // // column sizes for row 
+  //   $numberOfColumns = 3;
+  //   $bootstrapColWidth = 12 / $numberOfColumns ;
 
-    $arrayChunks = array_chunk($subscription_list, $numberOfColumns);
-    foreach($arrayChunks as $items) {
+  //   $arrayChunks = array_chunk($subscription_list, $numberOfColumns);
+  //   foreach($arrayChunks as $items) {
         echo '<div class="row">';
         foreach($items as $item) {
 
@@ -2177,7 +2174,7 @@ if (isset($subscription_list)) {
         echo '</div>';
     } 
 
-         }
+         // }
 
               ?>
          
