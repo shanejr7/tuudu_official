@@ -774,7 +774,7 @@ is not NULL ORDER BY organization.date");
 
   <div class="footer-btn col-lg-4" data-toggle="modal" data-target="#uploadPost">
 
-    <a href="#upload"><i class="material-icons" style="font-size: 3em;">center_focus_weak</i></a>
+    <a href="#upload" style="color: darkblue"><i class="material-icons" style="font-size: 3em;">center_focus_weak</i></a>
 
   </div>
 
