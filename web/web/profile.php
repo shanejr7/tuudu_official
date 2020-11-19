@@ -371,7 +371,7 @@ $bucket_name = 'tuudu-official-file-storage';
                           $user_follow_organization_count = pg_fetch_assoc($result);
 
 
-
+echo '<ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrack" role="tablist" style="height: 0em;>';
                       
                         if (isset($posts_count)) {
                              echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest <a style="display:inline-block" class="nav-link active" href="#home" role="tab" data-toggle="tab">Posts</a> '.$posts_count['count'].'</h4>
@@ -381,7 +381,7 @@ $bucket_name = 'tuudu-official-file-storage';
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
                           }
 
-echo '<ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrack" role="tablist" style="height: 0em;>';
+
 
                       if (isset($product_count)) {
 
