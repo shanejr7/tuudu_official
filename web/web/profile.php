@@ -272,12 +272,12 @@ $bucket_name = 'tuudu-official-file-storage';
                         if (isset($posts_count)) {
                              echo '<li class="nav-item">
                   <a class="nav-link active" href="#home" role="tab" data-toggle="tab">
-                    <b style="display: inline-block;margin-right: 5em;">Latest Posts '.$posts_count['count'].'</b>
+                    <b style="display: inline-block;margin-right: 5em;font-weight: 500;">Latest Posts '.$posts_count['count'].'</b>
                  <b style="display: inline-block; margin-right: 2px;">Stats</b> </a>
                 </li>';
                           }else{
                              echo '<li class="nav-item">
-                  <a class="nav-link active" href="#home" role="tab" data-toggle="tab"><h4   style="display: inline-block;margin-right: 5em;">Latest Posts 0</h4>
+                  <a class="nav-link active" href="#home" role="tab" data-toggle="tab"><h4   style="display: inline-block;margin-right: 5em;font-weight: 500;">Latest Posts 0</h4>
                  <b  style="display: inline-block; margin-right: 2px;">Stats</b></a>
                 </li>';
                           }
@@ -289,7 +289,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                         $products_num_count = $product_count['count'];
                         
-                        echo ' <li class="nav-item" style="display: inline-block;margin-right:3px;"><a class="nav-link" href="#posted" role="tab" data-toggle="tab">Products <b>'.$products_num_count.'</b> </a></li>';
+                        echo ' <li class="nav-item" style="display: inline-block;margin-right:3px;font-weight: 500;"><a class="nav-link" href="#posted" role="tab" data-toggle="tab">Products <b>'.$products_num_count.'</b> </a></li>';
                       }
 
                       if (isset($tag_schedule_count) && isset($user_follow_organization_count)) {
@@ -298,18 +298,18 @@ $bucket_name = 'tuudu-official-file-storage';
 
                         $collections_num_count = $tag_schedule_count['count'] +  $user_follow_organization_count['count'];
 
-                        echo '<li class="nav-item" style="display: inline-block;margin-right:3px;"><a class="nav-link" role="tab" data-toggle="tab">subscriptions <b>'.$collections_num_count.'</b></a></li>';
+                        echo '<li class="nav-item" style="display: inline-block;margin-right:3px;font-weight: 500;"><a class="nav-link" role="tab" data-toggle="tab">subscriptions <b>'.$collections_num_count.'</b></a></li>';
                         
                       }
 
                       if (isset($following_count)) {
                         
-                        echo '<li class="nav-item" id="following_count" style="display: inline-block;margin-right:3px;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Following <b>'.$following_count['count'].'</b></a></li>';
+                        echo '<li class="nav-item" id="following_count" style="display: inline-block;margin-right:3px;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Following <b>'.$following_count['count'].'</b></a></li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        echo '<li class="nav-item" id="followers_count" style="display: inline-block;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Followers <b>'.$followers_count['count'].'</b></a></li>';
+                        echo '<li class="nav-item" id="followers_count" style="display: inline-block;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Followers <b>'.$followers_count['count'].'</b></a></li>';
                       }
 
                     }
@@ -317,14 +317,7 @@ $bucket_name = 'tuudu-official-file-storage';
                  ?>
                 
              
-              
-
-             
-                <li class="nav-item">
-                     <h4 style="font-weight: bold;"><?php if (isset($_SESSION['username'])) {
-                       echo trim($_SESSION['username']);
-                     } ?></h4>
-                </li>
+          
               </ul>
             </div>
 
