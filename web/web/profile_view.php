@@ -263,9 +263,10 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
      <div  >
     <div class="profile-content " id="main">
       <div class="container">
-        <div class="tab-content tab-space cd-section" id="body">
-      
- <div class="tab-pane active text-center gallery" id="profile">
+        <div class=" cd-section" id="body">
+      <!-- tab-content tab-space -->
+ <div class="" id="profile">
+  <!-- tab-pane active text-center gallery -->
   <div class="container">
         <div class="row">
 
