@@ -1234,6 +1234,7 @@ unfollow(id,key,toggle);
                     },
    success:function(data){
     $('#following_count').html(data);
+    console.log("true");
 
       $.ajax({
    url:"fetch_user_connection_tab.php",
@@ -1305,7 +1306,7 @@ follow(id,key,toggle);
    success:function(data){
    
     $('#follow_btn').html(data);
-console.log("true");
+ 
     $.ajax({
    url:"fetch_user_post.php",
    method:"POST",
@@ -1344,7 +1345,10 @@ console.log("true");
                     },
    success:function(data){
 
-    $('#profile_tab_data').html(data);
+    $('#followers_count').html(data);
+    console.log("true");
+
+
          $.ajax({
    url:"fetch_user_connection_tab.php",
    method:"POST",
