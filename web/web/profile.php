@@ -388,7 +388,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                         $products_num_count = $product_count['count'];
                         
-                        echo ' <a style="display:inline-block"  class="nav-link" href="#posted" role="tab" data-toggle="tab"><li style="display: inline-block;margin-right:3px;">Products <b>'.$products_num_count.'</b> </li></a>';
+                        echo ' <li class="nav-item" style="display: inline-block;margin-right:3px;"><a style="display:inline-block"  class="nav-link" href="#posted" role="tab" data-toggle="tab">Products <b>'.$products_num_count.'</b> </a></li>';
                       }
 
                       if (isset($tag_schedule_count) && isset($user_follow_organization_count)) {
