@@ -298,7 +298,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                         $collections_num_count = $tag_schedule_count['count'] +  $user_follow_organization_count['count'];
 
-                        echo '<li class="nav-item" style="display: inline-block;margin-right:3px;">subscriptions <b>'.$collections_num_count.'</b></li>';
+                        echo '<li class="nav-item" style="display: inline-block;margin-right:3px;"><a class="nav-link" role="tab" data-toggle="tab">subscriptions <b>'.$collections_num_count.'</b></a></li>';
                         
                       }
 
