@@ -1090,7 +1090,7 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
                 echo '<div class="profileFollowing media media-post" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
                 <a href="profile_view.php?user='.$item['username'].'&id='.$item['user_following_id'].'">
               <div class="avatar" >
-                <img src="'.$presignedUrl.'" alt="Circle Image" class="media-object"">
+                <img src="'.$presignedUrl.'" alt="Circle Image" class="media-object">
               </div>
               </a>
               <div class="name">
@@ -1102,7 +1102,7 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
                   echo '<div class="profileFollowing media media-post" style="margin-left:15px;;margin-top:15px;display: inline-block;  margin-right: 15px;">
                   <a href="profile_view.php?user='.$item['username'].'&id='.$item['user_following_id'].'">
               <div class="avatar" >
-                <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="media-object"">
+                <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="media-object">
               </div>
               </a>
               <div class="name">
