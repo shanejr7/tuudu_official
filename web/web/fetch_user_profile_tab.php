@@ -11,6 +11,8 @@
 include("server.php");
 
 
+// update users stats on signed in account  
+
   if (isset($_POST['id']) && isset($_POST['publickey'])) {
 
   						$data = "";
@@ -87,6 +89,53 @@ include("server.php");
                     }
 
 
+
+// update follow stats when user follows|unfollows user
+
+   if (isset($_POST['id']) && isset($_POST['toggle'])) {
+
+
+              $data = "";
+              $result = "";
+              $db="";
+
+
+  
+                        
+
+                        try{
+
+                               $db = pg_connect(getenv("DATABASE_URL"));
+                            }catch(Execption $e){
+  
+                              header('location:oops.php');
+                            }
+
+
+                          $account_id = pg_escape_string($db, $_POST['id']);
+
+
+                          // $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $account_id");
+                          // $following_count = pg_fetch_assoc($result);
+
+                          $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_following_id = $account_id");
+                          $followers_count = pg_fetch_assoc($result);
+                      
+
+                  
+
+                       if (isset($followers_count)) {
+                        
+                        $data.= '<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
+                      }else{
+                        $data.= '<li id="followers_count" style="display: inline-block;">Followers <b>0</b></li>';
+                      }
+
+                      echo $data;
+
+                      pg_close($db);
+
+}
 
 
 

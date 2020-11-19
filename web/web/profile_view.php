@@ -1238,7 +1238,7 @@ unfollow(id,key,toggle);
    url:"fetch_user_connection_tab.php",
    method:"POST",
    data : {
-        publickey : publickey,
+        toggle : toggle,
         id : id 
                     },
    success:function(data){
