@@ -270,13 +270,13 @@ $bucket_name = 'tuudu-official-file-storage';
 
                       
                         if (isset($posts_count)) {
-                             echo '<li class="nav-item"><span class="badge badge-warning">
+                             echo '<li class="nav-item"><span style="display: inline-block;" class="badge badge-warning">
                   <a class="nav-link active" href="#home" role="tab" data-toggle="tab">
                     <b style="display: inline-block;margin-right: 5em;font-weight: 500;">Latest Posts '.$posts_count['count'].'</b></span>
                  <b style="display: inline-block; margin-right: 2px;">Stats</b> </a>
                 </li>';
                           }else{
-                             echo '<li class="nav-item"><span class="badge badge-warning">
+                             echo '<li class="nav-item"><span style="display: inline-block;" class="badge badge-warning">
                   <a class="nav-link active" href="#home" role="tab" data-toggle="tab"><b   style="display: inline-block;margin-right: 5em;font-weight: 500;">Latest Posts 0</b></span>
                  <b  style="display: inline-block; margin-right: 2px;">Stats</b></a>
                 </li>';
