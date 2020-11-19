@@ -225,120 +225,16 @@ $bucket_name = 'tuudu-official-file-storage';
  <div class="" id="profile">
   <!-- tab-pane active text-center gallery -->
   <div class="container">
-<!-- row -->
+        <div class="row">
 
-          <div class="modal fade" tabindex="-1" role="dialog" id="uploadImage" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-    
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <?php 
-        $id_av ="";
-
-        if (isset($_SESSION['id'])) {
-          $id_av= $_SESSION['id'];
-        }
-
-
-        echo'<form enctype="multipart/form-data" method="post" action="user_image_upload.php">
- 
-                <div class="form-group label-floating has-success">
-                  <label class="control-label">EDIT PROFILE PICTURE</label>
-                  </div>
-                 <div class="row"> 
-                  <div class="col-md-3"></div>
-                  <div class="col-md-6">
-                   
-                          <div class="form-group form-file-upload form-file-simple">
-    <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
-    <input type="file" name="file1" class="inputFileHidden">
-  </div>
-                    </div>
-
-                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_av.'" name="image" value="img" style="display:inline-block">upload</button></form>
-
-              </div>';
-
-                ?>
-      </div>
-      <div class="modal-footer">
-  
-      </div>
-    </div>
-  </div>
-</div>
-
-          <div class="modal fade" tabindex="-1" role="dialog" id="uploadPost" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-      
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <?php 
-        $id_av ="";
-
-        if (isset($_SESSION['id'])) {
-          $id_post= $_SESSION['id'];
-        }
-
-
-        echo'<form enctype="multipart/form-data" method="post" action="user_post_upload.php">
-                 
-                  <div class="form-group label-floating has-success">
-                  <label class="control-label">POST</label>
-                  </div>
-                  <div class="row"> 
-                
-                  <div class="col-md-3"></div>
-                  <div class="col-md-6">
-                   
-                  <div class="form-group form-file-upload form-file-simple">
-                     <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
-                     
-                     <input type="file" name="file1" class="inputFileHidden">
-  
-                  </div>
-
-                  <div class="form-group label-floating has-success">
-                    <label class="control-label">Post title</label>
-                    <input type="text" value="" name="title" class="form-control" />
-                    <span class="form-control-feedback">
-                    <i class="material-icons">art_track</i>
-                    </span>
-  </div>
-
-                    </div>
-
-                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_post.'" name="imagePost" value="img" style="display:inline-block">upload</button></form>
-
-              </div>';
-
-                ?>
-      </div>
-      <div class="modal-footer">
-  
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-        <div class="tab-content tab-space">
-          <div class="tab-pane active work" id="home">
-            <div class="row">
-
-              <div class="col-md-8 ml-auto mr-auto profile-tabs " id="profile_tab_data">
-                 <?php 
+          <div class="col-md-12 ml-auto mr-auto" style="margin-bottom: 60px;">
+            <div class="profile-tabs" id="profile_tab_data">
+              <ul class="nav nav-pills  justify-content-center" id="tabTrack" role="tablist" style="height: 0em;">
+             <!--    
+                                                        color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
+                                                 -->
+               
+ <?php 
 
                       if (isset($_SESSION['id'])) {
                         
@@ -371,16 +267,20 @@ $bucket_name = 'tuudu-official-file-storage';
                           $user_follow_organization_count = pg_fetch_assoc($result);
 
 
-echo '<ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrack" role="tablist" style="height: 0em;>';
+
                       
                         if (isset($posts_count)) {
-                             echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest <a style="display:inline-block" class="nav-link active" href="#home" role="tab" data-toggle="tab">Posts</a> '.$posts_count['count'].'</h4>
-                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
+                             echo '<li class="nav-item">
+                  <a class="nav-link active" href="#home" role="tab" data-toggle="tab">
+                    <h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts '.$posts_count['count'].'</h4>
+                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4> </a>
+                </li>';
                           }else{
-                             echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest <a style="display:inline-block" class="nav-link active" href="#home" role="tab" data-toggle="tab">Posts</a> 0</h4>
-                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
+                             echo '<li class="nav-item">
+                  <a class="nav-link active" href="#home" role="tab" data-toggle="tab"><h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts 0</h4>
+                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4></a>
+                </li>';
                           }
-
 
 
                       if (isset($product_count)) {
@@ -389,7 +289,7 @@ echo '<ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTr
 
                         $products_num_count = $product_count['count'];
                         
-                        echo ' <li class="nav-item" style="display: inline-block;margin-right:3px;"><a style="display:inline-block"  class="nav-link" href="#posted" role="tab" data-toggle="tab">Products <b>'.$products_num_count.'</b> </a></li>';
+                        echo ' <li class="nav-item" style="display: inline-block;margin-right:3px;"><a class="nav-link" href="#posted" role="tab" data-toggle="tab">Products <b>'.$products_num_count.'</b> </a></li>';
                       }
 
                       if (isset($tag_schedule_count) && isset($user_follow_organization_count)) {
@@ -404,20 +304,41 @@ echo '<ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTr
 
                       if (isset($following_count)) {
                         
-                        echo '<li id="following_count" style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
+                        echo '<li class="nav-item" id="following_count" style="display: inline-block;margin-right:3px;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Following <b>'.$following_count['count'].'</b></a></li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        echo '<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
+                        echo '<li class="nav-item" id="followers_count" style="display: inline-block;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Followers <b>'.$followers_count['count'].'</b></a></li>';
                       }
 
                     }
 
                  ?>
-            </ul>
-                </div>
-              </div>
+                
+             
+              
+
+             
+                <li class="nav-item">
+                     <h4 style="font-weight: bold;"><?php if (isset($_SESSION['username'])) {
+                       echo trim($_SESSION['username']);
+                     } ?></h4>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+        <div class="tab-content tab-space">
+          <div class="tab-pane active work" id="home">
+<!-- row -->
     <div class="text-center gallery">
                 <div class="row ">
           <?php
