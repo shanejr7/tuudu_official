@@ -329,7 +329,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
 
 
-        <div class="tab-content tab-space">
+        <div class="tab-content ">
           <div class="tab-pane active work" id="home">
 <!-- row -->
     <div class="text-center gallery">
