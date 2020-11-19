@@ -1079,6 +1079,7 @@ var id=$(this).data("id");
 var pid=$(this).data("pid");
 
 
+
 follow(pid,id,key);
 
 
@@ -1228,11 +1229,11 @@ unfollow(id,key,toggle);
    url:"fetch_user_profile_tab.php",
    method:"POST",
    data : {
-        publickey : publickey,
-        id : id 
+        id : id,
+        toggle : toggle 
                     },
    success:function(data){
-    $('#profile_tab_data').html(data);
+    $('#following_count').html(data);
 
       $.ajax({
    url:"fetch_user_connection_tab.php",
@@ -1338,7 +1339,7 @@ console.log("true");
    url:"fetch_user_profile_tab.php",
    method:"POST",
    data : {
-        publickey : publickey,
+        toggle : toggle,
         id : id 
                     },
    success:function(data){
