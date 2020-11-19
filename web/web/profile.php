@@ -225,7 +225,7 @@ $bucket_name = 'tuudu-official-file-storage';
  <div class="" id="profile">
   <!-- tab-pane active text-center gallery -->
   <div class="container">
-        <div class="row">
+        <div class="row" style="display: hidden">
 
           <div class="col-md-12 ml-auto mr-auto" style="margin-bottom: 60px;">
             <div class="profile-tabs">
