@@ -337,7 +337,7 @@ $bucket_name = 'tuudu-official-file-storage';
           <div class="tab-pane active work" id="home">
             <div class="row">
 
-              <div class="col-md-8 ml-auto mr-auto " id="profile_tab_data">
+              <div class="col-md-8 ml-auto mr-auto profile-tabs " id="profile_tab_data">
                  <?php 
 
                       if (isset($_SESSION['id'])) {
@@ -374,10 +374,10 @@ $bucket_name = 'tuudu-official-file-storage';
 
                       
                         if (isset($posts_count)) {
-                             echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest <a class="nav-link active" href="#home" role="tab" data-toggle="tab">Posts</a> '.$posts_count['count'].'</h4>
+                             echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest <a style="display:inline-block" class="nav-link active" href="#home" role="tab" data-toggle="tab">Posts</a> '.$posts_count['count'].'</h4>
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
                           }else{
-                             echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest <a class="nav-link active" href="#home" role="tab" data-toggle="tab">Posts</a> 0</h4>
+                             echo '<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest <a style="display:inline-block" class="nav-link active" href="#home" role="tab" data-toggle="tab">Posts</a> 0</h4>
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
                           }
 
@@ -388,7 +388,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                         $products_num_count = $product_count['count'];
                         
-                        echo ' <a  class="nav-link" href="#posted" role="tab" data-toggle="tab"><li style="display: inline-block;margin-right:3px;">Products <b>'.$products_num_count.'</b> </li></a>';
+                        echo ' <a style="display:inline-block"  class="nav-link" href="#posted" role="tab" data-toggle="tab"><li style="display: inline-block;margin-right:3px;">Products <b>'.$products_num_count.'</b> </li></a>';
                       }
 
                       if (isset($tag_schedule_count) && isset($user_follow_organization_count)) {
