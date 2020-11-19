@@ -1233,8 +1233,8 @@ unfollow(id,key,toggle);
         toggle : toggle 
                     },
    success:function(data){
-    $('#following_count').html(data);
-    console.log("true");
+    $('#followers_count').html(data);
+
 
       $.ajax({
    url:"fetch_user_connection_tab.php",
@@ -1346,7 +1346,7 @@ follow(id,key,toggle);
    success:function(data){
 
     $('#followers_count').html(data);
-    console.log("true");
+  
 
 
          $.ajax({
