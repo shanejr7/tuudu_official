@@ -271,17 +271,17 @@ $bucket_name = 'tuudu-official-file-storage';
                       
                         if (isset($posts_count)) {
                              echo '<li class="nav-item">
-                  <a class="nav-link active btn btn-rose btn-round" href="#home" role="tab" data-toggle="tab">
-                    <b  style="display: inline-block;margin-right: 5em;font-weight: 500;">Latest Posts '.$posts_count['count'].'</b>
+                  <a class="nav-link active btn btn-rose btn-square" href="#home" role="tab" data-toggle="tab">
+                    <b  style="display: inline-block;font-weight: 500;">Latest Posts '.$posts_count['count'].'</b>
                  </a>
                 </li>';
                           }else{
                              echo '<li class="nav-item">
-                  <a class="nav-link active btn btn-rose btn-round" href="#home" role="tab" data-toggle="tab"><b  style="display: inline-block;margin-right: 5em;font-weight: 500;>Latest Posts 0</b>
+                  <a class="nav-link active btn btn-rose btn-square" href="#home" role="tab" data-toggle="tab"><b  style="font-weight: 500;>Latest Posts 0</b>
                  </a>
                 </li>';
                           }
-                          echo '<b  style="display: inline-block; margin-right: 2px;">Stats</b>';
+                          echo '<b  style="display: inline-block;margin-left: 5em; margin-right: 2px;">Stats</b>';
 
 
                       if (isset($product_count)) {
