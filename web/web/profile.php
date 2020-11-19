@@ -381,6 +381,7 @@ $bucket_name = 'tuudu-official-file-storage';
                  <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
                           }
 
+echo '<ul class="nav nav-pills nav-pills-icons justify-content-center" id="tabTrack" role="tablist" style="height: 0em;>';
 
                       if (isset($product_count)) {
 
@@ -414,7 +415,7 @@ $bucket_name = 'tuudu-official-file-storage';
                     }
 
                  ?>
-            
+            </ul>
                 </div>
               </div>
     <div class="text-center gallery">
