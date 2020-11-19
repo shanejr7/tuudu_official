@@ -229,7 +229,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
           <div class="col-md-12 ml-auto mr-auto" style="margin-bottom: 60px;">
             <div class="profile-tabs" id="profile_tab_data">
-              <ul class="nav nav-pills  justify-content-center" id="tabTrack" role="tablist" style="height: 0em;">
+              <ul class="nav  justify-content-center" id="tabTrack" role="tablist" style="height: 0em;">
              <!--    
                                                         color-classes: "nav-pills-primary", "nav-pills-info", "nav-pills-success", "nav-pills-warning","nav-pills-danger"
                                                  -->
@@ -298,7 +298,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                         $collections_num_count = $tag_schedule_count['count'] +  $user_follow_organization_count['count'];
 
-                        echo '<li style="display: inline-block;margin-right:3px;">Collections <b>'.$collections_num_count.'</b></li>';
+                        echo '<li class="nav-item" style="display: inline-block;margin-right:3px;">subscriptions <b>'.$collections_num_count.'</b></li>';
                         
                       }
 
