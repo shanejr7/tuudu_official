@@ -272,12 +272,12 @@ $bucket_name = 'tuudu-official-file-storage';
                         if (isset($posts_count)) {
                              echo '<li class="nav-item">
                   <a class="nav-link active btn btn-rose btn-square" href="#home" role="tab" data-toggle="tab">
-                    <b  style="display: inline-block;font-weight: 500;">Latest Posts <span class="badge badge-default">'.$posts_count['count'].'</span></b>
+                    <b  style="display: inline-block;font-weight: 500;">Latest Posts <span class="badge badge-warning">'.$posts_count['count'].'</span></b>
                  </a>
                 </li>';
                           }else{
                              echo '<li class="nav-item">
-                  <a class="nav-link active btn btn-rose btn-square" href="#home" role="tab" data-toggle="tab"><b  style="font-weight: 500;>Latest Posts<span class="badge badge-default"> 0</span></b>
+                  <a class="nav-link active btn btn-rose btn-square" href="#home" role="tab" data-toggle="tab"><b  style="font-weight: 500;>Latest Posts<span class="badge badge-warning"> 0</span></b>
                  </a>
                 </li>';
                           }
@@ -290,7 +290,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                         $products_num_count = $product_count['count'];
                         
-                        echo ' <li class="nav-item" style="display: inline-block;margin-right:3px;font-weight: 500;"><a class="nav-link" href="#posted" role="tab" data-toggle="tab">Products <b><span class="badge badge-default">'.$products_num_count.'</span></b> </a></li>';
+                        echo ' <li class="nav-item" style="display: inline-block;margin-right:3px;font-weight: 500;"><a class="nav-link" href="#posted" role="tab" data-toggle="tab">Products <b><span class="badge badge-warning">'.$products_num_count.'</span></b> </a></li>';
                       }
 
                       if (isset($tag_schedule_count) && isset($user_follow_organization_count)) {
@@ -305,12 +305,12 @@ $bucket_name = 'tuudu-official-file-storage';
 
                       if (isset($following_count)) {
                         
-                        echo '<li class="nav-item" id="following_count" style="display: inline-block;margin-right:3px;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Following <b>'.$following_count['count'].'</b></a></li>';
+                        echo '<li class="nav-item" id="following_count" style="display: inline-block;margin-right:3px;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Following <b><span class="badge badge-warning">'.$following_count['count'].'</span></b></a></li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        echo '<li class="nav-item" id="followers_count" style="display: inline-block;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Followers <b>'.$followers_count['count'].'</b></a></li>';
+                        echo '<li class="nav-item" id="followers_count" style="display: inline-block;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Followers <b><span class="badge badge-warning">'.$followers_count['count'].'</span></b></a></li>';
                       }
 
                     }
