@@ -271,13 +271,13 @@ $bucket_name = 'tuudu-official-file-storage';
                       
                         if (isset($posts_count)) {
                              echo '<li class="nav-item">
-                  <a class="nav-link active btn btn-primary btn-square" href="#home" role="tab" data-toggle="tab">
+                  <a class="nav-link active btn btn-rose btn-square" href="#home" role="tab" data-toggle="tab">
                     <b  style="display: inline-block;font-weight: 500;">Latest Posts <span class="badge badge-warning">'.$posts_count['count'].'</span></b>
                  </a>
                 </li>';
                           }else{
                              echo '<li class="nav-item">
-                  <a class="nav-link active btn btn-primary btn-square" href="#home" role="tab" data-toggle="tab"><b  style="font-weight: 500;>Latest Posts<span class="badge badge-warning"> 0</span></b>
+                  <a class="nav-link active btn btn-rose btn-square" href="#home" role="tab" data-toggle="tab"><b  style="font-weight: 500;>Latest Posts<span class="badge badge-warning"> 0</span></b>
                  </a>
                 </li>';
                           }
@@ -290,7 +290,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
                         $products_num_count = $product_count['count'];
                         
-                        echo ' <li class="nav-item" style="display: inline-block;margin-right:3px;font-weight: 500;"><a class="nav-link btn btn-secondary btn-sm" href="#posted" role="tab" data-toggle="tab">Products <b><span class="badge badge-primary">'.$products_num_count.'</span></b> </a></li>';
+                        echo ' <li class="nav-item" style="display: inline-block;margin-right:3px;font-weight: 500;"><a class="nav-link btn btn-secondary btn-sm" href="#posted" role="tab" data-toggle="tab">Products <b><span class="badge badge-default">'.$products_num_count.'</span></b> </a></li>';
                       }
 
                       if (isset($tag_schedule_count) && isset($user_follow_organization_count)) {
