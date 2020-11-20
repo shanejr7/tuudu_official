@@ -734,7 +734,7 @@ $result = pg_query($db, "SELECT id as user_following_id, username, email, profil
             <?php 
 
 
-echo '<div id="followers" class="col-md-12 followers" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;">';
+echo '<div id="followers" class="col-md-12" style="background-color: white;width: 100%;display: flex;    overflow-x: auto; border-radius: 2px;">';
 
            
 
