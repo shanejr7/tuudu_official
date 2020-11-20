@@ -420,7 +420,7 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
                           }
 
 
-                        echo '<div id="follow_counter">';
+                        echo '<div id="follow_counter" style="display: inline-block;>';
 
                       if (isset($following_count)) {
                         
@@ -1239,6 +1239,7 @@ unfollow(id,key,toggle);
                     },
    success:function(data){
     $('#follow_counter').html(data);
+    console.log("success");
 
 
       $.ajax({
@@ -1352,7 +1353,7 @@ follow(id,key,toggle);
 
     $('#follow_counter').html(data);
   
-
+console.log("success");
 
          $.ajax({
    url:"fetch_user_connection_tab.php",
