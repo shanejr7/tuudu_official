@@ -2798,11 +2798,15 @@ function hide() {
 
   var followers = document.getElementById("followers");
   var following = document.getElementById("following");
+  var follower_color = document.getElementById("fe");
+  var following_color = document.getElementById("fg");
  
 
 
     followers.style.display = "none";
     following.style.display = "none";
+    follower_color.style.display = "none";
+    following_color.style.display = "none";
   
 
 }
