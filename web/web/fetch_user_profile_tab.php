@@ -96,7 +96,7 @@ include("server.php");
                         echo '<li class="nav-item" id="followers_count" style="display: inline-block;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab" onclick="followerFunction()">Followers <b><span class="badge badge-warning">'.$followers_count['count'].'</span></b></a></li>';
                       }
 
-                    }
+                    
 
                       echo $data;
 
