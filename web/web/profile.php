@@ -603,11 +603,11 @@ is not NULL ORDER BY organization.date");
 
 <div class="row">
 
-  <div class="col-lg-6"> </div>
+  <div class="col-lg-1"> </div>
 
   <div class="footer-btn col-lg-4" data-toggle="modal" data-target="#uploadPost">
 
-    <a href="#upload" style="color: darkblue"><i class="material-icons" style="font-size: 3em;">add_circle_outline</i></a>
+    <a href="#upload" style="color: #ea2c6d;"><i class="material-icons" style="font-size: 3em;">add_circle_outline</i></a>
 
   </div>
 
