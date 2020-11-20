@@ -2768,8 +2768,8 @@ fetch_user(id,key);
 
         following.style.display = "block";
         follower.style.display = "none";
-        follower_color.style.display = "none";
-        following_color.style.display = "none";
+        follower_color.style.display = "block";
+        following_color.style.display = "block";
         following_color.style.color = "#3c4858";
         follower_color.style.color = "black";
         
@@ -2789,8 +2789,8 @@ function followerFunction() {
 
     follower.style.display = "block";
     following.style.display = "none";
-    follower_color.style.display = "none";
-    following_color.style.display = "none";
+    follower_color.style.display = "block";
+    following_color.style.display = "block";
     follower_color.style.color = "#3c4858";
     following_color.style.color = "black";
   
