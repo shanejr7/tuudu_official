@@ -420,8 +420,6 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
                           }
 
 
-                        echo '<div id="follow_counter" style="display: inline-block;>';
-
                       if (isset($following_count)) {
                         
                         echo '<li id="following_count" style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
@@ -436,8 +434,6 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
                       }else{
                       	echo '<li id="followers_count" style="display: inline-block;">Followers <b>0</b></li>';
                       }
-
-                      echo '</div>';
 
 
                       if($user_follow){
@@ -1212,11 +1208,13 @@ unfollow(id,key,toggle);
    success:function(data){
     $('#user_post').html(data);
 
+
+
      
    }
   })
 
-console.log("success");
+
 
       $.ajax({
    url:"fetch_user_profile_tab.php",
@@ -1226,8 +1224,7 @@ console.log("success");
         toggle : toggle 
                     },
    success:function(data){
-    $('#follow_counter').html(data);
-    console.log("success");
+    $('#followers_count').html(data);
 
 
       $.ajax({
@@ -1315,9 +1312,8 @@ follow(id,key,toggle);
   })
 
 
-  
 
-console.log("success");
+
 
  
       $.ajax({
@@ -1329,9 +1325,9 @@ console.log("success");
                     },
    success:function(data){
 
-    $('#follow_counter').html(data);
+    $('#followers_count').html(data);
   
-console.log("success");
+
 
          $.ajax({
    url:"fetch_user_connection_tab.php",
