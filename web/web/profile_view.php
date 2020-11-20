@@ -1198,21 +1198,6 @@ unfollow(id,key,toggle);
 
       $('#follow_btn').html(data);
 
-      $.ajax({
-   url:"fetch_user_post.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#user_post').html(data);
-
-
-
-     
-   }
-  })
 
 
 
@@ -1297,22 +1282,6 @@ follow(id,key,toggle);
    success:function(data){
    
     $('#follow_btn').html(data);
- 
-    $.ajax({
-   url:"fetch_user_post.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#user_post').html(data);
-     
-   }
-  })
-
-
-
 
 
  
