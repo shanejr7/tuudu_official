@@ -13,7 +13,7 @@ include("server.php");
 
 // update users stats on signed in account  
 
-  if (isset($_POST['id']) && isset($_POST['publickey'])) {
+  if (isset($_POST['id']) && isset($_POST['publickey']) && !isset($_POST['toggle'])) {
 
   						$data = "";
   						$result = "";
@@ -134,7 +134,7 @@ include("server.php");
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $account_id");
                           $following_count = pg_fetch_assoc($result);
 
- 
+
 
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_following_id = $account_id");
                           $followers_count = pg_fetch_assoc($result);
@@ -142,7 +142,7 @@ include("server.php");
                       
 
                   
-                          
+
                       if (isset($following_count)) {
                         
                         $data.= '<li id="following_count" style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
