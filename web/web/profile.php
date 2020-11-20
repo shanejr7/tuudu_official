@@ -305,12 +305,12 @@ $bucket_name = 'tuudu-official-file-storage';
 
                       if (isset($following_count)) {
                         
-                        echo '<li class="nav-item" id="following_count" style="display: inline-block;margin-right:3px;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Following <b><span class="badge badge-warning">'.$following_count['count'].'</span></b></a></li>';
+                        echo '<li class="nav-item" id="following_count" style="display: inline-block;margin-right:3px;font-weight: 500;"> <a class="nav-link" href="#connections_following" role="tab" data-toggle="tab" onclick="followingFunction()">Following <b><span class="badge badge-warning">'.$following_count['count'].'</span></b></a></li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        echo '<li class="nav-item" id="followers_count" style="display: inline-block;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Followers <b><span class="badge badge-warning">'.$followers_count['count'].'</span></b></a></li>';
+                        echo '<li class="nav-item" id="followers_count" style="display: inline-block;font-weight: 500;"> <a class="nav-link" href="#connections_followers" role="tab" data-toggle="tab" onclick="followerFunction()">Followers <b><span class="badge badge-warning">'.$followers_count['count'].'</span></b></a></li>';
                       }
 
                     }
@@ -624,7 +624,7 @@ is not NULL ORDER BY organization.date");
 
 
 
-          <div class="tab-pane connections" id="connections">
+          <div class="tab-pane connections" id="connections_following">
             <div class="row" id="connection_follow_tab">
 
 <?php 
@@ -958,6 +958,16 @@ echo '<div id="followers" class="col-md-12 followers" style="background-color: w
        
             
           </div>
+
+
+          <div class="tab-pane connections" id="connections_followers">
+            <div class="row" id="connection_follower_tab">
+
+
+            </div>
+          </div>
+
+
           <div class="tab-pane text-center gallery" id="posted" style="margin-top: 70px">
 
             <div class="row " >
@@ -2787,11 +2797,12 @@ function followerFunction() {
 function hide() {
 
   var followers = document.getElementById("followers");
+  var following = document.getElementById("following");
  
 
 
     followers.style.display = "none";
-  
+    following.style.display = "none";
   
 
 }

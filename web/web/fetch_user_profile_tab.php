@@ -86,14 +86,14 @@ include("server.php");
                         
                       }
 
-                      if (isset($following_count)) {
+                     if (isset($following_count)) {
                         
-                        $data.= '<li class="nav-item" id="following_count" style="display: inline-block;margin-right:3px;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Following <b><span class="badge badge-warning">'.$following_count['count'].'</span></b></a></li>';
+                        echo '<li class="nav-item" id="following_count" style="display: inline-block;margin-right:3px;font-weight: 500;"> <a class="nav-link" href="#connections_following" role="tab" data-toggle="tab" onclick="followingFunction()">Following <b><span class="badge badge-warning">'.$following_count['count'].'</span></b></a></li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        $data.= '<li class="nav-item" id="followers_count" style="display: inline-block;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Followers <b><span class="badge badge-warning">'.$followers_count['count'].'</span></b></a></li>';
+                        echo '<li class="nav-item" id="followers_count" style="display: inline-block;font-weight: 500;"> <a class="nav-link" href="#connections_followers" role="tab" data-toggle="tab" onclick="followerFunction()">Followers <b><span class="badge badge-warning">'.$followers_count['count'].'</span></b></a></li>';
                       }
 
                     }
