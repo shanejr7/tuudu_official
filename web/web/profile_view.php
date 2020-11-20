@@ -420,6 +420,8 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
                           }
 
 
+                        echo '<div id="follow_counter">';
+
                       if (isset($following_count)) {
                         
                         echo '<li id="following_count" style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
@@ -434,6 +436,8 @@ if ("12" == trim($month_arr[5].''.$month_arr[6])) {
                       }else{
                       	echo '<li id="followers_count" style="display: inline-block;">Followers <b>0</b></li>';
                       }
+
+                      echo '</div>';
 
 
                       if($user_follow){
@@ -1234,7 +1238,7 @@ unfollow(id,key,toggle);
         toggle : toggle 
                     },
    success:function(data){
-    $('#followers_count').html(data);
+    $('#follow_counter').html(data);
 
 
       $.ajax({
@@ -1346,7 +1350,7 @@ follow(id,key,toggle);
                     },
    success:function(data){
 
-    $('#followers_count').html(data);
+    $('#follow_counter').html(data);
   
 
 

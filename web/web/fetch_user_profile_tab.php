@@ -131,8 +131,10 @@ include("server.php");
                           $account_id = pg_escape_string($db, $_POST['id']);
 
 
-                          // $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $account_id");
-                          // $following_count = pg_fetch_assoc($result);
+                          $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $account_id");
+                          $following_count = pg_fetch_assoc($result);
+
+ 
 
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_following_id = $account_id");
                           $followers_count = pg_fetch_assoc($result);
@@ -140,8 +142,16 @@ include("server.php");
                       
 
                   
+                          
+                      if (isset($following_count)) {
+                        
+                        $data.= '<li id="following_count" style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
+                      }else{
 
-                       if (isset($followers_count)) {
+                        $data.= '<li id="following_count" style="display: inline-block;margin-right:3px;">Following <b>0</b></li>';
+                      }
+
+                      if (isset($followers_count)) {
                         
                         $data.= '<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
                       }else{
