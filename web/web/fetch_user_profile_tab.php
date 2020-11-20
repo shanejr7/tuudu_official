@@ -30,7 +30,10 @@ include("server.php");
                             }
 
 
-                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type != 'user_post' " );
+                          $result = pg_query($db, "SELECT COUNT(*) FROM organization WHERE id = $user_id AND post_type = 'user_post' ");
+                          $posts_count = pg_fetch_assoc($result);
+
+                          $result = pg_query($db, "SELECT COUNT (id) FROM organization WHERE id = $user_id AND post_type != 'user_post' ");
                           $product_count = pg_fetch_assoc($result);
 
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_id = $user_id");
@@ -49,17 +52,28 @@ include("server.php");
 
 
 
-                         $data.='<h4 class="title" style="display: inline-block;margin-right: 5em;">Latest Posts</h4>
-                 <h4 class="title" style="display: inline-block; margin-right: 2px;">Stats</h4>';
-                      
+                            if (isset($posts_count)) {
+                             $data.= '<li class="nav-item">
+                  <a class="nav-link active btn btn-rose btn-square" href="#home" role="tab" data-toggle="tab">
+                    <b  style="display: inline-block;font-weight: 500;">Latest Posts <span class="badge badge-warning">'.$posts_count['count'].'</span></b>
+                 </a>
+                </li>';
+                          }else{
+                             $data.= '<li class="nav-item">
+                  <a class="nav-link active btn btn-rose btn-square" href="#home" role="tab" data-toggle="tab"><b  style="font-weight: 500;>Latest Posts<span class="badge badge-warning"> 0</span></b>
+                 </a>
+                </li>';
+                          }
+                          $data.= '<b  style="display: inline-block;margin-left: 5em; margin-right: 2px;">Stats</b>';
+
 
                       if (isset($product_count)) {
 
-                         $products_num_count =0;
+                        $products_num_count =0;
 
-                         $products_num_count = $product_count['count'];
-
-                        $data.=' <li style="display: inline-block;margin-right:3px;">Products <b>'.$products_num_count.'</b> </li>';
+                        $products_num_count = $product_count['count'];
+                        
+                        $data.= ' <li class="nav-item" style="display: inline-block;margin-right:3px;font-weight: 500;"><a class="nav-link badge badge" style="color:black;font-weight:20px;" href="#posted" role="tab" data-toggle="tab">Products <b><span class="badge badge-default">'.$products_num_count.'</span></b> </a></li>';
                       }
 
                       if (isset($tag_schedule_count) && isset($user_follow_organization_count)) {
@@ -68,19 +82,21 @@ include("server.php");
 
                         $collections_num_count = $tag_schedule_count['count'] +  $user_follow_organization_count['count'];
 
-                        $data.='<li style="display: inline-block;margin-right:3px;">Collections <b>'.$collections_num_count.'</b></li>';
+                        $data.= '<li class="nav-item" style="display: inline-block;margin-right:3px;font-weight: 500;"><a class="nav-link badge badge" style="color:black;font-weight:20px;"  role="tab" data-toggle="tab" href="#">subscriptions <b><span class="badge badge-default">'.$collections_num_count.'</span></b></a></li>';
                         
                       }
 
                       if (isset($following_count)) {
                         
-                        $data.='<li id="following_count" style="display: inline-block;margin-right:3px;">Following <b>'.$following_count['count'].'</b></li>';
+                        $data.= '<li class="nav-item" id="following_count" style="display: inline-block;margin-right:3px;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Following <b><span class="badge badge-warning">'.$following_count['count'].'</span></b></a></li>';
                       }
 
                       if (isset($followers_count)) {
                         
-                        $data.='<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
+                        $data.= '<li class="nav-item" id="followers_count" style="display: inline-block;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab">Followers <b><span class="badge badge-warning">'.$followers_count['count'].'</span></b></a></li>';
                       }
+
+                    }
 
                       echo $data;
 
@@ -120,6 +136,7 @@ include("server.php");
 
                           $result = pg_query($db, "SELECT COUNT (user_following_id) FROM user_follow_user WHERE user_following_id = $account_id");
                           $followers_count = pg_fetch_assoc($result);
+
                       
 
                   
