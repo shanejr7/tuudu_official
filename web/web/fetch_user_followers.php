@@ -108,9 +108,9 @@ $bucket_name = 'tuudu-official-file-storage';
               $presignedUrl = (string)$request->getUri();
 
 
-                $data.= '<div class="profileFollowers media media-post" style="margin-left:15px;margin-top:15px;display: inline-block;  margin-right: 15px;">
+                $data.= '<div class="profileFollowers " style="margin-left:15px;margin-top:15px;display: inline-block;  margin-right: 15px;">
                  <a href="profile_view.php?user='.$item['username'].'&id='.$item['user_id'].'">
-              <div class="avatar" >
+              <div class="avatar" style="width:5px">
                 <img src="'.$presignedUrl.'" alt="Circle Image" class="media-object">
               </div>
               </a>
@@ -120,9 +120,9 @@ $bucket_name = 'tuudu-official-file-storage';
             </div>';
                 }else{
 
-                  $data.= '<div class="profileFollowers media media-post" style="margin-left:15px;margin-top:15px;display: inline-block;  margin-right: 15px;">
+                  $data.= '<div class="profileFollowers " style="margin-left:15px;margin-top:15px;display: inline-block;  margin-right: 15px;">
                    <a href="profile_view.php?user='.$item['username'].'&id='.$item['user_id'].'">
-              <div class="avatar">
+              <div class="avatar" style="width:5px">
                 <img src="../assets/img/image_placeholder.jpg" alt="Circle Image" class="media-object">
               </div>
               </a>
