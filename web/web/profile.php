@@ -1391,18 +1391,7 @@ unfollow_button(id,key);
 
     $('#following').html(data);
    
-             $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
+ 
    }
   })
 
@@ -1465,18 +1454,7 @@ unfollow_button(id,key);
 
     $('#following').html(data);
    
-             $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
+ 
    }
   })
 
@@ -1577,18 +1555,7 @@ unfollow(pid,id,key);
    success:function(data){
     $('#connection_follow_tab').html(data);
 
-      $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
+
      
    }
   })
@@ -1670,18 +1637,7 @@ fav(id,key,toggle,cid);
    success:function(data){
     $('#connection_follow_tab').html(data);
 
-      $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
+
      
    }
   })
@@ -1772,18 +1728,7 @@ follow(pid,id,key);
    success:function(data){
     $('#connection_follow_tab').html(data);
 
-      $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
+  
      
    }
   })
@@ -1869,18 +1814,6 @@ unfollow(id,key);
    success:function(data){
     $('#connection_follow_tab').html(data);
 
-      $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
      
    }
   })
@@ -1977,18 +1910,7 @@ follow(id,key);
    success:function(data){
     $('#connection_follow_tab').html(data);
 
-          $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
+   
      
    }
   })
@@ -2082,29 +2004,7 @@ $(document).on('click', '.remove_comment', function () {
    success:function(data){
     $('#profile_tab_data').html(data);
     
-            $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : uid 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-            $.ajax({
-   url:"fetch_user_following.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : uid 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
-   }
-  })
+    
    }
   })
    
@@ -2201,29 +2101,7 @@ edit_comment(uid,id,key,time,username,replyid,post);
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
-             $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : uid 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-            $.ajax({
-   url:"fetch_user_following.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : uid 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
-   }
-  })
+  
      
    }
   }) 
@@ -2280,29 +2158,6 @@ back_post(uid,id,key);
    success:function(data){
     $('#profile_tab_data').html(data);
     
-              $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : uid 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-            $.ajax({
-   url:"fetch_user_following.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : uid 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
-   }
-  })
    }
   })
 
@@ -2349,29 +2204,7 @@ reply_post(id,key);
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
-             $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-            $.ajax({
-   url:"fetch_user_following.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
-   }
-  })
+    
      
    }
   })
@@ -2426,29 +2259,7 @@ reply_post(id,key);
    success:function(data){
     $('#profile_tab_data').html(data);
     
-              $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : uid 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-            $.ajax({
-   url:"fetch_user_following.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : uid 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
-   }
-  })
+
    }
   })
 
@@ -2508,29 +2319,7 @@ reply_post(id,key);
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
-             $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-            $.ajax({
-   url:"fetch_user_following.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
-   }
-  })
+   
      
    }
   })
@@ -2600,29 +2389,7 @@ user_post(pid,id,key,post,username,replyid);
                     },
    success:function(data){
     $('#profile_tab_data').html(data);
-             $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-            $.ajax({
-   url:"fetch_user_following.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
-   }
-  })
+      
      
    }
   })
@@ -2703,29 +2470,6 @@ fetch_user(id,key);
    success:function(data){
     $('#profile_tab_data').html(data);
     
-              $.ajax({
-   url:"fetch_user_followers.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-            $.ajax({
-   url:"fetch_user_following.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#followers').html(data);
-     
-   }
-  })
-   }
-  })
    }
   })
 
