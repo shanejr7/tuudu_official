@@ -143,9 +143,9 @@ include("server.php");
 
                        if (isset($followers_count)) {
                         
-                        $data.= '<li id="followers_count" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
+                        $data.= '<li id="followers_counter" style="display: inline-block;">Followers <b>'.$followers_count['count'].'</b></li>';
                       }else{
-                        $data.= '<li id="followers_count" style="display: inline-block;">Followers <b>0</b></li>';
+                        $data.= '<li id="followers_counter" style="display: inline-block;">Followers <b>0</b></li>';
                       }
 
                       echo $data;
