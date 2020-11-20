@@ -50,7 +50,7 @@ include("server.php");
 
 
 
-                            $data.='<ul class="nav  justify-content-center" id="tabTrack" role="tablist" style="height: 0em;">';
+                       
 
                               if (isset($posts_count)) {
                              echo '<li class="nav-item">
@@ -96,7 +96,7 @@ include("server.php");
                         echo '<li class="nav-item" id="followers_count" style="display: inline-block;font-weight: 500;"> <a class="nav-link" href="#connections" role="tab" data-toggle="tab" onclick="followerFunction()">Followers <b><span class="badge badge-warning">'.$followers_count['count'].'</span></b></a></li>';
                       }
 
-                      $data.='</ul>';
+                  
 
                     
 
