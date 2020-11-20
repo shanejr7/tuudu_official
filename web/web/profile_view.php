@@ -1212,23 +1212,11 @@ unfollow(id,key,toggle);
    success:function(data){
     $('#user_post').html(data);
 
-
-        $.ajax({
-   url:"fetch_users_post.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#users_post').html(data);
-   }
-  })
      
    }
   })
 
-
+console.log("success");
 
       $.ajax({
    url:"fetch_user_profile_tab.php",
@@ -1327,19 +1315,9 @@ follow(id,key,toggle);
   })
 
 
-    $.ajax({
-   url:"fetch_users_post.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $('#users_post').html(data);
-   }
-  })
+  
 
-
+console.log("success");
 
  
       $.ajax({
