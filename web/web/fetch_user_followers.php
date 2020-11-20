@@ -141,6 +141,7 @@ $bucket_name = 'tuudu-official-file-storage';
 
             }
 
+  $data.='</div>';
             echo $data;
             
              pg_close($db);
