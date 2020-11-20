@@ -597,7 +597,7 @@ is not NULL ORDER BY organization.date");
           ?>
         </div>
 
-        
+
 
       
 
@@ -1171,6 +1171,60 @@ pg_close($db);
       </div>
     </div>
   </div>
+
+     <div class="modal fade" tabindex="-1" role="dialog" id="uploadPost" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?php 
+        $id_av ="";
+
+        if (isset($_SESSION['id'])) {
+          $id_post= $_SESSION['id'];
+        }
+
+
+        echo'<form enctype="multipart/form-data" method="post" action="user_post_upload.php">
+                 
+                  <div class="form-group label-floating has-success">
+                  <label class="control-label">POST</label>
+                  </div>
+                  <div class="row"> 
+                
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                   
+                  <div class="form-group form-file-upload form-file-simple">
+                     <input type="text" class="form-control inputFileVisible" placeholder="upload image..." required>
+                     
+                     <input type="file" name="file1" class="inputFileHidden">
+  
+                  </div>
+                  <div class="form-group label-floating has-success">
+                    <label class="control-label">Post title</label>
+                    <input type="text" value="" name="title" class="form-control" />
+                    <span class="form-control-feedback">
+                    <i class="material-icons">art_track</i>
+                    </span>
+  </div>
+                    </div>
+                </div><button type="submit" class="avatar_uploader_form btn radius-50 btn-default-transparent btn-bg " data-userid="'.$id_post.'" name="imagePost" value="img" style="display:inline-block">upload</button></form>
+              </div>';
+
+                ?>
+      </div>
+      <div class="modal-footer">
+  
+      </div>
+    </div>
+  </div>
+</div>
 
  
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" >
