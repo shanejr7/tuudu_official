@@ -407,50 +407,50 @@ function toString(string $timestamp_arr){
  }
 
 // ajax refresh chat box works but keeps on increasing method call speed
-$data.='      <script type="text/javascript">
+// $data.='      <script type="text/javascript">
               
 
-       $(document).ready(function() { setInterval(function(){
+//        $(document).ready(function() { setInterval(function(){
                    
                    
-                var key="'.$publickey.'";
-                var id='.$user_id.';
-                console.log(key + " "+ id);
-                    user_post(id,key);
+//                 var key="'.$publickey.'";
+//                 var id='.$user_id.';
+//                 console.log(key + " "+ id);
+//                     user_post(id,key);
                     
-                    function user_post(id,publickey)
- {
-  console.log("in");
-        $.ajax({
-   url:"fetch_users_post.php",
-   method:"POST",
-   data : {
-        publickey : publickey,
-        id : id 
-                    },
-   success:function(data){
-    $("#users_post").html(data);
-     console.log("work");
-   }
-  })
+//                     function user_post(id,publickey)
+//  {
+//   console.log("in");
+//         $.ajax({
+//    url:"fetch_users_post.php",
+//    method:"POST",
+//    data : {
+//         publickey : publickey,
+//         id : id 
+//                     },
+//    success:function(data){
+//     $("#users_post").html(data);
+//      console.log("work");
+//    }
+//   })
 
-   }
+//    }
     
-  },5000); 
+//   },5000); 
 
 
-  myStopFunction();
+//   myStopFunction();
 
-   });
+//    });
 
 
-   function myStopFunction() {
-  clearTimeout(time);
-}
+//    function myStopFunction() {
+//   clearTimeout(time);
+// }
 
-var time = setTimeout(user_post(id,key), 5000);
+// var time = setTimeout(user_post(id,key), 5000);
  
-            </script>';
+//             </script>';
 
                   echo $data;
 
