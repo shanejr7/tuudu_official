@@ -339,7 +339,7 @@ echo '<h3 class="title">Add Event Tags</h3>
             if($event_type =='product'){
 
              echo'<div class="col-md-6">
-                    <label for="exampleSelect3">product size|components|specification</label>
+                    <label for="exampleSelect3">product size | components  </label>
                       <div class="title">
               
 
@@ -393,7 +393,7 @@ $size_tags = preg_replace('/[^A-Za-z0-9\-]/', ' ', $size_tags);
 $size_tags = str_replace(" ","/",trim($size_tags));
 $size_tags = '/'. $size_tags;
 $size_tags = strtolower($size_tags);
-$size_tag = 'product_'.$size_tags;
+$size_tag = 'size_'.$size_tags;
 
 
  // Create connection
