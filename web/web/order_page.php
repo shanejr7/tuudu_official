@@ -436,8 +436,6 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                   if (isset($order_list[0]['size'])) {
 
 
-                    echo $order_list[0]['size'];
-
                     $size_token = explode('/', trim($order_list[0]['size']));
 
                     
@@ -529,6 +527,10 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
   }else{
 
+
+                        // sold out
+
+
                       $ticket_name = explode("_", $order_list[0]["type"]);
                       $ticket_date = explode(" ", $order_list[0]["date"]);
                       $ticket_time = explode("-", $order_list[0]["time"]);
@@ -595,6 +597,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
    $ticket_amt = pg_escape_string($db, $_POST['ticket_amount']);
    $title = pg_escape_string($db, $_POST['eventTitle']);
    $price = doubleval(pg_escape_string($db, $_POST['price']));
+   $size = trim(pg_escape_string($db, $_POST['size']));
    $price = $price * $ticket_amt;
    $tax = doubleval(pg_escape_string($db,0.06));
    $total =0;
@@ -624,10 +627,16 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                   <th class="text-center"></th>
                   <th>Product</th>
                   <th class="text-right">Price + tax</th>
-                  <th class="text-right">Qty</th>
+                  <th class="text-right">Qty</th>';
+
+                    if (isset($size)) {
+
+                  echo ' <th class="text-right">Size</th>';
+                }
+                 
                    
                 
-                </tr>
+                echo '</tr>
               </thead>
               <tbody>
                 <tr>
@@ -641,9 +650,15 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                 </td>
                 <td>
                    <h4 class="title text-right">'.$ticket_amt.'</h4>
-                </td>
+                </td>';
+
+                if (isset($size)) {
+
+                  echo '<td><h4 class="title text-right">'.$size.'</h4></td>';
+                }
+                 
  
-             </tr>
+           echo'</tr>
           
                 </table>
                 </div>

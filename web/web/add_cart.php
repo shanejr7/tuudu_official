@@ -49,6 +49,7 @@
    $ticket_amt = pg_escape_string($db, $_POST['ticket_amount']);
    $title = trim(pg_escape_string($db, $_POST['eventTitle']));
    $price = doubleval(pg_escape_string($db, $_POST['price']));
+   $size = trim(pg_escape_string($db, $_POST['size']));
    $price = $price * doubleval($ticket_amt);
 
    $tax = doubleval(pg_escape_string($db,0.06));
@@ -70,9 +71,18 @@
 
 // insert selected value
 
+ // product with size
+
+if (isset($size)) {
+   $query = "INSERT INTO cart (user_id,org_id,publickey,ticket_amount,price,product_title,date_submitted,size) 
+          VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$total,'$title',NOW(),'$size')";
+}else{
+
 
  $query = "INSERT INTO cart (user_id,org_id,publickey,ticket_amount,price,product_title,date_submitted) 
           VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$total,'$title',NOW())";
+}
+
 
    pg_query($db, $query);
 
@@ -110,13 +120,25 @@ if (isset($_GET["purchased"])) {
    $ticket_amt = intval(pg_escape_string($db,$user_cart["ticket_amount"]));
    $title = trim(pg_escape_string($db,$user_cart["product_title"]));
    $price = doubleval(pg_escape_string($db,$user_cart["price"]));
+   $size = trim(pg_escape_string($db,$user_cart["size"]))
  
    $price = number_format($price,2);
 
    if (isset($_SESSION['id'])) {
 
-     $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount,price,product_title) 
+
+    // product with size
+    if (isset($size)) {
+
+      $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount,price,product_title,size) 
+          VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title','$size')";
+    }else{
+
+      $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount,price,product_title) 
           VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title')";
+    }
+
+     
 
    pg_query($db, $query);
 
