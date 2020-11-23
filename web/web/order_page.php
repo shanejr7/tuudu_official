@@ -431,6 +431,8 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                    <br>';
 
 
+                   // sizes of product
+
                   if (isset($order_list[0]['size'])) {
 
 
@@ -438,27 +440,24 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
 
                     $size_token = explode('/', trim($order_list[0]['size']));
 
-                    for ($i=0; $i <sizeof($size_token) ; $i++) { 
-
-
-                        echo $size_token[$i];
-                    }
-
-
                     
                     echo '
                    <div class="form-group">
                    <label for="exampleFormControlSelect2">select size.</label>
-                   <select class="form-control select picker" data-style="btn btn-link" id="exampleFormControlSelect2" name="size">
-                   <option>1</option>
-                   <option>2</option>
-                   <option>3</option>
-                   <option>4</option>
-                   <option>5</option>
-                   </select>
+                   <select class="form-control select picker" data-style="btn btn-link" id="exampleFormControlSelect2" name="size">';
+
+                     for ($i=1; $i <sizeof($size_token) ; $i++) { 
+
+                        echo  '<option value='.$size_token[$i].'>'.$size_token[$i].'</option>';
+                    }
+                 
+                   echo'</select>
                    </div>';
 
                   }
+
+
+                  // price and submit button
 
                 echo ' <div class="form-group">
                 <label  style="color: black; font-weight: bold;">price $'.$order_list[0]["price"].'</label>
