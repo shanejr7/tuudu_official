@@ -68,7 +68,7 @@ if ((isset($_SESSION['id']) && isset($_GET['order'])) || (isset($_SESSION['guest
      * 
     */
 
-    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views, organization.title,organization.organization_name as org_name, organization.date,  organization.address, organization.word_tag,organization.publickey, organization.privatekey,organization.url, organization.email, organization.amount
+    $result = pg_query($conn,"SELECT DISTINCT organization.date, organization.time, organization.fiatvalue,organization.img, organization.id as org_id, organization.description,organization.views, organization.title,organization.organization_name as org_name, organization.date,  organization.address, organization.word_tag,organization.publickey, organization.privatekey,organization.url, organization.email, organization.amount, organization.size
      FROM organization WHERE publickey = '$organization_publickey' LIMIT 1");
 
     // loops through rows until there is 0 rows
@@ -76,7 +76,7 @@ if ((isset($_SESSION['id']) && isset($_GET['order'])) || (isset($_SESSION['guest
          // output data of each row
         while($row = pg_fetch_assoc($result)) {
       
-             $order_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"], "title" => $row["title"],"name" => $row["org_name"],"address" => $row["address"],"type" => $row["word_tag"], "publickey" => $row['publickey'],"privatekey"=>$row["privatekey"],"url"=>$row["url"], "email" => $row["email"],"amount" => $row["amount"]);
+             $order_list[] = array("date" => $row["date"], "time" => $row["time"], "price"=> $row["fiatvalue"], "img" => $row["img"],"org_id" => $row["org_id"],"description" => $row["description"],"views" => $row["views"], "title" => $row["title"],"name" => $row["org_name"],"address" => $row["address"],"type" => $row["word_tag"], "publickey" => $row['publickey'],"privatekey"=>$row["privatekey"],"url"=>$row["url"], "email" => $row["email"],"amount" => $row["amount"],"size" => $row["size"]);
         }
 
     //increment view to organization event
@@ -427,7 +427,38 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                    <option>4</option>
                    <option>5</option>
                    </select>
+                   </div>
+                   <br>';
+
+
+                  if (isset($order_list[0]['size'])) {
+
+
+                    echo $order_list[0]['size'];
+
+                    $size_token = explode('/', trim($order_list[0]['size']));
+
+                    for ($i=0; $i <sizeof($size_token) ; $i++) { 
+
+
+                        echo $size_token[$i];
+                    }
+
+
+                    
+                    echo '
+                   <div class="form-group">
+                   <label for="exampleFormControlSelect2">select size.</label>
+                   <select class="form-control select picker" data-style="btn btn-link" id="exampleFormControlSelect2" name="size">
+                   <option>1</option>
+                   <option>2</option>
+                   <option>3</option>
+                   <option>4</option>
+                   <option>5</option>
+                   </select>
                    </div>';
+
+                  }
 
                 echo ' <div class="form-group">
                 <label  style="color: black; font-weight: bold;">price $'.$order_list[0]["price"].'</label>
