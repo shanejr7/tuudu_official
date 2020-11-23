@@ -318,44 +318,28 @@ pg_close($db);
 echo '<h3 class="title">Add Event Tags</h3>
               <form role="form" method="post" action="post.php">
  
-                <div class="form-group">
-                  <label for="exampleSelect2">used to find your event</label>
-                  ';
+                <div class="form-group">';
 
                       
                   echo '<div id="textareaTags">
           <div class="row">
-  
 
             <div class="col-md-6">
+            <label for="exampleSelect2">used to find your event</label>
               <div class="title">
                <!-- <h3>Tags</h3> -->
               </div>
               <input type="text" name="word_tags" value="" placeholder="enter here" class="tagsinput form-control" data-role="tagsinput" data-color="rose">
               <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
-            </div>
-          </div>
-        </div>';
+            </div>';
 
 
-
-              
-            $event_type = trim($event_type);
+             $event_type = trim($event_type);
             
             if($event_type =='product'){
-            
 
-            //add size string specification
-
-                echo '<div class="form-group">
-                
-                  <label for="exampleSelect2">product size|components|specification</label>
-                  ';
-
-                  echo '<div id="textareaTags">
-                  
-                  <div class="row">
-                    <div class="col-md-6">
+             echo'<div class="col-md-6">
+                    <label for="exampleSelect3">product size|components|specification</label>
                       <div class="title">
               
 
@@ -365,11 +349,13 @@ echo '<h3 class="title">Add Event Tags</h3>
                         <input type="text" name="size_tags" value="" placeholder="enter here" class="tagsinput form-control" data-role="tagsinput" data-color="rose">
               <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
             
-                  </div>
-                </div>
-              </div>';
-        }
+                  </div>';
 
+                }
+
+
+          echo '</div>
+        </div>';
         
 
                      
