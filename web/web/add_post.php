@@ -41,6 +41,8 @@ $paymentType =filter_var($_POST['paymentType'], FILTER_SANITIZE_STRING); // valu
 $fiatValue =doubleval(filter_var($_POST['fiatValue'], FILTER_SANITIZE_STRING)); // value of block
 
 $post_amt =filter_var($_POST['amount'], FILTER_SANITIZE_STRING);
+
+
  
     $eventType = trim(pg_escape_string($db, $_POST['e_type']));
     $eventTags = pg_escape_string($db, $_POST['e_tags']);
@@ -109,6 +111,8 @@ $fiatValue =filter_var('0.00', FILTER_SANITIZE_STRING); // value of post
 $eventType = trim(pg_escape_string($db, $_POST['e_type']));
 $eventTags = pg_escape_string($db, $_POST['e_tags']);
 $post_amt ='unlimited';
+
+
   
 
   

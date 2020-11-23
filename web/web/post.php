@@ -337,6 +337,41 @@ echo '<h3 class="title">Add Event Tags</h3>
           </div>
         </div>';
 
+
+
+              
+            $event_type = trim($event_type);
+            
+            if($event_type =='product'){
+            
+
+            //add size string specification
+
+                echo '<div class="form-group">
+                
+                  <label for="exampleSelect2">product size|components|specification</label>
+                  ';
+
+                  echo '<div id="textareaTags">
+                  
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="title">
+              
+
+               <!-- <h3>Tags</h3> -->
+                    </div>
+              
+                        <input type="text" name="size_tags" value="" placeholder="enter here" class="tagsinput form-control" data-role="tagsinput" data-color="rose">
+              <!-- You can change data-color="rose" with one of our colors primary | warning | info | danger | success -->
+            
+                  </div>
+                </div>
+              </div>';
+        }
+
+        
+
                      
                   echo'</select><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="1" style="margin-right:2em;">back</button><button type="submit" class="btn radius-50   btn-default-transparent btn-bg" name="page" value="3" style="display:inline-block">next</button></div></div></form>';
 
@@ -365,6 +400,14 @@ if(isset($_POST['word_tags'])) {
  $word_tag = $event_type.'_'.$word_tags;
  $_SESSION['tags'] .= $word_tags; 
  $tvar = explode('/', trim($_SESSION['tags']));
+
+$size_tags = "";
+$size_tags =  filter_var($_POST['size_tags'], FILTER_SANITIZE_STRING);  
+$size_tags = preg_replace('/[^A-Za-z0-9\-]/', ' ', $size_tags);
+$size_tags = str_replace(" ","/",trim($size_tags));
+$size_tags = '/'. $size_tags;
+$size_tags = strtolower($size_tags);
+$size_tag = 'product_'.$size_tags;
 
 
  // Create connection
@@ -412,8 +455,8 @@ if (!$db) {
  
  
 
-// update user image
- pg_query($db,"UPDATE public.organization SET word_tag ='$word_tag' WHERE id= $userid AND publickey = '$publickey'");
+// update 
+ pg_query($db,"UPDATE public.organization SET word_tag ='$word_tag', size='$size_tag' WHERE id= $userid AND publickey = '$publickey'");
  
 // update word_tag itag data
 pg_query($db,"UPDATE public.word_tag SET itag =CONCAT(trim(itag),trim('$word_tags')) WHERE event_type = '$event_type'"); 
@@ -946,7 +989,6 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                     <input type="text" name="fiatValue" class="form-control" id="value3" placeholder="0.00 " required>
                     </div>
                    
-
                   <div class="col-sm-5" style="display:inline-block">
                   <label for="postAmount">amount</label>
                   <select class="form-control amt" name="amount" id="postAmount">
@@ -955,7 +997,7 @@ echo '<h2 class="title">Event | <span style="color:orange">payment</span>  </h2>
                       for ($i=1; $i <50 ; $i++) { 
                         echo '<option value="'.$i.'">'.$i.'</option>';
                       }
-               
+
                  
                 echo '</select></div></div>';
 
