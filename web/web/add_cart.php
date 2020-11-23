@@ -73,7 +73,7 @@
 
  // product with size
 
-if (isset($size)) {
+if (isset($_POST['size'])) {
    $query = "INSERT INTO cart (user_id,org_id,publickey,ticket_amount,price,product_title,date_submitted,size) 
           VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$total,'$title',NOW(),'$size')";
 }else{
@@ -128,7 +128,7 @@ if (isset($_GET["purchased"])) {
 
 
     // product with size
-    if (isset($size)) {
+    if (isset($_POST['size'])) {
 
       $query = "INSERT INTO temporary_tag_schedule (user_id, org_id,publickey,ticket_amount,price,product_title,size) 
           VALUES($id,$org_id,'$organization_publickey',$ticket_amt,$price,'$title','$size')";

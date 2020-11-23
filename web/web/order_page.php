@@ -629,7 +629,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                   <th class="text-right">Price + tax</th>
                   <th class="text-right">Qty</th>';
 
-                    if (isset($size)) {
+                    if (isset($_POST['size'])) {
 
                   echo ' <th class="text-right">Size</th>';
                 }
@@ -652,7 +652,7 @@ if (isset($order_list[0]["price"]) && trim($order_list[0]["price"]) ==trim("0.00
                    <h4 class="title text-right">'.$ticket_amt.'</h4>
                 </td>';
 
-                if (isset($size)) {
+                if (isset($_POST['size'])) {
 
                   echo '<td><h4 class="title text-right">'.$size.'</h4></td>';
                 }
