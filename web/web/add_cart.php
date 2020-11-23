@@ -120,7 +120,7 @@ if (isset($_GET["purchased"])) {
    $ticket_amt = intval(pg_escape_string($db,$user_cart["ticket_amount"]));
    $title = trim(pg_escape_string($db,$user_cart["product_title"]));
    $price = doubleval(pg_escape_string($db,$user_cart["price"]));
-   $size = trim(pg_escape_string($db,$user_cart["size"]))
+   $size = trim(pg_escape_string($db,$user_cart["size"]));
  
    $price = number_format($price,2);
 
