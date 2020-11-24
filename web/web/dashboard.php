@@ -651,11 +651,10 @@ $media->getResponse();
 
 //display stories
 foreach( $media->response->data as $story ){
-    // echo '<div>'.$story->published_at.': '.$story->source.' reports '.$story->title.' [<a href="'.$story->url.'" target="_blank">Full Story</a>]</div>';
-    // echo '<div><p>'.$story->description.'</p></div>';
+
 
     echo '<div class="col-md-6">
-            <div class="card card-raised card-background" style="background-image: url('.$story->image.')">
+            <div class="card card-background" style="background-image: url('.$story->image.')">
               <div class="card-body">
                 <h6 class="card-category text-info">'.$story->title.' - '.$story->published_at.'</h6>
                 <a href="#pablo">
