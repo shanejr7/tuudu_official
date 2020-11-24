@@ -144,7 +144,7 @@ div.scroll{
 
 div.scroll a {
   display: inline-block;
-  background-color: #333;
+
   color: white;
   text-align: center;
   padding: 15px;
