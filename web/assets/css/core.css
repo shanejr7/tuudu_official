@@ -126,7 +126,7 @@
 
 
 nav.scroll {
-  background-color: #333;
+  
   overflow: auto;
   white-space: nowrap;
 }
@@ -140,5 +140,5 @@ nav.scroll a {
 }
 
 nav.scroll a:hover {
-  background-color: #777;
+
 }
