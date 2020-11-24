@@ -661,9 +661,9 @@ $count++;
 if ($size ==$count) {
   
   echo'<div class="col-md-12">
-            <div class="card card-background" style="background-image: url('.$story->image.')">
+            <div class="card card-rasied card-background" style="background-image: url('.$story->image.')">
               <div class="card-body">
-                <h6 class="card-category text-info">'.$story->author.' - '.$story->published_at.'</h6>
+                <h6 class="card-category text-info">'.$story->author.' - '.time_elapsed_string($story->published_at).' - </h6>
                  <h3 class="card-title">'.$story->title.'</h3>
                 <p class="card-description">
                  '.$story->description.'
@@ -677,9 +677,9 @@ if ($size ==$count) {
 
 }else{
     echo '<div class="col-md-6">
-            <div class="card card-background" style="background-image: url('.$story->image.')">
+            <div class="card card-rasied card-background" style="background-image: url('.$story->image.')">
               <div class="card-body">
-                <h6 class="card-category text-info">'.$story->author.' - '.$story->published_at.'</h6>
+                <h6 class="card-category text-info">'.$story->author.' - '.time_elapsed_string($story->published_at).' - </h6>
                 <a href="#title">
                   <h3 class="card-title">'.$story->title.'</h3>
                 </a>
@@ -3898,3 +3898,86 @@ echo '<script>
 </body>
 
 </html>
+
+<?php
+
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+
+
+  /* converts integer month to string*/
+function toString(string $timestamp_arr){
+
+  if (date("Y")<trim($timestamp_arr[0].''.$timestamp_arr[3])) {
+
+    $year = trim($timestamp_arr[0].''.$timestamp_arr[3]);
+
+    $year_ago = $year - date("Y");
+
+    return $year_ago. ' '.'ago'; 
+  
+
+  }elseif(date("m")<trim($timestamp_arr[5].''.$timestamp_arr[6])) {
+        
+    $month = trim($timestamp_arr[5].''.$timestamp_arr[6]);
+
+    $month_ago = $month - date("m");
+
+    return $month_ago.' months ago'; 
+
+  }elseif(date("d")<trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6])){
+
+
+    $week = trim($timestamp_arr[0].''.$timestamp_arr[3]);
+
+    $week_ago = $week - date("Y");
+
+    return $week_ago. ' '.'ago'; 
+
+
+  }elseif (date("h")>=trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("d")==trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6])) {
+
+
+    return 'at '.date("h:ia"); 
+
+  }elseif (date("h")>trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("i")>=trim($timestamp_arr[14].''.$timestamp_arr[15]) && date("d")==trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6])) {
+
+
+    return 'just '. date("i").' minutes ago'; 
+
+
+  }elseif(date("h")>trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("i")>=trim($timestamp_arr[14].''.$timestamp_arr[15]) && date("d")==trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>trim($timestamp_arr[5].''.$timestamp_arr[6])){
+
+    return 'just now';
+  }
+
+
+}
+
+?>
