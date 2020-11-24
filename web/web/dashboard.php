@@ -411,7 +411,7 @@ if (isset($temp) && $temp ==1) {
       <div class="container">
 
 <div  id="topics">
-        <nav class="nav scroll">
+        <div class="nav scroll">
 
 
  
@@ -425,7 +425,7 @@ if (isset($temp) && $temp ==1) {
   <a class="nav-link nav-item" href="#sports" id="sprt" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
     <a class="nav-link nav-item" href="#news" id="new" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">News</button></a>
   
-</nav>
+</div>
 
 
 </div>
