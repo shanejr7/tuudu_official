@@ -643,7 +643,7 @@ $media = new mediaStack();
 
 //get 10 news stories on tennis from the USA
 $media->setEndPoint('news');
-$media->setParam('keywords','tennis');
+$media->setParam('keywords','live');
 $media->setParam('countries','us');
 $media->setParam('limit','10');
 
@@ -651,8 +651,25 @@ $media->getResponse();
 
 //display stories
 foreach( $media->response->data as $story ){
-    echo '<div>'.$story->published_at.': '.$story->source.' reports '.$story->title.' [<a href="'.$story->url.'" target="_blank">Full Story</a>]</div>';
-    echo '<div><p>'.$story->description.'</p></div>';
+    // echo '<div>'.$story->published_at.': '.$story->source.' reports '.$story->title.' [<a href="'.$story->url.'" target="_blank">Full Story</a>]</div>';
+    // echo '<div><p>'.$story->description.'</p></div>';
+
+    echo '<div class="col-md-6">
+            <div class="card card-raised card-background" style="background-image: url('.$story->image.')">
+              <div class="card-body">
+                <h6 class="card-category text-info">'.$story->title.' - '.$story->published_at.'</h6>
+                <a href="#pablo">
+                  <h3 class="card-title">'.$story->author.'</h3>
+                </a>
+                <p class="card-description">
+                '.$story->description.'
+                </p>
+                <a href="'.$story->url.'" class="btn btn-danger btn-round">
+                  <i class="material-icons">format_align_left</i> Read Article
+                </a>
+              </div>
+            </div>
+          </div>';
     echo '<hr>';
 }
 
@@ -660,8 +677,6 @@ foreach( $media->response->data as $story ){
 
 
  
-  
-  
      
             
           //     echo '<div class="col-md-4">';
