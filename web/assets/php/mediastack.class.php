@@ -25,7 +25,7 @@ class mediaStack{
 
     //Your mediaStack API key
     //Available at https://mediastack.com/product
-    protected $apiKey = 'YOUR-KEY-HERE';
+    protected $apiKey = 'aa570523b63796833a65e80029a777e6';
 
     //API endpoints
     private $endPoint = array(
