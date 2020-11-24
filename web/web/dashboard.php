@@ -625,99 +625,110 @@ if (isset($temp) && $temp ==1) {
             <?php   
 
 
-            if (isset($outdoor_list)) {
-  
-    foreach($outdoor_list as $item) {
-  
+
+            /*
+example usage
+mediaStack ver 1.0
+
+You must get an API key from https://mediastack.com/product
+and enter it in the marketstack.class.php file
+
+For complete documentation on each endpoint and available paramaters
+see https://mediastack.com/documentation
+*/
+
+//instantiate the class
+require('../assets/php/mediastack.class.php');
+$media = new mediaStack();
+
+//get 10 news stories on tennis from the USA
+$media->setEndPoint('news');
+$media->setParam('keywords','tennis');
+$media->setParam('countries','us');
+$media->setParam('limit','10');
+
+$media->getResponse();
+
+//display stories
+foreach( $media->response->data as $story ){
+    echo '<div>'.$story->published_at.': '.$story->source.' reports '.$story->title.' [<a href="'.$story->url.'" target="_blank">Full Story</a>]</div>';
+    echo '<div><p>'.$story->description.'</p></div>';
+    echo '<hr>';
+}
+
+
+
+
  
-
-                           $cmd = $s3->getCommand('GetObject', [
-                                        'Bucket' => ''.$bucket_name.'',
-                                        'Key'    => ''.trim($item["img"]).'',
-                            ]);
-
-              $request = $s3->createPresignedRequest($cmd, '+20 minutes');
-
-              $presignedUrl = (string)$request->getUri();
+  
+  
      
             
-              echo '<div class="col-md-4">';
+          //     echo '<div class="col-md-4">';
 
           
-              echo '<div class="contain">';
+          //     echo '<div class="contain">';
 
-           
-                $splitFileString = strtok(trim($item["img"]), '.' );
-                $fileChecker = strtok('');
-                $fileChecker = strtoupper($fileChecker);
-
-                $string = trim($item["word_tag"]);
-                $string = strtolower($string);
-                $token = strtok($string, "_");
 
  
 
-          if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
-              }else{
-                 echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
-              } 
+          // if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
+          //        echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+          //     }else{
+          //        echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
+          //     } 
  
               
                 
 
-                  if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
+          //         if (trim($item['price']) =='0.00' || $item["price"]==NULL || $item["price"]==" ") {
 
-                        echo '<div class="top-right h9"> 
-                        <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
+          //               echo '<div class="top-right h9"> 
+          //               <a href='.$item['url'].'><i class="material-icons">strikethrough_s</i></a></div>';
 
-                        }else{
+          //               }else{
 
-                  echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
+          //         echo '<a href='.$item['url'].'><div class="top-right h6">$'.trim($item['price']).'</a></div>';
                   
-                  }
+          //         }
 
 
-                   if (isset($token) && $token =='outdoor') {
+          //          if (isset($token) && $token =='outdoor') {
 
                   
-                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">terrain3</i></div>';
+          //           echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">terrain3</i></div>';
 
 
-                  }else{
+          //         }else{
 
-                    echo '<div class="top-left h6" style="width:10px;">'
-                       .toString($item['date']).'</div>';
+          //           echo '<div class="top-left h6" style="width:10px;">'
+          //              .toString($item['date']).'</div>';
 
-                  }
+          //         }
 
-                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+          //         echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
 
-                  echo '<div class="bottom-left" style="font-weight: bolder;">
-                        <a href="subscription.php?subscribe='.trim($item['publickey']).'">
-                        <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
+          //         echo '<div class="bottom-left" style="font-weight: bolder;">
+          //               <a href="subscription.php?subscribe='.trim($item['publickey']).'">
+          //               <i class="material-icons" style="font-size:18pt;">bookmark_border</i></a></div>';
 
-                  // echo '<div class="centered" style="font-weight: bolder;">
-                  // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
+          //         // echo '<div class="centered" style="font-weight: bolder;">
+          //         // <a href="#fav"><i class="material-icons" style="font-size:18pt">favorite_border</i></a></div>';
 
                  
-                  echo '<div class="bottom-right" style="font-weight: bolder;">
-                         <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
+          //         echo '<div class="bottom-right" style="font-weight: bolder;">
+          //                <a href="order_page.php?order='.$item['publickey'].'"><i class="material-icons" style="font-size:18pt;">add_shopping_cart</i></a></div>';
  
 
 
 
-                echo '</div>';
+          //       echo '</div>';
               
           
               
-            echo '</div>';
-          }
-          
- 
-        
-    } 
+          //   echo '</div>';
+     
 
 //                   $client = new Google\Client();
 // $client->setApplicationName("Client_Library_Examples");
