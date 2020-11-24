@@ -124,21 +124,3 @@
   transform: translate(-50%, -50%);
 }
 
-
-nav.scroll {
-  
-  overflow: auto;
-  white-space: nowrap;
-}
-
-nav.scroll a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
-
-nav.scroll a:hover {
-
-}

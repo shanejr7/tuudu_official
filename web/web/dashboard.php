@@ -134,7 +134,28 @@ echo '<script>
 
   ?>
 
+  <style type="text/css">
+    
+div.scroll{
   
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scroll a {
+  display: inline-block;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-right:2px;
+  text-decoration: none;
+}
+
+div.scroll a:hover {
+  background-color: #777;
+}
+  </style>
   
  
  
@@ -411,7 +432,7 @@ if (isset($temp) && $temp ==1) {
       <div class="container">
 
 <div  id="topics">
-        <div class="nav scroll">
+        <div class=" scroll">
 
 
  
