@@ -3931,53 +3931,6 @@ function time_elapsed_string($datetime, $full = false) {
 }
 
 
-  /* converts integer month to string*/
-function toString(string $timestamp_arr){
 
-  if (date("Y")<trim($timestamp_arr[0].''.$timestamp_arr[3])) {
-
-    $year = trim($timestamp_arr[0].''.$timestamp_arr[3]);
-
-    $year_ago = $year - date("Y");
-
-    return $year_ago. ' '.'ago'; 
-  
-
-  }elseif(date("m")<trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-        
-    $month = trim($timestamp_arr[5].''.$timestamp_arr[6]);
-
-    $month_ago = $month - date("m");
-
-    return $month_ago.' months ago'; 
-
-  }elseif(date("d")<trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6])){
-
-
-    $week = trim($timestamp_arr[0].''.$timestamp_arr[3]);
-
-    $week_ago = $week - date("Y");
-
-    return $week_ago. ' '.'ago'; 
-
-
-  }elseif (date("h")>=trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("d")==trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-
-
-    return 'at '.date("h:ia"); 
-
-  }elseif (date("h")>trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("i")>=trim($timestamp_arr[14].''.$timestamp_arr[15]) && date("d")==trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>=trim($timestamp_arr[5].''.$timestamp_arr[6])) {
-
-
-    return 'just '. date("i").' minutes ago'; 
-
-
-  }elseif(date("h")>trim($timestamp_arr[11].''.$timestamp_arr[12]) && date("i")>=trim($timestamp_arr[14].''.$timestamp_arr[15]) && date("d")==trim($timestamp_arr[8].''.$timestamp_arr[9]) && date("m")>trim($timestamp_arr[5].''.$timestamp_arr[6])){
-
-    return 'just now';
-  }
-
-
-}
 
 ?>
