@@ -123,3 +123,22 @@
 
   transform: translate(-50%, -50%);
 }
+
+
+div.scroll {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scroll a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scroll a:hover {
+  background-color: #777;
+}
