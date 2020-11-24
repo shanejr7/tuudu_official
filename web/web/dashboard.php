@@ -411,8 +411,6 @@ if (isset($temp) && $temp ==1) {
 
 <div  id="topics">
         <nav class="nav scroll">
-
-
  
   <a class="nav-link nav-item" href="#posts" id="post" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Posts</button></a>
   <a class="nav-link nav-item" href="#activities" id="acti" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Activites</button></a>
@@ -421,7 +419,7 @@ if (isset($temp) && $temp ==1) {
   <a class="nav-link nav-item" href="#food" id="fd" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Food</button></a>
   <a class="nav-link nav-item" href="#art" id="ar" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Art</button></a>
   <a class="nav-link nav-item" href="#sports" id="sprt" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
-    <a class="nav-link nav-item" href="#outdoor" id="outd" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">outdoor</button></a>
+    <a class="nav-link nav-item" href="#news" id="new" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">News</button></a>
   
 </nav>
 
@@ -620,7 +618,7 @@ if (isset($temp) && $temp ==1) {
            </div>
          </div>
 
-            <div class="tab-pane text-center gallery section section-sections" id="outdoor">
+            <div class="tab-pane text-center gallery section section-sections" id="news">
            <div class="row">
 
 
@@ -3711,9 +3709,9 @@ fetch_user(id,key);
      document.getElementById("posts").style.visibility = "visible";
      
     
-   }else if(search ==='outd'){
+   }else if(search ==='new'){
 
-     document.getElementById("videos").style.visibility = "visible";
+     document.getElementById("news").style.visibility = "visible";
      
    }else if(search ==='acti'){
 
