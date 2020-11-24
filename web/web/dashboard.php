@@ -432,7 +432,7 @@ if (isset($temp) && $temp ==1) {
       <div class="container">
 
 <div  id="topics">
-        <div class=" scroll">
+        <div class="nav scroll">
 
 
  
