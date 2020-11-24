@@ -125,13 +125,13 @@
 }
 
 
-div.scroll {
+nav.scroll {
   background-color: #333;
   overflow: auto;
   white-space: nowrap;
 }
 
-div.scroll a {
+nav.scroll a {
   display: inline-block;
   color: white;
   text-align: center;
@@ -139,6 +139,6 @@ div.scroll a {
   text-decoration: none;
 }
 
-div.scroll a:hover {
+nav.scroll a:hover {
   background-color: #777;
 }

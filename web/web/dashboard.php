@@ -410,8 +410,8 @@ if (isset($temp) && $temp ==1) {
     <div class="profile-content " id="main">
       <div class="container">
 
-<div class="scroll" id="topics">
-        <nav class="nav">
+<div  id="topics">
+        <nav class="nav scroll">
 
 
  
@@ -423,7 +423,7 @@ if (isset($temp) && $temp ==1) {
   <a class="nav-link nav-item" href="#food" id="fd" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Food</button></a>
   <a class="nav-link nav-item" href="#art" id="ar" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Art</button></a>
   <a class="nav-link nav-item" href="#sports" id="sprt" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">Sports</button></a>
-    <a class="nav-link nav-item" href="#news" id="sprt" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">News</button></a>
+    <a class="nav-link nav-item" href="#news" id="new" role="tab" data-toggle="tab"><button type="button" class="btn btn-primary btn-round">News</button></a>
   
 </nav>
 
