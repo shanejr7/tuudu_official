@@ -649,15 +649,38 @@ $media->setParam('limit','10');
 
 $media->getResponse();
 
+$size = sizeof($media);
+$count =0;
+
 //display stories
+
 foreach( $media->response->data as $story ){
 
+$count++;
 
+if ($size ==$count) {
+  
+  echo'<div class="col-md-12">
+            <div class="card card-raised card-background" style="background-image: url('.$story->image.')">
+              <div class="card-body">
+                <h6 class="card-category text-info">'.$story->title.' - '.$story->published_at.'</h6>
+                 <h3 class="card-title">'.$story->author.'</h3>
+                <p class="card-description">
+                 '.$story->description.'
+                </p>
+                <a href="'.$story->url.'" class="btn btn-warning btn-round">
+                  <i class="material-icons">subject</i> Read Case Study
+                </a>
+              </div>
+            </div>
+          </div>';
+
+}else{
     echo '<div class="col-md-6">
             <div class="card card-background" style="background-image: url('.$story->image.')">
               <div class="card-body">
                 <h6 class="card-category text-info">'.$story->title.' - '.$story->published_at.'</h6>
-                <a href="#pablo">
+                <a href="#title">
                   <h3 class="card-title">'.$story->author.'</h3>
                 </a>
                 <p class="card-description">
@@ -670,6 +693,8 @@ foreach( $media->response->data as $story ){
             </div>
           </div>';
     echo '<hr>';
+
+  }
 }
 
 
