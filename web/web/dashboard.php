@@ -153,7 +153,7 @@ div.scroll a {
 }
 
 div.scroll a:hover {
-  background-color: #777;
+ 
 }
   </style>
   
