@@ -431,7 +431,7 @@ if (isset($temp) && $temp ==1) {
  
    
 
-  <div class="tab-content tab-space cd-section" id="body" role="tabs">
+  <div class="tab-content  cd-section" id="body" role="tabs">
 
           <div class="tab-pane text-center gallery section section-sections" id="posts">
            <div class="row" id="posted">
@@ -549,7 +549,7 @@ if (isset($temp) && $temp ==1) {
 
                 
 
-                  echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
+                  // echo '<div class="centeredm h4">'.trim($item['description']).'</div>';
 
                   // parallel search query for fav stats
                   
