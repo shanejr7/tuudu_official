@@ -904,8 +904,16 @@ if (isset($activity_list)) {
                    if (isset($token) && $token =='activities') {
 
                   
-                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">accessibility_new</i></div>';
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">bike_scooter</i></div>';
 
+
+                  }elseif(isset($token) && $token =='festivals'){
+
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">cake</i></div>';
+
+                  }elseif(isset($token) && $token =='outdoor'){
+
+                    echo '<div class="top-left h6" style="width:10px;"><i class="material-icons">terrain</i></div>';
 
                   }else{
 
