@@ -651,16 +651,14 @@ $media->getResponse();
 
 $size = sizeof($media);
 $count =0;
-echo $size;
 
 //display stories
 
 foreach( $media->response->data as $story ){
 
 $count++;
-echo $count;
 
-if ($size ==$count) {
+if ($count==10) {
   
   echo'<div class="col-md-12">
             <div class="card card-rasied card-background" style="background-image: url('.$story->image.')">
