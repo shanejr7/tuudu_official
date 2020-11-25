@@ -618,7 +618,7 @@ if (isset($temp) && $temp ==1) {
            </div>
          </div>
 
-            <div class="tab-pane text-center gallery section section-sections" id="news">
+            <div class="tab-pane text-center gallery" id="news">
            <div class="row">
 
 
