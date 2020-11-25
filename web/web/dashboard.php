@@ -510,7 +510,7 @@ if (isset($temp) && $temp ==1) {
  
 
           if($presignedUrl && strlen(trim($item["img"]))>10 && ($fileChecker=='JPG' || $fileChecker=='JPEG' || $fileChecker=='PNG' || $fileChecker=='MOV')){
-                 echo  '<img src="'.$presignedUrl.'" class="img rounded" onload="myFunction('.$presignedUrl.')">'; 
+                 echo  '<img src="'.$presignedUrl.'" class="img-raised rounded img-fluid" onload="myFunction('.$presignedUrl.')">'; 
               }else{
                  echo  '<img src="../assets/img/image_placeholder.jpg" class="img rounded">';
               } 
@@ -533,15 +533,15 @@ if (isset($temp) && $temp ==1) {
                  
 //               } 
 
-                   if ($item['org_id']==$_SESSION['id']) {
-                     echo '<div class="top-right"> 
-                         <a href="profile.php" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
-                         </div>';
-                   }else{
-                      echo '<div class="top-right"> 
-                         <a href="profile_view.php?user='.$item['username'].'&id='.$item['org_id'].'" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
-                         </div>';
-                   }
+                   // if ($item['org_id']==$_SESSION['id']) {
+                   //   echo '<div class="top-right"> 
+                   //       <a href="profile.php" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
+                   //       </div>';
+                   // }else{
+                   //    echo '<div class="top-right"> 
+                   //       <a href="profile_view.php?user='.$item['username'].'&id='.$item['org_id'].'" class="" data-id="'.$item['org_id'].'"  data-target=".user_profile"><i class="material-icons" style="font-size:18pt;">account_circle</i></a>
+                   //       </div>';
+                   // }
 
 
                     echo '<div class="top-left h6" style="width:10px;">'
