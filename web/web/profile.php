@@ -607,7 +607,7 @@ is not NULL ORDER BY organization.date");
 
   <div class="footer-btn col-lg-4" data-toggle="modal" data-target="#uploadPost">
 
-    <a href="#upload" style="color: #ea2c6d;"><i class="material-icons" style="font-size: 3em;">add_circle_outline</i></a>
+    <a href="#upload" style="color: #ea2c6d;"><i class="material-icons" style="font-size: 3em;">filter_center_focus</i></a>
 
   </div>
 
