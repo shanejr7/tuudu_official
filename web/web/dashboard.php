@@ -651,12 +651,14 @@ $media->getResponse();
 
 $size = sizeof($media);
 $count =0;
+echo $size;
 
 //display stories
 
 foreach( $media->response->data as $story ){
 
 $count++;
+echo $count;
 
 if ($size ==$count) {
   
